@@ -18,7 +18,7 @@
 
 @property (nonatomic, strong) ANStorage* searchingStorage;
 @property (nonatomic, strong) ANListControllerSearchManager* searchManager;
-@property (nonatomic, strong) ANStorage* storage;
+@property (nonatomic, weak) ANStorage* storage;
 @property (nonatomic, copy) ANListControllerItemSelectionBlock selectionBlock;
 @property (nonatomic, strong) id<ANListControllerWrapperInterface> listViewWrapper;
 @property (nonatomic, strong) id<ANListControllerManagerInterface> manager;
@@ -98,9 +98,10 @@
 
 - (void)searchControllerRequiresStorageWithSearchString:(NSString*)searchString andScope:(NSInteger)scope
 {
-    self.storage.listController = nil;
+    ANStorage* storage = self.storage;
+    storage.listController = nil;
     
-    self.searchingStorage = [self.storage searchStorageForSearchString:searchString
+    self.searchingStorage = [storage searchStorageForSearchString:searchString
                                                         inSearchScope:scope];
     [self _attachStorage:self.searchingStorage];
     

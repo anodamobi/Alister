@@ -21,7 +21,6 @@
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		656185EC4D7255C7AEF3533C /* Pods_Alister_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E1F467465F3AB109D373CB2 /* Pods_Alister_Example.framework */; };
-		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		C4044E18344C5D0A6CA50AF0 /* Pods_Alister_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0FEB73CEF5FF68812208B9A /* Pods_Alister_Tests.framework */; };
 		D797F3D01D25AC0200FCAFB9 /* ANKeyboardHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = D797F3481D25AC0200FCAFB9 /* ANKeyboardHandler.m */; };
 		D797F3D11D25AC0200FCAFB9 /* ANCollectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = D797F34D1D25AC0200FCAFB9 /* ANCollectionController.m */; };
@@ -97,7 +96,6 @@
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		7B5489A2325AA16B6A1C686E /* Pods-Alister_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Alister_Example/Pods-Alister_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		A0FEB73CEF5FF68812208B9A /* Pods_Alister_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Alister_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8D594C6A1CAF9F8A83D2691 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		B330DC4492CA841E1AD0DE63 /* Pods-Alister_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Alister_Example/Pods-Alister_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -264,7 +262,6 @@
 				D797F3A21D25AC0200FCAFB9 /* ANStorage */,
 				6003F59C195388D20070C39A /* ANAppDelegate.h */,
 				6003F59D195388D20070C39A /* ANAppDelegate.m */,
-				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				6003F5A5195388D20070C39A /* ANViewController.h */,
 				6003F5A6195388D20070C39A /* ANViewController.m */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
@@ -872,7 +869,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 			);

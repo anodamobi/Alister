@@ -7,11 +7,15 @@
 //
 
 #import "ANAppDelegate.h"
+#import "ANViewController.h"
 
 @implementation ANAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.rootViewController = [ANViewController new];
+    [self.window makeKeyAndVisible];
     return YES;
 }
 

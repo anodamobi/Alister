@@ -7,6 +7,8 @@
 //
 
 #import "ANViewController.h"
+#import "ANStorage.h"
+#import "ANTableController.h"
 
 @interface ANViewController ()
 
@@ -18,6 +20,13 @@
 {
     [super viewDidLoad];
 
+    for (NSUInteger i = 0; i < 10; i++)
+    {
+        UITableView* table = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+        ANStorage* storage = [ANStorage new];
+        ANTableController* tc = [ANTableController controllerWithTableView:table];
+        [tc attachStorage:storage];
+    }
 }
 
 @end

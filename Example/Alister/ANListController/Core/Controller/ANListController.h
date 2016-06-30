@@ -18,9 +18,10 @@ typedef void(^ANListConfigurationModelUpdateBlock)(ANListControllerConfiguration
 
 @interface ANListController : NSObject
 
-@property (nonatomic, strong, readonly) ANStorage* currentStorage;
 @property (nonatomic, weak, readonly) UISearchBar* searchBar;
 @property (nonatomic, strong) ANKeyboardHandler* keyboardHandler;
+
+- (ANStorage*)currentStorage;
 
 - (void)configureCellsWithBlock:(ANListControllerCellConfigurationBlock)block;
 - (void)configureItemSelectionBlock:(ANListControllerItemSelectionBlock)block;
