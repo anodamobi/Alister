@@ -19,8 +19,8 @@
 - (id)itemAtIndexPath:(NSIndexPath*)indexPath;
 - (NSIndexPath*)indexPathForItem:(id)item;
 
-- (id)headerModelForSectionIndex:(NSInteger)index;
-- (id)footerModelForSectionIndex:(NSInteger)index;
+- (id)headerModelForSectionIndex:(NSUInteger)index;
+- (id)footerModelForSectionIndex:(NSUInteger)index;
 
 - (id)supplementaryModelOfKind:(NSString*)kind forSectionIndex:(NSUInteger)sectionNumber;
 

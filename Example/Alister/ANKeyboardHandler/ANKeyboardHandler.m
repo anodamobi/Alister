@@ -15,7 +15,7 @@
 }
 @property (nonatomic, weak) UIScrollView* target;
 @property (nonatomic, strong) UITapGestureRecognizer* tapRecognizer;
-@property (nonatomic, assign) BOOL isKeyboardShown; //sometimes IOS send unbalanced show/hide notifications
+@property (nonatomic, assign) BOOL isKeyboardVisible; //sometimes IOS send unbalanced show/hide notifications
 @property (nonatomic, assign) UIEdgeInsets defaultContentInsets;
 
 @end
@@ -45,7 +45,7 @@
 - (void)setDelegate:(id<ANKeyboardHandlerDelegate>)delegate
 {
     _delegate = delegate;
-    BOOL shouldNotify = ([_delegate respondsToSelector:@selector(keyboardWillUpdateToVisible:withNotification:)]);
+    BOOL shouldNotify = ([delegate respondsToSelector:@selector(keyboardWillUpdateToVisible:withNotification:)]);
     _delegateExistingMethods.shouldNotifityKeyboardState = shouldNotify;
 }
 
@@ -53,9 +53,10 @@
 {
     self.tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
     self.tapRecognizer.delegate = self;
-    [self.target addGestureRecognizer:self.tapRecognizer];
+    UIScrollView* target = self.target;
+    [target addGestureRecognizer:self.tapRecognizer];
     self.tapRecognizer.cancelsTouchesInView = NO;
-    self.defaultContentInsets = self.target.contentInset;
+    self.defaultContentInsets = target.contentInset;
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillShow:)
@@ -76,18 +77,18 @@
 
 - (void)keyboardWillShow:(NSNotification*)aNotification
 {
-    if (!self.isKeyboardShown)
+    if (!self.isKeyboardVisible)
     {
-        self.isKeyboardShown = YES;
+        self.isKeyboardVisible = YES;
         [self handleKeyboardWithNotification:aNotification];
     }
 }
 
 - (void)keyboardWillHide:(NSNotification*)aNotification
 {
-    if (self.isKeyboardShown)
+    if (self.isKeyboardVisible)
     {
-        self.isKeyboardShown = NO;
+        self.isKeyboardVisible = NO;
         [self handleKeyboardWithNotification:aNotification];
     }
 }
@@ -121,26 +122,31 @@
     
     UIEdgeInsets contentInsets = [self _updatedInsetsWithKeyboardHeight:kbHeight];
     
-    [UIView animateWithDuration:duration animations:ANMainQueueBlockFromCompletion(^{
-
-        if (self.isEnabled)
-        {
-            self.target.contentInset = contentInsets;
-            self.target.scrollIndicatorInsets = contentInsets;
-            if (responder)
+    void (^animationBlock)(void) = ^{
+        
+        [self _dispatchBlockToMain:^{
+            if (self.isEnabled)
             {
-                [self.target scrollRectToVisible:[self.target convertRect:responder.frame fromView:responder.superview]
-                                        animated:NO];
+                UIScrollView* target = self.target;
+                target.contentInset = contentInsets;
+                target.scrollIndicatorInsets = contentInsets;
+                if (responder)
+                {
+                    CGRect visibleRect = [target convertRect:responder.frame fromView:responder.superview];
+                    [target scrollRectToVisible:visibleRect animated:NO];
+                }
             }
-        }
-        if (self.animationBlock)
-        {
-            self.animationBlock(kbHeight);
-        }
-    }) completion:^(BOOL finished) {
+            if (self.animationBlock)
+            {
+                self.animationBlock(kbHeight);
+            }
+        }];
+    };
+    
+    [UIView animateWithDuration:duration animations:animationBlock completion:^(BOOL finished) {
         if (self.animationCompletion)
         {
-            self.animationCompletion(self.isKeyboardShown);
+            self.animationCompletion(self.isKeyboardVisible);
         }
     }];
 }
@@ -153,11 +159,12 @@
 - (UIEdgeInsets)_updatedInsetsWithKeyboardHeight:(CGFloat)keyboardHeight
 {
     UIEdgeInsets insets = UIEdgeInsetsZero;
-    if (self.isKeyboardShown)
+    if (self.isKeyboardVisible)
     {
-        insets = UIEdgeInsetsMake(self.target.contentInset.top,
+        UIScrollView* target = self.target;
+        insets = UIEdgeInsetsMake(target.contentInset.top,
                                   0.0,
-                                  self.target.contentInset.bottom + keyboardHeight,
+                                  target.contentInset.bottom + keyboardHeight,
                                   0.0);
     }
     else
@@ -177,6 +184,23 @@
         return NO;
     }
     return YES;
+}
+
+- (void)_dispatchBlockToMain:(void(^)(void))block
+{
+    if (block)
+    {
+        if ([NSThread isMainThread])
+        {
+            block();
+        }
+        else
+        {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                block();
+            });
+        }
+    }
 }
 
 @end

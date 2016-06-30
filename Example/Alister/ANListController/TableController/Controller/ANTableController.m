@@ -55,15 +55,16 @@
 
 - (void)setTableView:(UITableView*)tableView
 {
+    tableView.delegate = self;
+    tableView.dataSource = self;
     _tableView = tableView;
-    _tableView.delegate = self;
-    _tableView.dataSource = self;
 }
 
 - (void)dealloc
 {
-    self.tableView.delegate = nil;
-    self.tableView.dataSource = nil;
+    UITableView* tableView = self.tableView;
+    tableView.delegate = nil;
+    tableView.dataSource = nil;
 }
 
 
@@ -104,16 +105,16 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return [self.currentStorage sections].count;
+    return (NSInteger)[self.currentStorage sections].count;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section
 {
-    id <ANStorageSectionModelInterface> sectionModel = [self.currentStorage sectionAtIndex:section];
-    return [sectionModel numberOfObjects];
+    id <ANStorageSectionModelInterface> sectionModel = [self.currentStorage sectionAtIndex:(NSUInteger)section];
+    return (NSInteger)[sectionModel numberOfObjects];
 }
 
-- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath
 {
     id model = [self.currentStorage objectAtIndexPath:indexPath];;
     return [self.tableManager cellForModel:model atIndexPath:indexPath];

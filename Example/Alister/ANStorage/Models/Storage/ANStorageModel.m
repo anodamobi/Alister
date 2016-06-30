@@ -31,6 +31,15 @@
     return [self.sectionModels copy];
 }
 
+- (id)sectionAtIndex:(NSUInteger)index
+{
+    if (self.sectionModels.count > index)
+    {
+        return self.sectionModels[index];
+    }
+    return nil;
+}
+
 - (void)addSection:(id)section
 {
     [self.sectionModels addObject:section];

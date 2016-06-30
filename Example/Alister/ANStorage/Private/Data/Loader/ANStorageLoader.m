@@ -17,7 +17,7 @@
 {
     NSMutableArray* indexPaths = [NSMutableArray array];
     
-    for (NSInteger i = 0; i < [items count]; i++)
+    for (NSUInteger i = 0; i < [items count]; i++)
     {
         NSIndexPath* foundIndexPath = [self indexPathForItem:[items objectAtIndex:i] inStorage:storage];
         if (!foundIndexPath)
@@ -35,12 +35,12 @@
 + (id)itemAtIndexPath:(NSIndexPath*)indexPath inStorage:(ANStorageModel*)storage
 {
     id object = nil;
-    if (indexPath.section < [storage.sections count])
+    if ((NSUInteger)indexPath.section < [storage.sections count])
     {
-        NSArray* section = [self itemsInSection:indexPath.section inStorage:storage];
-        if (indexPath.row < [section count])
+        NSArray* section = [self itemsInSection:(NSUInteger)indexPath.section inStorage:storage];
+        if ((NSUInteger)indexPath.row < [section count])
         {
-            object = [section objectAtIndex:indexPath.row];
+            object = [section objectAtIndex:(NSUInteger)indexPath.row];
         }
         else
         {
@@ -64,7 +64,8 @@
         NSUInteger index = [rows indexOfObject:item];
         if (index != NSNotFound)
         {
-            foundedIndexPath = [NSIndexPath indexPathForRow:index inSection:sectionIndex];
+            foundedIndexPath = [NSIndexPath indexPathForRow:(NSInteger)index
+                                                  inSection:(NSInteger)sectionIndex];
             *stop = YES;
         }
     }];

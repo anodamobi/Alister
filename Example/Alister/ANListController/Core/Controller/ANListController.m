@@ -116,8 +116,8 @@
 
 - (void)attachSearchBar:(UISearchBar*)searchBar
 {
+    searchBar.delegate = self.searchManager;
     _searchBar = searchBar;
-    _searchBar.delegate = self.searchManager;
 }
 
 

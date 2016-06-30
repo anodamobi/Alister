@@ -28,7 +28,7 @@
 - (UICollectionViewCell*)cellForModel:(id)model atIndexPath:(NSIndexPath*)indexPath;
 - (UICollectionReusableView*)supplementaryViewForIndexPath:(NSIndexPath*)indexPath kind:(NSString*)kind;
 
-- (CGSize)referenceSizeForHeaderInSection:(NSInteger)sectionNumber withLayout:(UICollectionViewFlowLayout*)layout;
-- (CGSize)referenceSizeForFooterInSection:(NSInteger)sectionNumber withLayout:(UICollectionViewFlowLayout*)layout;
+- (CGSize)referenceSizeForHeaderInSection:(NSUInteger)sectionNumber withLayout:(UICollectionViewFlowLayout*)layout;
+- (CGSize)referenceSizeForFooterInSection:(NSUInteger)sectionNumber withLayout:(UICollectionViewFlowLayout*)layout;
 
 @end

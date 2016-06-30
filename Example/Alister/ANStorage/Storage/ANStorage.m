@@ -51,13 +51,14 @@
 
 - (void)reloadStorageWithAnimation:(BOOL)isAnimatable
 {
+    id<ANStorageUpdatingInterface> listController = self.listController;
     if (isAnimatable)
     {
-        [self.listController storageNeedsReloadAnimatedWithIdentifier:self.identifier];
+        [listController storageNeedsReloadAnimatedWithIdentifier:self.identifier];
     }
     else
     {
-        [self.listController storageNeedsReloadWithIdentifier:self.identifier];
+        [listController storageNeedsReloadWithIdentifier:self.identifier];
     }
 }
 
@@ -65,16 +66,18 @@
 {
     if (block)
     {
-        if (!self.isCustomType) //TODO: simplify
+        if (!self.isCustomType)
         {
-            if (self.listController)
+            id<ANStorageUpdatingInterface> listController = self.listController;
+            if (listController)
             {
-                ANStorageUpdateOperation* updateOperation = [ANStorageUpdateOperation operationWithExecutionBlock:^(ANStorageUpdateOperation *operation) {
-                    
+                ANStorageUpdateOperation* updateOperation = nil;
+                updateOperation = [ANStorageUpdateOperation operationWithExecutionBlock:^(ANStorageUpdateOperation *operation) {
                     self.controller.updateDelegate = operation;
                     block(self.controller);
                 }];
-                [self.listController storageDidPerformUpdate:updateOperation withIdentifier:self.identifier animatable:isAnimatable];
+                
+                [listController storageDidPerformUpdate:updateOperation withIdentifier:self.identifier animatable:isAnimatable];
             }
             else
             {
@@ -89,7 +92,7 @@
 }
 
 - (instancetype)searchingStorageForSearchString:(NSString*)searchString
-                                  inSearchScope:(NSUInteger)searchScope
+                                  inSearchScope:(NSInteger)searchScope
 {
     ANStorage* storage = [[self class] customStorage];
     
@@ -134,12 +137,12 @@
     return [self.controller sectionAtIndex:sectionIndex];
 }
 
-- (id)headerModelForSectionIndex:(NSInteger)index
+- (id)headerModelForSectionIndex:(NSUInteger)index
 {
     return [self.controller headerModelForSectionIndex:index];
 }
 
-- (id)footerModelForSectionIndex:(NSInteger)index
+- (id)footerModelForSectionIndex:(NSUInteger)index
 {
     return [self.controller footerModelForSectionIndex:index];
 }

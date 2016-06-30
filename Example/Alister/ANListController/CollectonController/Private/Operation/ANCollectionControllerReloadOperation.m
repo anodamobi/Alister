@@ -31,7 +31,8 @@
 {
     if (!self.isCancelled)
     {
-        [[self.delegate collectionView] reloadData];
+        id<ANCollectionControllerReloadOperationDelegate> delegate = self.delegate;
+        [[delegate collectionView] reloadData];
         if (self.isAnimated)
         {
             CATransition* animation = [CATransition animation];
@@ -39,8 +40,9 @@
             [animation setSubtype:kCATransitionFromBottom];
             [animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
             [animation setFillMode:kCAFillModeBoth];
-            [animation setDuration:[self.delegate configurationModel].reloadAnimationDuration];
-            [self.delegate.collectionView.layer addAnimation:animation forKey:[self.delegate configurationModel].reloadAnimationKey];
+            [animation setDuration:[delegate configurationModel].reloadAnimationDuration];
+            [delegate.collectionView.layer addAnimation:animation
+                                                 forKey:[delegate configurationModel].reloadAnimationKey];
         }
     }
 }

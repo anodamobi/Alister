@@ -13,6 +13,9 @@
 - (NSArray*)sections;
 
 - (void)addSection:(id)section;
+
+- (id)sectionAtIndex:(NSUInteger)index;
+
 - (void)removeSectionAtIndex:(NSUInteger)index;
 - (void)removeAllSections;
 

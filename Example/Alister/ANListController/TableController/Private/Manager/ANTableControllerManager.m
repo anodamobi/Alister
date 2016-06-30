@@ -60,7 +60,7 @@
 
 #pragma mark - UITableView Delegate Helpers
 
-- (NSString*)titleForSupplementaryIndex:(NSInteger)index type:(ANTableViewSupplementaryType)type
+- (NSString*)titleForSupplementaryIndex:(NSUInteger)index type:(ANTableViewSupplementaryType)type
 {
     id model = [self supplementaryModelForIndex:index type:type];
     if ([model isKindOfClass:[NSString class]])
@@ -74,7 +74,7 @@
     return nil;
 }
 
-- (UIView*)supplementaryViewForIndex:(NSInteger)index type:(ANTableViewSupplementaryType)type
+- (UIView*)supplementaryViewForIndex:(NSUInteger)index type:(ANTableViewSupplementaryType)type
 {
     id model = [self supplementaryModelForIndex:index type:type];
     BOOL isHeader = (type == ANTableViewSupplementaryTypeHeader);
@@ -83,7 +83,7 @@
     return (UIView*)[self.cellFactory supplementaryViewForModel:model kind:kind forIndexPath:nil];
 }
 
-- (id)supplementaryModelForIndex:(NSInteger)index type:(ANTableViewSupplementaryType)type
+- (id)supplementaryModelForIndex:(NSUInteger)index type:(ANTableViewSupplementaryType)type
 {
     BOOL isHeader = (type == ANTableViewSupplementaryTypeHeader);
     BOOL value = isHeader ?
@@ -105,7 +105,7 @@
     return nil;
 }
 
-- (CGFloat)heightForSupplementaryIndex:(NSInteger)index type:(ANTableViewSupplementaryType)type
+- (CGFloat)heightForSupplementaryIndex:(NSUInteger)index type:(ANTableViewSupplementaryType)type
 {
     //apple bug HACK: for plain tables, for bottom section separator visibility
     BOOL shouldMaskSeparator = ((self.tableView.style == UITableViewStylePlain) &&

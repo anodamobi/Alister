@@ -52,14 +52,19 @@
         
         NSMutableIndexSet * sectionsToInsert = [NSMutableIndexSet indexSet];
         [update.insertedSectionIndexes enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop) {
-            if ([collectionView numberOfSections] <= idx)
+            if ((NSUInteger)[collectionView numberOfSections] <= idx)
             {
                 [sectionsToInsert addIndex:idx];
             }
         }];
         
-        NSInteger sectionChanges = [update.deletedSectionIndexes count] + [update.insertedSectionIndexes count] + [update.updatedSectionIndexes count];
-        NSInteger itemChanges = [update.deletedRowIndexPaths count] + [update.insertedRowIndexPaths count] + [update.updatedRowIndexPaths count];
+        NSUInteger sectionChanges = [update.deletedSectionIndexes count] +
+                                    [update.insertedSectionIndexes count] +
+                                    [update.updatedSectionIndexes count];
+        
+        NSUInteger itemChanges = [update.deletedRowIndexPaths count] +
+                                 [update.insertedRowIndexPaths count] +
+                                 [update.updatedRowIndexPaths count];
         
         if (sectionChanges)
         {

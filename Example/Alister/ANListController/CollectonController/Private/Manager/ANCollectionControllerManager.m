@@ -15,7 +15,7 @@
 
 @interface ANCollectionControllerManager () <ANListControllerItemsHandlerDelegate, ANCollectionControllerUpdaterDelegate>
 
-@property (nonatomic, strong) ANListControllerItemsHandler* factory;
+@property (nonatomic, strong) ANListControllerItemsHandler* itemsHandler;
 @property (nonatomic, strong) ANCollectionControllerUpdater* updateController;
 @property (nonatomic, strong) ANListControllerConfigurationModel* configurationModel;
 
@@ -28,7 +28,7 @@
     self = [super init];
     if (self)
     {
-        self.factory = [ANListControllerItemsHandler handlerWithDelegate:self];
+        self.itemsHandler = [ANListControllerItemsHandler handlerWithDelegate:self];
         
         self.updateController = [ANCollectionControllerUpdater new];
         self.updateController.delegate = self;
@@ -40,7 +40,7 @@
 
 - (id<ANListControllerReusableInterface>)reusableViewsHandler
 {
-    return self.factory;
+    return self.itemsHandler;
 }
 
 - (id<ANStorageUpdatingInterface>)updateHandler
@@ -63,26 +63,26 @@
 
 - (UICollectionViewCell*)cellForModel:(id)model atIndexPath:(NSIndexPath*)indexPath
 {
-    return (UICollectionViewCell*)[self.factory cellForModel:model atIndexPath:indexPath];
+    return (UICollectionViewCell*)[self.itemsHandler cellForModel:model atIndexPath:indexPath];
 }
 
 - (UICollectionReusableView*)supplementaryViewForIndexPath:(NSIndexPath*)indexPath kind:(NSString*)kind
 {
-    id model = [self.delegate.currentStorage supplementaryModelOfKind:kind forSectionIndex:indexPath.section];
+    id model = [self.delegate.currentStorage supplementaryModelOfKind:kind forSectionIndex:(NSUInteger)indexPath.section];
     if (model)
     {
-        return (UICollectionReusableView*)[self.factory supplementaryViewForModel:model kind:kind forIndexPath:indexPath];
+        return (UICollectionReusableView*)[self.itemsHandler supplementaryViewForModel:model kind:kind forIndexPath:indexPath];
     }
     return nil;
 }
 
-- (CGSize)referenceSizeForHeaderInSection:(NSInteger)sectionNumber withLayout:(UICollectionViewFlowLayout*)layout
+- (CGSize)referenceSizeForHeaderInSection:(NSUInteger)sectionNumber withLayout:(UICollectionViewFlowLayout*)layout
 {
     BOOL isExist = [self _isExistMappingForSection:sectionNumber kind:self.configurationModel.defaultHeaderSupplementary];
     return isExist ? layout.headerReferenceSize : CGSizeZero;
 }
 
-- (CGSize)referenceSizeForFooterInSection:(NSInteger)sectionNumber withLayout:(UICollectionViewFlowLayout*)layout
+- (CGSize)referenceSizeForFooterInSection:(NSUInteger)sectionNumber withLayout:(UICollectionViewFlowLayout*)layout
 {
     BOOL isExist = [self _isExistMappingForSection:sectionNumber kind:self.configurationModel.defaultFooterSupplementary];
     return isExist ? layout.footerReferenceSize : CGSizeZero;
@@ -91,7 +91,7 @@
 
 #pragma mark - Private
 
-- (BOOL)_isExistMappingForSection:(NSInteger)section kind:(NSString*)kind
+- (BOOL)_isExistMappingForSection:(NSUInteger)section kind:(NSString*)kind
 {
     id model = [self.delegate.currentStorage supplementaryModelOfKind:kind forSectionIndex:section];
     return (model != nil);

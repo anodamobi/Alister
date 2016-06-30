@@ -33,11 +33,11 @@ typedef NS_ENUM(NSInteger, ANTableViewSupplementaryType)
 @property (nonatomic, weak) id<ANTableControllerManagerDelegate> delegate;
 
 - (UITableViewCell*)cellForModel:(id)model atIndexPath:(NSIndexPath*)indexPath;
-- (UIView*)supplementaryViewForIndex:(NSInteger)index type:(ANTableViewSupplementaryType)type;
+- (UIView*)supplementaryViewForIndex:(NSUInteger)index type:(ANTableViewSupplementaryType)type;
 
-- (NSString*)titleForSupplementaryIndex:(NSInteger)index type:(ANTableViewSupplementaryType)type;
+- (NSString*)titleForSupplementaryIndex:(NSUInteger)index type:(ANTableViewSupplementaryType)type;
 
-- (id)supplementaryModelForIndex:(NSInteger)index type:(ANTableViewSupplementaryType)type;
-- (CGFloat)heightForSupplementaryIndex:(NSInteger)index type:(ANTableViewSupplementaryType)type;
+- (id)supplementaryModelForIndex:(NSUInteger)index type:(ANTableViewSupplementaryType)type;
+- (CGFloat)heightForSupplementaryIndex:(NSUInteger)index type:(ANTableViewSupplementaryType)type;
 
 @end

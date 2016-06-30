@@ -66,10 +66,11 @@
 
 - (void)_performAnimatedUpdate:(ANStorageUpdateModel*)update
 {
-    UITableView* tableView = [self.delegate tableView];
+    id<ANTableControllerUpdateOperationDelegate> delegate = self.delegate;
+    UITableView* tableView = [delegate tableView];
     if (!update.isRequireReload)
     {
-        id<ANListControllerConfigurationModelInterface> configurationModel = [self.delegate configurationModel];
+        id<ANListControllerConfigurationModelInterface> configurationModel = [delegate configurationModel];
 
         [CATransaction begin];
         [CATransaction setCompletionBlock:^{
@@ -90,7 +91,7 @@
         
         [update.movedRowsIndexPaths enumerateObjectsUsingBlock:^(ANStorageMovedIndexPathModel* obj, NSUInteger idx, BOOL *stop) {
             
-            if (![update.deletedSectionIndexes containsIndex:obj.fromIndexPath.section])
+            if (![update.deletedSectionIndexes containsIndex:(NSUInteger)obj.fromIndexPath.section])
             {
                 [tableView moveRowAtIndexPath:obj.fromIndexPath toIndexPath:obj.toIndexPath];
             }
@@ -112,7 +113,7 @@
     {
         self.finished = YES;
         self.executing = NO;
-        [self.delegate storageNeedsReloadWithIdentifier:self.name];
+        [delegate storageNeedsReloadWithIdentifier:self.name];
     }
 }
 

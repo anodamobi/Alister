@@ -210,14 +210,14 @@
     self.footerKind = footerKind;
 }
 
-- (id)headerModelForSectionIndex:(NSInteger)index
+- (id)headerModelForSectionIndex:(NSUInteger)index
 {
     return [ANStorageSupplementaryManager supplementaryModelOfKind:self.headerKind
                                                    forSectionIndex:index
                                                          inStorage:self.storage];
 }
 
-- (id)footerModelForSectionIndex:(NSInteger)index
+- (id)footerModelForSectionIndex:(NSUInteger)index
 {
     return [ANStorageSupplementaryManager supplementaryModelOfKind:self.footerKind
                                                    forSectionIndex:index

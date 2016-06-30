@@ -21,8 +21,8 @@
     
     if (indexPath)
     {
-        ANStorageSectionModel* section = [ANStorageLoader sectionAtIndex:indexPath.section inStorage:storage];
-        [section removeItemAtIndex:indexPath.row];
+        ANStorageSectionModel* section = [ANStorageLoader sectionAtIndex:(NSUInteger)indexPath.section inStorage:storage];
+        [section removeItemAtIndex:(NSUInteger)indexPath.row];
         [update addDeletedIndexPaths:@[indexPath]];
     }
     else
@@ -40,8 +40,9 @@
         id object = [ANStorageLoader itemAtIndexPath:indexPath inStorage:storage];
         if (object)
         {
-            ANStorageSectionModel* section = [ANStorageLoader sectionAtIndex:indexPath.section inStorage:storage];
-            [section removeItemAtIndex:indexPath.row];
+            ANStorageSectionModel* section = [ANStorageLoader sectionAtIndex:(NSUInteger)indexPath.section
+                                                                   inStorage:storage];
+            [section removeItemAtIndex:(NSUInteger)indexPath.row];
             [update addDeletedIndexPaths:@[indexPath]];
         }
         else
@@ -62,8 +63,8 @@
         NSIndexPath* indexPath = [ANStorageLoader indexPathForItem:item inStorage:storage];
         if (indexPath)
         {
-            ANStorageSectionModel* section = storage.sections[indexPath.section];
-            [section removeItemAtIndex:indexPath.row];
+            ANStorageSectionModel* section = [storage sectionAtIndex:(NSUInteger)indexPath.section];
+            [section removeItemAtIndex:(NSUInteger)indexPath.row];
         }
     }];
     

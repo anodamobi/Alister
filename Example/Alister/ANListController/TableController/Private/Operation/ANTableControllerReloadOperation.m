@@ -13,7 +13,6 @@
 
 @property (nonatomic, assign) BOOL isAnimated;
 
-
 @end
 
 @implementation ANTableControllerReloadOperation
@@ -32,7 +31,8 @@
 {
     if (!self.isCancelled)
     {
-        [[self.delegate tableView] reloadData];
+        id<ANTableControllerReloadOperationDelegate> delegate = self.delegate;
+        [delegate.tableView reloadData];
         if (self.isAnimated)
         {
             CATransition* animation = [CATransition animation];
@@ -40,8 +40,8 @@
             [animation setSubtype:kCATransitionFromBottom];
             [animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
             [animation setFillMode:kCAFillModeBoth];
-            [animation setDuration:[self.delegate configurationModel].reloadAnimationDuration];
-            [self.delegate.tableView.layer addAnimation:animation forKey:[self.delegate configurationModel].reloadAnimationKey];
+            [animation setDuration:[delegate configurationModel].reloadAnimationDuration];
+            [delegate.tableView.layer addAnimation:animation forKey:[delegate configurationModel].reloadAnimationKey];
         }
     }
 }
