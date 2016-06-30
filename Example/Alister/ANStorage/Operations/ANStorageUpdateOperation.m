@@ -8,6 +8,7 @@
 
 #import "ANStorageUpdateOperation.h"
 #import "ANStorageUpdateModel.h"
+#import "ANStorageLog.h"
 
 @interface ANStorageUpdateOperation ()
 
@@ -64,7 +65,7 @@
     }
     else
     {
-//        NSLog(@"update is empty or nil, skipped"); // TODO: custom
+        ANStorageLog(@"update is empty or nil, skipped");
     }
 }
 

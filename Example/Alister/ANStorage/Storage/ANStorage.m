@@ -10,22 +10,16 @@
 #import "ANStorageController.h"
 #import "ANStorageUpdateOperation.h"
 #import "ANStorageUpdateModel.h"
+#import "ANStorageLog.h"
 
 @interface ANStorage ()
 
 @property (nonatomic, strong) ANStorageController* controller;
-@property (nonatomic, assign) BOOL isCustomType;
+@property (nonatomic, assign) BOOL isSearchingType;
 
 @end
 
 @implementation ANStorage
-
-+ (instancetype)customStorage
-{
-    ANStorage* model = [self new];
-    model.isCustomType = YES;
-    return model;
-}
 
 - (instancetype)init
 {
@@ -66,7 +60,7 @@
 {
     if (block)
     {
-        if (!self.isCustomType)
+        if (!self.isSearchingType)
         {
             id<ANStorageUpdatingInterface> listController = self.listController;
             if (listController)
@@ -93,7 +87,8 @@
 
 - (instancetype)searchStorageForSearchString:(NSString*)searchString inSearchScope:(NSInteger)searchScope
 {
-    ANStorage* storage = [[self class] customStorage];
+    ANStorage* storage = [[self class] new];
+    storage.isSearchingType = YES;
     
     NSPredicate* predicate;
     if (self.storagePredicateBlock)
@@ -112,7 +107,7 @@
     }
     else
     {
-        NSLog(@"No predicate was created, so no searching. Check your setter for storagePredicateBlock");
+        ANStorageLog(@"No predicate was created, so no searching. Check your setter for storagePredicateBlock");
     }
     return storage;
 }

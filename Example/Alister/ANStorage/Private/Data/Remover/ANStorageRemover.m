@@ -11,6 +11,7 @@
 #import "ANStorageLoader.h"
 #import "ANStorageModel.h"
 #import "ANStorageSectionModel.h"
+#import "ANStorageLog.h"
 
 @implementation ANStorageRemover
 
@@ -27,7 +28,7 @@
     }
     else
     {
-        NSLog(@"ANStorage: item to delete: %@ was not found", item);
+        ANStorageLog(@"ANStorage: item to delete: %@ was not found", item);
     }
     return update;
 }
@@ -47,7 +48,7 @@
         }
         else
         {
-            NSLog(@"ANStorage: item to delete was not found at indexPath : %@ ", indexPath);
+            ANStorageLog(@"ANStorage: item to delete was not found at indexPath : %@ ", indexPath);
         }
     }
     return update;

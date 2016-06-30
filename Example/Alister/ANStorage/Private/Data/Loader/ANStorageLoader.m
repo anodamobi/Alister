@@ -10,6 +10,7 @@
 #import "ANStorageModel.h"
 #import "ANStorageSectionModelInterface.h"
 #import "ANStorageSectionModel.h"
+#import "ANStorageLog.h"
 
 @implementation ANStorageLoader
 
@@ -22,7 +23,7 @@
         NSIndexPath* foundIndexPath = [self indexPathForItem:[items objectAtIndex:i] inStorage:storage];
         if (!foundIndexPath)
         {
-            NSLog(@"ANStorage: object %@ not found", [items objectAtIndex:i]);
+            ANStorageLog(@"ANStorage: object %@ not found", [items objectAtIndex:i]);
         }
         else
         {
@@ -44,12 +45,12 @@
         }
         else
         {
-            NSLog(@"ANStorage: Row not found while searching for item");
+            ANStorageLog(@"ANStorage: Row not found while searching for item");
         }
     }
     else
     {
-        NSLog(@"ANStorage: Section not found while searching for item");
+        ANStorageLog(@"ANStorage: Section not found while searching for item");
     }
     return object;
 }
@@ -91,7 +92,7 @@
     }
     else
     {
-        NSLog(@"Section index is out of bounds");
+        ANStorageLog(@"Section index is out of bounds");
     }
     return nil;
 }

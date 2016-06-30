@@ -12,6 +12,7 @@
 #import "ANStorageLoader.h"
 #import "ANStorageMovedIndexPathModel.h"
 #import "ANStorageModel.h"
+#import "ANStorageLog.h"
 
 @implementation ANStorageUpdater
 
@@ -67,7 +68,7 @@
     
     if ([section.objects count] < (NSUInteger)indexPath.row)
     {
-        NSLog(@"ANStorage: failed to insert item for section: %ld, row: %ld, only %lu items in section",
+        ANStorageLog(@"ANStorage: failed to insert item for section: %ld, row: %ld, only %lu items in section",
               (long)indexPath.section,
               (long)indexPath.row,
               (unsigned long)[section.objects count]);
@@ -94,7 +95,7 @@
     }
     else
     {
-        NSLog(@"ANStorage: failed to replace item %@ at indexPath: %@", replacingItem, originalIndexPath);
+        ANStorageLog(@"ANStorage: failed to replace item %@ at indexPath: %@", replacingItem, originalIndexPath);
     }
     return update;
 }
