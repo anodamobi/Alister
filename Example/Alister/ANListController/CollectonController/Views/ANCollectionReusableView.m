@@ -1,0 +1,18 @@
+//
+//  ANCollectionReusableView.m
+//  ANStorage
+//
+//  Created by Oksana Kovalchuk on 2/3/16.
+//  Copyright © 2016 ANODA. All rights reserved.
+//
+
+#import "ANCollectionReusableView.h"
+
+@implementation ANCollectionReusableView
+
+- (void)updateWithModel:(id)model
+{
+    
+}
+
+@end
