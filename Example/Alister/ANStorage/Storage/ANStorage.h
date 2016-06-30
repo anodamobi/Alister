@@ -22,15 +22,11 @@ typedef NSPredicate*(^ANStorageSearchPredicate)(NSString* searchString, NSIntege
 @property (nonatomic, strong, readonly) NSString* identifier;
 
 + (instancetype)customStorage;
-- (instancetype)initStorageForSearchString:(NSString*)searchString
-                             inSearchScope:(NSInteger)searchScope;
+- (instancetype)searchStorageForSearchString:(NSString*)searchString
+                               inSearchScope:(NSInteger)searchScope;
 
-- (void)updateWithBlock:(ANDataStorageUpdateBlock)block;
+- (void)updateWithAnimationWithBlock:(ANDataStorageUpdateBlock)block;
 - (void)updateWithoutAnimationWithBlock:(ANDataStorageUpdateBlock)block;
-
-
-
-
 - (void)reloadStorageWithAnimation:(BOOL)isAnimatable;
 
 @end

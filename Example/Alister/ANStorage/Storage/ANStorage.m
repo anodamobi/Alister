@@ -38,7 +38,7 @@
     return self;
 }
 
-- (void)updateWithBlock:(ANDataStorageUpdateBlock)block
+- (void)updateWithAnimationWithBlock:(ANDataStorageUpdateBlock)block
 {
     [self _updateWithBlock:block animatable:YES];
 }
@@ -91,7 +91,7 @@
     }
 }
 
-- (instancetype)initStorageForSearchString:(NSString*)searchString inSearchScope:(NSInteger)searchScope
+- (instancetype)searchStorageForSearchString:(NSString*)searchString inSearchScope:(NSInteger)searchScope
 {
     ANStorage* storage = [[self class] customStorage];
     
@@ -102,10 +102,9 @@
     }
     if (predicate)
     {
-        [storage updateWithBlock:^(id<ANStorageUpdatableInterface> storageController) {
+        [storage updateWithoutAnimationWithBlock:^(id<ANStorageUpdatableInterface> storageController) {
             
             [self.sections enumerateObjectsUsingBlock:^(ANStorageSectionModel* obj, NSUInteger idx, BOOL *stop) {
-                
                 NSArray* filteredObjects = [obj.objects filteredArrayUsingPredicate:predicate];
                 [storageController addItems:filteredObjects toSection:idx];
             }];

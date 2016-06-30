@@ -100,8 +100,8 @@
 {
     self.storage.listController = nil;
     
-    self.searchingStorage = [self.storage searchingStorageForSearchString:searchString
-                                                            inSearchScope:scope];
+    self.searchingStorage = [self.storage searchStorageForSearchString:searchString
+                                                        inSearchScope:scope];
     [self _attachStorage:self.searchingStorage];
     
     [[self.manager updateHandler] storageNeedsReloadAnimatedWithIdentifier:self.searchingStorage.identifier];
