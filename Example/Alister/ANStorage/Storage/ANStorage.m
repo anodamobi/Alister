@@ -91,8 +91,7 @@
     }
 }
 
-- (instancetype)searchingStorageForSearchString:(NSString*)searchString
-                                  inSearchScope:(NSInteger)searchScope
+- (instancetype)initStorageForSearchString:(NSString*)searchString inSearchScope:(NSInteger)searchScope
 {
     ANStorage* storage = [[self class] customStorage];
     
