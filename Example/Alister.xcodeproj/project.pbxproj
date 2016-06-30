@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0749CA071D25E386004ACF1B /* ANListControllerQueueProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 0749CA061D25E386004ACF1B /* ANListControllerQueueProcessor.m */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -73,7 +74,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		071323C31D25E637008DF0DC /* ANListControllerUpdateOperationInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ANListControllerUpdateOperationInterface.h; sourceTree = "<group>"; };
 		0749C9FE1D25CEF4004ACF1B /* ANStorageLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ANStorageLog.h; sourceTree = "<group>"; };
+		0749CA001D25E2CA004ACF1B /* ANListControllerConfigurationModelInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANListControllerConfigurationModelInterface.h; sourceTree = "<group>"; };
+		0749CA011D25E2CA004ACF1B /* ANListControllerManagerInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANListControllerManagerInterface.h; sourceTree = "<group>"; };
+		0749CA021D25E2CA004ACF1B /* ANListControllerReusableInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANListControllerReusableInterface.h; sourceTree = "<group>"; };
+		0749CA031D25E2CA004ACF1B /* ANListControllerReusableLoadInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANListControllerReusableLoadInterface.h; sourceTree = "<group>"; };
+		0749CA041D25E2CA004ACF1B /* ANListControllerUpdateViewInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANListControllerUpdateViewInterface.h; sourceTree = "<group>"; };
+		0749CA051D25E386004ACF1B /* ANListControllerQueueProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ANListControllerQueueProcessor.h; path = QueueProcessor/ANListControllerQueueProcessor.h; sourceTree = "<group>"; };
+		0749CA061D25E386004ACF1B /* ANListControllerQueueProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ANListControllerQueueProcessor.m; path = QueueProcessor/ANListControllerQueueProcessor.m; sourceTree = "<group>"; };
 		0E1F467465F3AB109D373CB2 /* Pods_Alister_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Alister_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		12C7B2C3A579D51E17C98434 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		12FF9DBB972322DC09D80960 /* Pods-Alister_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Alister_Tests/Pods-Alister_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -118,11 +127,6 @@
 		D797F35F1D25AC0200FCAFB9 /* ANCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANCollectionReusableView.m; sourceTree = "<group>"; };
 		D797F3601D25AC0200FCAFB9 /* ANCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANCollectionViewCell.h; sourceTree = "<group>"; };
 		D797F3611D25AC0200FCAFB9 /* ANCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANCollectionViewCell.m; sourceTree = "<group>"; };
-		D797F3631D25AC0200FCAFB9 /* ANListControllerConfigurationModelInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANListControllerConfigurationModelInterface.h; sourceTree = "<group>"; };
-		D797F3641D25AC0200FCAFB9 /* ANListControllerManagerInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANListControllerManagerInterface.h; sourceTree = "<group>"; };
-		D797F3651D25AC0200FCAFB9 /* ANListControllerReusableInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANListControllerReusableInterface.h; sourceTree = "<group>"; };
-		D797F3661D25AC0200FCAFB9 /* ANListControllerReusableLoadInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANListControllerReusableLoadInterface.h; sourceTree = "<group>"; };
-		D797F3671D25AC0200FCAFB9 /* ANListControllerUpdateViewInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANListControllerUpdateViewInterface.h; sourceTree = "<group>"; };
 		D797F3691D25AC0200FCAFB9 /* ANListControllerConfigurationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANListControllerConfigurationModel.h; sourceTree = "<group>"; };
 		D797F36A1D25AC0200FCAFB9 /* ANListControllerConfigurationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANListControllerConfigurationModel.m; sourceTree = "<group>"; };
 		D797F36C1D25AC0200FCAFB9 /* ANListController+Interitance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ANListController+Interitance.h"; sourceTree = "<group>"; };
@@ -221,6 +225,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0749C9FF1D25E2CA004ACF1B /* Interfaces */ = {
+			isa = PBXGroup;
+			children = (
+				071323C31D25E637008DF0DC /* ANListControllerUpdateOperationInterface.h */,
+				0749CA001D25E2CA004ACF1B /* ANListControllerConfigurationModelInterface.h */,
+				0749CA011D25E2CA004ACF1B /* ANListControllerManagerInterface.h */,
+				0749CA021D25E2CA004ACF1B /* ANListControllerReusableInterface.h */,
+				0749CA031D25E2CA004ACF1B /* ANListControllerReusableLoadInterface.h */,
+				0749CA041D25E2CA004ACF1B /* ANListControllerUpdateViewInterface.h */,
+			);
+			path = Interfaces;
+			sourceTree = "<group>";
+		};
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
@@ -424,16 +441,14 @@
 		D797F3621D25AC0200FCAFB9 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				D797F3631D25AC0200FCAFB9 /* ANListControllerConfigurationModelInterface.h */,
-				D797F3641D25AC0200FCAFB9 /* ANListControllerManagerInterface.h */,
-				D797F3651D25AC0200FCAFB9 /* ANListControllerReusableInterface.h */,
-				D797F3661D25AC0200FCAFB9 /* ANListControllerReusableLoadInterface.h */,
-				D797F3671D25AC0200FCAFB9 /* ANListControllerUpdateViewInterface.h */,
+				0749C9FF1D25E2CA004ACF1B /* Interfaces */,
 				D797F3681D25AC0200FCAFB9 /* ConfigurationModel */,
 				D797F36B1D25AC0200FCAFB9 /* Controller */,
 				D797F36F1D25AC0200FCAFB9 /* ItemsHandler */,
 				D797F3721D25AC0200FCAFB9 /* Mapping */,
 				D797F3771D25AC0200FCAFB9 /* ViewWrappers */,
+				0749CA051D25E386004ACF1B /* ANListControllerQueueProcessor.h */,
+				0749CA061D25E386004ACF1B /* ANListControllerQueueProcessor.m */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -1002,6 +1017,7 @@
 				D797F3E51D25AC0200FCAFB9 /* ANTableControllerUpdater.m in Sources */,
 				D797F3F41D25AC0200FCAFB9 /* ANStorageController.m in Sources */,
 				D797F3D01D25AC0200FCAFB9 /* ANKeyboardHandler.m in Sources */,
+				0749CA071D25E386004ACF1B /* ANListControllerQueueProcessor.m in Sources */,
 				D797F3E21D25AC0200FCAFB9 /* ANTableControllerReloadOperation.m in Sources */,
 				D797F3D31D25AC0200FCAFB9 /* ANCollectionControllerConfigurationModel.m in Sources */,
 				6003F59E195388D20070C39A /* ANAppDelegate.m in Sources */,
