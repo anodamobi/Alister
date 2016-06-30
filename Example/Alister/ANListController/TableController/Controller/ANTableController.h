@@ -11,9 +11,6 @@
 
 @property (nonatomic, weak, readonly) UITableView* tableView;
 
-
-#pragma mark - View's related
-
 + (instancetype)controllerWithTableView:(UITableView*)tableView;
 
 - (instancetype)initWithTableView:(UITableView*)tableView;

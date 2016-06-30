@@ -137,7 +137,7 @@
 
 - (void)tableView:(UITableView*)tableView moveRowAtIndexPath:(NSIndexPath*)fromIndexPath toIndexPath:(NSIndexPath*)toIndexPath
 {
-    [self.currentStorage updateWithBlock:^(id<ANStorageUpdatableInterface> storageController) {
+    [self.currentStorage updateWithAnimationWithBlock:^(id<ANStorageUpdatableInterface> storageController) {
         [storageController moveItemFromIndexPath:fromIndexPath toIndexPath:toIndexPath];
     }];
 }
