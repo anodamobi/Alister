@@ -72,32 +72,32 @@
 
 - (NSString*)tableView:(UITableView*)tableView titleForHeaderInSection:(NSInteger)sectionNumber
 {
-    return [self.tableManager titleForSupplementaryIndex:sectionNumber type:ANTableViewSupplementaryTypeHeader];
+    return [self.tableManager titleForSupplementaryIndex:(NSUInteger)sectionNumber type:ANTableViewSupplementaryTypeHeader];
 }
 
 - (NSString*)tableView:(UITableView*)tableView titleForFooterInSection:(NSInteger)sectionNumber
 {
-    return [self.tableManager titleForSupplementaryIndex:sectionNumber type:ANTableViewSupplementaryTypeFooter];
+    return [self.tableManager titleForSupplementaryIndex:(NSUInteger)sectionNumber type:ANTableViewSupplementaryTypeFooter];
 }
 
 - (UIView*)tableView:(UITableView*)tableView viewForHeaderInSection:(NSInteger)sectionNumber
 {
-    return [self.tableManager supplementaryViewForIndex:sectionNumber type:ANTableViewSupplementaryTypeHeader];
+    return [self.tableManager supplementaryViewForIndex:(NSUInteger)sectionNumber type:ANTableViewSupplementaryTypeHeader];
 }
 
 - (UIView*)tableView:(UITableView*)tableView viewForFooterInSection:(NSInteger)sectionNumber
 {
-    return [self.tableManager supplementaryViewForIndex:sectionNumber type:ANTableViewSupplementaryTypeFooter];
+    return [self.tableManager supplementaryViewForIndex:(NSUInteger)sectionNumber type:ANTableViewSupplementaryTypeFooter];
 }
 
 - (CGFloat)tableView:(UITableView*)tableView heightForHeaderInSection:(NSInteger)sectionNumber
 {
-    return [self.tableManager heightForSupplementaryIndex:sectionNumber type:ANTableViewSupplementaryTypeHeader];
+    return [self.tableManager heightForSupplementaryIndex:(NSUInteger)sectionNumber type:ANTableViewSupplementaryTypeHeader];
 }
 
 - (CGFloat)tableView:(UITableView*)tableView heightForFooterInSection:(NSInteger)sectionNumber
 {
-    return [self.tableManager heightForSupplementaryIndex:sectionNumber type:ANTableViewSupplementaryTypeFooter];
+    return [self.tableManager heightForSupplementaryIndex:(NSUInteger)sectionNumber type:ANTableViewSupplementaryTypeFooter];
 }
 
 
