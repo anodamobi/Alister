@@ -14,6 +14,7 @@
 
 - (UITableView*)tableView;
 - (id<ANListControllerConfigurationModelInterface>)configurationModel;
+- (void)reloadFinished;
 
 @end
 

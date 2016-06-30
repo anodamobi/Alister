@@ -34,6 +34,10 @@
     {
         self.queue = [NSOperationQueue mainQueue];
         self.queue.maxConcurrentOperationCount = 1;
+        [self.queue addObserver:self
+                     forKeyPath:NSStringFromSelector(@selector(operations))
+                        options:NSKeyValueObservingOptionNew
+                        context:NULL];
     }
     return self;
 }
@@ -84,6 +88,7 @@
 }
 
 
+
 #pragma mark - Private
 
 - (void)_addUpdateOperation:(ANStorageUpdateOperation*)updateOperation withIdentifier:(NSString*)identifier
@@ -113,5 +118,23 @@
     [self.queue addOperation:op];
 }
 
+- (void)observeValueForKeyPath:(NSString*)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary*)change
+                       context:(void*)context
+{
+    NSString* observedKeypath = NSStringFromSelector(@selector(operations));
+    if (object == self.queue && keyPath && [keyPath isEqualToString:observedKeypath])
+    {
+        if ([self.queue.operations count] == 0)
+        {
+            [self.delegate reloadFinished];
+        }
+    }
+    else
+    {
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+    }
+}
 
 @end
