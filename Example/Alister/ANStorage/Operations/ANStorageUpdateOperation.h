@@ -21,6 +21,4 @@ typedef void(^ANStorageUpdateOperationConfigurationBlock)(ANStorageUpdateOperati
 @property (nonatomic, weak) id<ANStorageUpdateControllerInterface> updaterDelegate;
 @property (nonatomic, weak) id<ANStorageListUpdateOperationInterface> controllerOperationDelegate;
 
-@property (nonatomic, strong) NSString* storageIdentifier;
-
 @end

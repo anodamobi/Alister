@@ -12,6 +12,7 @@
 #import "ANListControllerItemsHandler.h"
 #import "ANListControllerConfigurationModel.h"
 #import "ANListControllerQueueProcessor.h"
+#import "ANCollectionControllerUpdateOperation.h"
 
 @interface ANCollectionControllerManager ()
 <
@@ -20,7 +21,7 @@
 >
 
 @property (nonatomic, strong) ANListControllerItemsHandler* itemsHandler;
-@property (nonatomic, strong) ANListControllerQueueProcessor* updateController;
+@property (nonatomic, strong) ANListControllerQueueProcessor* updateProcessor;
 @property (nonatomic, strong) ANListControllerConfigurationModel* configurationModel;
 
 @end
@@ -34,8 +35,9 @@
     {
         self.itemsHandler = [ANListControllerItemsHandler handlerWithDelegate:self];
         
-        self.updateController = [ANListControllerQueueProcessor new];
-        self.updateController.delegate = self;
+        self.updateProcessor = [ANListControllerQueueProcessor new];
+        self.updateProcessor.delegate = self;
+        self.updateProcessor.updateOperationClass = [ANCollectionControllerUpdateOperation class];
         
         self.configurationModel = [ANListControllerConfigurationModel defaultModel];
     }
@@ -49,7 +51,7 @@
 
 - (id<ANStorageUpdatingInterface>)updateHandler
 {
-    return self.updateController;
+    return self.updateProcessor;
 }
 
 - (UIView<ANListViewInterface>*)listView

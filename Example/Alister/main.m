@@ -7,11 +7,13 @@
 //
 
 @import UIKit;
+
 #import "ANAppDelegate.h"
 
 int main(int argc, char * argv[])
 {
-    @autoreleasepool {
+    @autoreleasepool
+    {
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([ANAppDelegate class]));
     }
 }

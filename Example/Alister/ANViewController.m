@@ -9,11 +9,13 @@
 #import "ANViewController.h"
 #import "ANStorage.h"
 #import "ANTableController.h"
+#import "ANExampleTableViewCell.h"
 
 @interface ANViewController ()
 
 @property (nonatomic, strong) UITableView* tableView;
 @property (nonatomic, strong) ANTableController* controller;
+@property (nonatomic, strong) ANStorage* storage;
 
 @end
 
@@ -28,13 +30,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
     
-    ANStorage* storage = [ANStorage new];
+    self.storage = [ANStorage new];
     self.controller = [ANTableController controllerWithTableView:self.tableView];
-    [self.controller attachStorage:storage];
+    [self.controller attachStorage:self.storage];
     
+    [self.controller configureCellsWithBlock:^(id<ANListControllerReusableInterface> configurator) {
+        [configurator registerCellClass:[ANExampleTableViewCell class] forSystemClass:[NSString class]];
+    }];
     
+    [self.storage updateWithAnimationWithBlock:^(id<ANStorageUpdatableInterface> storageController) {
+        [storageController addItem:@"Test"];
+    }];
     
 //    for (NSUInteger i = 0; i < 10; i++)
 //    {

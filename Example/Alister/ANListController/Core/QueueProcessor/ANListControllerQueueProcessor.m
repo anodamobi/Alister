@@ -10,7 +10,7 @@
 #import "ANStorageUpdateOperation.h"
 #import "ANStorageUpdateControllerInterface.h"
 #import "ANListControllerUpdateOperationInterface.h"
-#import "ANListControllerReloadOperationInterface.h"
+#import "ANListControllerReloadOperation.h"
 
 @interface ANListControllerQueueProcessor ()
 <
@@ -109,7 +109,7 @@
     for (NSOperation* operation in self.queue.operations)
     {
         if ([operation isMemberOfClass:self.updateOperationClass] ||
-            [operation isMemberOfClass:self.reloadOperationClass])
+            [operation isMemberOfClass:[ANListControllerReloadOperation class]])
         {
             if ([operation.name isEqualToString:storageIdentifier])
             {
@@ -118,14 +118,11 @@
         }
     }
     
-    NSOperation<ANListControllerReloadOperationInterface>* controllerOperation = [self.reloadOperationClass new];
-    if ([controllerOperation conformsToProtocol:@protocol(ANListControllerReloadOperationInterface)])
-    {
-        [controllerOperation setDelegate:self];
-        [controllerOperation setName:storageIdentifier];
-        [controllerOperation setShouldAnimate:isAnimated];
-        [self.queue addOperation:controllerOperation];
-    }
+    ANListControllerReloadOperation* controllerOperation = [ANListControllerReloadOperation new];
+    controllerOperation.delegate = self;
+    controllerOperation.name = storageIdentifier;
+    controllerOperation.shouldAnimate = isAnimated;
+    [self.queue addOperation:controllerOperation];
 }
 
 - (void)observeValueForKeyPath:(NSString*)keyPath

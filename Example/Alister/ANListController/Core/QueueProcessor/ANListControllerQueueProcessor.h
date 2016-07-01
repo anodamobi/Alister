@@ -23,6 +23,5 @@
 
 @property (nonatomic, weak) id<ANListControllerQueueProcessorDelegate> delegate;
 @property (nonatomic, strong) Class updateOperationClass;
-@property (nonatomic, strong) Class reloadOperationClass;
 
 @end

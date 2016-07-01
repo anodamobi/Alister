@@ -12,10 +12,11 @@
 #import "ANListControllerQueueProcessor.h"
 #import "ANListControllerItemsHandler.h"
 #import "ANListControllerConfigurationModel.h"
+#import "ANTableControllerUpdateOperation.h"
 
 @interface ANTableControllerManager () <ANListControllerItemsHandlerDelegate, ANListControllerQueueProcessorDelegate>
 
-@property (nonatomic, strong) ANListControllerItemsHandler* cellFactory;
+@property (nonatomic, strong) ANListControllerItemsHandler* cellItemsHandler;
 @property (nonatomic, strong) ANListControllerQueueProcessor* updateProcessor;
 @property (nonatomic, strong) ANListControllerConfigurationModel* configurationModel;
 
@@ -28,9 +29,10 @@
     self = [super init];
     if (self)
     {
-        self.cellFactory = [ANListControllerItemsHandler handlerWithDelegate:self];
+        self.cellItemsHandler = [ANListControllerItemsHandler handlerWithDelegate:self];
         self.updateProcessor = [ANListControllerQueueProcessor new];
         self.updateProcessor.delegate = self;
+        self.updateProcessor.updateOperationClass = [ANTableControllerUpdateOperation class];
         
         self.configurationModel = [ANListControllerConfigurationModel defaultModel];
     }
@@ -39,7 +41,7 @@
 
 - (id<ANListControllerReusableInterface>)reusableViewsHandler
 {
-    return self.cellFactory;
+    return self.cellItemsHandler;
 }
 
 - (id<ANStorageUpdatingInterface>)updateHandler
@@ -85,7 +87,7 @@
     BOOL isHeader = (type == ANTableViewSupplementaryTypeHeader);
     NSString* kind = isHeader ? self.configurationModel.defaultHeaderSupplementary : self.configurationModel.defaultFooterSupplementary;
     
-    return (UIView*)[self.cellFactory supplementaryViewForModel:model kind:kind forIndexPath:nil];
+    return (UIView*)[self.cellItemsHandler supplementaryViewForModel:model kind:kind forIndexPath:nil];
 }
 
 - (id)supplementaryModelForIndex:(NSUInteger)index type:(ANTableViewSupplementaryType)type
@@ -142,7 +144,7 @@
 
 - (UITableViewCell*)cellForModel:(id)model atIndexPath:(NSIndexPath*)indexPath
 {
-    return (UITableViewCell*)[self.cellFactory cellForModel:model atIndexPath:indexPath];
+    return (UITableViewCell*)[self.cellItemsHandler cellForModel:model atIndexPath:indexPath];
 }
 
 @end

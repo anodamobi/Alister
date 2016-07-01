@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		071323CE1D26BFD8008DF0DC /* ANListControllerQueueProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 071323CB1D26BFD8008DF0DC /* ANListControllerQueueProcessor.m */; };
 		071323CF1D26BFD8008DF0DC /* ANListControllerReloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 071323CD1D26BFD8008DF0DC /* ANListControllerReloadOperation.m */; };
+		071323D21D26CC6C008DF0DC /* ANExampleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 071323D11D26CC6C008DF0DC /* ANExampleTableViewCell.m */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -78,6 +79,8 @@
 		071323CB1D26BFD8008DF0DC /* ANListControllerQueueProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANListControllerQueueProcessor.m; sourceTree = "<group>"; };
 		071323CC1D26BFD8008DF0DC /* ANListControllerReloadOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANListControllerReloadOperation.h; sourceTree = "<group>"; };
 		071323CD1D26BFD8008DF0DC /* ANListControllerReloadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANListControllerReloadOperation.m; sourceTree = "<group>"; };
+		071323D01D26CC6C008DF0DC /* ANExampleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANExampleTableViewCell.h; sourceTree = "<group>"; };
+		071323D11D26CC6C008DF0DC /* ANExampleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANExampleTableViewCell.m; sourceTree = "<group>"; };
 		0749C9FE1D25CEF4004ACF1B /* ANStorageLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ANStorageLog.h; sourceTree = "<group>"; };
 		0749CA001D25E2CA004ACF1B /* ANListControllerConfigurationModelInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANListControllerConfigurationModelInterface.h; sourceTree = "<group>"; };
 		0749CA011D25E2CA004ACF1B /* ANListControllerManagerInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANListControllerManagerInterface.h; sourceTree = "<group>"; };
@@ -284,6 +287,8 @@
 				D797F3461D25AC0200FCAFB9 /* ANKeyboardHandler */,
 				D797F3491D25AC0200FCAFB9 /* ANListController */,
 				D797F3A21D25AC0200FCAFB9 /* ANStorage */,
+				071323D01D26CC6C008DF0DC /* ANExampleTableViewCell.h */,
+				071323D11D26CC6C008DF0DC /* ANExampleTableViewCell.m */,
 				6003F59C195388D20070C39A /* ANAppDelegate.h */,
 				6003F59D195388D20070C39A /* ANAppDelegate.m */,
 				6003F5A5195388D20070C39A /* ANViewController.h */,
@@ -981,6 +986,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D797F3E31D25AC0200FCAFB9 /* ANTableControllerUpdateOperation.m in Sources */,
+				071323D21D26CC6C008DF0DC /* ANExampleTableViewCell.m in Sources */,
 				D797F3D71D25AC0200FCAFB9 /* ANCollectionReusableView.m in Sources */,
 				D797F3E91D25AC0200FCAFB9 /* ANBaseTableHeaderView.m in Sources */,
 				D797F3E41D25AC0200FCAFB9 /* ANListControllerSearchManager.m in Sources */,
