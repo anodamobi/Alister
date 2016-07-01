@@ -6,19 +6,17 @@
 //  Copyright © 2016 ANODA. All rights reserved.
 //
 
-#import "ANStorageUpdatingInterface.h"
+#import "ANListControllerQueueProcessor.h"
 
 @protocol ANListControllerConfigurationModelInterface;
 
-@protocol ANTableControllerUpdaterDelegate <NSObject>
+@protocol ANTableControllerUpdaterDelegate <ANListControllerQueueProcessorDelegate>
 
 - (UITableView*)tableView;
-- (id<ANListControllerConfigurationModelInterface>)configurationModel;
-- (void)reloadFinished;
 
 @end
 
-@interface ANTableControllerUpdater : NSObject <ANStorageUpdatingInterface>
+@interface ANTableControllerUpdater : ANListControllerQueueProcessor
 
 @property (nonatomic, weak) id<ANTableControllerUpdaterDelegate> delegate;
 

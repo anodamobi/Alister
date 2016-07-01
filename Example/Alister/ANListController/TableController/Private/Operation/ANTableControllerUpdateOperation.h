@@ -8,8 +8,6 @@
 
 #import "ANStorageUpdateCollectionOperationInterface.h"
 
-@class ANStorageUpdateModel;
-
 @protocol ANListControllerConfigurationModelInterface;
 
 @protocol ANTableControllerUpdateOperationDelegate <NSObject>

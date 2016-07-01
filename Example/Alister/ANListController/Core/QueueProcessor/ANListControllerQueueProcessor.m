@@ -11,15 +11,11 @@
 #import "ANStorageUpdateControllerInterface.h"
 #import "ANListControllerUpdateOperationInterface.h"
 
-@interface ANListControllerQueueProcessor ()
-<
-    ANStorageUpdateControllerInterface
->
+@interface ANListControllerQueueProcessor () <ANStorageUpdateControllerInterface>
 
 @property (nonatomic, strong) NSOperationQueue* queue;
 
 @end
-
 
 @implementation ANListControllerQueueProcessor
 
@@ -49,7 +45,7 @@
 {
     if (shouldAnimate)
     {
-        id<ANListControllerUpdateOperationInterface> controllerOperation = [self.updateOperationClass new];
+        NSOperation<ANListControllerUpdateOperationInterface>* controllerOperation = [self.updateOperationClass new];
         if ([controllerOperation conformsToProtocol:@protocol(ANListControllerUpdateOperationInterface)])
         {
             [controllerOperation setDelegate:self];
@@ -111,7 +107,7 @@
         }
     }
     
-    id<ANListControllerUpdateOperationInterface> controllerOperation = [self.reloadOperationClass new];
+    NSOperation<ANListControllerUpdateOperationInterface>* controllerOperation = [self.reloadOperationClass new];
     if ([controllerOperation conformsToProtocol:@protocol(ANListControllerUpdateOperationInterface)])
     {
         [controllerOperation setDelegate:self];

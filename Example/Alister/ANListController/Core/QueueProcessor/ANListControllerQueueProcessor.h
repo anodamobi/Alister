@@ -6,6 +6,8 @@
 //  Copyright © 2016 Oksana Kovalchuk. All rights reserved.
 //
 
+#import "ANStorageUpdatingInterface.h"
+
 @protocol ANListControllerConfigurationModelInterface;
 
 @protocol ANListControllerQueueProcessorDelegate <NSObject>
@@ -15,7 +17,7 @@
 
 @end
 
-@interface ANListControllerQueueProcessor : NSObject
+@interface ANListControllerQueueProcessor : NSObject <ANStorageUpdatingInterface>
 
 @property (nonatomic, weak) id<ANListControllerQueueProcessorDelegate> delegate;
 @property (nonatomic, strong) Class updateOperationClass;

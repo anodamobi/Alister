@@ -11,19 +11,9 @@
 
 @interface ANTableControllerReloadOperation ()
 
-@property (nonatomic, assign) BOOL isAnimated;
-
 @end
 
 @implementation ANTableControllerReloadOperation
-
-+ (instancetype)reloadOperationWithAnimation:(BOOL)shouldAnimate
-{
-    ANTableControllerReloadOperation* op = [self new];
-    op.isAnimated = shouldAnimate;
-    return op;
-}
-
 
 #pragma mark - Override
 
@@ -33,7 +23,7 @@
     {
         id<ANTableControllerReloadOperationDelegate> delegate = self.delegate;
         [delegate.tableView reloadData];
-        if (self.isAnimated)
+        if (self.shouldAnimate)
         {
             CATransition* animation = [CATransition animation];
             [animation setType:kCATransitionFromBottom];

@@ -15,10 +15,11 @@
 
 @end
 
-@interface ANTableControllerReloadOperation : NSOperation
+#import "ANListControllerUpdateOperationInterface.h"
 
+@interface ANTableControllerReloadOperation : NSOperation <ANListControllerUpdateOperationInterface>
+
+@property (nonatomic, assign) BOOL shouldAnimate;
 @property (nonatomic, weak) id<ANTableControllerReloadOperationDelegate> delegate;
-
-+ (instancetype)reloadOperationWithAnimation:(BOOL)shouldAnimate;
 
 @end
