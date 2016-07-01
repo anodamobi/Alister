@@ -9,14 +9,18 @@
 #import "ANCollectionControllerManager.h"
 #import "ANListControllerUpdateViewInterface.h"
 #import "ANStorage.h"
-#import "ANCollectionControllerUpdater.h"
 #import "ANListControllerItemsHandler.h"
 #import "ANListControllerConfigurationModel.h"
+#import "ANListControllerQueueProcessor.h"
 
-@interface ANCollectionControllerManager () <ANListControllerItemsHandlerDelegate, ANCollectionControllerUpdaterDelegate>
+@interface ANCollectionControllerManager ()
+<
+    ANListControllerItemsHandlerDelegate,
+    ANListControllerQueueProcessorDelegate
+>
 
 @property (nonatomic, strong) ANListControllerItemsHandler* itemsHandler;
-@property (nonatomic, strong) ANCollectionControllerUpdater* updateController;
+@property (nonatomic, strong) ANListControllerQueueProcessor* updateController;
 @property (nonatomic, strong) ANListControllerConfigurationModel* configurationModel;
 
 @end
@@ -30,7 +34,7 @@
     {
         self.itemsHandler = [ANListControllerItemsHandler handlerWithDelegate:self];
         
-        self.updateController = [ANCollectionControllerUpdater new];
+        self.updateController = [ANListControllerQueueProcessor new];
         self.updateController.delegate = self;
         
         self.configurationModel = [ANListControllerConfigurationModel defaultModel];
@@ -48,9 +52,14 @@
     return self.updateController;
 }
 
-- (UICollectionView *)collectionView
+- (UIView<ANListViewInterface>*)listView
 {
-    return [self.delegate collectionView];
+    return (UIView<ANListViewInterface>*)[self.delegate collectionView];
+}
+
+- (void)allUpdatesFinished
+{
+    //TODO:
 }
 
 - (id<ANListControllerWrapperInterface>)listViewWrapper
@@ -71,7 +80,9 @@
     id model = [self.delegate.currentStorage supplementaryModelOfKind:kind forSectionIndex:(NSUInteger)indexPath.section];
     if (model)
     {
-        return (UICollectionReusableView*)[self.itemsHandler supplementaryViewForModel:model kind:kind forIndexPath:indexPath];
+        return (UICollectionReusableView*)[self.itemsHandler supplementaryViewForModel:model
+                                                                                  kind:kind
+                                                                          forIndexPath:indexPath];
     }
     return nil;
 }

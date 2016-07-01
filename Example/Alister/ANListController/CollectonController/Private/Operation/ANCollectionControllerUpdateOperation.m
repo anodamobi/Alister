@@ -48,50 +48,58 @@
 {
     if (!update.isEmpty)
     {
-        UICollectionView* collectionView = [self.delegate collectionView];
+        UICollectionView* collectionView = (UICollectionView*)[self.delegate listView];
         
-        NSMutableIndexSet * sectionsToInsert = [NSMutableIndexSet indexSet];
-        [update.insertedSectionIndexes enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop) {
-            if ((NSUInteger)[collectionView numberOfSections] <= idx)
+        if ([collectionView isKindOfClass:[UICollectionView class]])
+        {
+            NSMutableIndexSet * sectionsToInsert = [NSMutableIndexSet indexSet];
+            [update.insertedSectionIndexes enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop) {
+                if ((NSUInteger)[collectionView numberOfSections] <= idx)
+                {
+                    [sectionsToInsert addIndex:idx];
+                }
+            }];
+            
+            NSUInteger sectionChanges = [update.deletedSectionIndexes count] +
+            [update.insertedSectionIndexes count] +
+            [update.updatedSectionIndexes count];
+            
+            NSUInteger itemChanges = [update.deletedRowIndexPaths count] +
+            [update.insertedRowIndexPaths count] +
+            [update.updatedRowIndexPaths count];
+            
+            if (sectionChanges)
             {
-                [sectionsToInsert addIndex:idx];
+                [collectionView performBatchUpdates:^{
+                    [collectionView deleteSections:update.deletedSectionIndexes];
+                    [collectionView insertSections:sectionsToInsert];
+                    [collectionView reloadSections:update.updatedSectionIndexes];
+                } completion:nil];
             }
-        }];
-        
-        NSUInteger sectionChanges = [update.deletedSectionIndexes count] +
-                                    [update.insertedSectionIndexes count] +
-                                    [update.updatedSectionIndexes count];
-        
-        NSUInteger itemChanges = [update.deletedRowIndexPaths count] +
-                                 [update.insertedRowIndexPaths count] +
-                                 [update.updatedRowIndexPaths count];
-        
-        if (sectionChanges)
-        {
-            [collectionView performBatchUpdates:^{
-                [collectionView deleteSections:update.deletedSectionIndexes];
-                [collectionView insertSections:sectionsToInsert];
-                [collectionView reloadSections:update.updatedSectionIndexes];
-            } completion:nil];
+            
+            if ([self _shouldReloadCollectionView:collectionView
+           toPreventInsertFirstItemIssueForUpdate:update])
+            {
+                [collectionView reloadData];
+                return;
+            }
+            
+            if ((itemChanges && (sectionChanges == 0)))
+            {
+                [collectionView performBatchUpdates:^{
+                    [collectionView deleteItemsAtIndexPaths:update.deletedRowIndexPaths];
+                    [collectionView insertItemsAtIndexPaths:update.insertedRowIndexPaths];
+                    [collectionView reloadItemsAtIndexPaths:update.updatedRowIndexPaths];
+                } completion:nil];
+            }
+            
         }
-        
-        if ([self _shouldReloadCollectionViewToPreventInsertFirstItemIssueForUpdate:update])
+        else
         {
-            [collectionView reloadData];
-            return;
-        }
-        
-        if ((itemChanges && (sectionChanges == 0)))
-        {
-            [collectionView performBatchUpdates:^{
-                [collectionView deleteItemsAtIndexPaths:update.deletedRowIndexPaths];
-                [collectionView insertItemsAtIndexPaths:update.insertedRowIndexPaths];
-                [collectionView reloadItemsAtIndexPaths:update.updatedRowIndexPaths];
-            } completion:nil];
+            NSAssert(NO, @"You assigned not a UICollectionView");
         }
     }
 }
-
 
 #pragma mark - workarounds
 
@@ -101,10 +109,10 @@
 // http://stackoverflow.com/questions/13904049/assertion-failure-in-uicollectionviewdata-indexpathforitematglobalindex
 // This code should be removed once the bug has been fixed, it is tracked in OpenRadar
 // http://openradar.appspot.com/12954582
-- (BOOL)_shouldReloadCollectionViewToPreventInsertFirstItemIssueForUpdate:(ANStorageUpdateModel*)update
+- (BOOL)_shouldReloadCollectionView:(UICollectionView*)collectionView
+toPreventInsertFirstItemIssueForUpdate:(ANStorageUpdateModel*)update
 {
     BOOL shouldReload = NO;
-    UICollectionView* collectionView = [self.delegate collectionView];
     
     for (NSIndexPath * indexPath in update.insertedRowIndexPaths)
     {

@@ -69,57 +69,55 @@
     id<ANListControllerUpdateOperationDelegate> delegate = self.delegate;
     UITableView* tableView = (UITableView*)[delegate listView];
     if ([tableView isKindOfClass:[UITableView class]])
-    {
-        
-    
-    if (!update.isRequireReload)
-    {
-        id<ANListControllerConfigurationModelInterface> configurationModel = [delegate configurationModel];
-
-        [CATransaction begin];
-        [CATransaction setCompletionBlock:^{
+    {   
+        if (!update.isRequireReload)
+        {
+            id<ANListControllerConfigurationModelInterface> configurationModel = [delegate configurationModel];
+            
+            [CATransaction begin];
+            [CATransaction setCompletionBlock:^{
+                self.finished = YES;
+                self.executing = NO;
+            }];
+            
+            [tableView beginUpdates];
+            
+            [tableView insertSections:update.insertedSectionIndexes
+                     withRowAnimation:configurationModel.insertSectionAnimation];
+            
+            [tableView deleteSections:update.deletedSectionIndexes
+                     withRowAnimation:configurationModel.deleteSectionAnimation];
+            
+            [tableView reloadSections:update.updatedSectionIndexes
+                     withRowAnimation:configurationModel.reloadSectionAnimation];
+            
+            [update.movedRowsIndexPaths enumerateObjectsUsingBlock:^(ANStorageMovedIndexPathModel* obj, NSUInteger idx, BOOL *stop) {
+                
+                if (![update.deletedSectionIndexes containsIndex:(NSUInteger)obj.fromIndexPath.section])
+                {
+                    [tableView moveRowAtIndexPath:obj.fromIndexPath toIndexPath:obj.toIndexPath];
+                }
+            }];
+            
+            [tableView insertRowsAtIndexPaths:update.insertedRowIndexPaths
+                             withRowAnimation:configurationModel.insertRowAnimation];
+            
+            [tableView deleteRowsAtIndexPaths:update.deletedRowIndexPaths
+                             withRowAnimation:configurationModel.deleteRowAnimation];
+            
+            [tableView reloadRowsAtIndexPaths:update.updatedRowIndexPaths
+                             withRowAnimation:configurationModel.reloadRowAnimation];
+            
+            [tableView endUpdates];
+            [CATransaction commit];
+        }
+        else
+        {
             self.finished = YES;
             self.executing = NO;
-        }];
-        
-        [tableView beginUpdates];
-        
-        [tableView insertSections:update.insertedSectionIndexes
-                 withRowAnimation:configurationModel.insertSectionAnimation];
-        
-        [tableView deleteSections:update.deletedSectionIndexes
-                 withRowAnimation:configurationModel.deleteSectionAnimation];
-        
-        [tableView reloadSections:update.updatedSectionIndexes
-                 withRowAnimation:configurationModel.reloadSectionAnimation];
-        
-        [update.movedRowsIndexPaths enumerateObjectsUsingBlock:^(ANStorageMovedIndexPathModel* obj, NSUInteger idx, BOOL *stop) {
-            
-            if (![update.deletedSectionIndexes containsIndex:(NSUInteger)obj.fromIndexPath.section])
-            {
-                [tableView moveRowAtIndexPath:obj.fromIndexPath toIndexPath:obj.toIndexPath];
-            }
-        }];
-        
-        [tableView insertRowsAtIndexPaths:update.insertedRowIndexPaths
-                         withRowAnimation:configurationModel.insertRowAnimation];
-        
-        [tableView deleteRowsAtIndexPaths:update.deletedRowIndexPaths
-                         withRowAnimation:configurationModel.deleteRowAnimation];
-        
-        [tableView reloadRowsAtIndexPaths:update.updatedRowIndexPaths
-                         withRowAnimation:configurationModel.reloadRowAnimation];
-        
-        [tableView endUpdates];
-        [CATransaction commit];
-    }
-    else
-    {
-        self.finished = YES;
-        self.executing = NO;
-        [delegate storageNeedsReloadWithIdentifier:self.name];
-    }
+            [delegate storageNeedsReloadWithIdentifier:self.name];
         }
+    }
     else
     {
         NSAssert(NO, @"You assigned not a UITableView, this item can't be updated");

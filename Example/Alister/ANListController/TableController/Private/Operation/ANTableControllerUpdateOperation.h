@@ -9,8 +9,6 @@
 #import "ANStorageListUpdateOperationInterface.h"
 #import "ANListControllerUpdateOperationInterface.h"
 
-@protocol ANListControllerConfigurationModelInterface;
-
 @interface ANTableControllerUpdateOperation : NSOperation
 <
     ANStorageListUpdateOperationInterface,

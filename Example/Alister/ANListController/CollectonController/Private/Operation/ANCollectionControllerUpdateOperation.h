@@ -7,18 +7,14 @@
 //
 
 #import "ANStorageListUpdateOperationInterface.h"
+#import "ANListControllerUpdateOperationInterface.h"
 
-@class ANCollectionControllerConfigurationModel;
+@interface ANCollectionControllerUpdateOperation : NSOperation
+<
+    ANStorageListUpdateOperationInterface,
+    ANListControllerUpdateOperationInterface
+>
 
-@protocol ANCollectionControllerUpdateOperationDelegate <NSObject>
-
-- (UICollectionView*)collectionView;
-- (ANCollectionControllerConfigurationModel*)configurationModel;
-
-@end
-
-@interface ANCollectionControllerUpdateOperation : NSOperation <ANStorageListUpdateOperationInterface>
-
-@property (nonatomic, weak) id<ANCollectionControllerUpdateOperationDelegate> delegate;
+@property (nonatomic, weak) id<ANListControllerUpdateOperationDelegate> delegate;
 
 @end

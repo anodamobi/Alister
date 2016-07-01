@@ -57,6 +57,11 @@
     return [self.delegate listViewWrapper];
 }
 
+- (void)allUpdatesFinished
+{
+    //TODO:
+}
+
 
 #pragma mark - UITableView Delegate Helpers
 
