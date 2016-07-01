@@ -7,7 +7,7 @@
 //
 
 #import "ANStorageUpdateOperationInterface.h"
-#import "ANStorageUpdateCollectionOperationInterface.h"
+#import "ANStorageListUpdateOperationInterface.h"
 #import "ANStorageUpdateControllerInterface.h"
 
 @class ANStorageUpdateOperation;
@@ -19,7 +19,7 @@ typedef void(^ANStorageUpdateOperationConfigurationBlock)(ANStorageUpdateOperati
 + (instancetype)operationWithExecutionBlock:(ANStorageUpdateOperationConfigurationBlock)executionBlock;
 
 @property (nonatomic, weak) id<ANStorageUpdateControllerInterface> updaterDelegate;
-@property (nonatomic, weak) id<ANStorageUpdateCollectionOperationInterface> controllerOperationDelegate;
+@property (nonatomic, weak) id<ANStorageListUpdateOperationInterface> controllerOperationDelegate;
 
 @property (nonatomic, strong) NSString* storageIdentifier;
 

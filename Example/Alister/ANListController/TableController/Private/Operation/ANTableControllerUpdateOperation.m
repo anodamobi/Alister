@@ -66,8 +66,12 @@
 
 - (void)_performAnimatedUpdate:(ANStorageUpdateModel*)update
 {
-    id<ANTableControllerUpdateOperationDelegate> delegate = self.delegate;
-    UITableView* tableView = [delegate tableView];
+    id<ANListControllerUpdateOperationDelegate> delegate = self.delegate;
+    UITableView* tableView = (UITableView*)[delegate listView];
+    if ([tableView isKindOfClass:[UITableView class]])
+    {
+        
+    
     if (!update.isRequireReload)
     {
         id<ANListControllerConfigurationModelInterface> configurationModel = [delegate configurationModel];
@@ -114,6 +118,11 @@
         self.finished = YES;
         self.executing = NO;
         [delegate storageNeedsReloadWithIdentifier:self.name];
+    }
+        }
+    else
+    {
+        NSAssert(NO, @"You assigned not a UITableView, this item can't be updated");
     }
 }
 

@@ -6,7 +6,7 @@
 //  Copyright © 2016 ANODA. All rights reserved.
 //
 
-#import "ANStorageUpdateCollectionOperationInterface.h"
+#import "ANStorageListUpdateOperationInterface.h"
 
 @class ANCollectionControllerConfigurationModel;
 
@@ -17,7 +17,7 @@
 
 @end
 
-@interface ANCollectionControllerUpdateOperation : NSOperation <ANStorageUpdateCollectionOperationInterface>
+@interface ANCollectionControllerUpdateOperation : NSOperation <ANStorageListUpdateOperationInterface>
 
 @property (nonatomic, weak) id<ANCollectionControllerUpdateOperationDelegate> delegate;
 

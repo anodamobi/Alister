@@ -7,13 +7,15 @@
 //
 
 #import "ANStorageUpdatingInterface.h"
+#import "ANListViewInterface.h"
 
 @protocol ANListControllerConfigurationModelInterface;
 
 @protocol ANListControllerQueueProcessorDelegate <NSObject>
 
 - (id<ANListControllerConfigurationModelInterface>)configurationModel;
-- (void)reloadFinished;
+- (void)allUpdatesFinished;
+- (UIView<ANListViewInterface>*)listView;
 
 @end
 

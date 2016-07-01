@@ -6,9 +6,22 @@
 //  Copyright © 2016 Oksana Kovalchuk. All rights reserved.
 //
 
-@protocol ANListControllerUpdateOperationInterface
+#import "ANStorageListUpdateOperationInterface.h"
+
+@protocol ANListControllerUpdateOperationInterface <ANStorageListUpdateOperationInterface>
 
 - (void)setDelegate:(id)delegate;
-- (void)setShouldAnimate:(BOOL)shouldAnimate;
+
+@end
+
+
+@protocol ANListControllerConfigurationModelInterface;
+@protocol ANListViewInterface;
+
+@protocol ANListControllerUpdateOperationDelegate <NSObject>
+
+- (UIView<ANListViewInterface>*)listView;
+- (id<ANListControllerConfigurationModelInterface>)configurationModel;
+- (void)storageNeedsReloadWithIdentifier:(NSString*)identifier;
 
 @end

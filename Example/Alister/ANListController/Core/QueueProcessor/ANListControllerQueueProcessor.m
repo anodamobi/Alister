@@ -10,8 +10,14 @@
 #import "ANStorageUpdateOperation.h"
 #import "ANStorageUpdateControllerInterface.h"
 #import "ANListControllerUpdateOperationInterface.h"
+#import "ANListControllerReloadOperationInterface.h"
 
-@interface ANListControllerQueueProcessor () <ANStorageUpdateControllerInterface>
+@interface ANListControllerQueueProcessor ()
+<
+    ANStorageUpdateControllerInterface,
+//    ANListControllerUpdateOperationde,
+    ANListControllerReloadOperationDelegate
+>
 
 @property (nonatomic, strong) NSOperationQueue* queue;
 
@@ -37,6 +43,11 @@
 - (id<ANListControllerConfigurationModelInterface>)configurationModel
 {
     return [self.delegate configurationModel];
+}
+
+- (UIView<ANListViewInterface>*)listView
+{
+    return [self.delegate listView];
 }
 
 - (void)storageDidPerformUpdate:(ANStorageUpdateOperation*)updateOperation
@@ -107,8 +118,8 @@
         }
     }
     
-    NSOperation<ANListControllerUpdateOperationInterface>* controllerOperation = [self.reloadOperationClass new];
-    if ([controllerOperation conformsToProtocol:@protocol(ANListControllerUpdateOperationInterface)])
+    NSOperation<ANListControllerReloadOperationInterface>* controllerOperation = [self.reloadOperationClass new];
+    if ([controllerOperation conformsToProtocol:@protocol(ANListControllerReloadOperationInterface)])
     {
         [controllerOperation setDelegate:self];
         [controllerOperation setName:storageIdentifier];
@@ -127,7 +138,7 @@
     {
         if ([self.queue.operations count] == 0)
         {
-            [self.delegate reloadFinished];
+            [self.delegate allUpdatesFinished];
         }
     }
     else

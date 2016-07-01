@@ -6,20 +6,17 @@
 //  Copyright © 2016 ANODA. All rights reserved.
 //
 
-#import "ANStorageUpdateCollectionOperationInterface.h"
+#import "ANStorageListUpdateOperationInterface.h"
+#import "ANListControllerUpdateOperationInterface.h"
 
 @protocol ANListControllerConfigurationModelInterface;
 
-@protocol ANTableControllerUpdateOperationDelegate <NSObject>
+@interface ANTableControllerUpdateOperation : NSOperation
+<
+    ANStorageListUpdateOperationInterface,
+    ANListControllerUpdateOperationInterface
+>
 
-- (UITableView*)tableView;
-- (id<ANListControllerConfigurationModelInterface>)configurationModel;
-- (void)storageNeedsReloadWithIdentifier:(NSString*)identifier;
-
-@end
-
-@interface ANTableControllerUpdateOperation : NSOperation <ANStorageUpdateCollectionOperationInterface>
-
-@property (nonatomic, weak) id<ANTableControllerUpdateOperationDelegate> delegate;
+@property (nonatomic, weak) id<ANListControllerUpdateOperationDelegate> delegate;
 
 @end

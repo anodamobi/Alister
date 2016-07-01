@@ -9,14 +9,14 @@
 #import "ANTableControllerManager.h"
 #import "ANStorage.h"
 #import "ANStorageSectionModel.h"
-#import "ANTableControllerUpdater.h"
+#import "ANListControllerQueueProcessor.h"
 #import "ANListControllerItemsHandler.h"
 #import "ANListControllerConfigurationModel.h"
 
-@interface ANTableControllerManager () <ANListControllerItemsHandlerDelegate, ANTableControllerUpdaterDelegate>
+@interface ANTableControllerManager () <ANListControllerItemsHandlerDelegate, ANListControllerQueueProcessorDelegate>
 
 @property (nonatomic, strong) ANListControllerItemsHandler* cellFactory;
-@property (nonatomic, strong) ANTableControllerUpdater* updateController;
+@property (nonatomic, strong) ANListControllerQueueProcessor* updateProcessor;
 @property (nonatomic, strong) ANListControllerConfigurationModel* configurationModel;
 
 @end
@@ -29,8 +29,8 @@
     if (self)
     {
         self.cellFactory = [ANListControllerItemsHandler handlerWithDelegate:self];
-        self.updateController = [ANTableControllerUpdater new];
-        self.updateController.delegate = self;
+        self.updateProcessor = [ANListControllerQueueProcessor new];
+        self.updateProcessor.delegate = self;
         
         self.configurationModel = [ANListControllerConfigurationModel defaultModel];
     }
@@ -44,12 +44,12 @@
 
 - (id<ANStorageUpdatingInterface>)updateHandler
 {
-    return self.updateController;
+    return self.updateProcessor;
 }
 
-- (UITableView*)tableView
+- (UIView<ANListViewInterface>*)listView
 {
-    return [self.delegate tableView];
+    return (UIView<ANListViewInterface>*)[self.delegate tableView];
 }
 
 - (id<ANListControllerWrapperInterface>)listViewWrapper
@@ -108,7 +108,10 @@
 - (CGFloat)heightForSupplementaryIndex:(NSUInteger)index type:(ANTableViewSupplementaryType)type
 {
     //apple bug HACK: for plain tables, for bottom section separator visibility
-    BOOL shouldMaskSeparator = ((self.tableView.style == UITableViewStylePlain) &&
+    
+    UITableView* tableView = [self.delegate tableView];
+    
+    BOOL shouldMaskSeparator = ((tableView.style == UITableViewStylePlain) &&
                                 (type == ANTableViewSupplementaryTypeFooter));
     
     CGFloat minHeight = shouldMaskSeparator ? 0.1 : CGFLOAT_MIN;
@@ -123,7 +126,7 @@
         else
         {
             BOOL isHeader = (type == ANTableViewSupplementaryTypeHeader);
-            return isHeader ? self.tableView.sectionHeaderHeight : self.tableView.sectionFooterHeight;
+            return isHeader ? tableView.sectionHeaderHeight : tableView.sectionFooterHeight;
         }
     }
     else

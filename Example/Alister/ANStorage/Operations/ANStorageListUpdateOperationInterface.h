@@ -8,7 +8,7 @@
 
 @class ANStorageUpdateModel;
 
-@protocol ANStorageUpdateCollectionOperationInterface <NSObject>
+@protocol ANStorageListUpdateOperationInterface <NSObject>
 
 - (void)storageUpdateModelGenerated:(ANStorageUpdateModel*)updateModel;
 
