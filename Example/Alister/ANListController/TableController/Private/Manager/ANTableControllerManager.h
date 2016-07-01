@@ -25,6 +25,7 @@ typedef NS_ENUM(NSInteger, ANTableViewSupplementaryType)
 - (ANStorage*)currentStorage;
 - (UITableView*)tableView;
 - (id<ANListControllerWrapperInterface>)listViewWrapper;
+- (void)allUpdatesAreFinished;
 
 @end
 

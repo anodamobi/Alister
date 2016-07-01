@@ -15,8 +15,8 @@
 @interface ANListControllerQueueProcessor ()
 <
     ANStorageUpdateControllerInterface,
-//    ANListControllerUpdateOperationde,
-    ANListControllerReloadOperationDelegate
+    ANListControllerReloadOperationDelegate,
+    ANListControllerUpdateOperationDelegate
 >
 
 @property (nonatomic, strong) NSOperationQueue* queue;

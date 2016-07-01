@@ -69,7 +69,7 @@ static NSString* const kCellConstant = @"kANCellIdentifier";
 {
     __block ANListControllerMappingModel* mappingModel = nil;
     
-    [self.mappings enumerateObjectsUsingBlock:^(ANListControllerMappingModel*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [self.mappings enumerateObjectsUsingBlock:^(ANListControllerMappingModel*  _Nonnull obj, __unused NSUInteger idx, BOOL * _Nonnull stop) {
         
         if ([obj.kind isEqualToString:kind])
         {

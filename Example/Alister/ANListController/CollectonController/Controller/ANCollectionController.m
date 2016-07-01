@@ -78,21 +78,21 @@
 
 #pragma mark - Supplementaries
 
-- (UICollectionReusableView*)collectionView:(UICollectionView*)collectionView
+- (UICollectionReusableView*)collectionView:(__unused UICollectionView*)collectionView
           viewForSupplementaryElementOfKind:(NSString*)kind
                                 atIndexPath:(NSIndexPath*)indexPath
 {
     return [self.collectionManager supplementaryViewForIndexPath:indexPath kind:kind];
 }
 
-- (CGSize)collectionView:(UICollectionView*)collectionView
+- (CGSize)collectionView:(__unused UICollectionView*)collectionView
                   layout:(UICollectionViewFlowLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)sectionNumber
 {
     return [self.collectionManager referenceSizeForHeaderInSection:(NSUInteger)sectionNumber
                                                         withLayout:collectionViewLayout];
 }
 
-- (CGSize)collectionView:(UICollectionView*)collectionView
+- (CGSize)collectionView:(__unused UICollectionView*)collectionView
                   layout:(UICollectionViewFlowLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)sectionNumber
 {
     return [self.collectionManager referenceSizeForFooterInSection:(NSUInteger)sectionNumber
@@ -102,19 +102,19 @@
 
 #pragma mark - UICollectionView datasource
 
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+- (NSInteger)numberOfSectionsInCollectionView:(__unused UICollectionView*)collectionView
 {
     return (NSInteger)[self.currentStorage sections].count;
 }
 
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)sectionNumber
+- (NSInteger)collectionView:(__unused UICollectionView*)collectionView numberOfItemsInSection:(NSInteger)sectionNumber
 {
     id <ANStorageSectionModelInterface> sectionModel = [self.currentStorage sectionAtIndex:(NSUInteger)sectionNumber];
     return (NSInteger)[sectionModel numberOfObjects];
 }
 
-- (UICollectionViewCell*)collectionView:(UICollectionView *)collectionView
-                  cellForItemAtIndexPath:(NSIndexPath *)indexPath
+- (UICollectionViewCell*)collectionView:(__unused UICollectionView*)collectionView
+                 cellForItemAtIndexPath:(NSIndexPath*)indexPath
 {
     id model = [self.currentStorage objectAtIndexPath:indexPath];;
     return [self.collectionManager cellForModel:model atIndexPath:indexPath];

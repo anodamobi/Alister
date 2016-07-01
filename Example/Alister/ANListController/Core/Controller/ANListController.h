@@ -15,6 +15,7 @@
 typedef void(^ANListControllerItemSelectionBlock)(id model, NSIndexPath* indexPath);
 typedef void(^ANListControllerCellConfigurationBlock)(id<ANListControllerReusableInterface> configurator);
 typedef void(^ANListConfigurationModelUpdateBlock)(ANListControllerConfigurationModel* configurationModel);
+typedef void (^ANListControllerUpdatesFinishedTriggerBlock)();
 
 @interface ANListController : NSObject
 
@@ -26,6 +27,7 @@ typedef void(^ANListConfigurationModelUpdateBlock)(ANListControllerConfiguration
 - (void)configureCellsWithBlock:(ANListControllerCellConfigurationBlock)block;
 - (void)configureItemSelectionBlock:(ANListControllerItemSelectionBlock)block;
 - (void)updateConfigurationModelWithBlock:(ANListConfigurationModelUpdateBlock)block;
+- (void)addUpdatesFinsihedTriggerBlock:(ANListControllerUpdatesFinishedTriggerBlock)block;
 
 - (void)attachSearchBar:(UISearchBar*)searchBar;
 - (void)attachStorage:(ANStorage*)storage;

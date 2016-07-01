@@ -59,7 +59,7 @@
 
 - (void)allUpdatesFinished
 {
-    //TODO:
+    [self.delegate allUpdatesAreFinished];
 }
 
 

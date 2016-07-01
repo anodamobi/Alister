@@ -69,37 +69,37 @@
 
 #pragma mark - Supplementaries
 
-- (NSString*)tableView:(UITableView*)tableView titleForHeaderInSection:(NSInteger)sectionNumber
+- (NSString*)tableView:(__unused UITableView*)tableView titleForHeaderInSection:(NSInteger)sectionNumber
 {
     return [self.tableManager titleForSupplementaryIndex:(NSUInteger)sectionNumber
                                                     type:ANTableViewSupplementaryTypeHeader];
 }
 
-- (NSString*)tableView:(UITableView*)tableView titleForFooterInSection:(NSInteger)sectionNumber
+- (NSString*)tableView:(__unused UITableView*)tableView titleForFooterInSection:(NSInteger)sectionNumber
 {
     return [self.tableManager titleForSupplementaryIndex:(NSUInteger)sectionNumber
                                                     type:ANTableViewSupplementaryTypeFooter];
 }
 
-- (UIView*)tableView:(UITableView*)tableView viewForHeaderInSection:(NSInteger)sectionNumber
+- (UIView*)tableView:(__unused UITableView*)tableView viewForHeaderInSection:(NSInteger)sectionNumber
 {
     return [self.tableManager supplementaryViewForIndex:(NSUInteger)sectionNumber
                                                    type:ANTableViewSupplementaryTypeHeader];
 }
 
-- (UIView*)tableView:(UITableView*)tableView viewForFooterInSection:(NSInteger)sectionNumber
+- (UIView*)tableView:(__unused UITableView*)tableView viewForFooterInSection:(NSInteger)sectionNumber
 {
     return [self.tableManager supplementaryViewForIndex:(NSUInteger)sectionNumber
                                                    type:ANTableViewSupplementaryTypeFooter];
 }
 
-- (CGFloat)tableView:(UITableView*)tableView heightForHeaderInSection:(NSInteger)sectionNumber
+- (CGFloat)tableView:(__unused UITableView*)tableView heightForHeaderInSection:(NSInteger)sectionNumber
 {
     return [self.tableManager heightForSupplementaryIndex:(NSUInteger)sectionNumber
                                                      type:ANTableViewSupplementaryTypeHeader];
 }
 
-- (CGFloat)tableView:(UITableView*)tableView heightForFooterInSection:(NSInteger)sectionNumber
+- (CGFloat)tableView:(__unused UITableView*)tableView heightForFooterInSection:(NSInteger)sectionNumber
 {
     return [self.tableManager heightForSupplementaryIndex:(NSUInteger)sectionNumber
                                                      type:ANTableViewSupplementaryTypeFooter];
@@ -108,18 +108,18 @@
 
 #pragma mark - UITableView Protocols Implementation
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+- (NSInteger)numberOfSectionsInTableView:(__unused UITableView*)tableView
 {
     return (NSInteger)[self.currentStorage sections].count;
 }
 
-- (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section
+- (NSInteger)tableView:(__unused UITableView*)tableView numberOfRowsInSection:(NSInteger)section
 {
     id <ANStorageSectionModelInterface> sectionModel = [self.currentStorage sectionAtIndex:(NSUInteger)section];
     return (NSInteger)[sectionModel numberOfObjects];
 }
 
-- (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath
+- (UITableViewCell*)tableView:(__unused UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath
 {
     id model = [self.currentStorage objectAtIndexPath:indexPath];;
     return [self.tableManager cellForModel:model atIndexPath:indexPath];
@@ -135,7 +135,8 @@
     }
 }
 
-- (void)tableView:(UITableView*)tableView moveRowAtIndexPath:(NSIndexPath*)fromIndexPath toIndexPath:(NSIndexPath*)toIndexPath
+- (void)tableView:(__unused UITableView*)tableView moveRowAtIndexPath:(NSIndexPath*)fromIndexPath
+      toIndexPath:(NSIndexPath*)toIndexPath
 {
     [self.currentStorage updateWithAnimationWithBlock:^(id<ANStorageUpdatableInterface> storageController) {
         [storageController moveItemFromIndexPath:fromIndexPath toIndexPath:toIndexPath];

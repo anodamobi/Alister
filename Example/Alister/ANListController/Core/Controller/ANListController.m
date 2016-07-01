@@ -19,9 +19,10 @@
 @property (nonatomic, strong) ANStorage* searchingStorage;
 @property (nonatomic, strong) ANListControllerSearchManager* searchManager;
 @property (nonatomic, weak) ANStorage* storage;
-@property (nonatomic, copy) ANListControllerItemSelectionBlock selectionBlock;
 @property (nonatomic, strong) id<ANListControllerWrapperInterface> listViewWrapper;
 @property (nonatomic, strong) id<ANListControllerManagerInterface> manager;
+@property (nonatomic, copy) ANListControllerItemSelectionBlock selectionBlock;
+@property (nonatomic, copy) ANListControllerUpdatesFinishedTriggerBlock updatesFinishedTrigger;
 
 @end
 
@@ -58,6 +59,11 @@
         block(self.manager.configurationModel);
         [self _updateKeyboardHandlerWithConfigurationModel:[self.manager configurationModel]];
     }
+}
+
+- (void)addUpdatesFinsihedTriggerBlock:(ANListControllerUpdatesFinishedTriggerBlock)block
+{
+    self.updatesFinishedTrigger = [block copy];
 }
 
 - (void)attachStorage:(ANStorage*)storage
@@ -119,6 +125,14 @@
 {
     searchBar.delegate = self.searchManager;
     _searchBar = searchBar;
+}
+
+- (void)allUpdatesAreFinished
+{
+    if (self.updatesFinishedTrigger)
+    {
+        self.updatesFinishedTrigger();
+    }
 }
 
 

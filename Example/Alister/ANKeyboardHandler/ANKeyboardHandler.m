@@ -143,7 +143,7 @@
         }];
     };
     
-    [UIView animateWithDuration:duration animations:animationBlock completion:^(BOOL finished) {
+    [UIView animateWithDuration:duration animations:animationBlock completion:^(__unused BOOL finished) {
         if (self.animationCompletion)
         {
             self.animationCompletion(self.isKeyboardVisible);
@@ -176,7 +176,7 @@
 
 #pragma mark - UIGesture delegate
 
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
+- (BOOL)gestureRecognizer:(__unused UIGestureRecognizer*)gestureRecognizer shouldReceiveTouch:(UITouch*)touch
 {
     if ([touch.view isKindOfClass:[UIControl class]])
     {

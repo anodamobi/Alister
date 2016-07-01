@@ -18,6 +18,7 @@
 - (ANStorage*)currentStorage;
 - (id<ANListControllerWrapperInterface>)listViewWrapper;
 - (UICollectionView*)collectionView;
+- (void)allUpdatesAreFinished;
 
 @end
 

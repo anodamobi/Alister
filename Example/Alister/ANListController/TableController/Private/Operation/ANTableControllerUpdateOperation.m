@@ -91,7 +91,7 @@
             [tableView reloadSections:update.updatedSectionIndexes
                      withRowAnimation:configurationModel.reloadSectionAnimation];
             
-            [update.movedRowsIndexPaths enumerateObjectsUsingBlock:^(ANStorageMovedIndexPathModel* obj, NSUInteger idx, BOOL *stop) {
+            [update.movedRowsIndexPaths enumerateObjectsUsingBlock:^(ANStorageMovedIndexPathModel* obj, __unused NSUInteger idx, __unused BOOL *stop) {
                 
                 if (![update.deletedSectionIndexes containsIndex:(NSUInteger)obj.fromIndexPath.section])
                 {

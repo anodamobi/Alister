@@ -44,7 +44,7 @@ typedef NS_ENUM(NSInteger, ANListControllerSearchScope)
 
 #pragma mark - UISearchBarDelegate
 
-- (void)searchBar:(UISearchBar*)searchBar textDidChange:(NSString*)searchText
+- (void)searchBar:(UISearchBar*)searchBar textDidChange:(__unused NSString*)searchText
 {
     [self _filterItemsForSearchString:searchBar.text inScope:ANListControllerSearchScopeNone reload:NO];
 }

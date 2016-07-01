@@ -99,7 +99,7 @@
     {
         [storage updateWithoutAnimationWithBlock:^(id<ANStorageUpdatableInterface> storageController) {
             
-            [self.sections enumerateObjectsUsingBlock:^(ANStorageSectionModel* obj, NSUInteger idx, BOOL *stop) {
+            [self.sections enumerateObjectsUsingBlock:^(ANStorageSectionModel* obj, NSUInteger idx, __unused BOOL *stop) {
                 NSArray* filteredObjects = [obj.objects filteredArrayUsingPredicate:predicate];
                 [storageController addItems:filteredObjects toSection:idx];
             }];

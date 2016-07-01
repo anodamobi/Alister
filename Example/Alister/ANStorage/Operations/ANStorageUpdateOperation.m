@@ -72,7 +72,7 @@
 - (ANStorageUpdateModel*)mergeUpdates
 {
     __block ANStorageUpdateModel* update = [ANStorageUpdateModel new];
-    [self.updates enumerateObjectsUsingBlock:^(ANStorageUpdateModel*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [self.updates enumerateObjectsUsingBlock:^(ANStorageUpdateModel*  _Nonnull obj, __unused NSUInteger idx, __unused BOOL * _Nonnull stop) {
         [update mergeWith:obj];
     }];
     

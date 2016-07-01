@@ -55,8 +55,8 @@
 }
 
 - (id<ANListControllerUpdateViewInterface>)supplementaryViewForReuseIdentifer:(NSString*)reuseIdentifier
-                                                     kind:(NSString*)kind
-                                              atIndexPath:(NSIndexPath*)indexPath
+                                                     kind:(__unused NSString*)kind
+                                              atIndexPath:(__unused NSIndexPath*)indexPath
 {
     NSParameterAssert(reuseIdentifier);
     return [self.delegate.tableView dequeueReusableHeaderFooterViewWithIdentifier:reuseIdentifier];

@@ -54,7 +54,7 @@ static CGFloat const kDefaultTableViewHeaderHeight = 40;
         return;
     
     __block CGFloat footerContentMinY, footerContentMaxY;
-    [self.tableFooterView.subviews enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+    [self.tableFooterView.subviews enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, __unused BOOL *stop) {
         CGRect frame = [obj frame];
         if (idx == 0)
         {

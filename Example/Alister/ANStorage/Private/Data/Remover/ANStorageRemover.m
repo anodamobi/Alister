@@ -59,7 +59,7 @@
     ANStorageUpdateModel* update = [ANStorageUpdateModel new];
     NSMutableArray* indexPaths = [NSMutableArray array];
     
-    [items enumerateObjectsUsingBlock:^(id item, NSUInteger idx, BOOL *stop) {
+    [items enumerateObjectsUsingBlock:^(id item, __unused NSUInteger idx, __unused BOOL *stop) {
         
         NSIndexPath* indexPath = [ANStorageLoader indexPathForItem:item inStorage:storage];
         if (indexPath)
@@ -88,7 +88,7 @@
 {
     __block ANStorageUpdateModel* update = [ANStorageUpdateModel new];
     
-    [indexSet enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL * _Nonnull stop) {
+    [indexSet enumerateIndexesUsingBlock:^(NSUInteger idx, __unused BOOL * _Nonnull stop) {
         
         if (storage.sections.count > idx)
         {
