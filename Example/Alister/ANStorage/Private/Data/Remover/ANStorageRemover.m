@@ -33,10 +33,14 @@
     return update;
 }
 
-+ (ANStorageUpdateModel*)removeItemsAtIndexPaths:(NSArray*)indexPaths fromStorage:(ANStorageModel*)storage
++ (ANStorageUpdateModel*)removeItemsAtIndexPaths:(NSSet*)indexPaths fromStorage:(ANStorageModel*)storage
 {
     ANStorageUpdateModel* update = [ANStorageUpdateModel new];
-    [indexPaths enumerateObjectsUsingBlock:^(NSIndexPath*  _Nonnull indexPath, __unused NSUInteger idx, __unused BOOL * _Nonnull stop) {
+
+    NSSortDescriptor* sort = [NSSortDescriptor sortDescriptorWithKey:nil ascending:NO selector:@selector(compare:)];
+    NSArray* indexPathsArray = [[indexPaths allObjects] sortedArrayUsingDescriptors:@[sort]];
+    
+    [indexPathsArray enumerateObjectsUsingBlock:^(NSIndexPath*  _Nonnull indexPath, __unused NSUInteger idx, __unused BOOL * _Nonnull stop) {
         id object = [ANStorageLoader itemAtIndexPath:indexPath inStorage:storage];
         if (object)
         {
