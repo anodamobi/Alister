@@ -17,11 +17,6 @@
     }
 }
 
-- (id)model
-{
-    return nil;
-}
-
 - (void)setIsTransparent:(BOOL)isTransparent
 {
     if (isTransparent)

@@ -36,8 +36,7 @@
 + (ANStorageUpdateModel*)removeItemsAtIndexPaths:(NSArray*)indexPaths fromStorage:(ANStorageModel*)storage
 {
     ANStorageUpdateModel* update = [ANStorageUpdateModel new];
-    for (NSIndexPath* indexPath in indexPaths)
-    {
+    [indexPaths enumerateObjectsUsingBlock:^(NSIndexPath*  _Nonnull indexPath, __unused NSUInteger idx, __unused BOOL * _Nonnull stop) {
         id object = [ANStorageLoader itemAtIndexPath:indexPath inStorage:storage];
         if (object)
         {
@@ -50,7 +49,7 @@
         {
             ANStorageLog(@"ANStorage: item to delete was not found at indexPath : %@ ", indexPath);
         }
-    }
+    }];
     return update;
 }
 

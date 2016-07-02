@@ -121,7 +121,7 @@
     BOOL shouldMaskSeparator = ((tableView.style == UITableViewStylePlain) &&
                                 (type == ANTableViewSupplementaryTypeFooter));
     
-    CGFloat minHeight = shouldMaskSeparator ? 0.1 : CGFLOAT_MIN;
+    CGFloat minHeight = shouldMaskSeparator ? 0.1f : CGFLOAT_MIN;
     id model = [self supplementaryModelForIndex:index type:type];
     if (model)
     {

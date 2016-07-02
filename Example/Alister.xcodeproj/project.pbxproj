@@ -12,6 +12,8 @@
 		071323D21D26CC6C008DF0DC /* ANExampleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 071323D11D26CC6C008DF0DC /* ANExampleTableViewCell.m */; };
 		071B292F1D2748ED00D96B18 /* ANTestTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 071B292E1D2748ED00D96B18 /* ANTestTableCell.m */; };
 		071B29311D274B5300D96B18 /* ANCollectionControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 071B29301D274B5300D96B18 /* ANCollectionControllerTest.m */; };
+		071B29371D27CB0000D96B18 /* ANTestTableHeaderFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 071B29361D27CB0000D96B18 /* ANTestTableHeaderFooter.m */; };
+		071B29391D27D6B900D96B18 /* ANStorageControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 071B29381D27D6B900D96B18 /* ANStorageControllerTest.m */; };
 		078303071D274404002BA640 /* ANTableControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 078303061D274404002BA640 /* ANTableControllerTest.m */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
@@ -86,6 +88,9 @@
 		071B292D1D2748ED00D96B18 /* ANTestTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTestTableCell.h; sourceTree = "<group>"; };
 		071B292E1D2748ED00D96B18 /* ANTestTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTestTableCell.m; sourceTree = "<group>"; };
 		071B29301D274B5300D96B18 /* ANCollectionControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANCollectionControllerTest.m; sourceTree = "<group>"; };
+		071B29351D27CB0000D96B18 /* ANTestTableHeaderFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTestTableHeaderFooter.h; sourceTree = "<group>"; };
+		071B29361D27CB0000D96B18 /* ANTestTableHeaderFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTestTableHeaderFooter.m; sourceTree = "<group>"; };
+		071B29381D27D6B900D96B18 /* ANStorageControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageControllerTest.m; sourceTree = "<group>"; };
 		0749C9FE1D25CEF4004ACF1B /* ANStorageLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ANStorageLog.h; sourceTree = "<group>"; };
 		0749CA001D25E2CA004ACF1B /* ANListControllerConfigurationModelInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANListControllerConfigurationModelInterface.h; sourceTree = "<group>"; };
 		0749CA011D25E2CA004ACF1B /* ANListControllerManagerInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANListControllerManagerInterface.h; sourceTree = "<group>"; };
@@ -324,6 +329,9 @@
 				6003F5B6195388D20070C39A /* Supporting Files */,
 				071B292D1D2748ED00D96B18 /* ANTestTableCell.h */,
 				071B292E1D2748ED00D96B18 /* ANTestTableCell.m */,
+				071B29351D27CB0000D96B18 /* ANTestTableHeaderFooter.h */,
+				071B29361D27CB0000D96B18 /* ANTestTableHeaderFooter.m */,
+				071B29381D27D6B900D96B18 /* ANStorageControllerTest.m */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -1018,6 +1026,7 @@
 				D797F3F01D25AC0200FCAFB9 /* ANStorageLoader.m in Sources */,
 				6003F5A7195388D20070C39A /* ANViewController.m in Sources */,
 				D797F3F31D25AC0200FCAFB9 /* ANStorageUpdater.m in Sources */,
+				071B29371D27CB0000D96B18 /* ANTestTableHeaderFooter.m in Sources */,
 				D797F3EE1D25AC0200FCAFB9 /* ANStorageUpdateModel.m in Sources */,
 				D797F3EB1D25AC0200FCAFB9 /* ANStorageMovedIndexPathModel.m in Sources */,
 				D797F3F51D25AC0200FCAFB9 /* ANStorage.m in Sources */,
@@ -1043,6 +1052,7 @@
 			files = (
 				071B29311D274B5300D96B18 /* ANCollectionControllerTest.m in Sources */,
 				078303071D274404002BA640 /* ANTableControllerTest.m in Sources */,
+				071B29391D27D6B900D96B18 /* ANStorageControllerTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

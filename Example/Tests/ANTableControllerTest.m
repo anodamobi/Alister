@@ -11,6 +11,7 @@
 #import "ANStorage.h"
 #import "Expecta.h"
 #import "ANTestTableCell.h"
+#import "ANTestTableHeaderFooter.h"
 
 @interface ANTableControllerTest : XCTestCase
 
@@ -62,7 +63,7 @@
     }];
     //then
     UITableViewCell* cell = [self.tw dequeueReusableCellWithIdentifier:NSStringFromClass([NSString class])];
-    expect(cell).notTo.beNil;
+    expect(cell).notTo.beNil();
     expect(cell).beKindOf([UITableViewCell class]);
 }
 
@@ -76,14 +77,14 @@
     }];
     
     //when
-    __block XCTestExpectation *expectation = [self expectationWithDescription:@"addUpdatesFinsihedTriggerBlock called"];
+    XCTestExpectation *expectation = [self expectationWithDescription:@"testConfigureCellsWithBlockRetriveFromTableController called"];
     
     __weak typeof(self) welf = self;
     [self.listController addUpdatesFinsihedTriggerBlock:^{
         [expectation fulfill];
         ANTestTableCell* cell = (id)[welf.listController tableView:welf.tw
                                              cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-        expect(cell).notTo.beNil;
+        expect(cell).notTo.beNil();
         expect(cell.model).equal(testModel);
         expect(cell.textLabel.text).equal(testModel);
     }];
@@ -106,7 +107,7 @@
     }];
     
     //when
-    __block XCTestExpectation *expectation = [self expectationWithDescription:@"configureItemSelectionBlock called"];
+    XCTestExpectation *expectation = [self expectationWithDescription:@"configureItemSelectionBlock called"];
     __weak typeof(self) welf = self;
     
     [self.listController configureItemSelectionBlock:^(id model, NSIndexPath *indexPath) {
@@ -129,20 +130,92 @@
     [self waitForExpectationsWithTimeout:0.1 handler:nil];
 }
 
-- (void)testUpdateConfigurationModelWithBlock
+- (void)testUpdateConfigurationModelWithBlockSetToNO
 {
-
+    //given
+    XCTestExpectation *expectation = [self expectationWithDescription:@"updateConfigurationModelWithBlock called"];
+    
+    NSString* testModel = @"Mock";
+    self.tw.sectionHeaderHeight = 30;
+    
+    [self.listController configureCellsWithBlock:^(id<ANListControllerReusableInterface> configurator) {
+        [configurator registerCellClass:[ANTestTableCell class] forSystemClass:[NSString class]];
+        [configurator registerHeaderClass:[ANTestTableHeaderFooter class] forSystemClass:[NSString class]];
+    }];
+    
+    [self.storage updateWithoutAnimationWithBlock:^(id<ANStorageUpdatableInterface> storageController) {
+        [storageController setSectionHeaderModel:testModel forSectionIndex:0];
+        [storageController addItem:testModel];
+    }];
+    
+    UIView* header = [self.tw headerViewForSection:0];
+    expect(header).willNot.beNil();
+    
+    //when
+    [self.listController updateConfigurationModelWithBlock:^(ANListControllerConfigurationModel *configurationModel) {
+        [expectation fulfill];
+        configurationModel.shouldHandleKeyboard = NO;
+        configurationModel.shouldDisplayHeaderOnEmptySection = NO;
+    }];
+    
+    //then
+    header = [self.tw headerViewForSection:0];
+    [self waitForExpectationsWithTimeout:0.1 handler:nil];
+    expect(self.listController.keyboardHandler).to.beNil();
+    expect(header).beNil();
 }
 
 - (void)testAddUpdatesFinsihedTriggerBlock
 {
-
+    //given
+    NSString* testModel = @"Mock";
+    
+    [self.listController configureCellsWithBlock:^(id<ANListControllerReusableInterface> configurator) {
+        [configurator registerCellClass:[ANTestTableCell class] forSystemClass:[NSString class]];
+    }];
+    
+    //when
+    XCTestExpectation *expectation = [self expectationWithDescription:@"testAddUpdatesFinsihedTriggerBlock called"];
+    
+    [self.listController addUpdatesFinsihedTriggerBlock:^{
+        [expectation fulfill];
+    }];
+    
+    [self.storage updateWithoutAnimationWithBlock:^(id<ANStorageUpdatableInterface> storageController) {
+        [storageController addItem:testModel];
+    }];
+    
+    //then
+    [self waitForExpectationsWithTimeout:0.1 handler:nil];
 }
 
 - (void)testAttachSearchBar
 {
-
+    //given
+    UISearchBar* searchBar = [UISearchBar new];
+    //when
+    [self.listController attachSearchBar:searchBar];
+    //then
+    expect(self.listController.searchBar).notTo.beNil();
+    expect(self.listController.searchBar).equal(searchBar);
 }
 
+- (void)testControllerWithTableView
+{
+    //when
+    ANTableController* tc = [ANTableController controllerWithTableView:self.tw];
+    //then
+    expect(tc.tableView).notTo.beNil();
+    expect(tc.tableView).equal(self.tw);
+}
+
+- (void)testInitWithTableView
+{
+    //when
+    ANTableController* tc = [[ANTableController alloc] initWithTableView:self.tw];
+    //then
+    expect(tc.tableView).notTo.beNil();
+    expect(tc.tableView).equal(self.tw);
+}
 
 @end
