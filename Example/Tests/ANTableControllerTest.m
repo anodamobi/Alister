@@ -126,7 +126,7 @@
     }];
     
     //then
-    [self waitForExpectationsWithTimeout:10 handler:nil];
+    [self waitForExpectationsWithTimeout:0.1 handler:nil];
 }
 
 - (void)testUpdateConfigurationModelWithBlock
