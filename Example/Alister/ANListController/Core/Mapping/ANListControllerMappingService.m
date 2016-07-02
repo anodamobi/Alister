@@ -30,6 +30,9 @@ static NSString* const kCellConstant = @"kANCellIdentifier";
 
 - (ANListControllerMappingModel*)mappingForViewModelClass:(Class)viewModelClass kind:(NSString*)kind isSystem:(BOOL)isSystem
 {
+    NSAssert(viewModelClass, @"You must provide viewModel class for cell");
+    NSAssert(kind, @"You must kind type for list item");
+    
     ANListControllerMappingModel* model = [self _existingMappingForViewModel:viewModelClass kind:kind];
     if (!model)
     {

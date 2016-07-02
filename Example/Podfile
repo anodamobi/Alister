@@ -2,13 +2,10 @@ use_frameworks!
 
 target 'Alister_Example' do
   pod 'Alister', :path => '../'
-
-  target 'Alister_Tests' do
-    inherit! :search_paths
-
-    pod 'Specta'
-  pod 'Expecta'
-  pod 'FBSnapshotTestCase'
-  pod 'Expecta+Snapshots'
-  end
 end
+
+target 'Alister_Tests' do
+    pod 'Specta'
+    pod 'Expecta'
+end
+

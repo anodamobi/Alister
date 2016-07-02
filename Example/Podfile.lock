@@ -1,22 +1,11 @@
 PODS:
   - Alister (0.1.0)
   - Expecta (1.0.5)
-  - Expecta+Snapshots (3.0.0):
-    - Expecta (~> 1.0)
-    - FBSnapshotTestCase/Core (~> 2.0)
-    - Specta (~> 1.0)
-  - FBSnapshotTestCase (2.1.1):
-    - FBSnapshotTestCase/SwiftSupport (= 2.1.1)
-  - FBSnapshotTestCase/Core (2.1.1)
-  - FBSnapshotTestCase/SwiftSupport (2.1.1):
-    - FBSnapshotTestCase/Core
   - Specta (1.0.5)
 
 DEPENDENCIES:
   - Alister (from `../`)
   - Expecta
-  - Expecta+Snapshots
-  - FBSnapshotTestCase
   - Specta
 
 EXTERNAL SOURCES:
@@ -26,10 +15,8 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Alister: 8a4c07f27bf551d774c2485084765c8b3c680d6d
   Expecta: e1c022fcd33910b6be89c291d2775b3fe27a89fe
-  Expecta+Snapshots: c343f410c7a6392f3e22e78f94c44b6c0749a516
-  FBSnapshotTestCase: 432afd8d059ccef7f207225894840a03fbcf7474
   Specta: ac94d110b865115fe60ff2c6d7281053c6f8e8a2
 
-PODFILE CHECKSUM: 07cde49271af7f429c1425e1988d6cdef85994dd
+PODFILE CHECKSUM: 42d0b637ba02b056971f0f2e687dc1bdf1347702
 
 COCOAPODS: 1.0.0

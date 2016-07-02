@@ -41,6 +41,18 @@
     
     [self.storage updateWithAnimationWithBlock:^(id<ANStorageUpdatableInterface> storageController) {
         [storageController addItem:@"Test"];
+        [storageController addItem:@"Test"];
+        [storageController addItem:@"Test"];
+        [storageController addItem:@"Test"];
+        [storageController addItem:@"Test"];
+        [storageController addItem:@"Test"];
+        [storageController addItem:@"Test"];
+    }];
+    
+    __weak typeof(self) welf = self;
+    
+    [self.controller addUpdatesFinsihedTriggerBlock:^{
+
     }];
     
 //    for (NSUInteger i = 0; i < 10; i++)
