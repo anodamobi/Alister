@@ -165,19 +165,55 @@
     expect([self.controller sections]).haveCount(1);
 }
 
-- (void)removeItems:(NSArray*)items
+- (void)testRemoveItems
 {
-	
+    //given
+    NSString* testModel = @"test0";
+    NSArray* items = @[@"test1", @"test2", @"test3"];
+    
+    [self.controller addItem:testModel];
+    [self.controller addItems:items];
+    
+    //when
+    [self.controller removeItems:items];
+    
+    //then
+    expect([self.controller itemsInSection:0]).haveCount(1);
 }
 
-- (void)removeAllItems
+- (void)testRemoveAllItems
 {
-	
+    //given
+    NSString* testModel = @"test0";
+    NSArray* items = @[@"test1", @"test2", @"test3"];
+    
+    [self.controller addItem:testModel];
+    [self.controller addItems:items];
+    
+    //when
+    [self.controller removeAllItemsAndSections];
+    
+    //then
+    expect([self.controller sections]).haveCount(0);
+    expect(self.controller.isEmpty).beTruthy();
 }
 
-- (void)removeSections:(NSIndexSet*)indexSet
+- (void)testRemoveSections:(NSIndexSet*)indexSet
 {
-	
+    //given
+    NSString* testModel = @"test0";
+    NSArray* items = @[@"test1", @"test2", @"test3"];
+    
+    [self.controller addItem:testModel toSection:1];
+    [self.controller addItems:items toSection:0];
+    
+    //when
+    [self.controller removeSections:[NSIndexSet indexSetWithIndex:0]];
+    
+    //then
+    expect([self.controller itemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]]).equal(testModel);
+    expect([self.controller sections]).haveCount(1);
+    expect(self.controller.isEmpty).beFalsy();
 }
 
 - (void)replaceItem:(id)itemToReplace withItem:(id)replacingItem
@@ -232,7 +268,7 @@
     expect(self.controller.isEmpty).beFalsy();
     
     //when
-    [self.controller removeAllItems];
+    [self.controller removeAllItemsAndSections];
     
     //then
     expect(self.controller.isEmpty).beTruthy();

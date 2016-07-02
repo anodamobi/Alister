@@ -100,7 +100,7 @@
     [self.updateDelegate collectUpdate:update];
 }
 
-- (void)removeAllItems
+- (void)removeAllItemsAndSections
 {
     ANStorageUpdateModel* update = [ANStorageRemover removeAllItemsFromStorage:self.storage];
     update.isRequireReload = YES;

@@ -30,7 +30,7 @@
 - (void)removeItem:(id)item;
 - (void)removeItemsAtIndexPaths:(NSArray*)indexPaths;
 - (void)removeItems:(NSArray*)items;
-- (void)removeAllItems;
+- (void)removeAllItemsAndSections;
 
 
 #pragma mark - Changing and Reorder Items
