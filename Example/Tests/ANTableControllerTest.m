@@ -28,11 +28,15 @@
     self.storage = [ANStorage new];
     self.tw = [UITableView new];
     self.listController = [ANTableController controllerWithTableView:self.tw];
+    [self.listController attachStorage:self.storage];
 }
 
 - (void)tearDown
-{
+{//TODO: zoombie
+    self.listController = nil;
+    self.tw = nil;
     self.storage = nil;
+    
     [super tearDown];
 }
 
@@ -48,7 +52,7 @@
     expect(listController.currentStorage).equal(storage);
 }
 
-- (void)testConfigureCellsWithBlock
+- (void)testConfigureCellsWithBlockRetriveFromTabelView
 {
     //given
    
@@ -59,9 +63,10 @@
     //then
     UITableViewCell* cell = [self.tw dequeueReusableCellWithIdentifier:NSStringFromClass([NSString class])];
     expect(cell).notTo.beNil;
+    expect(cell).beKindOf([UITableViewCell class]);
 }
 
-- (void)testConfigureItemSelectionBlock
+- (void)testConfigureCellsWithBlockRetriveFromTableController
 {
     //given
     NSString* testModel = @"Mock";
@@ -70,9 +75,7 @@
         [configurator registerCellClass:[ANTestTableCell class] forSystemClass:[NSString class]];
     }];
     
-    
-    
-    //then
+    //when
     __block XCTestExpectation *expectation = [self expectationWithDescription:@"addUpdatesFinsihedTriggerBlock called"];
     
     __weak typeof(self) welf = self;
@@ -85,12 +88,45 @@
         expect(cell.textLabel.text).equal(testModel);
     }];
     
-    [self waitForExpectationsWithTimeout:1 handler:nil];
-    
-    //when
     [self.storage updateWithoutAnimationWithBlock:^(id<ANStorageUpdatableInterface> storageController) {
         [storageController addItem:testModel];
     }];
+    
+    //then
+    [self waitForExpectationsWithTimeout:0.1 handler:nil];
+}
+
+- (void)testConfigureItemSelectionBlock
+{
+    //given
+    NSString* testModel = @"Mock";
+    
+    [self.listController configureCellsWithBlock:^(id<ANListControllerReusableInterface> configurator) {
+        [configurator registerCellClass:[ANTestTableCell class] forSystemClass:[NSString class]];
+    }];
+    
+    //when
+    __block XCTestExpectation *expectation = [self expectationWithDescription:@"configureItemSelectionBlock called"];
+    __weak typeof(self) welf = self;
+    
+    [self.listController configureItemSelectionBlock:^(id model, NSIndexPath *indexPath) {
+        [expectation fulfill];
+        expect(model).equal(testModel);
+        expect(indexPath.row).equal(0);
+        expect(indexPath.section).equal(0);
+    }];
+    
+    [self.listController addUpdatesFinsihedTriggerBlock:^{
+        [welf.listController tableView:welf.tw
+               didSelectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    }];
+    
+    [self.storage updateWithoutAnimationWithBlock:^(id<ANStorageUpdatableInterface> storageController) {
+        [storageController addItem:testModel];
+    }];
+    
+    //then
+    [self waitForExpectationsWithTimeout:10 handler:nil];
 }
 
 - (void)testUpdateConfigurationModelWithBlock

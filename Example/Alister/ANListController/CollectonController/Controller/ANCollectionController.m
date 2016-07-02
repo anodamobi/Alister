@@ -51,11 +51,6 @@
     return self;
 }
 
-- (void)resetStorage
-{
-    self.storage = [ANStorage new];
-}
-
 - (ANCollectionControllerManager*)collectionManager
 {
     return self.manager;

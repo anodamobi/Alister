@@ -23,6 +23,4 @@
 
 - (instancetype)initWithCollectionView:(UICollectionView*)collectionView;
 
-- (void)resetStorage;
-
 @end

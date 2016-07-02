@@ -40,6 +40,11 @@
     return self;
 }
 
+- (void)dealloc
+{
+    [self.queue removeObserver:self forKeyPath:NSStringFromSelector(@selector(operations))];
+}
+
 - (id<ANListControllerConfigurationModelInterface>)configurationModel
 {
     return [self.delegate configurationModel];

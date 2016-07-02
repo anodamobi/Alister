@@ -64,6 +64,9 @@
     UITableView* tableView = self.tableView;
     tableView.delegate = nil;
     tableView.dataSource = nil;
+    self.tableView = nil;
+    self.storage.listController = nil;
+    self.storage = nil;
 }
 
 
