@@ -91,27 +91,21 @@
     [self waitForExpectationsWithTimeout:0.1 handler:nil];
 }
 
-- (void)testUpdateConfigurationModelWithBlock //TODO: bad validation
+- (void)testUpdateConfigurationModelWithBlock
 {
     //given
     XCTestExpectation *expectation = [self expectationWithDescription:@"updateConfigurationModelWithBlock called"];
-    NSNumber* testModel = @123; // not a string
-//    [self _setAsSystemHeader:testModel];
 
     //when
     [self.listController updateConfigurationModelWithBlock:^(ANListControllerConfigurationModel *configurationModel) {
-        [expectation fulfill];
         configurationModel.shouldHandleKeyboard = NO;
         configurationModel.shouldDisplayHeaderOnEmptySection = NO;
     }];
     
-    __weak typeof(self.listController) weakController = self.listController;
-    ANTableController* controller = self.listController;
-    
-    [controller addUpdatesFinsihedTriggerBlock:^{
-        UIView* emptyHeader = [weakController tableView:self.tw viewForHeaderInSection:0];
-        expect(weakController.keyboardHandler).to.beNil();
-        expect(emptyHeader).will.beNil();
+    [self.listController updateConfigurationModelWithBlock:^(ANListControllerConfigurationModel *configurationModel) {
+        [expectation fulfill];
+        expect(configurationModel.shouldHandleKeyboard).beFalsy();
+        expect(configurationModel.shouldDisplayHeaderOnEmptySection).beFalsy();
     }];
     
     //then
