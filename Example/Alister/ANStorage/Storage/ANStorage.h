@@ -28,4 +28,7 @@ typedef NSPredicate*(^ANStorageSearchPredicate)(NSString* searchString, NSIntege
 - (void)updateWithoutAnimationWithBlock:(ANDataStorageUpdateBlock)block;
 - (void)reloadStorageWithAnimation:(BOOL)isAnimatable;
 
+//private ://todo
+- (void)updateHeaderKind:(NSString*)headerKind footerKind:(NSString*)footerKind;
+
 @end

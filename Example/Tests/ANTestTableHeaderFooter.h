@@ -10,4 +10,6 @@
 
 @interface ANTestTableHeaderFooter : ANBaseTableViewHeaderFooterView
 
+@property (nonatomic, strong) id model;
+
 @end

@@ -10,4 +10,9 @@
 
 @implementation ANTestTableHeaderFooter
 
+- (void)updateWithModel:(id)model
+{
+    self.model = model;
+}
+
 @end

@@ -42,7 +42,6 @@
     [self _updateWithBlock:block animatable:NO];
 }
 
-
 - (void)reloadStorageWithAnimation:(BOOL)isAnimatable
 {
     id<ANStorageUpdatingInterface> listController = self.listController;
@@ -110,6 +109,12 @@
         ANStorageLog(@"No predicate was created, so no searching. Check your setter for storagePredicateBlock");
     }
     return storage;
+}
+
+- (void)updateHeaderKind:(NSString*)headerKind footerKind:(NSString*)footerKind
+{
+    [self.controller setSupplementaryHeaderKind:headerKind];
+    [self.controller setSupplementaryFooterKind:footerKind];
 }
 
 

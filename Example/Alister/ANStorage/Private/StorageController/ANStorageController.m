@@ -200,7 +200,7 @@
     [self.updateDelegate collectUpdate:update];
 }
 
-- (void)setSupplementaryHeaderKind:(NSString*)headerKind
+- (void)setSupplementaryHeaderKind:(NSString*)headerKind //TODO: set is a bad naming
 {
     self.headerKind = headerKind;
 }
