@@ -12,6 +12,12 @@
 
 - (NSArray*)sections;
 
+- (void)addItems:(NSArray*)items toSection:(NSUInteger)sectionIndex;
+
+- (id)itemAtIndexPath:(NSIndexPath*)indexPath;
+- (NSArray*)itemsInSection:(NSUInteger)section;
+
+
 - (void)addSection:(id)section;
 
 - (id)sectionAtIndex:(NSUInteger)index;

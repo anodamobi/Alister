@@ -9,6 +9,7 @@
 #import <XCTest/XCTest.h>
 #import "ANStorageController.h"
 #import "Expecta.h"
+#import "AnstorageModel.h"
 
 @interface ANStorageController ()
 
@@ -46,8 +47,8 @@
     [self.controller addItem:testModel];
     
     //then
-    expect([self.controller itemsInSection:0]).haveCount(1);
-    expect([self.controller itemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]]).equal(testModel);
+    expect([self.controller.storage itemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]]).equal(testModel);
+    expect(self.controller.storage.sections).haveCount(1);
 }
 
 - (void)testAddItems
@@ -63,9 +64,9 @@
     
     //then
     expect([self.controller itemsInSection:0]).haveCount(testModel.count);
-    expect([self.controller itemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]]).equal(testModel[0]);
-    expect([self.controller itemAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]]).equal(testModel[1]);
-    expect([self.controller itemAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]]).equal(testModel[2]);
+    expect([self.controller.storage itemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]]).equal(testModel[0]);
+    expect([self.controller.storage itemAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]]).equal(testModel[1]);
+    expect([self.controller.storage itemAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]]).equal(testModel[2]);
 }
 
 - (void)testAddItemToSection
@@ -77,11 +78,11 @@
     [self.controller addItem:testModel toSection:2];
     
     //then
-    expect([self.controller itemsInSection:0]).haveCount(0);
-    expect([self.controller itemsInSection:1]).haveCount(0);
-    expect([self.controller itemsInSection:2]).haveCount(1);
-    expect([self.controller sections]).haveCount(3);
-    expect([self.controller itemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:2]]).equal(testModel);
+    expect([self.controller.storage itemsInSection:0]).haveCount(0);
+    expect([self.controller.storage itemsInSection:1]).haveCount(0);
+    expect([self.controller.storage itemsInSection:2]).haveCount(1);
+    expect([self.controller.storage sections]).haveCount(3);
+    expect([self.controller.storage itemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:2]]).equal(testModel);
 }
 
 - (void)testAddItemsToSection
@@ -96,14 +97,14 @@
     [self.controller addItems:testModel toSection:3];
     
     //then
-    expect([self.controller itemsInSection:0]).haveCount(0);
-    expect([self.controller itemsInSection:1]).haveCount(0);
-    expect([self.controller itemsInSection:2]).haveCount(0);
-    expect([self.controller itemsInSection:3]).haveCount(testModel.count);
-    expect([self.controller sections]).haveCount(4);
-    expect([self.controller itemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:3]]).equal(testModel[0]);
-    expect([self.controller itemAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:3]]).equal(testModel[1]);
-    expect([self.controller itemAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:3]]).equal(testModel[2]);
+    expect([self.controller.storage itemsInSection:0]).haveCount(0);
+    expect([self.controller.storage itemsInSection:1]).haveCount(0);
+    expect([self.controller.storage itemsInSection:2]).haveCount(0);
+    expect([self.controller.storage itemsInSection:3]).haveCount(testModel.count);
+    expect([self.controller.storage sections]).haveCount(4);
+    expect([self.controller.storage itemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:3]]).equal(testModel[0]);
+    expect([self.controller.storage itemAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:3]]).equal(testModel[1]);
+    expect([self.controller.storage itemAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:3]]).equal(testModel[2]);
 }
 
 - (void)testAddItemAtIndexPath
@@ -115,10 +116,10 @@
     [self.controller addItem:testModel atIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]];
     
     //then
-    expect([self.controller itemsInSection:0]).haveCount(0);
-    expect([self.controller itemsInSection:1]).haveCount(1);
-    expect([self.controller sections]).haveCount(2);
-    expect([self.controller itemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]]).equal(testModel);
+    expect([self.controller.storage itemsInSection:0]).haveCount(0);
+    expect([self.controller.storage itemsInSection:1]).haveCount(1);
+    expect([self.controller.storage sections]).haveCount(2);
+    expect([self.controller.storage itemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]]).equal(testModel);
 }
 
 - (void)reloadItem
@@ -136,14 +137,15 @@
     //given
     NSString* testModel = @"test";
     [self.controller addItem:testModel];
+//    expect([self.controller.storage])
     
     //when
     [self.controller removeItem:testModel];
     
     //then
-    expect([self.controller itemsInSection:0]).haveCount(0);
-    expect([self.controller sections]).haveCount(1);
-    expect([self.controller itemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]]).beNil();
+    expect([self.controller.storage itemsInSection:0]).haveCount(0);
+    expect([self.controller.storage sections]).haveCount(1);
+    expect([self.controller.storage itemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]]).beNil();
 }
 
 - (void)testRemoveItemsAtIndexPaths
@@ -161,8 +163,8 @@
     [self.controller removeItemsAtIndexPaths:indexPaths];
     
     //then
-    expect([self.controller itemsInSection:0]).haveCount(0);
-    expect([self.controller sections]).haveCount(1);
+    expect([self.controller.storage itemsInSection:0]).haveCount(0);
+    expect([self.controller.storage sections]).haveCount(1);
 }
 
 - (void)testRemoveItems
@@ -171,14 +173,14 @@
     NSString* testModel = @"test0";
     NSArray* items = @[@"test1", @"test2", @"test3"];
     
-    [self.controller addItem:testModel];
-    [self.controller addItems:items];
+    [self.controller.storage addItem:testModel];
+    [self.controller.storage addItems:items];
     
     //when
     [self.controller removeItems:items];
     
     //then
-    expect([self.controller itemsInSection:0]).haveCount(1);
+    expect([self.controller.storage itemsInSection:0]).haveCount(1);
 }
 
 - (void)testRemoveAllItems
@@ -216,47 +218,86 @@
     expect(self.controller.isEmpty).beFalsy();
 }
 
-- (void)replaceItem:(id)itemToReplace withItem:(id)replacingItem
+- (void)testReplaceItemWithItem
+{
+    //given
+    NSString* testModel = @"test0";
+    NSString* testModel1 = @"test1";
+    
+    [self.controller addItem:testModel toSection:0];
+    
+    //when
+    [self.controller replaceItem:testModel withItem:testModel1];
+    
+    //then
+    expect([self.controller itemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]]).equal(testModel1);
+    expect([self.controller sections]).haveCount(1);
+    expect([self.controller itemsInSection:0]).haveCount(1);
+}
+
+- (void)testMoveItemFromIndexPathToIndexPath
+{
+    //given
+    NSString* testModel = @"test0";
+    
+    [self.controller addItem:testModel toSection:0];
+    
+    //when
+    [self.controller moveItemFromIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]
+                               toIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]];
+    
+    //then
+    expect([self.controller itemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]]).equal(testModel);
+    expect([self.controller itemsInSection:0]).haveCount(0);
+}
+
+- (void)testSections
+{
+    //given
+    NSString* testModel = @"test0";
+    
+    //when
+    [self.controller addItem:testModel toSection:0];
+    [self.controller addItem:testModel toSection:1];
+    [self.controller addItem:testModel toSection:2];
+    
+    //then
+    expect([self.controller sections]).haveCount(3);
+}
+
+- (void)testObjectAtIndexPath
+{
+    //given
+    NSString* testModel = @"test0";
+    
+    //when
+    [self.controller addItem:testModel toSection:0];
+    
+    //then
+    expect([self.controller itemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]]).equal(testModel);
+}
+
+- (void)testSectionAtIndex
 {
 	
 }
 
-- (void)moveItemFromIndexPathToIndexPath:(NSIndexPath*)toIndexPath
+- (void)testItemsInSection
 {
 	
 }
 
-- (void)sections
+- (void)testItemAtIndexPath
 {
 	
 }
 
-- (void)objectAtIndexPath
+- (void)testIndexPathForItem
 {
 	
 }
 
-- (void)sectionAtIndex
-{
-	
-}
-
-- (void)itemsInSection
-{
-	
-}
-
-- (void)itemAtIndexPath
-{
-	
-}
-
-- (void)indexPathForItem
-{
-	
-}
-
-- (void)isEmpty
+- (void)testIsEmpty
 {
     //given
     expect(self.controller.isEmpty).beTruthy();
