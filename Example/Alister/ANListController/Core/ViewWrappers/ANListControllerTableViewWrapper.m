@@ -35,7 +35,7 @@
     NSAssert(supplementaryClass, @"You must specify supplementary class");
     
     NSParameterAssert([supplementaryClass isSubclassOfClass:[UITableViewHeaderFooterView class]]);
-    
+    //TODO: dispatch to main
     [self.delegate.tableView registerClass:supplementaryClass forHeaderFooterViewReuseIdentifier:reuseIdentifier];
 }
 

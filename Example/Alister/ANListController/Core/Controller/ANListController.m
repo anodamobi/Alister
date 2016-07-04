@@ -69,7 +69,9 @@
 - (void)attachStorage:(ANStorage*)storage
 {
     self.storage = storage;
-    [self _attachStorage:storage];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+       [self _attachStorage:storage];
+    });
 }
 
 - (void)dealloc
@@ -155,10 +157,14 @@
 {
     storage.listController = [self.manager updateHandler];
     
+    __block BOOL flag = NO;
     [storage updateWithoutAnimationWithBlock:^(id<ANStorageUpdatableInterface> storageController) {
         [storageController setSupplementaryHeaderKind:self.manager.configurationModel.defaultHeaderSupplementary];
         [storageController setSupplementaryFooterKind:self.manager.configurationModel.defaultFooterSupplementary];
+        flag = YES;
     }];
+    while (!flag);
+
     [self.storage.listController storageNeedsReloadWithIdentifier:storage.identifier];
 }
 

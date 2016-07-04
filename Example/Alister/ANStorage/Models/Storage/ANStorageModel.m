@@ -27,15 +27,6 @@
     return self;
 }
 
-- (void)addItems:(NSArray*)items toSection:(NSUInteger)sectionIndex
-{
-    ANStorageSectionModel* section = [self sectionAtIndex:sectionIndex];
-    if (section)
-    {
-        [section addit]
-    }
-}
-
 - (id)objectAtIndex:(NSUInteger)index inSection:(NSUInteger)section
 {
     if (self.sectionModels.count < index)

@@ -10,18 +10,13 @@
 
 @interface ANStorageModel : NSObject
 
-- (NSArray*)sections;
-
-- (void)addItems:(NSArray*)items toSection:(NSUInteger)sectionIndex;
-
 - (id)itemAtIndexPath:(NSIndexPath*)indexPath;
 - (NSArray*)itemsInSection:(NSUInteger)section;
 
-
-- (void)addSection:(id)section;
-
+//sections
+- (NSArray*)sections;
 - (id)sectionAtIndex:(NSUInteger)index;
-
+- (void)addSection:(id)section;
 - (void)removeSectionAtIndex:(NSUInteger)index;
 - (void)removeAllSections;
 

@@ -9,7 +9,7 @@
 #import <XCTest/XCTest.h>
 #import "ANTableController.h"
 #import "ANStorage.h"
-#import "Expecta.h"
+#import <Expecta/Expecta.h>
 #import "ANTestTableCell.h"
 #import "ANTestTableHeaderFooter.h"
 
@@ -18,14 +18,26 @@
 @property (nonatomic, strong) ANStorage* storage;
 @property (nonatomic, strong) UITableView* tw;
 @property (nonatomic, strong) ANTableController* listController;
+@property (nonatomic) dispatch_group_t dispatchGroup;
 
 @end
 
 @implementation ANTableControllerTest
 
+- (void)performGroupedBlock:(dispatch_block_t)block
+{
+    
+    dispatch_group_enter(self.dispatchGroup);
+    block();
+    dispatch_group_leave(self.dispatchGroup);
+}
+
 - (void)setUp
 {
     [super setUp];
+    
+    self.dispatchGroup = dispatch_group_create();
+    
     self.storage = [ANStorage new];
     self.tw = [UITableView new];
     self.listController = [ANTableController controllerWithTableView:self.tw];
@@ -130,26 +142,27 @@
     [self waitForExpectationsWithTimeout:0.1 handler:nil];
 }
 
-- (void)DISABLEDtestUpdateConfigurationModelWithBlockSetToNO//todo:
+- (void)testUpdateConfigurationModelWithBlockSetToNO
 {
     //given
     XCTestExpectation *expectation = [self expectationWithDescription:@"updateConfigurationModelWithBlock called"];
     
-    NSString* testModel = @"Mock";
+    NSNumber* testModel = @123; // not a string
     self.tw.sectionHeaderHeight = 30;
     
     [self.listController configureCellsWithBlock:^(id<ANListControllerReusableInterface> configurator) {
-        [configurator registerCellClass:[ANTestTableCell class] forSystemClass:[NSString class]];
-        [configurator registerHeaderClass:[ANTestTableHeaderFooter class] forSystemClass:[NSString class]];
+        [configurator registerHeaderClass:[ANTestTableHeaderFooter class] forSystemClass:[NSNumber class]];
     }];
     
     [self.storage updateWithoutAnimationWithBlock:^(id<ANStorageUpdatableInterface> storageController) {
         [storageController setSectionHeaderModel:testModel forSectionIndex:0];
-        [storageController addItem:testModel];
     }];
     
-    UIView* header = [self.tw headerViewForSection:0];
-    expect(header).willNot.beNil();
+    __weak typeof(self) welf = self;
+    [self.listController addUpdatesFinsihedTriggerBlock:^{
+        UIView* header = [welf.listController tableView:welf.tw viewForHeaderInSection:0];
+        expect(header).willNot.beNil(); // separate on 2 tests
+    }];
     
     //when
     [self.listController updateConfigurationModelWithBlock:^(ANListControllerConfigurationModel *configurationModel) {
@@ -159,9 +172,32 @@
     }];
     
     //then
-    header = [self.tw headerViewForSection:0];
+    UIView* header = [self.tw headerViewForSection:0];
     [self waitForExpectationsWithTimeout:0.1 handler:nil];
     expect(self.listController.keyboardHandler).to.beNil();
+    expect(header).beNil();
+}
+
+- (void)testTitleForHeaderInSectionWithNSStringSectionModel
+{
+    //given
+    NSString* testModel = @"Mock";
+    self.tw.sectionHeaderHeight = 30;
+    
+    [self.listController configureCellsWithBlock:^(id<ANListControllerReusableInterface> configurator) {
+        [configurator registerHeaderClass:[ANTestTableHeaderFooter class] forSystemClass:[NSString class]];
+    }];
+    
+    [self.storage updateWithoutAnimationWithBlock:^(id<ANStorageUpdatableInterface> storageController) {
+        [storageController setSectionHeaderModel:testModel forSectionIndex:0];
+    }];
+    
+    UIView* header = [self.listController tableView:self.tw viewForHeaderInSection:0];
+    NSString* titleHeader = [self.listController tableView:self.tw titleForHeaderInSection:0];
+    
+    //then
+
+    expect(titleHeader).notTo.beNil();
     expect(header).beNil();
 }
 

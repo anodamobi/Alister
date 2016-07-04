@@ -14,8 +14,8 @@
 @interface ANViewController ()
 
 @property (nonatomic, strong) UITableView* tableView;
-//@property (nonatomic, strong) ANTableController* controller;
-//@property (nonatomic, strong) ANStorage* storage;
+@property (nonatomic, strong) ANTableController* controller;
+@property (nonatomic, strong) ANStorage* storage;
 
 @end
 
@@ -27,39 +27,40 @@
     if (self)
     {
         self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
-        ANStorage* storage = [ANStorage new];
-        ANTableController* controller = [ANTableController controllerWithTableView:self.tableView];
-        [controller attachStorage:storage];
+        self.storage = [ANStorage new];
+        self.controller = [ANTableController controllerWithTableView:self.tableView];
+        [self.controller attachStorage:self.storage];
         
-        [controller configureCellsWithBlock:^(id<ANListControllerReusableInterface> configurator) {
+        [self.controller configureCellsWithBlock:^(id<ANListControllerReusableInterface> configurator) {
             [configurator registerCellClass:[ANExampleTableViewCell class] forSystemClass:[NSString class]];
         }];
         
-        //    [self.storage updateWithAnimationWithBlock:^(id<ANStorageUpdatableInterface> storageController) {
-        //        [storageController addItem:@"Test"];
-        //        [storageController addItem:@"Test"];
-        //        [storageController addItem:@"Test"];
-        //        [storageController addItem:@"Test"];
-        //        [storageController addItem:@"Test"];
-        //        [storageController addItem:@"Test"];
-        //        [storageController addItem:@"Test"];
-        //    }];
-        
-        __weak typeof(controller) welf = controller;
-        
-        [controller configureItemSelectionBlock:^(id model, NSIndexPath *indexPath) {
-            NSLog(@"selected");
+        [self.storage updateWithAnimationWithBlock:^(id<ANStorageUpdatableInterface> storageController) {
+            
+            [storageController addItem:@"Test"];
+            [storageController addItem:@"Test"];
+            [storageController addItem:@"Test"];
+            [storageController addItem:@"Test"];
+            [storageController addItem:@"Test"];
+            [storageController addItem:@"Test"];
+            [storageController addItem:@"Test"];
         }];
         
-        [controller addUpdatesFinsihedTriggerBlock:^{
-            [welf tableView:welf.tableView
-               didSelectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-        }];
+//        __weak typeof(controller) welf = self.controller;
+//
+//        [controller configureItemSelectionBlock:^(id model, NSIndexPath *indexPath) {
+//            NSLog(@"selected");
+//        }];
+//        
+//        [controller addUpdatesFinsihedTriggerBlock:^{
+//            [welf tableView:welf.tableView
+//               didSelectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+//        }];
         
-        
-        [storage updateWithoutAnimationWithBlock:^(id<ANStorageUpdatableInterface> storageController) {
-            [storageController addItem:@"i"];
-        }];
+//        
+//        [storage updateWithoutAnimationWithBlock:^(id<ANStorageUpdatableInterface> storageController) {
+//            [storageController addItem:@"i"];
+//        }];
 
     }
     return self;
