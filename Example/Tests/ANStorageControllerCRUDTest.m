@@ -123,12 +123,12 @@
     expect([self.controller itemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]]).equal(testModel);
 }
 
-- (void)reloadItem
+- (void)testReloadItem
 {
 	//mock
 }
 
-- (void)reloadItems
+- (void)testReloadItems
 {
 	//mock
 }

@@ -15,7 +15,7 @@
 		071B29371D27CB0000D96B18 /* ANTestTableHeaderFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 071B29361D27CB0000D96B18 /* ANTestTableHeaderFooter.m */; };
 		071B29391D27D6B900D96B18 /* ANStorageControllerCRUDTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 071B29381D27D6B900D96B18 /* ANStorageControllerCRUDTest.m */; };
 		078303071D274404002BA640 /* ANTableControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 078303061D274404002BA640 /* ANTableControllerTest.m */; };
-		07EA424E1D2AF42500299133 /* ANTableControllerItemsRegistrationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 07EA424D1D2AF42500299133 /* ANTableControllerItemsRegistrationTest.m */; };
+		07EA424E1D2AF42500299133 /* ANTableControllerReusableTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 07EA424D1D2AF42500299133 /* ANTableControllerReusableTest.m */; };
 		07EA42511D2AF84F00299133 /* ANTestViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 07EA42501D2AF84F00299133 /* ANTestViewModel.m */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
@@ -100,7 +100,7 @@
 		0749CA031D25E2CA004ACF1B /* ANListControllerReusableLoadInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANListControllerReusableLoadInterface.h; sourceTree = "<group>"; };
 		0749CA041D25E2CA004ACF1B /* ANListControllerUpdateViewInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANListControllerUpdateViewInterface.h; sourceTree = "<group>"; };
 		078303061D274404002BA640 /* ANTableControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTableControllerTest.m; sourceTree = "<group>"; };
-		07EA424D1D2AF42500299133 /* ANTableControllerItemsRegistrationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTableControllerItemsRegistrationTest.m; sourceTree = "<group>"; };
+		07EA424D1D2AF42500299133 /* ANTableControllerReusableTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTableControllerReusableTest.m; sourceTree = "<group>"; };
 		07EA424F1D2AF84F00299133 /* ANTestViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTestViewModel.h; sourceTree = "<group>"; };
 		07EA42501D2AF84F00299133 /* ANTestViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTestViewModel.m; sourceTree = "<group>"; };
 		0E1F467465F3AB109D373CB2 /* Pods_Alister_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Alister_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -329,7 +329,7 @@
 		6003F5B5195388D20070C39A /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				07EA424D1D2AF42500299133 /* ANTableControllerItemsRegistrationTest.m */,
+				07EA424D1D2AF42500299133 /* ANTableControllerReusableTest.m */,
 				078303061D274404002BA640 /* ANTableControllerTest.m */,
 				071B29381D27D6B900D96B18 /* ANStorageControllerCRUDTest.m */,
 				071B29301D274B5300D96B18 /* ANCollectionControllerTest.m */,
@@ -1062,7 +1062,7 @@
 				071B29311D274B5300D96B18 /* ANCollectionControllerTest.m in Sources */,
 				078303071D274404002BA640 /* ANTableControllerTest.m in Sources */,
 				071B29391D27D6B900D96B18 /* ANStorageControllerCRUDTest.m in Sources */,
-				07EA424E1D2AF42500299133 /* ANTableControllerItemsRegistrationTest.m in Sources */,
+				07EA424E1D2AF42500299133 /* ANTableControllerReusableTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

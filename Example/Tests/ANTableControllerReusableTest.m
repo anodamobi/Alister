@@ -19,7 +19,6 @@
 @property (nonatomic, strong) ANStorage* storage;
 @property (nonatomic, strong) UITableView* tw;
 @property (nonatomic, strong) ANTableController* listController;
-@property (nonatomic) dispatch_group_t dispatchGroup;
 
 @end
 
@@ -42,7 +41,6 @@
     self.listController = nil;
     self.tw = nil;
     self.storage = nil;
-    self.dispatchGroup = nil;
     
     [super tearDown];
 }
@@ -99,7 +97,7 @@
 {
     //given
     NSNumber* testNotAStringModel = @34;
-    XCTestExpectation *expectation = [self expectationWithDescription:@"testTitleForHeaderInSectionForSystemAsExpect"];
+    XCTestExpectation *expectation = [self expectationWithDescription:@"testTitleForHeaderInSectionForSystemWhenExpectView"];
     __weak typeof(self) welf = self;
     
     //when
@@ -119,7 +117,7 @@
 {
     //given
     NSNumber* testModel = @123;
-    XCTestExpectation *expectation = [self expectationWithDescription:@"testTitleForHeaderInSectionForSystemAsExpect"];
+    XCTestExpectation *expectation = [self expectationWithDescription:@"testViewForHeaderInSectionForSystemClassAsExpect"];
     __weak typeof(self) welf = self;
     
     //when
@@ -140,7 +138,7 @@
 {
     //given
     NSString* testModel = @"Mock";
-    XCTestExpectation *expectation = [self expectationWithDescription:@"testTitleForHeaderInSectionForSystemAsExpect"];
+    XCTestExpectation *expectation = [self expectationWithDescription:@"testTitleForHeaderInSectionNotRegisteredAsExpected"];
     __weak typeof(self) welf = self;
     
     //when
@@ -162,7 +160,7 @@
 {
     //given
     ANTestViewModel* testModel = [ANTestViewModel new];
-    XCTestExpectation *expectation = [self expectationWithDescription:@"testTitleForHeaderInSectionForSystemAsExpect"];
+    XCTestExpectation *expectation = [self expectationWithDescription:@"testViewForHeaderInSectionForCustomClassAsExpect"];
     __weak typeof(self) welf = self;
     
     //when
@@ -208,7 +206,7 @@
 {
     //given
     NSString* testModel = @"Mock";
-    XCTestExpectation *expectation = [self expectationWithDescription:@"testTitleForHeaderInSectionForSystemAsExpect"];
+    XCTestExpectation *expectation = [self expectationWithDescription:@"testTitleForFooterInSectionForSystemAsExpect"];
     __weak typeof(self) welf = self;
     
     //when
@@ -231,15 +229,13 @@
 {
     //given
     NSNumber* testNotAStringModel = @34;
-    XCTestExpectation *expectation = [self expectationWithDescription:@"testTitleForHeaderInSectionForSystemAsExpect"];
+    XCTestExpectation *expectation = [self expectationWithDescription:@"testTitleForFooterInSectionForSystemWhenExpectView"];
     __weak typeof(self) welf = self;
     
     //when
     [self _setAsSystemFooter:testNotAStringModel];
     
     //then
-
-    
     [self.listController addUpdatesFinsihedTriggerBlock:^{
         [expectation fulfill];
         
@@ -253,7 +249,7 @@
 {
     //given
     NSNumber* testModel = @123;
-    XCTestExpectation *expectation = [self expectationWithDescription:@"testTitleForHeaderInSectionForSystemAsExpect"];
+    XCTestExpectation *expectation = [self expectationWithDescription:@"testViewForFooterInSectionForSystemClassAsExpect"];
     __weak typeof(self) welf = self;
     
     //when
@@ -274,7 +270,7 @@
 {
     //given
     NSString* testModel = @"Mock";
-    XCTestExpectation *expectation = [self expectationWithDescription:@"testTitleForHeaderInSectionForSystemAsExpect"];
+    XCTestExpectation *expectation = [self expectationWithDescription:@"testTitleForFooterInSectionNotRegisteredAsExpected"];
     __weak typeof(self) welf = self;
     
     //when
@@ -297,7 +293,7 @@
 {
     //given
     ANTestViewModel* testModel = [ANTestViewModel new];
-    XCTestExpectation *expectation = [self expectationWithDescription:@"testTitleForHeaderInSectionForSystemAsExpect"];
+    XCTestExpectation *expectation = [self expectationWithDescription:@"testViewForFooterInSectionForCustomClassAsExpect"];
     __weak typeof(self) welf = self;
     
     //when
@@ -329,7 +325,7 @@
     expect(cell).beKindOf([UITableViewCell class]);
 }
 
-- (void)testConfigureCellsWithBlockRetriveFromTableController
+- (void)testConfigureCellsWithBlockRegisterForSystemClassAsExpect
 {
     //given
     NSString* testModel = @"Mock";
@@ -340,7 +336,7 @@
     }];
     
     //when
-    XCTestExpectation *expectation = [self expectationWithDescription:@"testConfigureCellsWithBlockRetriveFromTableController called"];
+    XCTestExpectation *expectation = [self expectationWithDescription:@"testConfigureCellsWithBlockRegisterForSystemClassAsExpect called"];
     
     //then
     [self.listController addUpdatesFinsihedTriggerBlock:^{
@@ -348,6 +344,36 @@
         [expectation fulfill];
         ANTestTableCell* cell = (id)[welf.listController tableView:welf.tw
                                         cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+        expect(cell).notTo.beNil();
+        expect(cell.model).equal(testModel);
+    }];
+    
+    [self.storage updateWithoutAnimationWithBlock:^(id<ANStorageUpdatableInterface> storageController) {
+        [storageController addItem:testModel];
+    }];
+    
+    [self waitForExpectationsWithTimeout:0.1 handler:nil];
+}
+
+- (void)testConfigureCellsWithBlockRegisterForCustomClassAsExpect
+{
+    //given
+    ANTestViewModel* testModel = [ANTestViewModel new];
+    __weak typeof(self) welf = self;
+    
+    [self.listController configureCellsWithBlock:^(id<ANListControllerReusableInterface> configurator) {
+        [configurator registerCellClass:[ANTestTableCell class] forModelClass:[ANTestViewModel class]];
+    }];
+    
+    //when
+    XCTestExpectation *expectation = [self expectationWithDescription:@"testConfigureCellsWithBlockRegisterForCustomClassAsExpect called"];
+    
+    //then
+    [self.listController addUpdatesFinsihedTriggerBlock:^{
+        
+        [expectation fulfill];
+        ANTestTableCell* cell = (id)[welf.listController tableView:welf.tw
+                                             cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
         expect(cell).notTo.beNil();
         expect(cell.model).equal(testModel);
     }];
