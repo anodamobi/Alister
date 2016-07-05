@@ -12,6 +12,8 @@
 @interface ANStorageSectionModelTest : XCTestCase
 
 @property (nonatomic, strong) ANStorageSectionModel* model;
+@property (nonatomic, strong) NSString* fixtureObject;
+@property (nonatomic, assign) NSInteger fixtureIndex;
 
 @end
 
@@ -21,11 +23,14 @@
 {
     [super setUp];
     self.model = [ANStorageSectionModel new];
+    self.fixtureIndex = 0;
+    self.fixtureObject = @"test";
 }
 
 - (void)tearDown
 {
     self.model = nil;
+    self.fixtureObject = nil;
     [super tearDown];
 }
 
@@ -34,29 +39,19 @@
     expect(self.model).conformTo(@protocol(ANStorageSectionModelInterface));
 }
 
-
-/**
- *  - (void)addItem:(id)item
- */
-- (void)test_addItem_positive_whenNotNil
+- (void)test_addItem_positive_whenValid
 {
-    //given
-    NSString* test = @"test";
-    
     //when
-    [self.model addItem:test];
+    [self.model addItem:self.fixtureObject];
     
     //then
-    expect(self.model.objects[0]).equal(test);
+    expect(self.model.objects[0]).equal(self.fixtureObject);
 }
 
 - (void)test_addItem_positive_itemAddsOnlyOnce
 {
-    //given
-    NSString* test = @"test";
-    
     //when
-    [self.model addItem:test];
+    [self.model addItem:self.fixtureObject];
     
     //then
     expect(self.model.objects).haveCount(1);
@@ -64,47 +59,64 @@
 
 - (void)test_addItem_negative_addNilThrowsException
 {
-    //given
-    NSString* test = nil;
-
     //then
     expect(^{
         //when
-        [self.model addItem:test];
+        [self.model addItem:nil];
     }).to.raiseAny();
 }
 
-- (void)test_insertItemAtIndex_positive_whenNotNilAndValidIndex
+- (void)test_insertItemAtIndex_positive_whenValidData
 {
-	//given
-    NSString* item = @"test";
-    NSUInteger index = 0;
-    
     //when
-    [self.model insertItem:item atIndex:index];
+    [self.model insertItem:self.fixtureObject atIndex:self.fixtureIndex];
     
     //then
-    expect(self.model.objects).haveCount(1);
-    expect(self.model.objects[index]).equal(item);
+    expect(self.model.objects[self.fixtureIndex]).equal(self.fixtureObject);
     expect(^{
-        [self.model.objects objectAtIndex:index];
+        [self.model.objects objectAtIndex:self.fixtureIndex];
     }).notTo.raiseAny();
 }
 
-- (void)test_removeItemAtIndex_success_whenObjectAtIndexExists
+- (void)test_insertItemAtIndex_positive_addsOnlyOnce
+{
+    //when
+    [self.model insertItem:self.fixtureObject atIndex:self.fixtureIndex];
+    
+    //then
+    expect(self.model.objects).haveCount(1);
+}
+
+- (void)test_insertItemAtIndex_negative_whenIndexOutOfRange
+{
+    self.fixtureIndex = NSUIntegerMax;
+    //then
+    expect(^{
+        [self.model insertItem:self.fixtureObject atIndex:self.fixtureIndex];
+    }).to.raiseAny();
+}
+
+- (void)test_insertItemAtIndex_negative_whenItemIsNil
+{
+    self.fixtureObject = nil;
+    //then
+    expect(^{
+        [self.model insertItem:self.fixtureObject atIndex:self.fixtureIndex];
+    }).to.raiseAny();
+}
+
+- (void)test_removeItemAtIndex_positive_whenInputDataValid
 {
     //given
-    NSString* item = @"test";
-    NSUInteger index = 0;
-    [self.model insertItem:item atIndex:index];
+    [self.model insertItem:self.fixtureObject atIndex:self.fixtureIndex];
     
     //when
-    [self.model removeItemAtIndex:index];
+    [self.model removeItemAtIndex:self.fixtureIndex];
     
     //then
     expect(self.model.objects).haveCount(0);
     expect(^{
-        [self.model.objects objectAtIndex:index];
+        [self.model.objects objectAtIndex:self.fixtureIndex];
     }).to.raise(NSRangeException);
 }
 
