@@ -350,7 +350,6 @@
                                         cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
         expect(cell).notTo.beNil();
         expect(cell.model).equal(testModel);
-        expect(cell.textLabel.text).equal(testModel);
     }];
     
     [self.storage updateWithoutAnimationWithBlock:^(id<ANStorageUpdatableInterface> storageController) {
@@ -361,4 +360,5 @@
 }
 
 #pragma clang diagnostic pop
+
 @end
