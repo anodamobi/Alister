@@ -57,13 +57,13 @@
     return update;
 }
 
-+ (ANStorageUpdateModel*)removeItems:(NSArray *)items fromStorage:(ANStorageModel*)storage
++ (ANStorageUpdateModel*)removeItems:(NSSet*)items fromStorage:(ANStorageModel*)storage
 {
     ANStorageUpdateModel* update = [ANStorageUpdateModel new];
     NSMutableArray* indexPaths = [NSMutableArray array];
     
-    [items enumerateObjectsUsingBlock:^(id item, __unused NSUInteger idx, __unused BOOL *stop) {
-        
+    [items enumerateObjectsUsingBlock:^(id  _Nonnull item, __unused BOOL * _Nonnull stop) {
+       
         NSIndexPath* indexPath = [ANStorageLoader indexPathForItem:item inStorage:storage];
         if (indexPath)
         {

@@ -18,7 +18,6 @@
 @property (nonatomic, strong) ANStorage* storage;
 @property (nonatomic, strong) UITableView* tw;
 @property (nonatomic, strong) ANTableController* listController;
-@property (nonatomic) dispatch_group_t dispatchGroup;
 
 @end
 
@@ -41,7 +40,6 @@
     self.listController = nil;
     self.tw = nil;
     self.storage = nil;
-    self.dispatchGroup = nil;
     
     [super tearDown];
 }

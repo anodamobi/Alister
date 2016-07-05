@@ -33,6 +33,11 @@
     return [self.items copy];
 }
 
+- (NSDictionary*)supplementaryObjects
+{
+    return [self.supplementaries copy];
+}
+
 - (NSUInteger)numberOfObjects
 {
     return [self.items count];

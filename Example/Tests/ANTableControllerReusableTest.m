@@ -9,7 +9,6 @@
 #import <XCTest/XCTest.h>
 #import "ANTableController.h"
 #import "ANStorage.h"
-#import <Expecta/Expecta.h>
 #import "ANTestTableCell.h"
 #import "ANTestTableHeaderFooter.h"
 #import "ANTestViewModel.h"

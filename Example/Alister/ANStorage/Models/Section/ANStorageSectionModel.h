@@ -11,6 +11,7 @@
 @interface ANStorageSectionModel : NSObject <ANStorageSectionModelInterface>
 
 @property (nonatomic, strong, readonly) NSArray* objects;
+@property (nonatomic, strong, readonly) NSDictionary* supplementaryObjects;
 
 - (void)addItem:(id)item;
 - (void)insertItem:(id)item atIndex:(NSUInteger)index;

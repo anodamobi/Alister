@@ -88,13 +88,13 @@
     [self.updateDelegate collectUpdate:update];
 }
 
-- (void)removeItemsAtIndexPaths:(NSArray*)indexPaths
+- (void)removeItemsAtIndexPaths:(NSSet*)indexPaths
 {
     ANStorageUpdateModel* update = [ANStorageRemover removeItemsAtIndexPaths:indexPaths fromStorage:self.storage];
     [self.updateDelegate collectUpdate:update];
 }
 
-- (void)removeItems:(NSArray*)items
+- (void)removeItems:(NSSet*)items
 {
     ANStorageUpdateModel* update = [ANStorageRemover removeItems:items fromStorage:self.storage];
     [self.updateDelegate collectUpdate:update];

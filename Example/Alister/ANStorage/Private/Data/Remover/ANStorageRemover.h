@@ -11,13 +11,13 @@
 
 @interface ANStorageRemover : NSObject
 
+//single
 + (ANStorageUpdateModel*)removeItem:(id)item fromStorage:(ANStorageModel*)storage;
-
-+ (ANStorageUpdateModel*)removeItemsAtIndexPaths:(NSArray*)indexPaths fromStorage:(ANStorageModel*)storage;
-+ (ANStorageUpdateModel*)removeItems:(NSArray *)items fromStorage:(ANStorageModel*)storage;
-
++ (ANStorageUpdateModel*)removeItemsAtIndexPaths:(NSSet*)indexPaths fromStorage:(ANStorageModel*)storage;
++ (ANStorageUpdateModel*)removeItems:(NSSet*)items fromStorage:(ANStorageModel*)storage;
+//section
 + (ANStorageUpdateModel*)removeSections:(NSIndexSet*)indexSet fromStorage:(ANStorageModel*)storage;
-
+//all
 + (ANStorageUpdateModel*)removeAllItemsFromStorage:(ANStorageModel*)storage;
 
 @end
