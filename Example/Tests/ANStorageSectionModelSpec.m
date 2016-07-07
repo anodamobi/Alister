@@ -32,7 +32,7 @@ describe(@"ANStorageSectionModel", ^{
         });
         
         it(@"adds item only once per one call", ^{
-            expect(model.objects).haveCount(3);
+            expect(model.objects).haveCount(1);
         });
     });
     
