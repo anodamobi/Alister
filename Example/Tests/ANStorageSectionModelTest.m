@@ -88,9 +88,18 @@
     expect(self.model.objects).haveCount(1);
 }
 
-- (void)test_insertItemAtIndex_negative_whenIndexOutOfRangeNoExpection
+- (void)test_insertItemAtIndex_negative_whenIndexNSNotFound
 {
-    self.fixtureIndex = NSUIntegerMax;
+    self.fixtureIndex = NSNotFound;
+    //then
+    expect(^{
+        [self.model insertItem:self.fixtureObject atIndex:self.fixtureIndex];
+    }).notTo.raiseAny();
+}
+
+- (void)test_insertItemAtIndex_negative_whenIndexLessThenZero
+{
+    self.fixtureIndex = -1;
     //then
     expect(^{
         [self.model insertItem:self.fixtureObject atIndex:self.fixtureIndex];
@@ -118,13 +127,15 @@
     expect(self.model.objects).haveCount(0);
 }
 
-- (void)test_removeItemAtIndex_negative_indexInvalid
+- (void)test_removeItemAtIndex_negative_indexNSNotFound
 {
     //when
-    [self.model removeItemAtIndex:self.fixtureIndex];
+    self.fixtureIndex = NSNotFound;
     
     //then
-    expect(self.model.objects).haveCount(0);
+    expect(^{
+        [self.model removeItemAtIndex:self.fixtureIndex];
+    }).notTo.raiseAny();
 }
 
 - (void)test_replaceItemAtIndexWithItem_positive_objectAndIndexValid
