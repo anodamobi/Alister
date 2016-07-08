@@ -39,6 +39,9 @@
     expect(self.model).conformTo(@protocol(ANStorageSectionModelInterface));
 }
 
+
+#pragma mark - addItem:
+
 - (void)test_addItem_positive_whenValid
 {
     //when
@@ -66,6 +69,9 @@
         [self.model addItem:self.fixtureObject];
     }).notTo.raiseAny();
 }
+
+
+#pragma mark - insertItem: atIndex:
 
 - (void)test_insertItemAtIndex_positive_whenValidData
 {
@@ -115,6 +121,9 @@
     }).notTo.raiseAny();
 }
 
+
+#pragma mark - removeItemAtIndex:
+
 - (void)test_removeItemAtIndex_positive_indexValid
 {
     //given
@@ -138,15 +147,26 @@
     }).notTo.raiseAny();
 }
 
+- (void)test_removeItemAtIndex_negative_indexLessThanZero
+{
+    //when
+    self.fixtureIndex = -1;
+    
+    //then
+    expect(^{
+        [self.model removeItemAtIndex:self.fixtureIndex];
+    }).notTo.raiseAny();
+}
+
+
+#pragma mark - replaceItemAtIndexWithItem:
+
 - (void)test_replaceItemAtIndexWithItem_positive_objectAndIndexValid
 {
     
 }
 
-
-
-
-- (void)testNumberOfObjects
+- (void)test_numberOfObjects_positive
 {
 	
 }
