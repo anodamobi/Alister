@@ -10,12 +10,12 @@
 
 @interface ANStorageSectionModel : NSObject <ANStorageSectionModelInterface>
 
-@property (nonatomic, strong, readonly) NSArray* objects;
-@property (nonatomic, strong, readonly) NSDictionary* supplementaryObjects;
+@property (nonatomic, strong, readonly, nonnull) NSArray* objects;
+@property (nonatomic, strong, readonly, nonnull) NSDictionary* supplementaryObjects;
 
-- (void)addItem:(id)item;
-- (void)insertItem:(id)item atIndex:(NSUInteger)index;
+- (void)addItem:(_Nonnull id)item;
+- (void)insertItem:(_Nonnull id)item atIndex:(NSUInteger)index;
 - (void)removeItemAtIndex:(NSUInteger)index;
-- (void)replaceItemAtIndex:(NSUInteger)index withItem:(id)item;
+- (void)replaceItemAtIndex:(NSUInteger)index withItem:(_Nonnull id)item;
 
 @end

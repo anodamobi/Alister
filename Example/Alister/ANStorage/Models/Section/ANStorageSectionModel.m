@@ -28,14 +28,11 @@
     return self;
 }
 
+#pragma mark - Get
+
 - (NSArray*)objects
 {
     return [self.items copy];
-}
-
-- (NSDictionary*)supplementaryObjects
-{
-    return [self.supplementaries copy];
 }
 
 - (NSUInteger)numberOfObjects
@@ -43,25 +40,49 @@
     return [self.items count];
 }
 
+
+#pragma mark - Add
+
 - (void)addItem:(id)item
 {
-    [self.items addObject:item];
+    if (item)
+    {
+        [self.items addObject:item];
+    }
 }
 
 - (void)insertItem:(id)item atIndex:(NSUInteger)index
 {
-    [self.items insertObject:item atIndex:index];
+    if (item && self.items.count >= index)
+    {
+        [self.items insertObject:item atIndex:index];
+    }
 }
+
+
+#pragma mark - Remove
 
 - (void)removeItemAtIndex:(NSUInteger)index
 {
-    [self.items removeObjectAtIndex:index];
+    if (self.items.count > index)
+    {
+        [self.items removeObjectAtIndex:index];
+    }
 }
+
+
+#pragma mark - Replace
 
 - (void)replaceItemAtIndex:(NSUInteger)index withItem:(id)item
 {
-    [self.items replaceObjectAtIndex:index withObject:item];
+    if (item && self.items.count >= index)
+    {
+        [self.items replaceObjectAtIndex:index withObject:item];
+    }
 }
+
+
+#pragma mark - Supplementaries
 
 - (void)updateSupplementaryModel:(id)model forKind:(NSString*)kind
 {
@@ -85,6 +106,11 @@
         return self.supplementaries[kind];
     }
     return nil;
+}
+
+- (NSDictionary*)supplementaryObjects
+{
+    return [self.supplementaries copy];
 }
 
 @end

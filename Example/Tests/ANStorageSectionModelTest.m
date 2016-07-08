@@ -57,13 +57,14 @@
     expect(self.model.objects).haveCount(1);
 }
 
-- (void)test_addItem_negative_addNilThrowsException
+- (void)test_addItem_negative_addNilNotThrowException
 {
+    self.fixtureObject = nil;
     //then
     expect(^{
         //when
-        [self.model addItem:nil];
-    }).to.raiseAny();
+        [self.model addItem:self.fixtureObject];
+    }).notTo.raiseAny();
 }
 
 - (void)test_insertItemAtIndex_positive_whenValidData
@@ -87,25 +88,25 @@
     expect(self.model.objects).haveCount(1);
 }
 
-- (void)test_insertItemAtIndex_negative_whenIndexOutOfRange
+- (void)test_insertItemAtIndex_negative_whenIndexOutOfRangeNoExpection
 {
     self.fixtureIndex = NSUIntegerMax;
     //then
     expect(^{
         [self.model insertItem:self.fixtureObject atIndex:self.fixtureIndex];
-    }).to.raiseAny();
+    }).notTo.raiseAny();
 }
 
-- (void)test_insertItemAtIndex_negative_whenItemIsNil
+- (void)test_insertItemAtIndex_negative_whenItemIsNilNoExpection
 {
     self.fixtureObject = nil;
     //then
     expect(^{
         [self.model insertItem:self.fixtureObject atIndex:self.fixtureIndex];
-    }).to.raiseAny();
+    }).notTo.raiseAny();
 }
 
-- (void)test_removeItemAtIndex_positive_whenInputDataValid
+- (void)test_removeItemAtIndex_positive_indexValid
 {
     //given
     [self.model insertItem:self.fixtureObject atIndex:self.fixtureIndex];
@@ -115,15 +116,24 @@
     
     //then
     expect(self.model.objects).haveCount(0);
-    expect(^{
-        [self.model.objects objectAtIndex:self.fixtureIndex];
-    }).to.raise(NSRangeException);
 }
 
-- (void)test_replaceItemAtIndexWithItem_success
+- (void)test_removeItemAtIndex_negative_indexInvalid
 {
-	
+    //when
+    [self.model removeItemAtIndex:self.fixtureIndex];
+    
+    //then
+    expect(self.model.objects).haveCount(0);
 }
+
+- (void)test_replaceItemAtIndexWithItem_positive_objectAndIndexValid
+{
+    
+}
+
+
+
 
 - (void)testNumberOfObjects
 {
@@ -144,6 +154,5 @@
 {
 	
 }
-
 
 @end

@@ -14,7 +14,6 @@
 		071B29311D274B5300D96B18 /* ANCollectionControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 071B29301D274B5300D96B18 /* ANCollectionControllerTest.m */; };
 		071B29371D27CB0000D96B18 /* ANTestTableHeaderFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 071B29361D27CB0000D96B18 /* ANTestTableHeaderFooter.m */; };
 		071B29391D27D6B900D96B18 /* ANStorageControllerCRUDTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 071B29381D27D6B900D96B18 /* ANStorageControllerCRUDTest.m */; };
-		072789E61D2C251A0044FBCB /* ANStorageSectionModelSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 072789E41D2C24680044FBCB /* ANStorageSectionModelSpec.m */; };
 		078303071D274404002BA640 /* ANTableControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 078303061D274404002BA640 /* ANTableControllerTest.m */; };
 		07EA424E1D2AF42500299133 /* ANTableControllerReusableTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 07EA424D1D2AF42500299133 /* ANTableControllerReusableTest.m */; };
 		07EA42511D2AF84F00299133 /* ANTestViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 07EA42501D2AF84F00299133 /* ANTestViewModel.m */; };
@@ -1067,7 +1066,6 @@
 				07EA42511D2AF84F00299133 /* ANTestViewModel.m in Sources */,
 				071B29311D274B5300D96B18 /* ANCollectionControllerTest.m in Sources */,
 				078303071D274404002BA640 /* ANTableControllerTest.m in Sources */,
-				072789E61D2C251A0044FBCB /* ANStorageSectionModelSpec.m in Sources */,
 				071B29391D27D6B900D96B18 /* ANStorageControllerCRUDTest.m in Sources */,
 				D7FC32E11D2C0452002F9727 /* ANStorageSectionModelTest.m in Sources */,
 				07EA424E1D2AF42500299133 /* ANTableControllerReusableTest.m in Sources */,
