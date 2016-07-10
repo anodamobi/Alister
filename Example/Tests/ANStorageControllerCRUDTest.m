@@ -22,6 +22,8 @@
 @interface ANStorageControllerTest : XCTestCase
 
 @property (nonatomic, strong) ANStorageController* controller;
+@property (nonatomic, copy) NSString* testFixture;
+@property (nonatomic, copy) NSString* testKind;
 
 @end
 
@@ -31,28 +33,50 @@
 {
     [super setUp];
     self.controller = [ANStorageController new];
+    self.testFixture = @"testFixture";
+    self.testKind = @"testKind";
 }
 
 - (void)tearDown
 {
     self.controller = nil;
+    self.testFixture = nil;
+    self.testKind = nil;
     [super tearDown];
 }
 
-- (void)testAddItem
+
+#pragma mark - addItem
+
+- (void)test_addItem_positive_objectExistsAtIndexPath
 {
-    //given
-    NSString* testModel = @"test";
-    
     //when
-    [self.controller addItem:testModel];
+    [self.controller addItem:self.testFixture];
     
     //then
-    expect([self.controller itemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]]).equal(testModel);
+    expect([self.controller itemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]]).equal(self.testFixture);
+}
+
+- (void)test_addItem_positive_sectionWasCreated
+{
+    //when
+    [self.controller addItem:self.testFixture];
+    
+    //then
     expect(self.controller.sections).haveCount(1);
 }
 
-- (void)testAddItems
+- (void)test_addItem_negative_itemIsNil
+{
+    expect(^{
+    [self.controller addItem:nil];
+    }).notTo.raiseAny();
+}
+
+
+#pragma mark - addItems
+
+- (void)test_addItems_positive_dataIsValidAndHasCorrectOrder
 {
     //given
     NSString* testModel0 = @"test0";
@@ -64,29 +88,95 @@
     [self.controller addItems:testModel];
     
     //then
-    expect([self.controller itemsInSection:0]).haveCount(testModel.count);
     expect([self.controller itemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]]).equal(testModel[0]);
     expect([self.controller itemAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]]).equal(testModel[1]);
     expect([self.controller itemAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]]).equal(testModel[2]);
 }
 
-- (void)testAddItemToSection
+- (void)test_addItems_positive_dataAddedOnlyOnce
 {
     //given
-    NSString* testModel = @"test";
+    NSArray* testModel = @[@"one", @"two", @"three"];
     
     //when
-    [self.controller addItem:testModel toSection:2];
+    [self.controller addItems:testModel];
+    
+    //then
+    expect([self.controller itemsInSection:0]).haveCount(testModel.count);
+}
+
+- (void)test_addItems_negative_dataIsNil
+{
+    //then
+    expect(^{
+        [self.controller addItems:nil];
+    }).notTo.raiseAny();
+}
+
+- (void)test_addItems_positive_addedEmptyArrayDontChangeTotalCount
+{
+    //given
+    NSArray* testModel = @[];
+    
+    //when
+    [self.controller addItems:testModel];
+    
+    //then
+    expect([self.controller itemsInSection:0]).haveCount(0);
+}
+
+
+#pragma mark - addItemToSection:
+
+- (void)test_addItemToSection_positive_dataIsValid
+{
+    //when
+    [self.controller addItem:self.testFixture toSection:0];
+    
+    //then
+    expect([self.controller itemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]]).equal(self.testFixture);
+}
+
+- (void)test_addItemToSection_positive_generatesEmptySectionsIfNeeded
+{
+    //when
+    [self.controller addItem:self.testFixture toSection:2];
     
     //then
     expect([self.controller itemsInSection:0]).haveCount(0);
     expect([self.controller itemsInSection:1]).haveCount(0);
     expect([self.controller itemsInSection:2]).haveCount(1);
     expect([self.controller sections]).haveCount(3);
-    expect([self.controller itemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:2]]).equal(testModel);
 }
 
-- (void)testAddItemsToSection
+//- (void)test_addItemToSection_negative_indexNSNotFound
+//{
+//    //then
+//    expect(^{
+//        [self.controller addItem:self.testFixture toSection:NSNotFound];
+//    }).notTo.raiseAny();
+//}
+
+- (void)test_addItemToSection_negative_indexLessThanZero
+{
+    //then
+    expect(^{
+        [self.controller addItem:self.testFixture toSection:-1];
+    }).notTo.raiseAny();
+}
+
+- (void)test_addItemToSection_negative_itemIsNil
+{
+    //then
+    expect(^{
+        [self.controller addItem:nil toSection:0];
+    }).notTo.raiseAny();
+}
+
+
+#pragma mark - addItems: toSection:
+
+- (void)test_addItemsToSection_positive_dataIsValidAndItemsHaveSameOrder
 {
     //given
     NSString* testModel0 = @"test0";
@@ -98,17 +188,49 @@
     [self.controller addItems:testModel toSection:3];
     
     //then
-    expect([self.controller itemsInSection:0]).haveCount(0);
-    expect([self.controller itemsInSection:1]).haveCount(0);
-    expect([self.controller itemsInSection:2]).haveCount(0);
-    expect([self.controller itemsInSection:3]).haveCount(testModel.count);
-    expect([self.controller sections]).haveCount(4);
     expect([self.controller itemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:3]]).equal(testModel[0]);
     expect([self.controller itemAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:3]]).equal(testModel[1]);
     expect([self.controller itemAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:3]]).equal(testModel[2]);
 }
 
-- (void)testAddItemAtIndexPath
+- (void)test_addItemsToSection_negative_itemsIsNil
+{
+    //then
+    expect(^{
+        [self.controller addItems:nil toSection:0];
+    }).notTo.raiseAny();
+}
+
+- (void)test_addItemsToSection_negative_itemsAreEmpty
+{
+    //when
+    [self.controller addItems:@[] toSection:0];
+    
+    //then
+    expect(self.controller.sections).haveCount(0);
+}
+
+- (void)test_addItemsToSection_negative_indexLessThanZero
+{
+    //then
+    expect(^{
+        [self.controller addItems:@[@"one"] toSection:-1];
+    }).notTo.raiseAny();
+}
+
+//This test have no sence while will create NSIntegerMax sections
+//- (void)test_addItemsToSection_negative_indexNSNotFound
+//{
+//    //then
+//    expect(^{
+//        [self.controller addItems:@[@"one"] toSection:NSNotFound];
+//    }).notTo.raiseAny();
+//}
+
+
+#pragma mark - addItem: atIndexPath
+
+- (void)test_addItemAtIndexPath
 {
     //given
     NSString* testModel = @"test";

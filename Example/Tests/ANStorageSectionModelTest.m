@@ -163,27 +163,141 @@
 
 - (void)test_replaceItemAtIndexWithItem_positive_objectAndIndexValid
 {
+    //given
+    NSString* testObject = @"testObject";
+    [self.model addItem:self.fixtureObject];
     
+    //when
+    [self.model replaceItemAtIndex:self.fixtureIndex withItem:testObject];
+    
+    //then
+    expect([self.model objects][0]).equal(testObject);
 }
 
-- (void)test_numberOfObjects_positive
+- (void)test_replaceItemAtIndexWithItem_negative_objectIsNil
 {
-	
+    //given
+    NSString* testObject = nil;
+    [self.model addItem:self.fixtureObject];
+    
+    //then
+    expect(^{
+        [self.model replaceItemAtIndex:self.fixtureIndex withItem:testObject];
+    }).notTo.raiseAny();
 }
 
-- (void)testObjects
+- (void)test_replaceItemAtIndexWithItem_negative_indexNSNotFound
 {
-	
+    //given
+    [self.model addItem:self.fixtureObject];
+    self.fixtureIndex = NSNotFound;
+    
+    //then
+    expect(^{
+        [self.model replaceItemAtIndex:self.fixtureIndex withItem:self.fixtureObject];
+    }).notTo.raiseAny();
 }
 
-- (void)testSupplementaryModelOfKind
+- (void)test_replaceItemAtIndexWithItem_negative_indexLessThanZero
 {
-	
+    //given
+    [self.model addItem:self.fixtureObject];
+    self.fixtureIndex = -1;
+    
+    //then
+    expect(^{
+        [self.model replaceItemAtIndex:self.fixtureIndex withItem:self.fixtureObject];
+    }).notTo.raiseAny();
 }
 
-- (void)updateSupplementaryModel:(id)model forKind:(NSString*)kind
+
+#pragma mark - numberOfObjects
+
+- (void)test_numberOfObjects_positive_emptyWhenCreated
 {
-	
+    expect([self.model numberOfObjects]).equal(0);
+}
+
+- (void)test_numberOfObjects_positive_countAfterAddItem
+{
+    //when
+    [self.model addItem:self.fixtureObject];
+    
+    //then
+    expect([self.model numberOfObjects]).equal(1);
+}
+
+- (void)test_objects_positive_validObjectsAfterAdding
+{
+    //when
+    [self.model addItem:self.fixtureObject];
+    
+    //then
+    expect([self.model objects]).equal(@[self.fixtureObject]);
+}
+
+
+#pragma mark - supplementaryModelOfKind
+
+- (void)test_supplementaryModelOfKind_positive
+{
+	//given
+    NSString* kind = @"testKind";
+    
+    //when
+    [self.model updateSupplementaryModel:self.fixtureObject forKind:kind];
+    
+    //then
+    expect([self.model supplementaryModelOfKind:kind]).equal(self.fixtureObject);
+}
+
+- (void)test_supplementaryModelOfKind_negative_kindIsNil
+{
+    //given
+    NSString* kind = @"testKind";
+    
+    //when
+    [self.model updateSupplementaryModel:self.fixtureObject forKind:kind];
+    
+    //then
+    expect(^{
+        [self.model supplementaryModelOfKind:nil];
+    }).notTo.raiseAny();
+}
+
+
+#pragma mark - updateSupplementaryModelForKind
+
+- (void)test_updateSupplementaryModelForKind_positive_dataIsValid
+{
+    //given
+    NSString* kind = @"testKind";
+    
+    //when
+    [self.model updateSupplementaryModel:self.fixtureObject forKind:kind];
+    
+    //then
+    expect([self.model supplementaryModelOfKind:kind]).equal(self.fixtureObject);
+}
+
+- (void)test_updateSupplementaryModelForKind_negative_kindIsNil
+{
+    //then
+    expect(^{
+        [self.model updateSupplementaryModel:self.fixtureObject forKind:nil];
+    }).notTo.raiseAny();
+}
+
+- (void)test_updateSupplementaryModelForKind_negative_modelIsNil
+{
+    //given
+    NSString* kind = @"testKind";
+    self.fixtureObject = nil;
+    
+    //then
+    expect(^{
+        [self.model updateSupplementaryModel:nil forKind:kind];
+    }).notTo.raiseAny();
 }
 
 @end
