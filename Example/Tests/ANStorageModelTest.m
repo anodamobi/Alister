@@ -65,22 +65,38 @@
 
 - (void)test_itemsInSection_positive_modelHasItems
 {
-	
+    //given
+    
+    //when
+    
+    //then
 }
 
 - (void)test_itemsInSection_positive_modelIsEmpty
 {
+    //given
     
+    //when
+    
+    //then
 }
 
 - (void)test_itemsInSection_negative_sectionNotExists
 {
+    //given
     
+    //when
+    
+    //then
 }
 
 - (void)test_itemsInSection_negative_sectionIndexLessThanZero
 {
+    //given
     
+    //when
+    
+    //then
 }
 
 
@@ -88,12 +104,20 @@
 
 - (void)test_sections_positive_sectionsAreEmpty
 {
-	
+    //given
+    
+    //when
+    
+    //then
 }
 
 - (void)test_sections_positive_sectionAddedAndCountIsOne
 {
+    //given
     
+    //when
+    
+    //then
 }
 
 
@@ -101,27 +125,47 @@
 
 - (void)test_sectionAtIndex_positive_storageIsEmpty
 {
-	
+    //given
+    
+    //when
+    
+    //then
 }
 
 - (void)test_sectionAtIndex_positive_whenItemAddedZeroSectionExists
 {
+    //given
     
+    //when
+    
+    //then
 }
 
 - (void)test_sectionAtIndex_negative_indexIsLessThanZero
 {
+    //given
     
+    //when
+    
+    //then
 }
 
 - (void)test_sectionAtIndex_negative_indexIsNsNotFound
 {
+    //given
     
+    //when
+    
+    //then
 }
 
 - (void)test_sectionAtIndex_negative_indexNotExists
 {
+    //given
     
+    //when
+    
+    //then
 }
 
 
@@ -129,17 +173,29 @@
 
 - (void)test_addSection_positive_sectionIsValid
 {
-	
+    //given
+    
+    //when
+    
+    //then
 }
 
 - (void)test_addSection_negative_sectionIsNil
 {
+    //given
     
+    //when
+    
+    //then
 }
 
 - (void)test_addSection_negative_sectionIsNotKindSectionModel
 {
+    //given
     
+    //when
+    
+    //then
 }
 
 
@@ -147,22 +203,38 @@
 
 - (void)test_removeSectionAtIndex_positive_indexIsValid
 {
-	
+    //given
+    
+    //when
+    
+    //then
 }
 
 - (void)test_removeSectionAtIndex_negative_indexIsZeroWhenModelIsEmpty
 {
+    //given
     
+    //when
+    
+    //then
 }
 
 - (void)test_removeSectionAtIndex_negative_indexIsLessThanZero
 {
+    //given
     
+    //when
+    
+    //then
 }
 
 - (void)test_removeSectionAtIndex_negative_indexIsNSNotFound
 {
+    //given
     
+    //when
+    
+    //then
 }
 
 
@@ -170,12 +242,20 @@
 
 - (void)test_removeAllSections_positive_sectionsEmptyAfterAddOne
 {
-	
+    //given
+    
+    //when
+    
+    //then
 }
 
 - (void)test_removeAllSections_positive_removeAllSectionsWhenModelIsEmpty
 {
+    //given
     
+    //when
+    
+    //then
 }
 
 @end
