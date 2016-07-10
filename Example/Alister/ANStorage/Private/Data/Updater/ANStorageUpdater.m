@@ -38,21 +38,24 @@
 + (ANStorageUpdateModel*)addItems:(NSArray*)items toSection:(NSUInteger)sectionNumber toStorage:(ANStorageModel*)storage
 {
     ANStorageUpdateModel* update = [ANStorageUpdateModel new];
-    NSIndexSet* insertedSections = [self createSectionIfNotExist:sectionNumber inStorage:storage];
-    ANStorageSectionModel* section = [ANStorageLoader sectionAtIndex:sectionNumber inStorage:storage];
-    
-    NSUInteger numberOfItems = [section numberOfObjects];
-    NSMutableArray* insertedIndexPaths = [NSMutableArray array];
-    for (id item in items)
+    if (items && items.count)
     {
-        [section addItem:item];
-        [insertedIndexPaths addObject:[NSIndexPath indexPathForRow:(NSInteger)numberOfItems
-                                                         inSection:(NSInteger)sectionNumber]];
-        numberOfItems++;
+        NSIndexSet* insertedSections = [self createSectionIfNotExist:sectionNumber inStorage:storage];
+        ANStorageSectionModel* section = [ANStorageLoader sectionAtIndex:sectionNumber inStorage:storage];
+        
+        NSUInteger numberOfItems = [section numberOfObjects];
+        NSMutableArray* insertedIndexPaths = [NSMutableArray array];
+        for (id item in items)
+        {
+            [section addItem:item];
+            [insertedIndexPaths addObject:[NSIndexPath indexPathForRow:(NSInteger)numberOfItems
+                                                             inSection:(NSInteger)sectionNumber]];
+            numberOfItems++;
+        }
+        
+        [update addInsertedSectionIndexes:insertedSections];
+        [update addInsertedIndexPaths:insertedIndexPaths];
     }
-    
-    [update addInsertedSectionIndexes:insertedSections];
-    [update addInsertedIndexPaths:insertedIndexPaths];
     
     return update;
 }
@@ -60,25 +63,27 @@
 + (ANStorageUpdateModel*)addItem:(id)item atIndexPath:(NSIndexPath*)indexPath toStorage:(ANStorageModel*)storage
 {
     ANStorageUpdateModel* update = [ANStorageUpdateModel new];
-    NSIndexSet* insertedSections = [self createSectionIfNotExist:(NSUInteger)indexPath.section
-                                                       inStorage:storage];
-    
-    ANStorageSectionModel* section = [ANStorageLoader sectionAtIndex:(NSUInteger)indexPath.section
-                                                           inStorage:storage];
-    
-    if ([section.objects count] < (NSUInteger)indexPath.row)
+    if (indexPath)
     {
-        ANStorageLog(@"ANStorage: failed to insert item for section: %ld, row: %ld, only %lu items in section",
-              (long)indexPath.section,
-              (long)indexPath.row,
-              (unsigned long)[section.objects count]);
-        return update;
+        NSIndexSet* insertedSections = [self createSectionIfNotExist:(NSUInteger)indexPath.section
+                                                           inStorage:storage];
+        
+        ANStorageSectionModel* section = [ANStorageLoader sectionAtIndex:(NSUInteger)indexPath.section
+                                                               inStorage:storage];
+        
+        if ([section.objects count] < (NSUInteger)indexPath.row)
+        {
+            ANStorageLog(@"Dailed to insert item for section: %ld, row: %ld, only %lu items in section",
+                         (long)indexPath.section,
+                         (long)indexPath.row,
+                         (unsigned long)[section.objects count]);
+            return update;
+        }
+        [section insertItem:item atIndex:(NSUInteger)indexPath.row];
+        
+        [update addInsertedSectionIndexes:insertedSections];
+        [update addInsertedIndexPaths:@[indexPath]];
     }
-    [section insertItem:item atIndex:(NSUInteger)indexPath.row];
-    
-    [update addInsertedSectionIndexes:insertedSections];
-    [update addInsertedIndexPaths:@[indexPath]];
-    
     return update;
 }
 

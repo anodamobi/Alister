@@ -75,7 +75,7 @@
 
 + (NSArray*)itemsInSection:(NSUInteger)sectionNumber inStorage:(ANStorageModel*)storage
 {
-    NSArray* objects;
+    NSArray* objects = nil;
     if ([storage.sections count] > sectionNumber)
     {
         ANStorageSectionModel* section = storage.sections[sectionNumber];

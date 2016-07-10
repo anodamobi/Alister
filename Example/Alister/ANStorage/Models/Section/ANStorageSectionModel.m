@@ -7,6 +7,7 @@
 //
 
 #import "ANStorageSectionModel.h"
+#import "ANStorageLog.h"
 
 @interface ANStorageSectionModel ()
 
@@ -27,6 +28,7 @@
     }
     return self;
 }
+
 
 #pragma mark - Get
 
@@ -49,13 +51,35 @@
     {
         [self.items addObject:item];
     }
+    else
+    {
+        ANStorageLog(@"You trying to add nil object - %@", NSStringFromSelector(_cmd));
+    }
 }
 
 - (void)insertItem:(id)item atIndex:(NSUInteger)index
 {
-    if (item && self.items.count >= index)
+    if (item)
     {
-        [self.items insertObject:item atIndex:index];
+        if (index != NSNotFound)
+        {
+            if (self.items.count >= index)
+            {
+                [self.items insertObject:item atIndex:index];
+            }
+            else
+            {
+                ANStorageLog(@"You trying to insert object at index == NSNotFound - %@", NSStringFromSelector(_cmd));
+            }
+        }
+        else
+        {
+            ANStorageLog(@"You trying to insert object at index == NSNotFound - %@", NSStringFromSelector(_cmd));
+        }
+    }
+    else
+    {
+        ANStorageLog(@"You trying to add nil object - %@", NSStringFromSelector(_cmd));
     }
 }
 
@@ -68,6 +92,10 @@
     {
         [self.items removeObjectAtIndex:index];
     }
+    else
+    {
+        ANStorageLog(@"You trying remove object at non existing index - %ld, %@", index, NSStringFromSelector(_cmd));
+    }
 }
 
 
@@ -75,9 +103,20 @@
 
 - (void)replaceItemAtIndex:(NSUInteger)index withItem:(id)item
 {
-    if (item && self.items.count >= index)
+    if (item)
     {
-        [self.items replaceObjectAtIndex:index withObject:item];
+        if (self.items.count >= index)
+        {
+            [self.items replaceObjectAtIndex:index withObject:item];
+        }
+        else
+        {
+            ANStorageLog(@"You trying replace object at non existing index - %ld, %@", index, NSStringFromSelector(_cmd));
+        }
+    }
+    else
+    {
+        ANStorageLog(@"You trying to replace object with nil - %@", NSStringFromSelector(_cmd));
     }
 }
 
@@ -97,6 +136,10 @@
             [self.supplementaries removeObjectForKey:kind];
         }
     }
+    else
+    {
+        ANStorageLog(@"You trying to add supplementary - with nil kind");
+    }
 }
 
 - (id)supplementaryModelOfKind:(NSString*)kind
@@ -104,6 +147,10 @@
     if (kind)
     {
         return self.supplementaries[kind];
+    }
+    else
+    {
+        ANStorageLog(@"You trying to get supplementary - with nil kind");
     }
     return nil;
 }
