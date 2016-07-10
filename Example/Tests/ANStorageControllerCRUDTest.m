@@ -157,13 +157,13 @@
     }).notTo.raiseAny();
 }
 
-//- (void)DISABLEDtest_addItemToSection_negative_indexLessThanZero
-//{
-//    //then
-//    expect(^{
-//        [self.controller addItem:self.testFixture toSection:-1];
-//    }).notTo.raiseAny();
-//}
+- (void)DISABLEDtest_addItemToSection_negative_indexLessThanZero
+{
+    //then
+    expect(^{
+        [self.controller addItem:self.testFixture toSection:-1];
+    }).notTo.raiseAny();
+}
 
 - (void)test_addItemToSection_negative_itemIsNil
 {
@@ -210,21 +210,21 @@
     expect(self.controller.sections).haveCount(0);
 }
 
-//- (void)DISABLEDtest_addItemsToSection_negative_indexLessThanZero
-//{
-//    //then
-//    expect(^{
-//        [self.controller addItems:@[@"one"] toSection:-1];
-//    }).notTo.raiseAny();
-//}
+- (void)DISABLEDtest_addItemsToSection_negative_indexLessThanZero
+{
+    //then
+    expect(^{
+        [self.controller addItems:@[@"one"] toSection:-1];
+    }).notTo.raiseAny();
+}
 
-//- (void)DISABLEDtest_addItemsToSection_negative_indexNSNotFound
-//{
-//    //then
-//    expect(^{
-//        [self.controller addItems:@[@"one"] toSection:NSNotFound];
-//    }).notTo.raiseAny();
-//}
+- (void)DISABLEDtest_addItemsToSection_negative_indexNSNotFound
+{
+    //then
+    expect(^{
+        [self.controller addItems:@[@"one"] toSection:NSNotFound];
+    }).notTo.raiseAny();
+}
 
 
 #pragma mark - addItem: atIndexPath
