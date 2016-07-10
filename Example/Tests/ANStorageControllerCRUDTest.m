@@ -232,48 +232,137 @@
 
 - (void)test_addItemAtIndexPath_positive_dataIsValid
 {
+    //given
+    NSIndexPath* indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    
     //when
-    [self.controller addItem:self.testFixture atIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    [self.controller addItem:self.testFixture atIndexPath:indexPath];
     
     //then
-    expect([self.controller itemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]]).equal(self.testFixture);
+    expect([self.controller itemAtIndexPath:indexPath]).equal(self.testFixture);
 }
 
-- (void)testReloadItem
+- (void)test_addItemAtIndexPath_negative_indexPathIsNil
 {
-	//mock
+    //then
+    expect(^{
+        [self.controller addItem:self.testFixture atIndexPath:nil];
+    }).notTo.raiseAny();
 }
 
-- (void)testReloadItems
-{
-	//mock
-}
-
-- (void)testRemoveItem
+- (void)test_addItemAtIndexPath_negative_indexPathRowMoreThanItems
 {
     //given
-    NSString* testModel = @"test";
-    [self.controller addItem:testModel];
+    NSIndexPath* indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
+    
+    //then
+    expect(^{
+        [self.controller addItem:self.testFixture atIndexPath:indexPath];
+    }).notTo.raiseAny();
+}
+
+- (void)test_addItemAtIndexPath_negative_ItemIsNil
+{
+    //given
+    NSIndexPath* indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     
     //when
-    [self.controller removeItem:testModel];
+    expect(^{
+        [self.controller addItem:nil atIndexPath:indexPath];
+    }).notTo.raiseAny();
+}
+
+
+#pragma mark - reloadItem:
+
+- (void)test_reloadItem_positive_dataIsValid
+{
+	//mock
+    failure(@"test_reloadItem_positive_dataIsValid not implemented");
+}
+
+- (void)test_reloadItem_negative_itemIsNil
+{
+    expect(^{
+        [self.controller reloadItem:nil];
+    }).notTo.raiseAny();
+}
+
+
+#pragma mark - reloadItems:
+
+- (void)test_reloadItems_positive_dataIsValid
+{
+	//mock
+    failure(@"test_reloadItems_positive_dataIsValid not implemented");
+}
+
+- (void)test_reloadItems_negative_arrayIsNil
+{
+    expect(^{
+        [self.controller reloadItems:nil];
+    }).notTo.raiseAny();
+}
+
+- (void)test_reloadItems_negative_arrayIsEmpty
+{
+    //mock
+    failure(@"test_reloadItems_negative_arrayIsEmpty not implemented");
+}
+
+
+#pragma mark - removeItem:
+
+- (void)test_removeItem_positive_dataIsValid
+{
+    //given
+    [self.controller addItem:self.testFixture];
+    
+    //when
+    [self.controller removeItem:self.testFixture];
     
     //then
     expect([self.controller itemsInSection:0]).haveCount(0);
-    expect([self.controller sections]).haveCount(1);
-    expect([self.controller itemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]]).beNil();
 }
 
-- (void)testRemoveItemsAtIndexPaths
+- (void)test_removeItem_positive_whenRemoveSignleItemStorageWillBeEmpty
 {
     //given
-    NSString* testModel = @"test";
+    [self.controller addItem:self.testFixture];
+    
+    //when
+    [self.controller removeItem:self.testFixture];
+    
+    //then
+    expect([self.controller isEmpty]).beTruthy();
+}
+
+- (void)test_removeItem_positive_whenItemRemovedSectionWillPersist
+{
+    //given
+    [self.controller addItem:self.testFixture];
+    
+    //when
+    [self.controller removeItem:self.testFixture];
+    
+    //then
+    expect([self.controller sections]).haveCount(1);
+}
+
+
+
+
+#pragma mark - removeItems: atIndexPaths:
+
+- (void)test_removeItemsAtIndexPaths_positive_dataIsValid
+{
+    //given
     NSArray* indexPaths = @[[NSIndexPath indexPathForRow:0 inSection:0],
                             [NSIndexPath indexPathForRow:1 inSection:0],
                             [NSIndexPath indexPathForRow:2 inSection:0]];
-    [self.controller addItem:testModel];
-    [self.controller addItem:testModel];
-    [self.controller addItem:testModel];
+    [self.controller addItem:self.testFixture];
+    [self.controller addItem:self.testFixture];
+    [self.controller addItem:self.testFixture];
     
     //when
     [self.controller removeItemsAtIndexPaths:indexPaths];
@@ -282,6 +371,8 @@
     expect([self.controller itemsInSection:0]).haveCount(0);
     expect([self.controller sections]).haveCount(1);
 }
+
+
 
 - (void)testRemoveItems
 {
