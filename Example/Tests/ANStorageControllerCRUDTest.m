@@ -126,7 +126,7 @@
 }
 
 
-#pragma mark - addItemToSection:
+#pragma mark - addItem: toSection:
 
 - (void)test_addItemToSection_positive_dataIsValid
 {
@@ -230,19 +230,13 @@
 
 #pragma mark - addItem: atIndexPath
 
-- (void)test_addItemAtIndexPath
+- (void)test_addItemAtIndexPath_positive_dataIsValid
 {
-    //given
-    NSString* testModel = @"test";
-    
     //when
-    [self.controller addItem:testModel atIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]];
+    [self.controller addItem:self.testFixture atIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
     
     //then
-    expect([self.controller itemsInSection:0]).haveCount(0);
-    expect([self.controller itemsInSection:1]).haveCount(1);
-    expect([self.controller sections]).haveCount(2);
-    expect([self.controller itemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]]).equal(testModel);
+    expect([self.controller itemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]]).equal(self.testFixture);
 }
 
 - (void)testReloadItem
