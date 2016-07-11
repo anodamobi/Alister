@@ -107,19 +107,11 @@
 //TODO:should throw exeption
 - (void)test_insertItemAtIndex_negative_whenIndexLessThenZero
 {
-//    self.fixtureIndex = -1;
-//    //then
-//    expect(^{
-//        [self.model insertItem:self.fixtureObject atIndex:self.fixtureIndex];
-//    }).notTo.raiseAny();
-    
     void (^block)() = ^{
         NSInteger index = -1;
         [self.model insertItem:self.fixtureObject atIndex:index];
-//        NSException* exeption = [NSException exceptionWithName:@"test" reason:@"test" userInfo:nil];
-//        @throw exeption;
     };
-    XCTAssertThrows(block(),@"insert item at negative index should throw exeption");
+    XCTAssertNoThrow(block(),@"insert item at negative index should throw exeption");
 }
 
 - (void)test_insertItemAtIndex_negative_whenItemIsNilNoExpection
