@@ -70,11 +70,15 @@
     [section addItem:self.fixtureObject];
     [self.model addSection:section];
     //when
-    NSIndexPath* invalideIndexPath = nil;
+    NSIndexPath* invalidIndexPath = nil;
     //then
-    id object = [self.model itemAtIndexPath:invalideIndexPath];
     
-     XCTAssertNil(object, @"object %@ is equal nil", object);
+    __block id object = nil;
+    void(^testBlock)() = ^{
+        object = [self.model itemAtIndexPath:invalidIndexPath];
+    };
+    
+    XCTAssertThrows(testBlock());
 }
 
 

@@ -332,7 +332,6 @@
 - (void)test_didSelectRowAtIndexPath_positive_selectedIndexPathNotNil
 {
     //given
-    
     NSIndexPath* selectedIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     NSString* testModel = @"Mock";
     
@@ -358,6 +357,42 @@
     }];
     
     //then
+    [self waitForExpectationsWithTimeout:0.1 handler:nil];
+}
+
+- (void)test_didSelectedRowAnIndexPath_negative_withNotExistedIndexPath
+{
+    //given
+    NSIndexPath* notExistIndexPath = nil;
+    NSString* testModel = @"test model";
+    
+    [self.listController configureCellsWithBlock:^(id<ANListControllerReusableInterface> configurator) {
+        [configurator registerCellClass:[ANTestTableCell class] forSystemClass:[NSString class]];
+    }];
+    
+    //when
+    
+    void(^testBlock)() = ^{
+        XCTestExpectation *expectation = [self expectationWithDescription:@"expectationNotExistIndexPath"];
+        __weak typeof(self) welf = self;
+        
+        [self.listController configureItemSelectionBlock:^(id model, NSIndexPath *indexPath) {
+            XCTAssertEqualObjects(notExistIndexPath, indexPath);
+            [expectation fulfill];
+        }];
+        
+        [self.listController addUpdatesFinsihedTriggerBlock:^{
+            [welf.tw.delegate tableView:self.tw didSelectRowAtIndexPath:notExistIndexPath];
+        }];
+        
+        [self.storage updateWithoutAnimationWithBlock:^(id<ANStorageUpdatableInterface> storageController) {
+            [storageController addItem:testModel];
+        }];
+        
+    };
+    
+    //then
+    XCTAssertNoThrow(testBlock());
     [self waitForExpectationsWithTimeout:0.1 handler:nil];
 }
 

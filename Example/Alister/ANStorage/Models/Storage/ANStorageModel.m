@@ -29,7 +29,7 @@
 
 - (id)objectAtIndex:(NSUInteger)index inSection:(NSUInteger)section
 {
-    if (self.sectionModels.count < index)
+    if (self.sectionModels.count > index)
     {
         ANStorageSectionModel* model = self.sectionModels[section];
         if ([model numberOfObjects] > index)
@@ -42,7 +42,17 @@
 
 - (id)itemAtIndexPath:(NSIndexPath*)indexPath
 {
-    return [self objectAtIndex:(NSUInteger)indexPath.row inSection:(NSUInteger)indexPath.section];
+    id object = nil;
+    if (indexPath)
+    {
+        object = [self objectAtIndex:(NSUInteger)indexPath.row inSection:(NSUInteger)indexPath.section];
+    }
+    else
+    {
+        NSAssert(NO, @"Somthing wrong, indexpath is nil!!!");
+    }
+    
+    return object;
 }
 
 - (NSArray*)itemsInSection:(NSUInteger)section

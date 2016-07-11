@@ -151,14 +151,6 @@
 
 - (void)test_removeItemAtIndex_negative_indexLessThanZero
 {
-//    //when
-//    self.fixtureIndex = -1;
-//    
-//    //then
-//    expect(^{
-//        [self.model removeItemAtIndex:self.fixtureIndex];
-//    }).notTo.raiseAny();
-    
     void (^testExeptionBlock)() = ^{
         NSInteger negativeIndex = -1;
         [self.model removeItemAtIndex:negativeIndex];
