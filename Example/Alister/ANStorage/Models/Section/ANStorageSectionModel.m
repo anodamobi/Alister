@@ -88,7 +88,6 @@
 
 - (void)removeItemAtIndex:(NSUInteger)index
 {
-    NSLog(@"items count %lu",index);
     if (self.items.count > index)
     {
         [self.items removeObjectAtIndex:index];
