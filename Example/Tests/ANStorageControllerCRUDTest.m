@@ -57,6 +57,21 @@
     expect([self.controller itemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]]).equal(self.testFixture);
 }
 
+- (void)test_addItem_negative_addItemToWrongIndexPath
+{
+    //given
+    NSIndexPath* negativeIndexPath = [NSIndexPath indexPathForRow:-5 inSection:-1];
+    
+    //when
+    void(^testBlock)() = ^{
+        [self.controller addItem:self.testFixture atIndexPath:negativeIndexPath];
+    };
+    
+    //then
+    XCTAssertThrows(testBlock());
+}
+
+
 - (void)test_addItem_positive_sectionWasCreated
 {
     //when

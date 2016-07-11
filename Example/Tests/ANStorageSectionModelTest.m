@@ -103,14 +103,16 @@
     }).notTo.raiseAny();
 }
 
-//- (void)test_insertItemAtIndex_negative_whenIndexLessThenZero
-//{
-//    self.fixtureIndex = -1;
-//    //then
-//    expect(^{
-//        [self.model insertItem:self.fixtureObject atIndex:self.fixtureIndex];
-//    }).notTo.raiseAny();
-//}
+
+//TODO:should throw exeption
+- (void)test_insertItemAtIndex_negative_whenIndexLessThenZero
+{
+    void (^block)() = ^{
+        NSInteger index = -1;
+        [self.model insertItem:self.fixtureObject atIndex:index];
+    };
+    XCTAssertNoThrow(block(),@"insert item at negative index should throw exeption");
+}
 
 - (void)test_insertItemAtIndex_negative_whenItemIsNilNoExpection
 {
@@ -146,17 +148,6 @@
         [self.model removeItemAtIndex:self.fixtureIndex];
     }).notTo.raiseAny();
 }
-
-//- (void)test_removeItemAtIndex_negative_indexLessThanZero
-//{
-//    //when
-//    self.fixtureIndex = -1;
-//    
-//    //then
-//    expect(^{
-//        [self.model removeItemAtIndex:self.fixtureIndex];
-//    }).notTo.raiseAny();
-//}
 
 
 #pragma mark - replaceItemAtIndexWithItem:

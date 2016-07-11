@@ -130,6 +130,7 @@
 		7B5489A2325AA16B6A1C686E /* Pods-Alister_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Alister_Example/Pods-Alister_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		A0FEB73CEF5FF68812208B9A /* Pods_Alister_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Alister_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8D594C6A1CAF9F8A83D2691 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		AEB15D541D33FD0100AC7F18 /* ANStorageConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ANStorageConstants.h; sourceTree = "<group>"; };
 		B330DC4492CA841E1AD0DE63 /* Pods-Alister_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Alister_Example/Pods-Alister_Example.release.xcconfig"; sourceTree = "<group>"; };
 		D797F3471D25AC0200FCAFB9 /* ANKeyboardHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKeyboardHandler.h; sourceTree = "<group>"; };
 		D797F3481D25AC0200FCAFB9 /* ANKeyboardHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKeyboardHandler.m; sourceTree = "<group>"; };
@@ -305,6 +306,7 @@
 		6003F593195388D20070C39A /* Example for Alister */ = {
 			isa = PBXGroup;
 			children = (
+				AEB15D531D33FCCF00AC7F18 /* Headers */,
 				D797F3461D25AC0200FCAFB9 /* ANKeyboardHandler */,
 				D797F3491D25AC0200FCAFB9 /* ANListController */,
 				D797F3A21D25AC0200FCAFB9 /* ANStorage */,
@@ -382,6 +384,14 @@
 				DC410AEEE25ED11749115778 /* Pods-Alister_Tests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		AEB15D531D33FCCF00AC7F18 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				AEB15D541D33FD0100AC7F18 /* ANStorageConstants.h */,
+			);
+			path = Headers;
 			sourceTree = "<group>";
 		};
 		D797F3461D25AC0200FCAFB9 /* ANKeyboardHandler */ = {

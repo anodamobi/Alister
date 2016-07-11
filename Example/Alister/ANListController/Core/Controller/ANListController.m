@@ -135,7 +135,6 @@
     }
 }
 
-
 #pragma mark - Private
 
 - (void)_updateKeyboardHandlerWithConfigurationModel:(ANListControllerConfigurationModel*)model

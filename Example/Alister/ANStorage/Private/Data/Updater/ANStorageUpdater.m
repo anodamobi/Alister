@@ -13,6 +13,7 @@
 #import "ANStorageMovedIndexPathModel.h"
 #import "ANStorageModel.h"
 #import "ANStorageLog.h"
+#import "ANStorageConstants.h"
 
 @implementation ANStorageUpdater
 
@@ -164,12 +165,20 @@
 
 + (NSIndexSet*)createSectionIfNotExist:(NSUInteger)sectionNumber inStorage:(ANStorageModel*)storage
 {
-    NSMutableIndexSet* insertedSectionIndexes = [NSMutableIndexSet indexSet];
-    for (NSUInteger sectionIterator = storage.sections.count; sectionIterator <= sectionNumber; sectionIterator++)
+     NSMutableIndexSet* insertedSectionIndexes = [NSMutableIndexSet indexSet];
+    if (sectionNumber < ANStorageMaxItemsCount)
     {
-        [storage addSection:[ANStorageSectionModel new]];
-        [insertedSectionIndexes addIndex:sectionIterator];
+        for (NSUInteger sectionIterator = storage.sections.count; sectionIterator <= sectionNumber; sectionIterator++)
+        {
+            [storage addSection:[ANStorageSectionModel new]];
+            [insertedSectionIndexes addIndex:sectionIterator];
+        }
     }
+    else
+    {
+        NSAssert(NO,@"Section number is too big %lu, check is everything ok? please submit issue",sectionNumber);
+    }
+    
     return insertedSectionIndexes;
 }
 
