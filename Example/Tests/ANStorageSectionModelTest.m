@@ -103,14 +103,24 @@
     }).notTo.raiseAny();
 }
 
-//- (void)test_insertItemAtIndex_negative_whenIndexLessThenZero
-//{
+
+//TODO:should throw exeption
+- (void)test_insertItemAtIndex_negative_whenIndexLessThenZero
+{
 //    self.fixtureIndex = -1;
 //    //then
 //    expect(^{
 //        [self.model insertItem:self.fixtureObject atIndex:self.fixtureIndex];
 //    }).notTo.raiseAny();
-//}
+    
+    void (^block)() = ^{
+        NSInteger index = -1;
+        [self.model insertItem:self.fixtureObject atIndex:index];
+//        NSException* exeption = [NSException exceptionWithName:@"test" reason:@"test" userInfo:nil];
+//        @throw exeption;
+    };
+    XCTAssertThrows(block(),@"insert item at negative index should throw exeption");
+}
 
 - (void)test_insertItemAtIndex_negative_whenItemIsNilNoExpection
 {
@@ -147,8 +157,8 @@
     }).notTo.raiseAny();
 }
 
-//- (void)test_removeItemAtIndex_negative_indexLessThanZero
-//{
+- (void)test_removeItemAtIndex_negative_indexLessThanZero
+{
 //    //when
 //    self.fixtureIndex = -1;
 //    
@@ -156,7 +166,14 @@
 //    expect(^{
 //        [self.model removeItemAtIndex:self.fixtureIndex];
 //    }).notTo.raiseAny();
-//}
+    
+    void (^testExeptionBlock)() = ^{
+        NSInteger negativeIndex = -1;
+        [self.model removeItemAtIndex:negativeIndex];
+    };
+    
+    XCTAssertThrows(testExeptionBlock, @"remove item at negative index should throw exeption");
+}
 
 
 #pragma mark - replaceItemAtIndexWithItem:
