@@ -149,16 +149,6 @@
     }).notTo.raiseAny();
 }
 
-- (void)test_removeItemAtIndex_negative_indexLessThanZero
-{
-    void (^testExeptionBlock)() = ^{
-        NSInteger negativeIndex = -1;
-        [self.model removeItemAtIndex:negativeIndex];
-    };
-    
-    XCTAssertThrows(testExeptionBlock, @"remove item at negative index should throw exeption");
-}
-
 
 #pragma mark - replaceItemAtIndexWithItem:
 
