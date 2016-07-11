@@ -44,7 +44,7 @@
     [super tearDown];
 }
 
-- (void)testAttachStorage
+- (void)test_attachStorage_positive_currentStorageNotNil
 {
     //given
     ANTableController* listController = [ANTableController new];
@@ -56,7 +56,19 @@
     expect(listController.currentStorage).equal(storage);
 }
 
-- (void)testConfigureItemSelectionBlock
+- (void)test_attachStorage_negative_attachStorageWithNil
+{
+    //given
+    ANTableController* listController = [ANTableController new];
+
+    //when
+    [listController attachStorage:nil];
+    
+    //then
+    XCTAssertNil(listController.currentStorage);
+}
+
+- (void)test_configureItemSelectionBlock_positive_selectItemsWithConfiguredIndexPath
 {
     //given
     NSString* testModel = @"Mock";
@@ -89,7 +101,40 @@
     [self waitForExpectationsWithTimeout:0.1 handler:nil];
 }
 
-- (void)testUpdateConfigurationModelWithBlock
+- (void)test_configureItemSelectionBlock_negative_selectItemsWithWrongConfiguredIndexPathExpectedNilSelectedModel
+{
+    //given
+    NSString* testModel = @"Mock";
+    NSIndexPath* selectedIndexPath = [NSIndexPath indexPathForRow:1 inSection:0];
+    
+    [self.listController configureCellsWithBlock:^(id<ANListControllerReusableInterface> configurator) {
+        [configurator registerCellClass:[ANTestTableCell class] forSystemClass:[NSString class]];
+    }];
+    
+    //when
+    XCTestExpectation *expectation = [self expectationWithDescription:@"configureItemSelectionBlock called"];
+    __weak typeof(self) welf = self;
+    
+    [self.listController configureItemSelectionBlock:^(id model, NSIndexPath *indexPath) {
+        XCTAssertNil(model);
+        XCTAssertEqualObjects(indexPath, selectedIndexPath);
+        [expectation fulfill];
+    }];
+    
+    [self.listController addUpdatesFinsihedTriggerBlock:^{
+        [welf.listController tableView:welf.tw
+               didSelectRowAtIndexPath:selectedIndexPath];
+    }];
+    
+    [self.storage updateWithoutAnimationWithBlock:^(id<ANStorageUpdatableInterface> storageController) {
+        [storageController addItem:testModel];
+    }];
+    
+    //then
+    [self waitForExpectationsWithTimeout:0.1 handler:nil];
+}
+
+- (void)test_updateConfigurationModelWithBlock_positive_configurationModelShouldHandleKeyboardAndEmptySectionWithNO
 {
     //given
     XCTestExpectation *expectation = [self expectationWithDescription:@"updateConfigurationModelWithBlock called"];
@@ -101,17 +146,16 @@
     }];
     
     [self.listController updateConfigurationModelWithBlock:^(ANListControllerConfigurationModel *configurationModel) {
-        [expectation fulfill];
         expect(configurationModel.shouldHandleKeyboard).beFalsy();
         expect(configurationModel.shouldDisplayHeaderOnEmptySection).beFalsy();
+        [expectation fulfill];
     }];
     
     //then
     [self waitForExpectationsWithTimeout:0.1 handler:nil];
 }
 
-
-- (void)testAddUpdatesFinsihedTriggerBlock
+- (void)test_addUpdatesFinsihedTriggerBlock_afterUpdateStorageBlockTriggered
 {
     //given
     NSString* testModel = @"Mock";
@@ -135,7 +179,7 @@
     [self waitForExpectationsWithTimeout:0.1 handler:nil];
 }
 
-- (void)testAttachSearchBar
+- (void)test_attachSearchBar_positive_searchBarNotEqualNilAfterAttach
 {
     //given
     UISearchBar* searchBar = [UISearchBar new];
@@ -146,7 +190,20 @@
     expect(self.listController.searchBar).equal(searchBar);
 }
 
-- (void)testCreateControllerWithTableViewExpectSetupedANdNotNil
+- (void)test_attachSearchBar_negative_attachSearchBarAsNilObject
+{
+    //given
+    UISearchBar* searchBar = nil;
+    
+    //when
+    [self.listController attachSearchBar:searchBar];
+    
+    //then
+    XCTAssertNil(self.listController.searchBar);
+}
+
+
+- (void)test_createControllerWithTableView_positive_expectSetupedANdNotNil
 {
     //when
     ANTableController* tc = [ANTableController controllerWithTableView:self.tw];
@@ -155,13 +212,35 @@
     expect(tc.tableView).equal(self.tw);
 }
 
-- (void)testInitWithTableView
+- (void)test_createControllerWithTableView_negative_tableViewIsNilAndExpectedExeption
+{
+    //when
+    void(^testBlock)() = ^{
+       __unused ANTableController* tc = [ANTableController controllerWithTableView:nil];
+    };
+    
+    //then
+    XCTAssertThrows(testBlock());
+}
+
+- (void)test_initWithTableView_positive_tableViewNotNilInController
 {
     //when
     ANTableController* tc = [[ANTableController alloc] initWithTableView:self.tw];
+    
     //then
     expect(tc.tableView).notTo.beNil();
     expect(tc.tableView).equal(self.tw);
+}
+
+- (void)test_initWithTableView_negative_tableViewIsNilAndThrowException
+{
+    //when
+    void(^testBlock)() = ^{
+       __unused ANTableController* tc = [[ANTableController alloc] initWithTableView:nil];
+     };
+    
+    XCTAssertThrows(testBlock());
 }
 
 
@@ -170,7 +249,7 @@
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-retain-cycles"
 
-- (void)testNumberOfSectionsInTableView
+- (void)test_numberOfSectionsInTableView_positive_addedTwoSectionSuccessfull
 {
     //given
     XCTestExpectation *expectation = [self expectationWithDescription:@"testNumberOfSectionsInTableView"];
@@ -191,6 +270,36 @@
         [expectation fulfill];
         expect([welf.listController numberOfSectionsInTableView:self.tw]).equal(2);
     }];
+    [self waitForExpectationsWithTimeout:0.1 handler:nil];
+}
+
+- (void)test_numberOfSectionsInTableView_positive_addedItemToSecondSectionAndThenCreatedTwoSections
+{
+    //give
+    
+    NSInteger updatedSectionIndex = 2;
+    NSInteger expectedSectionCount = 3;
+    
+    XCTestExpectation* expectation = [self expectationWithDescription:@"testAddedItemToSecondSection"];
+    
+    __weak typeof(self) welf = self;
+    
+    [self.listController configureCellsWithBlock:^(id<ANListControllerReusableInterface> configurator) {
+        [configurator registerCellClass:[ANTestTableCell class] forSystemClass:[NSString class]];
+    }];
+    
+    //when
+    [self.storage updateWithoutAnimationWithBlock:^(id<ANStorageUpdatableInterface> storageController) {
+        [storageController addItem:@"test" toSection:updatedSectionIndex];
+    }];
+    
+    //then
+    [self.listController addUpdatesFinsihedTriggerBlock:^{
+        NSInteger sectionNumber = [welf.listController numberOfSectionsInTableView:self.tw];
+        XCTAssertEqual(sectionNumber, expectedSectionCount);
+        [expectation fulfill];
+    }];
+    
     [self waitForExpectationsWithTimeout:0.1 handler:nil];
 }
 
@@ -220,9 +329,11 @@
     [self waitForExpectationsWithTimeout:0.1 handler:nil];
 }
 
-- (void)testDidSelectRowAtIndexPath
+- (void)test_didSelectRowAtIndexPath_positive_selectedIndexPathNotNil
 {
     //given
+    
+    NSIndexPath* selectedIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     NSString* testModel = @"Mock";
     
     [self.listController configureCellsWithBlock:^(id<ANListControllerReusableInterface> configurator) {
@@ -234,11 +345,12 @@
     __weak typeof(self) welf = self;
     
     [self.listController configureItemSelectionBlock:^(id model, NSIndexPath *indexPath) {
+        XCTAssertEqualObjects(selectedIndexPath, indexPath);
         [expectation fulfill];
     }];
     
     [self.listController addUpdatesFinsihedTriggerBlock:^{
-        [welf.tw.delegate tableView:self.tw didSelectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+        [welf.tw.delegate tableView:self.tw didSelectRowAtIndexPath:selectedIndexPath];
     }];
     
     [self.storage updateWithoutAnimationWithBlock:^(id<ANStorageUpdatableInterface> storageController) {
