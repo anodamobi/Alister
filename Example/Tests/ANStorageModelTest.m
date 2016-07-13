@@ -255,7 +255,7 @@
 - (void)test_removeSectionAtIndex_positive_indexIsValid
 {
     //given
-    NSUInteger removedSectionIndex;
+    NSUInteger removedSectionIndex = 0;
     ANStorageSectionModel* section = [ANStorageSectionModel new];
     [self.model addSection:section];
     //when
