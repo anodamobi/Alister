@@ -268,7 +268,7 @@
     //then
     [self.listController addUpdatesFinsihedTriggerBlock:^{
         [expectation fulfill];
-        expect([welf.listController numberOfSectionsInTableView:self.tw]).equal(2);
+        expect([welf.listController numberOfSectionsInTableView:welf.tw]).equal(2);
     }];
     [self waitForExpectationsWithTimeout:0.1 handler:nil];
 }
@@ -303,7 +303,7 @@
     [self waitForExpectationsWithTimeout:0.1 handler:nil];
 }
 
-- (void)testNumberOfRowsInSection
+- (void)test_numberOfRowsInSection_positive_addedItemsToFirstSection
 {
     //given
     XCTestExpectation *expectation = [self expectationWithDescription:@"testNumberOfRowsInSection"];
