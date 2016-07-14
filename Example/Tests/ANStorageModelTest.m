@@ -91,13 +91,13 @@
     [section addItem:self.fixtureObject];
     [section addItem:self.fixtureObject];
     
-    NSInteger expectedModelsCount = section.objects.count;
+    NSUInteger expectedModelsCount = section.objects.count;
     [self.model addSection:section];
     
     //when
     ANStorageSectionModel* firstSection = self.model.sections.firstObject;
     //then
-    XCTAssertEqual(section.objects.count, firstSection.objects.count);
+    XCTAssertEqual(expectedModelsCount, firstSection.objects.count);
 }
 
 - (void)test_itemsInSection_positive_modelIsEmpty
