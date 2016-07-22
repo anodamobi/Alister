@@ -81,7 +81,12 @@
 
 - (void)reloadStorageAnimated:(ANStorage*)storage
 {
-    [[self.manager updateHandler] storageNeedsReloadAnimatedWithIdentifier:storage.identifier];
+    [[self.manager updateHandler] storageNeedsReloadWithIdentifier:storage.identifier animated:YES];
+}
+
+- (void)reloadStorageWithoutAnimation:(ANStorage*)storage
+{
+    [[self.manager updateHandler] storageNeedsReloadWithIdentifier:storage.identifier animated:NO];
 }
 
 - (void)searchControllerDidCancelSearch
@@ -111,7 +116,7 @@
                                                     inSearchScope:scope];
     [self _attachStorage:self.searchingStorage];
     
-    [[self.manager updateHandler] storageNeedsReloadAnimatedWithIdentifier:self.searchingStorage.identifier];
+    [[self.manager updateHandler] storageNeedsReloadWithIdentifier:self.searchingStorage.identifier animated:YES];
     
     self.searchingStorage.listController = [self.manager updateHandler];
 }
@@ -155,7 +160,7 @@
     storage.listController = [self.manager updateHandler];
     ANListControllerConfigurationModel* model = self.manager.configurationModel;
     [storage updateHeaderKind:model.defaultHeaderSupplementary footerKind:model.defaultFooterSupplementary];
-    [self.storage.listController storageNeedsReloadWithIdentifier:storage.identifier];
+    [self.storage.listController storageNeedsReloadWithIdentifier:storage.identifier animated:NO];
 }
 
 @end
