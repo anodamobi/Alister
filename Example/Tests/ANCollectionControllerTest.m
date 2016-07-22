@@ -10,7 +10,6 @@
 #import "ANStorage.h"
 #import "ANCollectionController.h"
 #import "ANCollectionViewCell.h"
-#import <Expecta/Expecta.h>
 
 @interface ANCollectionControllerTest : XCTestCase
 
@@ -70,7 +69,6 @@
     [listController attachStorage:storage];
     
     XCTAssertNil(listController.currentStorage);
-    
 }
 
 - (void)test_configureItemSelectionBlock_positive_selectItemsWithConfiguredIndexPath
@@ -160,6 +158,7 @@
     [self waitForExpectationsWithTimeout:0.1 handler:nil];
 }
 
+
 - (void)test_addUpdatesFinsihedTriggerBlock_afterUpdateStorageBlockTriggered
 {
     //given
@@ -207,7 +206,7 @@
     XCTAssertNil(self.listController.searchBar);
 }
 
-- (void)test_createControllerWithCollectionView_positive_expectSetupedANdNotNil
+- (void)test_createControllerWithCollectionView_positive_expectSetupedAndNotNil
 {
     //when
     ANCollectionController* collectionController = [ANCollectionController controllerWithCollectionView:self.collectionView];
@@ -221,7 +220,7 @@
 {
     //when
     void(^testBlock)() = ^{
-        __unused ANCollectionController* tc = [ANCollectionController controllerWithCollectionView:nil];
+        [ANCollectionController controllerWithCollectionView:nil];
     };
     
     //then
@@ -231,7 +230,7 @@
 - (void)test_numberOfSectionsInCollectionView_positive_addedTwoSectionSuccessfull
 {
     //given
-    XCTestExpectation *expectation = [self expectationWithDescription:@"testNumberOfSectionsInTableView"];
+    XCTestExpectation *expectation = [self expectationWithDescription:@"testNumberOfSectionsInCollectionView"];
     __weak typeof(self) welf = self;
     
     [self.listController configureCellsWithBlock:^(id<ANListControllerReusableInterface> configurator) {
@@ -245,9 +244,7 @@
     }];
     
     //then
-//    @weakify(self);
     [self.listController addUpdatesFinsihedTriggerBlock:^{
-//        @strongify(self);
         [expectation fulfill];
         NSInteger sectionCount = [welf.listController numberOfSectionsInCollectionView:welf.collectionView];
         XCTAssertEqual(sectionCount, 2);
@@ -273,7 +270,6 @@
     }];
     
     //then
-    
     [self.listController addUpdatesFinsihedTriggerBlock:^{
         [expectation fulfill];
         NSInteger listControllerSectionRowsNumber = [welf.listController collectionView:welf.collectionView numberOfItemsInSection:0];
@@ -326,7 +322,6 @@
     }];
     
     //when
-    
     void(^testBlock)() = ^{
         XCTestExpectation *expectation = [self expectationWithDescription:@"expectationNotExistIndexPath"];
         __weak typeof(self) welf = self;
@@ -343,7 +338,6 @@
         [self.storage updateWithoutAnimationWithBlock:^(id<ANStorageUpdatableInterface> storageController) {
             [storageController addItem:testModel];
         }];
-        
     };
     
     //then
