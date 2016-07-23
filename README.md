@@ -11,6 +11,9 @@ To run the example project, clone the repo or download, and run `pod install` fr
 
 ## Requirements
 
+Xcode 7.2 or higher
+IOS 9 or higher
+
 ## Installation
 
 Alister is available through [CocoaPods](http://cocoapods.org). To install
