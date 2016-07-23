@@ -35,7 +35,7 @@
             [configurator registerCellClass:[ANExampleTableViewCell class] forSystemClass:[NSString class]];
         }];
         
-        [self.storage updateWithAnimationWithBlock:^(id<ANStorageUpdatableInterface> storageController) {
+        [self.storage updateWithAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
             
             [storageController addItem:@"Test"];
             [storageController addItem:@"Test"];
@@ -58,7 +58,7 @@
 //        }];
         
 //        
-//        [storage updateWithoutAnimationWithBlock:^(id<ANStorageUpdatableInterface> storageController) {
+//        [storage updateWithoutAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
 //            [storageController addItem:@"i"];
 //        }];
 
@@ -106,7 +106,7 @@
 //    }];
 //    
 //    
-//    [self.storage updateWithoutAnimationWithBlock:^(id<ANStorageUpdatableInterface> storageController) {
+//    [self.storage updateWithoutAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
 //        [storageController addItem:@"i"];
 //    }];
 

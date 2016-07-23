@@ -24,8 +24,8 @@ typedef NSPredicate*(^ANStorageSearchPredicate)(NSString* searchString, NSIntege
 - (instancetype)searchStorageForSearchString:(NSString*)searchString
                                inSearchScope:(NSInteger)searchScope;
 
-- (void)updateWithAnimationWithBlock:(ANDataStorageUpdateBlock)block;
-- (void)updateWithoutAnimationWithBlock:(ANDataStorageUpdateBlock)block;
+- (void)updateWithAnimationChangeBlock:(ANDataStorageUpdateBlock)block;
+- (void)updateWithoutAnimationChangeBlock:(ANDataStorageUpdateBlock)block;
 - (void)reloadStorageWithAnimation:(BOOL)isAnimatable;
 
 //private ://todo

@@ -51,7 +51,7 @@
     }];
     
     //when
-    [self.storage updateWithoutAnimationWithBlock:^(id<ANStorageUpdatableInterface> storageController) {
+    [self.storage updateWithoutAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
         [storageController setSectionHeaderModel:object forSectionIndex:0];
     }];
 }
@@ -63,7 +63,7 @@
     }];
     
     //when
-    [self.storage updateWithoutAnimationWithBlock:^(id<ANStorageUpdatableInterface> storageController) {
+    [self.storage updateWithoutAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
         [storageController setSectionHeaderModel:object forSectionIndex:0];
     }];
 }
@@ -141,7 +141,7 @@
     __weak typeof(self) welf = self;
     
     //when
-    [self.storage updateWithoutAnimationWithBlock:^(id<ANStorageUpdatableInterface> storageController) {
+    [self.storage updateWithoutAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
         [storageController setSectionHeaderModel:testModel forSectionIndex:0];
     }];
     
@@ -186,7 +186,7 @@
     [self.listController configureCellsWithBlock:^(id<ANListControllerReusableInterface> configurator) {
         [configurator registerFooterClass:[ANTestTableHeaderFooter class] forSystemClass:[object class]];
     }];
-    [self.storage updateWithoutAnimationWithBlock:^(id<ANStorageUpdatableInterface> storageController) {
+    [self.storage updateWithoutAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
         [storageController setSectionFooterModel:object forSectionIndex:0];
     }];
 }
@@ -196,7 +196,7 @@
     [self.listController configureCellsWithBlock:^(id<ANListControllerReusableInterface> configurator) {
         [configurator registerFooterClass:[ANTestTableHeaderFooter class] forModelClass:[object class]];
     }];
-    [self.storage updateWithoutAnimationWithBlock:^(id<ANStorageUpdatableInterface> storageController) {
+    [self.storage updateWithoutAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
         [storageController setSectionFooterModel:object forSectionIndex:0];
     }];
 }
@@ -209,7 +209,7 @@
     __weak typeof(self) welf = self;
     
     //when
-    [self.storage updateWithoutAnimationWithBlock:^(id<ANStorageUpdatableInterface> storageController) {
+    [self.storage updateWithoutAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
         [storageController setSectionFooterModel:testModel forSectionIndex:0];
     }];
     
@@ -273,7 +273,7 @@
     __weak typeof(self) welf = self;
     
     //when
-    [self.storage updateWithoutAnimationWithBlock:^(id<ANStorageUpdatableInterface> storageController) {
+    [self.storage updateWithoutAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
         [storageController setSectionFooterModel:testModel forSectionIndex:0];
     }];
     
@@ -347,7 +347,7 @@
         expect(cell.model).equal(testModel);
     }];
     
-    [self.storage updateWithoutAnimationWithBlock:^(id<ANStorageUpdatableInterface> storageController) {
+    [self.storage updateWithoutAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
         [storageController addItem:testModel];
     }];
     
@@ -377,7 +377,7 @@
         expect(cell.model).equal(testModel);
     }];
     
-    [self.storage updateWithoutAnimationWithBlock:^(id<ANStorageUpdatableInterface> storageController) {
+    [self.storage updateWithoutAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
         [storageController addItem:testModel];
     }];
     

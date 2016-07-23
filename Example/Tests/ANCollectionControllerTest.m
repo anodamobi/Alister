@@ -96,7 +96,7 @@
                    didSelectItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
     }];
 
-    [self.storage updateWithAnimationWithBlock:^(id<ANStorageUpdatableInterface> storageController) {
+    [self.storage updateWithAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
         [storageController addItem:testModel];
     }];
     
@@ -129,7 +129,7 @@
                    didSelectItemAtIndexPath:selectedIndexPath];
     }];
     
-    [self.storage updateWithoutAnimationWithBlock:^(id<ANStorageUpdatableInterface> storageController) {
+    [self.storage updateWithoutAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
         [storageController addItem:testModel];
     }];
     
@@ -175,7 +175,7 @@
         [expectation fulfill];
     }];
     
-    [self.storage updateWithoutAnimationWithBlock:^(id<ANStorageUpdatableInterface> storageController) {
+    [self.storage updateWithoutAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
         [storageController addItem:testModel];
     }];
     
@@ -238,7 +238,7 @@
     }];
     
     //when
-    [self.storage updateWithoutAnimationWithBlock:^(id<ANStorageUpdatableInterface> storageController) {
+    [self.storage updateWithoutAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
         [storageController addItem:@"test"];
         [storageController addItem:@"test1" toSection:1];
     }];
@@ -263,7 +263,7 @@
     }];
     
     //when
-    [self.storage updateWithoutAnimationWithBlock:^(id<ANStorageUpdatableInterface> storageController) {
+    [self.storage updateWithoutAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
         [storageController addItem:@"test"];
         [storageController addItem:@"test1" toSection:0];
         [storageController addItem:@"test3" atIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
@@ -303,7 +303,7 @@
         [welf.collectionView.delegate collectionView:welf.collectionView didSelectItemAtIndexPath:selectedIndexPath];
     }];
     
-    [self.storage updateWithoutAnimationWithBlock:^(id<ANStorageUpdatableInterface> storageController) {
+    [self.storage updateWithoutAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
         [storageController addItem:testModel];
     }];
     
@@ -335,7 +335,7 @@
             [welf.collectionView.delegate collectionView:welf.collectionView didSelectItemAtIndexPath:notExistIndexPath];
         }];
         
-        [self.storage updateWithoutAnimationWithBlock:^(id<ANStorageUpdatableInterface> storageController) {
+        [self.storage updateWithoutAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
             [storageController addItem:testModel];
         }];
     };

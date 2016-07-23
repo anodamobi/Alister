@@ -93,11 +93,10 @@
     [self _reloadStorageWithAnimation:NO identifier:identifier];
 }
 
-- (void)storageNeedsReloadAnimatedWithIdentifier:(NSString*)identifier
+- (void)storageNeedsReloadWithIdentifier:(NSString*)identifier animated:(BOOL)shouldAnimate
 {
-    [self _reloadStorageWithAnimation:YES identifier:identifier];
+    [self _reloadStorageWithAnimation:shouldAnimate identifier:identifier];
 }
-
 
 
 #pragma mark - Private

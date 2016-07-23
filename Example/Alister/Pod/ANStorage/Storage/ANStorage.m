@@ -32,12 +32,12 @@
     return self;
 }
 
-- (void)updateWithAnimationWithBlock:(ANDataStorageUpdateBlock)block
+- (void)updateWithAnimationChangeBlock:(ANDataStorageUpdateBlock)block
 {
     [self _updateWithBlock:block animatable:YES];
 }
 
-- (void)updateWithoutAnimationWithBlock:(ANDataStorageUpdateBlock)block
+- (void)updateWithoutAnimationChangeBlock:(ANDataStorageUpdateBlock)block
 {
     [self _updateWithBlock:block animatable:NO];
 }
@@ -45,14 +45,7 @@
 - (void)reloadStorageWithAnimation:(BOOL)isAnimatable
 {
     id<ANStorageUpdatingInterface> listController = self.listController;
-    if (isAnimatable)
-    {
-        [listController storageNeedsReloadAnimatedWithIdentifier:self.identifier];
-    }
-    else
-    {
-        [listController storageNeedsReloadWithIdentifier:self.identifier];
-    }
+    [listController storageNeedsReloadWithIdentifier:self.identifier animated:isAnimatable];
 }
 
 - (void)_updateWithBlock:(ANDataStorageUpdateBlock)block animatable:(BOOL)isAnimatable
@@ -96,7 +89,7 @@
     }
     if (predicate)
     {
-        [storage updateWithoutAnimationWithBlock:^(id<ANStorageUpdatableInterface> storageController) {
+        [storage updateWithoutAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
             
             [self.sections enumerateObjectsUsingBlock:^(ANStorageSectionModel* obj, NSUInteger idx, __unused BOOL *stop) {
                 NSArray* filteredObjects = [obj.objects filteredArrayUsingPredicate:predicate];
