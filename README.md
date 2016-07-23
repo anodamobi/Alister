@@ -7,9 +7,12 @@
 
 ## Example
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+To run the example project, clone the repo or download, and run `pod install` from the Example directory first.
 
 ## Requirements
+
+Xcode 7.2 or higher
+IOS 9 or higher
 
 ## Installation
 
