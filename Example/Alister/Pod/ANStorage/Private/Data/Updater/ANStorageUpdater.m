@@ -176,7 +176,7 @@
     }
     else
     {
-        NSAssert(NO,@"Section number is too big %lu, check is everything ok? please submit issue", sectionNumber);
+        NSAssert(NO, @"Section number is too big %lu, check is everything ok? please submit issue", (unsigned long)sectionNumber);
     }
     
     return insertedSectionIndexes;
