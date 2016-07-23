@@ -1,7 +1,7 @@
 language: objective-c
 podfile: Example/Podfile
 before_install:
-- gem install cocoapods
+- gem install cocoapods 1.0.0
 - pod install --project-directory=Example
 
 script:
