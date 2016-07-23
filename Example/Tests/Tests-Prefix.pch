@@ -4,8 +4,7 @@
 
 #import <Expecta/Expecta.h>
 
-  @import Specta;
-//  @import Expecta;
+  @import Expecta;
 //  @import FBSnapshotTestCase;
 //  @import Expecta_Snapshots;
 

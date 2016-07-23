@@ -24,7 +24,7 @@
 
 + (instancetype)handlerWithTarget:(id)target
 {
-    return [[ANKeyboardHandler alloc] initWithTarget:target];
+    return [[self alloc] initWithTarget:target];
 }
 
 - (instancetype)initWithTarget:(UIScrollView*)scrollView
@@ -114,8 +114,8 @@
 
 - (void)handleKeyboardWithNotification:(NSNotification*)aNotification
 {
-    NSDictionary* info = [aNotification userInfo];
-    CGFloat kbHeight = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size.height;
+    NSDictionary* info = aNotification.userInfo;
+    CGFloat kbHeight = [info[UIKeyboardFrameBeginUserInfoKey] CGRectValue].size.height;
     CGFloat duration = [info[UIKeyboardAnimationDurationUserInfoKey] floatValue];
     
     UIView* responder = [self findViewThatIsFirstResponderInParent:self.target];

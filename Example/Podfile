@@ -5,8 +5,6 @@ target 'Alister_Example' do
 end
 
 target 'Alister_Tests' do
-    pod 'Specta'
     pod 'Expecta'
-    pod 'OCMock'
 end
 

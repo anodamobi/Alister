@@ -21,22 +21,31 @@ Pod::Spec.new do |s|
 TODO: Add long description of the pod here.
                        DESC
 
-  s.homepage         = 'https://github.com/<GITHUB_USERNAME>/Alister'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
+  s.homepage         = 'https://github.com/oks/Alister'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Oksana Kovalchuk' => 'oksana@anoda.mobi' }
-  s.source           = { :git => 'https://github.com/<GITHUB_USERNAME>/Alister.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.source           = { :git => 'https://github.com/oks/Alister.git', :tag => s.version.to_s }
+  s.social_media_url = 'https://twitter.com/oks_ios'
+  s.requires_arc     = true
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'Alister/Classes/**/*'
-  
-  # s.resource_bundles = {
-  #   'Alister' => ['Alister/Assets/*.png']
-  # }
+  s.source_files = 'Alister/'
+#s.public_header_files = 'Alister/*.h'
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+
+s.subspec 'Tasks' do |ss|
+    ss.ios.source_files = 'Bolts/Common/*.[hm]'
+    ss.ios.public_header_files = 'Bolts/Common/*.h'
+  end
+
+  s.subspec 'AppLinks' do |ss|
+    ss.ios.deployment_target = '6.0'
+    ss.dependency 'Bolts/Tasks'
+
+    ss.ios.source_files = 'Bolts/iOS/**/*.[hm]'
+    ss.ios.public_header_files = 'Bolts/iOS/*.h'
+  end
+
+
 end

@@ -20,10 +20,10 @@
     
     for (NSUInteger i = 0; i < [items count]; i++)
     {
-        NSIndexPath* foundIndexPath = [self indexPathForItem:[items objectAtIndex:i] inStorage:storage];
+        NSIndexPath* foundIndexPath = [self indexPathForItem:items[i] inStorage:storage];
         if (!foundIndexPath)
         {
-            ANStorageLog(@"ANStorage: object %@ not found", [items objectAtIndex:i]);
+            ANStorageLog(@"ANStorage: object %@ not found", items[i]);
         }
         else
         {
@@ -41,7 +41,7 @@
         NSArray* section = [self itemsInSection:(NSUInteger)indexPath.section inStorage:storage];
         if ((NSUInteger)indexPath.row < [section count])
         {
-            object = [section objectAtIndex:(NSUInteger)indexPath.row];
+            object = section[(NSUInteger)indexPath.row];
         }
         else
         {
@@ -88,7 +88,7 @@
 {
     if (storage.sections.count > sectionIndex)
     {
-        return [storage.sections objectAtIndex:sectionIndex];
+        return storage.sections[sectionIndex];
     }
     else
     {

@@ -138,9 +138,9 @@
 {
     if (_finished != finished)
     {
-        [self willChangeValueForKey:@"isFinished"];
+        [self willChangeValueForKey:NSStringFromSelector(@selector(isFinished))];
         _finished = finished;
-        [self didChangeValueForKey:@"isFinished"];
+        [self didChangeValueForKey:NSStringFromSelector(@selector(isFinished))];
     }
 }
 
@@ -148,9 +148,9 @@
 {
     if (!_executing != executing)
     {
-        [self willChangeValueForKey:@"isExecuting"];
+        [self willChangeValueForKey:NSStringFromSelector(@selector(isExecuting))];
         _executing = executing;
-        [self didChangeValueForKey:@"isExecuting"];
+        [self didChangeValueForKey:NSStringFromSelector(@selector(isExecuting))];
     }
 }
 
