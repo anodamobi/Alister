@@ -308,6 +308,7 @@
 		6003F5B5195388D20070C39A /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				6003F5B6195388D20070C39A /* Supporting Files */,
 				D7FDD5A71D32ED2D006A2758 /* ANStorageUpdateModelTest.m */,
 				D7FDD5A51D32D31E006A2758 /* ANStorageModelTest.m */,
 				D7FC32E01D2C0452002F9727 /* ANStorageSectionModelTest.m */,
@@ -315,7 +316,6 @@
 				078303061D274404002BA640 /* ANTableControllerTest.m */,
 				071B29381D27D6B900D96B18 /* ANStorageControllerCRUDTest.m */,
 				071B29301D274B5300D96B18 /* ANCollectionControllerTest.m */,
-				6003F5B6195388D20070C39A /* Supporting Files */,
 				071B292D1D2748ED00D96B18 /* ANTestTableCell.h */,
 				071B292E1D2748ED00D96B18 /* ANTestTableCell.m */,
 				071B29351D27CB0000D96B18 /* ANTestTableHeaderFooter.h */,
