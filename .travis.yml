@@ -17,3 +17,6 @@ script:
 
 #- set -o pipefail && xcodebuild test -workspace Example/Alister.xcworkspace -scheme Alister-Example -sdk iphonesimulator9.3 ONLY_ACTIVE_ARCH=NO | xcpretty
 - pod lib lint
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
