@@ -59,28 +59,22 @@
                  withIdentifier:(NSString*)identifier
                      animatable:(BOOL)shouldAnimate
 {
-    if (shouldAnimate)
+    NSOperation<ANListControllerUpdateOperationInterface>* controllerOperation = [self.updateOperationClass new];
+    if ([controllerOperation conformsToProtocol:@protocol(ANListControllerUpdateOperationInterface)])
     {
-        NSOperation<ANListControllerUpdateOperationInterface>* controllerOperation = [self.updateOperationClass new];
-        if ([controllerOperation conformsToProtocol:@protocol(ANListControllerUpdateOperationInterface)])
-        {
-            [controllerOperation setDelegate:self];
-            [controllerOperation setName:identifier];
-            updateOperation.controllerOperationDelegate = controllerOperation;
-            
-            [self _addUpdateOperation:updateOperation withIdentifier:identifier];
-            [self.queue addOperation:controllerOperation];
-        }
-        else
-        {
-            NSAssert(NO, @"You didn't setup properly @property updateOperationClass");
-        }
+        [controllerOperation setDelegate:self];
+        [controllerOperation setName:identifier];
+        [controllerOperation setShouldAnimate:shouldAnimate];
+        updateOperation.controllerOperationDelegate = controllerOperation;
+        
+        [self _addUpdateOperation:updateOperation withIdentifier:identifier];
+        [self.queue addOperation:controllerOperation];
     }
     else
     {
-        [self _addUpdateOperation:updateOperation withIdentifier:identifier];
-        [self updateStorageOperationRequiresForceReload:updateOperation];
+        NSAssert(NO, @"You didn't setup properly @property updateOperationClass");
     }
+
 }
 
 - (void)updateStorageOperationRequiresForceReload:(ANStorageUpdateOperation*)operation

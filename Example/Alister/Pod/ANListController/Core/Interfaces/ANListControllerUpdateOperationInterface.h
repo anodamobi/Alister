@@ -11,6 +11,7 @@
 @protocol ANListControllerUpdateOperationInterface <ANStorageListUpdateOperationInterface>
 
 - (void)setDelegate:(id)delegate;
+- (void)setShouldAnimate:(BOOL)shouldAnimate;
 
 @end
 

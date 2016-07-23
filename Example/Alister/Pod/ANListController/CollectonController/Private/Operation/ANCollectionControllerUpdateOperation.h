@@ -16,5 +16,6 @@
 >
 
 @property (nonatomic, weak) id<ANListControllerUpdateOperationDelegate> delegate;
+@property (nonatomic, assign) BOOL shouldAnimate;
 
 @end
