@@ -4,7 +4,8 @@ target 'Alister-Example' do
   pod 'Alister', :path => '../'
 end
 
-target 'Alister-Example_Tests' do
+target 'Alister-Example-Tests' do
     pod 'Expecta'
+    pod 'Alister', :path => '../'
 end
 

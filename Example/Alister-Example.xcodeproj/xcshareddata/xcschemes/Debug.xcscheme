@@ -33,9 +33,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6003F5AD195388D20070C39A"
-               BuildableName = "Alister-Example_Example.xctest"
-               BlueprintName = "Alister-Example_Tests"
+               BlueprintIdentifier = "D7EC43CB1D512EE300128012"
+               BuildableName = "Alister-Example-Tests.xctest"
+               BlueprintName = "Alister-Example-Tests"
                ReferencedContainer = "container:Alister-Example.xcodeproj">
             </BuildableReference>
          </TestableReference>
