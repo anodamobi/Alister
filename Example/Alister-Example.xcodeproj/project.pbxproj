@@ -88,7 +88,7 @@
 		D7FC32E01D2C0452002F9727 /* ANStorageSectionModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageSectionModelTest.m; sourceTree = "<group>"; };
 		D7FDD5A51D32D31E006A2758 /* ANStorageModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageModelTest.m; sourceTree = "<group>"; };
 		D7FDD5A71D32ED2D006A2758 /* ANStorageUpdateModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageUpdateModelTest.m; sourceTree = "<group>"; };
-		E301602B7936D5180834423D /* Alister.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Alister.podspec; path = ../Alister.podspec; sourceTree = "<group>"; };
+		E301602B7936D5180834423D /* Alister.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Alister.podspec; path = ../Alister.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
