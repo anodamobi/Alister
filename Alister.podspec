@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
     end
 
     s.subspec 'ANStorage' do |sp|
-        sp.source_files = 'Alister/ANStorage/**/*.{h,m}'
+        sp.source_files = 'Alister/ANStorage/**/*.{h,m}', 'Alister/ANStorage/**/**/*.{h,m}', 'Alister/ANStorage/**/**/**/*.{h,m}'
     end
 
     s.subspec 'ANListController' do |sp|
