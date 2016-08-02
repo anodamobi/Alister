@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		071323D21D26CC6C008DF0DC /* ANExampleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 071323D11D26CC6C008DF0DC /* ANExampleTableViewCell.m */; };
 		071B292F1D2748ED00D96B18 /* ANTestTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 071B292E1D2748ED00D96B18 /* ANTestTableCell.m */; };
 		071B29311D274B5300D96B18 /* ANCollectionControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 071B29301D274B5300D96B18 /* ANCollectionControllerTest.m */; };
 		071B29371D27CB0000D96B18 /* ANTestTableHeaderFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 071B29361D27CB0000D96B18 /* ANTestTableHeaderFooter.m */; };
@@ -15,20 +14,24 @@
 		078303071D274404002BA640 /* ANTableControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 078303061D274404002BA640 /* ANTableControllerTest.m */; };
 		07EA424E1D2AF42500299133 /* ANTableControllerReusableTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 07EA424D1D2AF42500299133 /* ANTableControllerReusableTest.m */; };
 		07EA42511D2AF84F00299133 /* ANTestViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 07EA42501D2AF84F00299133 /* ANTestViewModel.m */; };
+		45F13B917C04C9A9BD173424 /* Pods_Alister_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FFD7AD8016875FDF566DD65 /* Pods_Alister_Example.framework */; };
+		5E8FF65BFDC4FB21B34FFF53 /* Pods_Alister_Example_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 874A1E50001ADBC954B23312 /* Pods_Alister_Example_Tests.framework */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
-		6003F598195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F596195388D20070C39A /* InfoPlist.strings */; };
-		6003F59A195388D20070C39A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F599195388D20070C39A /* main.m */; };
-		6003F59E195388D20070C39A /* ANAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F59D195388D20070C39A /* ANAppDelegate.m */; };
-		6003F5A7195388D20070C39A /* ANViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5A6195388D20070C39A /* ANViewController.m */; };
-		6003F5A9195388D20070C39A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5A8195388D20070C39A /* Images.xcassets */; };
 		6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F5AF195388D20070C39A /* XCTest.framework */; };
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
-		656185EC4D7255C7AEF3533C /* Pods_Alister_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E1F467465F3AB109D373CB2 /* Pods_Alister_Example.framework */; };
-		C4044E18344C5D0A6CA50AF0 /* Pods_Alister_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0FEB73CEF5FF68812208B9A /* Pods_Alister_Tests.framework */; };
+		D7EC43B21D50C7DE00128012 /* (null) in Resources */ = {isa = PBXBuildFile; };
+		D7EC43B31D50C7DE00128012 /* (null) in Resources */ = {isa = PBXBuildFile; };
+		D7EC43B61D50C7EB00128012 /* (null) in Resources */ = {isa = PBXBuildFile; };
+		D7EC43B71D50C7EB00128012 /* (null) in Resources */ = {isa = PBXBuildFile; };
+		D7EC43BC1D50C9A300128012 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D7EC43BA1D50C9A300128012 /* main.m */; };
+		D7EC43C41D50C9AE00128012 /* ANAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D7EC43BE1D50C9AE00128012 /* ANAppDelegate.m */; };
+		D7EC43C51D50C9AE00128012 /* ANExampleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D7EC43C01D50C9AE00128012 /* ANExampleTableViewCell.m */; };
+		D7EC43C61D50C9AE00128012 /* ANViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7EC43C21D50C9AE00128012 /* ANViewController.m */; };
+		D7EC43C71D50C9AE00128012 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7EC43C31D50C9AE00128012 /* Images.xcassets */; };
 		D7FC32E11D2C0452002F9727 /* ANStorageSectionModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D7FC32E01D2C0452002F9727 /* ANStorageSectionModelTest.m */; };
 		D7FDD5A61D32D31E006A2758 /* ANStorageModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D7FDD5A51D32D31E006A2758 /* ANStorageModelTest.m */; };
 		D7FDD5A81D32ED2D006A2758 /* ANStorageUpdateModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D7FDD5A71D32ED2D006A2758 /* ANStorageUpdateModelTest.m */; };
@@ -45,8 +48,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		071323D01D26CC6C008DF0DC /* ANExampleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANExampleTableViewCell.h; sourceTree = "<group>"; };
-		071323D11D26CC6C008DF0DC /* ANExampleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANExampleTableViewCell.m; sourceTree = "<group>"; };
 		071B292D1D2748ED00D96B18 /* ANTestTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTestTableCell.h; sourceTree = "<group>"; };
 		071B292E1D2748ED00D96B18 /* ANTestTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTestTableCell.m; sourceTree = "<group>"; };
 		071B29301D274B5300D96B18 /* ANCollectionControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANCollectionControllerTest.m; sourceTree = "<group>"; };
@@ -57,35 +58,36 @@
 		07EA424D1D2AF42500299133 /* ANTableControllerReusableTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTableControllerReusableTest.m; sourceTree = "<group>"; };
 		07EA424F1D2AF84F00299133 /* ANTestViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTestViewModel.h; sourceTree = "<group>"; };
 		07EA42501D2AF84F00299133 /* ANTestViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTestViewModel.m; sourceTree = "<group>"; };
-		0E1F467465F3AB109D373CB2 /* Pods_Alister_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Alister_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0E8CBD321A1CE4028E8CAB00 /* Pods-Alister-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister-Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Alister-Example/Pods-Alister-Example.debug.xcconfig"; sourceTree = "<group>"; };
+		0FFD7AD8016875FDF566DD65 /* Pods_Alister_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Alister_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		12C7B2C3A579D51E17C98434 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		12FF9DBB972322DC09D80960 /* Pods-Alister_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Alister_Tests/Pods-Alister_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		6003F58A195388D20070C39A /* Alister_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Alister_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6003F58A195388D20070C39A /* Alister-Example_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Alister-Example_Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		6003F591195388D20070C39A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		6003F595195388D20070C39A /* Alister-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Alister-Info.plist"; sourceTree = "<group>"; };
-		6003F597195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		6003F599195388D20070C39A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		6003F59B195388D20070C39A /* Alister-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Alister-Prefix.pch"; sourceTree = "<group>"; };
-		6003F59C195388D20070C39A /* ANAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ANAppDelegate.h; sourceTree = "<group>"; };
-		6003F59D195388D20070C39A /* ANAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ANAppDelegate.m; sourceTree = "<group>"; };
-		6003F5A5195388D20070C39A /* ANViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ANViewController.h; sourceTree = "<group>"; };
-		6003F5A6195388D20070C39A /* ANViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ANViewController.m; sourceTree = "<group>"; };
-		6003F5A8195388D20070C39A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		6003F5AE195388D20070C39A /* Alister_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Alister_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6003F5AE195388D20070C39A /* Alister-Example_Example.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Alister-Example_Example.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		6003F5B7195388D20070C39A /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
-		7B5489A2325AA16B6A1C686E /* Pods-Alister_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Alister_Example/Pods-Alister_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		A0FEB73CEF5FF68812208B9A /* Pods_Alister_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Alister_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		874A1E50001ADBC954B23312 /* Pods_Alister_Example_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Alister_Example_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		88C6AB3BADB1BB7DA68B22F2 /* Pods-Alister-Example_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister-Example_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Alister-Example_Tests/Pods-Alister-Example_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		A8D594C6A1CAF9F8A83D2691 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		B330DC4492CA841E1AD0DE63 /* Pods-Alister_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Alister_Example/Pods-Alister_Example.release.xcconfig"; sourceTree = "<group>"; };
+		A9FF7910D254F73167AC3301 /* Pods-Alister-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister-Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Alister-Example/Pods-Alister-Example.release.xcconfig"; sourceTree = "<group>"; };
+		C311AAEBEC484EEDA940550B /* Pods-Alister-Example_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister-Example_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Alister-Example_Tests/Pods-Alister-Example_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		D7EC43B81D50C9A300128012 /* Alister-Example-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Alister-Example-Info.plist"; path = "Alister-Example/Alister-Example-Info.plist"; sourceTree = SOURCE_ROOT; };
+		D7EC43B91D50C9A300128012 /* Alister-Example-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Alister-Example-Prefix.pch"; path = "Alister-Example/Alister-Example-Prefix.pch"; sourceTree = SOURCE_ROOT; };
+		D7EC43BA1D50C9A300128012 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "Alister-Example/main.m"; sourceTree = SOURCE_ROOT; };
+		D7EC43BD1D50C9AE00128012 /* ANAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ANAppDelegate.h; path = "Alister-Example/ANAppDelegate.h"; sourceTree = SOURCE_ROOT; };
+		D7EC43BE1D50C9AE00128012 /* ANAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ANAppDelegate.m; path = "Alister-Example/ANAppDelegate.m"; sourceTree = SOURCE_ROOT; };
+		D7EC43BF1D50C9AE00128012 /* ANExampleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ANExampleTableViewCell.h; path = "Alister-Example/ANExampleTableViewCell.h"; sourceTree = SOURCE_ROOT; };
+		D7EC43C01D50C9AE00128012 /* ANExampleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ANExampleTableViewCell.m; path = "Alister-Example/ANExampleTableViewCell.m"; sourceTree = SOURCE_ROOT; };
+		D7EC43C11D50C9AE00128012 /* ANViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ANViewController.h; path = "Alister-Example/ANViewController.h"; sourceTree = SOURCE_ROOT; };
+		D7EC43C21D50C9AE00128012 /* ANViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ANViewController.m; path = "Alister-Example/ANViewController.m"; sourceTree = SOURCE_ROOT; };
+		D7EC43C31D50C9AE00128012 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "Alister-Example/Images.xcassets"; sourceTree = SOURCE_ROOT; };
 		D7FC32E01D2C0452002F9727 /* ANStorageSectionModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageSectionModelTest.m; sourceTree = "<group>"; };
 		D7FDD5A51D32D31E006A2758 /* ANStorageModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageModelTest.m; sourceTree = "<group>"; };
 		D7FDD5A71D32ED2D006A2758 /* ANStorageUpdateModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageUpdateModelTest.m; sourceTree = "<group>"; };
-		DC410AEEE25ED11749115778 /* Pods-Alister_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Alister_Tests/Pods-Alister_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		E301602B7936D5180834423D /* Alister.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Alister.podspec; path = ../Alister.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -97,7 +99,7 @@
 				6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */,
 				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F58E195388D20070C39A /* Foundation.framework in Frameworks */,
-				656185EC4D7255C7AEF3533C /* Pods_Alister_Example.framework in Frameworks */,
+				45F13B917C04C9A9BD173424 /* Pods_Alister_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,13 +110,24 @@
 				6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */,
 				6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */,
-				C4044E18344C5D0A6CA50AF0 /* Pods_Alister_Tests.framework in Frameworks */,
+				5E8FF65BFDC4FB21B34FFF53 /* Pods_Alister_Example_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		23031CC17AFBD1B5BF256538 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0E8CBD321A1CE4028E8CAB00 /* Pods-Alister-Example.debug.xcconfig */,
+				A9FF7910D254F73167AC3301 /* Pods-Alister-Example.release.xcconfig */,
+				88C6AB3BADB1BB7DA68B22F2 /* Pods-Alister-Example_Tests.debug.xcconfig */,
+				C311AAEBEC484EEDA940550B /* Pods-Alister-Example_Tests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
@@ -123,15 +136,15 @@
 				6003F5B5195388D20070C39A /* Tests */,
 				6003F58C195388D20070C39A /* Frameworks */,
 				6003F58B195388D20070C39A /* Products */,
-				75E0764852847749933822EA /* Pods */,
+				23031CC17AFBD1B5BF256538 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
 		6003F58B195388D20070C39A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6003F58A195388D20070C39A /* Alister_Example.app */,
-				6003F5AE195388D20070C39A /* Alister_Tests.xctest */,
+				6003F58A195388D20070C39A /* Alister-Example_Example.app */,
+				6003F5AE195388D20070C39A /* Alister-Example_Example.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -143,8 +156,8 @@
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
 				6003F5AF195388D20070C39A /* XCTest.framework */,
-				0E1F467465F3AB109D373CB2 /* Pods_Alister_Example.framework */,
-				A0FEB73CEF5FF68812208B9A /* Pods_Alister_Tests.framework */,
+				0FFD7AD8016875FDF566DD65 /* Pods_Alister_Example.framework */,
+				874A1E50001ADBC954B23312 /* Pods_Alister_Example_Tests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -152,13 +165,13 @@
 		6003F593195388D20070C39A /* Example for Alister */ = {
 			isa = PBXGroup;
 			children = (
-				071323D01D26CC6C008DF0DC /* ANExampleTableViewCell.h */,
-				071323D11D26CC6C008DF0DC /* ANExampleTableViewCell.m */,
-				6003F59C195388D20070C39A /* ANAppDelegate.h */,
-				6003F59D195388D20070C39A /* ANAppDelegate.m */,
-				6003F5A5195388D20070C39A /* ANViewController.h */,
-				6003F5A6195388D20070C39A /* ANViewController.m */,
-				6003F5A8195388D20070C39A /* Images.xcassets */,
+				D7EC43BD1D50C9AE00128012 /* ANAppDelegate.h */,
+				D7EC43BE1D50C9AE00128012 /* ANAppDelegate.m */,
+				D7EC43BF1D50C9AE00128012 /* ANExampleTableViewCell.h */,
+				D7EC43C01D50C9AE00128012 /* ANExampleTableViewCell.m */,
+				D7EC43C11D50C9AE00128012 /* ANViewController.h */,
+				D7EC43C21D50C9AE00128012 /* ANViewController.m */,
+				D7EC43C31D50C9AE00128012 /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
 			);
 			name = "Example for Alister";
@@ -168,10 +181,9 @@
 		6003F594195388D20070C39A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				6003F595195388D20070C39A /* Alister-Info.plist */,
-				6003F596195388D20070C39A /* InfoPlist.strings */,
-				6003F599195388D20070C39A /* main.m */,
-				6003F59B195388D20070C39A /* Alister-Prefix.pch */,
+				D7EC43B81D50C9A300128012 /* Alister-Example-Info.plist */,
+				D7EC43B91D50C9A300128012 /* Alister-Example-Prefix.pch */,
+				D7EC43BA1D50C9A300128012 /* main.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -217,61 +229,48 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
-		75E0764852847749933822EA /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				7B5489A2325AA16B6A1C686E /* Pods-Alister_Example.debug.xcconfig */,
-				B330DC4492CA841E1AD0DE63 /* Pods-Alister_Example.release.xcconfig */,
-				12FF9DBB972322DC09D80960 /* Pods-Alister_Tests.debug.xcconfig */,
-				DC410AEEE25ED11749115778 /* Pods-Alister_Tests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6003F589195388D20070C39A /* Alister_Example */ = {
+		6003F589195388D20070C39A /* Alister-Example */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6003F5BF195388D20070C39A /* Build configuration list for PBXNativeTarget "Alister_Example" */;
+			buildConfigurationList = 6003F5BF195388D20070C39A /* Build configuration list for PBXNativeTarget "Alister-Example" */;
 			buildPhases = (
-				DFC6FF9BFA86C7F7161D829E /* 📦 Check Pods Manifest.lock */,
+				59A0B9A8A89BB973779AF899 /* [CP] Check Pods Manifest.lock */,
 				6003F586195388D20070C39A /* Sources */,
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
-				3D28B2AB345CCFBFB7F1AD2A /* 📦 Embed Pods Frameworks */,
-				0894CC0531EF956497CFC6E9 /* 📦 Copy Pods Resources */,
-				ECCF477021EC821A79A69D61 /* Embed Pods Frameworks */,
+				6D237E929AC908222EA8BC93 /* [CP] Embed Pods Frameworks */,
+				7026C6C66CCE5A847CEDB1A9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = Alister_Example;
+			name = "Alister-Example";
 			productName = Alister;
-			productReference = 6003F58A195388D20070C39A /* Alister_Example.app */;
+			productReference = 6003F58A195388D20070C39A /* Alister-Example_Example.app */;
 			productType = "com.apple.product-type.application";
 		};
-		6003F5AD195388D20070C39A /* Alister_Tests */ = {
+		6003F5AD195388D20070C39A /* Alister-Example_Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6003F5C2195388D20070C39A /* Build configuration list for PBXNativeTarget "Alister_Tests" */;
+			buildConfigurationList = 6003F5C2195388D20070C39A /* Build configuration list for PBXNativeTarget "Alister-Example_Tests" */;
 			buildPhases = (
-				3516A9411DB4D7339703C676 /* 📦 Check Pods Manifest.lock */,
+				512DB135A01CE385538F46D3 /* [CP] Check Pods Manifest.lock */,
 				6003F5AA195388D20070C39A /* Sources */,
 				6003F5AB195388D20070C39A /* Frameworks */,
 				6003F5AC195388D20070C39A /* Resources */,
-				1C70165DB3C746E97E6CCE54 /* 📦 Embed Pods Frameworks */,
-				AFEA64185C9C6FD19C18E518 /* 📦 Copy Pods Resources */,
-				5D4B629A4FB8C43F872C37CE /* Embed Pods Frameworks */,
+				4FF50A88E7F9848E72A11ECF /* [CP] Embed Pods Frameworks */,
+				45423898BDD007DAB79E0DB2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				6003F5B4195388D20070C39A /* PBXTargetDependency */,
 			);
-			name = Alister_Tests;
+			name = "Alister-Example_Tests";
 			productName = AlisterTests;
-			productReference = 6003F5AE195388D20070C39A /* Alister_Tests.xctest */;
+			productReference = 6003F5AE195388D20070C39A /* Alister-Example_Example.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -289,7 +288,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 6003F585195388D10070C39A /* Build configuration list for PBXProject "Alister" */;
+			buildConfigurationList = 6003F585195388D10070C39A /* Build configuration list for PBXProject "Alister-Example" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -302,8 +301,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6003F589195388D20070C39A /* Alister_Example */,
-				6003F5AD195388D20070C39A /* Alister_Tests */,
+				6003F589195388D20070C39A /* Alister-Example */,
+				6003F5AD195388D20070C39A /* Alister-Example_Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -313,8 +312,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
-				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
+				D7EC43B71D50C7EB00128012 /* (null) in Resources */,
+				D7EC43B61D50C7EB00128012 /* (null) in Resources */,
+				D7EC43B21D50C7DE00128012 /* (null) in Resources */,
+				D7EC43C71D50C9AE00128012 /* Images.xcassets in Resources */,
+				D7EC43B31D50C7DE00128012 /* (null) in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,44 +331,44 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0894CC0531EF956497CFC6E9 /* 📦 Copy Pods Resources */ = {
+		45423898BDD007DAB79E0DB2 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Alister_Example/Pods-Alister_Example-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Alister-Example_Tests/Pods-Alister-Example_Tests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		1C70165DB3C746E97E6CCE54 /* 📦 Embed Pods Frameworks */ = {
+		4FF50A88E7F9848E72A11ECF /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Alister_Tests/Pods-Alister_Tests-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Alister-Example_Tests/Pods-Alister-Example_Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		3516A9411DB4D7339703C676 /* 📦 Check Pods Manifest.lock */ = {
+		512DB135A01CE385538F46D3 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -374,59 +376,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		3D28B2AB345CCFBFB7F1AD2A /* 📦 Embed Pods Frameworks */ = {
+		59A0B9A8A89BB973779AF899 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Alister_Example/Pods-Alister_Example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5D4B629A4FB8C43F872C37CE /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Alister_Tests/Pods-Alister_Tests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		AFEA64185C9C6FD19C18E518 /* 📦 Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Alister_Tests/Pods-Alister_Tests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DFC6FF9BFA86C7F7161D829E /* 📦 Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -434,19 +391,34 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		ECCF477021EC821A79A69D61 /* Embed Pods Frameworks */ = {
+		6D237E929AC908222EA8BC93 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Alister_Example/Pods-Alister_Example-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Alister-Example/Pods-Alister-Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7026C6C66CCE5A847CEDB1A9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Alister-Example/Pods-Alister-Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -456,12 +428,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				071323D21D26CC6C008DF0DC /* ANExampleTableViewCell.m in Sources */,
 				071B292F1D2748ED00D96B18 /* ANTestTableCell.m in Sources */,
-				6003F59E195388D20070C39A /* ANAppDelegate.m in Sources */,
-				6003F5A7195388D20070C39A /* ANViewController.m in Sources */,
+				D7EC43C61D50C9AE00128012 /* ANViewController.m in Sources */,
+				D7EC43C51D50C9AE00128012 /* ANExampleTableViewCell.m in Sources */,
+				D7EC43C41D50C9AE00128012 /* ANAppDelegate.m in Sources */,
+				D7EC43BC1D50C9A300128012 /* main.m in Sources */,
 				071B29371D27CB0000D96B18 /* ANTestTableHeaderFooter.m in Sources */,
-				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,20 +457,12 @@
 /* Begin PBXTargetDependency section */
 		6003F5B4195388D20070C39A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6003F589195388D20070C39A /* Alister_Example */;
+			target = 6003F589195388D20070C39A /* Alister-Example */;
 			targetProxy = 6003F5B3195388D20070C39A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		6003F596195388D20070C39A /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6003F597195388D20070C39A /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
 		6003F5B8195388D20070C39A /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -566,7 +530,7 @@
 				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_PARAMETER = NO;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -622,7 +586,7 @@
 				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_PARAMETER = NO;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -631,7 +595,7 @@
 		};
 		6003F5C0195388D20070C39A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7B5489A2325AA16B6A1C686E /* Pods-Alister_Example.debug.xcconfig */;
+			baseConfigurationReference = 0E8CBD321A1CE4028E8CAB00 /* Pods-Alister-Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -654,7 +618,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES_AGGRESSIVE;
 				CLANG_WARN__EXIT_TIME_DESTRUCTORS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Alister/Alister-Prefix.pch";
+				GCC_PREFIX_HEADER = "Alister-Example/Alister-Example-Prefix.pch";
 				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
 				GCC_TREAT_INCOMPATIBLE_POINTER_TYPE_WARNINGS_AS_ERRORS = YES;
 				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
@@ -670,10 +634,11 @@
 				GCC_WARN_UNKNOWN_PRAGMAS = YES;
 				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_PARAMETER = YES;
-				INFOPLIST_FILE = "Alister/Alister-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Alister-Example/Alister-Example-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "mobi.anoda.Alister-Example";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Alister-Example_Example";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				WRAPPER_EXTENSION = app;
 			};
@@ -681,7 +646,7 @@
 		};
 		6003F5C1195388D20070C39A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B330DC4492CA841E1AD0DE63 /* Pods-Alister_Example.release.xcconfig */;
+			baseConfigurationReference = A9FF7910D254F73167AC3301 /* Pods-Alister-Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -704,7 +669,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES_AGGRESSIVE;
 				CLANG_WARN__EXIT_TIME_DESTRUCTORS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Alister/Alister-Prefix.pch";
+				GCC_PREFIX_HEADER = "Alister-Example/Alister-Example-Prefix.pch";
 				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
 				GCC_TREAT_INCOMPATIBLE_POINTER_TYPE_WARNINGS_AS_ERRORS = YES;
 				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
@@ -720,10 +685,11 @@
 				GCC_WARN_UNKNOWN_PRAGMAS = YES;
 				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_PARAMETER = YES;
-				INFOPLIST_FILE = "Alister/Alister-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Alister-Example/Alister-Example-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "mobi.anoda.Alister-Example";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Alister-Example_Example";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				WRAPPER_EXTENSION = app;
 			};
@@ -731,7 +697,7 @@
 		};
 		6003F5C3195388D20070C39A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 12FF9DBB972322DC09D80960 /* Pods-Alister_Tests.debug.xcconfig */;
+			baseConfigurationReference = 88C6AB3BADB1BB7DA68B22F2 /* Pods-Alister-Example_Tests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_OBJC_RETAIN_COUNT = YES;
@@ -749,15 +715,15 @@
 				);
 				INFOPLIST_FILE = "Tests/Tests-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Alister_Example.app/Alister_Example";
+				PRODUCT_NAME = "Alister-Example_Example";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Alister-Example_Example.app/Alister-Example_Example";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
 		};
 		6003F5C4195388D20070C39A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DC410AEEE25ED11749115778 /* Pods-Alister_Tests.release.xcconfig */;
+			baseConfigurationReference = C311AAEBEC484EEDA940550B /* Pods-Alister-Example_Tests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_OBJC_RETAIN_COUNT = YES;
@@ -771,8 +737,8 @@
 				GCC_PREFIX_HEADER = "Tests/Tests-Prefix.pch";
 				INFOPLIST_FILE = "Tests/Tests-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Alister_Example.app/Alister_Example";
+				PRODUCT_NAME = "Alister-Example_Example";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Alister-Example_Example.app/Alister-Example_Example";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
@@ -780,7 +746,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6003F585195388D10070C39A /* Build configuration list for PBXProject "Alister" */ = {
+		6003F585195388D10070C39A /* Build configuration list for PBXProject "Alister-Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6003F5BD195388D20070C39A /* Debug */,
@@ -789,7 +755,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6003F5BF195388D20070C39A /* Build configuration list for PBXNativeTarget "Alister_Example" */ = {
+		6003F5BF195388D20070C39A /* Build configuration list for PBXNativeTarget "Alister-Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6003F5C0195388D20070C39A /* Debug */,
@@ -798,7 +764,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6003F5C2195388D20070C39A /* Build configuration list for PBXNativeTarget "Alister_Tests" */ = {
+		6003F5C2195388D20070C39A /* Build configuration list for PBXNativeTarget "Alister-Example_Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6003F5C3195388D20070C39A /* Debug */,

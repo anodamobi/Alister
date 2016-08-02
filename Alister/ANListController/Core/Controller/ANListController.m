@@ -132,7 +132,7 @@
     _searchBar = searchBar;
 }
 
-- (void)allUpdatesAreFinished
+- (void)allUpdatesWereFinished
 {
     if (self.updatesFinishedTrigger)
     {

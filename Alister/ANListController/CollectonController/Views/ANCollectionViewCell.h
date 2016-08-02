@@ -8,6 +8,6 @@
 
 #import "ANListControllerUpdateViewInterface.h"
 
-@interface ANCollectionViewCell : UICollectionViewCell<ANListControllerUpdateViewInterface>
+@interface ANCollectionViewCell : UICollectionViewCell <ANListControllerUpdateViewInterface>
 
 @end

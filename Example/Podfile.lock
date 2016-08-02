@@ -1,5 +1,11 @@
 PODS:
-  - Alister (0.1.0)
+  - Alister (0.1.0):
+    - Alister/ANKeyboardHandler (= 0.1.0)
+    - Alister/ANListController (= 0.1.0)
+    - Alister/ANStorage (= 0.1.0)
+  - Alister/ANKeyboardHandler (0.1.0)
+  - Alister/ANListController (0.1.0)
+  - Alister/ANStorage (0.1.0)
   - Expecta (1.0.5)
 
 DEPENDENCIES:
@@ -11,7 +17,9 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Alister: 6ee80befb3613e2fae133ef325fce019cc6790af
+  Alister: 497b0f678e0b1da30d50f50ce0d7e893da228f2c
   Expecta: e1c022fcd33910b6be89c291d2775b3fe27a89fe
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: 79d9ef393101c012e6dc99875dbc4d5d59c49956
+
+COCOAPODS: 1.0.1

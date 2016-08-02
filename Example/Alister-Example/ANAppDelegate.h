@@ -6,8 +6,6 @@
 //  Copyright (c) 2016 Oksana Kovalchuk. All rights reserved.
 //
 
-@import UIKit;
-
 @interface ANAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;

@@ -61,7 +61,7 @@
 
 - (void)allUpdatesFinished
 {
-    [self.delegate allUpdatesAreFinished];
+    [self.delegate allUpdatesWereFinished];
 }
 
 - (id<ANListControllerWrapperInterface>)listViewWrapper

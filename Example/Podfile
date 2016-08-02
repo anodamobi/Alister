@@ -1,10 +1,10 @@
 use_frameworks!
 
-target 'Alister_Example' do
+target 'Alister-Example' do
   pod 'Alister', :path => '../'
 end
 
-target 'Alister_Tests' do
+target 'Alister-Example_Tests' do
     pod 'Expecta'
 end
 

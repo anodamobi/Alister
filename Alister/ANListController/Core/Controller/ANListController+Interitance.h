@@ -21,6 +21,6 @@
 @property (nonatomic, strong) id<ANListControllerWrapperInterface> listViewWrapper;
 @property (nonatomic, strong) id<ANListControllerManagerInterface> manager;
 
-- (void)allUpdatesAreFinished;
+- (void)allUpdatesWereFinished;
 
 @end

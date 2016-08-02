@@ -5,8 +5,6 @@
 //  Copyright (c) 2014 ANODA. All rights reserved.
 //
 
-//#import "ANHelperFunctions.h"
-
 typedef void(^ANKeyboardAnimationBlock)(CGFloat keyboardHeightDelta);
 typedef void(^ANKeyboardStateBlock)(BOOL isVisible);
 
