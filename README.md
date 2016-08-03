@@ -4,6 +4,8 @@
 [![Version](https://img.shields.io/cocoapods/v/Alister.svg?style=flat)](http://cocoapods.org/pods/Alister)
 [![License](https://img.shields.io/cocoapods/l/Alister.svg?style=flat)](http://cocoapods.org/pods/Alister)
 [![Platform](https://img.shields.io/cocoapods/p/Alister.svg?style=flat)](http://cocoapods.org/pods/Alister)
+[![codecov](https://codecov.io/gh/anodamobi/Alister/branch/master/graph/badge.svg)](https://codecov.io/gh/anodamobi/Alister)
+
 
 ## Example
 
