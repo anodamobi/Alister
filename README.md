@@ -1,6 +1,6 @@
 # Alister
 
-[![Build Status](https://www.bitrise.io/app/dacce1f2a9bc5247.svg?token=q7t3t4-Ke8-_OFHl9vwQHg&branch=master)](https://www.bitrise.io/app/dacce1f2a9bc5247)
+[![Build Status](https://www.bitrise.io/app/b900e8f15eea0533.svg?token=0Tm7DECAACkx3RBavbgllA)](https://www.bitrise.io/app/b900e8f15eea0533)
 [![Version](https://img.shields.io/cocoapods/v/Alister.svg?style=flat)](http://cocoapods.org/pods/Alister)
 [![License](https://img.shields.io/cocoapods/l/Alister.svg?style=flat)](http://cocoapods.org/pods/Alister)
 [![Platform](https://img.shields.io/cocoapods/p/Alister.svg?style=flat)](http://cocoapods.org/pods/Alister)
