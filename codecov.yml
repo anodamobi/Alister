@@ -6,4 +6,4 @@ coverage:
   fixes: null
 
   ignore: 
-     - Example/.*
+     - Example/*
