@@ -25,6 +25,7 @@ Pod::Spec.new do |s|
     s.subspec 'ANListController' do |sp|
         sp.source_files = 'Alister/ANListController/**/*.{h,m}'
         sp.dependency 'Alister/ANStorage'
+        sp.dependency 'Alister/ANKeyboardHandler'
     end
     
     s.subspec 'ANPrototypingUIKit' do |sp|
