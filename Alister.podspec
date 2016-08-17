@@ -24,10 +24,12 @@ Pod::Spec.new do |s|
 
     s.subspec 'ANListController' do |sp|
         sp.source_files = 'Alister/ANListController/**/*.{h,m}'
+        sp.dependency 'Alister/ANStorage'
     end
     
     s.subspec 'ANPrototypingUIKit' do |sp|
         sp.source_files = 'Alister/ANPrototypingUIKit/**/*.{h,m}'
+        sp.dependency 'Alister/ANListController'
     end
 
 end
