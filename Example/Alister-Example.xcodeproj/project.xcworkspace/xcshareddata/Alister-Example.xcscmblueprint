@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "5FA789885A0E0481AD37676EF19FA24CC54AF19A",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "5FA789885A0E0481AD37676EF19FA24CC54AF19A" : 0,
+    "72BD62FA2D5AA7D25ED520C57D489B2D8E1719CA" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "0E9AC752-D6F7-4DCE-B692-52C33D89969C",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "5FA789885A0E0481AD37676EF19FA24CC54AF19A" : "Alister\/",
+    "72BD62FA2D5AA7D25ED520C57D489B2D8E1719CA" : "..\/.."
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Alister-Example",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Example\/Alister-Example.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:anodamobi\/Alister.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "5FA789885A0E0481AD37676EF19FA24CC54AF19A"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "ssh:\/\/stash.anoda.mobi:7999\/icg\/xcode-project-template.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "72BD62FA2D5AA7D25ED520C57D489B2D8E1719CA"
+    }
+  ]
+}

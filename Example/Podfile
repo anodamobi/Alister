@@ -7,5 +7,6 @@ end
 target 'Alister-Example-Tests' do
     pod 'Expecta'
     pod 'Alister', :path => '../'
+    pod 'OCMock'
 end
 

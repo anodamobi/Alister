@@ -9,10 +9,12 @@ PODS:
   - Alister/ANPrototypingUIKit (0.1.0)
   - Alister/ANStorage (0.1.0)
   - Expecta (1.0.5)
+  - OCMock (3.3.1)
 
 DEPENDENCIES:
   - Alister (from `../`)
   - Expecta
+  - OCMock
 
 EXTERNAL SOURCES:
   Alister:
@@ -21,5 +23,6 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Alister: b6d7031a6ab60658591a73224d887fef8920b82b
   Expecta: e1c022fcd33910b6be89c291d2775b3fe27a89fe
+  OCMock: f3f61e6eaa16038c30caa5798c5e49d3307b6f22
 
 COCOAPODS: 0.39.0
