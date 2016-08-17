@@ -10,3 +10,5 @@ xcuserdata
 *.xccheckout
 *.swp
 *.gcov
+
+/Pods
