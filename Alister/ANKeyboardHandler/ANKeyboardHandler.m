@@ -7,6 +7,9 @@
 
 #import "ANKeyboardHandler.h"
 
+static const CGFloat kCalculatedContentPadding = 10;
+static const CGFloat kMinimumScrollOffsetPadding = 20;
+
 @interface ANKeyboardHandler () <UIGestureRecognizerDelegate>
 {
     struct {
@@ -115,7 +118,7 @@
 - (void)handleKeyboardWithNotification:(NSNotification*)aNotification
 {
     NSDictionary* info = aNotification.userInfo;
-    CGFloat kbHeight = [info[UIKeyboardFrameBeginUserInfoKey] CGRectValue].size.height;
+    __block CGFloat kbHeight = [info[UIKeyboardFrameBeginUserInfoKey] CGRectValue].size.height;
     CGFloat duration = [info[UIKeyboardAnimationDurationUserInfoKey] floatValue];
     
     UIView* responder = [self findViewThatIsFirstResponderInParent:self.target];
@@ -130,10 +133,13 @@
                 UIScrollView* target = self.target;
                 target.contentInset = contentInsets;
                 target.scrollIndicatorInsets = contentInsets;
-                if (responder)
+                CGFloat viewableHeight = target.bounds.size.height - target.contentInset.top - target.contentInset.bottom;
+                if (responder && contentInsets.bottom > 0)
                 {
-                    CGRect visibleRect = [target convertRect:responder.frame fromView:responder.superview];
-                    [target scrollRectToVisible:visibleRect animated:NO];
+                    CGFloat maxY = [self _bottomOffsetWithScrollView:target withResponderView:responder withVisibleArea:viewableHeight];//fabs((CGRectGetMaxY(responder.frame) - kbHeight));
+                    CGPoint nextOffset = CGPointMake(0, maxY);
+                    [target setContentOffset:nextOffset animated:YES];
+                    
                 }
             }
             if (self.animationBlock)
@@ -150,6 +156,76 @@
         }
     }];
 }
+
+- (CGFloat)_bottomOffsetWithScrollView:(UIScrollView*)scrollView withResponderView:(UIView*)view withVisibleArea:(CGFloat)viewAreaHeight
+{
+    CGSize contentSize = scrollView.contentSize;
+    __block CGFloat offset = 0.0;
+    
+    CGRect subviewRect = [view convertRect:view.bounds toView:scrollView];
+    
+    __block CGFloat padding = 0.0;
+    
+    void(^centerViewInViewableArea)()  = ^ {
+        // Attempt to center the subview in the visible space
+        padding = (viewAreaHeight - subviewRect.size.height) / 2;
+        
+        // But if that means there will be less than kMinimumScrollOffsetPadding
+        // pixels above the view, then substitute kMinimumScrollOffsetPadding
+        if (padding < kMinimumScrollOffsetPadding ) {
+            padding = kMinimumScrollOffsetPadding;
+        }
+        
+        // Ideal offset places the subview rectangle origin "padding" points from the top of the scrollview.
+        // If there is a top contentInset, also compensate for this so that subviewRect will not be placed under
+        // things like navigation bars.
+        offset = subviewRect.origin.y - padding - scrollView.contentInset.top;
+    };
+    
+    // If possible, center the caret in the visible space. Otherwise, center the entire view in the visible space.
+    if ([view conformsToProtocol:@protocol(UITextInput)]) {
+        UIView <UITextInput> *textInput = (UIView <UITextInput>*)view;
+        UITextPosition *caretPosition = [textInput selectedTextRange].start;
+        if (caretPosition) {
+            CGRect caretRect = [scrollView convertRect:[textInput caretRectForPosition:caretPosition] fromView:textInput];
+            
+            // Attempt to center the cursor in the visible space
+            // pixels above the view, then substitute kMinimumScrollOffsetPadding
+            padding = (viewAreaHeight - caretRect.size.height) / 2;
+            
+            // But if that means there will be less than kMinimumScrollOffsetPadding
+            // pixels above the view, then substitute kMinimumScrollOffsetPadding
+            if (padding < kMinimumScrollOffsetPadding ) {
+                padding = kMinimumScrollOffsetPadding;
+            }
+            
+            // Ideal offset places the subview rectangle origin "padding" points from the top of the scrollview.
+            // If there is a top contentInset, also compensate for this so that subviewRect will not be placed under
+            // things like navigation bars.
+            offset = caretRect.origin.y - padding - scrollView.contentInset.top;
+        } else {
+            centerViewInViewableArea();
+        }
+    } else {
+        centerViewInViewableArea();
+    }
+    
+    // Constrain the new contentOffset so we can't scroll past the bottom. Note that we don't take the bottom
+    // inset into account, as this is manipulated to make space for the keyboard.
+    CGFloat maxOffset = contentSize.height - viewAreaHeight - scrollView.contentInset.top;
+    if (offset > maxOffset) {
+        offset = maxOffset;
+    }
+    
+    // Constrain the new contentOffset so we can't scroll past the top, taking contentInsets into account
+    if ( offset < -scrollView.contentInset.top ) {
+        offset = -scrollView.contentInset.top;
+    }
+    
+    return offset;
+
+}
+
 
 - (void)hideKeyboard
 {
