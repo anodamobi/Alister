@@ -33,6 +33,7 @@ Pod::Spec.new do |s|
                           'Alister/ANPrototypingUIKit/**/**/*.{h,m}'
         sp.dependency 'Alister/ANListController'
         sp.dependency 'Alister/ANKeyboardHandler'
+        sp.dependency 'Masonry'
     end
 
 end
