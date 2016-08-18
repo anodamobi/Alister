@@ -8,7 +8,6 @@
 
 #import "ANBaseListTableCell.h"
 #import "Masonry.h"
-#import "UIFont+ANAdditions.h"
 
 static UIColor* kBaseColor = nil;
 static UIColor* kBaseTextColor = nil;
@@ -68,7 +67,6 @@ static UIColor* kBaseTextColor = nil;
     if (!_titleLabel)
     {
         _titleLabel = [UILabel new];
-        _titleLabel.font = [UIFont an_regularFontWithSize:17];
         _titleLabel.highlightedTextColor = [UIColor whiteColor];
         if (kBaseTextColor)
         {

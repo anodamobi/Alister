@@ -11,8 +11,10 @@ PODS:
   - Alister/ANPrototypingUIKit (0.1.0):
     - Alister/ANKeyboardHandler
     - Alister/ANListController
+    - Masonry
   - Alister/ANStorage (0.1.0)
   - Expecta (1.0.5)
+  - Masonry (1.0.1)
   - OCMock (3.3.1)
 
 DEPENDENCIES:
@@ -25,8 +27,9 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  Alister: 308dfb2d632c85c6a98216b516418d895dc01713
+  Alister: f30b202ec6576c3cbbbe8069e17b8d9701cb2c5c
   Expecta: e1c022fcd33910b6be89c291d2775b3fe27a89fe
+  Masonry: a1a931a0d08870ed8ae415a2ea5ea68ebcac77df
   OCMock: f3f61e6eaa16038c30caa5798c5e49d3307b6f22
 
 COCOAPODS: 0.39.0
