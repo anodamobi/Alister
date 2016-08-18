@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
     s.source           = { :git => 'https://github.com/anodamobi/Alister.git', :tag => s.version.to_s }
     s.social_media_url = 'https://twitter.com/oks_ios'
     s.requires_arc     = true
-    s.ios.deployment_target = '9.0'
+    s.ios.deployment_target = '8.0'
 
     s.subspec 'ANKeyboardHandler' do |sp|
         sp.source_files = 'Alister/ANKeyboardHandler'
@@ -29,7 +29,8 @@ Pod::Spec.new do |s|
     end
     
     s.subspec 'ANPrototypingUIKit' do |sp|
-        sp.source_files = 'Alister/ANPrototypingUIKit/**/*.{h,m}'
+        sp.source_files = 'Alister/ANPrototypingUIKit/**/*.{h,m}',
+                          'Alister/ANPrototypingUIKit/**/**/*.{h,m}'
         sp.dependency 'Alister/ANListController'
         sp.dependency 'Alister/ANKeyboardHandler'
     end
