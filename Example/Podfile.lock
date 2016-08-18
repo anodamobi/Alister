@@ -6,8 +6,10 @@ PODS:
     - Alister/ANStorage (= 0.1.0)
   - Alister/ANKeyboardHandler (0.1.0)
   - Alister/ANListController (0.1.0):
+    - Alister/ANKeyboardHandler
     - Alister/ANStorage
   - Alister/ANPrototypingUIKit (0.1.0):
+    - Alister/ANKeyboardHandler
     - Alister/ANListController
   - Alister/ANStorage (0.1.0)
   - Expecta (1.0.5)
@@ -23,7 +25,7 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  Alister: d3c4eb47be9977597e2fd5713ceb0c2a44d875f7
+  Alister: 308dfb2d632c85c6a98216b516418d895dc01713
   Expecta: e1c022fcd33910b6be89c291d2775b3fe27a89fe
   OCMock: f3f61e6eaa16038c30caa5798c5e49d3307b6f22
 
