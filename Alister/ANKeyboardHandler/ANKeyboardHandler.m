@@ -167,65 +167,54 @@ static const CGFloat kMinimumScrollOffsetPadding = 20;
     __block CGFloat padding = 0.0;
     
     void(^centerViewInViewableArea)()  = ^ {
-        // Attempt to center the subview in the visible space
         padding = (viewAreaHeight - subviewRect.size.height) / 2;
         
-        // But if that means there will be less than kMinimumScrollOffsetPadding
-        // pixels above the view, then substitute kMinimumScrollOffsetPadding
-        if (padding < kMinimumScrollOffsetPadding ) {
+        if (padding < kMinimumScrollOffsetPadding )
+        {
             padding = kMinimumScrollOffsetPadding;
         }
-        
-        // Ideal offset places the subview rectangle origin "padding" points from the top of the scrollview.
-        // If there is a top contentInset, also compensate for this so that subviewRect will not be placed under
-        // things like navigation bars.
         offset = subviewRect.origin.y - padding - scrollView.contentInset.top;
     };
     
-    // If possible, center the caret in the visible space. Otherwise, center the entire view in the visible space.
-    if ([view conformsToProtocol:@protocol(UITextInput)]) {
+    if ([view conformsToProtocol:@protocol(UITextInput)])
+    {
         UIView <UITextInput> *textInput = (UIView <UITextInput>*)view;
         UITextPosition *caretPosition = [textInput selectedTextRange].start;
-        if (caretPosition) {
+        
+        if (caretPosition)
+        {
             CGRect caretRect = [scrollView convertRect:[textInput caretRectForPosition:caretPosition] fromView:textInput];
-            
-            // Attempt to center the cursor in the visible space
-            // pixels above the view, then substitute kMinimumScrollOffsetPadding
             padding = (viewAreaHeight - caretRect.size.height) / 2;
-            
-            // But if that means there will be less than kMinimumScrollOffsetPadding
-            // pixels above the view, then substitute kMinimumScrollOffsetPadding
-            if (padding < kMinimumScrollOffsetPadding ) {
+            if (padding < kMinimumScrollOffsetPadding )
+            {
                 padding = kMinimumScrollOffsetPadding;
             }
-            
-            // Ideal offset places the subview rectangle origin "padding" points from the top of the scrollview.
-            // If there is a top contentInset, also compensate for this so that subviewRect will not be placed under
-            // things like navigation bars.
             offset = caretRect.origin.y - padding - scrollView.contentInset.top;
-        } else {
+        }
+        else
+        {
             centerViewInViewableArea();
         }
-    } else {
+    }
+    else
+    {
         centerViewInViewableArea();
     }
     
-    // Constrain the new contentOffset so we can't scroll past the bottom. Note that we don't take the bottom
-    // inset into account, as this is manipulated to make space for the keyboard.
     CGFloat maxOffset = contentSize.height - viewAreaHeight - scrollView.contentInset.top;
-    if (offset > maxOffset) {
+    
+    if (offset > maxOffset)
+    {
         offset = maxOffset;
     }
     
-    // Constrain the new contentOffset so we can't scroll past the top, taking contentInsets into account
-    if ( offset < -scrollView.contentInset.top ) {
+    if ( offset < -scrollView.contentInset.top )
+    {
         offset = -scrollView.contentInset.top;
     }
     
     return offset;
-
 }
-
 
 - (void)hideKeyboard
 {
@@ -249,6 +238,7 @@ static const CGFloat kMinimumScrollOffsetPadding = 20;
     }
     return insets;
 }
+
 
 #pragma mark - UIGesture delegate
 
