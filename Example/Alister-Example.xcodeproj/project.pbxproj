@@ -19,11 +19,11 @@
 		0775CC501D5DFA2B00224CAC /* ANStorageModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0775CC451D5DFA2B00224CAC /* ANStorageModelTest.m */; };
 		0775CC511D5DFA2B00224CAC /* ANStorageSectionModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0775CC461D5DFA2B00224CAC /* ANStorageSectionModelTest.m */; };
 		0775CC521D5DFA2B00224CAC /* ANStorageUpdateModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0775CC471D5DFA2B00224CAC /* ANStorageUpdateModelTest.m */; };
-		45F13B917C04C9A9BD173424 /* Pods_Alister_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FFD7AD8016875FDF566DD65 /* Pods_Alister_Example.framework */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
-		71CD3066A37CBE53901C050D /* Pods_Alister_Example_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 874A1E50001ADBC954B23312 /* Pods_Alister_Example_Tests.framework */; };
+		8E0B108CB3F18F5C9D5224E1 /* Pods_Alister_Example_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 951E488B093E7D27050CAA16 /* Pods_Alister_Example_Tests.framework */; };
+		AA4F44B89C44A7CA19716E2D /* Pods_Alister_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40FD381864A893C6D409BF84 /* Pods_Alister_Example.framework */; };
 		D7EC43B21D50C7DE00128012 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		D7EC43B31D50C7DE00128012 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		D7EC43B61D50C7EB00128012 /* (null) in Resources */ = {isa = PBXBuildFile; };
@@ -62,18 +62,18 @@
 		0775CC461D5DFA2B00224CAC /* ANStorageSectionModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageSectionModelTest.m; sourceTree = "<group>"; };
 		0775CC471D5DFA2B00224CAC /* ANStorageUpdateModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageUpdateModelTest.m; sourceTree = "<group>"; };
 		07CE62481D5169B300D1A43C /* Tests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
-		0E8CBD321A1CE4028E8CAB00 /* Pods-Alister-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister-Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Alister-Example/Pods-Alister-Example.debug.xcconfig"; sourceTree = "<group>"; };
-		0FFD7AD8016875FDF566DD65 /* Pods_Alister_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Alister_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		12C7B2C3A579D51E17C98434 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		32541713ADAAE98DA8E7DBAC /* Pods-Alister-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister-Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Alister-Example/Pods-Alister-Example.debug.xcconfig"; sourceTree = "<group>"; };
+		40FD381864A893C6D409BF84 /* Pods_Alister_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Alister_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58A195388D20070C39A /* Alister-Example_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Alister-Example_Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		6003F591195388D20070C39A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		874A1E50001ADBC954B23312 /* Pods_Alister_Example_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Alister_Example_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		62B320194BF5E39D86BAEC73 /* Pods-Alister-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister-Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Alister-Example/Pods-Alister-Example.release.xcconfig"; sourceTree = "<group>"; };
+		7AA466BB0083407F450E9669 /* Pods-Alister-Example-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister-Example-Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Alister-Example-Tests/Pods-Alister-Example-Tests.release.xcconfig"; sourceTree = "<group>"; };
+		951E488B093E7D27050CAA16 /* Pods_Alister_Example_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Alister_Example_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8D594C6A1CAF9F8A83D2691 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		A9FF7910D254F73167AC3301 /* Pods-Alister-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister-Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Alister-Example/Pods-Alister-Example.release.xcconfig"; sourceTree = "<group>"; };
-		C0DE2F3DAD57872F9EC5AA92 /* Pods-Alister-Example-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister-Example-Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Alister-Example-Tests/Pods-Alister-Example-Tests.release.xcconfig"; sourceTree = "<group>"; };
 		D7EC43B81D50C9A300128012 /* Alister-Example-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Alister-Example-Info.plist"; path = "Alister-Example/Alister-Example-Info.plist"; sourceTree = SOURCE_ROOT; };
 		D7EC43B91D50C9A300128012 /* Alister-Example-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Alister-Example-Prefix.pch"; path = "Alister-Example/Alister-Example-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		D7EC43BA1D50C9A300128012 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "Alister-Example/main.m"; sourceTree = SOURCE_ROOT; };
@@ -86,8 +86,8 @@
 		D7EC43C31D50C9AE00128012 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "Alister-Example/Images.xcassets"; sourceTree = SOURCE_ROOT; };
 		D7EC43CC1D512EE300128012 /* Alister-Example-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Alister-Example-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7EC43D01D512EE300128012 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E0F5A25D117488AC2302F4FB /* Pods-Alister-Example-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister-Example-Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Alister-Example-Tests/Pods-Alister-Example-Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		E301602B7936D5180834423D /* Alister.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Alister.podspec; path = ../Alister.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		E3AA0CABFC4FC6AAA2CE26EA /* Pods-Alister-Example-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister-Example-Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Alister-Example-Tests/Pods-Alister-Example-Tests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +98,7 @@
 				6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */,
 				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F58E195388D20070C39A /* Foundation.framework in Frameworks */,
-				45F13B917C04C9A9BD173424 /* Pods_Alister_Example.framework in Frameworks */,
+				AA4F44B89C44A7CA19716E2D /* Pods_Alister_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,7 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71CD3066A37CBE53901C050D /* Pods_Alister_Example_Tests.framework in Frameworks */,
+				8E0B108CB3F18F5C9D5224E1 /* Pods_Alister_Example_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,13 +174,13 @@
 			path = ANStorage;
 			sourceTree = "<group>";
 		};
-		23031CC17AFBD1B5BF256538 /* Pods */ = {
+		19FEAFD85480CFCA49FC1944 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				0E8CBD321A1CE4028E8CAB00 /* Pods-Alister-Example.debug.xcconfig */,
-				A9FF7910D254F73167AC3301 /* Pods-Alister-Example.release.xcconfig */,
-				E0F5A25D117488AC2302F4FB /* Pods-Alister-Example-Tests.debug.xcconfig */,
-				C0DE2F3DAD57872F9EC5AA92 /* Pods-Alister-Example-Tests.release.xcconfig */,
+				32541713ADAAE98DA8E7DBAC /* Pods-Alister-Example.debug.xcconfig */,
+				62B320194BF5E39D86BAEC73 /* Pods-Alister-Example.release.xcconfig */,
+				E3AA0CABFC4FC6AAA2CE26EA /* Pods-Alister-Example-Tests.debug.xcconfig */,
+				7AA466BB0083407F450E9669 /* Pods-Alister-Example-Tests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -193,7 +193,7 @@
 				D7EC43CD1D512EE300128012 /* Alister-Example-Tests */,
 				6003F58C195388D20070C39A /* Frameworks */,
 				6003F58B195388D20070C39A /* Products */,
-				23031CC17AFBD1B5BF256538 /* Pods */,
+				19FEAFD85480CFCA49FC1944 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -213,8 +213,8 @@
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
 				6003F5AF195388D20070C39A /* XCTest.framework */,
-				0FFD7AD8016875FDF566DD65 /* Pods_Alister_Example.framework */,
-				874A1E50001ADBC954B23312 /* Pods_Alister_Example_Tests.framework */,
+				40FD381864A893C6D409BF84 /* Pods_Alister_Example.framework */,
+				951E488B093E7D27050CAA16 /* Pods_Alister_Example_Tests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -273,13 +273,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6003F5BF195388D20070C39A /* Build configuration list for PBXNativeTarget "Alister-Example" */;
 			buildPhases = (
+				49CF858AD06F34C761EAA501 /* 📦 Check Pods Manifest.lock */,
 				59A0B9A8A89BB973779AF899 /* [CP] Check Pods Manifest.lock */,
 				6003F586195388D20070C39A /* Sources */,
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
 				6D237E929AC908222EA8BC93 /* [CP] Embed Pods Frameworks */,
 				7026C6C66CCE5A847CEDB1A9 /* [CP] Copy Pods Resources */,
-				73CD5AD5873B2F18D583681B /* Embed Pods Frameworks */,
+				4AB146AAB03BFD28F0079D4E /* 📦 Embed Pods Frameworks */,
+				ED120658386DC0C73EB0AC40 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -294,13 +296,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D7EC43D31D512EE300128012 /* Build configuration list for PBXNativeTarget "Alister-Example-Tests" */;
 			buildPhases = (
+				F65482442FBD553A3E167CBA /* 📦 Check Pods Manifest.lock */,
 				F021BB144B54D21DD699B183 /* [CP] Check Pods Manifest.lock */,
 				D7EC43C81D512EE300128012 /* Sources */,
 				D7EC43C91D512EE300128012 /* Frameworks */,
 				D7EC43CA1D512EE300128012 /* Resources */,
 				71C0A3D1AB9BD8D5A6B7F42F /* [CP] Embed Pods Frameworks */,
 				C4FA3412C402A21750F737FF /* [CP] Copy Pods Resources */,
-				39846B8E2A7F880F4A56FE0D /* Embed Pods Frameworks */,
+				DB9B5C854EC45C8A4C984198 /* 📦 Embed Pods Frameworks */,
+				862ADAEF8314040419DAF1F4 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -370,19 +374,34 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		39846B8E2A7F880F4A56FE0D /* Embed Pods Frameworks */ = {
+		49CF858AD06F34C761EAA501 /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Alister-Example-Tests/Pods-Alister-Example-Tests-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		4AB146AAB03BFD28F0079D4E /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Alister-Example/Pods-Alister-Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		59A0B9A8A89BB973779AF899 /* [CP] Check Pods Manifest.lock */ = {
@@ -445,19 +464,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Alister-Example-Tests/Pods-Alister-Example-Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		73CD5AD5873B2F18D583681B /* Embed Pods Frameworks */ = {
+		862ADAEF8314040419DAF1F4 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Alister-Example/Pods-Alister-Example-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Alister-Example-Tests/Pods-Alister-Example-Tests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C4FA3412C402A21750F737FF /* [CP] Copy Pods Resources */ = {
@@ -475,6 +494,36 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Alister-Example-Tests/Pods-Alister-Example-Tests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		DB9B5C854EC45C8A4C984198 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Alister-Example-Tests/Pods-Alister-Example-Tests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ED120658386DC0C73EB0AC40 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Alister-Example/Pods-Alister-Example-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		F021BB144B54D21DD699B183 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -483,6 +532,21 @@
 			inputPaths = (
 			);
 			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F65482442FBD553A3E167CBA /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -660,7 +724,7 @@
 		};
 		6003F5C0195388D20070C39A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0E8CBD321A1CE4028E8CAB00 /* Pods-Alister-Example.debug.xcconfig */;
+			baseConfigurationReference = 32541713ADAAE98DA8E7DBAC /* Pods-Alister-Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -711,7 +775,7 @@
 		};
 		6003F5C1195388D20070C39A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A9FF7910D254F73167AC3301 /* Pods-Alister-Example.release.xcconfig */;
+			baseConfigurationReference = 62B320194BF5E39D86BAEC73 /* Pods-Alister-Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -762,7 +826,7 @@
 		};
 		D7EC43D41D512EE300128012 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E0F5A25D117488AC2302F4FB /* Pods-Alister-Example-Tests.debug.xcconfig */;
+			baseConfigurationReference = E3AA0CABFC4FC6AAA2CE26EA /* Pods-Alister-Example-Tests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = NO;
@@ -783,7 +847,7 @@
 		};
 		D7EC43D51D512EE300128012 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C0DE2F3DAD57872F9EC5AA92 /* Pods-Alister-Example-Tests.release.xcconfig */;
+			baseConfigurationReference = 7AA466BB0083407F450E9669 /* Pods-Alister-Example-Tests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = NO;

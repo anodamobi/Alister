@@ -7,6 +7,9 @@
 
 #import "ANKeyboardHandler.h"
 
+static const CGFloat kCalculatedContentPadding = 10;
+static const CGFloat kMinimumScrollOffsetPadding = 20;
+
 @interface ANKeyboardHandler () <UIGestureRecognizerDelegate>
 {
     struct {
@@ -115,7 +118,7 @@
 - (void)handleKeyboardWithNotification:(NSNotification*)aNotification
 {
     NSDictionary* info = aNotification.userInfo;
-    CGFloat kbHeight = [info[UIKeyboardFrameBeginUserInfoKey] CGRectValue].size.height;
+    __block CGFloat kbHeight = [info[UIKeyboardFrameBeginUserInfoKey] CGRectValue].size.height;
     CGFloat duration = [info[UIKeyboardAnimationDurationUserInfoKey] floatValue];
     
     UIView* responder = [self findViewThatIsFirstResponderInParent:self.target];
@@ -130,10 +133,13 @@
                 UIScrollView* target = self.target;
                 target.contentInset = contentInsets;
                 target.scrollIndicatorInsets = contentInsets;
-                if (responder)
+                CGFloat viewableHeight = target.bounds.size.height - target.contentInset.top - target.contentInset.bottom;
+                if (responder && contentInsets.bottom > 0)
                 {
-                    CGRect visibleRect = [target convertRect:responder.frame fromView:responder.superview];
-                    [target scrollRectToVisible:visibleRect animated:NO];
+                    CGFloat maxY = [self _bottomOffsetWithScrollView:target withResponderView:responder withVisibleArea:viewableHeight];//fabs((CGRectGetMaxY(responder.frame) - kbHeight));
+                    CGPoint nextOffset = CGPointMake(0, maxY);
+                    [target setContentOffset:nextOffset animated:YES];
+                    
                 }
             }
             if (self.animationBlock)
@@ -149,6 +155,65 @@
             self.animationCompletion(self.isKeyboardVisible);
         }
     }];
+}
+
+- (CGFloat)_bottomOffsetWithScrollView:(UIScrollView*)scrollView withResponderView:(UIView*)view withVisibleArea:(CGFloat)viewAreaHeight
+{
+    CGSize contentSize = scrollView.contentSize;
+    __block CGFloat offset = 0.0;
+    
+    CGRect subviewRect = [view convertRect:view.bounds toView:scrollView];
+    
+    __block CGFloat padding = 0.0;
+    
+    void(^centerViewInViewableArea)()  = ^ {
+        padding = (viewAreaHeight - subviewRect.size.height) / 2;
+        
+        if (padding < kMinimumScrollOffsetPadding )
+        {
+            padding = kMinimumScrollOffsetPadding;
+        }
+        offset = subviewRect.origin.y - padding - scrollView.contentInset.top;
+    };
+    
+    if ([view conformsToProtocol:@protocol(UITextInput)])
+    {
+        UIView <UITextInput> *textInput = (UIView <UITextInput>*)view;
+        UITextPosition *caretPosition = [textInput selectedTextRange].start;
+        
+        if (caretPosition)
+        {
+            CGRect caretRect = [scrollView convertRect:[textInput caretRectForPosition:caretPosition] fromView:textInput];
+            padding = (viewAreaHeight - caretRect.size.height) / 2;
+            if (padding < kMinimumScrollOffsetPadding )
+            {
+                padding = kMinimumScrollOffsetPadding;
+            }
+            offset = caretRect.origin.y - padding - scrollView.contentInset.top;
+        }
+        else
+        {
+            centerViewInViewableArea();
+        }
+    }
+    else
+    {
+        centerViewInViewableArea();
+    }
+    
+    CGFloat maxOffset = contentSize.height - viewAreaHeight - scrollView.contentInset.top;
+    
+    if (offset > maxOffset)
+    {
+        offset = maxOffset;
+    }
+    
+    if ( offset < -scrollView.contentInset.top )
+    {
+        offset = -scrollView.contentInset.top;
+    }
+    
+    return offset;
 }
 
 - (void)hideKeyboard
@@ -173,6 +238,7 @@
     }
     return insets;
 }
+
 
 #pragma mark - UIGesture delegate
 

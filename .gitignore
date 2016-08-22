@@ -11,4 +11,4 @@ xcuserdata
 *.swp
 *.gcov
 
-/Pods
+*/Pods
