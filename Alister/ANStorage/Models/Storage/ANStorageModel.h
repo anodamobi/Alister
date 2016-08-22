@@ -6,17 +6,17 @@
 //
 //
 
-@import Foundation;
+@class ANStorageSectionModel;
 
 @interface ANStorageModel : NSObject
 
-- (id)itemAtIndexPath:(NSIndexPath*)indexPath;
 - (NSArray*)itemsInSection:(NSUInteger)section;
-
-//sections
 - (NSArray*)sections;
+
+- (id)itemAtIndexPath:(NSIndexPath*)indexPath;
 - (id)sectionAtIndex:(NSUInteger)index;
-- (void)addSection:(id)section;
+
+- (void)addSection:(ANStorageSectionModel*)section;
 - (void)removeSectionAtIndex:(NSUInteger)index;
 - (void)removeAllSections;
 

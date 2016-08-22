@@ -27,32 +27,17 @@
     return self;
 }
 
-- (id)objectAtIndex:(NSUInteger)index inSection:(NSUInteger)section
+- (NSArray*)sections
 {
-    if (self.sectionModels.count > index)
-    {
-        ANStorageSectionModel* model = self.sectionModels[section];
-        if ([model numberOfObjects] > index)
-        {
-            return model.objects[index];
-        }
-    }
-    return nil;
+    return [self.sectionModels copy];
 }
 
-- (id)itemAtIndexPath:(NSIndexPath*)indexPath
+- (void)addSection:(id)section
 {
-    id object = nil;
-    if (indexPath)
+    if (section && [section isKindOfClass:[ANStorageSectionModel class]])
     {
-        object = [self objectAtIndex:(NSUInteger)indexPath.row inSection:(NSUInteger)indexPath.section];
+        [self.sectionModels addObject:section];
     }
-    else
-    {
-        NSAssert(NO, @"Somthing wrong, indexpath is nil!!!");
-    }
-    
-    return object;
 }
 
 - (NSArray*)itemsInSection:(NSUInteger)section
@@ -65,11 +50,6 @@
     return nil;
 }
 
-- (NSArray*)sections
-{
-    return [self.sectionModels copy];
-}
-
 - (ANStorageSectionModel*)sectionAtIndex:(NSUInteger)index
 {
     if (self.sectionModels.count > index)
@@ -79,14 +59,12 @@
     return nil;
 }
 
-- (void)addSection:(id)section
-{
-    [self.sectionModels addObject:section];
-}
-
 - (void)removeSectionAtIndex:(NSUInteger)index
 {
-    [self.sectionModels removeObjectAtIndex:index];
+    if (index < self.sectionModels.count)
+    {
+        [self.sectionModels removeObjectAtIndex:index];
+    }
 }
 
 - (void)removeAllSections
@@ -94,5 +72,31 @@
     [self.sectionModels removeAllObjects];
 }
 
+- (id)itemAtIndexPath:(NSIndexPath*)indexPath
+{
+    id object = nil;
+    if (indexPath && [indexPath isKindOfClass:[NSIndexPath class]])
+    {
+        object = [self _objectAtIndex:(NSUInteger)indexPath.row
+                            inSection:(NSUInteger)indexPath.section];
+    }
+    return object;
+}
+
+
+#pragma mark - Private
+
+- (id)_objectAtIndex:(NSUInteger)index inSection:(NSUInteger)section
+{
+    if (self.sectionModels.count > index)
+    {
+        ANStorageSectionModel* model = self.sectionModels[section];
+        if ([model numberOfObjects] > index)
+        {
+            return model.objects[index];
+        }
+    }
+    return nil;
+}
 
 @end

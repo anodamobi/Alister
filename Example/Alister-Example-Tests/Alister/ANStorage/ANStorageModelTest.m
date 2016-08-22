@@ -9,6 +9,7 @@
 #import <XCTest/XCTest.h>
 #import "ANStorageModel.h"
 #import "ANStorageSectionModel.h"
+#import <Expecta/Expecta.h>
 
 @interface ANStorageModelTest : XCTestCase
 
@@ -33,10 +34,151 @@
     [super tearDown];
 }
 
+- (void)test_objectSetup_positive_defaultValues
+{
+    expect(self.model.sections).haveCount(0);
+}
+
+- (void)test_addSection_positive_sectionsCountValid
+{
+    NSInteger counter = arc4random_uniform(20);
+    for (NSInteger i = 0; i < counter; i++)
+    {
+        [self.model addSection:[ANStorageSectionModel new]];
+    }
+    expect(self.model.sections).haveCount(counter);
+}
+
+- (void)test_addSection_negative_noAssertIfTryToAddNil
+{
+    void(^TestBlock)(void) = ^{
+       [self.model addSection:nil];
+    };
+    expect(TestBlock).notTo.raiseAny();
+    expect(self.model.sections).haveCount(0);
+}
+
+- (void)test_addSection_negative_noAssertIfTryToAddInvalidObject
+{
+    void(^TestBlock)(void) = ^{
+        [self.model addSection:(ANStorageSectionModel*)@""];
+    };
+    expect(TestBlock).notTo.raiseAny();
+    expect(self.model.sections).haveCount(0);
+}
+
+
+#pragma mark - itemsInSection
+
+- (void)test_itemsInSection_positive_objectsMatch
+{
+    ANStorageSectionModel* section = [ANStorageSectionModel new];
+    [section addItem:self.fixtureObject];
+    [self.model addSection:section];
+    
+    expect([self.model itemsInSection:0]).equal(section.objects);
+}
+
+- (void)test_itemsInSection_negative_whenSectionIndexInvalidNoAssert
+{
+    void(^TestBlock)(void) = ^{
+        [self.model itemsInSection:arc4random()];
+    };
+    expect(TestBlock).notTo.raiseAny();
+}
+
+
+#pragma mark - sectionAtIndex
+
+- (void)test_sectionAtIndex_positive_sectionExists
+{
+    u_int32_t counter = arc4random_uniform(20);
+    for (NSUInteger i = 0; i < counter; i++)
+    {
+        [self.model addSection:[ANStorageSectionModel new]];
+    }
+
+    u_int32_t sectionIndex = arc4random_uniform(counter);
+    expect([self.model sectionAtIndex:sectionIndex]).notTo.beNil();
+}
+
+- (void)test_sectionAtIndex_negative_noCrashWithIncorrectSectionIndex
+{
+    void(^TestBlock)(void) = ^{
+        [self.model sectionAtIndex:arc4random()];
+    };
+    expect(TestBlock).notTo.raiseAny();
+}
+
+- (void)test_sectionAtIndex_negative_sectionIsNilWhenNotExist
+{
+    NSUInteger sectionIndex = arc4random();
+    expect([self.model sectionAtIndex:sectionIndex]).to.beNil();
+}
+
+
+#pragma mark - removeSectionAtIndex
+
+- (void)test_removeSectionAtIndex_positive_sectionExistAtIndex
+{
+    u_int32_t counter = arc4random_uniform(20);
+    for (NSUInteger i = 0; i < counter; i++)
+    {
+        [self.model addSection:[ANStorageSectionModel new]];
+    }
+    u_int32_t sectionIndex = arc4random_uniform(counter);
+    NSUInteger sectionsCount = self.model.sections.count;
+    
+    [self.model removeSectionAtIndex:sectionIndex];
+    
+    expect(sectionsCount - 1).equal(self.model.sections.count);
+}
+
+- (void)test_removeSectionAtIndex_negative_noCrashIfSectionNotExist
+{
+    void(^TestBlock)(void) = ^{
+        [self.model removeSectionAtIndex:arc4random()];
+    };
+    expect(TestBlock).notTo.raiseAny();
+}
+
+- (void)test_removeSectionAtIndex_positive_removeLastSection
+{
+    ANStorageSectionModel* section = [ANStorageSectionModel new];
+    [self.model addSection:section];
+
+    [self.model removeSectionAtIndex:0];
+    
+    expect(self.model.sections).haveCount(0);
+}
+
+
+#pragma mark - removeAllSections
+
+- (void)test_removeAllSections_positive_noExistingSectionsAfterRemove
+{
+    ANStorageSectionModel* section = [ANStorageSectionModel new];
+    [self.model addSection:section];
+    
+    [self.model removeAllSections];
+    
+    expect(self.model.sections).haveCount(0);
+}
+
+- (void)test_removeAllSections_positive_sectionExistIfAddAfterRemove
+{
+    [self.model removeAllSections];
+    
+    ANStorageSectionModel* section = [ANStorageSectionModel new];
+    [self.model addSection:section];
+    
+    expect(self.model.sections).haveCount(1);
+}
+
 
 #pragma mark - itemAtIndexPath
 
-- (void)test_itemAtIndexPath_positive_dataIsValidForFirstItem
+- (void)test_itemAtIndexPath_positive_dataIsValidWhenGetExistingItem
 {
 	//given
     ANStorageSectionModel* section = [ANStorageSectionModel new];
@@ -45,288 +187,40 @@
     
     //when
     NSIndexPath* firstItemIndexPath = [NSIndexPath indexPathForItem:0 inSection:0];
-    id object = [self.model itemAtIndexPath:firstItemIndexPath];
+   
     //then
-    XCTAssertEqualObjects(self.fixtureObject, object, @"%@ is equal to object %@", self.fixtureObject, object);
+    expect([self.model itemAtIndexPath:firstItemIndexPath]).to.equal(self.fixtureObject);
+}
+
+- (void)test_itemAtIndexPath_negative_itemIsNilWhenIndexPathIsOutOfBounds
+{
+    NSIndexPath* negativeIndexPath = [NSIndexPath indexPathForItem:arc4random()
+                                                         inSection:arc4random()];
+    
+    expect([self.model itemAtIndexPath:negativeIndexPath]).to.beNil();
 }
 
 - (void)test_itemAtIndexPath_negative_indexPathIsNil
 {
-    //given
-    ANStorageSectionModel* section = [ANStorageSectionModel new];
-    [section addItem:self.fixtureObject];
-    [self.model addSection:section];
-    //when
-    NSIndexPath* negativeIndexPath = [NSIndexPath indexPathForItem:-1 inSection:0];
-    id object = [self.model itemAtIndexPath:negativeIndexPath];
-    //then
-    XCTAssertNil(object, @"object %@ is equal nil", object);
-}
-
-- (void)test_itemAtIndexPath_negative_indexPathInvalid
-{
-    //given
-    ANStorageSectionModel* section = [ANStorageSectionModel new];
-    [section addItem:self.fixtureObject];
-    [self.model addSection:section];
-    //when
-    NSIndexPath* invalidIndexPath = nil;
-    //then
+    __block id obj = nil;
     
-    __block id object = nil;
     void(^testBlock)() = ^{
-        object = [self.model itemAtIndexPath:invalidIndexPath];
+        obj = [self.model itemAtIndexPath:nil];
     };
     
-    XCTAssertThrows(testBlock());
+    expect(testBlock).notTo.raiseAny();
+    expect(obj).to.beNil();
 }
 
-
-#pragma mark - itemsInSection
-
-- (void)test_itemsInSection_positive_modelHasItems
+- (void)test_itemAtIndexPath_negative_indexPathIsNotAValidClass
 {
-    //given
-    ANStorageSectionModel* section = [ANStorageSectionModel new];
-    [section addItem:self.fixtureObject];
-    [section addItem:self.fixtureObject];
-    
-    NSUInteger expectedModelsCount = section.objects.count;
-    [self.model addSection:section];
-    
-    //when
-    ANStorageSectionModel* firstSection = self.model.sections.firstObject;
-    //then
-    XCTAssertEqual(expectedModelsCount, firstSection.objects.count);
-}
-
-- (void)test_itemsInSection_positive_modelIsEmpty
-{
-    //given
-    ANStorageSectionModel* section = [ANStorageSectionModel new];
-    [self.model addSection:section];
-    //when
-    ANStorageSectionModel* firstSection = self.model.sections.firstObject;
-    //then
-    NSInteger objectsCount = (NSInteger)firstSection.objects.count;
-    XCTAssertEqual(objectsCount, 0);
-}
-
-- (void)test_itemsInSection_negative_sectionNotExists
-{
-    //given
-    
-    //when
-    id section = self.model.sections.firstObject;
-    //then
-    XCTAssertNil(section);
-}
-
-- (void)test_itemsInSection_negative_sectionIndexLessThanZero
-{
-    //given
-    
-    //when
-    
-    //then
-}
-
-
-#pragma mark - sections
-
-- (void)test_sections_positive_sectionsAreEmpty
-{
-    //given
-    //when
-    id firstSection = self.model.sections.firstObject;
-    //then
-    XCTAssertNil(firstSection, @"first section is not empty");
-}
-
-- (void)test_sections_positive_sectionAddedAndCountIsOne
-{
-    //given
-    NSInteger expectedSectionsCount = 1;
-    ANStorageSectionModel* sectionModel = [ANStorageSectionModel new];
-    [self.model addSection:sectionModel];
-    //when
-    
-    //then
-    XCTAssertNotNil(self.model.sections.firstObject);
-    XCTAssertEqual((NSInteger)self.model.sections.count, expectedSectionsCount);
-}
-
-
-#pragma mark - sectionAtIndex:
-
-- (void)test_sectionAtIndex_positive_storageIsEmpty
-{
-    //given
-    NSInteger notExistSectionIndex = 2;
-    //when
-    id section = [self.model sectionAtIndex:notExistSectionIndex];
-    //then
-    XCTAssertNil(section, @"section not nil");
-}
-
-- (void)test_sectionAtIndex_positive_whenItemAddedZeroSectionExists
-{
-    //given
-    
-    //when
-    
-    //then
-}
-
-- (void)test_sectionAtIndex_negative_indexIsLessThanZero
-{
-    //given
-    NSInteger negativeIndex = -1;
-    //when
-    id section = [self.model sectionAtIndex:negativeIndex];
-    //then
-    XCTAssertNil(section,@"section %@ is nil", section);
-}
-
-- (void)test_sectionAtIndex_negative_indexIsNsNotFound
-{
-    //given
-    NSInteger index = NSNotFound;
-    //when
-    id section = [self.model sectionAtIndex:index];
-    //then
-    XCTAssertNil(section,@"section %@ is nil with index equal NSNotFound ", section);
-}
-
-- (void)test_sectionAtIndex_negative_indexNotExists
-{
-    //given
-    NSInteger notexistIndex = 5;
-    ANStorageSectionModel* section  = [ANStorageSectionModel new];
-    [self.model addSection:section];
-    
-    //when
-    id object = [self.model sectionAtIndex:notexistIndex];
-    //then
-    XCTAssertNil(object, @"section %@ is nil with not exist index", object);
-}
-
-
-#pragma mark - addSection:
-
-- (void)test_addSection_positive_sectionIsValid
-{
-    //given
-    ANStorageSectionModel* section = [ANStorageSectionModel new];
-    [self.model addSection:section];
-    //when
-    id object = [self.model sectionAtIndex:0];
-    //then
-    XCTAssertNotNil(object);
-    XCTAssertEqualObjects(NSStringFromClass([section class]), NSStringFromClass([object class]), @"class %@ is equal %@",NSStringFromClass([section class]), NSStringFromClass([object class]));
-}
-
-- (void)test_addSection_negative_sectionIsNil
-{
-    //given
-    void (^testBlock)() = ^{
-        [self.model addSection:nil];
-    };
-    //when
-    
-    //then
-    XCTAssertThrows(testBlock());
-}
-
-- (void)test_addSection_negative_sectionIsNotKindSectionModel
-{
-    //given
-    ANStorageSectionModel* section = [ANStorageSectionModel new];
-    [self.model addSection:section];
-    //when
-    id object = [self.model sectionAtIndex:0];
-    //then
-    XCTAssertEqualObjects(NSStringFromClass([section class]), NSStringFromClass([object class]), @"class %@ is equal %@",NSStringFromClass([section class]), NSStringFromClass([object class]));
-}
-
-
-#pragma mark - removeSectionAtIndex:
-
-- (void)test_removeSectionAtIndex_positive_indexIsValid
-{
-    //given
-    NSUInteger removedSectionIndex = 0;
-    ANStorageSectionModel* section = [ANStorageSectionModel new];
-    [self.model addSection:section];
-    //when
-    
-    XCTAssertEqual(self.model.sections.count, (NSUInteger)1);
-    [self.model removeSectionAtIndex:removedSectionIndex];
-    //then
-    XCTAssertEqual(self.model.sections.count, (NSUInteger)0);
-}
-
-- (void)test_removeSectionAtIndex_negative_indexIsZeroWhenModelIsEmpty
-{
-    //given
-    NSInteger notExistSectionIndex = 0;
-    //when
+    __block id obj = nil;
     void(^testBlock)() = ^{
-        [self.model removeSectionAtIndex:notExistSectionIndex];
+        obj = [self.model itemAtIndexPath:(NSIndexPath*)@""];
     };
-    //then
-    XCTAssertThrows(testBlock());
+    
+    expect(testBlock).notTo.raiseAny();
+    expect(obj).to.beNil();
 }
-
-- (void)test_removeSectionAtIndex_negative_indexIsLessThanZero
-{
-    //given
-    NSInteger negativeIndex = -1;
-    //when
-    void(^testBlock)() = ^{
-        [self.model removeSectionAtIndex:negativeIndex];
-    };
-    //then
-    XCTAssertThrows(testBlock());
-}
-
-- (void)test_removeSectionAtIndex_negative_indexIsNSNotFound
-{
-    //given
-    NSInteger index = NSNotFound;
-    //when
-    void(^testBlock)() = ^{
-        [self.model removeSectionAtIndex:index];
-    };
-    //then
-    XCTAssertThrows(testBlock());
-}
-
-
-#pragma mark - removeAllSections
-
-- (void)test_removeAllSections_positive_sectionsEmptyAfterAddOne
-{
-    //given
-    ANStorageSectionModel* section = [ANStorageSectionModel new];
-    [self.model addSection:section];
-    //when
-    XCTAssertNotNil(self.model.sections.firstObject);
-    [self.model removeAllSections];
-    //then
-    XCTAssertNil(self.model.sections.firstObject);
-}
-
-//- (void)test_removeAllSections_positive_removeAllSectionsWhenModelIsEmpty
-//{
-//    //given
-//    ANStorageModel* storageModel = nil;
-//    //when
-//    void(^testBlock)() = ^{
-//        [storageModel removeAllSections];
-//    };
-//    //then
-//    XCTAssertThrows(testBlock());
-//}
 
 @end
