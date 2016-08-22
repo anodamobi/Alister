@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/cocoapods/l/Alister.svg?style=flat)](http://cocoapods.org/pods/Alister)
 [![Platform](https://img.shields.io/cocoapods/p/Alister.svg?style=flat)](http://cocoapods.org/pods/Alister)
 [![codecov](https://codecov.io/gh/anodamobi/Alister/branch/master/graph/badge.svg)](https://codecov.io/gh/anodamobi/Alister)
-
+[![codebeat badge](https://codebeat.co/badges/0ffd0e1d-727c-424c-95e6-0ea578eb8fb0)](https://codebeat.co/projects/github-com-anodamobi-alister)
 
 ## Example
 
