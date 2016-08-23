@@ -125,6 +125,11 @@ static const CGFloat kMinimumScrollOffsetPadding = 20;
     
     UIEdgeInsets contentInsets = [self _updatedInsetsWithKeyboardHeight:kbHeight];
     
+    if ([self.delegate respondsToSelector:@selector(keyboardWillUpdateStateTo:withNotification:)])
+    {
+        [self.delegate keyboardWillUpdateStateTo:self.isKeyboardVisible withNotification:aNotification];
+    }
+    
     void (^animationBlock)(void) = ^{
         
         [self _dispatchBlockToMain:^{
@@ -133,10 +138,13 @@ static const CGFloat kMinimumScrollOffsetPadding = 20;
                 UIScrollView* target = self.target;
                 target.contentInset = contentInsets;
                 target.scrollIndicatorInsets = contentInsets;
-                CGFloat viewableHeight = target.bounds.size.height - target.contentInset.top - target.contentInset.bottom;
+                CGFloat visibleHeight = target.bounds.size.height - target.contentInset.top - target.contentInset.bottom;
                 if (responder && contentInsets.bottom > 0)
                 {
-                    CGFloat maxY = [self _bottomOffsetWithScrollView:target withResponderView:responder withVisibleArea:viewableHeight];//fabs((CGRectGetMaxY(responder.frame) - kbHeight));
+                    CGFloat maxY = [self _bottomOffsetWithScrollView:target
+                                                   withResponderView:responder
+                                                     withVisibleArea:visibleHeight];
+                    
                     CGPoint nextOffset = CGPointMake(0, maxY);
                     [target setContentOffset:nextOffset animated:YES];
                     
@@ -148,7 +156,12 @@ static const CGFloat kMinimumScrollOffsetPadding = 20;
             }
         }];
     };
-    
+
+    [self _handleKeyboardAnimationWithDuration:duration animatedBlock:animationBlock];
+}
+
+- (void)_handleKeyboardAnimationWithDuration:(CGFloat)duration animatedBlock:(void(^)())animationBlock
+{
     [UIView animateWithDuration:duration animations:animationBlock completion:^(__unused BOOL finished) {
         if (self.animationCompletion)
         {
