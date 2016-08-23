@@ -125,9 +125,9 @@ static const CGFloat kMinimumScrollOffsetPadding = 20;
     
     UIEdgeInsets contentInsets = [self _updatedInsetsWithKeyboardHeight:kbHeight];
     
-    if ([self.delegate respondsToSelector:@selector(keyboardWillUpdateToVisible:withNotification:)])
+    if ([self.delegate respondsToSelector:@selector(keyboardWillUpdateStateTo:withNotification:)])
     {
-        [self.delegate keyboardWillUpdateToVisible:self.isKeyboardVisible withNotification:aNotification];
+        [self.delegate keyboardWillUpdateStateTo:self.isKeyboardVisible withNotification:aNotification];
     }
     
     void (^animationBlock)(void) = ^{

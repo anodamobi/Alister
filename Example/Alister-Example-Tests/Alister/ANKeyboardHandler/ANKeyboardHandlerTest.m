@@ -109,24 +109,23 @@
 - (void)test_handleKeyboardAnimationWithDuration_positive_calledAfterNotification
 {
     //given
-    id mockedKeyboard = OCMPartialMock(self.handler);
-    OCMExpect([mockedKeyboard _handleKeyboardAnimationWithDuration:0 animatedBlock:[OCMArg any]]);
+    id mockedHandler = OCMPartialMock(self.handler);
+    OCMExpect([mockedHandler _handleKeyboardAnimationWithDuration:0 animatedBlock:[OCMArg any]]);
     [[NSNotificationCenter defaultCenter] postNotificationName:UIKeyboardWillShowNotification
                                                         object:nil];
     //then
-    OCMVerifyAll(mockedKeyboard);
+    OCMVerifyAll(mockedHandler);
 }
 
-- (void)test_setupDelegate_positive_delegateMethodNotEmpty
+- (void)test_setupDelegate_positive_calledDelegateMethod
 {
     //given
     ANTestKeyboardHandlerDelegate* delegate = [ANTestKeyboardHandlerDelegate new];
     id mockedDelegate = OCMPartialMock(delegate);
     self.handler.delegate = mockedDelegate;
-    
     expect(self.handler.delegate).notTo.beNil();
     
-    OCMExpect([mockedDelegate keyboardWillUpdateToVisible:YES withNotification:[OCMArg any]]);
+    OCMExpect([mockedDelegate keyboardWillUpdateStateTo:YES withNotification:[OCMArg any]]);
     
     [[NSNotificationCenter defaultCenter] postNotificationName:UIKeyboardWillShowNotification
                                                         object:nil];
@@ -245,11 +244,10 @@
 {
     //given
     ANTestableTextField* responderView = [ANTestableTextField viewWithResponderValue:NO];
-    
     UIView* view = [self.handler findViewThatIsFirstResponderInParent:responderView];
-    BOOL isViewsEqual = [view isEqual:responderView];
+ 
     //then
-    expect(isViewsEqual).notTo.beTruthy();
+    expect(view).notTo.equal(responderView);
 }
 
 - (void)test_findViewThatIsFirstResponderInParent_positive_focusedViewNotNil
@@ -257,9 +255,8 @@
     //given
     ANTestableTextField* responderView = [ANTestableTextField viewWithResponderValue:YES];
     UIView* view = [self.handler findViewThatIsFirstResponderInParent:responderView];
-    BOOL isViewsEqual = [view isEqual:responderView];
     //then
-    expect(isViewsEqual).to.beTruthy();
+    expect(view).equal(responderView);
 }
 
 - (void)test_findViewThatIsFirstResponderInParent_positive_subviewIsResponder
@@ -267,25 +264,30 @@
     //given
     ANTestableTextField* responderView = [ANTestableTextField viewWithResponderValue:NO];
     ANTestableTextField* responderSubviewView = [ANTestableTextField viewWithResponderValue:YES];
-    
     [responderView addSubview:responderSubviewView];
-    
     UIView* view = [self.handler findViewThatIsFirstResponderInParent:responderView];
-    BOOL isViewsEqual = [view isEqual:responderSubviewView];
+
     //then
-    expect(isViewsEqual).to.beTruthy();
+    expect(view).equal(responderSubviewView);
 }
 
-- (void)test_tapRecognizerValid_positive_tapRecognizerValidAndDelegateSelf
+- (void)test_tapRecognizerSetuped_positive_tapRecognizerSetuped
 {
     //given
     ANKeyboardHandler* keyboardHandler = [ANKeyboardHandler handlerWithTarget:self.scrollView];
-    expect(keyboardHandler.tapRecognizer).notTo.beNil();
-    id delegate = keyboardHandler.tapRecognizer.delegate;
-    BOOL isDelegatesEqualHandler = [delegate isEqual:keyboardHandler];
     
     //then
-    expect(isDelegatesEqualHandler).to.beTruthy();
+    expect(keyboardHandler.tapRecognizer).notTo.beNil();
+}
+
+- (void)test_checkRecognizerDelegate_positive_recognizerDelegateSetuped
+{
+    //given
+    ANKeyboardHandler* keyboardHandler = [ANKeyboardHandler handlerWithTarget:self.scrollView];
+    id delegate = keyboardHandler.tapRecognizer.delegate;
+    
+    //then
+    expect(delegate).equal(keyboardHandler);
 }
 
 - (void)test_keyboardWillShow_positive_keyboardWillShowCalled

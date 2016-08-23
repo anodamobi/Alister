@@ -10,7 +10,7 @@
 
 @implementation ANTestKeyboardHandlerDelegate
 
-- (void)keyboardWillUpdateToVisible:(id)isVisible withNotification:(id)notification
+- (void)keyboardWillUpdateStateTo:(id)isVisible withNotification:(id)notification
 {
 
 }
