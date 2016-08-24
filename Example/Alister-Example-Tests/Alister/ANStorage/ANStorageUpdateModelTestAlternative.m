@@ -11,6 +11,7 @@
 #import "ANStorageUpdateModel.h"
 
 static BOOL const kIsRequireReload = YES;
+static NSInteger const kMaxGeneratedCount = 3;
 
 @interface ANStorageUpdateModelTests : XCTestCase
 
@@ -34,16 +35,54 @@ static BOOL const kIsRequireReload = YES;
 }
 
 
-#pragma mark - Test isRequireReload
+#pragma mark - isRequireReload
 
-- (void)test_isRequireReload_positive_initialValueIsSetRight
+- (void)test_isRequireReload_positive_initialValueIsSetRightAndNotRaiseException
 {
-    expect(self.model.isRequireReload).equal(kIsRequireReload);
+    void(^testBlock)() = ^() {
+        expect(self.model.isRequireReload).equal(kIsRequireReload);
+    };
+    expect(testBlock).notTo.raiseAny();
 }
 
 
-#pragma mark - mergeWith
-#pragma mark - addDeletedIndexPaths
+#pragma mark - protocol implementation
+
+- (void)test_protocolconformation_positive_modelComformsToStorageUpdateProtocol
+{
+    expect(self.model).conformTo(@protocol(ANStorageUpdateModelInterface));
+}
+
+- (void)test_protocolImplementation_positive_modelImplementsAllProtocolMethods
+{
+    expect(self.model).respondTo(@selector(deletedSectionIndexes));
+    expect(self.model).respondTo(@selector(insertedSectionIndexes));
+    expect(self.model).respondTo(@selector(updatedSectionIndexes));
+    expect(self.model).respondTo(@selector(updatedSectionIndexes));
+    
+    expect(self.model).respondTo(@selector(deletedRowIndexPaths));
+    expect(self.model).respondTo(@selector(insertedRowIndexPaths));
+    expect(self.model).respondTo(@selector(updatedRowIndexPaths));
+    expect(self.model).respondTo(@selector(movedRowsIndexPaths));
+    
+    expect(self.model).respondTo(@selector(addDeletedSectionIndex:));
+    expect(self.model).respondTo(@selector(addUpdatedSectionIndex:));
+    expect(self.model).respondTo(@selector(addInsertedSectionIndex:));
+    
+    expect(self.model).respondTo(@selector(addInsertedSectionIndexes:));
+    expect(self.model).respondTo(@selector(addUpdatedSectionIndexes:));
+    expect(self.model).respondTo(@selector(addDeletedSectionIndexes:));
+
+    expect(self.model).respondTo(@selector(addInsertedIndexPaths:));
+    expect(self.model).respondTo(@selector(addUpdatedIndexPaths:));
+    expect(self.model).respondTo(@selector(addDeletedIndexPaths:));
+    expect(self.model).respondTo(@selector(addMovedIndexPaths:));
+    
+    expect(self.model).respondTo(@selector(isRequireReload));
+}
+
+
+#pragma mark - mergeWith addDeletedIndexPaths
 
 - (void)test_mergeWith_positive_deletedRowIndexPathsCountAreEqual
 {
@@ -84,7 +123,7 @@ static BOOL const kIsRequireReload = YES;
 }
 
 
-#pragma mark - addInsertedIndexPaths
+#pragma mark - mergeWith addInsertedIndexPaths
 
 - (void)test_mergeWith_positive_insertedIndexPathsCountAreEqual
 {
@@ -125,7 +164,7 @@ static BOOL const kIsRequireReload = YES;
 }
 
 
-#pragma mark - addUpdatedIndexPaths
+#pragma mark - mergeWith addUpdatedIndexPaths
 
 - (void)test_mergeWith_positive_updatedIndexPathsCountAreEqual
 {
@@ -166,7 +205,7 @@ static BOOL const kIsRequireReload = YES;
 }
 
 
-#pragma mark - addMovedIndexPaths
+#pragma mark - mergeWith addMovedIndexPaths
 
 - (void)test_mergeWith_positive_movedIndexPathsCountAreEqual
 {
@@ -227,10 +266,12 @@ static BOOL const kIsRequireReload = YES;
     NSIndexSet* indexSet = nil;
     
     // When
-    [self.model addInsertedSectionIndexes:indexSet];
+    void(^testBlock)() = ^() {
+        [self.model addInsertedSectionIndexes:indexSet];
+    };
     
     // Then
-    expect(self.model.insertedSectionIndexes).notTo.beNil();
+    expect(testBlock).notTo.raiseAny();
 }
 
 
@@ -254,15 +295,206 @@ static BOOL const kIsRequireReload = YES;
     NSIndexSet* indexSet = nil;
     
     // When
-    [self.model addInsertedSectionIndexes:indexSet];
+    void(^testBlock)() = ^() {
+        [self.model addInsertedSectionIndexes:indexSet];
+    };
     
     // Then
-    expect(self.model.insertedSectionIndexes).notTo.beNil();
+    expect(testBlock).notTo.raiseAny();
 }
 
-/*
- - (void)addUpdatedSectionIndexes:(NSIndexSet*)indexSet;
- - (void)addDeletedSectionIndexes:(NSIndexSet*)indexSet;
- */
+
+#pragma mark - addDeletedSectionIndexes
+
+- (void)test_addDeletedSectionIndexes_positive_deletedSectionIndexesAreAdded
+{
+    // Given
+    NSIndexSet* indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, 10)];
+    
+    // When
+    [self.model addDeletedSectionIndexes:indexSet];
+    
+    // Then
+    expect(self.model.deletedSectionIndexes).to.equal(indexSet);
+}
+
+- (void)test_addDeletedSectionIndexes_negative_toNotRaiseExceptionWhenAddNilIndexes
+{
+    // Given
+    NSIndexSet* indexSet = nil;
+    
+    // When
+    void(^testBlock)() = ^() {
+        [self.model addDeletedSectionIndexes:indexSet];
+    };
+    
+    // Then
+    expect(testBlock).notTo.raiseAny();
+}
+
+
+#pragma mark - addDeletedSectionIndex
+
+- (void)test_addDeletedSectionIndex_positive_modelContainsDeletedIndex
+{
+    // Given
+    NSMutableIndexSet* indexSet = [NSMutableIndexSet indexSet];
+    
+    for (NSInteger counter = 0; counter < kMaxGeneratedCount; counter++)
+    {
+        [indexSet addIndex:counter];
+        [self.model addDeletedSectionIndex:counter];
+    }
+    
+    // Then
+    expect(self.model.deletedSectionIndexes).to.equal(indexSet);
+}
+
+- (void)test_addUpdatedSectionIndex_positive_modelContainsUpdatedIndex
+{
+    // Given
+    NSMutableIndexSet* indexSet = [NSMutableIndexSet indexSet];
+    
+    for (NSInteger counter = 0; counter < kMaxGeneratedCount; counter++)
+    {
+        [indexSet addIndex:counter];
+        [self.model addUpdatedSectionIndex:counter];
+    }
+    
+    // Then
+    expect(self.model.updatedSectionIndexes).to.equal(indexSet);
+}
+
+- (void)test_addInsertedSectionIndex_positive_modelContainsInsertedIndex
+{
+    // Given
+    NSMutableIndexSet* indexSet = [NSMutableIndexSet indexSet];
+    
+    for (NSInteger counter = 0; counter < kMaxGeneratedCount; counter++)
+    {
+        [indexSet addIndex:counter];
+        [self.model addInsertedSectionIndex:counter];
+    }
+    
+    // Then
+    expect(self.model.insertedSectionIndexes).to.equal(indexSet);
+}
+
+
+#pragma mark - all rowIndexPaths
+
+- (void)test_rowIndexPaths_positive_initialRowIndexPathsNonNil
+{
+    expect(self.model.deletedRowIndexPaths).notTo.beNil();
+    expect(self.model.insertedRowIndexPaths).notTo.beNil();
+    expect(self.model.updatedRowIndexPaths).notTo.beNil();
+    expect(self.model.movedRowsIndexPaths).notTo.beNil();
+}
+
+
+#pragma mark - deletedRowIndexPaths
+
+- (void)test_deletedRowIndexPaths_positive_initialAndReturnedPathsAreEqual
+{
+    // Given
+    NSArray* indexPaths = @[[NSIndexPath indexPathForRow:1 inSection:1]];
+    
+    // When
+    [self.model addDeletedIndexPaths:indexPaths];
+    
+    // Then
+    expect(self.model.deletedRowIndexPaths).equal(indexPaths);
+    expect(self.model.deletedRowIndexPaths.count).equal(indexPaths.count);
+}
+
+- (void)test_insertedRowIndexPaths_positive_initialAndReturnedPathsAreEqual
+{
+    // Given
+    NSArray* indexPaths = @[[NSIndexPath indexPathForRow:1 inSection:1]];
+    
+    // When
+    [self.model addInsertedIndexPaths:indexPaths];
+    
+    // Then
+    expect(self.model.insertedRowIndexPaths).equal(indexPaths);
+    expect(self.model.insertedRowIndexPaths.count).equal(indexPaths.count);
+}
+
+- (void)test_updatedRowIndexPaths_positive_initialAndReturnedPathsAreEqual
+{
+    // Given
+    NSArray* indexPaths = @[[NSIndexPath indexPathForRow:1 inSection:1]];
+    
+    // When
+    [self.model addUpdatedIndexPaths:indexPaths];
+    
+    // Then
+    expect(self.model.updatedRowIndexPaths).equal(indexPaths);
+    expect(self.model.updatedRowIndexPaths.count).equal(indexPaths.count);
+}
+
+- (void)test_movedRowsIndexPaths_positive_initialAndReturnedPathsAreEqual
+{
+    // Given
+    NSArray* indexPaths = @[[NSIndexPath indexPathForRow:1 inSection:1]];
+    
+    // When
+    [self.model addMovedIndexPaths:indexPaths];
+    
+    // Then
+    expect(self.model.movedRowsIndexPaths).equal(indexPaths);
+    expect(self.model.movedRowsIndexPaths.count).equal(indexPaths.count);
+}
+
+
+#pragma mark - all sectionIndexes
+
+- (void)test_sectionIndexes_positive_initialSectionIndexesNonNil
+{
+    expect(self.model.deletedSectionIndexes).notTo.beNil();
+    expect(self.model.insertedSectionIndexes).notTo.beNil();
+    expect(self.model.updatedSectionIndexes).notTo.beNil();
+}
+
+- (void)test_sectionIndexes_positive_toNotRaiseException
+{
+    void(^testBlock)() = ^() {
+        [self.model deletedSectionIndexes];
+        [self.model insertedSectionIndexes];
+        [self.model updatedSectionIndexes];
+    };
+    expect(testBlock).notTo.raiseAny();
+}
+
+
+#pragma mark - isEmpty
+
+- (void)test_isEmpty_positive_initialValueIsTrue
+{
+    // When
+    self.model.isRequireReload = NO;
+    
+    // Then
+    expect(self.model.isEmpty).to.beTruthy();
+}
+
+- (void)test_isEmpty_positive_modelIsNotEmptyWhenAddValues
+{
+    // Given
+    self.model.isRequireReload = NO;
+    [self.model addInsertedSectionIndex:3];
+    
+    // Then
+    expect(self.model.isEmpty).to.beFalsy();
+}
+
+- (void)test_isEmpty_negative_modelIsNotEmptyWhenRequirerReload
+{
+    // Given
+    self.model.isRequireReload = YES;
+    
+    // Then
+    expect(self.model.isEmpty).to.beFalsy();
+}
 
 @end
