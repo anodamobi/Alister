@@ -7,8 +7,19 @@
 //
 
 #import <XCTest/XCTest.h>
+#import <Expecta/Expecta.h>
+#import <OCMock/OCMock.h>
+#import "ANTestableCollectionUpdateOperation.h"
 
-@interface ANCollectionUpdateOperationTests : XCTestCase
+@interface ANCollectionControllerUpdateOperation ()
+
+
+
+@end
+
+@interface ANCollectionUpdateOperationTests : XCTestCase <ANListControllerUpdateOperationDelegate>
+
+@property (nonatomic, strong) ANTestableCollectionUpdateOperation* operaton;
 
 @end
 
@@ -16,24 +27,44 @@
 
 - (void)setUp {
     [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+    self.operaton = [ANTestableCollectionUpdateOperation new];
 }
 
-- (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
+- (void)tearDown
+{
+    self.operaton = nil;
     [super tearDown];
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
+- (void)test_shouldAnimatePropertySetuped_positive_valueSetupedSuccessfully
+{
+    self.operaton.shouldAnimate = YES;
+    expect(self.operaton.shouldAnimate).to.beTruthy();
 }
 
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
+- (void)test_delegatePropertySetuped_positive_delegateSetupedSuccessfully
+{
+    self.operaton.delegate = self;
+    expect(self.operaton.delegate).notTo.beNil();
+    expect(self.operaton.delegate).equal(self);
+}
+
+
+#pragma mark - ANListControllerUpdateOperationDelegate
+
+- (UIView<ANListViewInterface> *)listView
+{
+    return nil;
+}
+
+- (id<ANListControllerConfigurationModelInterface>)configurationModel
+{
+    return nil;
+}
+
+- (void)storageNeedsReloadWithIdentifier:(NSString *)identifier
+{
+
 }
 
 @end

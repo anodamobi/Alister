@@ -8,6 +8,20 @@
 
 #import "ANTestableCollectionUpdateOperation.h"
 
+@interface ANTestableCollectionUpdateOperation ()
+
+@property (nonatomic, assign) BOOL operationCanceled;
+
+@end
+
 @implementation ANTestableCollectionUpdateOperation
+
++ (instancetype)operationWithCanceledValue:(BOOL)isCanceled
+{
+    ANTestableCollectionUpdateOperation* operation = [self new];
+    operation.operationCanceled = isCanceled;
+    
+    return operation;
+}
 
 @end

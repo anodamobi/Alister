@@ -6,8 +6,11 @@
 //  Copyright © 2016 Oksana Kovalchuk. All rights reserved.
 //
 
-#import <Alister/Alister.h>
+#import <Foundation/Foundation.h>
+#import "ANCollectionControllerUpdateOperation.h"
 
 @interface ANTestableCollectionUpdateOperation : ANCollectionControllerUpdateOperation
+
++ (instancetype)operationWithCanceledValue:(BOOL)isCanceled;
 
 @end
