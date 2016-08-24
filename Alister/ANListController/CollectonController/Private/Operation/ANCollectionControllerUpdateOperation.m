@@ -12,10 +12,15 @@
 @interface ANCollectionControllerUpdateOperation ()
 
 @property (nonatomic, strong) ANStorageUpdateModel* updateModel;
+@property (nonatomic, assign, getter=isFinished) BOOL finished;
+@property (nonatomic, assign, getter=isExecuting) BOOL executing;
 
 @end
 
 @implementation ANCollectionControllerUpdateOperation
+
+@synthesize finished = _finished;
+@synthesize executing = _executing;
 
 + (instancetype)operationWithUpdateModel:(ANStorageUpdateModel*)model
 {
@@ -37,7 +42,15 @@
 {
     if (!self.isCancelled)
     {
-        [self _performAnimatedUpdate:self.updateModel];
+        if (self.updateModel && !self.updateModel.isEmpty)
+        {
+            [self _performAnimatedUpdate:self.updateModel];
+        }
+        else
+        {
+            self.finished = YES;
+            self.executing = NO;
+        }
     }
 }
 
@@ -46,59 +59,57 @@
 
 - (void)_performAnimatedUpdate:(ANStorageUpdateModel*)update
 {
-    if (!update.isEmpty)
+    UICollectionView* collectionView = (UICollectionView*)[self.delegate listView];
+    
+    if ([collectionView isKindOfClass:[UICollectionView class]])
     {
-        UICollectionView* collectionView = (UICollectionView*)[self.delegate listView];
+        NSMutableIndexSet * sectionsToInsert = [NSMutableIndexSet indexSet];
+        [update.insertedSectionIndexes enumerateIndexesUsingBlock:^(NSUInteger idx, __unused BOOL *stop) {
+            if ((NSUInteger)[collectionView numberOfSections] <= idx)
+            {
+                [sectionsToInsert addIndex:idx];
+            }
+        }];
         
-        if ([collectionView isKindOfClass:[UICollectionView class]])
+        NSUInteger sectionChanges = [update.deletedSectionIndexes count] +
+        [update.insertedSectionIndexes count] +
+        [update.updatedSectionIndexes count];
+        
+        NSUInteger itemChanges = [update.deletedRowIndexPaths count] +
+        [update.insertedRowIndexPaths count] +
+        [update.updatedRowIndexPaths count];
+        
+        if (sectionChanges)
         {
-            NSMutableIndexSet * sectionsToInsert = [NSMutableIndexSet indexSet];
-            [update.insertedSectionIndexes enumerateIndexesUsingBlock:^(NSUInteger idx, __unused BOOL *stop) {
-                if ((NSUInteger)[collectionView numberOfSections] <= idx)
-                {
-                    [sectionsToInsert addIndex:idx];
-                }
-            }];
-            
-            NSUInteger sectionChanges = [update.deletedSectionIndexes count] +
-            [update.insertedSectionIndexes count] +
-            [update.updatedSectionIndexes count];
-            
-            NSUInteger itemChanges = [update.deletedRowIndexPaths count] +
-            [update.insertedRowIndexPaths count] +
-            [update.updatedRowIndexPaths count];
-            
-            if (sectionChanges)
-            {
-                [collectionView performBatchUpdates:^{
-                    [collectionView deleteSections:update.deletedSectionIndexes];
-                    [collectionView insertSections:sectionsToInsert];
-                    [collectionView reloadSections:update.updatedSectionIndexes];
-                } completion:nil];
-            }
-            
-            if ([self _shouldReloadCollectionView:collectionView
-           toPreventInsertFirstItemIssueForUpdate:update])
-            {
-                [collectionView reloadData];
-                return;
-            }
-            
-            if ((itemChanges && (sectionChanges == 0)))
-            {
-                [collectionView performBatchUpdates:^{
-                    [collectionView deleteItemsAtIndexPaths:update.deletedRowIndexPaths];
-                    [collectionView insertItemsAtIndexPaths:update.insertedRowIndexPaths];
-                    [collectionView reloadItemsAtIndexPaths:update.updatedRowIndexPaths];
-                } completion:nil];
-            }
-            
+            [collectionView performBatchUpdates:^{
+                [collectionView deleteSections:update.deletedSectionIndexes];
+                [collectionView insertSections:sectionsToInsert];
+                [collectionView reloadSections:update.updatedSectionIndexes];
+            } completion:nil];
         }
-        else
+        
+        if ([self _shouldReloadCollectionView:collectionView
+       toPreventInsertFirstItemIssueForUpdate:update])
         {
-            NSAssert(NO, @"You assigned not a UICollectionView");
+            [collectionView reloadData];
+            return;
         }
+        
+        if ((itemChanges && (sectionChanges == 0)))
+        {
+            [collectionView performBatchUpdates:^{
+                [collectionView deleteItemsAtIndexPaths:update.deletedRowIndexPaths];
+                [collectionView insertItemsAtIndexPaths:update.insertedRowIndexPaths];
+                [collectionView reloadItemsAtIndexPaths:update.updatedRowIndexPaths];
+            } completion:nil];
+        }
+        
     }
+    else
+    {
+        NSAssert(NO, @"You assigned not a UICollectionView");
+    }
+    
 }
 
 #pragma mark - workarounds
@@ -135,6 +146,28 @@ toPreventInsertFirstItemIssueForUpdate:(ANStorageUpdateModel*)update
         shouldReload = YES;
     }
     return shouldReload;
+}
+
+#pragma mark - Getters / Setters
+
+- (void)setFinished:(BOOL)finished
+{
+    if (_finished != finished)
+    {
+        [self willChangeValueForKey:NSStringFromSelector(@selector(isFinished))];
+        _finished = finished;
+        [self didChangeValueForKey:NSStringFromSelector(@selector(isFinished))];
+    }
+}
+
+- (void)setExecuting:(BOOL)executing
+{
+    if (!_executing != executing)
+    {
+        [self willChangeValueForKey:NSStringFromSelector(@selector(isExecuting))];
+        _executing = executing;
+        [self didChangeValueForKey:NSStringFromSelector(@selector(isExecuting))];
+    }
 }
 
 @end

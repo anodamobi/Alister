@@ -24,4 +24,9 @@
     return operation;
 }
 
+- (BOOL)isCancelled
+{
+    return self.operationCanceled;
+}
+
 @end
