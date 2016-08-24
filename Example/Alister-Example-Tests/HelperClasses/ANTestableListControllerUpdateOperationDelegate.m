@@ -8,12 +8,34 @@
 
 #import "ANTestableListControllerUpdateOperationDelegate.h"
 #import "ANTestableListView.h"
+#import "ANListControllerConfigurationModel.h"
+
+@interface ANTestableListControllerUpdateOperationDelegate ()
+
+@property (nonatomic, strong) ANTestableTableView* tableView;
+
+@end
 
 @implementation ANTestableListControllerUpdateOperationDelegate
 
+- (void)updateWithTestableTableView:(ANTestableTableView*)tableView
+{
+    self.tableView = tableView;
+}
+
+- (id<ANListControllerConfigurationModelInterface>)configurationModel
+{
+    return [ANListControllerConfigurationModel defaultModel];
+}
+
 - (UIView<ANListViewInterface>*)listView
 {
-    return [ANTestableListView new];
+    return self.tableView;
+}
+
+- (void)storageNeedsReloadWithIdentifier:(NSString *)identifier
+{
+
 }
 
 @end

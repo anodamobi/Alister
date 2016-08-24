@@ -11,13 +11,13 @@
 #import <OCMock/OCMock.h>
 #import "ANListControllerReloadOperation.h"
 #import <UIKit/UIKit.h>
-#import "ANListControllerReloadOperationDelegate.h"
+#import "ANTestableListControllerReloadOperationDelegate.h"
 
 @interface ANListControllerReloadOperationTests : XCTestCase
 
 @property (nonatomic, strong) NSOperationQueue* currentQueue;
 @property (nonatomic, strong) ANListControllerReloadOperation* operation;
-@property (nonatomic, strong) ANListControllerReloadOperationDelegate* delegate;
+@property (nonatomic, strong) ANTestableListControllerReloadOperationDelegate* delegate;
 
 @end
 
@@ -29,7 +29,7 @@
     self.currentQueue.maxConcurrentOperationCount = 1;
     self.currentQueue.name = @"Testable queue";
     self.operation = [ANListControllerReloadOperation new];
-    self.delegate = [ANListControllerReloadOperationDelegate new];
+    self.delegate = [ANTestableListControllerReloadOperationDelegate new];
 }
 
 - (void)tearDown {
@@ -37,20 +37,6 @@
     self.operation = nil;
     self.delegate = nil;
     [super tearDown];
-}
-
-- (void)test_main_positive_mainCalled
-{
-    //given
-    id mockedOperation = OCMPartialMock(self.operation);
-    OCMExpect([mockedOperation main]);
-
-    [self.currentQueue addOperation:self.operation];
-    [self.currentQueue waitUntilAllOperationsAreFinished];
-    
-    
-    //then
-    OCMVerifyAll(mockedOperation);
 }
 
 - (void)test_delegateAfterAssignNotNil_positive_delegateNoNil
@@ -75,6 +61,7 @@
     
     //then
     OCMVerifyAll(mockedDelegate);
+    
 }
 
 @end

@@ -12,7 +12,7 @@ typedef void(^ANKeyboardStateBlock)(BOOL isVisible);
 
 @optional
 
-- (void)keyboardWillUpdateToVisible:(BOOL)isVisible withNotification:(NSNotification*)notification;
+- (void)keyboardWillUpdateStateTo:(BOOL)isVisible withNotification:(NSNotification*)notification;
 
 @end
 

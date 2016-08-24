@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "ANListControllerReloadOperation.h"
 
-@interface ANListControllerReloadOperationDelegate : NSObject <ANListControllerReloadOperationDelegate>
+@interface ANTestableListControllerReloadOperationDelegate : NSObject <ANListControllerReloadOperationDelegate>
 
 @end

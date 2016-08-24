@@ -108,4 +108,81 @@
     OCMVerifyAll(mockedOperation);
 }
 
+- (void)test_performAnimatedUpdate_positive_calledTableViewInsertSections
+{
+    
+    //given
+    ANStorageUpdateModel* updateModel = [ANStorageUpdateModel new];
+    [updateModel addInsertedSectionIndex:1];
+    
+    ANTestableTableUpdateOperation* operation = [ANTestableTableUpdateOperation operationWithCancelValue:NO];
+    [operation storageUpdateModelGenerated:updateModel];
+    operation.shouldAnimate = YES;
+    
+    ANTestableTableView* tableView = [[ANTestableTableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+    
+    ANTestableListControllerUpdateOperationDelegate* delegate = [ANTestableListControllerUpdateOperationDelegate new];
+    [delegate updateWithTestableTableView:tableView];
+    operation.delegate = delegate;
+    
+    id mockedTableView = OCMPartialMock(tableView);
+    OCMExpect([mockedTableView insertSections:updateModel.insertedSectionIndexes withRowAnimation:UITableViewRowAnimationNone]);
+    
+    [operation main];
+    
+    //then
+    
+    OCMVerifyAll(mockedTableView);
+    
+}
+
+- (void)test_performAnimatedUpdate_positive_calledDelegateReloadStorage
+{
+    //given
+    ANStorageUpdateModel* updateModel = [ANStorageUpdateModel new];
+    [updateModel addInsertedSectionIndex:1];
+    updateModel.isRequireReload = YES;
+    
+    ANTestableTableUpdateOperation* operation = [ANTestableTableUpdateOperation operationWithCancelValue:NO];
+    [operation storageUpdateModelGenerated:updateModel];
+    operation.shouldAnimate = NO;
+    
+    ANTestableTableView* tableView = [[ANTestableTableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+    
+    ANTestableListControllerUpdateOperationDelegate* delegate = [ANTestableListControllerUpdateOperationDelegate new];
+    [delegate updateWithTestableTableView:tableView];
+    
+    id mockedDelegate = OCMPartialMock(delegate);
+    operation.delegate = mockedDelegate;
+    
+    OCMExpect([mockedDelegate storageNeedsReloadWithIdentifier:[OCMArg any]]);
+    [operation main];
+    
+    //then
+    
+    OCMVerifyAll(mockedDelegate);
+}
+
+- (void)test_performAnimatedUpdate_negative_calledAssertWhenListViewNotValid
+{
+    //given
+    ANStorageUpdateModel* updateModel = [ANStorageUpdateModel new];
+    [updateModel addInsertedSectionIndex:1];
+    
+    ANTestableTableUpdateOperation* operation = [ANTestableTableUpdateOperation operationWithCancelValue:NO];
+    [operation storageUpdateModelGenerated:updateModel];
+    operation.shouldAnimate = NO;
+    
+    ANTestableListControllerUpdateOperationDelegate* delegate = [ANTestableListControllerUpdateOperationDelegate new];
+    operation.delegate = delegate;
+
+    void(^testBlock)() = ^{
+        [operation main];
+    };
+    
+    //then
+    
+    expect(testBlock).to.raiseAny();
+}
+
 @end

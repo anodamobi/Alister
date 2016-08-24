@@ -6,10 +6,11 @@
 //  Copyright © 2016 Oksana Kovalchuk. All rights reserved.
 //
 
-#import "ANListControllerReloadOperationDelegate.h"
+#import "ANTestableListControllerReloadOperationDelegate.h"
 #import "ANTestableListView.h"
+#import "ANListControllerConfigurationModel.h"
 
-@implementation ANListControllerReloadOperationDelegate
+@implementation ANTestableListControllerReloadOperationDelegate
 
 #pragma mark - ANListControllerReloadOperationDelegate
 
@@ -21,7 +22,7 @@
 
 - (ANListControllerConfigurationModel*)configurationModel
 {
-    return nil;
+    return [ANListControllerConfigurationModel defaultModel];
 }
 
 @end

@@ -9,7 +9,10 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "ANTableControllerUpdateOperation.h"
+#import "ANTestableTableView.h"
 
 @interface ANTestableListControllerUpdateOperationDelegate : NSObject <ANListControllerUpdateOperationDelegate>
+
+- (void)updateWithTestableTableView:(ANTestableTableView*)tableView;
 
 @end
