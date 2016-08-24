@@ -45,6 +45,58 @@ static NSInteger const kMaxGeneratedCount = 3;
     expect(testBlock).notTo.raiseAny();
 }
 
+- (void)test_isRequireReload_positive_falseWhenCreated
+{
+    //given
+    ANStorageUpdateModel*  testModel = [ANStorageUpdateModel new];
+    
+    //then
+    expect(testModel.isRequireReload).to.beFalsy();
+}
+
+- (void)test_isRequireReload_positive_falseWhenUpdateWithModelWithFalseAndNoUpdates
+{
+    //given
+    self.model.isRequireReload = YES;
+    ANStorageUpdateModel* testModel = [self _fullTestModel];
+    testModel.isRequireReload = NO;
+    
+    //when
+    [self.model mergeWith:testModel];
+    
+    //then
+    expect(self.model.isRequireReload).to.beTruthy();
+    
+}
+
+- (void)test_isRequireReload_positive_trueWhenUpdateWithModelWithTrueAndNoUpdates
+{
+    //given
+    self.model.isRequireReload = YES;
+    ANStorageUpdateModel* testModel = [self _fullTestModel];
+    testModel.isRequireReload = YES;
+    
+    //when
+    [self.model mergeWith:testModel];
+    
+    //then
+    expect(self.model.isRequireReload).to.beTruthy();
+}
+
+- (void)test_isRequireReload_positive_trueWhenUpdateWithModelWithFalseAndHasUpdates
+{
+    //given
+    self.model.isRequireReload = NO;
+    ANStorageUpdateModel* testModel = [self _fullTestModel];
+    testModel.isRequireReload = YES;
+    
+    //when
+    [self.model mergeWith:testModel];
+    
+    //then
+    expect(self.model.isRequireReload).to.beTruthy();
+}
+
 
 #pragma mark - protocol implementation
 
@@ -79,6 +131,38 @@ static NSInteger const kMaxGeneratedCount = 3;
     expect(self.model).respondTo(@selector(addMovedIndexPaths:));
     
     expect(self.model).respondTo(@selector(isRequireReload));
+}
+
+- (id<ANStorageUpdateModelInterface>)_fullTestModel
+{
+    ANStorageUpdateModel* testModel = [ANStorageUpdateModel new];
+    
+    [testModel addInsertedSectionIndexes:[NSIndexSet indexSetWithIndex:1]];
+    [testModel addUpdatedSectionIndexes:[NSIndexSet indexSetWithIndex:1]];
+    [testModel addDeletedSectionIndexes:[NSIndexSet indexSetWithIndex:1]];
+    
+    [testModel addInsertedIndexPaths:@[[NSIndexPath indexPathWithIndex:0]]];
+    [testModel addUpdatedIndexPaths:@[[NSIndexPath indexPathWithIndex:0]]];
+    [testModel addDeletedIndexPaths:@[[NSIndexPath indexPathWithIndex:0]]];
+    [testModel addMovedIndexPaths:@[[NSIndexPath indexPathWithIndex:0]]];
+    
+    return testModel;
+}
+
+
+#pragma mark - mergeWith
+
+- (void)test_mergeWith_positive_modelIsEmptyWhenCreated
+{
+    //given
+    ANStorageUpdateModel* model = [ANStorageUpdateModel new];
+    expect([model isEmpty]).to.beTruthy();
+    
+    //when
+    [model mergeWith:[self _fullTestModel]];
+    
+    //then
+    expect([self.model isEmpty]).to.beFalsy();
 }
 
 
@@ -469,13 +553,13 @@ static NSInteger const kMaxGeneratedCount = 3;
 
 #pragma mark - isEmpty
 
-- (void)test_isEmpty_positive_initialValueIsTrue
+- (void)test_isEmpty_positive_modelIsEmptyWhenCreated
 {
-    // When
-    self.model.isRequireReload = NO;
+    //given
+    ANStorageUpdateModel* testModel = [ANStorageUpdateModel new];
     
-    // Then
-    expect(self.model.isEmpty).to.beTruthy();
+    //then
+    expect([testModel isEmpty]).to.beTruthy();
 }
 
 - (void)test_isEmpty_positive_modelIsNotEmptyWhenAddValues
@@ -495,6 +579,15 @@ static NSInteger const kMaxGeneratedCount = 3;
     
     // Then
     expect(self.model.isEmpty).to.beFalsy();
+}
+
+- (void)test_isEmpty_positive_notEmptyWhenAddItem
+{
+    //given
+    [self.model mergeWith:[self _fullTestModel]];
+    
+    //then
+    expect(([self.model isEmpty])).to.beFalsy();
 }
 
 @end
