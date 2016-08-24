@@ -11,11 +11,14 @@
 #import <OCMock/OCMock.h>
 #import "ANTestableTableUpdateOperation.h"
 #import "ANTestableListControllerUpdateOperationDelegate.h"
+#import "ANStorageUpdateModel.h"
 
 @interface ANTableControllerUpdateOperation ()
 
 - (void)setFinished:(BOOL)finished;
 - (void)setExecuting:(BOOL)executing;
+- (void)storageUpdateModelGenerated:(ANStorageUpdateModel*)updateModel;
+- (void)_performAnimatedUpdate:(ANStorageUpdateModel*)update;
 
 @end
 
@@ -70,7 +73,39 @@
     
     //then
     OCMVerifyAll(mockedOperation);
+}
 
+- (void)test_main_positive_finishedWithEmptyModel
+{
+    //given
+    ANStorageUpdateModel* updateModel = [ANStorageUpdateModel new];
+    ANTestableTableUpdateOperation* operation = [ANTestableTableUpdateOperation operationWithCancelValue:NO];
+    [operation storageUpdateModelGenerated:updateModel];
+    id mockedOperation = OCMPartialMock(operation);
+    OCMExpect([mockedOperation setExecuting:NO]);
+    [operation main];
+    
+    //then
+    OCMVerifyAll(mockedOperation);
+}
+
+- (void)test_performAnimatedUpdate_positive_calledWithValidUpdateModel
+{
+    //given
+    
+    ANStorageUpdateModel* updateModel = [ANStorageUpdateModel new];
+    [updateModel addInsertedSectionIndex:1];
+    
+    expect(updateModel.isEmpty).to.beFalsy();
+    
+    ANTestableTableUpdateOperation* operation = [ANTestableTableUpdateOperation operationWithCancelValue:NO];
+    [operation storageUpdateModelGenerated:updateModel];
+    id mockedOperation = OCMPartialMock(operation);
+    OCMExpect([mockedOperation _performAnimatedUpdate:updateModel]);
+    [operation main];
+    
+    //then
+    OCMVerifyAll(mockedOperation);
 }
 
 @end
