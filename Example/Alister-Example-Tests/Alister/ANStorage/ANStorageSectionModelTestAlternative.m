@@ -1,6 +1,6 @@
 //
 //  ANStorageSectionModelTestAlternative.m
-//  FStop
+//  Alister
 //
 //  Created by Maxim Eremenko on 8/19/16.
 //  Copyright © 2016 ANODA. All rights reserved.
@@ -469,30 +469,16 @@ static NSInteger const kMaxObjectsCount = 4;
     id item = [NSObject new];
     
     NSInteger maxCountObjects = kMaxObjectsCount;
-    
-    for (NSInteger counter = 0; counter < maxCountObjects; counter++)
-    {
-        [self.sectionModel addItem:item];
-    }
-    
-    // then
-    expect(self.sectionModel.objects.count).to.equal(maxCountObjects);
-}
-
-- (void)test_objects_positive_containsAddedItems
-{
-    // given
-    id item = [NSObject new];
-
-    NSInteger maxCountObjects = kMaxObjectsCount;
     NSMutableArray* initialObjects = [NSMutableArray array];
-    
+
     for (NSInteger counter = 0; counter < maxCountObjects; counter++)
     {
         [self.sectionModel addItem:item];
         [initialObjects addObject:item];
     }
     
+    // then
+    expect(self.sectionModel.objects.count).to.equal(maxCountObjects);
     expect(self.sectionModel.objects).to.equal(initialObjects);
 }
 
