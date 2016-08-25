@@ -467,7 +467,7 @@ static NSInteger const kMaxGeneratedCount = 3;
 
 #pragma mark - all rowIndexPaths
 
-- (void)test_rowIndexPaths_positive_initialRowIndexPathsNonNil
+- (void)test_rowIndexPaths_positive_initialRowIndexPathsNotNil
 {
     expect(self.model.deletedRowIndexPaths).notTo.beNil();
     expect(self.model.insertedRowIndexPaths).notTo.beNil();
@@ -533,7 +533,7 @@ static NSInteger const kMaxGeneratedCount = 3;
 
 #pragma mark - all sectionIndexes
 
-- (void)test_sectionIndexes_positive_initialSectionIndexesNonNil
+- (void)test_sectionIndexes_positive_initialSectionIndexesNotNil
 {
     expect(self.model.deletedSectionIndexes).notTo.beNil();
     expect(self.model.insertedSectionIndexes).notTo.beNil();
