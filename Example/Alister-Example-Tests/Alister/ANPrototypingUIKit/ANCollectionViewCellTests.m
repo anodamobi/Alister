@@ -30,7 +30,7 @@
     [super tearDown];
 }
 
-#pragma mark - Test updateWithModel:
+#pragma mark - updateWithModel
 
 - (void)test_updateWithModel_positive_respondToUpdateWithModel
 {
