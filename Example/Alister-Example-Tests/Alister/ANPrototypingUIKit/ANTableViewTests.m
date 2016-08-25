@@ -32,12 +32,14 @@
 }
 
 
-#pragma mark - cleanTableWithFrame: style:
+#pragma mark - cleanTableWithFrameStyle
 
 - (void)test_cleanTableWithFrameStyle_positive_tableWithFrameAndStyle
 {
+    // Given
     ANTableView* tableView = [ANTableView cleanTableWithFrame:CGRectZero
                                                         style:UITableViewStylePlain];
+    // Then
     expect(tableView).notTo.beNil();
 }
 
