@@ -33,7 +33,7 @@
 
 #pragma mark - Tests
 
-- (void)test_updateWithModel_negitive_textLabelTextEqualModel
+- (void)test_updateWithModel_positive_textLabelTextEqualModel
 {
     // given
     NSString* model = @"model";
@@ -43,7 +43,7 @@
     expect(self.view.textLabel.text).to.equal(model);
 }
 
-- (void)test_updateWithModel_positive_textLabelTextNotEqualModel
+- (void)test_updateWithModel_negative_textLabelTextNotEqualModel
 {
     // given
     NSNull* model = [NSNull null];
@@ -53,7 +53,7 @@
     expect(self.view.textLabel.text).notTo.equal(model);
 }
 
-- (void)test_updateWithModel_positive_textLabelTextNotNil
+- (void)test_updateWithModel_negative_textLabelTextNotNil
 {
     // given
     NSNull* model = nil;
