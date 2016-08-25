@@ -22,3 +22,4 @@ typedef void(^ANStorageUpdateOperationConfigurationBlock)(ANStorageUpdateOperati
 @property (nonatomic, weak) id<ANStorageListUpdateOperationInterface> controllerOperationDelegate;
 
 @end
+ 

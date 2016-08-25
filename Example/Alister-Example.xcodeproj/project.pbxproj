@@ -25,6 +25,8 @@
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		C729247A1D6C8C7500D6C3CD /* ANTestableTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = C72924791D6C8C7500D6C3CD /* ANTestableTouch.m */; };
+		C729251C1D6EE69D00D6C3CD /* ANStorageUpdateOperationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C729251B1D6EE69D00D6C3CD /* ANStorageUpdateOperationTests.m */; };
+		C729251F1D6EEA5E00D6C3CD /* ANTestableStorageUpateOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = C729251E1D6EEA5E00D6C3CD /* ANTestableStorageUpateOperation.m */; };
 		C7B852B71D6C7B3B00B030A4 /* ANTestableTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = C7B852B61D6C7B3B00B030A4 /* ANTestableTextField.m */; };
 		C7CF6A411D6C53ED00250005 /* ANTestKeyboardHandlerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C7CF6A401D6C53ED00250005 /* ANTestKeyboardHandlerDelegate.m */; };
 		D7EC43B21D50C7DE00128012 /* (null) in Resources */ = {isa = PBXBuildFile; };
@@ -77,6 +79,9 @@
 		AFB91A3C0505789B7F9CF1F3 /* Pods_Alister_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Alister_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C72924781D6C8C7500D6C3CD /* ANTestableTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTestableTouch.h; sourceTree = "<group>"; };
 		C72924791D6C8C7500D6C3CD /* ANTestableTouch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTestableTouch.m; sourceTree = "<group>"; };
+		C729251B1D6EE69D00D6C3CD /* ANStorageUpdateOperationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageUpdateOperationTests.m; sourceTree = "<group>"; };
+		C729251D1D6EEA5E00D6C3CD /* ANTestableStorageUpateOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTestableStorageUpateOperation.h; sourceTree = "<group>"; };
+		C729251E1D6EEA5E00D6C3CD /* ANTestableStorageUpateOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTestableStorageUpateOperation.m; sourceTree = "<group>"; };
 		C7B852B51D6C7B3B00B030A4 /* ANTestableTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTestableTextField.h; sourceTree = "<group>"; };
 		C7B852B61D6C7B3B00B030A4 /* ANTestableTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTestableTextField.m; sourceTree = "<group>"; };
 		C7CF6A3F1D6C53ED00250005 /* ANTestKeyboardHandlerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTestKeyboardHandlerDelegate.h; sourceTree = "<group>"; };
@@ -135,6 +140,8 @@
 				C7B852B61D6C7B3B00B030A4 /* ANTestableTextField.m */,
 				C72924781D6C8C7500D6C3CD /* ANTestableTouch.h */,
 				C72924791D6C8C7500D6C3CD /* ANTestableTouch.m */,
+				C729251D1D6EEA5E00D6C3CD /* ANTestableStorageUpateOperation.h */,
+				C729251E1D6EEA5E00D6C3CD /* ANTestableStorageUpateOperation.m */,
 			);
 			path = HelperClasses;
 			sourceTree = "<group>";
@@ -142,6 +149,7 @@
 		0775CC391D5DFA2B00224CAC /* Alister */ = {
 			isa = PBXGroup;
 			children = (
+				C729251A1D6EE67900D6C3CD /* ANStorageUpdateOperationTests */,
 				0775CC3A1D5DFA2B00224CAC /* ANKeyboardHandler */,
 				0775CC3B1D5DFA2B00224CAC /* ANListController */,
 				0775CC3F1D5DFA2B00224CAC /* ANPrototypingUIKit */,
@@ -257,6 +265,14 @@
 				A8D594C6A1CAF9F8A83D2691 /* LICENSE */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		C729251A1D6EE67900D6C3CD /* ANStorageUpdateOperationTests */ = {
+			isa = PBXGroup;
+			children = (
+				C729251B1D6EE69D00D6C3CD /* ANStorageUpdateOperationTests.m */,
+			);
+			path = ANStorageUpdateOperationTests;
 			sourceTree = "<group>";
 		};
 		D7EC43CD1D512EE300128012 /* Alister-Example-Tests */ = {
@@ -592,9 +608,11 @@
 				0775CC4C1D5DFA2B00224CAC /* ANTableControllerTest.m in Sources */,
 				0775CC4B1D5DFA2B00224CAC /* ANTableControllerReusableTest.m in Sources */,
 				C729247A1D6C8C7500D6C3CD /* ANTestableTouch.m in Sources */,
+				C729251C1D6EE69D00D6C3CD /* ANStorageUpdateOperationTests.m in Sources */,
 				0775CC481D5DFA2B00224CAC /* ANTestTableCell.m in Sources */,
 				0775CC4A1D5DFA2B00224CAC /* ANCollectionControllerTest.m in Sources */,
 				0775CC4E1D5DFA2B00224CAC /* ANTestTableHeaderFooter.m in Sources */,
+				C729251F1D6EEA5E00D6C3CD /* ANTestableStorageUpateOperation.m in Sources */,
 				0775CC491D5DFA2B00224CAC /* ANTestViewModel.m in Sources */,
 				C7B852B71D6C7B3B00B030A4 /* ANTestableTextField.m in Sources */,
 				0732CA491D5DFAB500E5F617 /* ANKeyboardHandlerTest.m in Sources */,
