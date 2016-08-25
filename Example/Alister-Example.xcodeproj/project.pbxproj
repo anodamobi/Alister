@@ -24,6 +24,7 @@
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
+		C70BD0B81D6F2C0200463651 /* ANListControllerSearchMangerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C70BD0B71D6F2C0200463651 /* ANListControllerSearchMangerTests.m */; };
 		C729247A1D6C8C7500D6C3CD /* ANTestableTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = C72924791D6C8C7500D6C3CD /* ANTestableTouch.m */; };
 		C7B852B71D6C7B3B00B030A4 /* ANTestableTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = C7B852B61D6C7B3B00B030A4 /* ANTestableTextField.m */; };
 		C7CF6A411D6C53ED00250005 /* ANTestKeyboardHandlerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C7CF6A401D6C53ED00250005 /* ANTestKeyboardHandlerDelegate.m */; };
@@ -75,6 +76,7 @@
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		A8D594C6A1CAF9F8A83D2691 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		AFB91A3C0505789B7F9CF1F3 /* Pods_Alister_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Alister_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C70BD0B71D6F2C0200463651 /* ANListControllerSearchMangerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANListControllerSearchMangerTests.m; sourceTree = "<group>"; };
 		C72924781D6C8C7500D6C3CD /* ANTestableTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTestableTouch.h; sourceTree = "<group>"; };
 		C72924791D6C8C7500D6C3CD /* ANTestableTouch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTestableTouch.m; sourceTree = "<group>"; };
 		C7B852B51D6C7B3B00B030A4 /* ANTestableTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTestableTextField.h; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 		0775CC391D5DFA2B00224CAC /* Alister */ = {
 			isa = PBXGroup;
 			children = (
+				C70BD0B61D6F2BEE00463651 /* ANListControllerSearchManagerTests */,
 				0775CC3A1D5DFA2B00224CAC /* ANKeyboardHandler */,
 				0775CC3B1D5DFA2B00224CAC /* ANListController */,
 				0775CC3F1D5DFA2B00224CAC /* ANPrototypingUIKit */,
@@ -257,6 +260,14 @@
 				A8D594C6A1CAF9F8A83D2691 /* LICENSE */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		C70BD0B61D6F2BEE00463651 /* ANListControllerSearchManagerTests */ = {
+			isa = PBXGroup;
+			children = (
+				C70BD0B71D6F2C0200463651 /* ANListControllerSearchMangerTests.m */,
+			);
+			path = ANListControllerSearchManagerTests;
 			sourceTree = "<group>";
 		};
 		D7EC43CD1D512EE300128012 /* Alister-Example-Tests */ = {
@@ -587,6 +598,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C70BD0B81D6F2C0200463651 /* ANListControllerSearchMangerTests.m in Sources */,
 				0775CC521D5DFA2B00224CAC /* ANStorageUpdateModelTest.m in Sources */,
 				0775CC511D5DFA2B00224CAC /* ANStorageSectionModelTest.m in Sources */,
 				0775CC4C1D5DFA2B00224CAC /* ANTableControllerTest.m in Sources */,
