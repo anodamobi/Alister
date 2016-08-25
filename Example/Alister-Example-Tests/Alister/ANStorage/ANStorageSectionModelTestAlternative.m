@@ -39,7 +39,7 @@ static NSInteger const kMaxObjectsCount = 4;
 
 #pragma mark - Test addItem
 
-- (void)test_addItem_positive_countOfObjectsIncreaseByOne
+- (void)test_addItem_positive_countOfObjectsIncreasedByOne
 {
     // given
     id obj = [NSObject new];
@@ -183,7 +183,7 @@ static NSInteger const kMaxObjectsCount = 4;
 
 #pragma mark - removeItemAtIndex
 
-- (void)test_removeItemAtIndex_positive_modelNotContainsObject
+- (void)test_removeItemAtIndex_positive_sectionModelNotContainsItems
 {
     // given
     NSUInteger maxIndex = arc4random_uniform(kMaxObjectsCount) + 1;
@@ -380,7 +380,7 @@ static NSInteger const kMaxObjectsCount = 4;
     expect(returnedModel).to.beNil();
 }
 
-- (void)test_supplementaryModelOfKind_negative_notRaiseExceptionWhenRequestModelAtNilObject
+- (void)test_supplementaryModelOfKind_negative_toNotRaiseExceptionWhenRequestModelAtNilObject
 {
     // given
     id nilClassName = nil;
