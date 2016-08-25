@@ -37,7 +37,7 @@ static NSInteger const kMaxObjectsCount = 4;
     expect(self.sectionModel).conformTo(@protocol(ANStorageSectionModelInterface));
 }
 
-#pragma mark - Test addItem
+#pragma mark - addItem
 
 - (void)test_addItem_positive_countOfObjectsIncreaseByOne
 {
@@ -78,9 +78,9 @@ static NSInteger const kMaxObjectsCount = 4;
 }
 
 
-#pragma mark - Test insertItem: atIndex:
+#pragma mark - insertItemAtIndex
 
-- (void)test_insertItem_positive_countOfObjectsIncreasedByOne
+- (void)test_insertItemAtIndex_positive_countOfObjectsIncreasedByOne
 {
     // given
     id obj = [NSObject new];
@@ -120,7 +120,7 @@ static NSInteger const kMaxObjectsCount = 4;
     }).notTo.raiseAny();
 }
 
-- (void)test_insertItem_negative_toNotRaiseExceptionWhenInsertAdd
+- (void)test_insertItemAtIndex_negative_toNotRaiseExceptionWhenInsertAdd
 {
     // given
     id obj = nil;
@@ -132,7 +132,7 @@ static NSInteger const kMaxObjectsCount = 4;
     expect(block).notTo.raiseAny();
 }
 
-- (void)test_insertItem_negative_toNotRaiseExceptionWhenInsertNegativeIndex
+- (void)test_insertItemAtIndex_negative_toNotRaiseExceptionWhenInsertNegativeIndex
 {
     // given
     id obj = [NSObject new];
@@ -144,7 +144,7 @@ static NSInteger const kMaxObjectsCount = 4;
     expect(block).notTo.raiseAny();
 }
 
-- (void)test_insertItem_negative_toNotRaiseExceptionWhenInsertNotExistingIndex
+- (void)test_insertItemAtIndex_negative_toNotRaiseExceptionWhenInsertNotExistingIndex
 {
     // given
     id obj = [NSObject new];
@@ -157,7 +157,7 @@ static NSInteger const kMaxObjectsCount = 4;
     expect(block).notTo.raiseAny();
 }
 
-- (void)test_insertItem_negative_toNotRaiseExceptionWhenAddBoundaryElement
+- (void)test_insertItemAtIndex_negative_toNotRaiseExceptionWhenAddBoundaryElement
 {
     // given
     id obj = [NSObject new];
