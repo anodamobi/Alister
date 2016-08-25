@@ -39,61 +39,63 @@ static NSInteger const kMaxGeneratedCount = 3;
 
 - (void)test_isRequireReload_positive_initialValueIsSetRightAndNotRaiseException
 {
+    // when
     void(^testBlock)() = ^() {
         expect(self.model.isRequireReload).equal(kIsRequireReload);
     };
+    
+    // then
     expect(testBlock).notTo.raiseAny();
 }
 
 - (void)test_isRequireReload_positive_falseWhenCreated
 {
-    //given
+    // when
     ANStorageUpdateModel*  testModel = [ANStorageUpdateModel new];
     
-    //then
+    // then
     expect(testModel.isRequireReload).to.beFalsy();
 }
 
 - (void)test_isRequireReload_positive_falseWhenUpdateWithModelWithFalseAndNoUpdates
 {
-    //given
+    // given
     self.model.isRequireReload = YES;
     ANStorageUpdateModel* testModel = [self _fullTestModel];
     testModel.isRequireReload = NO;
     
-    //when
+    // when
     [self.model mergeWith:testModel];
     
-    //then
+    // then
     expect(self.model.isRequireReload).to.beTruthy();
-    
 }
 
 - (void)test_isRequireReload_positive_trueWhenUpdateWithModelWithTrueAndNoUpdates
 {
-    //given
+    // given
     self.model.isRequireReload = YES;
     ANStorageUpdateModel* testModel = [self _fullTestModel];
     testModel.isRequireReload = YES;
     
-    //when
+    // when
     [self.model mergeWith:testModel];
     
-    //then
+    // then
     expect(self.model.isRequireReload).to.beTruthy();
 }
 
 - (void)test_isRequireReload_positive_trueWhenUpdateWithModelWithFalseAndHasUpdates
 {
-    //given
+    // given
     self.model.isRequireReload = NO;
     ANStorageUpdateModel* testModel = [self _fullTestModel];
     testModel.isRequireReload = YES;
     
-    //when
+    // when
     [self.model mergeWith:testModel];
     
-    //then
+    // then
     expect(self.model.isRequireReload).to.beTruthy();
 }
 
@@ -154,14 +156,14 @@ static NSInteger const kMaxGeneratedCount = 3;
 
 - (void)test_mergeWith_positive_modelIsEmptyWhenCreated
 {
-    //given
+    // given
     ANStorageUpdateModel* model = [ANStorageUpdateModel new];
     expect([model isEmpty]).to.beTruthy();
     
-    //when
+    // when
     [model mergeWith:[self _fullTestModel]];
     
-    //then
+    // then
     expect([self.model isEmpty]).to.beFalsy();
 }
 
@@ -170,7 +172,7 @@ static NSInteger const kMaxGeneratedCount = 3;
 
 - (void)test_mergeWith_positive_deletedRowIndexPathsCountAreEqual
 {
-    // Given
+    // given
     NSIndexPath* firstPath = [NSIndexPath indexPathForRow:0 inSection:0];
     NSIndexPath* secondPath = [NSIndexPath indexPathForRow:2000 inSection:9999];
     NSArray* indexPaths = @[firstPath, secondPath];
@@ -178,10 +180,10 @@ static NSInteger const kMaxGeneratedCount = 3;
     ANStorageUpdateModel* mergedModel = [ANStorageUpdateModel new];
     [mergedModel addDeletedIndexPaths:indexPaths];
     
-    // When
+    // when
     [self.model mergeWith:mergedModel];
     
-    // Then
+    // then
     expect(self.model.deletedRowIndexPaths.count).to.equal(indexPaths.count);
 }
 
@@ -542,11 +544,14 @@ static NSInteger const kMaxGeneratedCount = 3;
 
 - (void)test_sectionIndexes_positive_toNotRaiseException
 {
+    // given
     void(^testBlock)() = ^() {
         [self.model deletedSectionIndexes];
         [self.model insertedSectionIndexes];
         [self.model updatedSectionIndexes];
     };
+    
+    // then
     expect(testBlock).notTo.raiseAny();
 }
 
