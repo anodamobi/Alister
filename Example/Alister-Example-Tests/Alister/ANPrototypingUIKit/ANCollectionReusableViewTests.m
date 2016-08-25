@@ -31,7 +31,7 @@
 }
 
 
-#pragma mark - Tests updateWithModel:
+#pragma mark - updateWithModel
 
 - (void)test_updateWithModel_positive_respondUpdateWithModel
 {
