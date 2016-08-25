@@ -23,7 +23,8 @@
 
 @implementation ANListControllerReloadOperationTests
 
-- (void)setUp {
+- (void)setUp
+{
     [super setUp];
     self.currentQueue = [NSOperationQueue new];
     self.currentQueue.maxConcurrentOperationCount = 1;
@@ -32,7 +33,8 @@
     self.delegate = [ANTestableListControllerReloadOperationDelegate new];
 }
 
-- (void)tearDown {
+- (void)tearDown
+{
     self.currentQueue = nil;
     self.operation = nil;
     self.delegate = nil;
@@ -46,6 +48,14 @@
     
     //then
     expect(self.operation.delegate).notTo.beNil();
+}
+
+- (void)test_delegateAfterAssignNotNil_positive_delegateHasRightClass
+{
+    //given
+    self.operation.delegate = self.delegate;
+    
+    //then
     expect(self.operation.delegate).equal(self.delegate);
 }
 
@@ -61,7 +71,6 @@
     
     //then
     OCMVerifyAll(mockedDelegate);
-    
 }
 
 @end
