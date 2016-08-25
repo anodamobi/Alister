@@ -1,0 +1,54 @@
+//
+//  ANCollectionViewCellTests.m
+//  Alister-Example
+//
+//  Created by Maxim Eremenko on 8/22/16.
+//  Copyright © 2016 Oksana Kovalchuk. All rights reserved.
+//
+
+#import <XCTest/XCTest.h>
+#import <Expecta/Expecta.h>
+#import "ANCollectionViewCell.h"
+
+@interface ANCollectionViewCellTests : XCTestCase
+
+@property (nonatomic, strong) ANCollectionViewCell* cell;
+
+@end
+
+@implementation ANCollectionViewCellTests
+
+- (void)setUp
+{
+    [super setUp];
+    self.cell = [ANCollectionViewCell new];
+}
+
+- (void)tearDown
+{
+    self.cell = nil;
+    [super tearDown];
+}
+
+#pragma mark - Test updateWithModel:
+
+- (void)test_updateWithModel_positive_respondToUpdateWithModel
+{
+    expect(self.cell).respondTo(@selector(updateWithModel:));
+}
+
+- (void)test_updateWithModel_positive_unexpectedBehaviorNotHappen
+{
+    // given
+    NSString* model = @"model";
+    
+    // when
+    void(^testBlock)() = ^() {
+        [self.cell updateWithModel:model];
+    };
+    
+    // then
+    expect(testBlock).notTo.raiseAny();
+}
+
+@end
