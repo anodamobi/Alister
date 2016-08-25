@@ -19,7 +19,8 @@
 
 + (instancetype)operationWithUpdateModel:(ANStorageUpdateModel*)model;
 - (void)_performAnimatedUpdate:(ANStorageUpdateModel*)update;
-- (void)setFinished:(BOOL)finished;
+- (BOOL)_shouldReloadCollectionView:(UICollectionView*)collectionView
+toPreventInsertFirstItemIssueForUpdate:(ANStorageUpdateModel*)update;
 
 @end
 
@@ -74,13 +75,21 @@
     expect(self.operaton.updateModel).equal(updateModel);
 }
 
-- (void)test_main_positive_operationShouldFinishedIfUpdateModelIsNil
+- (void)test_main_positive_raiseExpeptionIfCollectionIsNil
 {
     ANTestableCollectionUpdateOperation* operation = [ANTestableCollectionUpdateOperation operationWithCanceledValue:NO];
-    id mockedOperation = OCMPartialMock(operation);
-    OCMExpect([mockedOperation setFinished:YES]);
-    [operation main];
-    OCMVerifyAll(mockedOperation);
+    ANTestableListControllerUpdateOperationDelegate* delegate = [ANTestableListControllerUpdateOperationDelegate new];
+    operation.delegate = delegate;
+    ANStorageUpdateModel* updateModel = [ANStorageUpdateModel new];
+    [updateModel addInsertedIndexPaths:@[[NSIndexPath indexPathForItem:0 inSection:0]]];
+    [operation storageUpdateModelGenerated:updateModel];
+    
+    void (^testBlock)() = ^{
+        [operation main];
+    };
+    
+    expect(testBlock).raiseAny();
+    
 }
 
 - (void)test_main_positive_operationNotCanceledAndCalledPerformUpdate
@@ -105,7 +114,7 @@
     OCMVerifyAll(mockedOperation);
 }
 
-- (void)test_main_positive_collectionUpdatedAndCalledFinished
+- (void)test_performAnimatedUpdate_positive_collectionReloadDataCalled
 {
     ANTestableCollectionUpdateOperation* operation = [ANTestableCollectionUpdateOperation operationWithCanceledValue:NO];
     ANStorageUpdateModel* updateModel = [ANStorageUpdateModel new];
@@ -114,16 +123,40 @@
     ANTestableCollectionView* collectionView = [[ANTestableCollectionView alloc] initWithFrame:CGRectZero
                                                                           collectionViewLayout:[UICollectionViewLayout new]];
     
+    id mockedCollectionView = OCMPartialMock(collectionView);
+    
     ANTestableListControllerUpdateOperationDelegate* operationDelegate = [ANTestableListControllerUpdateOperationDelegate new];
-    [operationDelegate updateWithTestableCollectionView:collectionView];
+    [operationDelegate updateWithTestableCollectionView:mockedCollectionView];
     operation.delegate = operationDelegate;
     
-    [operation storageUpdateModelGenerated:updateModel];
+    OCMExpect([mockedCollectionView reloadData]);
     
-    id mockedOperation = OCMPartialMock(operation);
-    OCMExpect([operation setFinished:YES]);
-    [operation main];
-    OCMVerifyAll(mockedOperation);
+    [operation _performAnimatedUpdate:updateModel];
+    
+    OCMVerifyAll(mockedCollectionView);
+
+}
+
+- (void)test_performAnimatedUpdate_positive_calledCollectionViewPerformUpdate
+{
+    ANTestableCollectionUpdateOperation* operation = [ANTestableCollectionUpdateOperation operationWithCanceledValue:NO];
+    ANStorageUpdateModel* updateModel = [ANStorageUpdateModel new];
+    [updateModel addInsertedSectionIndex:1];
+    
+    ANTestableCollectionView* collectionView = [[ANTestableCollectionView alloc] initWithFrame:CGRectZero
+                                                                          collectionViewLayout:[UICollectionViewLayout new]];
+    
+    id mockedCollectionView = OCMPartialMock(collectionView);
+    
+    ANTestableListControllerUpdateOperationDelegate* operationDelegate = [ANTestableListControllerUpdateOperationDelegate new];
+    [operationDelegate updateWithTestableCollectionView:mockedCollectionView];
+    operation.delegate = operationDelegate;
+    
+    OCMExpect([mockedCollectionView performBatchUpdates:[OCMArg any] completion:nil]);
+    
+    [operation _performAnimatedUpdate:updateModel];
+    
+    OCMVerifyAll(mockedCollectionView);
 }
 
 - (void)test_performAnimatedUpdate_negative_raiseExceptionIfCollectionIsNil
@@ -139,7 +172,41 @@
     };
     
     expect(testBlock).raiseAny();
+}
+
+- (void)test_performAnimatedUpdate_notRaiseExceptionIfUpdateIsEmpty
+{
+    ANTestableCollectionUpdateOperation* operation = [ANTestableCollectionUpdateOperation operationWithCanceledValue:NO];
     
+    void(^testBlock)() = ^{
+        [operation _performAnimatedUpdate:nil];
+    };
+    expect(testBlock).notTo.raiseAny();
+}
+
+- (void)test_shouldReloadCollectionView_positive_shouldReturnNo
+{
+    ANTestableCollectionUpdateOperation* operation = [ANTestableCollectionUpdateOperation operationWithCanceledValue:NO];
+    ANTestableCollectionView* collectionView = [[ANTestableCollectionView alloc] initWithFrame:CGRectZero
+                                                                          collectionViewLayout:[UICollectionViewLayout new]];
+    
+    UIWindow* window = [[UIWindow alloc] initWithFrame:CGRectZero];
+    [collectionView updateWindow:window];
+
+    BOOL testResult = [operation _shouldReloadCollectionView:collectionView toPreventInsertFirstItemIssueForUpdate:nil];
+    
+    expect(testResult).notTo.beTruthy();
+}
+
+- (void)test_shouldReloadCollectionView_positive_shouldReturnYESIfWindowIsNil
+{
+    ANTestableCollectionUpdateOperation* operation = [ANTestableCollectionUpdateOperation operationWithCanceledValue:NO];
+    ANTestableCollectionView* collectionView = [[ANTestableCollectionView alloc] initWithFrame:CGRectZero
+                                                                          collectionViewLayout:[UICollectionViewLayout new]];
+    
+    BOOL testResult = [operation _shouldReloadCollectionView:collectionView toPreventInsertFirstItemIssueForUpdate:nil];
+    
+    expect(testResult).to.beTruthy();
 }
 
 @end

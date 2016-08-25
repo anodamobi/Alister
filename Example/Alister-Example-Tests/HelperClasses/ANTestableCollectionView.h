@@ -11,4 +11,6 @@
 
 @interface ANTestableCollectionView : UICollectionView <ANListViewInterface>
 
+- (void)updateWindow:(UIWindow*)window;
+
 @end
