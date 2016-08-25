@@ -325,11 +325,14 @@ static NSInteger const kMaxObjectsCount = 4;
     id item = [NSObject new];
     
     // when
-    [self.sectionModel addItem:item];
+    NSInteger maxObjectsCount = arc4random_uniform(kMaxObjectsCount);
+    for (NSInteger counter = 0; counter < maxObjectsCount; counter++)
+    {
+        [self.sectionModel addItem:item];
+    }
     
     // then
-    NSInteger objectsCount = self.sectionModel.objects.count;
-    expect(self.sectionModel.numberOfObjects).to.equal(objectsCount);
+    expect(self.sectionModel.numberOfObjects).to.equal(maxObjectsCount);
 }
 
 - (void)test_numberOfObjects_positive_emptyWhenCreated
