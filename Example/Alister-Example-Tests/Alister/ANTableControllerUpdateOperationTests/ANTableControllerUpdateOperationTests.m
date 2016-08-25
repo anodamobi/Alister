@@ -31,7 +31,8 @@
 
 @implementation ANTableControllerUpdateOperationTests
 
-- (void)setUp {
+- (void)setUp
+{
     [super setUp];
     
     self.operationQueue = [NSOperationQueue new];
@@ -40,7 +41,8 @@
     self.delegate = [ANTestableListControllerUpdateOperationDelegate new];
 }
 
-- (void)tearDown {
+- (void)tearDown
+{
     self.operationQueue = nil;
     [super tearDown];
 }
@@ -60,7 +62,6 @@
 - (void)test_main_positive_finishedWithoutModel
 {
     //given
-
     ANTestableTableUpdateOperation* operation = [ANTestableTableUpdateOperation operationWithCancelValue:NO];
     id mockedOperation = OCMPartialMock(operation);
     OCMExpect([mockedOperation setExecuting:NO]);
@@ -92,7 +93,6 @@
 - (void)test_performAnimatedUpdate_positive_calledWithValidUpdateModel
 {
     //given
-    
     ANStorageUpdateModel* updateModel = [ANStorageUpdateModel new];
     [updateModel addInsertedSectionIndex:1];
     
@@ -131,7 +131,6 @@
     [operation main];
     
     //then
-    
     OCMVerifyAll(mockedTableView);
     
 }
@@ -159,7 +158,6 @@
     [operation main];
     
     //then
-    
     OCMVerifyAll(mockedDelegate);
 }
 
@@ -181,7 +179,6 @@
     };
     
     //then
-    
     expect(testBlock).to.raiseAny();
 }
 

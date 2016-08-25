@@ -32,7 +32,8 @@ toPreventInsertFirstItemIssueForUpdate:(ANStorageUpdateModel*)update;
 
 @implementation ANCollectionUpdateOperationTests
 
-- (void)setUp {
+- (void)setUp
+{
     [super setUp];
     self.operaton = [ANTestableCollectionUpdateOperation new];
 }
@@ -45,38 +46,87 @@ toPreventInsertFirstItemIssueForUpdate:(ANStorageUpdateModel*)update;
 
 - (void)test_shouldAnimatePropertySetuped_positive_valueSetupedSuccessfully
 {
+    //given
     self.operaton.shouldAnimate = YES;
+    
+    //then
     expect(self.operaton.shouldAnimate).to.beTruthy();
 }
 
 - (void)test_delegatePropertySetuped_positive_delegateSetupedSuccessfully
 {
+    //given
     ANTestableListControllerUpdateOperationDelegate* operationDelegate = [ANTestableListControllerUpdateOperationDelegate new];
     self.operaton.delegate = operationDelegate;
+    
+    //then
     expect(self.operaton.delegate).notTo.beNil();
+}
+
+- (void)test_delegatePropertySetuped_positive_delegateHasRightClass
+{
+    //given
+    ANTestableListControllerUpdateOperationDelegate* operationDelegate = [ANTestableListControllerUpdateOperationDelegate new];
+    self.operaton.delegate = operationDelegate;
+    
+    //then
     expect(self.operaton.delegate).equal(operationDelegate);
 }
 
-- (void)test_operationWithUpdateModel_positive_afterUpdateModelNotNilAndReturnedValidValue
+- (void)test_operationWithUpdateModel_positive_afterUpdateModelNotNil
 {
+    //given
     ANStorageUpdateModel* updateModel = [ANStorageUpdateModel new];
     ANTestableCollectionUpdateOperation* operation = [ANTestableCollectionUpdateOperation operationWithUpdateModel:updateModel];
+    
+    //then
     expect(operation).notTo.beNil();
+}
+
+- (void)test_operationWithUpdateModel_positive_afterUpdateModelSetupedToOperation
+{
+    //given
+    ANStorageUpdateModel* updateModel = [ANStorageUpdateModel new];
+    ANTestableCollectionUpdateOperation* operation = [ANTestableCollectionUpdateOperation operationWithUpdateModel:updateModel];
+    
+    //then
     expect(operation.updateModel).notTo.beNil();
+    expect(operation.updateModel).to.equal(updateModel);
+}
+
+- (void)test_operationWithUpdateModel_positive_afterUpdateSetupedModelIsEqualCreatedModel
+{
+    //given
+    ANStorageUpdateModel* updateModel = [ANStorageUpdateModel new];
+    ANTestableCollectionUpdateOperation* operation = [ANTestableCollectionUpdateOperation operationWithUpdateModel:updateModel];
+    
+    //then
     expect(operation.updateModel).to.equal(updateModel);
 }
 
 - (void)test_storageUpdateModelGenerated_positive_updateModelNotNil
 {
+    //given
     ANStorageUpdateModel* updateModel = [ANStorageUpdateModel new];
     [self.operaton storageUpdateModelGenerated:updateModel];
     
+    //then
     expect(self.operaton.updateModel).notTo.beNil();
+}
+
+- (void)test_storageUpdateModelGenerated_positive_afterUpdateModelIsSameAsSetuped
+{
+    //given
+    ANStorageUpdateModel* updateModel = [ANStorageUpdateModel new];
+    [self.operaton storageUpdateModelGenerated:updateModel];
+    
+    //then
     expect(self.operaton.updateModel).equal(updateModel);
 }
 
 - (void)test_main_positive_raiseExpeptionIfCollectionIsNil
 {
+    //given
     ANTestableCollectionUpdateOperation* operation = [ANTestableCollectionUpdateOperation operationWithCanceledValue:NO];
     ANTestableListControllerUpdateOperationDelegate* delegate = [ANTestableListControllerUpdateOperationDelegate new];
     operation.delegate = delegate;
@@ -88,12 +138,14 @@ toPreventInsertFirstItemIssueForUpdate:(ANStorageUpdateModel*)update;
         [operation main];
     };
     
-    expect(testBlock).raiseAny();
     
+    //then
+    expect(testBlock).raiseAny();
 }
 
 - (void)test_main_positive_operationNotCanceledAndCalledPerformUpdate
 {
+    //given
     ANTestableCollectionUpdateOperation* operation = [ANTestableCollectionUpdateOperation operationWithCanceledValue:NO];
     ANStorageUpdateModel* updateModel = [ANStorageUpdateModel new];
     [updateModel addInsertedIndexPaths:@[[NSIndexPath indexPathForItem:0 inSection:0]]];
@@ -111,11 +163,14 @@ toPreventInsertFirstItemIssueForUpdate:(ANStorageUpdateModel*)update;
     OCMExpect([operation _performAnimatedUpdate:updateModel]);
     
     [operation main];
+    
+    //then
     OCMVerifyAll(mockedOperation);
 }
 
 - (void)test_performAnimatedUpdate_positive_collectionReloadDataCalled
 {
+    //given
     ANTestableCollectionUpdateOperation* operation = [ANTestableCollectionUpdateOperation operationWithCanceledValue:NO];
     ANStorageUpdateModel* updateModel = [ANStorageUpdateModel new];
     [updateModel addInsertedIndexPaths:@[[NSIndexPath indexPathForItem:0 inSection:0]]];
@@ -133,12 +188,14 @@ toPreventInsertFirstItemIssueForUpdate:(ANStorageUpdateModel*)update;
     
     [operation _performAnimatedUpdate:updateModel];
     
+    //then
     OCMVerifyAll(mockedCollectionView);
 
 }
 
 - (void)test_performAnimatedUpdate_positive_calledCollectionViewPerformUpdate
 {
+    //given
     ANTestableCollectionUpdateOperation* operation = [ANTestableCollectionUpdateOperation operationWithCanceledValue:NO];
     ANStorageUpdateModel* updateModel = [ANStorageUpdateModel new];
     [updateModel addInsertedSectionIndex:1];
@@ -156,11 +213,13 @@ toPreventInsertFirstItemIssueForUpdate:(ANStorageUpdateModel*)update;
     
     [operation _performAnimatedUpdate:updateModel];
     
+    //then
     OCMVerifyAll(mockedCollectionView);
 }
 
 - (void)test_performAnimatedUpdate_negative_raiseExceptionIfCollectionIsNil
 {
+    //given
     ANTestableCollectionUpdateOperation* operation = [ANTestableCollectionUpdateOperation operationWithCanceledValue:NO];
     ANStorageUpdateModel* updateModel = [ANStorageUpdateModel new];
     [updateModel addInsertedIndexPaths:@[[NSIndexPath indexPathForItem:0 inSection:0]]];
@@ -171,21 +230,26 @@ toPreventInsertFirstItemIssueForUpdate:(ANStorageUpdateModel*)update;
         [operation _performAnimatedUpdate:updateModel];
     };
     
+    //then
     expect(testBlock).raiseAny();
 }
 
 - (void)test_performAnimatedUpdate_notRaiseExceptionIfUpdateIsEmpty
 {
+    //given
     ANTestableCollectionUpdateOperation* operation = [ANTestableCollectionUpdateOperation operationWithCanceledValue:NO];
     
     void(^testBlock)() = ^{
         [operation _performAnimatedUpdate:nil];
     };
+    
+    //then
     expect(testBlock).notTo.raiseAny();
 }
 
 - (void)test_shouldReloadCollectionView_positive_shouldReturnNo
 {
+    //given
     ANTestableCollectionUpdateOperation* operation = [ANTestableCollectionUpdateOperation operationWithCanceledValue:NO];
     ANTestableCollectionView* collectionView = [[ANTestableCollectionView alloc] initWithFrame:CGRectZero
                                                                           collectionViewLayout:[UICollectionViewLayout new]];
@@ -195,17 +259,20 @@ toPreventInsertFirstItemIssueForUpdate:(ANStorageUpdateModel*)update;
 
     BOOL testResult = [operation _shouldReloadCollectionView:collectionView toPreventInsertFirstItemIssueForUpdate:nil];
     
+    //then
     expect(testResult).notTo.beTruthy();
 }
 
 - (void)test_shouldReloadCollectionView_positive_shouldReturnYESIfWindowIsNil
 {
+    //given
     ANTestableCollectionUpdateOperation* operation = [ANTestableCollectionUpdateOperation operationWithCanceledValue:NO];
     ANTestableCollectionView* collectionView = [[ANTestableCollectionView alloc] initWithFrame:CGRectZero
                                                                           collectionViewLayout:[UICollectionViewLayout new]];
     
     BOOL testResult = [operation _shouldReloadCollectionView:collectionView toPreventInsertFirstItemIssueForUpdate:nil];
     
+    //then
     expect(testResult).to.beTruthy();
 }
 

@@ -10,7 +10,6 @@
 #import <Expecta/Expecta.h>
 #import <OCMock/OCMock.h>
 #import "ANListControllerReloadOperation.h"
-#import <UIKit/UIKit.h>
 #import "ANTestableListControllerReloadOperationDelegate.h"
 
 @interface ANListControllerReloadOperationTests : XCTestCase
@@ -23,7 +22,8 @@
 
 @implementation ANListControllerReloadOperationTests
 
-- (void)setUp {
+- (void)setUp
+{
     [super setUp];
     self.currentQueue = [NSOperationQueue new];
     self.currentQueue.maxConcurrentOperationCount = 1;
@@ -32,7 +32,8 @@
     self.delegate = [ANTestableListControllerReloadOperationDelegate new];
 }
 
-- (void)tearDown {
+- (void)tearDown
+{
     self.currentQueue = nil;
     self.operation = nil;
     self.delegate = nil;
@@ -61,7 +62,6 @@
     
     //then
     OCMVerifyAll(mockedDelegate);
-    
 }
 
 @end
