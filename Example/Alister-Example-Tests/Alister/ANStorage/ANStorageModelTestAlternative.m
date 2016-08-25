@@ -190,29 +190,101 @@
 
 - (void)test_addSection_negative_noAssertIfTryToAddNil
 {
+    // when
     void(^testBlock)(void) = ^{
         [self.storageModel addSection:nil];
     };
+    
+    // then
     expect(testBlock).notTo.raiseAny();
     expect(self.storageModel.sections).haveCount(0);
 }
 
-/**
-
 - (void)test_addSection_negative_noAssertIfTryToAddInvalidObject
 {
-    void(^TestBlock)(void) = ^{
-        [self.model addSection:(ANStorageSectionModel*)@""];
+    // when
+    void(^testBlock)(void) = ^{
+        [self.storageModel addSection:(ANStorageSectionModel*)@""];
     };
-    expect(TestBlock).notTo.raiseAny();
-    expect(self.model.sections).haveCount(0);
+    
+    // then
+    expect(testBlock).notTo.raiseAny();
+    expect(self.storageModel.sections).haveCount(0);
 }
 
 
- - (void)addSection:(ANStorageSectionModel*)section;
- - (void)removeSectionAtIndex:(NSUInteger)index;
- - (void)removeAllSections;
- 
- */
+#pragma mark - removeSectionAtIndex
+
+- (void)test_removeSectionAtIndex_positive_sectionExistAtIndex
+{
+    // given
+    u_int32_t counter = arc4random_uniform(20);
+    for (NSUInteger i = 0; i < counter; i++)
+    {
+        [self.storageModel addSection:[ANStorageSectionModel new]];
+    }
+    
+    // when
+    u_int32_t sectionIndex = arc4random_uniform(counter);
+    NSUInteger sectionsCount = self.storageModel.sections.count;
+    
+    [self.storageModel removeSectionAtIndex:sectionIndex];
+    
+    // then
+    expect(sectionsCount - 1).equal(self.storageModel.sections.count);
+}
+
+- (void)test_removeSectionAtIndex_positive_removeLastSection
+{
+    // given
+    ANStorageSectionModel* section = [ANStorageSectionModel new];
+    [self.storageModel addSection:section];
+    
+    // when
+    [self.storageModel removeSectionAtIndex:0];
+    
+    // then
+    expect(self.storageModel.sections).haveCount(0);
+}
+
+- (void)test_removeSectionAtIndex_negative_noCrashIfSectionNotExist
+{
+    // when
+    void(^TestBlock)(void) = ^{
+        [self.storageModel removeSectionAtIndex:arc4random()];
+    };
+    
+    // then
+    expect(TestBlock).notTo.raiseAny();
+}
+
+
+#pragma mark - removeAllSections
+
+- (void)test_removeAllSections_positive_noExistingSectionsAfterRemove
+{
+    // given
+    ANStorageSectionModel* section = [ANStorageSectionModel new];
+    [self.storageModel addSection:section];
+    
+    // when
+    [self.storageModel removeAllSections];
+    
+    // then
+    expect(self.storageModel.sections).haveCount(0);
+}
+
+- (void)test_removeAllSections_positive_sectionExistIfAddAfterRemove
+{
+    // given
+    [self.storageModel removeAllSections];
+    
+    // when
+    ANStorageSectionModel* section = [ANStorageSectionModel new];
+    [self.storageModel addSection:section];
+    
+    // then
+    expect(self.storageModel.sections).haveCount(1);
+}
 
 @end
