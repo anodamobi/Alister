@@ -81,7 +81,7 @@
 
 #pragma mark - itemAtIndexPath
 
-- (void)test_itemAtIndexPath_positive_dataIsValidWhenGetExistingItem
+- (void)test_itemAtIndexPath_positive_dataIsValidWhenRetrieveExistingItem
 {
     // given
     ANStorageSectionModel* section = [ANStorageSectionModel new];
