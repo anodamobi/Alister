@@ -33,7 +33,7 @@ static BOOL const kIsTransparent = YES;
     [super tearDown];
 }
 
-- (void)test_isTransparent_positive_valueIsSetRight
+- (void)test_isTransparent_positive_valueIsCorrect
 {
     expect(self.view.isTransparent).equal(kIsTransparent);
 }
