@@ -108,6 +108,8 @@ toPreventInsertFirstItemIssueForUpdate:(ANStorageUpdateModel*)update;
 {
     //given
     ANStorageUpdateModel* updateModel = [ANStorageUpdateModel new];
+    
+    //when
     [self.operaton storageUpdateModelGenerated:updateModel];
     
     //then
@@ -118,6 +120,8 @@ toPreventInsertFirstItemIssueForUpdate:(ANStorageUpdateModel*)update;
 {
     //given
     ANStorageUpdateModel* updateModel = [ANStorageUpdateModel new];
+    
+    //when
     [self.operaton storageUpdateModelGenerated:updateModel];
     
     //then
@@ -134,6 +138,7 @@ toPreventInsertFirstItemIssueForUpdate:(ANStorageUpdateModel*)update;
     [updateModel addInsertedIndexPaths:@[[NSIndexPath indexPathForItem:0 inSection:0]]];
     [operation storageUpdateModelGenerated:updateModel];
     
+    //when
     void (^testBlock)() = ^{
         [operation main];
     };
@@ -156,12 +161,12 @@ toPreventInsertFirstItemIssueForUpdate:(ANStorageUpdateModel*)update;
     ANTestableListControllerUpdateOperationDelegate* operationDelegate = [ANTestableListControllerUpdateOperationDelegate new];
     [operationDelegate updateWithTestableCollectionView:collectionView];
     operation.delegate = operationDelegate;
-    
     [operation storageUpdateModelGenerated:updateModel];
-    
     id mockedOperation = OCMPartialMock(operation);
     OCMExpect([operation _performAnimatedUpdate:updateModel]);
     
+    
+    //when
     [operation main];
     
     //then
@@ -183,9 +188,10 @@ toPreventInsertFirstItemIssueForUpdate:(ANStorageUpdateModel*)update;
     ANTestableListControllerUpdateOperationDelegate* operationDelegate = [ANTestableListControllerUpdateOperationDelegate new];
     [operationDelegate updateWithTestableCollectionView:mockedCollectionView];
     operation.delegate = operationDelegate;
-    
     OCMExpect([mockedCollectionView reloadData]);
+   
     
+    //when
     [operation _performAnimatedUpdate:updateModel];
     
     //then
@@ -204,13 +210,12 @@ toPreventInsertFirstItemIssueForUpdate:(ANStorageUpdateModel*)update;
                                                                           collectionViewLayout:[UICollectionViewLayout new]];
     
     id mockedCollectionView = OCMPartialMock(collectionView);
-    
     ANTestableListControllerUpdateOperationDelegate* operationDelegate = [ANTestableListControllerUpdateOperationDelegate new];
     [operationDelegate updateWithTestableCollectionView:mockedCollectionView];
     operation.delegate = operationDelegate;
-    
     OCMExpect([mockedCollectionView performBatchUpdates:[OCMArg any] completion:nil]);
-    
+   
+    //when
     [operation _performAnimatedUpdate:updateModel];
     
     //then
@@ -225,7 +230,8 @@ toPreventInsertFirstItemIssueForUpdate:(ANStorageUpdateModel*)update;
     [updateModel addInsertedIndexPaths:@[[NSIndexPath indexPathForItem:0 inSection:0]]];
     ANTestableListControllerUpdateOperationDelegate* operationDelegate = [ANTestableListControllerUpdateOperationDelegate new];
     operation.delegate = operationDelegate;
-    
+   
+    //when
     void (^testBlock)() = ^{
         [operation _performAnimatedUpdate:updateModel];
     };
@@ -239,6 +245,7 @@ toPreventInsertFirstItemIssueForUpdate:(ANStorageUpdateModel*)update;
     //given
     ANTestableCollectionUpdateOperation* operation = [ANTestableCollectionUpdateOperation operationWithCanceledValue:NO];
     
+    //when
     void(^testBlock)() = ^{
         [operation _performAnimatedUpdate:nil];
     };
@@ -257,6 +264,7 @@ toPreventInsertFirstItemIssueForUpdate:(ANStorageUpdateModel*)update;
     UIWindow* window = [[UIWindow alloc] initWithFrame:CGRectZero];
     [collectionView updateWindow:window];
 
+    //when
     BOOL testResult = [operation _shouldReloadCollectionView:collectionView toPreventInsertFirstItemIssueForUpdate:nil];
     
     //then
@@ -269,7 +277,7 @@ toPreventInsertFirstItemIssueForUpdate:(ANStorageUpdateModel*)update;
     ANTestableCollectionUpdateOperation* operation = [ANTestableCollectionUpdateOperation operationWithCanceledValue:NO];
     ANTestableCollectionView* collectionView = [[ANTestableCollectionView alloc] initWithFrame:CGRectZero
                                                                           collectionViewLayout:[UICollectionViewLayout new]];
-    
+    //when
     BOOL testResult = [operation _shouldReloadCollectionView:collectionView toPreventInsertFirstItemIssueForUpdate:nil];
     
     //then

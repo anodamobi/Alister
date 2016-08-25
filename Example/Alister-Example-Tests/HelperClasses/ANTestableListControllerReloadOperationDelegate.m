@@ -1,5 +1,5 @@
 //
-//  ANListControllerReloadOperationDelegate.m
+//  ANTestableListControllerReloadOperationDelegate.m
 //  Alister-Example
 //
 //  Created by Oksana Kovalchuk on 8/24/16.
@@ -11,6 +11,7 @@
 #import "ANListControllerConfigurationModel.h"
 
 @implementation ANTestableListControllerReloadOperationDelegate
+
 
 #pragma mark - ANListControllerReloadOperationDelegate
 
