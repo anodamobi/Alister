@@ -69,6 +69,7 @@
         {
             ANStorageSectionModel* section = [storage sectionAtIndex:(NSUInteger)indexPath.section];
             [section removeItemAtIndex:(NSUInteger)indexPath.row];
+            [indexPaths addObject:indexPath];
         }
     }];
     
@@ -91,14 +92,11 @@
 {
     __block ANStorageUpdateModel* update = [ANStorageUpdateModel new];
     
-    [indexSet enumerateIndexesUsingBlock:^(NSUInteger idx, __unused BOOL * _Nonnull stop) {
-        
-        if (storage.sections.count > idx)
-        {
-            [storage removeSectionAtIndex:idx];
-            [update addDeletedSectionIndex:idx];
-        }
-    }];
+    for (NSInteger reversedCounter = storage.sections.count - 1; reversedCounter >= 0; reversedCounter--)
+    {
+        [storage removeSectionAtIndex:reversedCounter];
+        [update addDeletedSectionIndex:reversedCounter];
+    }
     return update;
 }
 
