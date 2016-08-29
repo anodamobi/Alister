@@ -49,7 +49,7 @@ static NSInteger const kMaxObjectsCount = 3;
         ANStorageSectionModel* section = [ANStorageSectionModel new];
         for (NSInteger counter = 0; counter < kMaxObjectsCount; counter++)
         {
-            [section addItem:@(counter)];
+            [section addItem:@"12"];
         }
         [fullModel addSection:section];
     }
@@ -193,8 +193,6 @@ static NSInteger const kMaxObjectsCount = 3;
     ANStorageUpdateModel* updateModel = [ANStorageRemover removeItemsAtIndexPaths:indexPaths fromStorage:storage];
     
     // then
-    // TODO: NSSet paste together all indexPaths
-    // NSSet* storageItems = [self _indexPathsInStorage:storage];
     expect(updateModel.deletedRowIndexPaths.count).to.equal(indexPaths.count);
 }
 
@@ -318,7 +316,7 @@ static NSInteger const kMaxObjectsCount = 3;
     expect(removedSet).to.haveCount(0);
 }
 
-- (void)test_removeSectionsFromStorage_negative_notRaiseExceptionWhenStorageIsNil
+- (void)test_removeSectionsFromStorage_negative_toNotRaiseExceptionWhenStorageIsNil
 {
     // given
     ANStorageModel* storage = nil;
@@ -333,7 +331,7 @@ static NSInteger const kMaxObjectsCount = 3;
     expect(testBlock).notTo.raiseAny();
 }
 
-- (void)test_removeSectionsFromStorage_negative_notRaiseExceptionWhenSectionsIsNil
+- (void)test_removeSectionsFromStorage_negative_toNotRaiseExceptionWhenSectionsIsNil
 {
     // given
     ANStorageModel* storage = self.storageModel;
@@ -348,7 +346,7 @@ static NSInteger const kMaxObjectsCount = 3;
     expect(testBlock).notTo.raiseAny();
 }
 
-- (void)test_removeSectionsFromStorage_negative_notRaiseExceptionWhenRemoveSectionsFromNotCorrectStorage
+- (void)test_removeSectionsFromStorage_negative_toNotRaiseExceptionWhenRemoveSectionsFromNotCorrectStorage
 {
     // given
     ANStorageModel* storage = self.storageModel;
@@ -367,10 +365,23 @@ static NSInteger const kMaxObjectsCount = 3;
 
 #pragma mark - removeAllItemsFromStorage
 
-- (void)test_removeAllItemsFromStorage_positive_
+- (void)test_removeAllItemsFromStorage_positive_storageNotContainsSectionAfterRemoval
 {
-    // TODO:
-    // [ANStorageRemover removeAllItemsFromStorage:self.storageModel];
+    // when
+    [ANStorageRemover removeAllItemsFromStorage:self.storageModel];
+    
+    // then
+    expect(self.storageModel.sections).to.haveCount(0);
+}
+
+- (void)test_removeAllItemsFromStorage_negative_toNotRaiseExceptionWhenStorageIsNil
+{
+    // when
+    void(^testBlock)() = ^() {
+        [ANStorageRemover removeAllItemsFromStorage:nil];
+    };
+    
+    expect(testBlock).notTo.raiseAny();
 }
 
 @end
