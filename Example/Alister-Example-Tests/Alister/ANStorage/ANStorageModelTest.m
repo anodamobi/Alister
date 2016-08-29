@@ -41,7 +41,7 @@
 
 - (void)test_addSection_positive_sectionsCountValid
 {
-    NSInteger counter = arc4random_uniform(20);
+    NSInteger counter = arc4random_uniform(3) + 1;
     for (NSInteger i = 0; i < counter; i++)
     {
         [self.model addSection:[ANStorageSectionModel new]];
@@ -92,7 +92,7 @@
 
 - (void)test_sectionAtIndex_positive_sectionExists
 {
-    u_int32_t counter = arc4random_uniform(20);
+    u_int32_t counter = arc4random_uniform(3) + 1;
     for (NSUInteger i = 0; i < counter; i++)
     {
         [self.model addSection:[ANStorageSectionModel new]];
@@ -121,7 +121,7 @@
 
 - (void)test_removeSectionAtIndex_positive_sectionExistAtIndex
 {
-    u_int32_t counter = arc4random_uniform(20);
+    u_int32_t counter = arc4random_uniform(3) + 2;
     for (NSUInteger i = 0; i < counter; i++)
     {
         [self.model addSection:[ANStorageSectionModel new]];
