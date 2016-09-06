@@ -10,9 +10,11 @@
 #import <UIKit/UIKit.h>
 #import "ANTableControllerUpdateOperation.h"
 #import "ANTestableTableView.h"
+#import "ANTestableCollectionView.h"
 
 @interface ANTestableListControllerUpdateOperationDelegate : NSObject <ANListControllerUpdateOperationDelegate>
 
 - (void)updateWithTestableTableView:(ANTestableTableView*)tableView;
+- (void)updateWithTestableCollectionView:(ANTestableCollectionView*)collectionView;
 
 @end

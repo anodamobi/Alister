@@ -31,7 +31,8 @@
 
 @implementation ANTableControllerUpdateOperationTests
 
-- (void)setUp {
+- (void)setUp
+{
     [super setUp];
     
     self.operationQueue = [NSOperationQueue new];
@@ -40,7 +41,8 @@
     self.delegate = [ANTestableListControllerUpdateOperationDelegate new];
 }
 
-- (void)tearDown {
+- (void)tearDown
+{
     self.operationQueue = nil;
     [super tearDown];
 }
@@ -60,7 +62,6 @@
 - (void)test_main_positive_finishedWithoutModel
 {
     //given
-
     ANTestableTableUpdateOperation* operation = [ANTestableTableUpdateOperation operationWithCancelValue:NO];
     id mockedOperation = OCMPartialMock(operation);
     OCMExpect([mockedOperation setExecuting:NO]);
@@ -69,9 +70,8 @@
         [operation main];
     };
     
-    expect(testBlock).notTo.raiseAny();
-    
     //then
+    expect(testBlock).notTo.raiseAny();
     OCMVerifyAll(mockedOperation);
 }
 
@@ -83,6 +83,8 @@
     [operation storageUpdateModelGenerated:updateModel];
     id mockedOperation = OCMPartialMock(operation);
     OCMExpect([mockedOperation setExecuting:NO]);
+    
+    //when
     [operation main];
     
     //then
@@ -92,7 +94,6 @@
 - (void)test_performAnimatedUpdate_positive_calledWithValidUpdateModel
 {
     //given
-    
     ANStorageUpdateModel* updateModel = [ANStorageUpdateModel new];
     [updateModel addInsertedSectionIndex:1];
     
@@ -102,6 +103,8 @@
     [operation storageUpdateModelGenerated:updateModel];
     id mockedOperation = OCMPartialMock(operation);
     OCMExpect([mockedOperation _performAnimatedUpdate:updateModel]);
+    
+    //when
     [operation main];
     
     //then
@@ -110,7 +113,6 @@
 
 - (void)test_performAnimatedUpdate_positive_calledTableViewInsertSections
 {
-    
     //given
     ANStorageUpdateModel* updateModel = [ANStorageUpdateModel new];
     [updateModel addInsertedSectionIndex:1];
@@ -128,12 +130,11 @@
     id mockedTableView = OCMPartialMock(tableView);
     OCMExpect([mockedTableView insertSections:updateModel.insertedSectionIndexes withRowAnimation:UITableViewRowAnimationNone]);
     
+    //when
     [operation main];
     
     //then
-    
     OCMVerifyAll(mockedTableView);
-    
 }
 
 - (void)test_performAnimatedUpdate_positive_calledDelegateReloadStorage
@@ -156,10 +157,11 @@
     operation.delegate = mockedDelegate;
     
     OCMExpect([mockedDelegate storageNeedsReloadWithIdentifier:[OCMArg any]]);
+    
+    //when
     [operation main];
     
     //then
-    
     OCMVerifyAll(mockedDelegate);
 }
 
@@ -176,12 +178,12 @@
     ANTestableListControllerUpdateOperationDelegate* delegate = [ANTestableListControllerUpdateOperationDelegate new];
     operation.delegate = delegate;
 
+    //when
     void(^testBlock)() = ^{
         [operation main];
     };
     
     //then
-    
     expect(testBlock).to.raiseAny();
 }
 

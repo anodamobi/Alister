@@ -12,6 +12,7 @@
 @interface ANTestableTableUpdateOperation : ANTableControllerUpdateOperation
 
 + (instancetype)operationWithCancelValue:(BOOL)isCancel;
+
 - (BOOL)isCancelled;
 
 @end
