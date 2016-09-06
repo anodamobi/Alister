@@ -11,6 +11,8 @@
 #import "ANStorageModel.h"
 #import "ANStorageSectionModel.h"
 
+static u_int32_t const kMaxGeneratedNumber = 3;
+
 @interface ANStorageModelTestAlternative : XCTestCase
 
 @property (nonatomic, strong) ANStorageModel* storageModel;
@@ -141,7 +143,7 @@
 - (void)test_sectionAtIndex_positive_sectionExists
 {
     // given
-    u_int32_t maxObjectsCount = arc4random_uniform(20);
+    u_int32_t maxObjectsCount = arc4random_uniform(kMaxGeneratedNumber) + 1;
     for (NSUInteger counter = 0; counter < maxObjectsCount; counter++)
     {
         [self.storageModel addSection:[ANStorageSectionModel new]];
@@ -178,7 +180,7 @@
 - (void)test_addSection_positive_sectionsCountValid
 {
     // when
-    NSInteger maxObjectsCount = arc4random_uniform(3) + 1;
+    NSInteger maxObjectsCount = arc4random_uniform(kMaxGeneratedNumber) + 1;
     for (NSInteger counter = 0; counter < maxObjectsCount; counter++)
     {
         [self.storageModel addSection:[ANStorageSectionModel new]];
@@ -218,7 +220,7 @@
 - (void)test_removeSectionAtIndex_positive_sectionExistAtIndex
 {
     // given
-    u_int32_t counter = arc4random_uniform(20);
+    u_int32_t counter = arc4random_uniform(kMaxGeneratedNumber) + 1;
     for (NSUInteger i = 0; i < counter; i++)
     {
         [self.storageModel addSection:[ANStorageSectionModel new]];
