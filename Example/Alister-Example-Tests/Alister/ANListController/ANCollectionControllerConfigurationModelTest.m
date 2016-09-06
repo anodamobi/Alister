@@ -40,7 +40,7 @@ static NSString* const kReloadAnimationKey = @"kReloadAnimationKey";
 
 #pragma mark - Tests
 
-- (void)test_defaultModel_positive_propertiesIsCorrect
+- (void)test_defaultModel_positive_propertiesAreCorrect
 {
     // when
     id model = [ANCollectionControllerConfigurationModel defaultModel];
