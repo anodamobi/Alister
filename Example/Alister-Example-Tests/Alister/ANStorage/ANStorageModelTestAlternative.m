@@ -156,7 +156,7 @@ static u_int32_t const kMaxGeneratedNumber = 3;
 
 - (void)test_sectionAtIndex_negative_noCrashWithIncorrectSectionIndex
 {
-    // given
+    // when
     void(^TestBlock)(void) = ^{
         [self.storageModel sectionAtIndex:arc4random()];
     };
