@@ -7,43 +7,44 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		07148C091D7F35A20003312E /* ANTestableListControllerReloadOperationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 07148BD71D7F35A20003312E /* ANTestableListControllerReloadOperationDelegate.m */; };
-		07148C0A1D7F35A20003312E /* ANTestableListControllerUpdateOperationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 07148BD91D7F35A20003312E /* ANTestableListControllerUpdateOperationDelegate.m */; };
-		07148C0B1D7F35A20003312E /* ANTestableListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07148BDB1D7F35A20003312E /* ANTestableListView.m */; };
-		07148C0C1D7F35A20003312E /* ANTestableTableUpdateOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 07148BDD1D7F35A20003312E /* ANTestableTableUpdateOperation.m */; };
-		07148C0D1D7F35A20003312E /* ANTestableTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07148BDF1D7F35A20003312E /* ANTestableTableView.m */; };
-		07148C0E1D7F35A20003312E /* ANTestableTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 07148BE11D7F35A20003312E /* ANTestableTextField.m */; };
-		07148C0F1D7F35A20003312E /* ANTestableTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = 07148BE31D7F35A20003312E /* ANTestableTouch.m */; };
-		07148C101D7F35A20003312E /* ANTestKeyboardHandlerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 07148BE51D7F35A20003312E /* ANTestKeyboardHandlerDelegate.m */; };
-		07148C111D7F35A20003312E /* ANTestTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 07148BE71D7F35A20003312E /* ANTestTableCell.m */; };
-		07148C121D7F35A20003312E /* ANTestViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 07148BE91D7F35A20003312E /* ANTestViewModel.m */; };
-		07148C131D7F35A20003312E /* ANKeyboardHandlerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 07148BEC1D7F35A20003312E /* ANKeyboardHandlerTest.m */; };
-		07148C141D7F35A20003312E /* ANCollectionControllerConfigurationModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 07148BEE1D7F35A20003312E /* ANCollectionControllerConfigurationModelTest.m */; };
-		07148C151D7F35A20003312E /* ANCollectionControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 07148BEF1D7F35A20003312E /* ANCollectionControllerTest.m */; };
-		07148C161D7F35A20003312E /* ANListControllerMappingModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 07148BF01D7F35A20003312E /* ANListControllerMappingModelTest.m */; };
-		07148C171D7F35A20003312E /* ANTableControllerReusableTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 07148BF11D7F35A20003312E /* ANTableControllerReusableTest.m */; };
-		07148C181D7F35A20003312E /* ANTableControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 07148BF21D7F35A20003312E /* ANTableControllerTest.m */; };
-		07148C191D7F35A20003312E /* ANListControllerReloadOperationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 07148BF41D7F35A20003312E /* ANListControllerReloadOperationTests.m */; };
-		07148C1A1D7F35A20003312E /* ANListControllerSearchManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 07148BF61D7F35A20003312E /* ANListControllerSearchManagerTest.m */; };
-		07148C1B1D7F35A20003312E /* ANBaseTableViewHeaderFooterViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 07148BF81D7F35A20003312E /* ANBaseTableViewHeaderFooterViewTests.m */; };
-		07148C1C1D7F35A20003312E /* ANCollectionViewCellTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 07148BF91D7F35A20003312E /* ANCollectionViewCellTests.m */; };
-		07148C1D1D7F35A20003312E /* ANCollectionViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 07148BFA1D7F35A20003312E /* ANCollectionViewTest.m */; };
-		07148C1E1D7F35A20003312E /* ANTableViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 07148BFB1D7F35A20003312E /* ANTableViewTests.m */; };
-		07148C1F1D7F35A20003312E /* ANTestTableHeaderFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 07148BFD1D7F35A20003312E /* ANTestTableHeaderFooter.m */; };
-		07148C201D7F35A20003312E /* ANStorageControllerCRUDTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 07148BFF1D7F35A20003312E /* ANStorageControllerCRUDTest.m */; };
-		07148C211D7F35A20003312E /* ANStorageModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 07148C001D7F35A20003312E /* ANStorageModelTest.m */; };
-		07148C221D7F35A20003312E /* ANStorageModelTestAlternative.m in Sources */ = {isa = PBXBuildFile; fileRef = 07148C011D7F35A20003312E /* ANStorageModelTestAlternative.m */; };
-		07148C231D7F35A20003312E /* ANStorageMovedIndexPathModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 07148C021D7F35A20003312E /* ANStorageMovedIndexPathModelTest.m */; };
-		07148C241D7F35A20003312E /* ANStorageRemoverTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 07148C031D7F35A20003312E /* ANStorageRemoverTest.m */; };
-		07148C251D7F35A20003312E /* ANStorageSectionModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 07148C041D7F35A20003312E /* ANStorageSectionModelTest.m */; };
-		07148C261D7F35A20003312E /* ANStorageUpdateModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 07148C051D7F35A20003312E /* ANStorageUpdateModelTest.m */; };
-		07148C271D7F35A20003312E /* ANStorageUpdaterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 07148C061D7F35A20003312E /* ANStorageUpdaterTests.m */; };
-		07148C281D7F35A20003312E /* ANTableControllerUpdateOperationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 07148C081D7F35A20003312E /* ANTableControllerUpdateOperationTests.m */; };
 		18A4D7C303F7904DE27F85F4 /* Pods_Alister_Example_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F19F56DDDEE034DD40E4A09E /* Pods_Alister_Example_Tests.framework */; };
 		5A95A8A6EACB63F3DAF75428 /* Pods_Alister_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFB91A3C0505789B7F9CF1F3 /* Pods_Alister_Example.framework */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
+		8CB31D751D7F382900019D11 /* ANKeyboardHandlerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB31D421D7F382900019D11 /* ANKeyboardHandlerTest.m */; };
+		8CB31D761D7F382900019D11 /* ANCollectionControllerConfigurationModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB31D441D7F382900019D11 /* ANCollectionControllerConfigurationModelTest.m */; };
+		8CB31D771D7F382900019D11 /* ANCollectionControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB31D451D7F382900019D11 /* ANCollectionControllerTest.m */; };
+		8CB31D781D7F382900019D11 /* ANListControllerMappingModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB31D461D7F382900019D11 /* ANListControllerMappingModelTest.m */; };
+		8CB31D791D7F382900019D11 /* ANTableControllerReusableTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB31D471D7F382900019D11 /* ANTableControllerReusableTest.m */; };
+		8CB31D7A1D7F382900019D11 /* ANTableControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB31D481D7F382900019D11 /* ANTableControllerTest.m */; };
+		8CB31D7B1D7F382900019D11 /* ANListControllerReloadOperationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB31D4A1D7F382900019D11 /* ANListControllerReloadOperationTests.m */; };
+		8CB31D7C1D7F382900019D11 /* ANListControllerSearchManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB31D4C1D7F382900019D11 /* ANListControllerSearchManagerTest.m */; };
+		8CB31D7D1D7F382900019D11 /* ANBaseTableViewHeaderFooterViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB31D4E1D7F382900019D11 /* ANBaseTableViewHeaderFooterViewTests.m */; };
+		8CB31D7E1D7F382900019D11 /* ANCollectionReusableViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB31D4F1D7F382900019D11 /* ANCollectionReusableViewTests.m */; };
+		8CB31D7F1D7F382900019D11 /* ANCollectionViewCellTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB31D501D7F382900019D11 /* ANCollectionViewCellTests.m */; };
+		8CB31D801D7F382900019D11 /* ANCollectionViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB31D511D7F382900019D11 /* ANCollectionViewTest.m */; };
+		8CB31D811D7F382900019D11 /* ANTableViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB31D521D7F382900019D11 /* ANTableViewTests.m */; };
+		8CB31D821D7F382900019D11 /* ANTestTableHeaderFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB31D541D7F382900019D11 /* ANTestTableHeaderFooter.m */; };
+		8CB31D831D7F382900019D11 /* ANStorageControllerCRUDTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB31D561D7F382900019D11 /* ANStorageControllerCRUDTest.m */; };
+		8CB31D841D7F382900019D11 /* ANStorageModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB31D571D7F382900019D11 /* ANStorageModelTest.m */; };
+		8CB31D851D7F382900019D11 /* ANStorageModelTestAlternative.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB31D581D7F382900019D11 /* ANStorageModelTestAlternative.m */; };
+		8CB31D861D7F382900019D11 /* ANStorageMovedIndexPathModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB31D591D7F382900019D11 /* ANStorageMovedIndexPathModelTest.m */; };
+		8CB31D871D7F382900019D11 /* ANStorageRemoverTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB31D5A1D7F382900019D11 /* ANStorageRemoverTest.m */; };
+		8CB31D881D7F382900019D11 /* ANStorageSectionModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB31D5B1D7F382900019D11 /* ANStorageSectionModelTest.m */; };
+		8CB31D891D7F382900019D11 /* ANStorageUpdateModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB31D5C1D7F382900019D11 /* ANStorageUpdateModelTest.m */; };
+		8CB31D8A1D7F382900019D11 /* ANStorageUpdaterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB31D5D1D7F382900019D11 /* ANStorageUpdaterTests.m */; };
+		8CB31D8B1D7F382900019D11 /* ANTableControllerUpdateOperationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB31D5F1D7F382900019D11 /* ANTableControllerUpdateOperationTests.m */; };
+		8CB31D8C1D7F382900019D11 /* ANTestableListControllerReloadOperationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB31D621D7F382900019D11 /* ANTestableListControllerReloadOperationDelegate.m */; };
+		8CB31D8D1D7F382900019D11 /* ANTestableListControllerUpdateOperationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB31D641D7F382900019D11 /* ANTestableListControllerUpdateOperationDelegate.m */; };
+		8CB31D8E1D7F382900019D11 /* ANTestableListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB31D661D7F382900019D11 /* ANTestableListView.m */; };
+		8CB31D8F1D7F382900019D11 /* ANTestableTableUpdateOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB31D681D7F382900019D11 /* ANTestableTableUpdateOperation.m */; };
+		8CB31D901D7F382900019D11 /* ANTestableTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB31D6A1D7F382900019D11 /* ANTestableTableView.m */; };
+		8CB31D911D7F382900019D11 /* ANTestableTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB31D6C1D7F382900019D11 /* ANTestableTextField.m */; };
+		8CB31D921D7F382900019D11 /* ANTestableTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB31D6E1D7F382900019D11 /* ANTestableTouch.m */; };
+		8CB31D931D7F382900019D11 /* ANTestKeyboardHandlerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB31D701D7F382900019D11 /* ANTestKeyboardHandlerDelegate.m */; };
+		8CB31D941D7F382900019D11 /* ANTestTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB31D721D7F382900019D11 /* ANTestTableCell.m */; };
+		8CB31D951D7F382900019D11 /* ANTestViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB31D741D7F382900019D11 /* ANTestViewModel.m */; };
 		D7EC43B21D50C7DE00128012 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		D7EC43B31D50C7DE00128012 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		D7EC43B61D50C7EB00128012 /* (null) in Resources */ = {isa = PBXBuildFile; };
@@ -67,49 +68,6 @@
 
 /* Begin PBXFileReference section */
 		019F2C73D93E6032B674EAE3 /* Pods-Alister-Example-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister-Example-Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Alister-Example-Tests/Pods-Alister-Example-Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		07148BD61D7F35A20003312E /* ANTestableListControllerReloadOperationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTestableListControllerReloadOperationDelegate.h; sourceTree = "<group>"; };
-		07148BD71D7F35A20003312E /* ANTestableListControllerReloadOperationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTestableListControllerReloadOperationDelegate.m; sourceTree = "<group>"; };
-		07148BD81D7F35A20003312E /* ANTestableListControllerUpdateOperationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTestableListControllerUpdateOperationDelegate.h; sourceTree = "<group>"; };
-		07148BD91D7F35A20003312E /* ANTestableListControllerUpdateOperationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTestableListControllerUpdateOperationDelegate.m; sourceTree = "<group>"; };
-		07148BDA1D7F35A20003312E /* ANTestableListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTestableListView.h; sourceTree = "<group>"; };
-		07148BDB1D7F35A20003312E /* ANTestableListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTestableListView.m; sourceTree = "<group>"; };
-		07148BDC1D7F35A20003312E /* ANTestableTableUpdateOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTestableTableUpdateOperation.h; sourceTree = "<group>"; };
-		07148BDD1D7F35A20003312E /* ANTestableTableUpdateOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTestableTableUpdateOperation.m; sourceTree = "<group>"; };
-		07148BDE1D7F35A20003312E /* ANTestableTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTestableTableView.h; sourceTree = "<group>"; };
-		07148BDF1D7F35A20003312E /* ANTestableTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTestableTableView.m; sourceTree = "<group>"; };
-		07148BE01D7F35A20003312E /* ANTestableTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTestableTextField.h; sourceTree = "<group>"; };
-		07148BE11D7F35A20003312E /* ANTestableTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTestableTextField.m; sourceTree = "<group>"; };
-		07148BE21D7F35A20003312E /* ANTestableTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTestableTouch.h; sourceTree = "<group>"; };
-		07148BE31D7F35A20003312E /* ANTestableTouch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTestableTouch.m; sourceTree = "<group>"; };
-		07148BE41D7F35A20003312E /* ANTestKeyboardHandlerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTestKeyboardHandlerDelegate.h; sourceTree = "<group>"; };
-		07148BE51D7F35A20003312E /* ANTestKeyboardHandlerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTestKeyboardHandlerDelegate.m; sourceTree = "<group>"; };
-		07148BE61D7F35A20003312E /* ANTestTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTestTableCell.h; sourceTree = "<group>"; };
-		07148BE71D7F35A20003312E /* ANTestTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTestTableCell.m; sourceTree = "<group>"; };
-		07148BE81D7F35A20003312E /* ANTestViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTestViewModel.h; sourceTree = "<group>"; };
-		07148BE91D7F35A20003312E /* ANTestViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTestViewModel.m; sourceTree = "<group>"; };
-		07148BEC1D7F35A20003312E /* ANKeyboardHandlerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKeyboardHandlerTest.m; sourceTree = "<group>"; };
-		07148BEE1D7F35A20003312E /* ANCollectionControllerConfigurationModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANCollectionControllerConfigurationModelTest.m; sourceTree = "<group>"; };
-		07148BEF1D7F35A20003312E /* ANCollectionControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANCollectionControllerTest.m; sourceTree = "<group>"; };
-		07148BF01D7F35A20003312E /* ANListControllerMappingModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANListControllerMappingModelTest.m; sourceTree = "<group>"; };
-		07148BF11D7F35A20003312E /* ANTableControllerReusableTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTableControllerReusableTest.m; sourceTree = "<group>"; };
-		07148BF21D7F35A20003312E /* ANTableControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTableControllerTest.m; sourceTree = "<group>"; };
-		07148BF41D7F35A20003312E /* ANListControllerReloadOperationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANListControllerReloadOperationTests.m; sourceTree = "<group>"; };
-		07148BF61D7F35A20003312E /* ANListControllerSearchManagerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANListControllerSearchManagerTest.m; sourceTree = "<group>"; };
-		07148BF81D7F35A20003312E /* ANBaseTableViewHeaderFooterViewTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANBaseTableViewHeaderFooterViewTests.m; sourceTree = "<group>"; };
-		07148BF91D7F35A20003312E /* ANCollectionViewCellTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANCollectionViewCellTests.m; sourceTree = "<group>"; };
-		07148BFA1D7F35A20003312E /* ANCollectionViewTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANCollectionViewTest.m; sourceTree = "<group>"; };
-		07148BFB1D7F35A20003312E /* ANTableViewTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTableViewTests.m; sourceTree = "<group>"; };
-		07148BFC1D7F35A20003312E /* ANTestTableHeaderFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTestTableHeaderFooter.h; sourceTree = "<group>"; };
-		07148BFD1D7F35A20003312E /* ANTestTableHeaderFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTestTableHeaderFooter.m; sourceTree = "<group>"; };
-		07148BFF1D7F35A20003312E /* ANStorageControllerCRUDTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageControllerCRUDTest.m; sourceTree = "<group>"; };
-		07148C001D7F35A20003312E /* ANStorageModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageModelTest.m; sourceTree = "<group>"; };
-		07148C011D7F35A20003312E /* ANStorageModelTestAlternative.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageModelTestAlternative.m; sourceTree = "<group>"; };
-		07148C021D7F35A20003312E /* ANStorageMovedIndexPathModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageMovedIndexPathModelTest.m; sourceTree = "<group>"; };
-		07148C031D7F35A20003312E /* ANStorageRemoverTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageRemoverTest.m; sourceTree = "<group>"; };
-		07148C041D7F35A20003312E /* ANStorageSectionModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageSectionModelTest.m; sourceTree = "<group>"; };
-		07148C051D7F35A20003312E /* ANStorageUpdateModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageUpdateModelTest.m; sourceTree = "<group>"; };
-		07148C061D7F35A20003312E /* ANStorageUpdaterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageUpdaterTests.m; sourceTree = "<group>"; };
-		07148C081D7F35A20003312E /* ANTableControllerUpdateOperationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTableControllerUpdateOperationTests.m; sourceTree = "<group>"; };
 		07CE62481D5169B300D1A43C /* Tests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		12C7B2C3A579D51E17C98434 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		5A48C1C6D522CC417AF71E09 /* Pods-Alister-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister-Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Alister-Example/Pods-Alister-Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -118,6 +76,50 @@
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		6003F591195388D20070C39A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		8CB31D421D7F382900019D11 /* ANKeyboardHandlerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKeyboardHandlerTest.m; sourceTree = "<group>"; };
+		8CB31D441D7F382900019D11 /* ANCollectionControllerConfigurationModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANCollectionControllerConfigurationModelTest.m; sourceTree = "<group>"; };
+		8CB31D451D7F382900019D11 /* ANCollectionControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANCollectionControllerTest.m; sourceTree = "<group>"; };
+		8CB31D461D7F382900019D11 /* ANListControllerMappingModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANListControllerMappingModelTest.m; sourceTree = "<group>"; };
+		8CB31D471D7F382900019D11 /* ANTableControllerReusableTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTableControllerReusableTest.m; sourceTree = "<group>"; };
+		8CB31D481D7F382900019D11 /* ANTableControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTableControllerTest.m; sourceTree = "<group>"; };
+		8CB31D4A1D7F382900019D11 /* ANListControllerReloadOperationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANListControllerReloadOperationTests.m; sourceTree = "<group>"; };
+		8CB31D4C1D7F382900019D11 /* ANListControllerSearchManagerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANListControllerSearchManagerTest.m; sourceTree = "<group>"; };
+		8CB31D4E1D7F382900019D11 /* ANBaseTableViewHeaderFooterViewTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANBaseTableViewHeaderFooterViewTests.m; sourceTree = "<group>"; };
+		8CB31D4F1D7F382900019D11 /* ANCollectionReusableViewTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANCollectionReusableViewTests.m; sourceTree = "<group>"; };
+		8CB31D501D7F382900019D11 /* ANCollectionViewCellTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANCollectionViewCellTests.m; sourceTree = "<group>"; };
+		8CB31D511D7F382900019D11 /* ANCollectionViewTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANCollectionViewTest.m; sourceTree = "<group>"; };
+		8CB31D521D7F382900019D11 /* ANTableViewTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTableViewTests.m; sourceTree = "<group>"; };
+		8CB31D531D7F382900019D11 /* ANTestTableHeaderFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTestTableHeaderFooter.h; sourceTree = "<group>"; };
+		8CB31D541D7F382900019D11 /* ANTestTableHeaderFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTestTableHeaderFooter.m; sourceTree = "<group>"; };
+		8CB31D561D7F382900019D11 /* ANStorageControllerCRUDTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageControllerCRUDTest.m; sourceTree = "<group>"; };
+		8CB31D571D7F382900019D11 /* ANStorageModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageModelTest.m; sourceTree = "<group>"; };
+		8CB31D581D7F382900019D11 /* ANStorageModelTestAlternative.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageModelTestAlternative.m; sourceTree = "<group>"; };
+		8CB31D591D7F382900019D11 /* ANStorageMovedIndexPathModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageMovedIndexPathModelTest.m; sourceTree = "<group>"; };
+		8CB31D5A1D7F382900019D11 /* ANStorageRemoverTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageRemoverTest.m; sourceTree = "<group>"; };
+		8CB31D5B1D7F382900019D11 /* ANStorageSectionModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageSectionModelTest.m; sourceTree = "<group>"; };
+		8CB31D5C1D7F382900019D11 /* ANStorageUpdateModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageUpdateModelTest.m; sourceTree = "<group>"; };
+		8CB31D5D1D7F382900019D11 /* ANStorageUpdaterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageUpdaterTests.m; sourceTree = "<group>"; };
+		8CB31D5F1D7F382900019D11 /* ANTableControllerUpdateOperationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTableControllerUpdateOperationTests.m; sourceTree = "<group>"; };
+		8CB31D611D7F382900019D11 /* ANTestableListControllerReloadOperationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTestableListControllerReloadOperationDelegate.h; sourceTree = "<group>"; };
+		8CB31D621D7F382900019D11 /* ANTestableListControllerReloadOperationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTestableListControllerReloadOperationDelegate.m; sourceTree = "<group>"; };
+		8CB31D631D7F382900019D11 /* ANTestableListControllerUpdateOperationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTestableListControllerUpdateOperationDelegate.h; sourceTree = "<group>"; };
+		8CB31D641D7F382900019D11 /* ANTestableListControllerUpdateOperationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTestableListControllerUpdateOperationDelegate.m; sourceTree = "<group>"; };
+		8CB31D651D7F382900019D11 /* ANTestableListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTestableListView.h; sourceTree = "<group>"; };
+		8CB31D661D7F382900019D11 /* ANTestableListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTestableListView.m; sourceTree = "<group>"; };
+		8CB31D671D7F382900019D11 /* ANTestableTableUpdateOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTestableTableUpdateOperation.h; sourceTree = "<group>"; };
+		8CB31D681D7F382900019D11 /* ANTestableTableUpdateOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTestableTableUpdateOperation.m; sourceTree = "<group>"; };
+		8CB31D691D7F382900019D11 /* ANTestableTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTestableTableView.h; sourceTree = "<group>"; };
+		8CB31D6A1D7F382900019D11 /* ANTestableTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTestableTableView.m; sourceTree = "<group>"; };
+		8CB31D6B1D7F382900019D11 /* ANTestableTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTestableTextField.h; sourceTree = "<group>"; };
+		8CB31D6C1D7F382900019D11 /* ANTestableTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTestableTextField.m; sourceTree = "<group>"; };
+		8CB31D6D1D7F382900019D11 /* ANTestableTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTestableTouch.h; sourceTree = "<group>"; };
+		8CB31D6E1D7F382900019D11 /* ANTestableTouch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTestableTouch.m; sourceTree = "<group>"; };
+		8CB31D6F1D7F382900019D11 /* ANTestKeyboardHandlerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTestKeyboardHandlerDelegate.h; sourceTree = "<group>"; };
+		8CB31D701D7F382900019D11 /* ANTestKeyboardHandlerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTestKeyboardHandlerDelegate.m; sourceTree = "<group>"; };
+		8CB31D711D7F382900019D11 /* ANTestTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTestTableCell.h; sourceTree = "<group>"; };
+		8CB31D721D7F382900019D11 /* ANTestTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTestTableCell.m; sourceTree = "<group>"; };
+		8CB31D731D7F382900019D11 /* ANTestViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTestViewModel.h; sourceTree = "<group>"; };
+		8CB31D741D7F382900019D11 /* ANTestViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTestViewModel.m; sourceTree = "<group>"; };
 		A8D594C6A1CAF9F8A83D2691 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		AFB91A3C0505789B7F9CF1F3 /* Pods_Alister_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Alister_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB2099F6E4049388FFBA7187 /* Pods-Alister-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister-Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Alister-Example/Pods-Alister-Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -161,119 +163,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		07148BD51D7F35A20003312E /* HelperClasses */ = {
-			isa = PBXGroup;
-			children = (
-				07148BD61D7F35A20003312E /* ANTestableListControllerReloadOperationDelegate.h */,
-				07148BD71D7F35A20003312E /* ANTestableListControllerReloadOperationDelegate.m */,
-				07148BD81D7F35A20003312E /* ANTestableListControllerUpdateOperationDelegate.h */,
-				07148BD91D7F35A20003312E /* ANTestableListControllerUpdateOperationDelegate.m */,
-				07148BDA1D7F35A20003312E /* ANTestableListView.h */,
-				07148BDB1D7F35A20003312E /* ANTestableListView.m */,
-				07148BDC1D7F35A20003312E /* ANTestableTableUpdateOperation.h */,
-				07148BDD1D7F35A20003312E /* ANTestableTableUpdateOperation.m */,
-				07148BDE1D7F35A20003312E /* ANTestableTableView.h */,
-				07148BDF1D7F35A20003312E /* ANTestableTableView.m */,
-				07148BE01D7F35A20003312E /* ANTestableTextField.h */,
-				07148BE11D7F35A20003312E /* ANTestableTextField.m */,
-				07148BE21D7F35A20003312E /* ANTestableTouch.h */,
-				07148BE31D7F35A20003312E /* ANTestableTouch.m */,
-				07148BE41D7F35A20003312E /* ANTestKeyboardHandlerDelegate.h */,
-				07148BE51D7F35A20003312E /* ANTestKeyboardHandlerDelegate.m */,
-				07148BE61D7F35A20003312E /* ANTestTableCell.h */,
-				07148BE71D7F35A20003312E /* ANTestTableCell.m */,
-				07148BE81D7F35A20003312E /* ANTestViewModel.h */,
-				07148BE91D7F35A20003312E /* ANTestViewModel.m */,
-			);
-			path = HelperClasses;
-			sourceTree = "<group>";
-		};
-		07148BEA1D7F35A20003312E /* Alister */ = {
-			isa = PBXGroup;
-			children = (
-				07148BEB1D7F35A20003312E /* ANKeyboardHandler */,
-				07148BED1D7F35A20003312E /* ANListController */,
-				07148BF31D7F35A20003312E /* ANListControllerReloadOperationTests */,
-				07148BF51D7F35A20003312E /* ANListControllerSearchManagerTests */,
-				07148BF71D7F35A20003312E /* ANPrototypingUIKit */,
-				07148BFE1D7F35A20003312E /* ANStorage */,
-				07148C071D7F35A20003312E /* ANTableControllerUpdateOperationTests */,
-			);
-			path = Alister;
-			sourceTree = "<group>";
-		};
-		07148BEB1D7F35A20003312E /* ANKeyboardHandler */ = {
-			isa = PBXGroup;
-			children = (
-				07148BEC1D7F35A20003312E /* ANKeyboardHandlerTest.m */,
-			);
-			path = ANKeyboardHandler;
-			sourceTree = "<group>";
-		};
-		07148BED1D7F35A20003312E /* ANListController */ = {
-			isa = PBXGroup;
-			children = (
-				07148BEE1D7F35A20003312E /* ANCollectionControllerConfigurationModelTest.m */,
-				07148BEF1D7F35A20003312E /* ANCollectionControllerTest.m */,
-				07148BF01D7F35A20003312E /* ANListControllerMappingModelTest.m */,
-				07148BF11D7F35A20003312E /* ANTableControllerReusableTest.m */,
-				07148BF21D7F35A20003312E /* ANTableControllerTest.m */,
-			);
-			path = ANListController;
-			sourceTree = "<group>";
-		};
-		07148BF31D7F35A20003312E /* ANListControllerReloadOperationTests */ = {
-			isa = PBXGroup;
-			children = (
-				07148BF41D7F35A20003312E /* ANListControllerReloadOperationTests.m */,
-			);
-			path = ANListControllerReloadOperationTests;
-			sourceTree = "<group>";
-		};
-		07148BF51D7F35A20003312E /* ANListControllerSearchManagerTests */ = {
-			isa = PBXGroup;
-			children = (
-				07148BF61D7F35A20003312E /* ANListControllerSearchManagerTest.m */,
-			);
-			path = ANListControllerSearchManagerTests;
-			sourceTree = "<group>";
-		};
-		07148BF71D7F35A20003312E /* ANPrototypingUIKit */ = {
-			isa = PBXGroup;
-			children = (
-				07148BF81D7F35A20003312E /* ANBaseTableViewHeaderFooterViewTests.m */,
-				07148BF91D7F35A20003312E /* ANCollectionViewCellTests.m */,
-				07148BFA1D7F35A20003312E /* ANCollectionViewTest.m */,
-				07148BFB1D7F35A20003312E /* ANTableViewTests.m */,
-				07148BFC1D7F35A20003312E /* ANTestTableHeaderFooter.h */,
-				07148BFD1D7F35A20003312E /* ANTestTableHeaderFooter.m */,
-			);
-			path = ANPrototypingUIKit;
-			sourceTree = "<group>";
-		};
-		07148BFE1D7F35A20003312E /* ANStorage */ = {
-			isa = PBXGroup;
-			children = (
-				07148BFF1D7F35A20003312E /* ANStorageControllerCRUDTest.m */,
-				07148C001D7F35A20003312E /* ANStorageModelTest.m */,
-				07148C011D7F35A20003312E /* ANStorageModelTestAlternative.m */,
-				07148C021D7F35A20003312E /* ANStorageMovedIndexPathModelTest.m */,
-				07148C031D7F35A20003312E /* ANStorageRemoverTest.m */,
-				07148C041D7F35A20003312E /* ANStorageSectionModelTest.m */,
-				07148C051D7F35A20003312E /* ANStorageUpdateModelTest.m */,
-				07148C061D7F35A20003312E /* ANStorageUpdaterTests.m */,
-			);
-			path = ANStorage;
-			sourceTree = "<group>";
-		};
-		07148C071D7F35A20003312E /* ANTableControllerUpdateOperationTests */ = {
-			isa = PBXGroup;
-			children = (
-				07148C081D7F35A20003312E /* ANTableControllerUpdateOperationTests.m */,
-			);
-			path = ANTableControllerUpdateOperationTests;
-			sourceTree = "<group>";
-		};
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
@@ -344,11 +233,125 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
+		8CB31D401D7F382900019D11 /* Alister */ = {
+			isa = PBXGroup;
+			children = (
+				8CB31D411D7F382900019D11 /* ANKeyboardHandler */,
+				8CB31D431D7F382900019D11 /* ANListController */,
+				8CB31D491D7F382900019D11 /* ANListControllerReloadOperationTests */,
+				8CB31D4B1D7F382900019D11 /* ANListControllerSearchManagerTests */,
+				8CB31D4D1D7F382900019D11 /* ANPrototypingUIKit */,
+				8CB31D551D7F382900019D11 /* ANStorage */,
+				8CB31D5E1D7F382900019D11 /* ANTableControllerUpdateOperationTests */,
+			);
+			path = Alister;
+			sourceTree = "<group>";
+		};
+		8CB31D411D7F382900019D11 /* ANKeyboardHandler */ = {
+			isa = PBXGroup;
+			children = (
+				8CB31D421D7F382900019D11 /* ANKeyboardHandlerTest.m */,
+			);
+			path = ANKeyboardHandler;
+			sourceTree = "<group>";
+		};
+		8CB31D431D7F382900019D11 /* ANListController */ = {
+			isa = PBXGroup;
+			children = (
+				8CB31D441D7F382900019D11 /* ANCollectionControllerConfigurationModelTest.m */,
+				8CB31D451D7F382900019D11 /* ANCollectionControllerTest.m */,
+				8CB31D461D7F382900019D11 /* ANListControllerMappingModelTest.m */,
+				8CB31D471D7F382900019D11 /* ANTableControllerReusableTest.m */,
+				8CB31D481D7F382900019D11 /* ANTableControllerTest.m */,
+			);
+			path = ANListController;
+			sourceTree = "<group>";
+		};
+		8CB31D491D7F382900019D11 /* ANListControllerReloadOperationTests */ = {
+			isa = PBXGroup;
+			children = (
+				8CB31D4A1D7F382900019D11 /* ANListControllerReloadOperationTests.m */,
+			);
+			path = ANListControllerReloadOperationTests;
+			sourceTree = "<group>";
+		};
+		8CB31D4B1D7F382900019D11 /* ANListControllerSearchManagerTests */ = {
+			isa = PBXGroup;
+			children = (
+				8CB31D4C1D7F382900019D11 /* ANListControllerSearchManagerTest.m */,
+			);
+			path = ANListControllerSearchManagerTests;
+			sourceTree = "<group>";
+		};
+		8CB31D4D1D7F382900019D11 /* ANPrototypingUIKit */ = {
+			isa = PBXGroup;
+			children = (
+				8CB31D4E1D7F382900019D11 /* ANBaseTableViewHeaderFooterViewTests.m */,
+				8CB31D4F1D7F382900019D11 /* ANCollectionReusableViewTests.m */,
+				8CB31D501D7F382900019D11 /* ANCollectionViewCellTests.m */,
+				8CB31D511D7F382900019D11 /* ANCollectionViewTest.m */,
+				8CB31D521D7F382900019D11 /* ANTableViewTests.m */,
+				8CB31D531D7F382900019D11 /* ANTestTableHeaderFooter.h */,
+				8CB31D541D7F382900019D11 /* ANTestTableHeaderFooter.m */,
+			);
+			path = ANPrototypingUIKit;
+			sourceTree = "<group>";
+		};
+		8CB31D551D7F382900019D11 /* ANStorage */ = {
+			isa = PBXGroup;
+			children = (
+				8CB31D561D7F382900019D11 /* ANStorageControllerCRUDTest.m */,
+				8CB31D571D7F382900019D11 /* ANStorageModelTest.m */,
+				8CB31D581D7F382900019D11 /* ANStorageModelTestAlternative.m */,
+				8CB31D591D7F382900019D11 /* ANStorageMovedIndexPathModelTest.m */,
+				8CB31D5A1D7F382900019D11 /* ANStorageRemoverTest.m */,
+				8CB31D5B1D7F382900019D11 /* ANStorageSectionModelTest.m */,
+				8CB31D5C1D7F382900019D11 /* ANStorageUpdateModelTest.m */,
+				8CB31D5D1D7F382900019D11 /* ANStorageUpdaterTests.m */,
+			);
+			path = ANStorage;
+			sourceTree = "<group>";
+		};
+		8CB31D5E1D7F382900019D11 /* ANTableControllerUpdateOperationTests */ = {
+			isa = PBXGroup;
+			children = (
+				8CB31D5F1D7F382900019D11 /* ANTableControllerUpdateOperationTests.m */,
+			);
+			path = ANTableControllerUpdateOperationTests;
+			sourceTree = "<group>";
+		};
+		8CB31D601D7F382900019D11 /* HelperClasses */ = {
+			isa = PBXGroup;
+			children = (
+				8CB31D611D7F382900019D11 /* ANTestableListControllerReloadOperationDelegate.h */,
+				8CB31D621D7F382900019D11 /* ANTestableListControllerReloadOperationDelegate.m */,
+				8CB31D631D7F382900019D11 /* ANTestableListControllerUpdateOperationDelegate.h */,
+				8CB31D641D7F382900019D11 /* ANTestableListControllerUpdateOperationDelegate.m */,
+				8CB31D651D7F382900019D11 /* ANTestableListView.h */,
+				8CB31D661D7F382900019D11 /* ANTestableListView.m */,
+				8CB31D671D7F382900019D11 /* ANTestableTableUpdateOperation.h */,
+				8CB31D681D7F382900019D11 /* ANTestableTableUpdateOperation.m */,
+				8CB31D691D7F382900019D11 /* ANTestableTableView.h */,
+				8CB31D6A1D7F382900019D11 /* ANTestableTableView.m */,
+				8CB31D6B1D7F382900019D11 /* ANTestableTextField.h */,
+				8CB31D6C1D7F382900019D11 /* ANTestableTextField.m */,
+				8CB31D6D1D7F382900019D11 /* ANTestableTouch.h */,
+				8CB31D6E1D7F382900019D11 /* ANTestableTouch.m */,
+				8CB31D6F1D7F382900019D11 /* ANTestKeyboardHandlerDelegate.h */,
+				8CB31D701D7F382900019D11 /* ANTestKeyboardHandlerDelegate.m */,
+				8CB31D711D7F382900019D11 /* ANTestTableCell.h */,
+				8CB31D721D7F382900019D11 /* ANTestTableCell.m */,
+				8CB31D731D7F382900019D11 /* ANTestViewModel.h */,
+				8CB31D741D7F382900019D11 /* ANTestViewModel.m */,
+			);
+			path = HelperClasses;
+			sourceTree = "<group>";
+		};
 		D7EC43CD1D512EE300128012 /* Alister-Example-Tests */ = {
 			isa = PBXGroup;
 			children = (
-				07148BD51D7F35A20003312E /* HelperClasses */,
-				07148BEA1D7F35A20003312E /* Alister */,
+				8CB31D401D7F382900019D11 /* Alister */,
+				8CB31D601D7F382900019D11 /* HelperClasses */,
 				07CE62481D5169B300D1A43C /* Tests-Prefix.pch */,
 				D7EC43D01D512EE300128012 /* Info.plist */,
 			);
@@ -373,7 +376,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6003F5BF195388D20070C39A /* Build configuration list for PBXNativeTarget "Alister-Example" */;
 			buildPhases = (
-				8DEFFEDDAE67F3651325332D /* 📦 Check Pods Manifest.lock */,
+				8DEFFEDDAE67F3651325332D /* [CP] Check Pods Manifest.lock */,
 				59A0B9A8A89BB973779AF899 /* [CP] Check Pods Manifest.lock */,
 				6003F586195388D20070C39A /* Sources */,
 				6003F587195388D20070C39A /* Frameworks */,
@@ -382,7 +385,6 @@
 				7026C6C66CCE5A847CEDB1A9 /* [CP] Copy Pods Resources */,
 				D08A4EF17770C1C105F37053 /* 📦 Embed Pods Frameworks */,
 				10AA9226888A63821B7F7B0E /* 📦 Copy Pods Resources */,
-				108EC76494EBA4BA9885677C /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -397,7 +399,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D7EC43D31D512EE300128012 /* Build configuration list for PBXNativeTarget "Alister-Example-Tests" */;
 			buildPhases = (
-				57D5A486518A6A5E7C136536 /* 📦 Check Pods Manifest.lock */,
+				57D5A486518A6A5E7C136536 /* [CP] Check Pods Manifest.lock */,
 				F021BB144B54D21DD699B183 /* [CP] Check Pods Manifest.lock */,
 				D7EC43C81D512EE300128012 /* Sources */,
 				D7EC43C91D512EE300128012 /* Frameworks */,
@@ -406,7 +408,6 @@
 				C4FA3412C402A21750F737FF /* [CP] Copy Pods Resources */,
 				305A6DD883E3CEEFE78A4585 /* 📦 Embed Pods Frameworks */,
 				D56DD72273A720591DF36757 /* 📦 Copy Pods Resources */,
-				C3BBF901324A58B6CFADABE6 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -476,21 +477,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		108EC76494EBA4BA9885677C /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Alister-Example/Pods-Alister-Example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		10AA9226888A63821B7F7B0E /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -521,14 +507,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Alister-Example-Tests/Pods-Alister-Example-Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		57D5A486518A6A5E7C136536 /* 📦 Check Pods Manifest.lock */ = {
+		57D5A486518A6A5E7C136536 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -596,34 +582,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Alister-Example-Tests/Pods-Alister-Example-Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8DEFFEDDAE67F3651325332D /* 📦 Check Pods Manifest.lock */ = {
+		8DEFFEDDAE67F3651325332D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		C3BBF901324A58B6CFADABE6 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Alister-Example-Tests/Pods-Alister-Example-Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C4FA3412C402A21750F737FF /* [CP] Copy Pods Resources */ = {
@@ -704,38 +675,39 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07148C211D7F35A20003312E /* ANStorageModelTest.m in Sources */,
-				07148C261D7F35A20003312E /* ANStorageUpdateModelTest.m in Sources */,
-				07148C0D1D7F35A20003312E /* ANTestableTableView.m in Sources */,
-				07148C151D7F35A20003312E /* ANCollectionControllerTest.m in Sources */,
-				07148C281D7F35A20003312E /* ANTableControllerUpdateOperationTests.m in Sources */,
-				07148C0C1D7F35A20003312E /* ANTestableTableUpdateOperation.m in Sources */,
-				07148C221D7F35A20003312E /* ANStorageModelTestAlternative.m in Sources */,
-				07148C131D7F35A20003312E /* ANKeyboardHandlerTest.m in Sources */,
-				07148C0F1D7F35A20003312E /* ANTestableTouch.m in Sources */,
-				07148C101D7F35A20003312E /* ANTestKeyboardHandlerDelegate.m in Sources */,
-				07148C231D7F35A20003312E /* ANStorageMovedIndexPathModelTest.m in Sources */,
-				07148C1A1D7F35A20003312E /* ANListControllerSearchManagerTest.m in Sources */,
-				07148C141D7F35A20003312E /* ANCollectionControllerConfigurationModelTest.m in Sources */,
-				07148C251D7F35A20003312E /* ANStorageSectionModelTest.m in Sources */,
-				07148C111D7F35A20003312E /* ANTestTableCell.m in Sources */,
-				07148C121D7F35A20003312E /* ANTestViewModel.m in Sources */,
-				07148C171D7F35A20003312E /* ANTableControllerReusableTest.m in Sources */,
-				07148C0E1D7F35A20003312E /* ANTestableTextField.m in Sources */,
-				07148C0A1D7F35A20003312E /* ANTestableListControllerUpdateOperationDelegate.m in Sources */,
-				07148C161D7F35A20003312E /* ANListControllerMappingModelTest.m in Sources */,
-				07148C1E1D7F35A20003312E /* ANTableViewTests.m in Sources */,
-				07148C181D7F35A20003312E /* ANTableControllerTest.m in Sources */,
-				07148C271D7F35A20003312E /* ANStorageUpdaterTests.m in Sources */,
-				07148C0B1D7F35A20003312E /* ANTestableListView.m in Sources */,
-				07148C1F1D7F35A20003312E /* ANTestTableHeaderFooter.m in Sources */,
-				07148C1B1D7F35A20003312E /* ANBaseTableViewHeaderFooterViewTests.m in Sources */,
-				07148C191D7F35A20003312E /* ANListControllerReloadOperationTests.m in Sources */,
-				07148C091D7F35A20003312E /* ANTestableListControllerReloadOperationDelegate.m in Sources */,
-				07148C1C1D7F35A20003312E /* ANCollectionViewCellTests.m in Sources */,
-				07148C241D7F35A20003312E /* ANStorageRemoverTest.m in Sources */,
-				07148C201D7F35A20003312E /* ANStorageControllerCRUDTest.m in Sources */,
-				07148C1D1D7F35A20003312E /* ANCollectionViewTest.m in Sources */,
+				8CB31D911D7F382900019D11 /* ANTestableTextField.m in Sources */,
+				8CB31D881D7F382900019D11 /* ANStorageSectionModelTest.m in Sources */,
+				8CB31D7E1D7F382900019D11 /* ANCollectionReusableViewTests.m in Sources */,
+				8CB31D941D7F382900019D11 /* ANTestTableCell.m in Sources */,
+				8CB31D8A1D7F382900019D11 /* ANStorageUpdaterTests.m in Sources */,
+				8CB31D931D7F382900019D11 /* ANTestKeyboardHandlerDelegate.m in Sources */,
+				8CB31D951D7F382900019D11 /* ANTestViewModel.m in Sources */,
+				8CB31D921D7F382900019D11 /* ANTestableTouch.m in Sources */,
+				8CB31D751D7F382900019D11 /* ANKeyboardHandlerTest.m in Sources */,
+				8CB31D871D7F382900019D11 /* ANStorageRemoverTest.m in Sources */,
+				8CB31D811D7F382900019D11 /* ANTableViewTests.m in Sources */,
+				8CB31D7A1D7F382900019D11 /* ANTableControllerTest.m in Sources */,
+				8CB31D841D7F382900019D11 /* ANStorageModelTest.m in Sources */,
+				8CB31D7B1D7F382900019D11 /* ANListControllerReloadOperationTests.m in Sources */,
+				8CB31D8E1D7F382900019D11 /* ANTestableListView.m in Sources */,
+				8CB31D781D7F382900019D11 /* ANListControllerMappingModelTest.m in Sources */,
+				8CB31D851D7F382900019D11 /* ANStorageModelTestAlternative.m in Sources */,
+				8CB31D891D7F382900019D11 /* ANStorageUpdateModelTest.m in Sources */,
+				8CB31D861D7F382900019D11 /* ANStorageMovedIndexPathModelTest.m in Sources */,
+				8CB31D901D7F382900019D11 /* ANTestableTableView.m in Sources */,
+				8CB31D8B1D7F382900019D11 /* ANTableControllerUpdateOperationTests.m in Sources */,
+				8CB31D8F1D7F382900019D11 /* ANTestableTableUpdateOperation.m in Sources */,
+				8CB31D771D7F382900019D11 /* ANCollectionControllerTest.m in Sources */,
+				8CB31D7F1D7F382900019D11 /* ANCollectionViewCellTests.m in Sources */,
+				8CB31D761D7F382900019D11 /* ANCollectionControllerConfigurationModelTest.m in Sources */,
+				8CB31D7D1D7F382900019D11 /* ANBaseTableViewHeaderFooterViewTests.m in Sources */,
+				8CB31D8C1D7F382900019D11 /* ANTestableListControllerReloadOperationDelegate.m in Sources */,
+				8CB31D831D7F382900019D11 /* ANStorageControllerCRUDTest.m in Sources */,
+				8CB31D8D1D7F382900019D11 /* ANTestableListControllerUpdateOperationDelegate.m in Sources */,
+				8CB31D7C1D7F382900019D11 /* ANListControllerSearchManagerTest.m in Sources */,
+				8CB31D821D7F382900019D11 /* ANTestTableHeaderFooter.m in Sources */,
+				8CB31D791D7F382900019D11 /* ANTableControllerReusableTest.m in Sources */,
+				8CB31D801D7F382900019D11 /* ANCollectionViewTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
