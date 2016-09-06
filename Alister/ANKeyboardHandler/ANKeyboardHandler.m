@@ -7,7 +7,6 @@
 
 #import "ANKeyboardHandler.h"
 
-static const CGFloat kCalculatedContentPadding = 10;
 static const CGFloat kMinimumScrollOffsetPadding = 20;
 
 @interface ANKeyboardHandler () <UIGestureRecognizerDelegate>
