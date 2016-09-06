@@ -43,27 +43,39 @@
     expect(self.view.textLabel.text).to.equal(model);
 }
 
-- (void)test_updateWithModel_negative_textLabelTextNotEqualModel
+- (void)test_updateWithModel_negative_calledWithoutExceptionWhenModelIsNotNSStringClass
+{
+    // given
+    id model = [NSDictionary dictionary];
+    // when
+    void(^testBlock)() = ^() {
+        [self.view updateWithModel:model];
+    };
+    // then
+    expect(testBlock).notTo.raiseAny();
+}
+
+- (void)test_updateWithModel_negative_textLabelTextIsNilWhenModelIsNull
 {
     // given
     NSNull* model = [NSNull null];
     // when
     [self.view updateWithModel:model];
     // then
-    expect(self.view.textLabel.text).notTo.equal(model);
+    expect(self.view.textLabel.text).to.beNil();
 }
 
-- (void)test_updateWithModel_negative_textLabelTextNotNil
+- (void)test_updateWithModel_negative_textLabelTextIsNilWhenModelIsNil
 {
     // given
-    NSNull* model = nil;
+    id model = nil;
     // when
     [self.view updateWithModel:model];
     // then
-    expect(self.view.textLabel.text).notTo.beNil();
+    expect(self.view.textLabel.text).to.beNil();
 }
 
-- (void)test_updateWithModel_positive_respondUpdateWithModelSelector
+- (void)test_updateWithModel_positive_noCrashWhenUpdateWithModelCalled
 {
     expect(self.view).to.respondTo(@selector(updateWithModel:));
 }
