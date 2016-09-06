@@ -33,15 +33,43 @@
 
 #pragma mark - updateWithModel
 
-- (void)test_updateWithModel_positive_respondUpdateWithModel
+- (void)test_updateWithModel_positive_conformToListControllerUpdateViewInterface
 {
-    expect(self.reusableView).respondTo(@selector(updateWithModel:));
+    expect(self.reusableView).conformTo(@protocol(ANListControllerUpdateViewInterface));
 }
 
-- (void)test_updateWithModel_positive_unexpectedBehaviorNotHappen
+- (void)test_updateWithModel_positive_updateWithoutException
 {
     // given
     NSString* model = @"model";
+    
+    // when
+    void(^testBlock)() = ^() {
+        [self.reusableView updateWithModel:model];
+    };
+    
+    // then
+    expect(testBlock).notTo.raiseAny();
+}
+
+- (void)test_updateWithModel_negative_toNotRaiseExceptionWhenModelIsNil
+{
+    // given
+    NSString* model = nil;
+    
+    // when
+    void(^testBlock)() = ^() {
+        [self.reusableView updateWithModel:model];
+    };
+    
+    // then
+    expect(testBlock).notTo.raiseAny();
+}
+
+- (void)test_updateWithModel_negative_toNotRaiseExceptionWhenModelIsNull
+{
+    // given
+    id model = [NSNull null];
     
     // when
     void(^testBlock)() = ^() {
