@@ -108,44 +108,4 @@ static NSString* const kDefaultFooterSupplementary = @"kDefaultFooterSupplementa
     expect(self.model).to.conformTo(@protocol(ANListControllerConfigurationModelInterface));
 }
 
-- (void)test_shouldHandleKeyboard_positive_modelRespondsToSelector
-{
-    expect(self.model).respondTo(@selector(shouldHandleKeyboard));
-}
-
-- (void)test_reloadAnimationDuration_positive_modelRespondsToSelector
-{
-    expect(self.model).respondTo(@selector(reloadAnimationDuration));
-}
-
-- (void)test_reloadAnimationKey_positive_modelRespondsToSelector
-{
-    expect(self.model).respondTo(@selector(reloadAnimationKey));
-}
-
-- (void)test_setReloadAnimationKey_positive_modelRespondsToSelector
-{
-    expect(self.model).respondTo(@selector(setReloadAnimationKey:));
-}
-
-- (void)test_defaultHeaderSupplementary_positive_modelRespondsToSelector
-{
-    expect(self.model).respondTo(@selector(defaultHeaderSupplementary));
-}
-
-- (void)test_defaultFooterSupplementary_positive_modelRespondsToSelector
-{
-    expect(self.model).respondTo(@selector(defaultHeaderSupplementary));
-}
-
-- (void)test_setDefaultHeaderSupplementary_positive_modelRespondsToSelector
-{
-    expect(self.model).respondTo(@selector(setDefaultHeaderSupplementary:));
-}
-
-- (void)test_setDefaultFooterSupplementary_positive_modelRespondsToSelector
-{
-    expect(self.model).respondTo(@selector(setDefaultFooterSupplementary:));
-}
-
 @end
