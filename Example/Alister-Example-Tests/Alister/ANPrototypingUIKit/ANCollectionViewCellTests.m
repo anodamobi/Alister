@@ -51,4 +51,46 @@
     expect(testBlock).notTo.raiseAny();
 }
 
+- (void)test_updateWithModel_negative_calledWithoutExceptionWhenModelIsNil
+{
+    // given
+    NSString* model = nil;
+    
+    // when
+    void(^testBlock)() = ^() {
+        [self.cell updateWithModel:model];
+    };
+    
+    // then
+    expect(testBlock).notTo.raiseAny();
+}
+
+- (void)test_updateWithModel_negative_calledWithoutExceptionWhenModelIsNull
+{
+    // given
+    NSNull* model = [NSNull null];
+    
+    // when
+    void(^testBlock)() = ^() {
+        [self.cell updateWithModel:model];
+    };
+    
+    // then
+    expect(testBlock).notTo.raiseAny();
+}
+
+- (void)test_updateWithModel_negative_calledWithoutExceptionWhenModelIsNotNSStringClass
+{
+    // given
+    id model = [NSDictionary dictionary];
+    
+    // when
+    void(^testBlock)() = ^() {
+        [self.cell updateWithModel:model];
+    };
+    
+    // then
+    expect(testBlock).notTo.raiseAny();
+}
+
 @end
