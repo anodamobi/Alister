@@ -10,7 +10,6 @@
 #import <Expecta/Expecta.h>
 #import <OCMock/OCMock.h>
 #import "ANListControllerReloadOperation.h"
-#import <UIKit/UIKit.h>
 #import "ANTestableListControllerReloadOperationDelegate.h"
 
 @interface ANListControllerReloadOperationTests : XCTestCase
