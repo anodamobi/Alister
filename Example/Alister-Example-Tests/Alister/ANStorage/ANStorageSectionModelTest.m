@@ -46,7 +46,7 @@ static NSInteger const kMaxObjectsCount = 4;
     
     [self.sectionModel addItem:obj];
     
-    expect(countBefore + 1).haveCount(self.sectionModel.objects.count);
+    expect(self.sectionModel.objects).haveCount(countBefore + 1);
 }
 
 - (void)test_addItem_negative_toNotRaisedExceptionWhenAddNil
@@ -79,7 +79,7 @@ static NSInteger const kMaxObjectsCount = 4;
 
     [self.sectionModel insertItem:obj atIndex:0];
 
-    expect(countBefore + 1).haveCount(self.sectionModel.objects.count);
+    expect(self.sectionModel.objects).haveCount(countBefore + 1);
 }
 
 - (void)test_insertItemAtIndex_positive_whenValidData
