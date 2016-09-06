@@ -32,12 +32,12 @@
 
 #pragma mark - updateWithModel
 
-- (void)test_updateWithModel_positive_respondToUpdateWithModel
+- (void)test_updateWithModel_positive_conformToListControllerUpdateViewInterface
 {
-    expect(self.cell).respondTo(@selector(updateWithModel:));
+    expect(self.cell).conformTo(@protocol(ANListControllerUpdateViewInterface));
 }
 
-- (void)test_updateWithModel_positive_unexpectedBehaviorNotHappen
+- (void)test_updateWithModel_positive_calledWithoutException
 {
     // given
     NSString* model = @"model";
