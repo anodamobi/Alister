@@ -63,7 +63,7 @@ toPreventInsertFirstItemIssueForUpdate:(ANStorageUpdateModel*)update;
     expect(self.operaton.delegate).notTo.beNil();
 }
 
-- (void)test_delegatePropertySetuped_positive_delegateHasRightClass
+- (void)test_delegatePropertySetuped_positive_delegateHasCorrectClass
 {
     //given
     ANTestableListControllerUpdateOperationDelegate* operationDelegate = [ANTestableListControllerUpdateOperationDelegate new];
@@ -94,7 +94,7 @@ toPreventInsertFirstItemIssueForUpdate:(ANStorageUpdateModel*)update;
     expect(operation.updateModel).to.equal(updateModel);
 }
 
-- (void)test_operationWithUpdateModel_positive_afterUpdateSetupedModelIsEqualCreatedModel
+- (void)test_operationWithUpdateModel_positive_afterUpdateSetupedModelIsEqualToCreatedModel
 {
     //given
     ANStorageUpdateModel* updateModel = [ANStorageUpdateModel new];
@@ -143,7 +143,6 @@ toPreventInsertFirstItemIssueForUpdate:(ANStorageUpdateModel*)update;
         [operation main];
     };
     
-    
     //then
     expect(testBlock).raiseAny();
 }
@@ -164,7 +163,6 @@ toPreventInsertFirstItemIssueForUpdate:(ANStorageUpdateModel*)update;
     [operation storageUpdateModelGenerated:updateModel];
     id mockedOperation = OCMPartialMock(operation);
     OCMExpect([operation _performAnimatedUpdate:updateModel]);
-    
     
     //when
     [operation main];
@@ -189,7 +187,6 @@ toPreventInsertFirstItemIssueForUpdate:(ANStorageUpdateModel*)update;
     [operationDelegate updateWithTestableCollectionView:mockedCollectionView];
     operation.delegate = operationDelegate;
     OCMExpect([mockedCollectionView reloadData]);
-   
     
     //when
     [operation _performAnimatedUpdate:updateModel];
