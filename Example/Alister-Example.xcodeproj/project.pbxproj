@@ -24,7 +24,7 @@
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
-		C70BD0B81D6F2C0200463651 /* ANListControllerSearchMangerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C70BD0B71D6F2C0200463651 /* ANListControllerSearchMangerTests.m */; };
+		C70BD0B81D6F2C0200463651 /* ANListControllerSearchManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C70BD0B71D6F2C0200463651 /* ANListControllerSearchManagerTest.m */; };
 		C729247A1D6C8C7500D6C3CD /* ANTestableTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = C72924791D6C8C7500D6C3CD /* ANTestableTouch.m */; };
 		C7B852B71D6C7B3B00B030A4 /* ANTestableTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = C7B852B61D6C7B3B00B030A4 /* ANTestableTextField.m */; };
 		C7CF6A411D6C53ED00250005 /* ANTestKeyboardHandlerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C7CF6A401D6C53ED00250005 /* ANTestKeyboardHandlerDelegate.m */; };
@@ -76,7 +76,7 @@
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		A8D594C6A1CAF9F8A83D2691 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		AFB91A3C0505789B7F9CF1F3 /* Pods_Alister_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Alister_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C70BD0B71D6F2C0200463651 /* ANListControllerSearchMangerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANListControllerSearchMangerTests.m; sourceTree = "<group>"; };
+		C70BD0B71D6F2C0200463651 /* ANListControllerSearchManagerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANListControllerSearchManagerTest.m; sourceTree = "<group>"; };
 		C72924781D6C8C7500D6C3CD /* ANTestableTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTestableTouch.h; sourceTree = "<group>"; };
 		C72924791D6C8C7500D6C3CD /* ANTestableTouch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTestableTouch.m; sourceTree = "<group>"; };
 		C7B852B51D6C7B3B00B030A4 /* ANTestableTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTestableTextField.h; sourceTree = "<group>"; };
@@ -265,7 +265,7 @@
 		C70BD0B61D6F2BEE00463651 /* ANListControllerSearchManagerTests */ = {
 			isa = PBXGroup;
 			children = (
-				C70BD0B71D6F2C0200463651 /* ANListControllerSearchMangerTests.m */,
+				C70BD0B71D6F2C0200463651 /* ANListControllerSearchManagerTest.m */,
 			);
 			path = ANListControllerSearchManagerTests;
 			sourceTree = "<group>";
@@ -308,6 +308,7 @@
 				7026C6C66CCE5A847CEDB1A9 /* [CP] Copy Pods Resources */,
 				D08A4EF17770C1C105F37053 /* 📦 Embed Pods Frameworks */,
 				10AA9226888A63821B7F7B0E /* 📦 Copy Pods Resources */,
+				3CE365CEDC7E91DF29818B04 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -331,6 +332,7 @@
 				C4FA3412C402A21750F737FF /* [CP] Copy Pods Resources */,
 				305A6DD883E3CEEFE78A4585 /* 📦 Embed Pods Frameworks */,
 				D56DD72273A720591DF36757 /* 📦 Copy Pods Resources */,
+				F9DE518F87EC8DE10F5D58DD /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -428,6 +430,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Alister-Example-Tests/Pods-Alister-Example-Tests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3CE365CEDC7E91DF29818B04 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Alister-Example/Pods-Alister-Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		57D5A486518A6A5E7C136536 /* 📦 Check Pods Manifest.lock */ = {
@@ -580,6 +597,21 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		F9DE518F87EC8DE10F5D58DD /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Alister-Example-Tests/Pods-Alister-Example-Tests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -598,7 +630,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C70BD0B81D6F2C0200463651 /* ANListControllerSearchMangerTests.m in Sources */,
+				C70BD0B81D6F2C0200463651 /* ANListControllerSearchManagerTest.m in Sources */,
 				0775CC521D5DFA2B00224CAC /* ANStorageUpdateModelTest.m in Sources */,
 				0775CC511D5DFA2B00224CAC /* ANStorageSectionModelTest.m in Sources */,
 				0775CC4C1D5DFA2B00224CAC /* ANTableControllerTest.m in Sources */,

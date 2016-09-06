@@ -21,11 +21,11 @@
 
 @end
 
-@interface ANListControllerSearchMangerTests : XCTestCase <ANListControllerSearchManagerDelegate>
+@interface ANListControllerSearchManagerTest : XCTestCase <ANListControllerSearchManagerDelegate>
 
 @end
 
-@implementation ANListControllerSearchMangerTests
+@implementation ANListControllerSearchManagerTest
 
 - (void)setUp
 {
@@ -37,16 +37,7 @@
     [super tearDown];
 }
 
-- (void)test_filterSearchMangerCreated_positive_createdValidObject
-{
-    //given
-    ANListControllerSearchManager* searchManager = [ANListControllerSearchManager new];
-    
-    //then
-    expect(searchManager).notTo.beNil();
-}
-
-- (void)test_currentSearchScope_positive_hasNonScopeAfterCreation
+- (void)test_currentSearchScope_positive_hasNoScopeAfterCreation
 {
     //given
     ANListControllerSearchManager* searchManager = [ANListControllerSearchManager new];
@@ -55,7 +46,7 @@
     expect(searchManager.currentSearchScope).to.beLessThan(0);
 }
 
-- (void)test_delgate_positive_setupedDelegateNotNil
+- (void)test_delegate_positive_setupedDelegateNotNil
 {
     //given
     ANListControllerSearchManager* searchManager = [ANListControllerSearchManager new];
@@ -136,7 +127,7 @@
 
 #pragma mark - UISearchBarDelegate methods tests
 
-- (void)test_filterImtesCalled_positive_calledFromDelegateMethodTextDidEndChange
+- (void)test_filterItemsCalled_positive_calledFromDelegateMethodTextDidEndChange
 {
     //given
     NSString* searchString = @"search";
