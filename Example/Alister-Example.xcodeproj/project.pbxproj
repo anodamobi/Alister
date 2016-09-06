@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07025B361D7F79FB00C65012 /* XCTestCase+Springboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 07025B351D7F79FB00C65012 /* XCTestCase+Springboard.m */; };
 		078A75801D7F40CB003DD106 /* ANTestableCollectionUpdateOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 078A75401D7F40CB003DD106 /* ANTestableCollectionUpdateOperation.m */; };
 		078A75811D7F40CB003DD106 /* ANTestableCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 078A75421D7F40CB003DD106 /* ANTestableCollectionView.m */; };
 		078A75821D7F40CB003DD106 /* ANTestableListControllerReloadOperationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 078A75441D7F40CB003DD106 /* ANTestableListControllerReloadOperationDelegate.m */; };
@@ -48,6 +49,7 @@
 		078A75A61D7F40CB003DD106 /* ANStorageUpdaterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 078A757B1D7F40CB003DD106 /* ANStorageUpdaterTests.m */; };
 		078A75A71D7F40CB003DD106 /* ANStorageUpdateOperationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 078A757D1D7F40CB003DD106 /* ANStorageUpdateOperationTests.m */; };
 		078A75A81D7F40CB003DD106 /* ANTableControllerUpdateOperationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 078A757F1D7F40CB003DD106 /* ANTableControllerUpdateOperationTests.m */; };
+		078A75B01D7F60BE003DD106 /* Alister_Example_ExampleUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 078A75AF1D7F60BE003DD106 /* Alister_Example_ExampleUITests.m */; };
 		18A4D7C303F7904DE27F85F4 /* Pods_Alister_Example_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F19F56DDDEE034DD40E4A09E /* Pods_Alister_Example_Tests.framework */; };
 		5A95A8A6EACB63F3DAF75428 /* Pods_Alister_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFB91A3C0505789B7F9CF1F3 /* Pods_Alister_Example.framework */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
@@ -65,6 +67,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		078A75B21D7F60BE003DD106 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6003F582195388D10070C39A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6003F589195388D20070C39A;
+			remoteInfo = "Alister-Example";
+		};
 		D7EC43D11D512EE300128012 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6003F582195388D10070C39A /* Project object */;
@@ -76,6 +85,8 @@
 
 /* Begin PBXFileReference section */
 		019F2C73D93E6032B674EAE3 /* Pods-Alister-Example-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister-Example-Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Alister-Example-Tests/Pods-Alister-Example-Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		07025B341D7F79FB00C65012 /* XCTestCase+Springboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XCTestCase+Springboard.h"; sourceTree = "<group>"; };
+		07025B351D7F79FB00C65012 /* XCTestCase+Springboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XCTestCase+Springboard.m"; sourceTree = "<group>"; };
 		078A753F1D7F40CB003DD106 /* ANTestableCollectionUpdateOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTestableCollectionUpdateOperation.h; sourceTree = "<group>"; };
 		078A75401D7F40CB003DD106 /* ANTestableCollectionUpdateOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTestableCollectionUpdateOperation.m; sourceTree = "<group>"; };
 		078A75411D7F40CB003DD106 /* ANTestableCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTestableCollectionView.h; sourceTree = "<group>"; };
@@ -131,6 +142,9 @@
 		078A757B1D7F40CB003DD106 /* ANStorageUpdaterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageUpdaterTests.m; sourceTree = "<group>"; };
 		078A757D1D7F40CB003DD106 /* ANStorageUpdateOperationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageUpdateOperationTests.m; sourceTree = "<group>"; };
 		078A757F1D7F40CB003DD106 /* ANTableControllerUpdateOperationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTableControllerUpdateOperationTests.m; sourceTree = "<group>"; };
+		078A75AD1D7F60BD003DD106 /* Alister-Example-ExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Alister-Example-ExampleUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		078A75AF1D7F60BE003DD106 /* Alister_Example_ExampleUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Alister_Example_ExampleUITests.m; sourceTree = "<group>"; };
+		078A75B11D7F60BE003DD106 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07CE62481D5169B300D1A43C /* Tests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		12C7B2C3A579D51E17C98434 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		5A48C1C6D522CC417AF71E09 /* Pods-Alister-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister-Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Alister-Example/Pods-Alister-Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -160,6 +174,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		078A75AA1D7F60BD003DD106 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6003F587195388D20070C39A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -323,12 +344,24 @@
 			path = ANTableControllerUpdateOperationTests;
 			sourceTree = "<group>";
 		};
+		078A75AE1D7F60BE003DD106 /* Alister-Example-ExampleUITests */ = {
+			isa = PBXGroup;
+			children = (
+				07025B341D7F79FB00C65012 /* XCTestCase+Springboard.h */,
+				07025B351D7F79FB00C65012 /* XCTestCase+Springboard.m */,
+				078A75AF1D7F60BE003DD106 /* Alister_Example_ExampleUITests.m */,
+				078A75B11D7F60BE003DD106 /* Info.plist */,
+			);
+			path = "Alister-Example-ExampleUITests";
+			sourceTree = "<group>";
+		};
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
 				60FF7A9C1954A5C5007DD14C /* Podspec Metadata */,
 				6003F593195388D20070C39A /* Example for Alister */,
 				D7EC43CD1D512EE300128012 /* Alister-Example-Tests */,
+				078A75AE1D7F60BE003DD106 /* Alister-Example-ExampleUITests */,
 				6003F58C195388D20070C39A /* Frameworks */,
 				6003F58B195388D20070C39A /* Products */,
 				FABC739016B08881E2AEF090 /* Pods */,
@@ -340,6 +373,7 @@
 			children = (
 				6003F58A195388D20070C39A /* Alister-Example_Example.app */,
 				D7EC43CC1D512EE300128012 /* Alister-Example-Tests.xctest */,
+				078A75AD1D7F60BD003DD106 /* Alister-Example-ExampleUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -418,6 +452,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		078A75AC1D7F60BD003DD106 /* Alister-Example-ExampleUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 078A75B61D7F60BE003DD106 /* Build configuration list for PBXNativeTarget "Alister-Example-ExampleUITests" */;
+			buildPhases = (
+				078A75A91D7F60BD003DD106 /* Sources */,
+				078A75AA1D7F60BD003DD106 /* Frameworks */,
+				078A75AB1D7F60BD003DD106 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				078A75B31D7F60BE003DD106 /* PBXTargetDependency */,
+			);
+			name = "Alister-Example-ExampleUITests";
+			productName = "Alister-Example-ExampleUITests";
+			productReference = 078A75AD1D7F60BD003DD106 /* Alister-Example-ExampleUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		6003F589195388D20070C39A /* Alister-Example */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6003F5BF195388D20070C39A /* Build configuration list for PBXNativeTarget "Alister-Example" */;
@@ -477,6 +529,10 @@
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Oksana Kovalchuk";
 				TargetAttributes = {
+					078A75AC1D7F60BD003DD106 = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = 6003F589195388D20070C39A;
+					};
 					D7EC43CB1D512EE300128012 = {
 						CreatedOnToolsVersion = 7.2.1;
 						TestTargetID = 6003F589195388D20070C39A;
@@ -498,11 +554,19 @@
 			targets = (
 				6003F589195388D20070C39A /* Alister-Example */,
 				D7EC43CB1D512EE300128012 /* Alister-Example-Tests */,
+				078A75AC1D7F60BD003DD106 /* Alister-Example-ExampleUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		078A75AB1D7F60BD003DD106 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6003F588195388D20070C39A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -738,6 +802,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		078A75A91D7F60BD003DD106 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07025B361D7F79FB00C65012 /* XCTestCase+Springboard.m in Sources */,
+				078A75B01D7F60BE003DD106 /* Alister_Example_ExampleUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6003F586195388D20070C39A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -800,6 +873,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		078A75B31D7F60BE003DD106 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6003F589195388D20070C39A /* Alister-Example */;
+			targetProxy = 078A75B21D7F60BE003DD106 /* PBXContainerItemProxy */;
+		};
 		D7EC43D21D512EE300128012 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 6003F589195388D20070C39A /* Alister-Example */;
@@ -808,6 +886,42 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		078A75B41D7F60BE003DD106 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = "Alister-Example-ExampleUITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "mobi.anoda.alisterUITest.Alister-Example-ExampleUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Alister-Example-ExampleUITests/Alister-Example-ExampleUITests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TEST_TARGET_NAME = "Alister-Example";
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		078A75B51D7F60BE003DD106 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				INFOPLIST_FILE = "Alister-Example-ExampleUITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "mobi.anoda.alisterUITest.Alister-Example-ExampleUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Alister-Example-ExampleUITests/Alister-Example-ExampleUITests-Bridging-Header.h";
+				TEST_TARGET_NAME = "Alister-Example";
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
 		6003F5BD195388D20070C39A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1080,6 +1194,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		078A75B61D7F60BE003DD106 /* Build configuration list for PBXNativeTarget "Alister-Example-ExampleUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				078A75B41D7F60BE003DD106 /* Debug */,
+				078A75B51D7F60BE003DD106 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		6003F585195388D10070C39A /* Build configuration list for PBXProject "Alister-Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
