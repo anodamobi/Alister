@@ -33,9 +33,20 @@ static BOOL const kIsTransparent = YES;
     [super tearDown];
 }
 
-- (void)test_isTransparent_positive_valueIsCorrect
+#pragma mark - Setters
+
+- (void)test_isTransparent_positive_valueSetCorrectly
 {
     expect(self.view.isTransparent).equal(kIsTransparent);
+}
+
+- (void)test_isTransparent_positive_backgroundColorIsTransparent
+{
+    // when
+    self.view.isTransparent = YES;
+    
+    // then
+    expect(self.view.backgroundView).notTo.beNil();
 }
 
 @end
