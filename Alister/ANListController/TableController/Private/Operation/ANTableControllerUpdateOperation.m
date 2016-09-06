@@ -49,7 +49,7 @@
     self.executing = YES;
     if (!self.isCancelled)
     {
-        if (!self.updateModel.isEmpty)
+        if (self.updateModel && !self.updateModel.isEmpty)
         {
             [self _performAnimatedUpdate:self.updateModel];
         }
