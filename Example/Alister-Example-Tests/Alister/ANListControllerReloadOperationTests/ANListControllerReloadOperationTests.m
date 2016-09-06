@@ -47,6 +47,14 @@
     
     //then
     expect(self.operation.delegate).notTo.beNil();
+}
+
+- (void)test_delegateAfterAssignNotNil_positive_delegateHasRightClass
+{
+    //given
+    self.operation.delegate = self.delegate;
+    
+    //then
     expect(self.operation.delegate).equal(self.delegate);
 }
 
