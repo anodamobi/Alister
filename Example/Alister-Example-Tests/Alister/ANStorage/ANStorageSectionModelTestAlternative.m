@@ -41,39 +41,31 @@ static NSInteger const kMaxObjectsCount = 4;
 
 - (void)test_addItem_positive_countOfObjectsIncreasedByOne
 {
-    // given
     id obj = [NSObject new];
     NSUInteger countBefore = self.sectionModel.objects.count;
     
-    // when
     [self.sectionModel addItem:obj];
     
-    // then
-    NSUInteger countAfter = self.sectionModel.objects.count;
-    expect(countBefore + 1).to.equal(countAfter);
+    expect(countBefore + 1).haveCount(self.sectionModel.objects.count);
 }
 
-- (void)test_addItem_negative_toNotRaiseExceptionWhenAddNil
+- (void)test_addItem_negative_toNotRaisedExceptionWhenAddNil
 {
-    // given
     id obj = nil;
-    // when
+
     void(^block)() = ^() {
         [self.sectionModel addItem:obj];
     };
-    // then
+
     expect(block).notTo.raiseAny();
 }
 
-- (void)test_addItem_positive_whenValid
+- (void)test_addItem_positive_whenAddedObjectIsValid
 {
-    //given
     id obj = [NSObject new];
     
-    //when
     [self.sectionModel addItem:obj];
     
-    //then
     expect(self.sectionModel.objects[0]).equal(obj);
 }
 
@@ -82,110 +74,96 @@ static NSInteger const kMaxObjectsCount = 4;
 
 - (void)test_insertItem_positive_countOfObjectsIncreasedByOne
 {
-    // given
     id obj = [NSObject new];
     NSUInteger countBefore = self.sectionModel.objects.count;
-    // when
+
     [self.sectionModel insertItem:obj atIndex:0];
-    // then
-    NSUInteger countAfter = self.sectionModel.objects.count;
-    expect(countBefore + 1).to.equal(countAfter);
+
+    expect(countBefore + 1).haveCount(self.sectionModel.objects.count);
 }
 
 - (void)test_insertItemAtIndex_positive_whenValidData
 {
-    // given
     id obj = [NSObject new];
     NSInteger index = 0;
     
-    //when
     [self.sectionModel insertItem:obj atIndex:index];
     
-    //then
     expect(self.sectionModel.objects[index]).equal(obj);
 }
 
-- (void)test_insertItemAtIndex_positive_toNotRaiseExceptionWhenGetObjectAtIndex
+- (void)test_insertItemAtIndex_positive_toNotRaiseExceptionWhenGetObjectAtValidIndex
 {
-    // given
     id obj = [NSObject new];
     NSInteger index = 0;
     
-    //when
     [self.sectionModel insertItem:obj atIndex:index];
     
-    //then
     expect(^{
         [self.sectionModel.objects objectAtIndex:index];
     }).notTo.raiseAny();
 }
 
-- (void)test_insertItem_negative_toNotRaiseExceptionWhenInsertAdd
+- (void)test_insertItem_negative_toNotRaiseExceptionWhenInsertNil
 {
-    // given
     id obj = nil;
-    // when
+
     void(^block)() = ^() {
         [self.sectionModel insertItem:obj atIndex:0];
     };
-    // then
+
     expect(block).notTo.raiseAny();
 }
 
 - (void)test_insertItem_negative_toNotRaiseExceptionWhenInsertNegativeIndex
 {
-    // given
     id obj = [NSObject new];
-    // when
+
     void(^block)() = ^() {
         [self.sectionModel insertItem:obj atIndex:-20];
     };
-    // then
+
     expect(block).notTo.raiseAny();
 }
 
-- (void)test_insertItem_negative_toNotRaiseExceptionWhenInsertNotExistingIndex
+- (void)test_insertItem_negative_toNotRaiseExceptionWhenInsertOutOfBoundsIndex
 {
-    // given
     id obj = [NSObject new];
     NSUInteger index = (NSUInteger)arc4random();
-    // when
+
     void(^block)() = ^() {
         [self.sectionModel insertItem:obj atIndex:index];
     };
-    // then
+
     expect(block).notTo.raiseAny();
 }
 
 - (void)test_insertItem_negative_toNotRaiseExceptionWhenAddBoundaryElement
 {
-    // given
     id obj = [NSObject new];
     [self.sectionModel addItem:obj];
-    // when
+
     void(^block)() = ^() {
         [self.sectionModel insertItem:obj atIndex:1];
     };
-    // then
+
     expect(block).notTo.raiseAny();
 }
 
-- (void)test_insertItemAtIndex_negative_whenIndexNSNotFound
+- (void)test_insertItemAtIndex_negative_toNotRaiseExceptionWhenIndexNSNotFound
 {
-    // when
     void(^testBlock)() = ^() {
         [self.sectionModel insertItem:[NSObject new] atIndex:NSNotFound];
     };
     
-    //then
     expect(testBlock).notTo.raiseAny();
 }
+
 
 #pragma mark - removeItemAtIndex
 
 - (void)test_removeItemAtIndex_positive_sectionModelNotContainsItems
 {
-    // given
     NSUInteger maxIndex = arc4random_uniform(kMaxObjectsCount) + 1;
     
     for (NSUInteger counter = 0; counter < maxIndex; counter++)
@@ -194,19 +172,16 @@ static NSInteger const kMaxObjectsCount = 4;
         [self.sectionModel addItem:item];
     }
     
-    // when
     NSUInteger randomIndex = arc4random_uniform((u_int32_t)maxIndex);
     NSObject* removedObject = self.sectionModel.objects[randomIndex];
     
     [self.sectionModel removeItemAtIndex:randomIndex];
     
-    // then
     expect(self.sectionModel.objects).notTo.contain(removedObject);
 }
 
 - (void)test_removeItemAtIndex_positive_objectsDeletedOnce
 {
-    // given
     NSUInteger maxIndex = (NSUInteger)arc4random_uniform((u_int32_t)kMaxObjectsCount);
     
     for (NSUInteger counter = 0; counter < maxIndex; counter++)
@@ -215,7 +190,6 @@ static NSInteger const kMaxObjectsCount = 4;
         [self.sectionModel addItem:item];
     }
     
-    // when
     NSUInteger objectsCount = self.sectionModel.objects.count;
 
     NSUInteger countDeletions = arc4random_uniform((u_int32_t)maxIndex);
@@ -225,7 +199,6 @@ static NSInteger const kMaxObjectsCount = 4;
         [self.sectionModel removeItemAtIndex:randomIndex];
     }
     
-    // then
     expect(objectsCount).to.equal(self.sectionModel.objects.count + countDeletions);
 }
 
@@ -239,35 +212,29 @@ static NSInteger const kMaxObjectsCount = 4;
 
 - (void)test_removeItemAtIndex_negative_toNotRaiseExceptionWhenRemoveNotExistingIndex
 {
-    // given
     NSUInteger index = (NSUInteger)arc4random();
     
-    // when
     void(^testBlock)() = ^() {
         [self.sectionModel removeItemAtIndex:index];
     };
     
-    // given
     expect(testBlock).notTo.raiseAny();
 }
 
-- (void)test_removeItemAtIndex_negative_indexNSNotFound
+- (void)test_removeItemAtIndex_negative_toNotRaiseExceptionWhenIndexNSNotFound
 {
-    //when
     void(^block)() = ^() {
         [self.sectionModel removeItemAtIndex:NSNotFound];
     };
     
-    //then
     expect(block).notTo.raiseAny();
 }
 
 
-#pragma mark - Test replaceItemAtIndex: withItem:
+#pragma mark - replaceItemAtIndex:withItem:
 
 - (void)test_replaceItemAtIndexWithItem_positive_modelNotContainsNewObject
 {
-    // given
     NSUInteger maxObjectsCount = arc4random_uniform(kMaxObjectsCount);
     id initialItem = [NSObject new];
 
@@ -276,43 +243,46 @@ static NSInteger const kMaxObjectsCount = 4;
         [self.sectionModel addItem:initialItem];
     }
     
-    // when
     id object = [NSObject new];
     for (NSUInteger counter = 0; counter < maxObjectsCount; counter++)
     {
         [self.sectionModel replaceItemAtIndex:counter withItem:object];
     }
     
-    // then
     expect(self.sectionModel.objects).notTo.contain(initialItem);
 }
 
 - (void)test_replaceItemAtIndex_negative_toNotRaiseExceptionWhenReplaceWithNilObject
 {
-    // given
     id nilObject = nil;
     [self.sectionModel addItem:[NSObject new]];
     
-    // when
     void(^testBlock)() = ^() {
         [self.sectionModel replaceItemAtIndex:0 withItem:nilObject];
     };
     
-    // then
     expect(testBlock).notTo.raiseAny();
 }
 
 - (void)test_replaceItemAtIndex_negative_toNotRaiseExceptionWhenReplaceWithNegativeIndex
 {
-    // given
     id newItem = [NSObject new];
     
-    // when
     void(^testBlock)() = ^() {
         [self.sectionModel replaceItemAtIndex:-1 withItem:newItem];
     };
     
-    // then
+    expect(testBlock).notTo.raiseAny();
+}
+
+- (void)test_replaceItemAtIndex_negative_toNotRaiseExceptionWhenReplacingNotExistingIndex
+{
+    id newItem = [NSObject new];
+    
+    void(^testBlock)() = ^() {
+        [self.sectionModel replaceItemAtIndex:0 withItem:newItem];
+    };
+    
     expect(testBlock).notTo.raiseAny();
 }
 
@@ -321,17 +291,14 @@ static NSInteger const kMaxObjectsCount = 4;
 
 - (void)test_numberOfObjects_positive_modelReturnsCorrectNumberOfObjects
 {
-    // given
     id item = [NSObject new];
     
-    // when
     NSInteger maxObjectsCount = arc4random_uniform(kMaxObjectsCount);
     for (NSInteger counter = 0; counter < maxObjectsCount; counter++)
     {
         [self.sectionModel addItem:item];
     }
     
-    // then
     expect(self.sectionModel.numberOfObjects).to.equal(maxObjectsCount);
 }
 
@@ -342,13 +309,10 @@ static NSInteger const kMaxObjectsCount = 4;
 
 - (void)test_objects_positive_validObjectsAfterAdding
 {
-    //given
     id item = [NSObject new];
     
-    //when
     [self.sectionModel addItem:item];
     
-    //then
     expect([self.sectionModel objects]).equal(@[item]);
 }
 
@@ -357,16 +321,13 @@ static NSInteger const kMaxObjectsCount = 4;
 
 - (void)test_supplementaryModelOfKind_positive_initialAndReturnedModelsAreEqual
 {
-    // given
     id model = @"model";
     id modelClassName = NSStringFromClass([model class]);
     
     [self.sectionModel updateSupplementaryModel:model forKind:modelClassName];
     
-    // when
     id returnedModel = [self.sectionModel supplementaryModelOfKind:modelClassName];
     
-    // then
     expect(returnedModel).equal(model);
 }
 
@@ -380,7 +341,7 @@ static NSInteger const kMaxObjectsCount = 4;
     expect(returnedModel).to.beNil();
 }
 
-- (void)test_supplementaryModelOfKind_negative_toNotRaiseExceptionWhenRequestModelAtNilObject
+- (void)test_supplementaryModelOfKind_negative_toNotRaiseExceptionWhenRequestModelWithNilObject
 {
     // given
     id nilClassName = nil;
@@ -418,7 +379,7 @@ static NSInteger const kMaxObjectsCount = 4;
     expect(returnedNumberModel).to.equal(initialNumberModel);
 }
 
-- (void)test_updateSupplementaryModelForKind_negative_notRaiseExceptionWhenAddNilModel
+- (void)test_updateSupplementaryModelForKind_negative_toNotRaiseExceptionWhenAddNilModel
 {
     // given
     id model = nil;
@@ -433,7 +394,7 @@ static NSInteger const kMaxObjectsCount = 4;
     expect(testBlock).notTo.raiseAny();
 }
 
-- (void)test_updateSupplementaryModelForKind_negative_notRaiseExceptionWhenAddNilClass
+- (void)test_updateSupplementaryModelForKind_negative_toNotRaiseExceptionWhenAddNilClass
 {
     // given
     id model = @"model";
@@ -448,7 +409,7 @@ static NSInteger const kMaxObjectsCount = 4;
     expect(testBlock).notTo.raiseAny();
 }
 
-- (void)test_updateSupplementaryModelForKind_negative_notRaiseExceptionWhenUpdateWithBothNilValues
+- (void)test_updateSupplementaryModelForKind_negative_toNotRaiseExceptionWhenUpdateWithBothNilValues
 {
     // given
     id model = nil;
@@ -466,7 +427,7 @@ static NSInteger const kMaxObjectsCount = 4;
 
 #pragma mark - objects
 
-- (void)test_objects_positive_returnValidObjectsCount
+- (void)test_objects_positive_returnValidObjectsAfterAdding
 {
     // given
     id item = [NSObject new];
