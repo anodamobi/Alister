@@ -30,7 +30,7 @@ static NSString* appName = nil;
     [springboard resolve];
     
     XCUIElementQuery* icons = [springboard icons];
-    XCUIElement* icon = icons[@"Alister-Example_Example"];
+    XCUIElement* icon = icons[appName];
     
     if (icon.exists)
     {

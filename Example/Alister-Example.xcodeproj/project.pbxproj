@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		07025B361D7F79FB00C65012 /* XCTestCase+Springboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 07025B351D7F79FB00C65012 /* XCTestCase+Springboard.m */; };
+		071976FF1D7F9A4B005618AB /* SnapshotHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 071976FE1D7F9A4B005618AB /* SnapshotHelper.m */; };
 		078A75801D7F40CB003DD106 /* ANTestableCollectionUpdateOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 078A75401D7F40CB003DD106 /* ANTestableCollectionUpdateOperation.m */; };
 		078A75811D7F40CB003DD106 /* ANTestableCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 078A75421D7F40CB003DD106 /* ANTestableCollectionView.m */; };
 		078A75821D7F40CB003DD106 /* ANTestableListControllerReloadOperationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 078A75441D7F40CB003DD106 /* ANTestableListControllerReloadOperationDelegate.m */; };
@@ -87,6 +88,9 @@
 		019F2C73D93E6032B674EAE3 /* Pods-Alister-Example-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister-Example-Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Alister-Example-Tests/Pods-Alister-Example-Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		07025B341D7F79FB00C65012 /* XCTestCase+Springboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XCTestCase+Springboard.h"; sourceTree = "<group>"; };
 		07025B351D7F79FB00C65012 /* XCTestCase+Springboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XCTestCase+Springboard.m"; sourceTree = "<group>"; };
+		07025B3B1D7F8FF300C65012 /* Snapfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Snapfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		071976FD1D7F9A4B005618AB /* SnapshotHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapshotHelper.h; sourceTree = "<group>"; };
+		071976FE1D7F9A4B005618AB /* SnapshotHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnapshotHelper.m; sourceTree = "<group>"; };
 		078A753F1D7F40CB003DD106 /* ANTestableCollectionUpdateOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTestableCollectionUpdateOperation.h; sourceTree = "<group>"; };
 		078A75401D7F40CB003DD106 /* ANTestableCollectionUpdateOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTestableCollectionUpdateOperation.m; sourceTree = "<group>"; };
 		078A75411D7F40CB003DD106 /* ANTestableCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTestableCollectionView.h; sourceTree = "<group>"; };
@@ -347,6 +351,9 @@
 		078A75AE1D7F60BE003DD106 /* Alister-Example-ExampleUITests */ = {
 			isa = PBXGroup;
 			children = (
+				071976FD1D7F9A4B005618AB /* SnapshotHelper.h */,
+				071976FE1D7F9A4B005618AB /* SnapshotHelper.m */,
+				07025B3B1D7F8FF300C65012 /* Snapfile */,
 				07025B341D7F79FB00C65012 /* XCTestCase+Springboard.h */,
 				07025B351D7F79FB00C65012 /* XCTestCase+Springboard.m */,
 				078A75AF1D7F60BE003DD106 /* Alister_Example_ExampleUITests.m */,
@@ -808,6 +815,7 @@
 			files = (
 				07025B361D7F79FB00C65012 /* XCTestCase+Springboard.m in Sources */,
 				078A75B01D7F60BE003DD106 /* Alister_Example_ExampleUITests.m in Sources */,
+				071976FF1D7F9A4B005618AB /* SnapshotHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -891,11 +899,14 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "Alister-Example-ExampleUITests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "mobi.anoda.alisterUITest.Alister-Example-ExampleUITests";
+				PRODUCT_MODULE_NAME = "Alister-Example-ExampleUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Alister-Example-ExampleUITests/Alister-Example-ExampleUITests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -910,11 +921,14 @@
 				CLANG_ENABLE_MODULES = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "Alister-Example-ExampleUITests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "mobi.anoda.alisterUITest.Alister-Example-ExampleUITests";
+				PRODUCT_MODULE_NAME = "Alister-Example-ExampleUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Alister-Example-ExampleUITests/Alister-Example-ExampleUITests-Bridging-Header.h";
 				TEST_TARGET_NAME = "Alister-Example";
@@ -949,6 +963,7 @@
 				CLANG_WARN__EXIT_TIME_DESTRUCTORS = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				DEFINES_MODULE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1015,6 +1030,7 @@
 				CLANG_WARN__EXIT_TIME_DESTRUCTORS = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				DEFINES_MODULE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
