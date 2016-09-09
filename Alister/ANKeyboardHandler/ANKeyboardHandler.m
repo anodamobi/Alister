@@ -47,7 +47,7 @@ static const CGFloat kMinimumScrollOffsetPadding = 20;
 - (void)setDelegate:(id<ANKeyboardHandlerDelegate>)delegate
 {
     _delegate = delegate;
-    BOOL shouldNotify = ([delegate respondsToSelector:@selector(keyboardWillUpdateToVisible:withNotification:)]);
+    BOOL shouldNotify = ([delegate respondsToSelector:@selector(keyboardWillUpdateStateTo:withNotification:)]);
     _delegateExistingMethods.shouldNotifityKeyboardState = shouldNotify;
 }
 

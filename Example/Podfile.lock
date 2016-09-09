@@ -24,7 +24,7 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   Alister:
-    :path: ../
+    :path: "../"
 
 SPEC CHECKSUMS:
   Alister: f30b202ec6576c3cbbbe8069e17b8d9701cb2c5c
@@ -32,4 +32,6 @@ SPEC CHECKSUMS:
   Masonry: a1a931a0d08870ed8ae415a2ea5ea68ebcac77df
   OCMock: d68685bde31f69cb61d518dcb39269080c78b5ed
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: 40b49d37a7234a7f800aa7015d327a35ecaf019d
+
+COCOAPODS: 1.0.1
