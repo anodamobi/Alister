@@ -49,7 +49,9 @@ static CGFloat const kDefaultTableViewHeaderHeight = 40;
 
 - (void)layoutTableFooterView
 {
-    if (self.bottomStickedFooterView == nil)
+    CGFloat contentOffset = self.contentOffset.y;
+    
+    if (!self.bottomStickedFooterView || !contentOffset)
     {
         return;
     }
@@ -57,7 +59,6 @@ static CGFloat const kDefaultTableViewHeaderHeight = 40;
     CGFloat contentSize = self.contentSize.height;
     CGFloat frameHeight = self.frame.size.height;
     CGFloat footerMinY = self.tableFooterView.frame.origin.y;
-    CGFloat contentOffset = self.contentOffset.y;
     
     CGFloat magicBottomValue = contentSize - contentOffset;
     CGFloat height = contentSize - footerMinY;
