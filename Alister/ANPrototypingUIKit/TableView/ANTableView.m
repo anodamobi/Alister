@@ -47,30 +47,25 @@ static CGFloat const kDefaultTableViewHeaderHeight = 40;
     [self layoutTableFooterView];
 }
 
-//thanks to Dmitry Nesterenko
 - (void)layoutTableFooterView
 {
     if (self.bottomStickedFooterView == nil)
+    {
         return;
+    }
     
-    __block CGFloat footerContentMinY, footerContentMaxY;
-    [self.tableFooterView.subviews enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, __unused BOOL *stop) {
-        CGRect frame = [obj frame];
-        if (idx == 0)
-        {
-            footerContentMinY = CGRectGetMinY(frame);
-            footerContentMaxY = CGRectGetMaxY(frame);
-        }
-        else {
-            footerContentMinY = MIN(CGRectGetMinY(frame), footerContentMinY);
-            footerContentMaxY = MAX(CGRectGetMaxY(frame), footerContentMaxY);
-        }
-    }];
+    CGFloat contentSize = self.contentSize.height;
+    CGFloat frameHeight = self.frame.size.height;
+    CGFloat footerMinY = self.tableFooterView.frame.origin.y;
+    CGFloat contentOffset = self.contentOffset.y;
     
-    // frame
-    CGFloat height = MAX(MAX(self.contentSize.height,
-                             self.frame.size.height) - self.tableFooterView.frame.origin.y,
-                         footerContentMaxY - footerContentMinY + 10.0);
+    CGFloat magicBottomValue = contentSize - contentOffset;
+    CGFloat height = contentSize - footerMinY;
+    
+    if (magicBottomValue <= frameHeight)
+    {
+        height += frameHeight - magicBottomValue;
+    }
     
     self.tableFooterView.frame = CGRectMake(0,
                                             self.tableFooterView.frame.origin.y,

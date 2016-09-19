@@ -77,7 +77,6 @@ typedef NS_ENUM(NSInteger, ANListControllerSearchScope)
 
 - (void)_filterItemsForSearchString:(NSString*)searchString inScope:(NSInteger)scopeNumber reload:(BOOL)shouldReload
 {
-    id<ANListControllerSearchManagerDelegate> delegate = self.delegate;
     BOOL isSearching = [self isSearching];
     BOOL isNothingChanged = ([searchString isEqualToString:self.currentSearchString]) &&
                             (scopeNumber == self.currentSearchScope);
@@ -87,14 +86,23 @@ typedef NS_ENUM(NSInteger, ANListControllerSearchScope)
         self.currentSearchScope = scopeNumber;
         self.currentSearchString = searchString;
         
-        if (isSearching && ![self isSearching])
-        {
-            [delegate searchControllerDidCancelSearch];
-        }
-        else
-        {
-            [delegate searchControllerRequiresStorageWithSearchString:searchString andScope:scopeNumber];
-        }
+        [self _handleSearchWithCurrentSearchingValue:isSearching];
+        
+    }
+}
+
+- (void)_handleSearchWithCurrentSearchingValue:(BOOL)isSearching
+{
+    id<ANListControllerSearchManagerDelegate> delegate = self.delegate;
+    
+    if (isSearching && ![self isSearching])
+    {
+        [delegate searchControllerDidCancelSearch];
+    }
+    else
+    {
+        [delegate searchControllerRequiresStorageWithSearchString:self.currentSearchString
+                                                         andScope:self.currentSearchScope];
     }
 }
 

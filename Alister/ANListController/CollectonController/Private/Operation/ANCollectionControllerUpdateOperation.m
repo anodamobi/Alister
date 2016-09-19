@@ -46,7 +46,7 @@
 
 - (void)_performAnimatedUpdate:(ANStorageUpdateModel*)update
 {
-    if (!update.isEmpty)
+    if (update && !update.isEmpty)
     {
         UICollectionView* collectionView = (UICollectionView*)[self.delegate listView];
         
@@ -114,7 +114,7 @@ toPreventInsertFirstItemIssueForUpdate:(ANStorageUpdateModel*)update
 {
     BOOL shouldReload = NO;
     
-    for (NSIndexPath * indexPath in update.insertedRowIndexPaths)
+    for (NSIndexPath* indexPath in update.insertedRowIndexPaths)
     {
         if ([collectionView numberOfItemsInSection:indexPath.section] == 0)
         {
@@ -136,5 +136,27 @@ toPreventInsertFirstItemIssueForUpdate:(ANStorageUpdateModel*)update
     }
     return shouldReload;
 }
+
+//#pragma mark - Getters / Setters
+//
+//- (void)setFinished:(BOOL)finished
+//{
+//    if (_finished != finished)
+//    {
+//        [self willChangeValueForKey:NSStringFromSelector(@selector(isFinished))];
+//        _finished = finished;
+//        [self didChangeValueForKey:NSStringFromSelector(@selector(isFinished))];
+//    }
+//}
+//
+//- (void)setExecuting:(BOOL)executing
+//{
+//    if (!_executing != executing)
+//    {
+//        [self willChangeValueForKey:NSStringFromSelector(@selector(isExecuting))];
+//        _executing = executing;
+//        [self didChangeValueForKey:NSStringFromSelector(@selector(isExecuting))];
+//    }
+//}
 
 @end
