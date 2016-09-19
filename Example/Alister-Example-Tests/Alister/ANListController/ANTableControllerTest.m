@@ -71,8 +71,6 @@
     [self.storage updateWithoutAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
         [storageController removeAllItemsAndSections];
         [storageController addItems:items toSection:0];
-        [storageController removeAllItemsAndSections];
-        [storageController addItems:items toSection:0];
     }];
     
     [self waitForExpectationsWithTimeout:0.1 handler:nil];
