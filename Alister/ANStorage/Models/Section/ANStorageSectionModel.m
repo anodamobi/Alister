@@ -105,7 +105,7 @@
 {
     if (item)
     {
-        if (self.items.count >= index)
+        if (self.items.count >= index && self.items.count != 0)
         {
             [self.items replaceObjectAtIndex:index withObject:item];
         }

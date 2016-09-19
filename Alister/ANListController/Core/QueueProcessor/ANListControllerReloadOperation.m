@@ -19,7 +19,8 @@
     if (!self.isCancelled)
     {
         id<ANListControllerReloadOperationDelegate> delegate = self.delegate;
-        if ([delegate.listView conformsToProtocol:@protocol(ANListViewInterface)])
+        if ([delegate.listView conformsToProtocol:@protocol(ANListViewInterface)]
+            || [delegate.listView respondsToSelector:@selector(reloadData)])
         {
             [delegate.listView reloadData];
             if (self.shouldAnimate)

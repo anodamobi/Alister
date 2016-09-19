@@ -101,7 +101,7 @@
     }];
     
     //then
-    [self waitForExpectationsWithTimeout:0.1 handler:nil];
+    [self waitForExpectationsWithTimeout:2 handler:nil];
 }
 
 - (void)test_configureItemSelectionBlock_negative_selectItemsWithWrongConfiguredIndexPathExpectedNilSelectedModel

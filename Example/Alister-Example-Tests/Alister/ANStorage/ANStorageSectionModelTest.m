@@ -2,18 +2,19 @@
 //  ANStorageSectionModelTest.m
 //  Alister
 //
-//  Created by Oksana on 7/5/16.
-//  Copyright © 2016 Oksana Kovalchuk. All rights reserved.
+//  Created by Maxim Eremenko on 8/19/16.
+//  Copyright © 2016 ANODA. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
+#import <Expecta/Expecta.h>
 #import "ANStorageSectionModel.h"
+
+static NSInteger const kMaxObjectsCount = 4;
 
 @interface ANStorageSectionModelTest : XCTestCase
 
-@property (nonatomic, strong) ANStorageSectionModel* model;
-@property (nonatomic, strong) NSString* fixtureObject;
-@property (nonatomic, assign) NSInteger fixtureIndex;
+@property (nonatomic, strong) ANStorageSectionModel* sectionModel;
 
 @end
 
@@ -22,273 +23,463 @@
 - (void)setUp
 {
     [super setUp];
-    self.model = [ANStorageSectionModel new];
-    self.fixtureIndex = 0;
-    self.fixtureObject = @"test";
+    self.sectionModel = [ANStorageSectionModel new];
 }
 
 - (void)tearDown
 {
-    self.model = nil;
-    self.fixtureObject = nil;
+    self.sectionModel = nil;
     [super tearDown];
 }
 
 - (void)test_conformsProtocol_positive
 {
-    expect(self.model).conformTo(@protocol(ANStorageSectionModelInterface));
+    expect(self.sectionModel).conformTo(@protocol(ANStorageSectionModelInterface));
 }
 
+#pragma mark - addItem
 
-#pragma mark - addItem:
+- (void)test_addItem_positive_countOfObjectsIncreaseByOne
+{
+    // given
+    id obj = [NSObject new];
+    NSUInteger countBefore = self.sectionModel.objects.count;
+    
+    // when
+    [self.sectionModel addItem:obj];
+    
+    // then
+    NSUInteger countAfter = self.sectionModel.objects.count;
+    expect(countBefore + 1).to.equal(countAfter);
+}
+
+- (void)test_addItem_negative_toNotRaiseExceptionWhenAddNil
+{
+    // given
+    id obj = nil;
+    // when
+    void(^block)() = ^() {
+        [self.sectionModel addItem:obj];
+    };
+    // then
+    expect(block).notTo.raiseAny();
+}
 
 - (void)test_addItem_positive_whenValid
 {
+    //given
+    id obj = [NSObject new];
+    
     //when
-    [self.model addItem:self.fixtureObject];
+    [self.sectionModel addItem:obj];
     
     //then
-    expect(self.model.objects[0]).equal(self.fixtureObject);
+    expect(self.sectionModel.objects[0]).equal(obj);
 }
 
-- (void)test_addItem_positive_itemAddsOnlyOnce
+
+#pragma mark - insertItemAtIndex
+
+- (void)test_insertItemAtIndex_positive_countOfObjectsIncreasedByOne
 {
-    //when
-    [self.model addItem:self.fixtureObject];
-    
-    //then
-    expect(self.model.objects).haveCount(1);
+    // given
+    id obj = [NSObject new];
+    NSUInteger countBefore = self.sectionModel.objects.count;
+    // when
+    [self.sectionModel insertItem:obj atIndex:0];
+    // then
+    NSUInteger countAfter = self.sectionModel.objects.count;
+    expect(countBefore + 1).to.equal(countAfter);
 }
-
-- (void)test_addItem_negative_addNilNotThrowException
-{
-    self.fixtureObject = nil;
-    //then
-    expect(^{
-        //when
-        [self.model addItem:self.fixtureObject];
-    }).notTo.raiseAny();
-}
-
-
-#pragma mark - insertItem: atIndex:
 
 - (void)test_insertItemAtIndex_positive_whenValidData
 {
+    // given
+    id obj = [NSObject new];
+    NSInteger index = 0;
+    
     //when
-    [self.model insertItem:self.fixtureObject atIndex:self.fixtureIndex];
+    [self.sectionModel insertItem:obj atIndex:index];
     
     //then
-    expect(self.model.objects[self.fixtureIndex]).equal(self.fixtureObject);
+    expect(self.sectionModel.objects[index]).equal(obj);
+}
+
+- (void)test_insertItemAtIndex_positive_toNotRaiseExceptionWhenGetObjectAtIndex
+{
+    // given
+    id obj = [NSObject new];
+    NSInteger index = 0;
+    
+    //when
+    [self.sectionModel insertItem:obj atIndex:index];
+    
+    //then
     expect(^{
-        [self.model.objects objectAtIndex:self.fixtureIndex];
+        [self.sectionModel.objects objectAtIndex:index];
     }).notTo.raiseAny();
 }
 
-- (void)test_insertItemAtIndex_positive_addsOnlyOnce
+- (void)test_insertItemAtIndex_negative_toNotRaiseExceptionWhenInsertAdd
 {
-    //when
-    [self.model insertItem:self.fixtureObject atIndex:self.fixtureIndex];
-    
-    //then
-    expect(self.model.objects).haveCount(1);
+    // given
+    id obj = nil;
+    // when
+    void(^block)() = ^() {
+        [self.sectionModel insertItem:obj atIndex:0];
+    };
+    // then
+    expect(block).notTo.raiseAny();
+}
+
+- (void)test_insertItemAtIndex_negative_toNotRaiseExceptionWhenInsertNegativeIndex
+{
+    // given
+    id obj = [NSObject new];
+    // when
+    void(^block)() = ^() {
+        [self.sectionModel insertItem:obj atIndex:-20];
+    };
+    // then
+    expect(block).notTo.raiseAny();
+}
+
+- (void)test_insertItemAtIndex_negative_toNotRaiseExceptionWhenInsertNotExistingIndex
+{
+    // given
+    id obj = [NSObject new];
+    NSUInteger index = (NSUInteger)arc4random();
+    // when
+    void(^block)() = ^() {
+        [self.sectionModel insertItem:obj atIndex:index];
+    };
+    // then
+    expect(block).notTo.raiseAny();
+}
+
+- (void)test_insertItemAtIndex_negative_toNotRaiseExceptionWhenAddBoundaryElement
+{
+    // given
+    id obj = [NSObject new];
+    [self.sectionModel addItem:obj];
+    // when
+    void(^block)() = ^() {
+        [self.sectionModel insertItem:obj atIndex:1];
+    };
+    // then
+    expect(block).notTo.raiseAny();
 }
 
 - (void)test_insertItemAtIndex_negative_whenIndexNSNotFound
 {
-    self.fixtureIndex = NSNotFound;
-    //then
-    expect(^{
-        [self.model insertItem:self.fixtureObject atIndex:self.fixtureIndex];
-    }).notTo.raiseAny();
-}
-
-
-//TODO:should throw exeption
-- (void)test_insertItemAtIndex_negative_whenIndexLessThenZero
-{
-    void (^block)() = ^{
-        NSInteger index = -1;
-        [self.model insertItem:self.fixtureObject atIndex:index];
+    // when
+    void(^testBlock)() = ^() {
+        [self.sectionModel insertItem:[NSObject new] atIndex:NSNotFound];
     };
-    XCTAssertNoThrow(block(),@"insert item at negative index should throw exeption");
-}
-
-- (void)test_insertItemAtIndex_negative_whenItemIsNilNoExpection
-{
-    self.fixtureObject = nil;
-    //then
-    expect(^{
-        [self.model insertItem:self.fixtureObject atIndex:self.fixtureIndex];
-    }).notTo.raiseAny();
-}
-
-
-#pragma mark - removeItemAtIndex:
-
-- (void)test_removeItemAtIndex_positive_indexValid
-{
-    //given
-    [self.model insertItem:self.fixtureObject atIndex:self.fixtureIndex];
-    
-    //when
-    [self.model removeItemAtIndex:self.fixtureIndex];
     
     //then
-    expect(self.model.objects).haveCount(0);
+    expect(testBlock).notTo.raiseAny();
+}
+
+#pragma mark - removeItemAtIndex
+
+- (void)test_removeItemAtIndex_positive_modelNotContainsObject
+{
+    // given
+    NSUInteger maxIndex = arc4random_uniform(kMaxObjectsCount) + 1;
+    
+    for (NSUInteger counter = 0; counter < maxIndex; counter++)
+    {
+        id item = [NSObject new];
+        [self.sectionModel addItem:item];
+    }
+    
+    // when
+    NSUInteger randomIndex = arc4random_uniform((u_int32_t)maxIndex);
+    NSObject* removedObject = self.sectionModel.objects[randomIndex];
+    
+    [self.sectionModel removeItemAtIndex:randomIndex];
+    
+    // then
+    expect(self.sectionModel.objects).notTo.contain(removedObject);
+}
+
+- (void)test_removeItemAtIndex_positive_objectsDeletedOnce
+{
+    // given
+    NSUInteger maxIndex = (NSUInteger)arc4random_uniform((u_int32_t)kMaxObjectsCount);
+    
+    for (NSUInteger counter = 0; counter < maxIndex; counter++)
+    {
+        id item = [NSObject new];
+        [self.sectionModel addItem:item];
+    }
+    
+    // when
+    NSUInteger objectsCount = self.sectionModel.objects.count;
+
+    NSUInteger countDeletions = arc4random_uniform((u_int32_t)maxIndex);
+    for (NSUInteger counter = 0; counter < countDeletions; counter++)
+    {
+        NSUInteger randomIndex = arc4random_uniform((u_int32_t)self.sectionModel.objects.count);
+        [self.sectionModel removeItemAtIndex:randomIndex];
+    }
+    
+    // then
+    expect(objectsCount).to.equal(self.sectionModel.objects.count + countDeletions);
+}
+
+- (void)test_removeItemAtIndex_negative_toNotRaiseExceptionWhenRemoveNegativeIndex
+{
+    void(^testBlock)() = ^() {
+        [self.sectionModel removeItemAtIndex:-10];
+    };
+    expect(testBlock).notTo.raiseAny();
+}
+
+- (void)test_removeItemAtIndex_negative_toNotRaiseExceptionWhenRemoveNotExistingIndex
+{
+    // given
+    NSUInteger index = (NSUInteger)arc4random();
+    
+    // when
+    void(^testBlock)() = ^() {
+        [self.sectionModel removeItemAtIndex:index];
+    };
+    
+    // given
+    expect(testBlock).notTo.raiseAny();
 }
 
 - (void)test_removeItemAtIndex_negative_indexNSNotFound
 {
     //when
-    self.fixtureIndex = NSNotFound;
+    void(^block)() = ^() {
+        [self.sectionModel removeItemAtIndex:NSNotFound];
+    };
     
     //then
-    expect(^{
-        [self.model removeItemAtIndex:self.fixtureIndex];
-    }).notTo.raiseAny();
+    expect(block).notTo.raiseAny();
 }
 
 
-#pragma mark - replaceItemAtIndexWithItem:
+#pragma mark - Test replaceItemAtIndex: withItem:
 
-- (void)test_replaceItemAtIndexWithItem_positive_objectAndIndexValid
+- (void)test_replaceItemAtIndexWithItem_positive_modelNotContainsNewObject
 {
-    //given
-    NSString* testObject = @"testObject";
-    [self.model addItem:self.fixtureObject];
+    // given
+    NSUInteger maxObjectsCount = arc4random_uniform(kMaxObjectsCount);
+    id initialItem = [NSObject new];
+
+    for (NSUInteger counter = 0; counter < maxObjectsCount; counter++)
+    {
+        [self.sectionModel addItem:initialItem];
+    }
     
-    //when
-    [self.model replaceItemAtIndex:self.fixtureIndex withItem:testObject];
+    // when
+    id object = [NSObject new];
+    for (NSUInteger counter = 0; counter < maxObjectsCount; counter++)
+    {
+        [self.sectionModel replaceItemAtIndex:counter withItem:object];
+    }
     
-    //then
-    expect([self.model objects][0]).equal(testObject);
+    // then
+    expect(self.sectionModel.objects).notTo.contain(initialItem);
 }
 
-- (void)test_replaceItemAtIndexWithItem_negative_objectIsNil
+- (void)test_replaceItemAtIndex_negative_toNotRaiseExceptionWhenReplaceWithNilObject
 {
-    //given
-    NSString* testObject = nil;
-    [self.model addItem:self.fixtureObject];
+    // given
+    id nilObject = nil;
+    [self.sectionModel addItem:[NSObject new]];
     
-    //then
-    expect(^{
-        [self.model replaceItemAtIndex:self.fixtureIndex withItem:testObject];
-    }).notTo.raiseAny();
+    // when
+    void(^testBlock)() = ^() {
+        [self.sectionModel replaceItemAtIndex:0 withItem:nilObject];
+    };
+    
+    // then
+    expect(testBlock).notTo.raiseAny();
 }
 
-- (void)test_replaceItemAtIndexWithItem_negative_indexNSNotFound
+- (void)test_replaceItemAtIndex_negative_toNotRaiseExceptionWhenReplaceWithNegativeIndex
 {
-    //given
-    [self.model addItem:self.fixtureObject];
-    self.fixtureIndex = NSNotFound;
+    // given
+    id newItem = [NSObject new];
     
-    //then
-    expect(^{
-        [self.model replaceItemAtIndex:self.fixtureIndex withItem:self.fixtureObject];
-    }).notTo.raiseAny();
+    // when
+    void(^testBlock)() = ^() {
+        [self.sectionModel replaceItemAtIndex:-1 withItem:newItem];
+    };
+    
+    // then
+    expect(testBlock).notTo.raiseAny();
 }
-
-//- (void)test_replaceItemAtIndexWithItem_negative_indexLessThanZero
-//{
-//    //given
-//    [self.model addItem:self.fixtureObject];
-//    self.fixtureIndex = -1;
-//    
-//    //then
-//    expect(^{
-//        [self.model replaceItemAtIndex:self.fixtureIndex withItem:self.fixtureObject];
-//    }).notTo.raiseAny();
-//}
 
 
 #pragma mark - numberOfObjects
 
-- (void)test_numberOfObjects_positive_emptyWhenCreated
+- (void)test_numberOfObjects_positive_modelReturnsCorrectNumberOfObjects
 {
-    expect([self.model numberOfObjects]).equal(0);
+    // given
+    id item = [NSObject new];
+    
+    // when
+    [self.sectionModel addItem:item];
+    
+    // then
+    NSInteger objectsCount = self.sectionModel.objects.count;
+    expect(self.sectionModel.numberOfObjects).to.equal(objectsCount);
 }
 
-- (void)test_numberOfObjects_positive_countAfterAddItem
+- (void)test_numberOfObjects_positive_emptyWhenCreated
 {
-    //when
-    [self.model addItem:self.fixtureObject];
-    
-    //then
-    expect([self.model numberOfObjects]).equal(1);
+    expect([self.sectionModel numberOfObjects]).equal(0);
 }
 
 - (void)test_objects_positive_validObjectsAfterAdding
 {
+    //given
+    id item = [NSObject new];
+    
     //when
-    [self.model addItem:self.fixtureObject];
+    [self.sectionModel addItem:item];
     
     //then
-    expect([self.model objects]).equal(@[self.fixtureObject]);
+    expect([self.sectionModel objects]).equal(@[item]);
 }
 
 
 #pragma mark - supplementaryModelOfKind
 
-- (void)test_supplementaryModelOfKind_positive
+- (void)test_supplementaryModelOfKind_positive_initialAndReturnedModelsAreEqual
 {
-	//given
-    NSString* kind = @"testKind";
+    // given
+    id model = @"model";
+    id modelClassName = NSStringFromClass([model class]);
     
-    //when
-    [self.model updateSupplementaryModel:self.fixtureObject forKind:kind];
+    [self.sectionModel updateSupplementaryModel:model forKind:modelClassName];
     
-    //then
-    expect([self.model supplementaryModelOfKind:kind]).equal(self.fixtureObject);
+    // when
+    id returnedModel = [self.sectionModel supplementaryModelOfKind:modelClassName];
+    
+    // then
+    expect(returnedModel).equal(model);
 }
 
-- (void)test_supplementaryModelOfKind_negative_kindIsNil
+- (void)test_supplementaryModelOfKind_negative_notRegisteredModelIsNil
 {
-    //given
-    NSString* kind = @"testKind";
+    // given
+    id notRegisteredClassName = @"className";
+    id returnedModel = [self.sectionModel supplementaryModelOfKind:notRegisteredClassName];
     
-    //when
-    [self.model updateSupplementaryModel:self.fixtureObject forKind:kind];
+    // then
+    expect(returnedModel).to.beNil();
+}
+
+- (void)test_supplementaryModelOfKind_negative_notRaiseExceptionWhenRequestModelAtNilObject
+{
+    // given
+    id nilClassName = nil;
     
-    //then
-    expect(^{
-        [self.model supplementaryModelOfKind:nil];
-    }).notTo.raiseAny();
+    // when
+    void(^testBlock)() = ^() {
+        [self.sectionModel supplementaryModelOfKind:nilClassName];
+    };
+    
+    // then
+    expect(testBlock).notTo.raiseAny();
 }
 
 
-#pragma mark - updateSupplementaryModelForKind
+#pragma mark - updateSupplementaryModel: forKind:
 
-- (void)test_updateSupplementaryModelForKind_positive_dataIsValid
+- (void)test_updateSupplementaryModelForKind_positive_initialAndReturnedModelsAreEqual
 {
-    //given
-    NSString* kind = @"testKind";
+    // given
+    NSString* initialStringModel = @"model";
+    NSNumber* initialNumberModel = @2;
     
-    //when
-    [self.model updateSupplementaryModel:self.fixtureObject forKind:kind];
+    NSString* kString = @"stringClassName";
+    NSString* kNumber = @"numberClassName";
     
-    //then
-    expect([self.model supplementaryModelOfKind:kind]).equal(self.fixtureObject);
+    // when
+    [self.sectionModel updateSupplementaryModel:initialStringModel forKind:kString];
+    [self.sectionModel updateSupplementaryModel:initialNumberModel forKind:kNumber];
+    
+    // then
+    id returnedStringModel = [self.sectionModel supplementaryModelOfKind:kString];
+    id returnedNumberModel = [self.sectionModel supplementaryModelOfKind:kNumber];
+    
+    expect(returnedStringModel).to.equal(initialStringModel);
+    expect(returnedNumberModel).to.equal(initialNumberModel);
 }
 
-- (void)test_updateSupplementaryModelForKind_negative_kindIsNil
+- (void)test_updateSupplementaryModelForKind_negative_notRaiseExceptionWhenAddNilModel
 {
-    //then
-    expect(^{
-        [self.model updateSupplementaryModel:self.fixtureObject forKind:nil];
-    }).notTo.raiseAny();
+    // given
+    id model = nil;
+    id modelClassName = @"modelClassName";
+    
+    // when
+    void(^testBlock)() = ^() {
+        [self.sectionModel updateSupplementaryModel:model forKind:modelClassName];
+    };
+    
+    // then
+    expect(testBlock).notTo.raiseAny();
 }
 
-- (void)test_updateSupplementaryModelForKind_negative_modelIsNil
+- (void)test_updateSupplementaryModelForKind_negative_notRaiseExceptionWhenAddNilClass
 {
-    //given
-    NSString* kind = @"testKind";
-    self.fixtureObject = nil;
+    // given
+    id model = @"model";
+    id modelClassName = nil;
     
-    //then
-    expect(^{
-        [self.model updateSupplementaryModel:nil forKind:kind];
-    }).notTo.raiseAny();
+    // when
+    void(^testBlock)() = ^() {
+        [self.sectionModel updateSupplementaryModel:model forKind:modelClassName];
+    };
+    
+    // then
+    expect(testBlock).notTo.raiseAny();
+}
+
+- (void)test_updateSupplementaryModelForKind_negative_notRaiseExceptionWhenUpdateWithBothNilValues
+{
+    // given
+    id model = nil;
+    id modelClassName = nil;
+    
+    // when
+    void(^testBlock)() = ^() {
+        [self.sectionModel updateSupplementaryModel:model forKind:modelClassName];
+    };
+    
+    // then
+    expect(testBlock).notTo.raiseAny();
+}
+
+
+#pragma mark - objects
+
+- (void)test_objects_positive_returnValidObjectsCount
+{
+    // given
+    id item = [NSObject new];
+    
+    NSInteger maxCountObjects = kMaxObjectsCount;
+    NSMutableArray* initialObjects = [NSMutableArray array];
+
+    for (NSInteger counter = 0; counter < maxCountObjects; counter++)
+    {
+        [self.sectionModel addItem:item];
+        [initialObjects addObject:item];
+    }
+    
+    // then
+    expect(self.sectionModel.objects.count).to.equal(maxCountObjects);
+    expect(self.sectionModel.objects).to.equal(initialObjects);
 }
 
 @end
