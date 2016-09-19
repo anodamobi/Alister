@@ -1,5 +1,5 @@
 //
-//  ANStorageSectionModelTestAlternative.m
+//  ANStorageSectionModelTest.m
 //  Alister
 //
 //  Created by Maxim Eremenko on 8/19/16.
