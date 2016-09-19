@@ -44,6 +44,40 @@
     [super tearDown];
 }
 
+
+#pragma mark - 
+
+- (void)test_updateWithoutAnimationChangeBlock_positive_storageContainsAddedItems
+{
+    // given
+    NSArray* items = @[@"test1", @"test2"];
+    
+    [self.listController configureCellsWithBlock:^(id<ANListControllerReusableInterface> configurator) {
+        [configurator registerCellClass:[ANTestTableCell class] forSystemClass:[NSString class]];
+    }];
+    
+    // then
+    XCTestExpectation *expectation = [self expectationWithDescription:@"updateWithoutAnimationChangeBlock called"];
+    __weak typeof(self) welf = self;
+    
+    [self.listController addUpdatesFinsihedTriggerBlock:^{
+        
+        ANStorageSectionModel* section = self.storage.sections.firstObject;
+        expect(section.objects).to.haveCount(items.count);
+        
+        [expectation fulfill];
+    }];
+    
+    [self.storage updateWithoutAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
+        [storageController removeAllItemsAndSections];
+        [storageController addItems:items toSection:0];
+        [storageController removeAllItemsAndSections];
+        [storageController addItems:items toSection:0];
+    }];
+    
+    [self waitForExpectationsWithTimeout:0.1 handler:nil];
+}
+
 - (void)test_attachStorage_positive_currentStorageNotNil
 {
     //given
