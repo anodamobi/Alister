@@ -51,27 +51,25 @@ static CGFloat const kDefaultTableViewHeaderHeight = 40;
 {
     CGFloat contentOffset = self.contentOffset.y;
     
-    if (!self.bottomStickedFooterView || !contentOffset)
+    if (self.bottomStickedFooterView || contentOffset)
     {
-        return;
+        CGFloat contentSize = self.contentSize.height;
+        CGFloat frameHeight = self.frame.size.height;
+        CGFloat footerMinY = self.tableFooterView.frame.origin.y;
+        
+        CGFloat magicBottomValue = contentSize - contentOffset;
+        CGFloat height = contentSize - footerMinY;
+        
+        if (magicBottomValue <= frameHeight)
+        {
+            height += frameHeight - magicBottomValue;
+        }
+        
+        self.tableFooterView.frame = CGRectMake(0,
+                                                self.tableFooterView.frame.origin.y,
+                                                self.frame.size.width,
+                                                height);
     }
-    
-    CGFloat contentSize = self.contentSize.height;
-    CGFloat frameHeight = self.frame.size.height;
-    CGFloat footerMinY = self.tableFooterView.frame.origin.y;
-    
-    CGFloat magicBottomValue = contentSize - contentOffset;
-    CGFloat height = contentSize - footerMinY;
-    
-    if (magicBottomValue <= frameHeight)
-    {
-        height += frameHeight - magicBottomValue;
-    }
-    
-    self.tableFooterView.frame = CGRectMake(0,
-                                            self.tableFooterView.frame.origin.y,
-                                            self.frame.size.width,
-                                            height);
 }
 
 - (void)setBottomStickedFooterView:(UIView *)bottomStickedFooterView
