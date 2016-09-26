@@ -35,7 +35,7 @@
             [configurator registerCellClass:[ANExampleTableViewCell class] forSystemClass:[NSString class]];
         }];
         
-        [self.storage updateWithAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
+        [self.storage updateWithoutAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
             
             [storageController addItem:@"Test"];
             [storageController addItem:@"Test"];
