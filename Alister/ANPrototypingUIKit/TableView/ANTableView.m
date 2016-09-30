@@ -15,6 +15,8 @@ static CGFloat const kDefaultTableViewHeaderHeight = 40;
 
 @interface ANTableView ()
 
+@property (nonatomic, strong) UIView* stickedContainer;
+
 @end
 
 @implementation ANTableView
@@ -44,38 +46,53 @@ static CGFloat const kDefaultTableViewHeaderHeight = 40;
 {
     [super layoutSubviews];
     
+    CGRect frame = self.bottomStickedFooterView.frame;
+    frame.origin.y = self.stickedContainer.frame.size.height - frame.size.height;
+    frame.size.width = self.frame.size.width;
+    
+    self.bottomStickedFooterView.frame = frame;
+    
     [self layoutTableFooterView];
 }
 
 - (void)layoutTableFooterView
 {
-    CGFloat contentOffset = self.contentOffset.y;
-    
-    if (self.bottomStickedFooterView || contentOffset)
+    if (self.bottomStickedFooterView)
     {
-        CGFloat contentSize = self.contentSize.height;
+        CGFloat contentSizeWithoutFooter = self.tableFooterView.frame.origin.y;
+        CGFloat stickedFooterHeight = self.bottomStickedFooterView.frame.size.height;
         CGFloat frameHeight = self.frame.size.height;
-        CGFloat footerMinY = self.tableFooterView.frame.origin.y;
         
-        CGFloat magicBottomValue = contentSize - contentOffset;
-        CGFloat height = contentSize - footerMinY;
+        CGFloat minContentHeightWithFooter = contentSizeWithoutFooter + stickedFooterHeight;
         
-        if (magicBottomValue <= frameHeight)
+        CGRect footerFrame = self.tableFooterView.frame;
+        
+        if (minContentHeightWithFooter <= frameHeight)
         {
-            height += frameHeight - magicBottomValue;
+            footerFrame.size.height = frameHeight - contentSizeWithoutFooter;
         }
-        
-        self.tableFooterView.frame = CGRectMake(0,
-                                                self.tableFooterView.frame.origin.y,
-                                                self.frame.size.width,
-                                                height);
+        else
+        {
+            footerFrame.size.height = stickedFooterHeight;
+        }
+        self.tableFooterView.frame = footerFrame;
     }
 }
 
-- (void)setBottomStickedFooterView:(UIView *)bottomStickedFooterView
+- (void)setBottomStickedFooterView:(UIView*)bottomStickedFooterView
 {
     _bottomStickedFooterView = bottomStickedFooterView;
-    self.tableFooterView = bottomStickedFooterView;
+    [self.stickedContainer addSubview:_bottomStickedFooterView];
+}
+
+- (UIView*)stickedContainer
+{
+    if (!_stickedContainer)
+    {
+        _stickedContainer = [UIView new];
+        self.tableFooterView = self.stickedContainer;
+    }
+    return _stickedContainer;
 }
 
 - (void)setupAppearance
