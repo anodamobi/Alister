@@ -256,10 +256,9 @@ static const CGFloat kMinimumScrollOffsetPadding = 20;
 
 - (BOOL)gestureRecognizer:(__unused UIGestureRecognizer*)gestureRecognizer shouldReceiveTouch:(UITouch*)touch
 {
-    if ([touch.view isKindOfClass:[UIControl class]])
+    if (![touch.view isKindOfClass:[UIControl class]])
     {
         [self hideKeyboard];
-        return NO;
     }
     return YES;
 }
