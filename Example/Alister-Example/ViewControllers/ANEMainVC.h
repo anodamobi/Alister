@@ -8,6 +8,6 @@
 
 @import UIKit;
 
-@interface ANViewController : UIViewController
+@interface ANEMainVC : UIViewController
 
 @end

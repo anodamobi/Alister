@@ -13,9 +13,6 @@ static CGFloat const kDefaultTableViewHeaderHeight = 40;
 #define SYSTEM_VERSION          ([[[UIDevice currentDevice] systemVersion] floatValue])
 #define IOS7_OR_HIGHER          (7.0 <= SYSTEM_VERSION)
 
-#import "Masonry.h"
-#import <FrameAccessor/FrameAccessor.h>
-
 @interface ANTableView ()
 
 @property (nonatomic, strong) UIView* stickedContainer;
@@ -60,8 +57,8 @@ static CGFloat const kDefaultTableViewHeaderHeight = 40;
     
     CGRect frame = self.bottomStickedFooterView.frame;
     frame.size.height = self.stickedFooterHeight;
-    frame.size.width = self.width;
-    frame.origin.y = self.stickedContainer.height - frame.size.height;
+    frame.size.width = self.frame.size.width;
+    frame.origin.y = self.stickedContainer.frame.size.height - frame.size.height;
     self.bottomStickedFooterView.frame = frame;
 }
 

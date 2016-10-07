@@ -7,7 +7,7 @@
 //
 
 #import "ANAppDelegate.h"
-#import "ANViewController.h"
+#import "ANEMainVC.h"
 
 @implementation ANAppDelegate
 
@@ -15,8 +15,10 @@
 {
     if (NSClassFromString(@"XCTestCase")) return YES;
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    self.window.rootViewController = [ANViewController new];
+    UINavigationController* nc = [[UINavigationController alloc] initWithRootViewController:[ANEMainVC new]];
+    self.window.rootViewController = nc;
     [self.window makeKeyAndVisible];
+    
     return YES;
 }
 

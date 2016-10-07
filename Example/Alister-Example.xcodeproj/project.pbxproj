@@ -53,15 +53,16 @@
 		8C0DF7221D8FFDFF00E17B6B /* ANTestKeyboardHandlerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C0DF6F71D8FFDFF00E17B6B /* ANTestKeyboardHandlerDelegate.m */; };
 		8C0DF7231D8FFDFF00E17B6B /* ANTestTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C0DF6F91D8FFDFF00E17B6B /* ANTestTableCell.m */; };
 		8C0DF7241D8FFDFF00E17B6B /* ANTestViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C0DF6FB1D8FFDFF00E17B6B /* ANTestViewModel.m */; };
+		D752BE471DA8307E002AC29E /* ANAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D752BE381DA8307E002AC29E /* ANAppDelegate.m */; };
+		D752BE491DA8307E002AC29E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D752BE3C1DA8307E002AC29E /* Assets.xcassets */; };
+		D752BE4A1DA8307E002AC29E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D752BE3D1DA8307E002AC29E /* InfoPlist.strings */; };
+		D752BE4B1DA8307E002AC29E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D752BE3F1DA8307E002AC29E /* main.m */; };
+		D752BE4C1DA8307E002AC29E /* ANExampleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D752BE421DA8307E002AC29E /* ANExampleTableViewCell.m */; };
+		D752BE4D1DA8307E002AC29E /* ANEMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D752BE451DA8307E002AC29E /* ANEMainVC.m */; };
 		D7EC43B21D50C7DE00128012 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		D7EC43B31D50C7DE00128012 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		D7EC43B61D50C7EB00128012 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		D7EC43B71D50C7EB00128012 /* (null) in Resources */ = {isa = PBXBuildFile; };
-		D7EC43BC1D50C9A300128012 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D7EC43BA1D50C9A300128012 /* main.m */; };
-		D7EC43C41D50C9AE00128012 /* ANAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D7EC43BE1D50C9AE00128012 /* ANAppDelegate.m */; };
-		D7EC43C51D50C9AE00128012 /* ANExampleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D7EC43C01D50C9AE00128012 /* ANExampleTableViewCell.m */; };
-		D7EC43C61D50C9AE00128012 /* ANViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7EC43C21D50C9AE00128012 /* ANViewController.m */; };
-		D7EC43C71D50C9AE00128012 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7EC43C31D50C9AE00128012 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,16 +143,17 @@
 		A8D594C6A1CAF9F8A83D2691 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		AFB91A3C0505789B7F9CF1F3 /* Pods_Alister_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Alister_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB2099F6E4049388FFBA7187 /* Pods-Alister-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister-Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Alister-Example/Pods-Alister-Example.debug.xcconfig"; sourceTree = "<group>"; };
-		D7EC43B81D50C9A300128012 /* Alister-Example-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Alister-Example-Info.plist"; path = "Alister-Example/Alister-Example-Info.plist"; sourceTree = SOURCE_ROOT; };
-		D7EC43B91D50C9A300128012 /* Alister-Example-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Alister-Example-Prefix.pch"; path = "Alister-Example/Alister-Example-Prefix.pch"; sourceTree = SOURCE_ROOT; };
-		D7EC43BA1D50C9A300128012 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "Alister-Example/main.m"; sourceTree = SOURCE_ROOT; };
-		D7EC43BD1D50C9AE00128012 /* ANAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ANAppDelegate.h; path = "Alister-Example/ANAppDelegate.h"; sourceTree = SOURCE_ROOT; };
-		D7EC43BE1D50C9AE00128012 /* ANAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ANAppDelegate.m; path = "Alister-Example/ANAppDelegate.m"; sourceTree = SOURCE_ROOT; };
-		D7EC43BF1D50C9AE00128012 /* ANExampleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ANExampleTableViewCell.h; path = "Alister-Example/ANExampleTableViewCell.h"; sourceTree = SOURCE_ROOT; };
-		D7EC43C01D50C9AE00128012 /* ANExampleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ANExampleTableViewCell.m; path = "Alister-Example/ANExampleTableViewCell.m"; sourceTree = SOURCE_ROOT; };
-		D7EC43C11D50C9AE00128012 /* ANViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ANViewController.h; path = "Alister-Example/ANViewController.h"; sourceTree = SOURCE_ROOT; };
-		D7EC43C21D50C9AE00128012 /* ANViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ANViewController.m; path = "Alister-Example/ANViewController.m"; sourceTree = SOURCE_ROOT; };
-		D7EC43C31D50C9AE00128012 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "Alister-Example/Images.xcassets"; sourceTree = SOURCE_ROOT; };
+		D752BE371DA8307E002AC29E /* ANAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANAppDelegate.h; sourceTree = "<group>"; };
+		D752BE381DA8307E002AC29E /* ANAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANAppDelegate.m; sourceTree = "<group>"; };
+		D752BE3A1DA8307E002AC29E /* Alister-Example-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Alister-Example-Info.plist"; sourceTree = "<group>"; };
+		D752BE3B1DA8307E002AC29E /* Alister-Example-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Alister-Example-Prefix.pch"; sourceTree = "<group>"; };
+		D752BE3C1DA8307E002AC29E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D752BE3E1DA8307E002AC29E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D752BE3F1DA8307E002AC29E /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D752BE411DA8307E002AC29E /* ANExampleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANExampleTableViewCell.h; sourceTree = "<group>"; };
+		D752BE421DA8307E002AC29E /* ANExampleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANExampleTableViewCell.m; sourceTree = "<group>"; };
+		D752BE441DA8307E002AC29E /* ANEMainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANEMainVC.h; sourceTree = "<group>"; };
+		D752BE451DA8307E002AC29E /* ANEMainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANEMainVC.m; sourceTree = "<group>"; };
 		D7EC43CC1D512EE300128012 /* Alister-Example-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Alister-Example-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7EC43D01D512EE300128012 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E301602B7936D5180834423D /* Alister.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Alister.podspec; path = ../Alister.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -185,8 +187,8 @@
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
+				D752BE351DA8307E002AC29E /* Alister-Example */,
 				60FF7A9C1954A5C5007DD14C /* Podspec Metadata */,
-				6003F593195388D20070C39A /* Example for Alister */,
 				D7EC43CD1D512EE300128012 /* Alister-Example-Tests */,
 				6003F58C195388D20070C39A /* Frameworks */,
 				6003F58B195388D20070C39A /* Products */,
@@ -214,32 +216,6 @@
 				F19F56DDDEE034DD40E4A09E /* Pods_Alister_Example_Tests.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		6003F593195388D20070C39A /* Example for Alister */ = {
-			isa = PBXGroup;
-			children = (
-				D7EC43BD1D50C9AE00128012 /* ANAppDelegate.h */,
-				D7EC43BE1D50C9AE00128012 /* ANAppDelegate.m */,
-				D7EC43BF1D50C9AE00128012 /* ANExampleTableViewCell.h */,
-				D7EC43C01D50C9AE00128012 /* ANExampleTableViewCell.m */,
-				D7EC43C11D50C9AE00128012 /* ANViewController.h */,
-				D7EC43C21D50C9AE00128012 /* ANViewController.m */,
-				D7EC43C31D50C9AE00128012 /* Images.xcassets */,
-				6003F594195388D20070C39A /* Supporting Files */,
-			);
-			name = "Example for Alister";
-			path = Alister;
-			sourceTree = "<group>";
-		};
-		6003F594195388D20070C39A /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				D7EC43B81D50C9A300128012 /* Alister-Example-Info.plist */,
-				D7EC43B91D50C9A300128012 /* Alister-Example-Prefix.pch */,
-				D7EC43BA1D50C9A300128012 /* main.m */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		60FF7A9C1954A5C5007DD14C /* Podspec Metadata */ = {
@@ -393,6 +369,56 @@
 			path = HelperClasses;
 			sourceTree = "<group>";
 		};
+		D752BE351DA8307E002AC29E /* Alister-Example */ = {
+			isa = PBXGroup;
+			children = (
+				D752BE361DA8307E002AC29E /* AppDelegate */,
+				D752BE391DA8307E002AC29E /* Bundle Files */,
+				D752BE401DA8307E002AC29E /* Cells */,
+				D752BE431DA8307E002AC29E /* ViewControllers */,
+			);
+			path = "Alister-Example";
+			sourceTree = "<group>";
+		};
+		D752BE361DA8307E002AC29E /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				D752BE371DA8307E002AC29E /* ANAppDelegate.h */,
+				D752BE381DA8307E002AC29E /* ANAppDelegate.m */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		D752BE391DA8307E002AC29E /* Bundle Files */ = {
+			isa = PBXGroup;
+			children = (
+				D752BE3A1DA8307E002AC29E /* Alister-Example-Info.plist */,
+				D752BE3B1DA8307E002AC29E /* Alister-Example-Prefix.pch */,
+				D752BE3C1DA8307E002AC29E /* Assets.xcassets */,
+				D752BE3D1DA8307E002AC29E /* InfoPlist.strings */,
+				D752BE3F1DA8307E002AC29E /* main.m */,
+			);
+			path = "Bundle Files";
+			sourceTree = "<group>";
+		};
+		D752BE401DA8307E002AC29E /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				D752BE411DA8307E002AC29E /* ANExampleTableViewCell.h */,
+				D752BE421DA8307E002AC29E /* ANExampleTableViewCell.m */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		D752BE431DA8307E002AC29E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D752BE441DA8307E002AC29E /* ANEMainVC.h */,
+				D752BE451DA8307E002AC29E /* ANEMainVC.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		D7EC43CD1D512EE300128012 /* Alister-Example-Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -422,7 +448,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6003F5BF195388D20070C39A /* Build configuration list for PBXNativeTarget "Alister-Example" */;
 			buildPhases = (
-				8DEFFEDDAE67F3651325332D /* 📦 Check Pods Manifest.lock */,
+				8DEFFEDDAE67F3651325332D /* [CP] Check Pods Manifest.lock */,
 				59A0B9A8A89BB973779AF899 /* [CP] Check Pods Manifest.lock */,
 				6003F586195388D20070C39A /* Sources */,
 				6003F587195388D20070C39A /* Frameworks */,
@@ -445,7 +471,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D7EC43D31D512EE300128012 /* Build configuration list for PBXNativeTarget "Alister-Example-Tests" */;
 			buildPhases = (
-				57D5A486518A6A5E7C136536 /* 📦 Check Pods Manifest.lock */,
+				57D5A486518A6A5E7C136536 /* [CP] Check Pods Manifest.lock */,
 				F021BB144B54D21DD699B183 /* [CP] Check Pods Manifest.lock */,
 				D7EC43C81D512EE300128012 /* Sources */,
 				D7EC43C91D512EE300128012 /* Frameworks */,
@@ -506,9 +532,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7EC43B71D50C7EB00128012 /* (null) in Resources */,
+				D752BE4A1DA8307E002AC29E /* InfoPlist.strings in Resources */,
 				D7EC43B61D50C7EB00128012 /* (null) in Resources */,
 				D7EC43B21D50C7DE00128012 /* (null) in Resources */,
-				D7EC43C71D50C9AE00128012 /* Images.xcassets in Resources */,
+				D752BE491DA8307E002AC29E /* Assets.xcassets in Resources */,
 				D7EC43B31D50C7DE00128012 /* (null) in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -553,14 +580,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Alister-Example-Tests/Pods-Alister-Example-Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		57D5A486518A6A5E7C136536 /* 📦 Check Pods Manifest.lock */ = {
+		57D5A486518A6A5E7C136536 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -628,14 +655,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Alister-Example-Tests/Pods-Alister-Example-Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8DEFFEDDAE67F3651325332D /* 📦 Check Pods Manifest.lock */ = {
+		8DEFFEDDAE67F3651325332D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -710,10 +737,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D7EC43C61D50C9AE00128012 /* ANViewController.m in Sources */,
-				D7EC43C51D50C9AE00128012 /* ANExampleTableViewCell.m in Sources */,
-				D7EC43C41D50C9AE00128012 /* ANAppDelegate.m in Sources */,
-				D7EC43BC1D50C9A300128012 /* main.m in Sources */,
+				D752BE4D1DA8307E002AC29E /* ANEMainVC.m in Sources */,
+				D752BE4C1DA8307E002AC29E /* ANExampleTableViewCell.m in Sources */,
+				D752BE4B1DA8307E002AC29E /* main.m in Sources */,
+				D752BE471DA8307E002AC29E /* ANAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -774,6 +801,17 @@
 			targetProxy = D7EC43D11D512EE300128012 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D752BE3D1DA8307E002AC29E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D752BE3E1DA8307E002AC29E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		6003F5BD195388D20070C39A /* Debug */ = {
@@ -925,7 +963,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES_AGGRESSIVE;
 				CLANG_WARN__EXIT_TIME_DESTRUCTORS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Alister-Example/Alister-Example-Prefix.pch";
+				GCC_PREFIX_HEADER = "Alister-Example/Bundle Files/Alister-Example-Prefix.pch";
 				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
 				GCC_TREAT_INCOMPATIBLE_POINTER_TYPE_WARNINGS_AS_ERRORS = YES;
 				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
@@ -941,7 +979,7 @@
 				GCC_WARN_UNKNOWN_PRAGMAS = YES;
 				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_PARAMETER = YES;
-				INFOPLIST_FILE = "$(SRCROOT)/Alister-Example/Alister-Example-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Alister-Example/Bundle Files/Alister-Example-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "mobi.anoda.Alister-Example";
@@ -976,7 +1014,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES_AGGRESSIVE;
 				CLANG_WARN__EXIT_TIME_DESTRUCTORS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Alister-Example/Alister-Example-Prefix.pch";
+				GCC_PREFIX_HEADER = "Alister-Example/Bundle Files/Alister-Example-Prefix.pch";
 				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
 				GCC_TREAT_INCOMPATIBLE_POINTER_TYPE_WARNINGS_AS_ERRORS = YES;
 				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
@@ -992,7 +1030,7 @@
 				GCC_WARN_UNKNOWN_PRAGMAS = YES;
 				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_PARAMETER = YES;
-				INFOPLIST_FILE = "$(SRCROOT)/Alister-Example/Alister-Example-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Alister-Example/Bundle Files/Alister-Example-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "mobi.anoda.Alister-Example";
