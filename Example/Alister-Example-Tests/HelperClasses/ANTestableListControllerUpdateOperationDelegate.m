@@ -49,7 +49,7 @@
     return view;
 }
 
-- (void)storageNeedsReloadWithIdentifier:(NSString*)identifier
+- (void)storageNeedsReloadWithIdentifier:(__unused NSString*)identifier
 {
 
 }

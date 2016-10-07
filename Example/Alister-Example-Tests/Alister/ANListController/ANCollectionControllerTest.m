@@ -7,7 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "ANStorage.h"
+#import <Alister/ANStorage.h>
 #import "ANCollectionController.h"
 #import "ANCollectionViewCell.h"
 
@@ -93,7 +93,8 @@
     }];
     
     [self.listController addUpdatesFinsihedTriggerBlock:^{
-        [welf.listController collectionView:welf.collectionView
+        __strong typeof(welf) strongSelf = welf;
+        [strongSelf.listController collectionView:strongSelf.collectionView
                    didSelectItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
     }];
 
@@ -126,8 +127,9 @@
     }];
     
     [self.listController addUpdatesFinsihedTriggerBlock:^{
-        [welf.listController collectionView:welf.collectionView
-                   didSelectItemAtIndexPath:selectedIndexPath];
+        __strong typeof(welf) strongSelf = welf;
+        [strongSelf.listController collectionView:strongSelf.collectionView
+                         didSelectItemAtIndexPath:selectedIndexPath];
     }];
     
     [self.storage updateWithoutAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
@@ -245,8 +247,9 @@
     
     //then
     [self.listController addUpdatesFinsihedTriggerBlock:^{
+        __strong typeof(welf) strongSelf = welf;
         [expectation fulfill];
-        NSInteger sectionCount = [welf.listController numberOfSectionsInCollectionView:welf.collectionView];
+        NSInteger sectionCount = [strongSelf.listController numberOfSectionsInCollectionView:strongSelf.collectionView];
         XCTAssertEqual(sectionCount, 2);
     }];
     [self waitForExpectationsWithTimeout:0.1 handler:nil];
@@ -272,8 +275,9 @@
     //then
     [self.listController addUpdatesFinsihedTriggerBlock:^{
         [expectation fulfill];
-        NSInteger listControllerSectionRowsNumber = [welf.listController collectionView:welf.collectionView numberOfItemsInSection:0];
-        NSInteger dataSourceRowsNumber = [welf.collectionView.dataSource collectionView:welf.collectionView numberOfItemsInSection:0];
+        __strong typeof(welf) strongSelf = welf;
+        NSInteger listControllerSectionRowsNumber = [strongSelf.listController collectionView:strongSelf.collectionView numberOfItemsInSection:0];
+        NSInteger dataSourceRowsNumber = [strongSelf.collectionView.dataSource collectionView:strongSelf.collectionView numberOfItemsInSection:0];
         XCTAssertEqual(listControllerSectionRowsNumber, 3);
         XCTAssertEqual(dataSourceRowsNumber, 3);
     }];
@@ -294,13 +298,15 @@
     XCTestExpectation* expectation = [self expectationWithDescription:@"testDidSelectRowAtIndexPath called"];
     __weak typeof(self) welf = self;
     
-    [self.listController configureItemSelectionBlock:^(id model, NSIndexPath* indexPath) {
+    [self.listController configureItemSelectionBlock:^(__unused id model, NSIndexPath* indexPath) {
         XCTAssertEqualObjects(selectedIndexPath, indexPath);
         [expectation fulfill];
     }];
     
     [self.listController addUpdatesFinsihedTriggerBlock:^{
-        [welf.collectionView.delegate collectionView:welf.collectionView didSelectItemAtIndexPath:selectedIndexPath];
+        __strong typeof(welf) strongSelf = welf;
+        [strongSelf.collectionView.delegate collectionView:strongSelf.collectionView
+                                  didSelectItemAtIndexPath:selectedIndexPath];
     }];
     
     [self.storage updateWithoutAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
@@ -326,13 +332,15 @@
         XCTestExpectation* expectation = [self expectationWithDescription:@"expectationNotExistIndexPath"];
         __weak typeof(self) welf = self;
         
-        [self.listController configureItemSelectionBlock:^(id model, NSIndexPath* indexPath) {
+        [self.listController configureItemSelectionBlock:^(__unused id model, NSIndexPath* indexPath) {
             XCTAssertEqualObjects(notExistIndexPath, indexPath);
             [expectation fulfill];
         }];
         
         [self.listController addUpdatesFinsihedTriggerBlock:^{
-            [welf.collectionView.delegate collectionView:welf.collectionView didSelectItemAtIndexPath:notExistIndexPath];
+            __strong typeof(welf) strongSelf = welf;
+            [strongSelf.collectionView.delegate collectionView:strongSelf.collectionView
+                                      didSelectItemAtIndexPath:notExistIndexPath];
         }];
         
         [self.storage updateWithoutAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {

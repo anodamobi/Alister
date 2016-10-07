@@ -8,7 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import "ANTableController.h"
-#import "ANStorage.h"
+#import <Alister/ANStorage.h>
 #import <Expecta/Expecta.h>
 #import "ANTestTableCell.h"
 #import "ANTestTableHeaderFooter.h"
@@ -58,11 +58,12 @@
     
     // then
     XCTestExpectation* expectation = [self expectationWithDescription:@"updateWithoutAnimationChangeBlock called"];
-    __weak typeof(self) welf = self;
     
+    __weak typeof(self) welf = self;
     [self.listController addUpdatesFinsihedTriggerBlock:^{
         
-        ANStorageSectionModel* section = welf.storage.sections.firstObject;
+        __strong typeof(welf) strongSelf = welf;
+        ANStorageSectionModel* section = strongSelf.storage.sections.firstObject;
         expect(section.objects).to.haveCount(items.count);
         
         [expectation fulfill];
@@ -121,7 +122,8 @@
     }];
     
     [self.listController addUpdatesFinsihedTriggerBlock:^{
-        [welf.listController tableView:welf.tw
+        __strong typeof(welf) strongSelf = welf;
+        [strongSelf.listController tableView:strongSelf.tw
                didSelectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
     }];
     
@@ -154,7 +156,8 @@
     }];
     
     [self.listController addUpdatesFinsihedTriggerBlock:^{
-        [welf.listController tableView:welf.tw
+        __strong typeof(welf) strongSelf = welf;
+        [strongSelf.listController tableView:strongSelf.tw
                didSelectRowAtIndexPath:selectedIndexPath];
     }];
     
@@ -297,8 +300,9 @@
     
     //then
     [self.listController addUpdatesFinsihedTriggerBlock:^{
+        __strong typeof(welf) strongSelf = welf;
         [expectation fulfill];
-        expect([welf.listController numberOfSectionsInTableView:welf.tw]).equal(2);
+        expect([strongSelf.listController numberOfSectionsInTableView:strongSelf.tw]).equal(2);
     }];
     [self waitForExpectationsWithTimeout:0.1 handler:nil];
 }
@@ -325,7 +329,8 @@
     
     //then
     [self.listController addUpdatesFinsihedTriggerBlock:^{
-        NSInteger sectionNumber = [welf.listController numberOfSectionsInTableView:self.tw];
+        __strong typeof(welf) strongSelf = welf;
+        NSInteger sectionNumber = [strongSelf.listController numberOfSectionsInTableView:self.tw];
         XCTAssertEqual(sectionNumber, expectedSectionCount);
         [expectation fulfill];
     }];
@@ -353,8 +358,9 @@
     //then
     [self.listController addUpdatesFinsihedTriggerBlock:^{
         [expectation fulfill];
-        expect([welf.listController tableView:self.tw numberOfRowsInSection:0]).equal(3);
-        expect([welf.tw.dataSource tableView:self.tw numberOfRowsInSection:0]).equal(3);
+        __strong typeof(welf) strongSelf = welf;
+        expect([strongSelf.listController tableView:self.tw numberOfRowsInSection:0]).equal(3);
+        expect([strongSelf.tw.dataSource tableView:self.tw numberOfRowsInSection:0]).equal(3);
     }];
     [self waitForExpectationsWithTimeout:0.1 handler:nil];
 }
@@ -373,13 +379,14 @@
     XCTestExpectation* expectation = [self expectationWithDescription:@"testDidSelectRowAtIndexPath called"];
     __weak typeof(self) welf = self;
     
-    [self.listController configureItemSelectionBlock:^(id model, NSIndexPath* indexPath) {
+    [self.listController configureItemSelectionBlock:^(__unused id model, NSIndexPath* indexPath) {
         XCTAssertEqualObjects(selectedIndexPath, indexPath);
         [expectation fulfill];
     }];
     
     [self.listController addUpdatesFinsihedTriggerBlock:^{
-        [welf.tw.delegate tableView:self.tw didSelectRowAtIndexPath:selectedIndexPath];
+        __strong typeof(welf) strongSelf = welf;
+        [strongSelf.tw.delegate tableView:self.tw didSelectRowAtIndexPath:selectedIndexPath];
     }];
     
     [self.storage updateWithoutAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
@@ -406,13 +413,14 @@
         XCTestExpectation* expectation = [self expectationWithDescription:@"expectationNotExistIndexPath"];
         __weak typeof(self) welf = self;
         
-        [self.listController configureItemSelectionBlock:^(id model, NSIndexPath* indexPath) {
+        [self.listController configureItemSelectionBlock:^(__unused id model, NSIndexPath* indexPath) {
             XCTAssertEqualObjects(notExistIndexPath, indexPath);
             [expectation fulfill];
         }];
         
         [self.listController addUpdatesFinsihedTriggerBlock:^{
-            [welf.tw.delegate tableView:self.tw didSelectRowAtIndexPath:notExistIndexPath];
+            __strong typeof(welf) strongSelf = welf;
+            [strongSelf.tw.delegate tableView:self.tw didSelectRowAtIndexPath:notExistIndexPath];
         }];
         
         [self.storage updateWithoutAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {

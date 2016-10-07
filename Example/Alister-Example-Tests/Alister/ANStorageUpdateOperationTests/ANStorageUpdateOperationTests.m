@@ -150,7 +150,7 @@
 
 #pragma mark - ANStorageUpdateControllerInterface
 
-- (void)updateStorageOperationRequiresForceReload:(ANStorageUpdateOperation*)operation
+- (void)updateStorageOperationRequiresForceReload:(__unused ANStorageUpdateOperation*)operation
 {
 
 }
@@ -158,7 +158,7 @@
 
 #pragma mark - ANStorageListUpdateOperationInterface
 
-- (void)storageUpdateModelGenerated:(ANStorageUpdateModel*)updateModel
+- (void)storageUpdateModelGenerated:(__unused ANStorageUpdateModel*)updateModel
 {
 
 }

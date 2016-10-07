@@ -8,7 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import <Expecta/Expecta.h>
-#import "ANStorageSectionModel.h"
+#import <Alister/ANStorageSectionModel.h>
 
 static NSInteger const kMaxObjectsCount = 4;
 

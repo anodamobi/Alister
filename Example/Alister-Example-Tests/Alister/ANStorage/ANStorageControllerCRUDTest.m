@@ -7,10 +7,11 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "ANStorageController.h"
 #import <Expecta/Expecta.h>
-#import "ANStorageSectionModel.h"
-#import "ANStorageModel.h"
+#import <Alister/ANStorageSectionModel.h>
+#import <Alister/ANStorageController.h>
+#import <Alister/ANStorage.h>
+#import <Alister/ANStorageModel.h>
 
 @interface ANStorageController ()
 
@@ -424,7 +425,7 @@
     expect(self.controller.isEmpty).beTruthy();
 }
 
-- (void)testRemoveSections:(NSIndexSet*)indexSet
+- (void)testRemoveSections
 {
     //given
     NSString* testModel = @"test0";

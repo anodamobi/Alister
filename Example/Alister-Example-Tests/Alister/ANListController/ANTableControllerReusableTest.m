@@ -8,7 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import "ANTableController.h"
-#import "ANStorage.h"
+#import <Alister/ANStorage.h>
 #import "ANTestTableCell.h"
 #import "ANTestTableHeaderFooter.h"
 #import "ANTestViewModel.h"
@@ -84,9 +84,10 @@
 
     //then
     [self.listController addUpdatesFinsihedTriggerBlock:^{
+        typeof (self) strongSelf = welf;
         [expectation fulfill];
         
-        NSString* titleHeader = [welf.listController tableView:welf.tw titleForHeaderInSection:0];
+        NSString* titleHeader = [strongSelf.listController tableView:strongSelf.tw titleForHeaderInSection:0];
         expect(titleHeader).beNil();
     }];
     
@@ -105,9 +106,10 @@
     
     //then
     [self.listController addUpdatesFinsihedTriggerBlock:^{
+        typeof (self) strongSelf = welf;
         [expectation fulfill];
         
-        NSString* emptyTitleHeader = [welf.listController tableView:welf.tw titleForHeaderInSection:0];
+        NSString* emptyTitleHeader = [strongSelf.listController tableView:strongSelf.tw titleForHeaderInSection:0];
         expect(emptyTitleHeader).to.beNil();
     }];
     [self waitForExpectationsWithTimeout:0.1 handler:nil];
@@ -125,9 +127,12 @@
     
     //then
     [self.listController addUpdatesFinsihedTriggerBlock:^{
+        typeof (self) strongSelf = welf;
         [expectation fulfill];
         
-        ANTestTableHeaderFooter* header = (ANTestTableHeaderFooter*)[welf.listController tableView:welf.tw viewForHeaderInSection:0];
+        ANTestTableHeaderFooter* header = (ANTestTableHeaderFooter*)[strongSelf.listController
+                                                                     tableView:strongSelf.tw
+                                                                     viewForHeaderInSection:0];
         expect(header).willNot.beNil();
         expect(header.model).equal(testModel);
     }];
@@ -148,8 +153,9 @@
     
     //then
     [self.listController addUpdatesFinsihedTriggerBlock:^{
+        typeof (self) strongSelf = welf;
         [expectation fulfill];
-        NSString* titleHeader = [welf.listController tableView:welf.tw titleForHeaderInSection:0];
+        NSString* titleHeader = [strongSelf.listController tableView:strongSelf.tw titleForHeaderInSection:0];
         expect(titleHeader).notTo.beNil();
         expect(titleHeader).equal(testModel);
     }];
@@ -168,18 +174,18 @@
     
     //then
     [self.listController addUpdatesFinsihedTriggerBlock:^{
+        typeof (self) strongSelf = welf;
         [expectation fulfill];
         
-        ANTestTableHeaderFooter* header = (ANTestTableHeaderFooter*)[welf.listController tableView:welf.tw viewForHeaderInSection:0];
+        ANTestTableHeaderFooter* header = (ANTestTableHeaderFooter*)[strongSelf.listController tableView:strongSelf.tw viewForHeaderInSection:0];
         expect(header).willNot.beNil();
         expect(header.model).equal(testModel);
     }];
     [self waitForExpectationsWithTimeout:0.1 handler:nil];
 }
 
-/*
-*  Footer Tests
-*/
+
+#pragma mark - Footer
 
 - (void)_setAsSystemFooter:(id)object
 {
@@ -216,8 +222,8 @@
     //then
     [self.listController addUpdatesFinsihedTriggerBlock:^{
         [expectation fulfill];
-        
-        NSString* footer = [welf.listController tableView:welf.tw titleForFooterInSection:0];
+        __strong typeof(welf) strongSelf = welf;
+        NSString* footer = [strongSelf.listController tableView:strongSelf.tw titleForFooterInSection:0];
         expect(footer).notTo.beNil();
         expect(footer).equal(testModel);
     }];
@@ -237,8 +243,8 @@
     //then
     [self.listController addUpdatesFinsihedTriggerBlock:^{
         [expectation fulfill];
-        
-        NSString* footer = [welf.listController tableView:welf.tw titleForFooterInSection:0];
+        __strong typeof(welf) strongSelf = welf;
+        NSString* footer = [strongSelf.listController tableView:strongSelf.tw titleForFooterInSection:0];
         expect(footer).to.beNil();
     }];
     [self waitForExpectationsWithTimeout:0.1 handler:nil];
@@ -257,8 +263,8 @@
     //then
     [self.listController addUpdatesFinsihedTriggerBlock:^{
         [expectation fulfill];
-        
-        ANTestTableHeaderFooter* footer = (ANTestTableHeaderFooter*)[welf.listController tableView:welf.tw viewForFooterInSection:0];
+        __strong typeof(welf) strongSelf = welf;
+        ANTestTableHeaderFooter* footer = (ANTestTableHeaderFooter*)[strongSelf.listController tableView:strongSelf.tw viewForFooterInSection:0];
         expect(footer).willNot.beNil();
         expect(footer.model).equal(testModel);
     }];
@@ -280,8 +286,8 @@
     //then
     [self.listController addUpdatesFinsihedTriggerBlock:^{
         [expectation fulfill];
-        
-        NSString* footer = [welf.listController tableView:welf.tw titleForFooterInSection:0];
+        __strong typeof(welf) strongSelf = welf;
+        NSString* footer = [strongSelf.listController tableView:strongSelf.tw titleForFooterInSection:0];
         expect(footer).notTo.beNil();
         expect(footer).equal(testModel);
     }];
@@ -301,8 +307,8 @@
     //then
     [self.listController addUpdatesFinsihedTriggerBlock:^{
         [expectation fulfill];
-        
-        ANTestTableHeaderFooter* footer = (ANTestTableHeaderFooter*)[welf.listController tableView:welf.tw viewForFooterInSection:0];
+        __strong typeof(welf) strongSelf = welf;
+        ANTestTableHeaderFooter* footer = (ANTestTableHeaderFooter*)[strongSelf.listController tableView:strongSelf.tw viewForFooterInSection:0];
         expect(footer).notTo.beNil();
         expect(footer.model).equal(testModel);
     }];
@@ -340,7 +346,8 @@
     [self.listController addUpdatesFinsihedTriggerBlock:^{
         
         [expectation fulfill];
-        ANTestTableCell* cell = (id)[welf.listController tableView:welf.tw
+        __strong typeof(welf) strongSelf = welf;
+        ANTestTableCell* cell = (id)[strongSelf.listController tableView:strongSelf.tw
                                         cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
         expect(cell).notTo.beNil();
         expect(cell.model).equal(testModel);
@@ -370,7 +377,8 @@
     [self.listController addUpdatesFinsihedTriggerBlock:^{
         
         [expectation fulfill];
-        ANTestTableCell* cell = (id)[welf.listController tableView:welf.tw
+        __strong typeof(welf) strongSelf = welf;
+        ANTestTableCell* cell = (id)[strongSelf.listController tableView:strongSelf.tw
                                              cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
         expect(cell).notTo.beNil();
         expect(cell.model).equal(testModel);

@@ -7,7 +7,7 @@
 //
 
 #import "ANViewController.h"
-#import "ANStorage.h"
+#import <Alister/ANStorage.h>
 #import "ANTableController.h"
 #import "ANExampleTableViewCell.h"
 
@@ -85,7 +85,7 @@
 //    }];
 //    
 //    [self.controller addUpdatesFinsihedTriggerBlock:^{
-//        [welf.controller tableView:welf.tableView
+//        [strongSelf.controller tableView:strongSelf.tableView
 //                           didSelectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
 //    }];
 //    

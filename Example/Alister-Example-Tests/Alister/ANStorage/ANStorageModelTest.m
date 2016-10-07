@@ -7,8 +7,8 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "ANStorageModel.h"
-#import "ANStorageSectionModel.h"
+#import <Alister/ANStorageModel.h>
+#import <Alister/ANStorageSectionModel.h>
 #import <Expecta/Expecta.h>
 
 static u_int32_t const kMaxGeneratedNumber = 3;
@@ -44,8 +44,8 @@ static u_int32_t const kMaxGeneratedNumber = 3;
 - (void)test_addSection_positive_sectionsCountIsValid
 {
     // when
-    NSInteger counter = arc4random_uniform(kMaxGeneratedNumber) + 1;
-    for (NSInteger i = 0; i < counter; i++)
+    NSUInteger counter = arc4random_uniform(kMaxGeneratedNumber) + 1;
+    for (NSUInteger i = 0; i < counter; i++)
     {
         [self.model addSection:[ANStorageSectionModel new]];
     }

@@ -10,7 +10,7 @@
 
 @implementation ANTestKeyboardHandlerDelegate
 
-- (void)keyboardWillUpdateStateTo:(BOOL)isVisible withNotification:(NSNotification*)notification
+- (void)keyboardWillUpdateStateTo:(__unused BOOL)isVisible withNotification:(__unused NSNotification*)notification
 {
 
 }

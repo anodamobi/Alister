@@ -7,8 +7,8 @@
 //
 
 #import "ANTableControllerManager.h"
-#import "ANStorage.h"
-#import "ANStorageSectionModel.h"
+#import <Alister/ANStorage.h>
+#import <Alister/ANStorageSectionModel.h>
 #import "ANListControllerQueueProcessor.h"
 #import "ANListControllerItemsHandler.h"
 #import "ANListControllerConfigurationModel.h"

@@ -9,8 +9,8 @@
 #import <XCTest/XCTest.h>
 #import <Expecta/Expecta.h>
 #import "ANStorageRemover.h"
-#import "ANStorageModel.h"
-#import "ANStorageSectionModel.h"
+#import <Alister/ANStorageModel.h>
+#import <Alister/ANStorageSectionModel.h>
 #import "ANStorageUpdateModel.h"
 #import "ANStorageLoader.h"
 
@@ -61,7 +61,7 @@ static NSInteger const kMaxObjectsCount = 3;
 {
     NSMutableSet* indexPaths = [NSMutableSet set];
     
-    [storage.sections enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL*  _Nonnull stop) {
+    [storage.sections enumerateObjectsUsingBlock:^(__unused id  _Nonnull obj, NSUInteger idx, __unused BOOL*  _Nonnull stop) {
         NSArray* items = [ANStorageLoader itemsInSection:idx inStorage:storage];
         NSArray* path = [ANStorageLoader indexPathArrayForItems:items inStorage:storage];
         [indexPaths addObjectsFromArray:path];
@@ -79,7 +79,7 @@ static NSInteger const kMaxObjectsCount = 3;
 {
     NSMutableArray* items = [NSMutableArray array];
     
-    [storage.sections enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL*  _Nonnull stop) {
+    [storage.sections enumerateObjectsUsingBlock:^(__unused id  _Nonnull obj, NSUInteger idx, __unused BOOL*  _Nonnull stop) {
         NSArray* rows = [ANStorageLoader itemsInSection:idx inStorage:storage];
         [items addObjectsFromArray:rows];
     }];
