@@ -311,7 +311,6 @@
     
     //then
     OCMVerifyAll(mockedKeyboardHandler);
-
 }
 
 - (void)test_dispatchBlockToMain_postivie_moveToMainThreadAfterBackground
@@ -326,18 +325,6 @@
     dispatch_async( dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [self.handler _dispatchBlockToMain:testableBlock];
     });
-}
-
-- (void)test_recognizerDelegate_positive_calledHideKeyboardFromRecognizerDelegate
-{
-    //given
-    id mockedKeyboardHandler = OCMPartialMock(self.handler);
-    ANTestableTouch* touch = [ANTestableTouch touchWithView:[UIView new]];
-    OCMExpect([mockedKeyboardHandler hideKeyboard]);
-    [self.handler gestureRecognizer:self.handler.tapRecognizer shouldReceiveTouch:touch];
-    
-    //then
-    OCMVerifyAll(mockedKeyboardHandler);
 }
 
 - (void)test_endEditing_positive_hideKeyboardCalledEndEditing

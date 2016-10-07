@@ -94,8 +94,11 @@
     
     for (NSInteger reversedCounter = storage.sections.count - 1; reversedCounter >= 0; reversedCounter--)
     {
-        [storage removeSectionAtIndex:reversedCounter];
-        [update addDeletedSectionIndex:reversedCounter];
+        if ([indexSet containsIndex:reversedCounter])
+        {
+            [storage removeSectionAtIndex:reversedCounter];
+            [update addDeletedSectionIndex:reversedCounter];
+        }
     }
     return update;
 }
