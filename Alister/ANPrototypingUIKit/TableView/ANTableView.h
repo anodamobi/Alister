@@ -7,9 +7,8 @@
 
 @interface ANTableView : UITableView
 
-@property (nonatomic, strong) UIView* bottomStickedFooterView;
-
 + (instancetype)cleanTableWithFrame:(CGRect)frame style:(UITableViewStyle)style;
 - (void)setupAppearance;
+- (void)addStickyFooter:(UIView*)footer withFixedHeight:(CGFloat)height;
 
 @end

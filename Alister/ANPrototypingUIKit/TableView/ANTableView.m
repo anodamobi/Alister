@@ -13,11 +13,25 @@ static CGFloat const kDefaultTableViewHeaderHeight = 40;
 #define SYSTEM_VERSION          ([[[UIDevice currentDevice] systemVersion] floatValue])
 #define IOS7_OR_HIGHER          (7.0 <= SYSTEM_VERSION)
 
+#import "Masonry.h"
+#import <FrameAccessor/FrameAccessor.h>
+
 @interface ANTableView ()
+
+@property (nonatomic, strong) UIView* stickedContainer;
+@property (nonatomic, assign) CGFloat stickedFooterHeight;
+@property (nonatomic, strong) UIView* bottomStickedFooterView;
 
 @end
 
 @implementation ANTableView
+
++ (instancetype)cleanTableWithFrame:(CGRect)frame style:(UITableViewStyle)style
+{
+    ANTableView* table = [[[self class] alloc] initWithFrame:frame style:style];
+    [table setupAppearance];
+    return table;
+}
 
 - (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style
 {
@@ -33,49 +47,62 @@ static CGFloat const kDefaultTableViewHeaderHeight = 40;
     return self;
 }
 
-+ (instancetype)cleanTableWithFrame:(CGRect)frame style:(UITableViewStyle)style
+- (void)addStickyFooter:(UIView*)footer withFixedHeight:(CGFloat)height
 {
-    ANTableView* table = [[[self class] alloc] initWithFrame:frame style:style];
-    [table setupAppearance];
-    return table;
+    self.stickedFooterHeight = height;
+    self.bottomStickedFooterView = footer;
 }
 
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    
     [self layoutTableFooterView];
+    
+    CGRect frame = self.bottomStickedFooterView.frame;
+    frame.size.height = self.stickedFooterHeight;
+    frame.size.width = self.width;
+    frame.origin.y = self.stickedContainer.height - frame.size.height;
+    self.bottomStickedFooterView.frame = frame;
 }
 
 - (void)layoutTableFooterView
 {
-    CGFloat contentOffset = self.contentOffset.y;
-    
-    if (self.bottomStickedFooterView || contentOffset)
+    if (self.bottomStickedFooterView && self.contentSize.height)
     {
-        CGFloat contentSize = self.contentSize.height;
+        CGFloat contentSizeWithoutFooter = self.tableFooterView.frame.origin.y;
+        CGFloat stickedFooterHeight = self.stickedFooterHeight;
         CGFloat frameHeight = self.frame.size.height;
-        CGFloat footerMinY = self.tableFooterView.frame.origin.y;
         
-        CGFloat magicBottomValue = contentSize - contentOffset;
-        CGFloat height = contentSize - footerMinY;
+        CGFloat minContentHeightWithFooter = contentSizeWithoutFooter + stickedFooterHeight;
         
-        if (magicBottomValue <= frameHeight)
+        CGRect footerFrame = self.tableFooterView.frame;
+        
+        if (minContentHeightWithFooter <= frameHeight)
         {
-            height += frameHeight - magicBottomValue;
+            footerFrame.size.height = frameHeight - contentSizeWithoutFooter;
         }
-        
-        self.tableFooterView.frame = CGRectMake(0,
-                                                self.tableFooterView.frame.origin.y,
-                                                self.frame.size.width,
-                                                height);
+        else
+        {
+            footerFrame.size.height = stickedFooterHeight;
+        }
+        self.tableFooterView.frame = footerFrame;
     }
 }
 
-- (void)setBottomStickedFooterView:(UIView *)bottomStickedFooterView
+- (void)setBottomStickedFooterView:(UIView*)bottomStickedFooterView
 {
     _bottomStickedFooterView = bottomStickedFooterView;
-    self.tableFooterView = bottomStickedFooterView;
+    [self.stickedContainer addSubview:_bottomStickedFooterView];
+}
+
+- (UIView*)stickedContainer
+{
+    if (!_stickedContainer)
+    {
+        _stickedContainer = [UIView new];
+        self.tableFooterView = self.stickedContainer;
+    }
+    return _stickedContainer;
 }
 
 - (void)setupAppearance
