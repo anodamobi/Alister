@@ -40,7 +40,7 @@
     NSSortDescriptor* sort = [NSSortDescriptor sortDescriptorWithKey:nil ascending:NO selector:@selector(compare:)];
     NSArray* indexPathsArray = [[indexPaths allObjects] sortedArrayUsingDescriptors:@[sort]];
     
-    [indexPathsArray enumerateObjectsUsingBlock:^(NSIndexPath*  _Nonnull indexPath, __unused NSUInteger idx, __unused BOOL * _Nonnull stop) {
+    [indexPathsArray enumerateObjectsUsingBlock:^(NSIndexPath*  _Nonnull indexPath, __unused NSUInteger idx, __unused BOOL*  _Nonnull stop) {
         id object = [ANStorageLoader itemAtIndexPath:indexPath inStorage:storage];
         if (object)
         {
@@ -62,7 +62,7 @@
     ANStorageUpdateModel* update = [ANStorageUpdateModel new];
     NSMutableArray* indexPaths = [NSMutableArray array];
     
-    [items enumerateObjectsUsingBlock:^(id  _Nonnull item, __unused BOOL * _Nonnull stop) {
+    [items enumerateObjectsUsingBlock:^(id  _Nonnull item, __unused BOOL*  _Nonnull stop) {
        
         NSIndexPath* indexPath = [ANStorageLoader indexPathForItem:item inStorage:storage];
         if (indexPath)

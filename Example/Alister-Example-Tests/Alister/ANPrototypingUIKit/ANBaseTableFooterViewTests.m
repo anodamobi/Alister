@@ -33,6 +33,7 @@ static BOOL const kIsTransparent = YES;
     [super tearDown];
 }
 
+
 #pragma mark - Setters
 
 - (void)test_isTransparent_positive_valueSetCorrectly

@@ -68,6 +68,7 @@ static UITableViewStyle const kTableViewStyle = UITableViewStyleGrouped;
     expect(containerView.subviews.firstObject).to.beKindOf([UITableView class]);
 }
 
+
 #pragma mark - initWithStyle
 
 - (void)test_initWithStyle_positive_initialTableViewNotNil

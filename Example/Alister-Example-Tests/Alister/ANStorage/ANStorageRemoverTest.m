@@ -53,6 +53,7 @@ static NSInteger const kMaxObjectsCount = 3;
         }
         [fullModel addSection:section];
     }
+    
     return fullModel;
 }
 
@@ -60,11 +61,12 @@ static NSInteger const kMaxObjectsCount = 3;
 {
     NSMutableSet* indexPaths = [NSMutableSet set];
     
-    [storage.sections enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [storage.sections enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL*  _Nonnull stop) {
         NSArray* items = [ANStorageLoader itemsInSection:idx inStorage:storage];
         NSArray* path = [ANStorageLoader indexPathArrayForItems:items inStorage:storage];
         [indexPaths addObjectsFromArray:path];
     }];
+    
     return indexPaths;
 }
 
@@ -77,10 +79,11 @@ static NSInteger const kMaxObjectsCount = 3;
 {
     NSMutableArray* items = [NSMutableArray array];
     
-    [storage.sections enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [storage.sections enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL*  _Nonnull stop) {
         NSArray* rows = [ANStorageLoader itemsInSection:idx inStorage:storage];
         [items addObjectsFromArray:rows];
     }];
+    
     return items;
 }
 
@@ -94,6 +97,7 @@ static NSInteger const kMaxObjectsCount = 3;
             return items.firstObject;
         }
     }
+    
     return nil;
 }
 
@@ -362,6 +366,7 @@ static NSInteger const kMaxObjectsCount = 3;
     // then
     expect(testBlock).notTo.raiseAny();
 }
+
 
 #pragma mark - removeAllItemsFromStorage
 

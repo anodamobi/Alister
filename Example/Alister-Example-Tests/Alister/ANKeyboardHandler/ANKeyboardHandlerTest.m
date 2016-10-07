@@ -332,7 +332,7 @@
 {
     //given
     id mockedKeyboardHandler = OCMPartialMock(self.handler);
-    ANTestableTouch* touch = [ANTestableTouch touchWithView:[UITextField new]];
+    ANTestableTouch* touch = [ANTestableTouch touchWithView:[UIView new]];
     OCMExpect([mockedKeyboardHandler hideKeyboard]);
     [self.handler gestureRecognizer:self.handler.tapRecognizer shouldReceiveTouch:touch];
     

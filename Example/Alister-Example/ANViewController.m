@@ -45,24 +45,8 @@
             [storageController addItem:@"Test"];
             [storageController addItem:@"Test"];
         }];
-        
-//        __weak typeof(controller) welf = self.controller;
-//
-//        [controller configureItemSelectionBlock:^(id model, NSIndexPath *indexPath) {
-//            NSLog(@"selected");
-//        }];
-//        
-//        [controller addUpdatesFinsihedTriggerBlock:^{
-//            [welf tableView:welf.tableView
-//               didSelectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-//        }];
-        
-//        
-//        [storage updateWithoutAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
-//            [storageController addItem:@"i"];
-//        }];
-
     }
+    
     return self;
 }
 
@@ -96,7 +80,7 @@
 //    
 //    __weak typeof(self) welf = self;
 //    
-//    [self.controller configureItemSelectionBlock:^(id model, NSIndexPath *indexPath) {
+//    [self.controller configureItemSelectionBlock:^(id model, NSIndexPath* indexPath) {
 //        NSLog(@"selected");
 //    }];
 //    

@@ -127,7 +127,7 @@
             [fromSection removeItemAtIndex:(NSUInteger)fromIndexPath.row];
             [toSection insertItem:tableItem atIndex:(NSUInteger)toIndexPath.row]; // TODO: check is successfull operation
             
-            ANStorageMovedIndexPathModel *path = [ANStorageMovedIndexPathModel new];
+            ANStorageMovedIndexPathModel* path = [ANStorageMovedIndexPathModel new];
             path.fromIndexPath = fromIndexPath;
             path.toIndexPath = toIndexPath;
             

@@ -57,12 +57,12 @@
     }];
     
     // then
-    XCTestExpectation *expectation = [self expectationWithDescription:@"updateWithoutAnimationChangeBlock called"];
+    XCTestExpectation* expectation = [self expectationWithDescription:@"updateWithoutAnimationChangeBlock called"];
     __weak typeof(self) welf = self;
     
     [self.listController addUpdatesFinsihedTriggerBlock:^{
         
-        ANStorageSectionModel* section = self.storage.sections.firstObject;
+        ANStorageSectionModel* section = welf.storage.sections.firstObject;
         expect(section.objects).to.haveCount(items.count);
         
         [expectation fulfill];
@@ -110,10 +110,10 @@
     }];
     
     //when
-    XCTestExpectation *expectation = [self expectationWithDescription:@"configureItemSelectionBlock called"];
+    XCTestExpectation* expectation = [self expectationWithDescription:@"configureItemSelectionBlock called"];
     __weak typeof(self) welf = self;
     
-    [self.listController configureItemSelectionBlock:^(id model, NSIndexPath *indexPath) {
+    [self.listController configureItemSelectionBlock:^(id model, NSIndexPath* indexPath) {
         [expectation fulfill];
         expect(model).equal(testModel);
         expect(indexPath.row).equal(0);
@@ -144,10 +144,10 @@
     }];
     
     //when
-    XCTestExpectation *expectation = [self expectationWithDescription:@"configureItemSelectionBlock called"];
+    XCTestExpectation* expectation = [self expectationWithDescription:@"configureItemSelectionBlock called"];
     __weak typeof(self) welf = self;
     
-    [self.listController configureItemSelectionBlock:^(id model, NSIndexPath *indexPath) {
+    [self.listController configureItemSelectionBlock:^(id model, NSIndexPath* indexPath) {
         XCTAssertNil(model);
         XCTAssertEqualObjects(indexPath, selectedIndexPath);
         [expectation fulfill];
@@ -169,15 +169,15 @@
 - (void)test_updateConfigurationModelWithBlock_positive_configurationModelShouldHandleKeyboardAndEmptySectionWithNO
 {
     //given
-    XCTestExpectation *expectation = [self expectationWithDescription:@"updateConfigurationModelWithBlock called"];
+    XCTestExpectation* expectation = [self expectationWithDescription:@"updateConfigurationModelWithBlock called"];
 
     //when
-    [self.listController updateConfigurationModelWithBlock:^(ANListControllerConfigurationModel *configurationModel) {
+    [self.listController updateConfigurationModelWithBlock:^(ANListControllerConfigurationModel* configurationModel) {
         configurationModel.shouldHandleKeyboard = NO;
         configurationModel.shouldDisplayHeaderOnEmptySection = NO;
     }];
     
-    [self.listController updateConfigurationModelWithBlock:^(ANListControllerConfigurationModel *configurationModel) {
+    [self.listController updateConfigurationModelWithBlock:^(ANListControllerConfigurationModel* configurationModel) {
         expect(configurationModel.shouldHandleKeyboard).beFalsy();
         expect(configurationModel.shouldDisplayHeaderOnEmptySection).beFalsy();
         [expectation fulfill];
@@ -197,7 +197,7 @@
     }];
     
     //when
-    __block XCTestExpectation *expectation = [self expectationWithDescription:@"testAddUpdatesFinsihedTriggerBlock"];
+    __block XCTestExpectation* expectation = [self expectationWithDescription:@"testAddUpdatesFinsihedTriggerBlock"];
     
     [self.listController addUpdatesFinsihedTriggerBlock:^{
         [expectation fulfill];
@@ -233,7 +233,6 @@
     //then
     XCTAssertNil(self.listController.searchBar);
 }
-
 
 - (void)test_createControllerWithTableView_positive_expectSetupedANdNotNil
 {
@@ -277,14 +276,13 @@
 
 
 #pragma mark - UITableView Protocols Implementation
-
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-retain-cycles"
 
 - (void)test_numberOfSectionsInTableView_positive_addedTwoSectionSuccessfull
 {
     //given
-    XCTestExpectation *expectation = [self expectationWithDescription:@"testNumberOfSectionsInTableView"];
+    XCTestExpectation* expectation = [self expectationWithDescription:@"testNumberOfSectionsInTableView"];
     __weak typeof(self) welf = self;
     
     [self.listController configureCellsWithBlock:^(id<ANListControllerReusableInterface> configurator) {
@@ -338,7 +336,7 @@
 - (void)test_numberOfRowsInSection_positive_addedItemsToFirstSection
 {
     //given
-    XCTestExpectation *expectation = [self expectationWithDescription:@"testNumberOfRowsInSection"];
+    XCTestExpectation* expectation = [self expectationWithDescription:@"testNumberOfRowsInSection"];
     __weak typeof(self) welf = self;
     
     [self.listController configureCellsWithBlock:^(id<ANListControllerReusableInterface> configurator) {
@@ -372,10 +370,10 @@
     }];
     
     //when
-    XCTestExpectation *expectation = [self expectationWithDescription:@"testDidSelectRowAtIndexPath called"];
+    XCTestExpectation* expectation = [self expectationWithDescription:@"testDidSelectRowAtIndexPath called"];
     __weak typeof(self) welf = self;
     
-    [self.listController configureItemSelectionBlock:^(id model, NSIndexPath *indexPath) {
+    [self.listController configureItemSelectionBlock:^(id model, NSIndexPath* indexPath) {
         XCTAssertEqualObjects(selectedIndexPath, indexPath);
         [expectation fulfill];
     }];
@@ -405,10 +403,10 @@
     //when
     
     void(^testBlock)() = ^{
-        XCTestExpectation *expectation = [self expectationWithDescription:@"expectationNotExistIndexPath"];
+        XCTestExpectation* expectation = [self expectationWithDescription:@"expectationNotExistIndexPath"];
         __weak typeof(self) welf = self;
         
-        [self.listController configureItemSelectionBlock:^(id model, NSIndexPath *indexPath) {
+        [self.listController configureItemSelectionBlock:^(id model, NSIndexPath* indexPath) {
             XCTAssertEqualObjects(notExistIndexPath, indexPath);
             [expectation fulfill];
         }];
@@ -427,6 +425,7 @@
     XCTAssertNoThrow(testBlock());
     [self waitForExpectationsWithTimeout:0.1 handler:nil];
 }
+
 
 #pragma clang diagnostic pop
 

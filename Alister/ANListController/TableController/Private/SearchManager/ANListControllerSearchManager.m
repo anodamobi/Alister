@@ -62,13 +62,13 @@ typedef NS_ENUM(NSInteger, ANListControllerSearchScope)
     [searchBar setShowsCancelButton:NO animated:YES];
 }
 
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+- (void)searchBarSearchButtonClicked:(UISearchBar*)searchBar
 {
     [searchBar resignFirstResponder];
     [searchBar setShowsCancelButton:NO animated:YES];
 }
 
-- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
+- (void)searchBarTextDidBeginEditing:(UISearchBar*)searchBar
 {
     [searchBar setShowsCancelButton:YES animated:YES];
 }

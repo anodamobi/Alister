@@ -36,7 +36,7 @@
 + (ANStorageUpdateModel*)updateSectionFooterModel:(id)footerModel
                                   forSectionIndex:(NSUInteger)sectionIndex
                                         inStorage:(ANStorageModel*)storage
-                                             kind:(NSString *)kind
+                                             kind:(NSString*)kind
 {
     ANStorageUpdateModel* update = [ANStorageUpdateModel new];
     

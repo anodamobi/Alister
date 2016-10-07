@@ -71,7 +71,6 @@
     XCTAssertThrows(testBlock());
 }
 
-
 - (void)test_addItem_positive_sectionWasCreated
 {
     //when
@@ -392,8 +391,6 @@
     expect([self.controller sections]).haveCount(1);
 }
 
-
-
 - (void)testRemoveItems
 {
     //given
@@ -577,6 +574,7 @@
     //then
     expect(self.controller.isEmpty).beTruthy();
 }
+
 
 #pragma mark - Supplementaries
 

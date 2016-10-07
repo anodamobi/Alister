@@ -68,6 +68,7 @@
     }];
 }
 
+
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-retain-cycles"
 
@@ -75,7 +76,7 @@
 {
     //given
     NSString* testModel = @"Mock";
-    XCTestExpectation *expectation = [self expectationWithDescription:@"testTitleForHeaderInSectionForSystemAsExpect"];
+    XCTestExpectation* expectation = [self expectationWithDescription:@"testTitleForHeaderInSectionForSystemAsExpect"];
     __weak typeof(self) welf = self;
     
     //when
@@ -96,7 +97,7 @@
 {
     //given
     NSNumber* testNotAStringModel = @34;
-    XCTestExpectation *expectation = [self expectationWithDescription:@"testTitleForHeaderInSectionForSystemWhenExpectView"];
+    XCTestExpectation* expectation = [self expectationWithDescription:@"testTitleForHeaderInSectionForSystemWhenExpectView"];
     __weak typeof(self) welf = self;
     
     //when
@@ -116,7 +117,7 @@
 {
     //given
     NSNumber* testModel = @123;
-    XCTestExpectation *expectation = [self expectationWithDescription:@"testViewForHeaderInSectionForSystemClassAsExpect"];
+    XCTestExpectation* expectation = [self expectationWithDescription:@"testViewForHeaderInSectionForSystemClassAsExpect"];
     __weak typeof(self) welf = self;
     
     //when
@@ -137,7 +138,7 @@
 {
     //given
     NSString* testModel = @"Mock";
-    XCTestExpectation *expectation = [self expectationWithDescription:@"testTitleForHeaderInSectionNotRegisteredAsExpected"];
+    XCTestExpectation* expectation = [self expectationWithDescription:@"testTitleForHeaderInSectionNotRegisteredAsExpected"];
     __weak typeof(self) welf = self;
     
     //when
@@ -159,7 +160,7 @@
 {
     //given
     ANTestViewModel* testModel = [ANTestViewModel new];
-    XCTestExpectation *expectation = [self expectationWithDescription:@"testViewForHeaderInSectionForCustomClassAsExpect"];
+    XCTestExpectation* expectation = [self expectationWithDescription:@"testViewForHeaderInSectionForCustomClassAsExpect"];
     __weak typeof(self) welf = self;
     
     //when
@@ -176,10 +177,9 @@
     [self waitForExpectationsWithTimeout:0.1 handler:nil];
 }
 
-
-/**
- *  Footer Tests
- */
+/*
+*  Footer Tests
+*/
 
 - (void)_setAsSystemFooter:(id)object
 {
@@ -205,7 +205,7 @@
 {
     //given
     NSString* testModel = @"Mock";
-    XCTestExpectation *expectation = [self expectationWithDescription:@"testTitleForFooterInSectionForSystemAsExpect"];
+    XCTestExpectation* expectation = [self expectationWithDescription:@"testTitleForFooterInSectionForSystemAsExpect"];
     __weak typeof(self) welf = self;
     
     //when
@@ -228,7 +228,7 @@
 {
     //given
     NSNumber* testNotAStringModel = @34;
-    XCTestExpectation *expectation = [self expectationWithDescription:@"testTitleForFooterInSectionForSystemWhenExpectView"];
+    XCTestExpectation* expectation = [self expectationWithDescription:@"testTitleForFooterInSectionForSystemWhenExpectView"];
     __weak typeof(self) welf = self;
     
     //when
@@ -248,7 +248,7 @@
 {
     //given
     NSNumber* testModel = @123;
-    XCTestExpectation *expectation = [self expectationWithDescription:@"testViewForFooterInSectionForSystemClassAsExpect"];
+    XCTestExpectation* expectation = [self expectationWithDescription:@"testViewForFooterInSectionForSystemClassAsExpect"];
     __weak typeof(self) welf = self;
     
     //when
@@ -269,7 +269,7 @@
 {
     //given
     NSString* testModel = @"Mock";
-    XCTestExpectation *expectation = [self expectationWithDescription:@"testTitleForFooterInSectionNotRegisteredAsExpected"];
+    XCTestExpectation* expectation = [self expectationWithDescription:@"testTitleForFooterInSectionNotRegisteredAsExpected"];
     __weak typeof(self) welf = self;
     
     //when
@@ -292,7 +292,7 @@
 {
     //given
     ANTestViewModel* testModel = [ANTestViewModel new];
-    XCTestExpectation *expectation = [self expectationWithDescription:@"testViewForFooterInSectionForCustomClassAsExpect"];
+    XCTestExpectation* expectation = [self expectationWithDescription:@"testViewForFooterInSectionForCustomClassAsExpect"];
     __weak typeof(self) welf = self;
     
     //when
@@ -308,7 +308,6 @@
     }];
     [self waitForExpectationsWithTimeout:0.1 handler:nil];
 }
-
 
 - (void)testConfigureCellsWithBlockRetriveFromTabelView
 {
@@ -335,7 +334,7 @@
     }];
     
     //when
-    XCTestExpectation *expectation = [self expectationWithDescription:@"testConfigureCellsWithBlockRegisterForSystemClassAsExpect called"];
+    XCTestExpectation* expectation = [self expectationWithDescription:@"testConfigureCellsWithBlockRegisterForSystemClassAsExpect called"];
     
     //then
     [self.listController addUpdatesFinsihedTriggerBlock:^{
@@ -365,7 +364,7 @@
     }];
     
     //when
-    XCTestExpectation *expectation = [self expectationWithDescription:@"testConfigureCellsWithBlockRegisterForCustomClassAsExpect called"];
+    XCTestExpectation* expectation = [self expectationWithDescription:@"testConfigureCellsWithBlockRegisterForCustomClassAsExpect called"];
     
     //then
     [self.listController addUpdatesFinsihedTriggerBlock:^{
@@ -383,6 +382,7 @@
     
     [self waitForExpectationsWithTimeout:0.1 handler:nil];
 }
+
 
 #pragma clang diagnostic pop
 

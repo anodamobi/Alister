@@ -18,6 +18,7 @@
 - (UIView<ANListViewInterface>*)listView
 {
     ANTestableListView* testableListView = [ANTestableListView new];
+    
     return testableListView;
 }
 

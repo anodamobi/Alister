@@ -67,7 +67,7 @@
         {
             foundedIndexPath = [NSIndexPath indexPathForRow:(NSInteger)index
                                                   inSection:(NSInteger)sectionIndex];
-            *stop = YES;
+           * stop = YES;
         }
     }];
     return foundedIndexPath;

@@ -56,7 +56,7 @@
     return self.manager;
 }
 
-- (void)setCollectionView:(UICollectionView * _Nullable)collectionView
+- (void)setCollectionView:(UICollectionView*  _Nullable)collectionView
 {
     collectionView.delegate = self;
     collectionView.dataSource = self;

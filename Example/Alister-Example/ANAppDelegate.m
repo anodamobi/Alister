@@ -13,10 +13,14 @@
 
 - (BOOL)application:(__unused UIApplication*)application didFinishLaunchingWithOptions:(__unused NSDictionary*)launchOptions
 {
-    if (NSClassFromString(@"XCTestCase")) return YES;
+    if (NSClassFromString(@"XCTestCase"))
+    {
+        return YES;
+    }
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.rootViewController = [ANViewController new];
     [self.window makeKeyAndVisible];
+    
     return YES;
 }
 

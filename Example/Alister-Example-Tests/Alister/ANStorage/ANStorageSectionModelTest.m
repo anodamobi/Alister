@@ -37,6 +37,7 @@ static NSInteger const kMaxObjectsCount = 4;
     expect(self.sectionModel).conformTo(@protocol(ANStorageSectionModelInterface));
 }
 
+
 #pragma mark - addItem
 
 - (void)test_addItem_positive_countOfObjectsIncreaseByOne
@@ -180,6 +181,7 @@ static NSInteger const kMaxObjectsCount = 4;
     //then
     expect(testBlock).notTo.raiseAny();
 }
+
 
 #pragma mark - removeItemAtIndex
 

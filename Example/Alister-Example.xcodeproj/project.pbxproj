@@ -53,6 +53,7 @@
 		8C0DF7221D8FFDFF00E17B6B /* ANTestKeyboardHandlerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C0DF6F71D8FFDFF00E17B6B /* ANTestKeyboardHandlerDelegate.m */; };
 		8C0DF7231D8FFDFF00E17B6B /* ANTestTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C0DF6F91D8FFDFF00E17B6B /* ANTestTableCell.m */; };
 		8C0DF7241D8FFDFF00E17B6B /* ANTestViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C0DF6FB1D8FFDFF00E17B6B /* ANTestViewModel.m */; };
+		D795BA071DA7253400668587 /* StyleSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = D795BA061DA7253400668587 /* StyleSettings.plist */; };
 		D7EC43B21D50C7DE00128012 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		D7EC43B31D50C7DE00128012 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		D7EC43B61D50C7EB00128012 /* (null) in Resources */ = {isa = PBXBuildFile; };
@@ -142,6 +143,7 @@
 		A8D594C6A1CAF9F8A83D2691 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		AFB91A3C0505789B7F9CF1F3 /* Pods_Alister_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Alister_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB2099F6E4049388FFBA7187 /* Pods-Alister-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister-Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Alister-Example/Pods-Alister-Example.debug.xcconfig"; sourceTree = "<group>"; };
+		D795BA061DA7253400668587 /* StyleSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = StyleSettings.plist; sourceTree = "<group>"; };
 		D7EC43B81D50C9A300128012 /* Alister-Example-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Alister-Example-Info.plist"; path = "Alister-Example/Alister-Example-Info.plist"; sourceTree = SOURCE_ROOT; };
 		D7EC43B91D50C9A300128012 /* Alister-Example-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Alister-Example-Prefix.pch"; path = "Alister-Example/Alister-Example-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		D7EC43BA1D50C9A300128012 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "Alister-Example/main.m"; sourceTree = SOURCE_ROOT; };
@@ -185,6 +187,7 @@
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
+				D795BA061DA7253400668587 /* StyleSettings.plist */,
 				60FF7A9C1954A5C5007DD14C /* Podspec Metadata */,
 				6003F593195388D20070C39A /* Example for Alister */,
 				D7EC43CD1D512EE300128012 /* Alister-Example-Tests */,
@@ -422,15 +425,16 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6003F5BF195388D20070C39A /* Build configuration list for PBXNativeTarget "Alister-Example" */;
 			buildPhases = (
-				8DEFFEDDAE67F3651325332D /* 📦 Check Pods Manifest.lock */,
+				8DEFFEDDAE67F3651325332D /* [CP] Check Pods Manifest.lock */,
 				59A0B9A8A89BB973779AF899 /* [CP] Check Pods Manifest.lock */,
 				6003F586195388D20070C39A /* Sources */,
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
 				6D237E929AC908222EA8BC93 /* [CP] Embed Pods Frameworks */,
 				7026C6C66CCE5A847CEDB1A9 /* [CP] Copy Pods Resources */,
-				D08A4EF17770C1C105F37053 /* 📦 Embed Pods Frameworks */,
-				10AA9226888A63821B7F7B0E /* 📦 Copy Pods Resources */,
+				D08A4EF17770C1C105F37053 /* üì¶ Embed Pods Frameworks */,
+				10AA9226888A63821B7F7B0E /* üì¶ Copy Pods Resources */,
+				OBJCLEANCUSTOMRUNSCRIPTT /* Objective-Clean Run Script */,
 			);
 			buildRules = (
 			);
@@ -445,15 +449,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D7EC43D31D512EE300128012 /* Build configuration list for PBXNativeTarget "Alister-Example-Tests" */;
 			buildPhases = (
-				57D5A486518A6A5E7C136536 /* 📦 Check Pods Manifest.lock */,
+				57D5A486518A6A5E7C136536 /* [CP] Check Pods Manifest.lock */,
 				F021BB144B54D21DD699B183 /* [CP] Check Pods Manifest.lock */,
 				D7EC43C81D512EE300128012 /* Sources */,
 				D7EC43C91D512EE300128012 /* Frameworks */,
 				D7EC43CA1D512EE300128012 /* Resources */,
 				71C0A3D1AB9BD8D5A6B7F42F /* [CP] Embed Pods Frameworks */,
 				C4FA3412C402A21750F737FF /* [CP] Copy Pods Resources */,
-				305A6DD883E3CEEFE78A4585 /* 📦 Embed Pods Frameworks */,
-				D56DD72273A720591DF36757 /* 📦 Copy Pods Resources */,
+				305A6DD883E3CEEFE78A4585 /* üì¶ Embed Pods Frameworks */,
+				D56DD72273A720591DF36757 /* üì¶ Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -506,6 +510,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7EC43B71D50C7EB00128012 /* (null) in Resources */,
+				D795BA071DA7253400668587 /* StyleSettings.plist in Resources */,
 				D7EC43B61D50C7EB00128012 /* (null) in Resources */,
 				D7EC43B21D50C7DE00128012 /* (null) in Resources */,
 				D7EC43C71D50C9AE00128012 /* Images.xcassets in Resources */,
@@ -523,14 +528,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		10AA9226888A63821B7F7B0E /* 📦 Copy Pods Resources */ = {
+		10AA9226888A63821B7F7B0E /* üì¶ Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "üì¶ Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -538,14 +543,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Alister-Example/Pods-Alister-Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		305A6DD883E3CEEFE78A4585 /* 📦 Embed Pods Frameworks */ = {
+		305A6DD883E3CEEFE78A4585 /* üì¶ Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "üì¶ Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -553,14 +558,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Alister-Example-Tests/Pods-Alister-Example-Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		57D5A486518A6A5E7C136536 /* 📦 Check Pods Manifest.lock */ = {
+		57D5A486518A6A5E7C136536 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -628,14 +633,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Alister-Example-Tests/Pods-Alister-Example-Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8DEFFEDDAE67F3651325332D /* 📦 Check Pods Manifest.lock */ = {
+		8DEFFEDDAE67F3651325332D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -658,14 +663,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Alister-Example-Tests/Pods-Alister-Example-Tests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D08A4EF17770C1C105F37053 /* 📦 Embed Pods Frameworks */ = {
+		D08A4EF17770C1C105F37053 /* üì¶ Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "üì¶ Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -673,14 +678,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Alister-Example/Pods-Alister-Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D56DD72273A720591DF36757 /* 📦 Copy Pods Resources */ = {
+		D56DD72273A720591DF36757 /* üì¶ Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "üì¶ Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -702,6 +707,20 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
+		};
+		OBJCLEANCUSTOMRUNSCRIPTT /* Objective-Clean Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Objective-Clean Run Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "if [[ -z ${SKIP_OBJCLEAN} || ${SKIP_OBJCLEAN} != 1 ]]; then\nif [[ -d \"${LOCAL_APPS_DIR}/Objective-Clean.app\" ]]; then\n\"${LOCAL_APPS_DIR}\"/Objective-Clean.app/Contents/Resources/ObjClean.app/Contents/MacOS/ObjClean \"${SRCROOT}\"?-NS,-UI\nelse\necho \"warning: You have to install and set up Objective-Clean to use its features!\"\nfi\nfi";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -793,11 +812,13 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_IMPLICIT_ATOMIC_PROPERTIES = YES;
 				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CLANG_WARN__EXIT_TIME_DESTRUCTORS = YES;
@@ -859,11 +880,13 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_IMPLICIT_ATOMIC_PROPERTIES = YES;
 				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CLANG_WARN__EXIT_TIME_DESTRUCTORS = YES;
