@@ -46,26 +46,7 @@
 
 #pragma mark - bottomStickedFooterView
 
-- (void)test_bottomStickedFooterView_positive_tableFooterViewIsSet
-{
-    // Given
-    UIView* bottomStickedFooterView = [UIView new];
-    // When
-    self.tableView.bottomStickedFooterView = bottomStickedFooterView;
-    // Then
-    expect(self.tableView.tableFooterView).equal(bottomStickedFooterView);
-}
-
-- (void)test_bottomStickedFooterView_negative_tableFooterViewIsNil
-{
-    // Given
-    UIView* bottomStickedFooterView = nil;
-    // When
-    self.tableView.bottomStickedFooterView = bottomStickedFooterView;
-    // Then
-    expect(self.tableView.tableFooterView).to.beNil();
-}
-
+//TODO:
 
 #pragma mark - setupAppearance
 

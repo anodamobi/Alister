@@ -14,8 +14,6 @@
     self = [super initWithFrame:frame];
     if (self)
     {
-        self.textLabel.font = [UIFont systemFontOfSize:13];
-        self.textLabel.textColor = [UIColor colorWithRed:119/255 green:119/255 blue:119/255 alpha:1];
         self.textLabel.numberOfLines = 0;
     }
     return self;

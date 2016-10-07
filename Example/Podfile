@@ -2,10 +2,12 @@ use_frameworks!
 
 target 'Alister-Example' do
   pod 'Alister', :path => '../'
+  pod 'Masonry'
 end
 
 target 'Alister-Example-Tests' do
     pod 'Expecta'
+    pod 'Specta'
     pod 'Alister', :path => '../'
     pod 'OCMock'
 end

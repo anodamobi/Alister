@@ -10,6 +10,12 @@
 #import "ANStorage.h"
 #import "ANTableController.h"
 #import "ANExampleTableViewCell.h"
+#import "ANEDefaultSupplementaryVC.h"
+
+typedef NS_ENUM(NSInteger, ANEMainSection)
+{
+    ANEMainSectionGroupedDefaultSupplementaries
+};
 
 @interface ANEMainVC ()
 
@@ -53,12 +59,27 @@
     [self.storage updateWithAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
         
         [storageController addItem:@"Grouped table with default header and footer"];
-        [storageController addItem:@"Plan table with custom headers and footers"];
+        [storageController addItem:@"Plain table with custom headers and footers"];
         [storageController addItem:@"Table with bottom sticked footer"];
         [storageController addItem:@"Table reordering"];
         [storageController addItem:@"Table with xib cells"];
         [storageController addItem:@"Table with search bar and empty states"];
         [storageController addItem:@"Collection controller"];
+    }];
+    
+    [self.controller configureItemSelectionBlock:^(__unused id model, NSIndexPath *indexPath) {
+        switch (indexPath.row)
+        {
+            case ANEMainSectionGroupedDefaultSupplementaries:
+            {
+                ANEDefaultSupplementaryVC* vc = [ANEDefaultSupplementaryVC new];
+                [self.navigationController pushViewController:vc animated:YES];
+            }
+                break;
+                
+            default:
+                break;
+        }
     }];
 }
 
