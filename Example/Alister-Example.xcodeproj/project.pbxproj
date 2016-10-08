@@ -69,6 +69,9 @@
 		D7A21E0B1DA895B500D6D803 /* ANCustomSupplementaryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21DFC1DA895B500D6D803 /* ANCustomSupplementaryVC.m */; };
 		D7A21E0C1DA895B500D6D803 /* ANEDefaultSupplementaryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21DFE1DA895B500D6D803 /* ANEDefaultSupplementaryVC.m */; };
 		D7A21E0D1DA895B500D6D803 /* ANEMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21E001DA895B500D6D803 /* ANEMainVC.m */; };
+		D7A21E221DA89AD300D6D803 /* Alister_Example_ExampleUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21E1C1DA89AD300D6D803 /* Alister_Example_ExampleUITests.m */; };
+		D7A21E231DA89AD300D6D803 /* SnapshotHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21E1F1DA89AD300D6D803 /* SnapshotHelper.m */; };
+		D7A21E241DA89AD300D6D803 /* XCTestCase+Springboard.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21E211DA89AD300D6D803 /* XCTestCase+Springboard.m */; };
 		D7EC43B21D50C7DE00128012 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		D7EC43B31D50C7DE00128012 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		D7EC43B61D50C7EB00128012 /* (null) in Resources */ = {isa = PBXBuildFile; };
@@ -77,6 +80,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		D7A21E171DA89A7500D6D803 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6003F582195388D10070C39A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6003F589195388D20070C39A;
+			remoteInfo = "Alister-Example";
+		};
 		D7EC43D11D512EE300128012 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6003F582195388D10070C39A /* Project object */;
@@ -182,6 +192,13 @@
 		D7A21DFE1DA895B500D6D803 /* ANEDefaultSupplementaryVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANEDefaultSupplementaryVC.m; sourceTree = "<group>"; };
 		D7A21DFF1DA895B500D6D803 /* ANEMainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANEMainVC.h; sourceTree = "<group>"; };
 		D7A21E001DA895B500D6D803 /* ANEMainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANEMainVC.m; sourceTree = "<group>"; };
+		D7A21E121DA89A7500D6D803 /* Alister-Example-UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Alister-Example-UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D7A21E161DA89A7500D6D803 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D7A21E1C1DA89AD300D6D803 /* Alister_Example_ExampleUITests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Alister_Example_ExampleUITests.m; sourceTree = "<group>"; };
+		D7A21E1E1DA89AD300D6D803 /* SnapshotHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapshotHelper.h; sourceTree = "<group>"; };
+		D7A21E1F1DA89AD300D6D803 /* SnapshotHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnapshotHelper.m; sourceTree = "<group>"; };
+		D7A21E201DA89AD300D6D803 /* XCTestCase+Springboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XCTestCase+Springboard.h"; sourceTree = "<group>"; };
+		D7A21E211DA89AD300D6D803 /* XCTestCase+Springboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XCTestCase+Springboard.m"; sourceTree = "<group>"; };
 		D7EC43CC1D512EE300128012 /* Alister-Example-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Alister-Example-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7EC43D01D512EE300128012 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D7EDEC381DA7EE6F00FFA333 /* ANTestableRange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTestableRange.h; sourceTree = "<group>"; };
@@ -199,6 +216,13 @@
 				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F58E195388D20070C39A /* Foundation.framework in Frameworks */,
 				458D05147925A10E0D7BA49B /* libPods-Alister-Example.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D7A21E0F1DA89A7500D6D803 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,6 +244,7 @@
 				D795BA061DA7253400668587 /* StyleSettings.plist */,
 				60FF7A9C1954A5C5007DD14C /* Podspec Metadata */,
 				D7EC43CD1D512EE300128012 /* Alister-Example-Tests */,
+				D7A21E131DA89A7500D6D803 /* Alister-Example-UITests */,
 				6003F58C195388D20070C39A /* Frameworks */,
 				6003F58B195388D20070C39A /* Products */,
 				FABC739016B08881E2AEF090 /* Pods */,
@@ -231,6 +256,7 @@
 			children = (
 				6003F58A195388D20070C39A /* Alister-Example_Example.app */,
 				D7EC43CC1D512EE300128012 /* Alister-Example-Tests.xctest */,
+				D7A21E121DA89A7500D6D803 /* Alister-Example-UITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -473,6 +499,27 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		D7A21E131DA89A7500D6D803 /* Alister-Example-UITests */ = {
+			isa = PBXGroup;
+			children = (
+				D7A21E1C1DA89AD300D6D803 /* Alister_Example_ExampleUITests.m */,
+				D7A21E1D1DA89AD300D6D803 /* Helpers */,
+				D7A21E161DA89A7500D6D803 /* Info.plist */,
+			);
+			path = "Alister-Example-UITests";
+			sourceTree = "<group>";
+		};
+		D7A21E1D1DA89AD300D6D803 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				D7A21E1E1DA89AD300D6D803 /* SnapshotHelper.h */,
+				D7A21E1F1DA89AD300D6D803 /* SnapshotHelper.m */,
+				D7A21E201DA89AD300D6D803 /* XCTestCase+Springboard.h */,
+				D7A21E211DA89AD300D6D803 /* XCTestCase+Springboard.m */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		D7EC43CD1D512EE300128012 /* Alister-Example-Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -523,6 +570,24 @@
 			productReference = 6003F58A195388D20070C39A /* Alister-Example_Example.app */;
 			productType = "com.apple.product-type.application";
 		};
+		D7A21E111DA89A7500D6D803 /* Alister-Example-UITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D7A21E1B1DA89A7500D6D803 /* Build configuration list for PBXNativeTarget "Alister-Example-UITests" */;
+			buildPhases = (
+				D7A21E0E1DA89A7500D6D803 /* Sources */,
+				D7A21E0F1DA89A7500D6D803 /* Frameworks */,
+				D7A21E101DA89A7500D6D803 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D7A21E181DA89A7500D6D803 /* PBXTargetDependency */,
+			);
+			name = "Alister-Example-UITests";
+			productName = "Alister-Example-UITests";
+			productReference = D7A21E121DA89A7500D6D803 /* Alister-Example-UITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		D7EC43CB1D512EE300128012 /* Alister-Example-Tests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D7EC43D31D512EE300128012 /* Build configuration list for PBXNativeTarget "Alister-Example-Tests" */;
@@ -557,6 +622,12 @@
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Oksana Kovalchuk";
 				TargetAttributes = {
+					D7A21E111DA89A7500D6D803 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 7VYW9J77NX;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 6003F589195388D20070C39A;
+					};
 					D7EC43CB1D512EE300128012 = {
 						CreatedOnToolsVersion = 7.2.1;
 						TestTargetID = 6003F589195388D20070C39A;
@@ -578,6 +649,7 @@
 			targets = (
 				6003F589195388D20070C39A /* Alister-Example */,
 				D7EC43CB1D512EE300128012 /* Alister-Example-Tests */,
+				D7A21E111DA89A7500D6D803 /* Alister-Example-UITests */,
 			);
 		};
 /* End PBXProject section */
@@ -594,6 +666,13 @@
 				D7A21E031DA895B500D6D803 /* Assets.xcassets in Resources */,
 				D7EC43B21D50C7DE00128012 /* (null) in Resources */,
 				D7EC43B31D50C7DE00128012 /* (null) in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D7A21E101DA89A7500D6D803 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -799,7 +878,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
-			shellScript = "if [[ -z ${SKIP_OBJCLEAN} || ${SKIP_OBJCLEAN} != 1 ]]; then\nif [[ -d \"${LOCAL_APPS_DIR}/Objective-Clean.app\" ]]; then\n\"${LOCAL_APPS_DIR}\"/Objective-Clean.app/Contents/Resources/ObjClean.app/Contents/MacOS/ObjClean \"${SRCROOT}\"?-NS,-UI\nelse\necho \"warning: You have to install and set up Objective-Clean to use its features!\"\nfi\nfi";
+			shellScript = "if [[ -z ${SKIP_OBJCLEAN} || ${SKIP_OBJCLEAN} != 1 ]]; then\nif [[ -d \"${LOCAL_APPS_DIR}/Objective-Clean.app\" ]]; then\n\"${LOCAL_APPS_DIR}\"/Objective-Clean.app/Contents/Resources/ObjClean.app/Contents/MacOS/ObjClean \"${SRCROOT}\"?-NS,-UI,-XC\nelse\necho \"warning: You have to install and set up Objective-Clean to use its features!\"\nfi\nfi";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -818,6 +897,16 @@
 				D7A21E0C1DA895B500D6D803 /* ANEDefaultSupplementaryVC.m in Sources */,
 				D7A21E011DA895B500D6D803 /* ANAppDelegate.m in Sources */,
 				D7A21E071DA895B500D6D803 /* ANECustomFooterViewModel.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D7A21E0E1DA89A7500D6D803 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D7A21E241DA89AD300D6D803 /* XCTestCase+Springboard.m in Sources */,
+				D7A21E221DA89AD300D6D803 /* Alister_Example_ExampleUITests.m in Sources */,
+				D7A21E231DA89AD300D6D803 /* SnapshotHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -876,6 +965,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		D7A21E181DA89A7500D6D803 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6003F589195388D20070C39A /* Alister-Example */;
+			targetProxy = D7A21E171DA89A7500D6D803 /* PBXContainerItemProxy */;
+		};
 		D7EC43D21D512EE300128012 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 6003F589195388D20070C39A /* Alister-Example */;
@@ -1151,6 +1245,41 @@
 			};
 			name = Release;
 		};
+		D7A21E191DA89A7500D6D803 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 7VYW9J77NX;
+				INFOPLIST_FILE = "Alister-Example-UITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "mobi.anoda.alister-uitests.Alister-Example-UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Alister-Example";
+			};
+			name = Debug;
+		};
+		D7A21E1A1DA89A7500D6D803 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 7VYW9J77NX;
+				INFOPLIST_FILE = "Alister-Example-UITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "mobi.anoda.alister-uitests.Alister-Example-UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Alister-Example";
+			};
+			name = Release;
+		};
 		D7EC43D41D512EE300128012 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 019F2C73D93E6032B674EAE3 /* Pods-Alister-Example-Tests.debug.xcconfig */;
@@ -1214,6 +1343,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		D7A21E1B1DA89A7500D6D803 /* Build configuration list for PBXNativeTarget "Alister-Example-UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D7A21E191DA89A7500D6D803 /* Debug */,
+				D7A21E1A1DA89A7500D6D803 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		D7EC43D31D512EE300128012 /* Build configuration list for PBXNativeTarget "Alister-Example-Tests" */ = {
 			isa = XCConfigurationList;
