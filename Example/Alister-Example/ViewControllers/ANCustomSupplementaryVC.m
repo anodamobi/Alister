@@ -43,6 +43,7 @@
                                 forModelClass:[ANECustomHeaderViewModel class]];
         }];
     }
+    
     return self;
 }
 

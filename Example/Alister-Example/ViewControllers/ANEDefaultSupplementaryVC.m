@@ -46,6 +46,7 @@
                                forSystemClass:[NSString class]];
         }];
     }
+    
     return self;
 }
 

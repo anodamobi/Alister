@@ -21,7 +21,7 @@
 {
     if (!self.segmentControl.numberOfSegments)
     {
-        [model.segmentTitles enumerateObjectsUsingBlock:^(id _Nonnull obj, NSUInteger idx, __unused BOOL * _Nonnull stop) {
+        [model.segmentTitles enumerateObjectsUsingBlock:^(id _Nonnull obj, NSUInteger idx, __unused BOOL* _Nonnull stop) {
             [self.segmentControl insertSegmentWithTitle:obj atIndex:idx animated:NO];
         }];
     }
@@ -34,10 +34,11 @@
         _segmentControl = [UISegmentedControl new];
         [self.contentView addSubview:_segmentControl];
         
-        [_segmentControl mas_makeConstraints:^(MASConstraintMaker *make) {
+        [_segmentControl mas_makeConstraints:^(MASConstraintMaker* make) {
             make.edges.equalTo(self.contentView);
         }];
     }
+    
     return _segmentControl;
 }
 

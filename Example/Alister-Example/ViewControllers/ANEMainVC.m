@@ -44,6 +44,7 @@ typedef NS_ENUM(NSInteger, ANEMainSection)
             [configurator registerCellClass:[ANELabelTableViewCell class] forSystemClass:[NSString class]];
         }];
     }
+    
     return self;
 }
 
@@ -69,7 +70,7 @@ typedef NS_ENUM(NSInteger, ANEMainSection)
         [storageController addItem:@"Collection controller"];
     }];
     
-    [self.controller configureItemSelectionBlock:^(__unused id model, NSIndexPath *indexPath) {
+    [self.controller configureItemSelectionBlock:^(__unused id model, NSIndexPath* indexPath) {
         switch (indexPath.row)
         {
             case ANEMainSectionGroupedDefaultSupplementaries:

@@ -24,11 +24,10 @@
     
     self.continueAfterFailure = NO;
     
-    XCUIApplication *app = [[XCUIApplication alloc] init];
+    XCUIApplication* app = [[XCUIApplication alloc] init];
     
     self.snapshotHelper = [[SnapshotHelper alloc] initWithApp:app];
     [app launch];
-    
 }
 
 - (void)tearDown
