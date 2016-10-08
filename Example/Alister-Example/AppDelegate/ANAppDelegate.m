@@ -13,7 +13,10 @@
 
 - (BOOL)application:(__unused UIApplication*)application didFinishLaunchingWithOptions:(__unused NSDictionary*)launchOptions
 {
-    if (NSClassFromString(@"XCTestCase")) return YES;
+    if (NSClassFromString(@"XCTestCase"))
+    {
+        return YES;
+    }
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     UINavigationController* nc = [[UINavigationController alloc] initWithRootViewController:[ANEMainVC new]];
     self.window.rootViewController = nc;

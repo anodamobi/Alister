@@ -7,29 +7,7 @@
 //
 
 #import "ANTestableTextField.h"
-
-
-@interface ANTestableRange : UITextRange
-
-@property (nonatomic, strong) UITextPosition* rangePosition;
-- (void)updateWithRange:(UITextPosition*)range;
-
-@end
-
-@implementation ANTestableRange
-
-- (void)updateWithRange:(UITextPosition *)range
-{
-    self.rangePosition = range;
-}
-
-- (UITextPosition *)start
-{
-    return self.rangePosition;
-}
-
-@end
-
+#import "ANTestableRange.h"
 
 @interface ANTestableTextField ()
 
@@ -43,6 +21,7 @@
 {
     ANTestableTextField* view = [self new];
     view.responderValue = responderValue;
+    
     return view;
 }
 
@@ -51,7 +30,7 @@
     return self.responderValue;
 }
 
-- (UITextRange *)selectedTextRange
+- (UITextRange*)selectedTextRange
 {
     ANTestableRange* range = [ANTestableRange new];
     [range updateWithRange:[UITextPosition new]];

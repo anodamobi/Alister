@@ -26,7 +26,7 @@
         _tableView = tableView;
         [self addSubview:_tableView];
         
-        [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        [_tableView mas_makeConstraints:^(MASConstraintMaker* make) {
             make.edges.equalTo(self);
         }];
     }

@@ -7,10 +7,11 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "ANStorageController.h"
 #import <Expecta/Expecta.h>
-#import "ANStorageSectionModel.h"
-#import "ANStorageModel.h"
+#import <Alister/ANStorageSectionModel.h>
+#import <Alister/ANStorageController.h>
+#import <Alister/ANStorage.h>
+#import <Alister/ANStorageModel.h>
 
 @interface ANStorageController ()
 
@@ -70,7 +71,6 @@
     //then
     XCTAssertThrows(testBlock());
 }
-
 
 - (void)test_addItem_positive_sectionWasCreated
 {
@@ -392,8 +392,6 @@
     expect([self.controller sections]).haveCount(1);
 }
 
-
-
 - (void)testRemoveItems
 {
     //given
@@ -427,7 +425,7 @@
     expect(self.controller.isEmpty).beTruthy();
 }
 
-- (void)testRemoveSections:(NSIndexSet*)indexSet
+- (void)testRemoveSections
 {
     //given
     NSString* testModel = @"test0";
@@ -577,6 +575,7 @@
     //then
     expect(self.controller.isEmpty).beTruthy();
 }
+
 
 #pragma mark - Supplementaries
 

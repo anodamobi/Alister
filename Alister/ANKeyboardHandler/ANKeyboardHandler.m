@@ -102,9 +102,9 @@ static const CGFloat kMinimumScrollOffsetPadding = 20;
         return parent;
     }
     
-    for (UIView *subView in parent.subviews)
+    for (UIView* subView in parent.subviews)
     {
-        UIView *firstResponder = [self findViewThatIsFirstResponderInParent:subView];
+        UIView* firstResponder = [self findViewThatIsFirstResponderInParent:subView];
         if (firstResponder != nil)
         {
             return firstResponder;
@@ -190,8 +190,8 @@ static const CGFloat kMinimumScrollOffsetPadding = 20;
     
     if ([view conformsToProtocol:@protocol(UITextInput)])
     {
-        UIView <UITextInput> *textInput = (UIView <UITextInput>*)view;
-        UITextPosition *caretPosition = [textInput selectedTextRange].start;
+        UIView <UITextInput>* textInput = (UIView <UITextInput>*)view;
+        UITextPosition* caretPosition = [textInput selectedTextRange].start;
         
         if (caretPosition)
         {

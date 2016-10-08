@@ -24,7 +24,7 @@
     self.tableView = tableView;
 }
 
-- (void)updateWithTestableCollectionView:(ANTestableCollectionView *)collectionView
+- (void)updateWithTestableCollectionView:(ANTestableCollectionView*)collectionView
 {
     self.collectionView = collectionView;
 }
@@ -36,7 +36,7 @@
 
 - (UIView<ANListViewInterface>*)listView
 {
-    UIView <ANListViewInterface> * view = nil;
+    UIView <ANListViewInterface>*  view = nil;
     if (self.tableView)
     {
         view = self.tableView;
@@ -49,7 +49,7 @@
     return view;
 }
 
-- (void)storageNeedsReloadWithIdentifier:(NSString *)identifier
+- (void)storageNeedsReloadWithIdentifier:(__unused NSString*)identifier
 {
 
 }

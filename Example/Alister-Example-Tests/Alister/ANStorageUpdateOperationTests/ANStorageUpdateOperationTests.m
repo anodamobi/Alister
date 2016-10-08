@@ -87,7 +87,7 @@
     
     [operation main];
     
-    [self waitForExpectationsWithTimeout:0.2 handler:^(NSError * _Nullable error) {
+    [self waitForExpectationsWithTimeout:0.2 handler:^(NSError*  _Nullable error) {
         XCTAssertNil(error);
     }];
 }
@@ -150,7 +150,7 @@
 
 #pragma mark - ANStorageUpdateControllerInterface
 
-- (void)updateStorageOperationRequiresForceReload:(ANStorageUpdateOperation*)operation
+- (void)updateStorageOperationRequiresForceReload:(__unused ANStorageUpdateOperation*)operation
 {
 
 }
@@ -158,7 +158,7 @@
 
 #pragma mark - ANStorageListUpdateOperationInterface
 
-- (void)storageUpdateModelGenerated:(ANStorageUpdateModel*)updateModel
+- (void)storageUpdateModelGenerated:(__unused ANStorageUpdateModel*)updateModel
 {
 
 }

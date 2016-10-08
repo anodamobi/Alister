@@ -8,7 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import "ANTableController.h"
-#import "ANStorage.h"
+#import <Alister/ANStorage.h>
 #import "ANTestTableCell.h"
 #import "ANTestTableHeaderFooter.h"
 #import "ANTestViewModel.h"
@@ -68,6 +68,7 @@
     }];
 }
 
+
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-retain-cycles"
 
@@ -75,7 +76,7 @@
 {
     //given
     NSString* testModel = @"Mock";
-    XCTestExpectation *expectation = [self expectationWithDescription:@"testTitleForHeaderInSectionForSystemAsExpect"];
+    XCTestExpectation* expectation = [self expectationWithDescription:@"testTitleForHeaderInSectionForSystemAsExpect"];
     __weak typeof(self) welf = self;
     
     //when
@@ -83,9 +84,10 @@
 
     //then
     [self.listController addUpdatesFinsihedTriggerBlock:^{
+        typeof (self) strongSelf = welf;
         [expectation fulfill];
         
-        NSString* titleHeader = [welf.listController tableView:welf.tw titleForHeaderInSection:0];
+        NSString* titleHeader = [strongSelf.listController tableView:strongSelf.tw titleForHeaderInSection:0];
         expect(titleHeader).beNil();
     }];
     
@@ -96,7 +98,7 @@
 {
     //given
     NSNumber* testNotAStringModel = @34;
-    XCTestExpectation *expectation = [self expectationWithDescription:@"testTitleForHeaderInSectionForSystemWhenExpectView"];
+    XCTestExpectation* expectation = [self expectationWithDescription:@"testTitleForHeaderInSectionForSystemWhenExpectView"];
     __weak typeof(self) welf = self;
     
     //when
@@ -104,9 +106,10 @@
     
     //then
     [self.listController addUpdatesFinsihedTriggerBlock:^{
+        typeof (self) strongSelf = welf;
         [expectation fulfill];
         
-        NSString* emptyTitleHeader = [welf.listController tableView:welf.tw titleForHeaderInSection:0];
+        NSString* emptyTitleHeader = [strongSelf.listController tableView:strongSelf.tw titleForHeaderInSection:0];
         expect(emptyTitleHeader).to.beNil();
     }];
     [self waitForExpectationsWithTimeout:0.1 handler:nil];
@@ -116,7 +119,7 @@
 {
     //given
     NSNumber* testModel = @123;
-    XCTestExpectation *expectation = [self expectationWithDescription:@"testViewForHeaderInSectionForSystemClassAsExpect"];
+    XCTestExpectation* expectation = [self expectationWithDescription:@"testViewForHeaderInSectionForSystemClassAsExpect"];
     __weak typeof(self) welf = self;
     
     //when
@@ -124,9 +127,12 @@
     
     //then
     [self.listController addUpdatesFinsihedTriggerBlock:^{
+        typeof (self) strongSelf = welf;
         [expectation fulfill];
         
-        ANTestTableHeaderFooter* header = (ANTestTableHeaderFooter*)[welf.listController tableView:welf.tw viewForHeaderInSection:0];
+        ANTestTableHeaderFooter* header = (ANTestTableHeaderFooter*)[strongSelf.listController
+                                                                     tableView:strongSelf.tw
+                                                                     viewForHeaderInSection:0];
         expect(header).willNot.beNil();
         expect(header.model).equal(testModel);
     }];
@@ -137,7 +143,7 @@
 {
     //given
     NSString* testModel = @"Mock";
-    XCTestExpectation *expectation = [self expectationWithDescription:@"testTitleForHeaderInSectionNotRegisteredAsExpected"];
+    XCTestExpectation* expectation = [self expectationWithDescription:@"testTitleForHeaderInSectionNotRegisteredAsExpected"];
     __weak typeof(self) welf = self;
     
     //when
@@ -147,8 +153,9 @@
     
     //then
     [self.listController addUpdatesFinsihedTriggerBlock:^{
+        typeof (self) strongSelf = welf;
         [expectation fulfill];
-        NSString* titleHeader = [welf.listController tableView:welf.tw titleForHeaderInSection:0];
+        NSString* titleHeader = [strongSelf.listController tableView:strongSelf.tw titleForHeaderInSection:0];
         expect(titleHeader).notTo.beNil();
         expect(titleHeader).equal(testModel);
     }];
@@ -159,7 +166,7 @@
 {
     //given
     ANTestViewModel* testModel = [ANTestViewModel new];
-    XCTestExpectation *expectation = [self expectationWithDescription:@"testViewForHeaderInSectionForCustomClassAsExpect"];
+    XCTestExpectation* expectation = [self expectationWithDescription:@"testViewForHeaderInSectionForCustomClassAsExpect"];
     __weak typeof(self) welf = self;
     
     //when
@@ -167,9 +174,10 @@
     
     //then
     [self.listController addUpdatesFinsihedTriggerBlock:^{
+        typeof (self) strongSelf = welf;
         [expectation fulfill];
         
-        ANTestTableHeaderFooter* header = (ANTestTableHeaderFooter*)[welf.listController tableView:welf.tw viewForHeaderInSection:0];
+        ANTestTableHeaderFooter* header = (ANTestTableHeaderFooter*)[strongSelf.listController tableView:strongSelf.tw viewForHeaderInSection:0];
         expect(header).willNot.beNil();
         expect(header.model).equal(testModel);
     }];
@@ -177,9 +185,7 @@
 }
 
 
-/**
- *  Footer Tests
- */
+#pragma mark - Footer
 
 - (void)_setAsSystemFooter:(id)object
 {
@@ -205,7 +211,7 @@
 {
     //given
     NSString* testModel = @"Mock";
-    XCTestExpectation *expectation = [self expectationWithDescription:@"testTitleForFooterInSectionForSystemAsExpect"];
+    XCTestExpectation* expectation = [self expectationWithDescription:@"testTitleForFooterInSectionForSystemAsExpect"];
     __weak typeof(self) welf = self;
     
     //when
@@ -216,8 +222,8 @@
     //then
     [self.listController addUpdatesFinsihedTriggerBlock:^{
         [expectation fulfill];
-        
-        NSString* footer = [welf.listController tableView:welf.tw titleForFooterInSection:0];
+        __strong typeof(welf) strongSelf = welf;
+        NSString* footer = [strongSelf.listController tableView:strongSelf.tw titleForFooterInSection:0];
         expect(footer).notTo.beNil();
         expect(footer).equal(testModel);
     }];
@@ -228,7 +234,7 @@
 {
     //given
     NSNumber* testNotAStringModel = @34;
-    XCTestExpectation *expectation = [self expectationWithDescription:@"testTitleForFooterInSectionForSystemWhenExpectView"];
+    XCTestExpectation* expectation = [self expectationWithDescription:@"testTitleForFooterInSectionForSystemWhenExpectView"];
     __weak typeof(self) welf = self;
     
     //when
@@ -237,8 +243,8 @@
     //then
     [self.listController addUpdatesFinsihedTriggerBlock:^{
         [expectation fulfill];
-        
-        NSString* footer = [welf.listController tableView:welf.tw titleForFooterInSection:0];
+        __strong typeof(welf) strongSelf = welf;
+        NSString* footer = [strongSelf.listController tableView:strongSelf.tw titleForFooterInSection:0];
         expect(footer).to.beNil();
     }];
     [self waitForExpectationsWithTimeout:0.1 handler:nil];
@@ -248,7 +254,7 @@
 {
     //given
     NSNumber* testModel = @123;
-    XCTestExpectation *expectation = [self expectationWithDescription:@"testViewForFooterInSectionForSystemClassAsExpect"];
+    XCTestExpectation* expectation = [self expectationWithDescription:@"testViewForFooterInSectionForSystemClassAsExpect"];
     __weak typeof(self) welf = self;
     
     //when
@@ -257,8 +263,8 @@
     //then
     [self.listController addUpdatesFinsihedTriggerBlock:^{
         [expectation fulfill];
-        
-        ANTestTableHeaderFooter* footer = (ANTestTableHeaderFooter*)[welf.listController tableView:welf.tw viewForFooterInSection:0];
+        __strong typeof(welf) strongSelf = welf;
+        ANTestTableHeaderFooter* footer = (ANTestTableHeaderFooter*)[strongSelf.listController tableView:strongSelf.tw viewForFooterInSection:0];
         expect(footer).willNot.beNil();
         expect(footer.model).equal(testModel);
     }];
@@ -269,7 +275,7 @@
 {
     //given
     NSString* testModel = @"Mock";
-    XCTestExpectation *expectation = [self expectationWithDescription:@"testTitleForFooterInSectionNotRegisteredAsExpected"];
+    XCTestExpectation* expectation = [self expectationWithDescription:@"testTitleForFooterInSectionNotRegisteredAsExpected"];
     __weak typeof(self) welf = self;
     
     //when
@@ -280,8 +286,8 @@
     //then
     [self.listController addUpdatesFinsihedTriggerBlock:^{
         [expectation fulfill];
-        
-        NSString* footer = [welf.listController tableView:welf.tw titleForFooterInSection:0];
+        __strong typeof(welf) strongSelf = welf;
+        NSString* footer = [strongSelf.listController tableView:strongSelf.tw titleForFooterInSection:0];
         expect(footer).notTo.beNil();
         expect(footer).equal(testModel);
     }];
@@ -292,7 +298,7 @@
 {
     //given
     ANTestViewModel* testModel = [ANTestViewModel new];
-    XCTestExpectation *expectation = [self expectationWithDescription:@"testViewForFooterInSectionForCustomClassAsExpect"];
+    XCTestExpectation* expectation = [self expectationWithDescription:@"testViewForFooterInSectionForCustomClassAsExpect"];
     __weak typeof(self) welf = self;
     
     //when
@@ -301,14 +307,13 @@
     //then
     [self.listController addUpdatesFinsihedTriggerBlock:^{
         [expectation fulfill];
-        
-        ANTestTableHeaderFooter* footer = (ANTestTableHeaderFooter*)[welf.listController tableView:welf.tw viewForFooterInSection:0];
+        __strong typeof(welf) strongSelf = welf;
+        ANTestTableHeaderFooter* footer = (ANTestTableHeaderFooter*)[strongSelf.listController tableView:strongSelf.tw viewForFooterInSection:0];
         expect(footer).notTo.beNil();
         expect(footer.model).equal(testModel);
     }];
     [self waitForExpectationsWithTimeout:0.1 handler:nil];
 }
-
 
 - (void)testConfigureCellsWithBlockRetriveFromTabelView
 {
@@ -335,13 +340,14 @@
     }];
     
     //when
-    XCTestExpectation *expectation = [self expectationWithDescription:@"testConfigureCellsWithBlockRegisterForSystemClassAsExpect called"];
+    XCTestExpectation* expectation = [self expectationWithDescription:@"testConfigureCellsWithBlockRegisterForSystemClassAsExpect called"];
     
     //then
     [self.listController addUpdatesFinsihedTriggerBlock:^{
         
         [expectation fulfill];
-        ANTestTableCell* cell = (id)[welf.listController tableView:welf.tw
+        __strong typeof(welf) strongSelf = welf;
+        ANTestTableCell* cell = (id)[strongSelf.listController tableView:strongSelf.tw
                                         cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
         expect(cell).notTo.beNil();
         expect(cell.model).equal(testModel);
@@ -365,13 +371,14 @@
     }];
     
     //when
-    XCTestExpectation *expectation = [self expectationWithDescription:@"testConfigureCellsWithBlockRegisterForCustomClassAsExpect called"];
+    XCTestExpectation* expectation = [self expectationWithDescription:@"testConfigureCellsWithBlockRegisterForCustomClassAsExpect called"];
     
     //then
     [self.listController addUpdatesFinsihedTriggerBlock:^{
         
         [expectation fulfill];
-        ANTestTableCell* cell = (id)[welf.listController tableView:welf.tw
+        __strong typeof(welf) strongSelf = welf;
+        ANTestTableCell* cell = (id)[strongSelf.listController tableView:strongSelf.tw
                                              cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
         expect(cell).notTo.beNil();
         expect(cell.model).equal(testModel);
@@ -383,6 +390,7 @@
     
     [self waitForExpectationsWithTimeout:0.1 handler:nil];
 }
+
 
 #pragma clang diagnostic pop
 

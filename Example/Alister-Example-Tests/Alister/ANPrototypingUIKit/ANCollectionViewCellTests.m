@@ -30,6 +30,7 @@
     [super tearDown];
 }
 
+
 #pragma mark - updateWithModel
 
 - (void)test_updateWithModel_positive_conformToListControllerUpdateViewInterface

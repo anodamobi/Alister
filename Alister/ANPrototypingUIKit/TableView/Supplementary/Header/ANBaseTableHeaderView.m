@@ -29,7 +29,7 @@
     
     CGSize size = self.bounds.size;
     
-    NSDictionary *attributes = @{NSFontAttributeName: self.titleLabel.font};
+    NSDictionary* attributes = @{NSFontAttributeName: self.titleLabel.font};
     CGRect textRect = [self.titleLabel.text boundingRectWithSize:CGSizeMake(size.width, MAXFLOAT)
                                                         options:NSStringDrawingUsesLineFragmentOrigin
                                                      attributes:attributes
@@ -51,9 +51,10 @@
     }
 }
 
-/**
- * We use custom label, because changing frame of system label will cause -layoutSubviews method
- */
+/*
+*  We use custom label, because changing frame of system label will cause -layoutSubviews method
+*/
+ 
 #pragma mark - Views
 
 - (UILabel*)titleLabel

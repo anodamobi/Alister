@@ -13,5 +13,4 @@
 
 + (instancetype)touchWithView:(UIView*)view;
 
-
 @end

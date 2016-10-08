@@ -7,9 +7,9 @@
 //
 
 #import "ANStorageLoader.h"
-#import "ANStorageModel.h"
+#import <Alister/ANStorageModel.h>
 #import "ANStorageSectionModelInterface.h"
-#import "ANStorageSectionModel.h"
+#import <Alister/ANStorageSectionModel.h>
 #import "ANStorageLog.h"
 
 @implementation ANStorageLoader
@@ -67,7 +67,7 @@
         {
             foundedIndexPath = [NSIndexPath indexPathForRow:(NSInteger)index
                                                   inSection:(NSInteger)sectionIndex];
-            *stop = YES;
+           * stop = YES;
         }
     }];
     return foundedIndexPath;

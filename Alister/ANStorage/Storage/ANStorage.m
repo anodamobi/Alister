@@ -6,8 +6,8 @@
 //
 //
 
-#import "ANStorage.h"
-#import "ANStorageController.h"
+#import <Alister/ANStorage.h>
+#import <Alister/ANStorageController.h>
 #import "ANStorageUpdateOperation.h"
 #import "ANStorageUpdateModel.h"
 #import "ANStorageLog.h"
@@ -58,7 +58,7 @@
             if (listController)
             {
                 ANStorageUpdateOperation* updateOperation = nil;
-                updateOperation = [ANStorageUpdateOperation operationWithExecutionBlock:^(ANStorageUpdateOperation *operation) {
+                updateOperation = [ANStorageUpdateOperation operationWithExecutionBlock:^(ANStorageUpdateOperation* operation) {
                     self.controller.updateDelegate = operation;
                     block(self.controller);
                 }];
@@ -91,7 +91,7 @@
     {
         [storage updateWithoutAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
             
-            [self.sections enumerateObjectsUsingBlock:^(ANStorageSectionModel* obj, NSUInteger idx, __unused BOOL *stop) {
+            [self.sections enumerateObjectsUsingBlock:^(ANStorageSectionModel* obj, NSUInteger idx, __unused BOOL* stop) {
                 NSArray* filteredObjects = [obj.objects filteredArrayUsingPredicate:predicate];
                 [storageController addItems:filteredObjects toSection:idx];
             }];

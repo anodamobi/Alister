@@ -8,7 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import <Expecta/Expecta.h>
-#import "ANStorageSectionModel.h"
+#import <Alister/ANStorageSectionModel.h>
 
 static NSInteger const kMaxObjectsCount = 4;
 
@@ -36,6 +36,7 @@ static NSInteger const kMaxObjectsCount = 4;
 {
     expect(self.sectionModel).conformTo(@protocol(ANStorageSectionModelInterface));
 }
+
 
 #pragma mark - addItem
 
@@ -180,6 +181,7 @@ static NSInteger const kMaxObjectsCount = 4;
     //then
     expect(testBlock).notTo.raiseAny();
 }
+
 
 #pragma mark - removeItemAtIndex
 

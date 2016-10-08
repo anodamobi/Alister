@@ -9,9 +9,9 @@
 #import <XCTest/XCTest.h>
 #import <Expecta/Expecta.h>
 #import <OCMock/OCMock.h>
-#import "ANStorageModel.h"
+#import <Alister/ANStorageModel.h>
 #import "ANStorageUpdater.h"
-#import "ANStorageSectionModel.h"
+#import <Alister/ANStorageSectionModel.h>
 #import "ANStorageUpdateModel.h"
 #import "ANStorageLoader.h"
 
@@ -50,20 +50,22 @@ static NSInteger const kMaxItemsCount = 3;
     for (NSInteger sectionsCounter = 0; sectionsCounter < kMaxSectionsCount; sectionsCounter++)
     {
         ANStorageSectionModel* section = [ANStorageSectionModel new];
-        [[self _testItems] enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [[self _testItems] enumerateObjectsUsingBlock:^(id  _Nonnull obj, __unused NSUInteger idx, __unused BOOL*  _Nonnull stop) {
             [section addItem:obj];
         }];
         [storage addSection:section];
     }
+    
     return storage;
 }
 
 - (NSArray*)_itemsInStorage:(ANStorageModel*)storage
 {
     NSMutableArray* items = [NSMutableArray array];
-    [storage.sections enumerateObjectsUsingBlock:^(ANStorageSectionModel*  _Nonnull sectionModel, NSUInteger idx, BOOL * _Nonnull stop) {
+    [storage.sections enumerateObjectsUsingBlock:^(__unused ANStorageSectionModel*  _Nonnull sectionModel, NSUInteger idx, __unused BOOL*  _Nonnull stop) {
         [items addObjectsFromArray:[storage itemsInSection:idx]];
     }];
+    
     return items;
 }
 
@@ -75,8 +77,10 @@ static NSInteger const kMaxItemsCount = 3;
     {
         [items addObject:@"123"];
     }
+    
     return items;
 }
+
 
 #pragma mark - addItemToStorage
 
@@ -212,7 +216,7 @@ static NSInteger const kMaxItemsCount = 3;
     
     // then
     NSMutableArray* returnedItems = [NSMutableArray array];
-    [path enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [path enumerateObjectsUsingBlock:^(id  _Nonnull obj, __unused NSUInteger idx, __unused BOOL*  _Nonnull stop) {
         [returnedItems addObject:[ANStorageLoader itemAtIndexPath:obj inStorage:self.storage]];
     }];
     expect(returnedItems).to.equal(items);

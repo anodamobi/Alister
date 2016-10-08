@@ -26,7 +26,7 @@
     self.currentWindow = window;
 }
 
-- (UIWindow *)window
+- (UIWindow*)window
 {
     return self.currentWindow;
 }

@@ -52,8 +52,8 @@
         
         if ([collectionView isKindOfClass:[UICollectionView class]])
         {
-            NSMutableIndexSet * sectionsToInsert = [NSMutableIndexSet indexSet];
-            [update.insertedSectionIndexes enumerateIndexesUsingBlock:^(NSUInteger idx, __unused BOOL *stop) {
+            NSMutableIndexSet*  sectionsToInsert = [NSMutableIndexSet indexSet];
+            [update.insertedSectionIndexes enumerateIndexesUsingBlock:^(NSUInteger idx, __unused BOOL* stop) {
                 if ((NSUInteger)[collectionView numberOfSections] <= idx)
                 {
                     [sectionsToInsert addIndex:idx];

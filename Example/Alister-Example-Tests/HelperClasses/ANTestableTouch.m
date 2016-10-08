@@ -8,7 +8,6 @@
 
 #import "ANTestableTouch.h"
 
-
 @interface ANTestableTouch ()
 
 @property (nonatomic, strong) UIView* currentView;
@@ -21,10 +20,11 @@
 {
     ANTestableTouch* touch = [self new];
     touch.currentView = view;
+    
     return touch;
 }
 
-- (UIView *)view
+- (UIView*)view
 {
     return self.currentView;
 }

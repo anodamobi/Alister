@@ -8,7 +8,7 @@
 
 #import "ANCollectionController.h"
 #import "ANListControllerUpdateViewInterface.h"
-#import "ANStorage.h"
+#import <Alister/ANStorage.h>
 #import "ANCollectionControllerManager.h"
 #import "ANListControllerSearchManager.h"
 #import "ANListControllerWrapperInterface.h"
@@ -56,7 +56,7 @@
     return self.manager;
 }
 
-- (void)setCollectionView:(UICollectionView * _Nullable)collectionView
+- (void)setCollectionView:(UICollectionView*  _Nullable)collectionView
 {
     collectionView.delegate = self;
     collectionView.dataSource = self;

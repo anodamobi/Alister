@@ -8,8 +8,8 @@
 
 #import "ANStorageSupplementaryManager.h"
 #import "ANStorageUpdateModel.h"
-#import "ANStorageModel.h"
-#import "ANStorageSectionModel.h"
+#import <Alister/ANStorageModel.h>
+#import <Alister/ANStorageSectionModel.h>
 #import "ANStorageUpdater.h"
 #import "ANStorageLoader.h"
 
@@ -36,7 +36,7 @@
 + (ANStorageUpdateModel*)updateSectionFooterModel:(id)footerModel
                                   forSectionIndex:(NSUInteger)sectionIndex
                                         inStorage:(ANStorageModel*)storage
-                                             kind:(NSString *)kind
+                                             kind:(NSString*)kind
 {
     ANStorageUpdateModel* update = [ANStorageUpdateModel new];
     

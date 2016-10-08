@@ -232,7 +232,8 @@
 	
 }
 
-- (void)searchControllerRequiresStorageWithSearchString:(NSString*)searchString andScope:(NSInteger)scope
+- (void)searchControllerRequiresStorageWithSearchString:(__unused NSString*)searchString
+                                               andScope:(__unused NSInteger)scope
 {
 	
 }

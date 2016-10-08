@@ -5,7 +5,7 @@
 //  Copyright (c) 2014 ANODA. All rights reserved.
 //
 
-#import "ANListController.h"
+#import <Alister/ANListController.h>
 
 @interface ANTableController : ANListController <UITableViewDataSource, UITableViewDelegate>
 

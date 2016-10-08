@@ -72,7 +72,7 @@ static NSString* const kCellConstant = @"kANCellIdentifier";
 {
     __block ANListControllerMappingModel* mappingModel = nil;
     
-    [self.mappings enumerateObjectsUsingBlock:^(ANListControllerMappingModel*  _Nonnull obj, __unused NSUInteger idx, BOOL * _Nonnull stop) {
+    [self.mappings enumerateObjectsUsingBlock:^(ANListControllerMappingModel*  _Nonnull obj, __unused NSUInteger idx, BOOL*  _Nonnull stop) {
         
         if ([obj.kind isEqualToString:kind])
         {
@@ -81,7 +81,7 @@ static NSString* const kCellConstant = @"kANCellIdentifier";
                 if ([viewModel isKindOfClass:obj.mappingClass])
                 {
                     mappingModel = obj;
-                    *stop = YES;
+                   * stop = YES;
                 }
             }
             else
@@ -89,7 +89,7 @@ static NSString* const kCellConstant = @"kANCellIdentifier";
                 if ([viewModel isMemberOfClass:obj.mappingClass])
                 {
                     mappingModel = obj;
-                    *stop = YES;
+                   * stop = YES;
                 }
             }
         }

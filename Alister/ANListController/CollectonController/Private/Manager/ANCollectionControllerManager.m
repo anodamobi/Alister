@@ -8,7 +8,7 @@
 
 #import "ANCollectionControllerManager.h"
 #import "ANListControllerUpdateViewInterface.h"
-#import "ANStorage.h"
+#import <Alister/ANStorage.h>
 #import "ANListControllerItemsHandler.h"
 #import "ANListControllerConfigurationModel.h"
 #import "ANListControllerQueueProcessor.h"

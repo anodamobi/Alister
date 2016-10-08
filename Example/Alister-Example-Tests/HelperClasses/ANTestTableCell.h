@@ -8,7 +8,7 @@
 
 #import "ANListControllerUpdateViewInterface.h"
 
-@interface ANTestTableCell : UITableViewCell<ANListControllerUpdateViewInterface>
+@interface ANTestTableCell : UITableViewCell <ANListControllerUpdateViewInterface>
 
 @property (nonatomic, strong) id model;
 

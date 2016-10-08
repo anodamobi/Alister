@@ -112,7 +112,7 @@ static CGFloat const kDefaultTableViewHeaderHeight = 40;
     self.separatorColor = [UIColor colorWithRed:215/255 green:214/255 blue:218/255 alpha:1];
 }
 
-- (BOOL)touchesShouldCancelInContentView:(UIView *)view
+- (BOOL)touchesShouldCancelInContentView:(UIView*)view
 {
     // Because we set delaysContentTouches = NO, we return YES for UIButtons
     // so that scrolling works correctly when the scroll gesture
