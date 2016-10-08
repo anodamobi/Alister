@@ -54,22 +54,21 @@
 		8C0DF7231D8FFDFF00E17B6B /* ANTestTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C0DF6F91D8FFDFF00E17B6B /* ANTestTableCell.m */; };
 		8C0DF7241D8FFDFF00E17B6B /* ANTestViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C0DF6FB1D8FFDFF00E17B6B /* ANTestViewModel.m */; };
 		D795BA071DA7253400668587 /* StyleSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = D795BA061DA7253400668587 /* StyleSettings.plist */; };
-		D7A21DBD1DA890BA00D6D803 /* ANAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21DA31DA890BA00D6D803 /* ANAppDelegate.m */; };
-		D7A21DC21DA890BA00D6D803 /* ANECustomFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21DAD1DA890BA00D6D803 /* ANECustomFooterView.m */; };
-		D7A21DC31DA890BA00D6D803 /* ANECustomFooterViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21DAF1DA890BA00D6D803 /* ANECustomFooterViewModel.m */; };
-		D7A21DC41DA890BA00D6D803 /* ANECustomHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21DB11DA890BA00D6D803 /* ANECustomHeaderView.m */; };
-		D7A21DC51DA890BA00D6D803 /* ANECustomHeaderViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21DB31DA890BA00D6D803 /* ANECustomHeaderViewModel.m */; };
-		D7A21DC61DA890BA00D6D803 /* ANELabelTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21DB51DA890BA00D6D803 /* ANELabelTableViewCell.m */; };
-		D7A21DC71DA890BA00D6D803 /* ANCustomSupplementaryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21DB81DA890BA00D6D803 /* ANCustomSupplementaryVC.m */; };
-		D7A21DC81DA890BA00D6D803 /* ANEDefaultSupplementaryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21DBA1DA890BA00D6D803 /* ANEDefaultSupplementaryVC.m */; };
-		D7A21DC91DA890BA00D6D803 /* ANEMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21DBC1DA890BA00D6D803 /* ANEMainVC.m */; };
 		D7A21DD51DA8917700D6D803 /* ANECustomHeaderViewModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21DD21DA8917700D6D803 /* ANECustomHeaderViewModelTest.m */; };
 		D7A21DD61DA8917700D6D803 /* ANECustomHeaderViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21DD31DA8917700D6D803 /* ANECustomHeaderViewTest.m */; };
 		D7A21DD71DA8917700D6D803 /* ANELabelTableViewCellTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21DD41DA8917700D6D803 /* ANELabelTableViewCellTest.m */; };
-		D7A21DDF1DA891ED00D6D803 /* Alister-Example-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D7A21DD91DA891ED00D6D803 /* Alister-Example-Info.plist */; };
-		D7A21DE01DA891ED00D6D803 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7A21DDB1DA891ED00D6D803 /* Assets.xcassets */; };
-		D7A21DE11DA891ED00D6D803 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D7A21DDC1DA891ED00D6D803 /* InfoPlist.strings */; };
-		D7A21DE21DA891ED00D6D803 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21DDE1DA891ED00D6D803 /* main.m */; };
+		D7A21E011DA895B500D6D803 /* ANAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21DE71DA895B500D6D803 /* ANAppDelegate.m */; };
+		D7A21E031DA895B500D6D803 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7A21DEB1DA895B500D6D803 /* Assets.xcassets */; };
+		D7A21E041DA895B500D6D803 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D7A21DEC1DA895B500D6D803 /* InfoPlist.strings */; };
+		D7A21E051DA895B500D6D803 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21DEE1DA895B500D6D803 /* main.m */; };
+		D7A21E061DA895B500D6D803 /* ANECustomFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21DF11DA895B500D6D803 /* ANECustomFooterView.m */; };
+		D7A21E071DA895B500D6D803 /* ANECustomFooterViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21DF31DA895B500D6D803 /* ANECustomFooterViewModel.m */; };
+		D7A21E081DA895B500D6D803 /* ANECustomHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21DF51DA895B500D6D803 /* ANECustomHeaderView.m */; };
+		D7A21E091DA895B500D6D803 /* ANECustomHeaderViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21DF71DA895B500D6D803 /* ANECustomHeaderViewModel.m */; };
+		D7A21E0A1DA895B500D6D803 /* ANELabelTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21DF91DA895B500D6D803 /* ANELabelTableViewCell.m */; };
+		D7A21E0B1DA895B500D6D803 /* ANCustomSupplementaryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21DFC1DA895B500D6D803 /* ANCustomSupplementaryVC.m */; };
+		D7A21E0C1DA895B500D6D803 /* ANEDefaultSupplementaryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21DFE1DA895B500D6D803 /* ANEDefaultSupplementaryVC.m */; };
+		D7A21E0D1DA895B500D6D803 /* ANEMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21E001DA895B500D6D803 /* ANEMainVC.m */; };
 		D7EC43B21D50C7DE00128012 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		D7EC43B31D50C7DE00128012 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		D7EC43B61D50C7EB00128012 /* (null) in Resources */ = {isa = PBXBuildFile; };
@@ -157,32 +156,32 @@
 		AC990585C63BBA3EFB2F905E /* libPods-Alister-Example-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Alister-Example-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB2099F6E4049388FFBA7187 /* Pods-Alister-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister-Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Alister-Example/Pods-Alister-Example.debug.xcconfig"; sourceTree = "<group>"; };
 		D795BA061DA7253400668587 /* StyleSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = StyleSettings.plist; sourceTree = "<group>"; };
-		D7A21DA21DA890BA00D6D803 /* ANAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANAppDelegate.h; sourceTree = "<group>"; };
-		D7A21DA31DA890BA00D6D803 /* ANAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANAppDelegate.m; sourceTree = "<group>"; };
-		D7A21DAC1DA890BA00D6D803 /* ANECustomFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANECustomFooterView.h; sourceTree = "<group>"; };
-		D7A21DAD1DA890BA00D6D803 /* ANECustomFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANECustomFooterView.m; sourceTree = "<group>"; };
-		D7A21DAE1DA890BA00D6D803 /* ANECustomFooterViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANECustomFooterViewModel.h; sourceTree = "<group>"; };
-		D7A21DAF1DA890BA00D6D803 /* ANECustomFooterViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANECustomFooterViewModel.m; sourceTree = "<group>"; };
-		D7A21DB01DA890BA00D6D803 /* ANECustomHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANECustomHeaderView.h; sourceTree = "<group>"; };
-		D7A21DB11DA890BA00D6D803 /* ANECustomHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANECustomHeaderView.m; sourceTree = "<group>"; };
-		D7A21DB21DA890BA00D6D803 /* ANECustomHeaderViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANECustomHeaderViewModel.h; sourceTree = "<group>"; };
-		D7A21DB31DA890BA00D6D803 /* ANECustomHeaderViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANECustomHeaderViewModel.m; sourceTree = "<group>"; };
-		D7A21DB41DA890BA00D6D803 /* ANELabelTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANELabelTableViewCell.h; sourceTree = "<group>"; };
-		D7A21DB51DA890BA00D6D803 /* ANELabelTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANELabelTableViewCell.m; sourceTree = "<group>"; };
-		D7A21DB71DA890BA00D6D803 /* ANCustomSupplementaryVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANCustomSupplementaryVC.h; sourceTree = "<group>"; };
-		D7A21DB81DA890BA00D6D803 /* ANCustomSupplementaryVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANCustomSupplementaryVC.m; sourceTree = "<group>"; };
-		D7A21DB91DA890BA00D6D803 /* ANEDefaultSupplementaryVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANEDefaultSupplementaryVC.h; sourceTree = "<group>"; };
-		D7A21DBA1DA890BA00D6D803 /* ANEDefaultSupplementaryVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANEDefaultSupplementaryVC.m; sourceTree = "<group>"; };
-		D7A21DBB1DA890BA00D6D803 /* ANEMainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANEMainVC.h; sourceTree = "<group>"; };
-		D7A21DBC1DA890BA00D6D803 /* ANEMainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANEMainVC.m; sourceTree = "<group>"; };
 		D7A21DD21DA8917700D6D803 /* ANECustomHeaderViewModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANECustomHeaderViewModelTest.m; sourceTree = "<group>"; };
 		D7A21DD31DA8917700D6D803 /* ANECustomHeaderViewTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANECustomHeaderViewTest.m; sourceTree = "<group>"; };
 		D7A21DD41DA8917700D6D803 /* ANELabelTableViewCellTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANELabelTableViewCellTest.m; sourceTree = "<group>"; };
-		D7A21DD91DA891ED00D6D803 /* Alister-Example-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Alister-Example-Info.plist"; sourceTree = "<group>"; };
-		D7A21DDA1DA891ED00D6D803 /* Alister-Example-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Alister-Example-Prefix.pch"; sourceTree = "<group>"; };
-		D7A21DDB1DA891ED00D6D803 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		D7A21DDD1DA891ED00D6D803 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		D7A21DDE1DA891ED00D6D803 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D7A21DE61DA895B500D6D803 /* ANAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANAppDelegate.h; sourceTree = "<group>"; };
+		D7A21DE71DA895B500D6D803 /* ANAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANAppDelegate.m; sourceTree = "<group>"; };
+		D7A21DE91DA895B500D6D803 /* Alister-Example-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Alister-Example-Info.plist"; sourceTree = "<group>"; };
+		D7A21DEA1DA895B500D6D803 /* Alister-Example-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Alister-Example-Prefix.pch"; sourceTree = "<group>"; };
+		D7A21DEB1DA895B500D6D803 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D7A21DED1DA895B500D6D803 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D7A21DEE1DA895B500D6D803 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D7A21DF01DA895B500D6D803 /* ANECustomFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANECustomFooterView.h; sourceTree = "<group>"; };
+		D7A21DF11DA895B500D6D803 /* ANECustomFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANECustomFooterView.m; sourceTree = "<group>"; };
+		D7A21DF21DA895B500D6D803 /* ANECustomFooterViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANECustomFooterViewModel.h; sourceTree = "<group>"; };
+		D7A21DF31DA895B500D6D803 /* ANECustomFooterViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANECustomFooterViewModel.m; sourceTree = "<group>"; };
+		D7A21DF41DA895B500D6D803 /* ANECustomHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANECustomHeaderView.h; sourceTree = "<group>"; };
+		D7A21DF51DA895B500D6D803 /* ANECustomHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANECustomHeaderView.m; sourceTree = "<group>"; };
+		D7A21DF61DA895B500D6D803 /* ANECustomHeaderViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANECustomHeaderViewModel.h; sourceTree = "<group>"; };
+		D7A21DF71DA895B500D6D803 /* ANECustomHeaderViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANECustomHeaderViewModel.m; sourceTree = "<group>"; };
+		D7A21DF81DA895B500D6D803 /* ANELabelTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANELabelTableViewCell.h; sourceTree = "<group>"; };
+		D7A21DF91DA895B500D6D803 /* ANELabelTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANELabelTableViewCell.m; sourceTree = "<group>"; };
+		D7A21DFB1DA895B500D6D803 /* ANCustomSupplementaryVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANCustomSupplementaryVC.h; sourceTree = "<group>"; };
+		D7A21DFC1DA895B500D6D803 /* ANCustomSupplementaryVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANCustomSupplementaryVC.m; sourceTree = "<group>"; };
+		D7A21DFD1DA895B500D6D803 /* ANEDefaultSupplementaryVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANEDefaultSupplementaryVC.h; sourceTree = "<group>"; };
+		D7A21DFE1DA895B500D6D803 /* ANEDefaultSupplementaryVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANEDefaultSupplementaryVC.m; sourceTree = "<group>"; };
+		D7A21DFF1DA895B500D6D803 /* ANEMainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANEMainVC.h; sourceTree = "<group>"; };
+		D7A21E001DA895B500D6D803 /* ANEMainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANEMainVC.m; sourceTree = "<group>"; };
 		D7EC43CC1D512EE300128012 /* Alister-Example-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Alister-Example-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7EC43D01D512EE300128012 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D7EDEC381DA7EE6F00FFA333 /* ANTestableRange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTestableRange.h; sourceTree = "<group>"; };
@@ -217,9 +216,9 @@
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
+				D7A21DE41DA895B500D6D803 /* Alister-Example */,
 				D795BA061DA7253400668587 /* StyleSettings.plist */,
 				60FF7A9C1954A5C5007DD14C /* Podspec Metadata */,
-				6003F593195388D20070C39A /* Example for Alister */,
 				D7EC43CD1D512EE300128012 /* Alister-Example-Tests */,
 				6003F58C195388D20070C39A /* Frameworks */,
 				6003F58B195388D20070C39A /* Products */,
@@ -247,18 +246,6 @@
 				AC990585C63BBA3EFB2F905E /* libPods-Alister-Example-Tests.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		6003F593195388D20070C39A /* Example for Alister */ = {
-			isa = PBXGroup;
-			children = (
-				D7A21DD81DA891ED00D6D803 /* BundleFiles */,
-				D7A21DA11DA890BA00D6D803 /* AppDelegate */,
-				D7A21DAB1DA890BA00D6D803 /* Cells */,
-				D7A21DB61DA890BA00D6D803 /* ViewControllers */,
-			);
-			name = "Example for Alister";
-			path = Alister;
 			sourceTree = "<group>";
 		};
 		60FF7A9C1954A5C5007DD14C /* Podspec Metadata */ = {
@@ -414,48 +401,6 @@
 			path = HelperClasses;
 			sourceTree = "<group>";
 		};
-		D7A21DA11DA890BA00D6D803 /* AppDelegate */ = {
-			isa = PBXGroup;
-			children = (
-				D7A21DA21DA890BA00D6D803 /* ANAppDelegate.h */,
-				D7A21DA31DA890BA00D6D803 /* ANAppDelegate.m */,
-			);
-			name = AppDelegate;
-			path = "Alister-Example/AppDelegate";
-			sourceTree = SOURCE_ROOT;
-		};
-		D7A21DAB1DA890BA00D6D803 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				D7A21DAC1DA890BA00D6D803 /* ANECustomFooterView.h */,
-				D7A21DAD1DA890BA00D6D803 /* ANECustomFooterView.m */,
-				D7A21DAE1DA890BA00D6D803 /* ANECustomFooterViewModel.h */,
-				D7A21DAF1DA890BA00D6D803 /* ANECustomFooterViewModel.m */,
-				D7A21DB01DA890BA00D6D803 /* ANECustomHeaderView.h */,
-				D7A21DB11DA890BA00D6D803 /* ANECustomHeaderView.m */,
-				D7A21DB21DA890BA00D6D803 /* ANECustomHeaderViewModel.h */,
-				D7A21DB31DA890BA00D6D803 /* ANECustomHeaderViewModel.m */,
-				D7A21DB41DA890BA00D6D803 /* ANELabelTableViewCell.h */,
-				D7A21DB51DA890BA00D6D803 /* ANELabelTableViewCell.m */,
-			);
-			name = Cells;
-			path = "Alister-Example/Cells";
-			sourceTree = SOURCE_ROOT;
-		};
-		D7A21DB61DA890BA00D6D803 /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				D7A21DB71DA890BA00D6D803 /* ANCustomSupplementaryVC.h */,
-				D7A21DB81DA890BA00D6D803 /* ANCustomSupplementaryVC.m */,
-				D7A21DB91DA890BA00D6D803 /* ANEDefaultSupplementaryVC.h */,
-				D7A21DBA1DA890BA00D6D803 /* ANEDefaultSupplementaryVC.m */,
-				D7A21DBB1DA890BA00D6D803 /* ANEMainVC.h */,
-				D7A21DBC1DA890BA00D6D803 /* ANEMainVC.m */,
-			);
-			name = ViewControllers;
-			path = "Alister-Example/ViewControllers";
-			sourceTree = SOURCE_ROOT;
-		};
 		D7A21DD11DA8917700D6D803 /* ExampleTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -466,18 +411,67 @@
 			path = ExampleTests;
 			sourceTree = "<group>";
 		};
-		D7A21DD81DA891ED00D6D803 /* BundleFiles */ = {
+		D7A21DE41DA895B500D6D803 /* Alister-Example */ = {
 			isa = PBXGroup;
 			children = (
-				D7A21DD91DA891ED00D6D803 /* Alister-Example-Info.plist */,
-				D7A21DDA1DA891ED00D6D803 /* Alister-Example-Prefix.pch */,
-				D7A21DDB1DA891ED00D6D803 /* Assets.xcassets */,
-				D7A21DDC1DA891ED00D6D803 /* InfoPlist.strings */,
-				D7A21DDE1DA891ED00D6D803 /* main.m */,
+				D7A21DE51DA895B500D6D803 /* AppDelegate */,
+				D7A21DE81DA895B500D6D803 /* BundleFiles */,
+				D7A21DEF1DA895B500D6D803 /* Cells */,
+				D7A21DFA1DA895B500D6D803 /* ViewControllers */,
 			);
-			name = BundleFiles;
-			path = "Alister-Example/BundleFiles";
-			sourceTree = SOURCE_ROOT;
+			path = "Alister-Example";
+			sourceTree = "<group>";
+		};
+		D7A21DE51DA895B500D6D803 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				D7A21DE61DA895B500D6D803 /* ANAppDelegate.h */,
+				D7A21DE71DA895B500D6D803 /* ANAppDelegate.m */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		D7A21DE81DA895B500D6D803 /* BundleFiles */ = {
+			isa = PBXGroup;
+			children = (
+				D7A21DE91DA895B500D6D803 /* Alister-Example-Info.plist */,
+				D7A21DEA1DA895B500D6D803 /* Alister-Example-Prefix.pch */,
+				D7A21DEB1DA895B500D6D803 /* Assets.xcassets */,
+				D7A21DEC1DA895B500D6D803 /* InfoPlist.strings */,
+				D7A21DEE1DA895B500D6D803 /* main.m */,
+			);
+			path = BundleFiles;
+			sourceTree = "<group>";
+		};
+		D7A21DEF1DA895B500D6D803 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				D7A21DF01DA895B500D6D803 /* ANECustomFooterView.h */,
+				D7A21DF11DA895B500D6D803 /* ANECustomFooterView.m */,
+				D7A21DF21DA895B500D6D803 /* ANECustomFooterViewModel.h */,
+				D7A21DF31DA895B500D6D803 /* ANECustomFooterViewModel.m */,
+				D7A21DF41DA895B500D6D803 /* ANECustomHeaderView.h */,
+				D7A21DF51DA895B500D6D803 /* ANECustomHeaderView.m */,
+				D7A21DF61DA895B500D6D803 /* ANECustomHeaderViewModel.h */,
+				D7A21DF71DA895B500D6D803 /* ANECustomHeaderViewModel.m */,
+				D7A21DF81DA895B500D6D803 /* ANELabelTableViewCell.h */,
+				D7A21DF91DA895B500D6D803 /* ANELabelTableViewCell.m */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		D7A21DFA1DA895B500D6D803 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D7A21DFB1DA895B500D6D803 /* ANCustomSupplementaryVC.h */,
+				D7A21DFC1DA895B500D6D803 /* ANCustomSupplementaryVC.m */,
+				D7A21DFD1DA895B500D6D803 /* ANEDefaultSupplementaryVC.h */,
+				D7A21DFE1DA895B500D6D803 /* ANEDefaultSupplementaryVC.m */,
+				D7A21DFF1DA895B500D6D803 /* ANEMainVC.h */,
+				D7A21E001DA895B500D6D803 /* ANEMainVC.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
 		};
 		D7EC43CD1D512EE300128012 /* Alister-Example-Tests */ = {
 			isa = PBXGroup;
@@ -593,9 +587,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7A21E041DA895B500D6D803 /* InfoPlist.strings in Resources */,
 				D7EC43B71D50C7EB00128012 /* (null) in Resources */,
 				D795BA071DA7253400668587 /* StyleSettings.plist in Resources */,
 				D7EC43B61D50C7EB00128012 /* (null) in Resources */,
+				D7A21E031DA895B500D6D803 /* Assets.xcassets in Resources */,
 				D7EC43B21D50C7DE00128012 /* (null) in Resources */,
 				D7EC43B31D50C7DE00128012 /* (null) in Resources */,
 			);
@@ -605,9 +601,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D7A21DE01DA891ED00D6D803 /* Assets.xcassets in Resources */,
-				D7A21DE11DA891ED00D6D803 /* InfoPlist.strings in Resources */,
-				D7A21DDF1DA891ED00D6D803 /* Alister-Example-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -815,15 +808,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D7A21DC71DA890BA00D6D803 /* ANCustomSupplementaryVC.m in Sources */,
-				D7A21DC61DA890BA00D6D803 /* ANELabelTableViewCell.m in Sources */,
-				D7A21DC21DA890BA00D6D803 /* ANECustomFooterView.m in Sources */,
-				D7A21DC51DA890BA00D6D803 /* ANECustomHeaderViewModel.m in Sources */,
-				D7A21DC41DA890BA00D6D803 /* ANECustomHeaderView.m in Sources */,
-				D7A21DC91DA890BA00D6D803 /* ANEMainVC.m in Sources */,
-				D7A21DC81DA890BA00D6D803 /* ANEDefaultSupplementaryVC.m in Sources */,
-				D7A21DBD1DA890BA00D6D803 /* ANAppDelegate.m in Sources */,
-				D7A21DC31DA890BA00D6D803 /* ANECustomFooterViewModel.m in Sources */,
+				D7A21E0B1DA895B500D6D803 /* ANCustomSupplementaryVC.m in Sources */,
+				D7A21E0A1DA895B500D6D803 /* ANELabelTableViewCell.m in Sources */,
+				D7A21E061DA895B500D6D803 /* ANECustomFooterView.m in Sources */,
+				D7A21E091DA895B500D6D803 /* ANECustomHeaderViewModel.m in Sources */,
+				D7A21E051DA895B500D6D803 /* main.m in Sources */,
+				D7A21E081DA895B500D6D803 /* ANECustomHeaderView.m in Sources */,
+				D7A21E0D1DA895B500D6D803 /* ANEMainVC.m in Sources */,
+				D7A21E0C1DA895B500D6D803 /* ANEDefaultSupplementaryVC.m in Sources */,
+				D7A21E011DA895B500D6D803 /* ANAppDelegate.m in Sources */,
+				D7A21E071DA895B500D6D803 /* ANECustomFooterViewModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -841,7 +835,6 @@
 				D7A21DD61DA8917700D6D803 /* ANECustomHeaderViewTest.m in Sources */,
 				8C0DF7011D8FFDFF00E17B6B /* ANListControllerMappingModelTest.m in Sources */,
 				8C0DF6FC1D8FFDFF00E17B6B /* ANCollectionUpdateOperationTests.m in Sources */,
-				D7A21DE21DA891ED00D6D803 /* main.m in Sources */,
 				8C0DF7171D8FFDFF00E17B6B /* ANTableControllerUpdateOperationTests.m in Sources */,
 				8C0DF7101D8FFDFF00E17B6B /* ANStorageModelTestAlternative.m in Sources */,
 				8C0DF7241D8FFDFF00E17B6B /* ANTestViewModel.m in Sources */,
@@ -891,10 +884,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		D7A21DDC1DA891ED00D6D803 /* InfoPlist.strings */ = {
+		D7A21DEC1DA895B500D6D803 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				D7A21DDD1DA891ED00D6D803 /* en */,
+				D7A21DED1DA895B500D6D803 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
