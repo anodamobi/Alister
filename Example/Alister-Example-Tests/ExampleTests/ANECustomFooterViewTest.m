@@ -9,28 +9,29 @@
 #import <XCTest/XCTest.h>
 #import "ANECustomFooterView.h"
 
+@interface ANECustomFooterView ()
+
+@property (nonatomic, strong) UILabel* attributedLabel;
+
+@end
+
 SpecBegin(ANECustomFooterView)
 
 describe(@"ANECustomFooterView", ^{
     
-    beforeAll(^{
-        
-    });
+    __block ANECustomFooterView* view = nil;
     
     beforeEach(^{
-        
+        view = [[ANECustomFooterView alloc] initWithReuseIdentifier:@"TestIndetifier"];
     });
     
-    it(@"should do stuff", ^{
+    it(@"after updateWithModel should have updated label", ^{
+       
+        NSAttributedString* string = [[NSAttributedString alloc] initWithString:@"custom"];
+        ANECustomFooterViewModel* viewModel = [ANECustomFooterViewModel viewModelWithAttrString:string];
+        [view updateWithModel:viewModel];
         
-    });
-    
-    afterEach(^{
-        
-    });
-    
-    afterAll(^{
-        
+        expect(view.attributedLabel.attributedText).equal(string);
     });
 });
 

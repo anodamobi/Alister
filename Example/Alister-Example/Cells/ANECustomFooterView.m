@@ -8,6 +8,12 @@
 
 #import "ANECustomFooterView.h"
 
+@interface ANECustomFooterView ()
+
+@property (nonatomic, strong) UILabel* attributedLabel;
+
+@end
+
 @implementation ANECustomFooterView
 
 @end
