@@ -22,7 +22,7 @@
     if (!self.segmentControl.numberOfSegments)
     {
         [model.segmentTitles enumerateObjectsUsingBlock:^(id _Nonnull obj, NSUInteger idx, __unused BOOL * _Nonnull stop) {
-            [self.segmentControl setTitle:obj forSegmentAtIndex:idx];
+            [self.segmentControl insertSegmentWithTitle:obj atIndex:idx animated:NO];
         }];
     }
 }

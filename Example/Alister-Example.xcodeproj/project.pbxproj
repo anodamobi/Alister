@@ -65,7 +65,7 @@
 		D752BE5A1DA8379F002AC29E /* ANECustomHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = D752BE591DA8379F002AC29E /* ANECustomHeaderView.m */; };
 		D752BE5D1DA83806002AC29E /* ANECustomFooterViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D752BE5C1DA83806002AC29E /* ANECustomFooterViewModel.m */; };
 		D752BE601DA83815002AC29E /* ANECustomHeaderViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D752BE5F1DA83815002AC29E /* ANECustomHeaderViewModel.m */; };
-		D75DE3201DA848F6004A1EF7 /* ANECustomHeaderViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D75DE31F1DA848F6004A1EF7 /* ANECustomHeaderViewModel.m */; };
+		D75DE3201DA848F6004A1EF7 /* ANECustomHeaderViewModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D75DE31F1DA848F6004A1EF7 /* ANECustomHeaderViewModelTest.m */; };
 		D75DE3221DA84D8C004A1EF7 /* ANECustomHeaderViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D75DE3211DA84D8C004A1EF7 /* ANECustomHeaderViewTest.m */; };
 		D7EC43B21D50C7DE00128012 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		D7EC43B31D50C7DE00128012 /* (null) in Resources */ = {isa = PBXBuildFile; };
@@ -174,7 +174,7 @@
 		D752BE5C1DA83806002AC29E /* ANECustomFooterViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANECustomFooterViewModel.m; sourceTree = "<group>"; };
 		D752BE5E1DA83815002AC29E /* ANECustomHeaderViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANECustomHeaderViewModel.h; sourceTree = "<group>"; };
 		D752BE5F1DA83815002AC29E /* ANECustomHeaderViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANECustomHeaderViewModel.m; sourceTree = "<group>"; };
-		D75DE31F1DA848F6004A1EF7 /* ANECustomHeaderViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ANECustomHeaderViewModel.m; path = EmapleTests/ANECustomHeaderViewModel.m; sourceTree = "<group>"; };
+		D75DE31F1DA848F6004A1EF7 /* ANECustomHeaderViewModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ANECustomHeaderViewModelTest.m; path = EmapleTests/ANECustomHeaderViewModelTest.m; sourceTree = "<group>"; };
 		D75DE3211DA84D8C004A1EF7 /* ANECustomHeaderViewTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ANECustomHeaderViewTest.m; path = EmapleTests/ANECustomHeaderViewTest.m; sourceTree = "<group>"; };
 		D7EC43CC1D512EE300128012 /* Alister-Example-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Alister-Example-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7EC43D01D512EE300128012 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -473,7 +473,7 @@
 			isa = PBXGroup;
 			children = (
 				D75DE3211DA84D8C004A1EF7 /* ANECustomHeaderViewTest.m */,
-				D75DE31F1DA848F6004A1EF7 /* ANECustomHeaderViewModel.m */,
+				D75DE31F1DA848F6004A1EF7 /* ANECustomHeaderViewModelTest.m */,
 				8C0DF6BA1D8FFDFF00E17B6B /* Alister */,
 				8C0DF6E11D8FFDFF00E17B6B /* HelperClasses */,
 				07CE62481D5169B300D1A43C /* Tests-Prefix.pch */,
@@ -836,7 +836,7 @@
 				8C0DF7131D8FFDFF00E17B6B /* ANStorageSectionModelTest.m in Sources */,
 				8C0DF7151D8FFDFF00E17B6B /* ANStorageUpdaterTests.m in Sources */,
 				8C0DF7191D8FFDFF00E17B6B /* ANTestableCollectionView.m in Sources */,
-				D75DE3201DA848F6004A1EF7 /* ANECustomHeaderViewModel.m in Sources */,
+				D75DE3201DA848F6004A1EF7 /* ANECustomHeaderViewModelTest.m in Sources */,
 				8C0DF7221D8FFDFF00E17B6B /* ANTestKeyboardHandlerDelegate.m in Sources */,
 				8C0DF70B1D8FFDFF00E17B6B /* ANTableContainerViewTest.m in Sources */,
 				8C0DF7161D8FFDFF00E17B6B /* ANStorageUpdateOperationTests.m in Sources */,

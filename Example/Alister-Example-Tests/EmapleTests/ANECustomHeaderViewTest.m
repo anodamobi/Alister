@@ -38,14 +38,6 @@ describe(@"ANECustomHeaderView", ^{
         [headerView updateWithModel:viewModel];
         expect(headerView.segmentControl.numberOfSegments).equal(viewModel.segmentTitles.count);
     });
-
-    afterEach(^{
-        
-    });
-    
-    afterAll(^{
-
-    });
 });
 
 SpecEnd

@@ -20,7 +20,13 @@ describe(@"ANECustomHeaderViewModel", ^{
     });
     
     it(@"should call delegate when indexSelected:", ^{
-        failure(@"Pending");
+        
+        id delegateMock = OCMProtocolMock(@protocol(ANECustomHeaderViewModelDelegate));
+        viewModel.delegate = delegateMock;
+        
+        OCMExpect([viewModel.delegate headerViewModelIndexUpdatedTo:1 onModel:viewModel]);
+        
+        [viewModel itemSelectedWithIndex:1];
     });
     
     it(@"should assert when set delegate not conformed to protocol", ^{
