@@ -57,7 +57,7 @@
 		D752BE491DA8307E002AC29E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D752BE3C1DA8307E002AC29E /* Assets.xcassets */; };
 		D752BE4A1DA8307E002AC29E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D752BE3D1DA8307E002AC29E /* InfoPlist.strings */; };
 		D752BE4B1DA8307E002AC29E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D752BE3F1DA8307E002AC29E /* main.m */; };
-		D752BE4C1DA8307E002AC29E /* ANExampleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D752BE421DA8307E002AC29E /* ANExampleTableViewCell.m */; };
+		D752BE4C1DA8307E002AC29E /* ANELabelTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D752BE421DA8307E002AC29E /* ANELabelTableViewCell.m */; };
 		D752BE4D1DA8307E002AC29E /* ANEMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D752BE451DA8307E002AC29E /* ANEMainVC.m */; };
 		D752BE511DA83220002AC29E /* ANEDefaultSupplementaryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D752BE501DA83220002AC29E /* ANEDefaultSupplementaryVC.m */; };
 		D752BE541DA83700002AC29E /* ANCustomSupplementaryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D752BE531DA83700002AC29E /* ANCustomSupplementaryVC.m */; };
@@ -67,6 +67,7 @@
 		D752BE601DA83815002AC29E /* ANECustomHeaderViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D752BE5F1DA83815002AC29E /* ANECustomHeaderViewModel.m */; };
 		D75DE3201DA848F6004A1EF7 /* ANECustomHeaderViewModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D75DE31F1DA848F6004A1EF7 /* ANECustomHeaderViewModelTest.m */; };
 		D75DE3221DA84D8C004A1EF7 /* ANECustomHeaderViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D75DE3211DA84D8C004A1EF7 /* ANECustomHeaderViewTest.m */; };
+		D7A21DA01DA8836500D6D803 /* ANELabelTableViewCellTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21D9F1DA8836500D6D803 /* ANELabelTableViewCellTest.m */; };
 		D7EC43B21D50C7DE00128012 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		D7EC43B31D50C7DE00128012 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		D7EC43B61D50C7EB00128012 /* (null) in Resources */ = {isa = PBXBuildFile; };
@@ -158,8 +159,8 @@
 		D752BE3C1DA8307E002AC29E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D752BE3E1DA8307E002AC29E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D752BE3F1DA8307E002AC29E /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		D752BE411DA8307E002AC29E /* ANExampleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANExampleTableViewCell.h; sourceTree = "<group>"; };
-		D752BE421DA8307E002AC29E /* ANExampleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANExampleTableViewCell.m; sourceTree = "<group>"; };
+		D752BE411DA8307E002AC29E /* ANELabelTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANELabelTableViewCell.h; sourceTree = "<group>"; };
+		D752BE421DA8307E002AC29E /* ANELabelTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANELabelTableViewCell.m; sourceTree = "<group>"; };
 		D752BE441DA8307E002AC29E /* ANEMainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANEMainVC.h; sourceTree = "<group>"; };
 		D752BE451DA8307E002AC29E /* ANEMainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANEMainVC.m; sourceTree = "<group>"; };
 		D752BE4F1DA83220002AC29E /* ANEDefaultSupplementaryVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANEDefaultSupplementaryVC.h; sourceTree = "<group>"; };
@@ -176,6 +177,7 @@
 		D752BE5F1DA83815002AC29E /* ANECustomHeaderViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANECustomHeaderViewModel.m; sourceTree = "<group>"; };
 		D75DE31F1DA848F6004A1EF7 /* ANECustomHeaderViewModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ANECustomHeaderViewModelTest.m; path = EmapleTests/ANECustomHeaderViewModelTest.m; sourceTree = "<group>"; };
 		D75DE3211DA84D8C004A1EF7 /* ANECustomHeaderViewTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ANECustomHeaderViewTest.m; path = EmapleTests/ANECustomHeaderViewTest.m; sourceTree = "<group>"; };
+		D7A21D9F1DA8836500D6D803 /* ANELabelTableViewCellTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANELabelTableViewCellTest.m; sourceTree = "<group>"; };
 		D7EC43CC1D512EE300128012 /* Alister-Example-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Alister-Example-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7EC43D01D512EE300128012 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E301602B7936D5180834423D /* Alister.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Alister.podspec; path = ../Alister.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -426,8 +428,8 @@
 		D752BE401DA8307E002AC29E /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				D752BE411DA8307E002AC29E /* ANExampleTableViewCell.h */,
-				D752BE421DA8307E002AC29E /* ANExampleTableViewCell.m */,
+				D752BE411DA8307E002AC29E /* ANELabelTableViewCell.h */,
+				D752BE421DA8307E002AC29E /* ANELabelTableViewCell.m */,
 				D752BE611DA841C9002AC29E /* CustomHeader */,
 				D752BE621DA841D3002AC29E /* CustomFooter */,
 			);
@@ -472,6 +474,7 @@
 		D7EC43CD1D512EE300128012 /* Alister-Example-Tests */ = {
 			isa = PBXGroup;
 			children = (
+				D7A21D9F1DA8836500D6D803 /* ANELabelTableViewCellTest.m */,
 				D75DE3211DA84D8C004A1EF7 /* ANECustomHeaderViewTest.m */,
 				D75DE31F1DA848F6004A1EF7 /* ANECustomHeaderViewModelTest.m */,
 				8C0DF6BA1D8FFDFF00E17B6B /* Alister */,
@@ -796,7 +799,7 @@
 			files = (
 				D752BE4D1DA8307E002AC29E /* ANEMainVC.m in Sources */,
 				D752BE5D1DA83806002AC29E /* ANECustomFooterViewModel.m in Sources */,
-				D752BE4C1DA8307E002AC29E /* ANExampleTableViewCell.m in Sources */,
+				D752BE4C1DA8307E002AC29E /* ANELabelTableViewCell.m in Sources */,
 				D752BE4B1DA8307E002AC29E /* main.m in Sources */,
 				D752BE5A1DA8379F002AC29E /* ANECustomHeaderView.m in Sources */,
 				D752BE511DA83220002AC29E /* ANEDefaultSupplementaryVC.m in Sources */,
@@ -832,6 +835,7 @@
 				8C0DF6FF1D8FFDFF00E17B6B /* ANCollectionControllerTest.m in Sources */,
 				8C0DF7031D8FFDFF00E17B6B /* ANTableControllerTest.m in Sources */,
 				8C0DF71F1D8FFDFF00E17B6B /* ANTestableTableView.m in Sources */,
+				D7A21DA01DA8836500D6D803 /* ANELabelTableViewCellTest.m in Sources */,
 				8C0DF7141D8FFDFF00E17B6B /* ANStorageUpdateModelTest.m in Sources */,
 				8C0DF7131D8FFDFF00E17B6B /* ANStorageSectionModelTest.m in Sources */,
 				8C0DF7151D8FFDFF00E17B6B /* ANStorageUpdaterTests.m in Sources */,

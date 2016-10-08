@@ -6,9 +6,9 @@
 //  Copyright © 2016 Oksana Kovalchuk. All rights reserved.
 //
 
-#import "ANExampleTableViewCell.h"
+#import "ANELabelTableViewCell.h"
 
-@implementation ANExampleTableViewCell
+@implementation ANELabelTableViewCell
 
 - (void)updateWithModel:(NSString*)model
 {

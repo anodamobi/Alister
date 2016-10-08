@@ -9,7 +9,7 @@
 #import "ANEDefaultSupplementaryVC.h"
 #import "ANStorage.h"
 #import "ANTableController.h"
-#import "ANExampleTableViewCell.h"
+#import "ANELabelTableViewCell.h"
 #import "ANBaseTableFooterView.h"
 #import "ANBaseTableHeaderView.h"
 
@@ -36,7 +36,7 @@
         
         [self.controller configureCellsWithBlock:^(id<ANListControllerReusableInterface> configurator) {
             
-            [configurator registerCellClass:[ANExampleTableViewCell class]
+            [configurator registerCellClass:[ANELabelTableViewCell class]
                              forSystemClass:[NSString class]];
             
             [configurator registerFooterClass:[ANBaseTableFooterView class]

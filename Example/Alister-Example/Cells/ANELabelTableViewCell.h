@@ -8,6 +8,6 @@
 
 #import "ANBaseTableViewCell.h"
 
-@interface ANExampleTableViewCell : ANBaseTableViewCell
+@interface ANELabelTableViewCell : ANBaseTableViewCell
 
 @end

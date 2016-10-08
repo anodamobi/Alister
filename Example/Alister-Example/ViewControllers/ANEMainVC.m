@@ -9,7 +9,7 @@
 #import "ANEMainVC.h"
 #import "ANStorage.h"
 #import "ANTableController.h"
-#import "ANExampleTableViewCell.h"
+#import "ANELabelTableViewCell.h"
 #import "ANEDefaultSupplementaryVC.h"
 
 typedef NS_ENUM(NSInteger, ANEMainSection)
@@ -39,7 +39,7 @@ typedef NS_ENUM(NSInteger, ANEMainSection)
         [self.controller attachStorage:self.storage];
         
         [self.controller configureCellsWithBlock:^(id<ANListControllerReusableInterface> configurator) {
-            [configurator registerCellClass:[ANExampleTableViewCell class] forSystemClass:[NSString class]];
+            [configurator registerCellClass:[ANELabelTableViewCell class] forSystemClass:[NSString class]];
         }];
     }
     return self;
