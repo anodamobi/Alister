@@ -57,7 +57,7 @@ typedef NS_ENUM(NSInteger, ANEMainSection)
 {
     [super viewDidLoad];
     
-    self.title = @"Alister";
+    self.title = NSLocalizedString(@"Alister", nil);
     
     [self.storage updateWithoutAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
         

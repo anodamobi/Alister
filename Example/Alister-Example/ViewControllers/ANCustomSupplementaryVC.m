@@ -12,6 +12,7 @@
 #import "ANELabelTableViewCell.h"
 #import "ANEDefaultSupplementaryVC.h"
 #import "ANECustomHeaderView.h"
+#import "ANECustomFooterView.h"
 
 @interface ANCustomSupplementaryVC () <ANECustomHeaderViewModelDelegate>
 
@@ -41,6 +42,9 @@
             
             [configurator registerHeaderClass:[ANECustomHeaderView class]
                                 forModelClass:[ANECustomHeaderViewModel class]];
+            
+            [configurator registerFooterClass:[ANECustomFooterView class]
+                                forModelClass:[ANECustomFooterViewModel class]];
         }];
     }
     

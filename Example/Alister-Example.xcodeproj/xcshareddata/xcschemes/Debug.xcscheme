@@ -26,7 +26,8 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "NO">
+      shouldUseLaunchSchemeArgsEnv = "NO"
+      codeCoverageEnabled = "YES">
       <Testables>
          <TestableReference
             skipped = "NO">
@@ -35,16 +36,6 @@
                BlueprintIdentifier = "D7EC43CB1D512EE300128012"
                BuildableName = "Alister-Example-Tests.xctest"
                BlueprintName = "Alister-Example-Tests"
-               ReferencedContainer = "container:Alister-Example.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "078A75AC1D7F60BD003DD106"
-               BuildableName = "Alister-Example-ExampleUITests.xctest"
-               BlueprintName = "Alister-Example-ExampleUITests"
                ReferencedContainer = "container:Alister-Example.xcodeproj">
             </BuildableReference>
          </TestableReference>

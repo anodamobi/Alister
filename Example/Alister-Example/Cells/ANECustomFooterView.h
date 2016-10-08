@@ -7,6 +7,7 @@
 //
 
 #import <Alister/ANBaseTableViewHeaderFooterView.h>
+#import "ANECustomFooterViewModel.h"
 
 @interface ANECustomFooterView : ANBaseTableViewHeaderFooterView
 

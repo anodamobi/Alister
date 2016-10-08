@@ -6,8 +6,10 @@
 //  Copyright © 2016 Oksana Kovalchuk. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
 @interface ANECustomFooterViewModel : NSObject
+
++ (instancetype)viewModelWithAttrString:(NSAttributedString*)attrString;
+
+- (NSAttributedString*)attributedString;
 
 @end

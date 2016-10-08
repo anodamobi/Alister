@@ -64,7 +64,8 @@
         return;
     }
     _deviceLanguage = [_deviceLanguage stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    _app.launchArguments = [_app.launchArguments arrayByAddingObjectsFromArray:@[@"-AppleLanguages",[NSString stringWithFormat:@"(%@)", _deviceLanguage]]];
+    _app.launchArguments = [_app.launchArguments arrayByAddingObjectsFromArray:@[@"-AppleLanguages",
+                                                                                 [NSString stringWithFormat:@"(%@)", _deviceLanguage]]];
 }
 
 - (void)setLocale
@@ -84,7 +85,6 @@
         return;
     }
     _locale = [_locale stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-
     if (_locale.length == 0)
     {
         _locale = [NSLocale localeWithLocaleIdentifier:_deviceLanguage].localeIdentifier;
