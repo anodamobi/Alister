@@ -11,10 +11,12 @@
 #import "ANTableController.h"
 #import "ANELabelTableViewCell.h"
 #import "ANEDefaultSupplementaryVC.h"
+#import "ANCustomSupplementaryVC.h"
 
 typedef NS_ENUM(NSInteger, ANEMainSection)
 {
-    ANEMainSectionGroupedDefaultSupplementaries
+    ANEMainSectionGroupedDefaultSupplementaries,
+    ANEMainSectionCustomSupplementaries
 };
 
 @interface ANEMainVC ()
@@ -56,7 +58,7 @@ typedef NS_ENUM(NSInteger, ANEMainSection)
     
     self.title = @"Alister";
     
-    [self.storage updateWithAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
+    [self.storage updateWithoutAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
         
         [storageController addItem:@"Grouped table with default header and footer"];
         [storageController addItem:@"Plain table with custom headers and footers"];
@@ -74,11 +76,15 @@ typedef NS_ENUM(NSInteger, ANEMainSection)
             {
                 ANEDefaultSupplementaryVC* vc = [ANEDefaultSupplementaryVC new];
                 [self.navigationController pushViewController:vc animated:YES];
-            }
-                break;
+            } break;
+            
+            case ANEMainSectionCustomSupplementaries:
+            {
+                ANCustomSupplementaryVC* vc = [ANCustomSupplementaryVC new];
+                [self.navigationController pushViewController:vc animated:YES];
+            } break;
                 
-            default:
-                break;
+            default: break;
         }
     }];
 }
