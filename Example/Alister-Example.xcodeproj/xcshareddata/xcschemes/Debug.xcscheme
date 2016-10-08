@@ -48,6 +48,16 @@
                ReferencedContainer = "container:Alister-Example.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "D7A21E111DA89A7500D6D803"
+               BuildableName = "Alister-Example-UITests.xctest"
+               BlueprintName = "Alister-Example-UITests"
+               ReferencedContainer = "container:Alister-Example.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
