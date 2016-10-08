@@ -84,7 +84,6 @@ typedef NS_ENUM(NSInteger, ANEMainSection)
                 ANCustomSupplementaryVC* vc = [ANCustomSupplementaryVC new];
                 [self.navigationController pushViewController:vc animated:YES];
             } break;
-                
             default: break;
         }
     }];

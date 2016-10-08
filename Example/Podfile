@@ -3,6 +3,7 @@
 target 'Alister-Example' do
   pod 'Alister', :path => '../'
   pod 'Masonry'
+  pod 'Reveal-SDK', :configurations => ['Debug']
 end
 
 target 'Alister-Example-Tests' do

@@ -67,11 +67,14 @@
         ANECustomHeaderViewModel* headerViewModel = [ANECustomHeaderViewModel viewModelWithSegmentTitles:@[@"Title1", @"Title2"]];
         headerViewModel.delegate = self;
         
+        NSAttributedString* attrString = [[NSAttributedString alloc] initWithString:@"Testing"];
+        ANECustomFooterViewModel* footer = [ANECustomFooterViewModel viewModelWithAttrString:attrString];
+        
         [self.storage updateWithAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
             
             [storageController addItems:items];
-            [storageController setSectionFooterModel:@"I'm footer section 0" forSectionIndex:0];
-            [storageController setSectionHeaderModel:@"I'm header section 0" forSectionIndex:0];
+            [storageController setSectionFooterModel:footer forSectionIndex:0];
+            [storageController setSectionHeaderModel:headerViewModel forSectionIndex:0];
             
             [storageController addItems:items toSection:1];
             [storageController setSectionFooterModel:@"I'm footer section 1" forSectionIndex:1];

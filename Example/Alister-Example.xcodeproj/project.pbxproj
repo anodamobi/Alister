@@ -12,6 +12,13 @@
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
+		D73FD53C1DA91C2100AB5B7D /* ANStorageControllerCRUDTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D73FD5301DA91C2100AB5B7D /* ANStorageControllerCRUDTest.m */; };
+		D73FD53D1DA91C2100AB5B7D /* ANStorageMovedIndexPathModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D73FD5311DA91C2100AB5B7D /* ANStorageMovedIndexPathModelTest.m */; };
+		D73FD53E1DA91C2100AB5B7D /* ANStorageRemoverTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D73FD5321DA91C2100AB5B7D /* ANStorageRemoverTest.m */; };
+		D73FD53F1DA91C2100AB5B7D /* ANStorageUpdaterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D73FD5331DA91C2100AB5B7D /* ANStorageUpdaterTests.m */; };
+		D73FD5401DA91C2100AB5B7D /* ANStorageModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D73FD5351DA91C2100AB5B7D /* ANStorageModelTest.m */; };
+		D73FD5421DA91C2100AB5B7D /* ANStorageSectionModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D73FD5371DA91C2100AB5B7D /* ANStorageSectionModelTest.m */; };
+		D73FD5431DA91C2100AB5B7D /* ANStorageUpdateModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D73FD5381DA91C2100AB5B7D /* ANStorageUpdateModelTest.m */; };
 		D795BA071DA7253400668587 /* StyleSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = D795BA061DA7253400668587 /* StyleSettings.plist */; };
 		D7A21E011DA895B500D6D803 /* ANAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21DE71DA895B500D6D803 /* ANAppDelegate.m */; };
 		D7A21E031DA895B500D6D803 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7A21DEB1DA895B500D6D803 /* Assets.xcassets */; };
@@ -46,14 +53,6 @@
 		D7A21E7C1DA8A2A500D6D803 /* ANTableContainerViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21E3B1DA8A2A500D6D803 /* ANTableContainerViewTest.m */; };
 		D7A21E7D1DA8A2A500D6D803 /* ANTableViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21E3C1DA8A2A500D6D803 /* ANTableViewTests.m */; };
 		D7A21E7E1DA8A2A500D6D803 /* ANTestTableHeaderFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21E3E1DA8A2A500D6D803 /* ANTestTableHeaderFooter.m */; };
-		D7A21E7F1DA8A2A500D6D803 /* ANStorageControllerCRUDTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21E401DA8A2A500D6D803 /* ANStorageControllerCRUDTest.m */; };
-		D7A21E801DA8A2A500D6D803 /* ANStorageModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21E411DA8A2A500D6D803 /* ANStorageModelTest.m */; };
-		D7A21E811DA8A2A500D6D803 /* ANStorageModelTestAlternative.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21E421DA8A2A500D6D803 /* ANStorageModelTestAlternative.m */; };
-		D7A21E821DA8A2A500D6D803 /* ANStorageMovedIndexPathModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21E431DA8A2A500D6D803 /* ANStorageMovedIndexPathModelTest.m */; };
-		D7A21E831DA8A2A500D6D803 /* ANStorageRemoverTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21E441DA8A2A500D6D803 /* ANStorageRemoverTest.m */; };
-		D7A21E841DA8A2A500D6D803 /* ANStorageSectionModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21E451DA8A2A500D6D803 /* ANStorageSectionModelTest.m */; };
-		D7A21E851DA8A2A500D6D803 /* ANStorageUpdateModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21E461DA8A2A500D6D803 /* ANStorageUpdateModelTest.m */; };
-		D7A21E861DA8A2A500D6D803 /* ANStorageUpdaterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21E471DA8A2A500D6D803 /* ANStorageUpdaterTests.m */; };
 		D7A21E871DA8A2A500D6D803 /* ANStorageUpdateOperationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21E491DA8A2A500D6D803 /* ANStorageUpdateOperationTests.m */; };
 		D7A21E881DA8A2A500D6D803 /* ANTableControllerUpdateOperationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21E4B1DA8A2A500D6D803 /* ANTableControllerUpdateOperationTests.m */; };
 		D7A21E891DA8A2A500D6D803 /* ANECustomHeaderViewModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21E4D1DA8A2A500D6D803 /* ANECustomHeaderViewModelTest.m */; };
@@ -112,6 +111,13 @@
 		A8D594C6A1CAF9F8A83D2691 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		AC990585C63BBA3EFB2F905E /* libPods-Alister-Example-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Alister-Example-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB2099F6E4049388FFBA7187 /* Pods-Alister-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister-Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Alister-Example/Pods-Alister-Example.debug.xcconfig"; sourceTree = "<group>"; };
+		D73FD5301DA91C2100AB5B7D /* ANStorageControllerCRUDTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageControllerCRUDTest.m; sourceTree = "<group>"; };
+		D73FD5311DA91C2100AB5B7D /* ANStorageMovedIndexPathModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageMovedIndexPathModelTest.m; sourceTree = "<group>"; };
+		D73FD5321DA91C2100AB5B7D /* ANStorageRemoverTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageRemoverTest.m; sourceTree = "<group>"; };
+		D73FD5331DA91C2100AB5B7D /* ANStorageUpdaterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageUpdaterTests.m; sourceTree = "<group>"; };
+		D73FD5351DA91C2100AB5B7D /* ANStorageModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageModelTest.m; sourceTree = "<group>"; };
+		D73FD5371DA91C2100AB5B7D /* ANStorageSectionModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageSectionModelTest.m; sourceTree = "<group>"; };
+		D73FD5381DA91C2100AB5B7D /* ANStorageUpdateModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageUpdateModelTest.m; sourceTree = "<group>"; };
 		D795BA061DA7253400668587 /* StyleSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = StyleSettings.plist; sourceTree = "<group>"; };
 		D7A21DE61DA895B500D6D803 /* ANAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANAppDelegate.h; sourceTree = "<group>"; };
 		D7A21DE71DA895B500D6D803 /* ANAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANAppDelegate.m; sourceTree = "<group>"; };
@@ -162,14 +168,6 @@
 		D7A21E3C1DA8A2A500D6D803 /* ANTableViewTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTableViewTests.m; sourceTree = "<group>"; };
 		D7A21E3D1DA8A2A500D6D803 /* ANTestTableHeaderFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTestTableHeaderFooter.h; sourceTree = "<group>"; };
 		D7A21E3E1DA8A2A500D6D803 /* ANTestTableHeaderFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTestTableHeaderFooter.m; sourceTree = "<group>"; };
-		D7A21E401DA8A2A500D6D803 /* ANStorageControllerCRUDTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageControllerCRUDTest.m; sourceTree = "<group>"; };
-		D7A21E411DA8A2A500D6D803 /* ANStorageModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageModelTest.m; sourceTree = "<group>"; };
-		D7A21E421DA8A2A500D6D803 /* ANStorageModelTestAlternative.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageModelTestAlternative.m; sourceTree = "<group>"; };
-		D7A21E431DA8A2A500D6D803 /* ANStorageMovedIndexPathModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageMovedIndexPathModelTest.m; sourceTree = "<group>"; };
-		D7A21E441DA8A2A500D6D803 /* ANStorageRemoverTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageRemoverTest.m; sourceTree = "<group>"; };
-		D7A21E451DA8A2A500D6D803 /* ANStorageSectionModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageSectionModelTest.m; sourceTree = "<group>"; };
-		D7A21E461DA8A2A500D6D803 /* ANStorageUpdateModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageUpdateModelTest.m; sourceTree = "<group>"; };
-		D7A21E471DA8A2A500D6D803 /* ANStorageUpdaterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageUpdaterTests.m; sourceTree = "<group>"; };
 		D7A21E491DA8A2A500D6D803 /* ANStorageUpdateOperationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageUpdateOperationTests.m; sourceTree = "<group>"; };
 		D7A21E4B1DA8A2A500D6D803 /* ANTableControllerUpdateOperationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTableControllerUpdateOperationTests.m; sourceTree = "<group>"; };
 		D7A21E4D1DA8A2A500D6D803 /* ANECustomHeaderViewModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANECustomHeaderViewModelTest.m; sourceTree = "<group>"; };
@@ -288,6 +286,52 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
+		D73FD52F1DA91C2100AB5B7D /* ANStorage */ = {
+			isa = PBXGroup;
+			children = (
+				D73FD5301DA91C2100AB5B7D /* ANStorageControllerCRUDTest.m */,
+				D73FD5311DA91C2100AB5B7D /* ANStorageMovedIndexPathModelTest.m */,
+				D73FD5321DA91C2100AB5B7D /* ANStorageRemoverTest.m */,
+				D73FD5331DA91C2100AB5B7D /* ANStorageUpdaterTests.m */,
+				D73FD5341DA91C2100AB5B7D /* Models */,
+				D73FD5391DA91C2100AB5B7D /* Operations */,
+				D73FD53A1DA91C2100AB5B7D /* Private */,
+				D73FD53B1DA91C2100AB5B7D /* Storage */,
+			);
+			path = ANStorage;
+			sourceTree = "<group>";
+		};
+		D73FD5341DA91C2100AB5B7D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D73FD5351DA91C2100AB5B7D /* ANStorageModelTest.m */,
+				D73FD5371DA91C2100AB5B7D /* ANStorageSectionModelTest.m */,
+				D73FD5381DA91C2100AB5B7D /* ANStorageUpdateModelTest.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D73FD5391DA91C2100AB5B7D /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Operations;
+			sourceTree = "<group>";
+		};
+		D73FD53A1DA91C2100AB5B7D /* Private */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Private;
+			sourceTree = "<group>";
+		};
+		D73FD53B1DA91C2100AB5B7D /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
 		D7A21DE41DA895B500D6D803 /* Alister-Example */ = {
 			isa = PBXGroup;
 			children = (
@@ -374,13 +418,13 @@
 		D7A21E251DA8A2A500D6D803 /* Alister */ = {
 			isa = PBXGroup;
 			children = (
+				D73FD52F1DA91C2100AB5B7D /* ANStorage */,
 				D7A21E261DA8A2A500D6D803 /* ANCollectionUpdateOperationTests */,
 				D7A21E281DA8A2A500D6D803 /* ANKeyboardHandler */,
 				D7A21E2A1DA8A2A500D6D803 /* ANListController */,
 				D7A21E311DA8A2A500D6D803 /* ANListControllerReloadOperationTests */,
 				D7A21E331DA8A2A500D6D803 /* ANListControllerSearchManagerTests */,
 				D7A21E351DA8A2A500D6D803 /* ANPrototypingUIKit */,
-				D7A21E3F1DA8A2A500D6D803 /* ANStorage */,
 				D7A21E481DA8A2A500D6D803 /* ANStorageUpdateOperationTests */,
 				D7A21E4A1DA8A2A500D6D803 /* ANTableControllerUpdateOperationTests */,
 			);
@@ -446,21 +490,6 @@
 				D7A21E3E1DA8A2A500D6D803 /* ANTestTableHeaderFooter.m */,
 			);
 			path = ANPrototypingUIKit;
-			sourceTree = "<group>";
-		};
-		D7A21E3F1DA8A2A500D6D803 /* ANStorage */ = {
-			isa = PBXGroup;
-			children = (
-				D7A21E401DA8A2A500D6D803 /* ANStorageControllerCRUDTest.m */,
-				D7A21E411DA8A2A500D6D803 /* ANStorageModelTest.m */,
-				D7A21E421DA8A2A500D6D803 /* ANStorageModelTestAlternative.m */,
-				D7A21E431DA8A2A500D6D803 /* ANStorageMovedIndexPathModelTest.m */,
-				D7A21E441DA8A2A500D6D803 /* ANStorageRemoverTest.m */,
-				D7A21E451DA8A2A500D6D803 /* ANStorageSectionModelTest.m */,
-				D7A21E461DA8A2A500D6D803 /* ANStorageUpdateModelTest.m */,
-				D7A21E471DA8A2A500D6D803 /* ANStorageUpdaterTests.m */,
-			);
-			path = ANStorage;
 			sourceTree = "<group>";
 		};
 		D7A21E481DA8A2A500D6D803 /* ANStorageUpdateOperationTests */ = {
@@ -921,12 +950,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7A21E991DA8A2A500D6D803 /* ANTestViewModel.m in Sources */,
-				D7A21E801DA8A2A500D6D803 /* ANStorageModelTest.m in Sources */,
 				D7A21E971DA8A2A500D6D803 /* ANTestKeyboardHandlerDelegate.m in Sources */,
 				D7A21E901DA8A2A500D6D803 /* ANTestableListView.m in Sources */,
 				D7A21E7D1DA8A2A500D6D803 /* ANTableViewTests.m in Sources */,
 				D7A21E781DA8A2A500D6D803 /* ANBaseTableViewHeaderFooterViewTests.m in Sources */,
 				D7A21E8C1DA8A2A500D6D803 /* ANTestableCollectionUpdateOperation.m in Sources */,
+				D73FD5431DA91C2100AB5B7D /* ANStorageUpdateModelTest.m in Sources */,
 				D7A21E751DA8A2A500D6D803 /* ANListControllerReloadOperationTests.m in Sources */,
 				D7A21E791DA8A2A500D6D803 /* ANCollectionReusableViewTests.m in Sources */,
 				D7A21E8A1DA8A2A500D6D803 /* ANECustomHeaderViewTest.m in Sources */,
@@ -935,34 +964,33 @@
 				D7A21E6D1DA8A2A500D6D803 /* ANCollectionUpdateOperationTests.m in Sources */,
 				D7A21E8F1DA8A2A500D6D803 /* ANTestableListControllerUpdateOperationDelegate.m in Sources */,
 				D7A21E881DA8A2A500D6D803 /* ANTableControllerUpdateOperationTests.m in Sources */,
-				D7A21E811DA8A2A500D6D803 /* ANStorageModelTestAlternative.m in Sources */,
 				D7A21E8D1DA8A2A500D6D803 /* ANTestableCollectionView.m in Sources */,
 				D7A21E7E1DA8A2A500D6D803 /* ANTestTableHeaderFooter.m in Sources */,
+				D73FD53D1DA91C2100AB5B7D /* ANStorageMovedIndexPathModelTest.m in Sources */,
 				D7A21E961DA8A2A500D6D803 /* ANTestableTouch.m in Sources */,
-				D7A21E821DA8A2A500D6D803 /* ANStorageMovedIndexPathModelTest.m in Sources */,
-				D7A21E7F1DA8A2A500D6D803 /* ANStorageControllerCRUDTest.m in Sources */,
 				D7A21E761DA8A2A500D6D803 /* ANListControllerSearchManagerTest.m in Sources */,
 				D7A21E731DA8A2A500D6D803 /* ANTableControllerReusableTest.m in Sources */,
+				D73FD5401DA91C2100AB5B7D /* ANStorageModelTest.m in Sources */,
 				D7A21E701DA8A2A500D6D803 /* ANCollectionControllerTest.m in Sources */,
 				D7A21E931DA8A2A500D6D803 /* ANTestableTableUpdateOperation.m in Sources */,
 				D7A21E741DA8A2A500D6D803 /* ANTableControllerTest.m in Sources */,
 				D7A21E911DA8A2A500D6D803 /* ANTestableRange.m in Sources */,
-				D7A21E851DA8A2A500D6D803 /* ANStorageUpdateModelTest.m in Sources */,
-				D7A21E841DA8A2A500D6D803 /* ANStorageSectionModelTest.m in Sources */,
-				D7A21E861DA8A2A500D6D803 /* ANStorageUpdaterTests.m in Sources */,
 				D7A21E891DA8A2A500D6D803 /* ANECustomHeaderViewModelTest.m in Sources */,
+				D73FD53E1DA91C2100AB5B7D /* ANStorageRemoverTest.m in Sources */,
 				D7A21E8B1DA8A2A500D6D803 /* ANELabelTableViewCellTest.m in Sources */,
 				D7A21E7C1DA8A2A500D6D803 /* ANTableContainerViewTest.m in Sources */,
+				D73FD5421DA91C2100AB5B7D /* ANStorageSectionModelTest.m in Sources */,
 				D7A21E9D1DA8A4C400D6D803 /* ANECustomFooterViewModelTest.m in Sources */,
 				D7A21E9B1DA8A49C00D6D803 /* ANECustomFooterViewTest.m in Sources */,
 				D7A21E941DA8A2A500D6D803 /* ANTestableTableView.m in Sources */,
+				D73FD53F1DA91C2100AB5B7D /* ANStorageUpdaterTests.m in Sources */,
 				D7A21E871DA8A2A500D6D803 /* ANStorageUpdateOperationTests.m in Sources */,
+				D73FD53C1DA91C2100AB5B7D /* ANStorageControllerCRUDTest.m in Sources */,
 				D7A21E921DA8A2A500D6D803 /* ANTestableStorageUpateOperation.m in Sources */,
 				D7A21E711DA8A2A500D6D803 /* ANListControllerConfigurationModelTest.m in Sources */,
 				D7A21E6F1DA8A2A500D6D803 /* ANCollectionControllerConfigurationModelTest.m in Sources */,
 				D7A21E771DA8A2A500D6D803 /* ANBaseTableFooterViewTests.m in Sources */,
 				D7A21E951DA8A2A500D6D803 /* ANTestableTextField.m in Sources */,
-				D7A21E831DA8A2A500D6D803 /* ANStorageRemoverTest.m in Sources */,
 				D7A21E7A1DA8A2A500D6D803 /* ANCollectionViewCellTests.m in Sources */,
 				D7A21E8E1DA8A2A500D6D803 /* ANTestableListControllerReloadOperationDelegate.m in Sources */,
 				D7A21E7B1DA8A2A500D6D803 /* ANCollectionViewTest.m in Sources */,

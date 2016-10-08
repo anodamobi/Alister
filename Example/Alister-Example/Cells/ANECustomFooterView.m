@@ -7,6 +7,7 @@
 //
 
 #import "ANECustomFooterView.h"
+#import <Masonry/Masonry.h>
 
 @interface ANECustomFooterView ()
 
@@ -15,5 +16,29 @@
 @end
 
 @implementation ANECustomFooterView
+
+- (void)updateWithModel:(ANECustomFooterViewModel*)model
+{
+    self.attributedLabel.attributedText = model.attributedString;
+}
+
+
+#pragma mark - Private
+
+- (UILabel*)attributedLabel
+{
+    if (!_attributedLabel)
+    {
+        _attributedLabel = [UILabel new];
+        [self.contentView addSubview:_attributedLabel];
+        
+        [_attributedLabel mas_makeConstraints:^(MASConstraintMaker* make) {
+            make.left.equalTo(self.contentView).offset(15);
+            make.bottom.right.top.equalTo(self.contentView);
+        }];
+    }
+    
+    return _attributedLabel;
+}
 
 @end
