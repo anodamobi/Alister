@@ -9,6 +9,12 @@
 #import "ANECustomHeaderView.h"
 #import <Specta/Specta.h>
 
+@interface ANECustomHeaderView ()
+
+@property (nonatomic, strong) UISegmentedControl* segmentControl;
+
+@end
+
 SpecBegin(ANECustomHeaderView)
 
 describe(@"ANECustomHeaderView", ^{
@@ -20,11 +26,17 @@ describe(@"ANECustomHeaderView", ^{
     });
     
     it(@"should have non nil segment control", ^{
-        failure(@"Pending");
+        expect(headerView.segmentControl).notTo.beNil();
     });
 
     it(@"should implement updateWithModel: method", ^{
-        failure(@"Pending");
+        expect(headerView).respondTo(@selector(updateWithModel:));
+    });
+    
+    it(@"should have same number of segments as in viewModel after updateWithModel:", ^{
+        ANECustomHeaderViewModel* viewModel = [ANECustomHeaderViewModel viewModelWithSegmentTitles:@[@"title", @"title"]];
+        [headerView updateWithModel:viewModel];
+        expect(headerView.segmentControl.numberOfSegments).equal(viewModel.segmentTitles.count);
     });
 
     afterEach(^{

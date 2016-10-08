@@ -24,20 +24,35 @@ describe(@"ANECustomHeaderViewModel", ^{
     });
     
     it(@"should assert when set delegate not conformed to protocol", ^{
-        failure(@"Pending");
+       
+        void(^testBlock)() = ^() {
+            viewModel.delegate = (id)[NSObject new];
+        };
+        
+        expect(testBlock).to.raiseAny();
     });
     
     it(@"should no assert when set correct delegate", ^{
-        failure(@"Pending");
+        void(^testBlock)() = ^() {
+            id delegateMock = OCMProtocolMock(@protocol(ANECustomHeaderViewModelDelegate));
+            viewModel.delegate = delegateMock;
+        };
+        
+        expect(testBlock).notTo.raiseAny();
     });
     
     it(@"no assert when set nil delegate", ^{
-        failure(@"Pending");
+        void(^testBlock)() = ^() {
+            viewModel.delegate = nil;
+        };
+        
+        expect(testBlock).notTo.raiseAny();
     });
     
-    
     it(@"viewModel created with not empty titles", ^{
-       failure(@"Pending");
+        NSArray* titles = @[@"titles", @"titles", @"titles"];
+        viewModel = [ANECustomHeaderViewModel viewModelWithSegmentTitles:titles];
+        expect(viewModel.segmentTitles).equal(titles);
     });
 });
 
