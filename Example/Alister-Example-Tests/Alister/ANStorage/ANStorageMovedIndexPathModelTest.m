@@ -6,58 +6,22 @@
 //  Copyright © 2016 Oksana Kovalchuk. All rights reserved.
 //
 
-#import <XCTest/XCTest.h>
-#import <Expecta/Expecta.h>
-#import "ANStorageMovedIndexPathModel.h"
+#import <Alister/ANStorageMovedIndexPathModel.h>
 
-static NSInteger const kGeneratedLimit = 100;
+SpecBegin(ANStorageMovedIndexPathModel)
 
-@interface ANStorageMovedIndexPathModelTest : XCTestCase
+__block ANStorageMovedIndexPathModel* model = nil;
 
-@property (nonatomic, strong) ANStorageMovedIndexPathModel* model;
+beforeEach(^{
+    model = [ANStorageMovedIndexPathModel new];
+});
 
-@end
+describe(@"default value", ^{
+   
+    it(@"from and to indexPaths are nil", ^{
+        expect(model.toIndexPath).beNil();
+        expect(model.fromIndexPath).beNil();
+    });
+});
 
-@implementation ANStorageMovedIndexPathModelTest
-
-- (void)setUp
-{
-    [super setUp];
-    self.model = [ANStorageMovedIndexPathModel new];
-}
-
-- (void)tearDown
-{
-    self.model = nil;
-    [super tearDown];
-}
-
-- (NSIndexPath*)_generatedIndexPath
-{
-    return [NSIndexPath indexPathForRow:arc4random_uniform(kGeneratedLimit)
-                              inSection:arc4random_uniform(kGeneratedLimit)];
-}
-
-
-#pragma mark - Setters
-
-- (void)test_setters_positive_propertiesSetCorrect
-{
-    // given
-    NSIndexPath* fromPath = [self _generatedIndexPath];
-    NSIndexPath* toPath = [self _generatedIndexPath];
-    
-    // when
-    void(^testBlock)() = ^() {
-        self.model.fromIndexPath = fromPath;
-        self.model.toIndexPath = toPath;
-        
-        expect(self.model.fromIndexPath).to.equal(fromPath);
-        expect(self.model.toIndexPath).to.equal(toPath);
-    };
-    
-    // then
-    expect(testBlock).notTo.raiseAny();
-}
-
-@end
+SpecEnd
