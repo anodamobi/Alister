@@ -68,7 +68,7 @@
     [self addUpdatedIndexPaths:model.updatedRowIndexPaths];
     [self addDeletedIndexPaths:model.deletedRowIndexPaths];
     
-    self.isRequireReload = [model isRequireReload] || self.isRequireReload;
+    self.isRequireReload = ([model isRequireReload] || self.isRequireReload);
 }
 
 

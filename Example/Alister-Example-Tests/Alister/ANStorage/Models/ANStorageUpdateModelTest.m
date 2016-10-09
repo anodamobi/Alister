@@ -6,461 +6,326 @@
 //  Copyright © 2016 Oksana Kovalchuk. All rights reserved.
 //
 
-#import <XCTest/XCTest.h>
-#import <Expecta/Expecta.h>
 #import "ANStorageUpdateModel.h"
+#import "ANStorageUpdateModel+Test.h"
 
-static BOOL const kIsRequireReload = YES;
-static NSInteger const kMaxGeneratedCount = 3;
+SpecBegin(ANStorageUpdateModel)
 
-@interface ANStorageUpdateModelTests : XCTestCase
+__block ANStorageUpdateModel* model = nil;
 
-@property (nonatomic, strong) ANStorageUpdateModel* model;
+beforeEach(^{
+    model = [ANStorageUpdateModel new];
+});
 
-@end
 
-@implementation ANStorageUpdateModelTests
-
-- (void)setUp
-{
-    [super setUp];
-    self.model = [ANStorageUpdateModel new];
-    self.model.isRequireReload = YES;
-}
-
-- (void)tearDown
-{
-    self.model = nil;
-    [super tearDown];
-}
-
-- (id<ANStorageUpdateModelInterface>)_fullTestModel
-{
-    ANStorageUpdateModel* testModel = [ANStorageUpdateModel new];
+describe(@"model at default state", ^{
     
-    [testModel addInsertedSectionIndexes:[NSIndexSet indexSetWithIndex:1]];
-    [testModel addUpdatedSectionIndexes:[NSIndexSet indexSetWithIndex:1]];
-    [testModel addDeletedSectionIndexes:[NSIndexSet indexSetWithIndex:1]];
+    it(@"has empty changes", ^{
+        expect([model hasSpecifiedCountOfObjectsInEachProperty:0]).beTruthy();
+    });
     
-    [testModel addInsertedIndexPaths:@[[NSIndexPath indexPathWithIndex:0]]];
-    [testModel addUpdatedIndexPaths:@[[NSIndexPath indexPathWithIndex:0]]];
-    [testModel addDeletedIndexPaths:@[[NSIndexPath indexPathWithIndex:0]]];
-    [testModel addMovedIndexPaths:@[[NSIndexPath indexPathWithIndex:0]]];
+    it(@"shouldn't require reload", ^{
+        expect(model.isRequireReload).to.beFalsy();
+    });
     
-    return testModel;
-}
-
-
-#pragma mark - isRequireReload
-
-- (void)test_isRequireReload_positive_initialValueIsSetRightAndNotRaiseException
-{
-    void(^testBlock)() = ^() {
-        expect(self.model.isRequireReload).equal(kIsRequireReload);
-    };
+    it(@"conforms to model's protocol", ^{
+        expect(model).conformTo(@protocol(ANStorageUpdateModelInterface));
+    });
     
-    expect(testBlock).notTo.raiseAny();
-}
+    it(@"is empty", ^{
+        expect(model.isEmpty).beTruthy();
+    });
+});
 
-- (void)test_isRequireReload_positive_falseWhenCreated
-{
-    ANStorageUpdateModel*  testModel = [ANStorageUpdateModel new];
+
+describe(@"isEmpty", ^{
     
-    expect(testModel.isRequireReload).to.beFalsy();
-}
-
-- (void)test_isRequireReload_positive_falseWhenUpdateWithModelWithFalseAndNoUpdates
-{
-    ANStorageUpdateModel* testModel = [self _fullTestModel];
-    testModel.isRequireReload = NO;
+    context(@"", ^{
+        
+        __block NSArray* array = @[[NSIndexPath indexPathForRow:0 inSection:0]];
+        
+        it(@"falsy when have deleted indexPath", ^{
+            [model addDeletedIndexPaths:array];
+            expect(model.isEmpty).to.beFalsy();
+        });
+        
+        it(@"falsy when have inserted indexPath", ^{
+            [model addInsertedIndexPaths:array];
+            expect(model.isEmpty).to.beFalsy();
+        });
+        
+        it(@"falsy when have moved indexPath", ^{
+            [model addMovedIndexPaths:array];
+            expect(model.isEmpty).to.beFalsy();
+        });
+        
+        it(@"falsy when have updated indexPath", ^{
+            [model addUpdatedIndexPaths:array];
+            expect(model.isEmpty).to.beFalsy();
+        });
+    });
     
-    [self.model mergeWith:testModel];
     
-    expect(self.model.isRequireReload).to.beTruthy();
-}
-
-- (void)test_isRequireReload_positive_trueWhenUpdateWithModelWithTrueAndNoUpdates
-{
-    ANStorageUpdateModel* testModel = [self _fullTestModel];
-    testModel.isRequireReload = YES;
+    context(@"", ^{
+        
+        __block NSIndexSet* indexSet = [NSIndexSet indexSetWithIndex:2];
+        
+        it(@"falsy when have deleted sections", ^{
+            [model addDeletedSectionIndexes:indexSet];
+            expect(model.isEmpty).to.beFalsy();
+        });
+        
+        it(@"falsy when have updated sections", ^{
+            [model addUpdatedSectionIndexes:indexSet];
+            expect(model.isEmpty).to.beFalsy();
+        });
+        
+        it(@"falsy when have inserted sections", ^{
+            [model addInsertedSectionIndexes:indexSet];
+            expect(model.isEmpty).to.beFalsy();
+        });
+    });
     
-    [self.model mergeWith:testModel];
+    it(@"falsy when requires reload", ^{
+        model.isRequireReload = YES;
+        expect(model.isEmpty).to.beFalsy();
+    });
+});
+
+
+describe(@"index sets", ^{
     
-    expect(self.model.isRequireReload).to.beTruthy();
-}
-
-- (void)test_isRequireReload_positive_trueWhenUpdateWithModelWithFalseAndHasUpdates
-{
-    self.model.isRequireReload = NO;
-    ANStorageUpdateModel* testModel = [self _fullTestModel];
-    testModel.isRequireReload = YES;
+    __block NSIndexSet* indexSet = [NSIndexSet indexSetWithIndex:1];
     
-    [self.model mergeWith:testModel];
     
-    expect(self.model.isRequireReload).to.beTruthy();
-}
-
-
-#pragma mark - protocol implementation
-
-- (void)test_protocolConformation_positive_modelComformsToStorageUpdateProtocol
-{
-    expect(self.model).conformTo(@protocol(ANStorageUpdateModelInterface));
-}
-
-
-#pragma mark - mergeWith
-
-- (void)test_mergeWith_positive_modelIsEmptyWhenCreated
-{
-    ANStorageUpdateModel* model = [ANStorageUpdateModel new];
-    expect([model isEmpty]).to.beTruthy();
+    context(@"addInsertedSectionIndexes:", ^{
+        
+        it(@"no assert if set is nil", ^{
+            void(^block)() = ^() {
+                [model addInsertedSectionIndexes:nil];
+            };
+            expect(block).notTo.raiseAny();
+        });
+        
+        it(@"added index successfully", ^{
+            [model addInsertedSectionIndexes:indexSet];
+            expect(model.insertedSectionIndexes).haveCount(1);
+        });
+    });
     
-    [model mergeWith:[self _fullTestModel]];
     
-    expect([self.model isEmpty]).to.beFalsy();
-}
-
-
-#pragma mark - mergeWith addDeletedIndexPaths
-
-- (void)test_mergeWith_positive_deletedRowIndexPathsCountAreEqual
-{
-    NSIndexPath* firstPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    NSIndexPath* secondPath = [NSIndexPath indexPathForRow:2000 inSection:9999];
-    NSArray* indexPaths = @[firstPath, secondPath];
+    context(@"addUpdatedSectionIndexes:", ^{
+        
+        it(@"no assert if set is nil", ^{
+            void(^block)() = ^() {
+                [model addUpdatedSectionIndexes:nil];
+            };
+            expect(block).notTo.raiseAny();
+        });
+        
+        it(@"added index successfully", ^{
+            [model addUpdatedSectionIndexes:indexSet];
+            expect(model.updatedSectionIndexes).haveCount(1);
+        });
+    });
     
-    ANStorageUpdateModel* mergedModel = [ANStorageUpdateModel new];
-    [mergedModel addDeletedIndexPaths:indexPaths];
     
-    [self.model mergeWith:mergedModel];
+    context(@"addDeletedSectionIndexes:", ^{
+        
+        it(@"no assert if set is nil", ^{
+            void(^block)() = ^() {
+                [model addDeletedSectionIndexes:nil];
+            };
+            expect(block).notTo.raiseAny();
+        });
+        
+        it(@"added index successfully", ^{
+            [model addDeletedSectionIndexes:indexSet];
+            expect(model.deletedSectionIndexes).haveCount(1);
+        });
+    });
+});
+
+
+describe(@"indexes", ^{
     
-    expect(self.model.deletedRowIndexPaths.count).to.equal(indexPaths.count);
-}
-
-- (void)test_mergeWith_positive_respondToAddDeletedIndexPaths
-{
-    expect(self.model).to.respondTo(@selector(addDeletedIndexPaths:));
-}
-
-- (void)test_mergeWith_negative_toNotRaiseExceptionWhenAddNilDeletedInsexPaths
-{
-    id indexPaths = nil;
-    ANStorageUpdateModel* mergedModel = [ANStorageUpdateModel new];
+    __block NSInteger index = 1;
     
-    void(^testBlock)() = ^{
-        [mergedModel addDeletedIndexPaths:indexPaths];
-        [self.model mergeWith:mergedModel];
-    };
     
-    expect(testBlock).notTo.raiseAny();
-}
-
-
-#pragma mark - mergeWith addInsertedIndexPaths
-
-- (void)test_mergeWith_positive_insertedIndexPathsCountAreEqual
-{
-    NSIndexPath* firstPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    NSIndexPath* secondPath = [NSIndexPath indexPathForRow:2000 inSection:9999];
-    NSArray* indexPaths = @[firstPath, secondPath];
+    context(@"addDeletedSectionIndex:", ^{
+        
+        it(@"contains index", ^{
+            [model addDeletedSectionIndex:index];
+            expect([model.deletedSectionIndexes containsIndex:index]).beTruthy();
+            expect(model.deletedSectionIndexes).haveCount(1);
+        });
+    });
     
-    ANStorageUpdateModel* mergedModel = [ANStorageUpdateModel new];
-    [mergedModel addInsertedIndexPaths:indexPaths];
     
-    [self.model mergeWith:mergedModel];
+    context(@"addUpdatedSectionIndex:", ^{
+        
+        it(@"contains index", ^{
+            [model addUpdatedSectionIndex:index];
+            expect([model.updatedSectionIndexes containsIndex:index]).beTruthy();
+            expect(model.updatedSectionIndexes).haveCount(1);
+        });
+    });
     
-    expect(self.model.insertedRowIndexPaths.count).to.equal(indexPaths.count);
-}
-
-- (void)test_mergeWith_negative_toNotRaiseExceptionWhenAddNilInsertedInsexPaths
-{
-    id indexPaths = nil;
-    ANStorageUpdateModel* mergedModel = [ANStorageUpdateModel new];
     
-    void(^testBlock)() = ^{
-        [mergedModel addInsertedIndexPaths:indexPaths];
-        [self.model mergeWith:mergedModel];
-    };
+    context(@"addInsertedSectionIndex:", ^{
+        
+        it(@"contains index", ^{
+            [model addInsertedSectionIndex:index];
+            expect([model.insertedSectionIndexes containsIndex:index]).beTruthy();
+            expect(model.insertedSectionIndexes).haveCount(1);
+        });
+    });
+});
+
+
+describe(@"index Paths", ^{
     
-    expect(testBlock).notTo.raiseAny();
-}
-
-
-#pragma mark - mergeWith addUpdatedIndexPaths
-
-- (void)test_mergeWith_positive_updatedIndexPathsCountAreEqual
-{
-    NSIndexPath* firstPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    NSIndexPath* secondPath = [NSIndexPath indexPathForRow:2000 inSection:9999];
-    NSArray* indexPaths = @[firstPath, secondPath];
-    ANStorageUpdateModel* mergedModel = [ANStorageUpdateModel new];
-    [mergedModel addUpdatedIndexPaths:indexPaths];
+    __block NSIndexPath* indexPath = [NSIndexPath indexPathWithIndex:1];
+    __block NSArray* indexPathsArray = @[indexPath];
     
-    [self.model mergeWith:mergedModel];
+    context(@"addInsertedIndexPaths:", ^{
+        
+        it(@"contains added indexPath", ^{
+            [model addInsertedIndexPaths:indexPathsArray];
+            expect(model.insertedRowIndexPaths).contain(indexPath);
+        });
+        
+        it(@"no assert if add nil", ^{
+            void(^block)() = ^() {
+                [model addInsertedIndexPaths:nil];
+            };
+            expect(block).notTo.raiseAny();
+        });
+    });
     
-    expect(self.model.updatedRowIndexPaths.count).to.equal(indexPaths.count);
-}
-
-- (void)test_mergeWith_negative_toNotRaiseExceptionWhenAddNilUpdatedInsexPaths
-{
-    id indexPaths = nil;
-    ANStorageUpdateModel* mergedModel = [ANStorageUpdateModel new];
     
-    void(^testBlock)() = ^{
-        [mergedModel addUpdatedIndexPaths:indexPaths];
-        [self.model mergeWith:mergedModel];
-    };
+    context(@"addUpdatedIndexPaths:", ^{
+        
+        it(@"contains updated indexPath", ^{
+            [model addUpdatedIndexPaths:indexPathsArray];
+            expect(model.updatedRowIndexPaths).contain(indexPath);
+        });
+        
+        it(@"no assert if add nil", ^{
+            void(^block)() = ^() {
+                [model addUpdatedIndexPaths:nil];
+            };
+            expect(block).notTo.raiseAny();
+        });
+    });
     
-    expect(testBlock).notTo.raiseAny();
-}
-
-
-#pragma mark - mergeWith addMovedIndexPaths
-
-- (void)test_mergeWith_positive_movedIndexPathsCountAreEqual
-{
-    NSIndexPath* firstPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    NSIndexPath* secondPath = [NSIndexPath indexPathForRow:2000 inSection:9999];
-    NSArray* indexPaths = @[firstPath, secondPath];
     
-    ANStorageUpdateModel* mergedModel = [ANStorageUpdateModel new];
-    [mergedModel addMovedIndexPaths:indexPaths];
+    context(@"addDeletedIndexPaths:", ^{
+        
+        it(@"contains updated indexPath", ^{
+            [model addDeletedIndexPaths:indexPathsArray];
+            expect(model.deletedRowIndexPaths).contain(indexPath);
+        });
+        
+        it(@"no assert if add nil", ^{
+            void(^block)() = ^() {
+                [model addDeletedIndexPaths:nil];
+            };
+            expect(block).notTo.raiseAny();
+        });
+    });
     
-    [self.model mergeWith:mergedModel];
     
-    expect(self.model.movedRowsIndexPaths.count).to.equal(indexPaths.count);
-}
+    context(@"addMovedIndexPaths:", ^{
+        
+        it(@"contains updated indexPath", ^{
+            [model addMovedIndexPaths:indexPathsArray];
+            expect(model.movedRowsIndexPaths).contain(indexPath);
+        });
+        
+        it(@"no assert if add nil", ^{
+            void(^block)() = ^() {
+                [model addMovedIndexPaths:nil];
+            };
+            expect(block).notTo.raiseAny();
+        });
+    });
+});
 
-- (void)test_mergeWith_negative_toNotRaiseExceptionWhenAddNilMovedInsexPaths
-{
-    id indexPaths = nil;
-    ANStorageUpdateModel* mergedModel = [ANStorageUpdateModel new];
+
+describe(@"mergeWith:", ^{
     
-    void(^testBlock)() = ^{
-        [mergedModel addMovedIndexPaths:indexPaths];
-        [self.model mergeWith:mergedModel];
-    };
+    __block ANStorageUpdateModel* mergeModel = nil;
     
-    expect(testBlock).notTo.raiseAny();
-}
-
-
-#pragma mark - addInsertedSectionIndexes
-
-- (void)test_addInsertedSectionIndexes_positive_insertedSectionIndexesAreAdded
-{
-    NSIndexSet* indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, 10)];
+    beforeEach(^{
+        mergeModel = [ANStorageUpdateModel filledModel];
+    });
     
-    [self.model addInsertedSectionIndexes:indexSet];
+    it(@"no assert when model is nil", ^{
+        void(^block)() = ^() {
+            [model mergeWith:nil];
+        };
+        expect(block).notTo.raiseAny();
+    });
     
-    expect(self.model.insertedSectionIndexes).to.equal(indexSet);
-}
-
-- (void)test_addInsertedSectionIndexes_negative_toNotRaiseExceptionWhenAddNilIndexes
-{
-    NSIndexSet* indexSet = nil;
     
-    void(^testBlock)() = ^() {
-        [self.model addInsertedSectionIndexes:indexSet];
-    };
+    context(@"requires reload options", ^{
+        
+        it(@"merge with model that requiresReload", ^{
+            mergeModel.isRequireReload = YES;
+            [model mergeWith:mergeModel];
+            
+            expect(model.isRequireReload).beTruthy();
+        });
+        
+        it(@"current model requires reload ", ^{
+            model.isRequireReload = YES;
+            [model mergeWith:mergeModel];
+            
+            expect(model.isRequireReload).beTruthy();
+        });
+        
+        it(@"no one model requires reload", ^{
+            [model mergeWith:mergeModel];
+            
+            expect(model.isRequireReload).beFalsy();
+        });
+    });
     
-    expect(testBlock).notTo.raiseAny();
-}
+    context(@"properties after merge", ^{
+        
+        it(@"empty with filled", ^{
+            [model mergeWith:mergeModel];
+            expect([model hasSpecifiedCountOfObjectsInEachProperty:1]).beTruthy();
+        });
+        
+        it(@"filled with empty", ^{
+            [mergeModel mergeWith:model];
+            expect([mergeModel hasSpecifiedCountOfObjectsInEachProperty:1]).beTruthy();
+        });
+        
+        it(@"empty with empty", ^{
+            [model mergeWith:[ANStorageUpdateModel new]];
+            expect([model hasSpecifiedCountOfObjectsInEachProperty:0]).beTruthy();
+        });
+        
+        it(@"filled with filled", ^{
+            
+            ANStorageUpdateModel* testModel = [ANStorageUpdateModel new];
+            
+            [testModel addInsertedSectionIndexes:[NSIndexSet indexSetWithIndex:2]];
+            [testModel addUpdatedSectionIndexes:[NSIndexSet indexSetWithIndex:4]];
+            [testModel addDeletedSectionIndexes:[NSIndexSet indexSetWithIndex:3]];
+            
+            [testModel addInsertedIndexPaths:@[[NSIndexPath indexPathWithIndex:1]]];
+            [testModel addUpdatedIndexPaths:@[[NSIndexPath indexPathWithIndex:2]]];
+            [testModel addDeletedIndexPaths:@[[NSIndexPath indexPathWithIndex:10]]];
+            [testModel addMovedIndexPaths:@[[NSIndexPath indexPathWithIndex:13]]];
+            
+            [mergeModel mergeWith:testModel];
+            expect([mergeModel hasSpecifiedCountOfObjectsInEachProperty:2]).beTruthy();
+        });
+    });
+});
 
-
-#pragma mark - addUpdatedSectionIndexes
-
-- (void)test_addUpdatedSectionIndexes_positive_updatedSectionIndexesAreAdded
-{
-    NSIndexSet* indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, 10)];
-    
-    [self.model addUpdatedSectionIndexes:indexSet];
-    
-    expect(self.model.updatedSectionIndexes).to.equal(indexSet);
-}
-
-- (void)test_addUpdatedSectionIndexes_negative_toNotRaiseExceptionWhenAddNilIndexes
-{
-    NSIndexSet* indexSet = nil;
-    
-    void(^testBlock)() = ^() {
-        [self.model addInsertedSectionIndexes:indexSet];
-    };
-    
-    expect(testBlock).notTo.raiseAny();
-}
-
-
-#pragma mark - addDeletedSectionIndexes
-
-- (void)test_addDeletedSectionIndexes_positive_deletedSectionIndexesAreAdded
-{
-    NSIndexSet* indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, 10)];
-    
-    [self.model addDeletedSectionIndexes:indexSet];
-    
-    expect(self.model.deletedSectionIndexes).to.equal(indexSet);
-}
-
-- (void)test_addDeletedSectionIndexes_negative_toNotRaiseExceptionWhenAddNilIndexes
-{
-    NSIndexSet* indexSet = nil;
-    
-    void(^testBlock)() = ^() {
-        [self.model addDeletedSectionIndexes:indexSet];
-    };
-    
-    expect(testBlock).notTo.raiseAny();
-}
-
-
-#pragma mark - addDeletedSectionIndex
-
-- (void)test_addDeletedSectionIndex_positive_modelContainsDeletedIndex
-{
-    NSMutableIndexSet* indexSet = [NSMutableIndexSet indexSet];
-    
-    for (NSInteger counter = 0; counter < kMaxGeneratedCount; counter++)
-    {
-        [indexSet addIndex:counter];
-        [self.model addDeletedSectionIndex:counter];
-    }
-    
-    expect(self.model.deletedSectionIndexes).to.equal(indexSet);
-}
-
-- (void)test_addUpdatedSectionIndex_positive_modelContainsUpdatedIndex
-{
-    NSMutableIndexSet* indexSet = [NSMutableIndexSet indexSet];
-    
-    for (NSInteger counter = 0; counter < kMaxGeneratedCount; counter++)
-    {
-        [indexSet addIndex:counter];
-        [self.model addUpdatedSectionIndex:counter];
-    }
-    
-    expect(self.model.updatedSectionIndexes).to.equal(indexSet);
-}
-
-- (void)test_addInsertedSectionIndex_positive_modelContainsInsertedIndex
-{
-    NSMutableIndexSet* indexSet = [NSMutableIndexSet indexSet];
-    
-    for (NSInteger counter = 0; counter < kMaxGeneratedCount; counter++)
-    {
-        [indexSet addIndex:counter];
-        [self.model addInsertedSectionIndex:counter];
-    }
-    
-    expect(self.model.insertedSectionIndexes).to.equal(indexSet);
-}
-
-
-#pragma mark - all rowIndexPaths
-
-- (void)test_rowIndexPaths_positive_initialRowIndexPathsNotNil
-{
-    expect(self.model.deletedRowIndexPaths).notTo.beNil();
-    expect(self.model.insertedRowIndexPaths).notTo.beNil();
-    expect(self.model.updatedRowIndexPaths).notTo.beNil();
-    expect(self.model.movedRowsIndexPaths).notTo.beNil();
-}
-
-
-#pragma mark - deletedRowIndexPaths
-
-- (void)test_deletedRowIndexPaths_positive_initialAndReturnedPathsAreEqual
-{
-    NSArray* indexPaths = @[[NSIndexPath indexPathForRow:1 inSection:1]];
-    
-    [self.model addDeletedIndexPaths:indexPaths];
-    
-    expect(self.model.deletedRowIndexPaths).equal(indexPaths);
-    expect(self.model.deletedRowIndexPaths).haveCount(indexPaths.count);
-}
-
-- (void)test_insertedRowIndexPaths_positive_initialAndReturnedPathsAreEqual
-{
-    NSArray* indexPaths = @[[NSIndexPath indexPathForRow:1 inSection:1]];
-    
-    [self.model addInsertedIndexPaths:indexPaths];
-    
-    expect(self.model.insertedRowIndexPaths).equal(indexPaths);
-    expect(self.model.insertedRowIndexPaths.count).equal(indexPaths.count);
-}
-
-- (void)test_updatedRowIndexPaths_positive_initialAndReturnedPathsAreEqual
-{
-    NSArray* indexPaths = @[[NSIndexPath indexPathForRow:1 inSection:1]];
-    
-    [self.model addUpdatedIndexPaths:indexPaths];
-    
-    expect(self.model.updatedRowIndexPaths).equal(indexPaths);
-    expect(self.model.updatedRowIndexPaths.count).equal(indexPaths.count);
-}
-
-- (void)test_movedRowsIndexPaths_positive_initialAndReturnedPathsAreEqual
-{
-    NSArray* indexPaths = @[[NSIndexPath indexPathForRow:1 inSection:1]];
-    
-    [self.model addMovedIndexPaths:indexPaths];
-    
-    expect(self.model.movedRowsIndexPaths).equal(indexPaths);
-    expect(self.model.movedRowsIndexPaths.count).equal(indexPaths.count);
-}
-
-
-#pragma mark - all sectionIndexes
-
-- (void)test_sectionIndexes_positive_initialSectionIndexesNotNil
-{
-    expect(self.model.deletedSectionIndexes).notTo.beNil();
-    expect(self.model.insertedSectionIndexes).notTo.beNil();
-    expect(self.model.updatedSectionIndexes).notTo.beNil();
-}
-
-- (void)test_sectionIndexes_positive_toNotRaiseException
-{
-    void(^testBlock)() = ^() {
-        [self.model deletedSectionIndexes];
-        [self.model insertedSectionIndexes];
-        [self.model updatedSectionIndexes];
-    };
-    
-    expect(testBlock).notTo.raiseAny();
-}
-
-
-#pragma mark - isEmpty
-
-- (void)test_isEmpty_positive_modelIsEmptyWhenCreated
-{
-    ANStorageUpdateModel* testModel = [ANStorageUpdateModel new];
-    
-    expect([testModel isEmpty]).to.beTruthy();
-}
-
-- (void)test_isEmpty_positive_modelIsNotEmptyWhenAddValues
-{
-    self.model.isRequireReload = NO;
-    [self.model addInsertedSectionIndex:3];
-    
-    expect(self.model.isEmpty).to.beFalsy();
-}
-
-- (void)test_isEmpty_negative_modelIsNotEmptyWhenRequirerReload
-{
-    self.model.isRequireReload = YES;
-    
-    expect(self.model.isEmpty).to.beFalsy();
-}
-
-- (void)test_isEmpty_positive_notEmptyWhenAddItem
-{
-    [self.model mergeWith:[self _fullTestModel]];
-    
-    expect(([self.model isEmpty])).to.beFalsy();
-}
-
-@end
+SpecEnd
