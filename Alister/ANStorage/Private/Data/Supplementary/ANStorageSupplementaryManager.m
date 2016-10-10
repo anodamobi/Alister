@@ -16,34 +16,39 @@
 @implementation ANStorageSupplementaryManager
 
 + (ANStorageUpdateModel*)updateSectionHeaderModel:(id)headerModel
-                                  forSectionIndex:(NSUInteger)sectionIndex
+                                  forSectionIndex:(NSInteger)sectionIndex
                                         inStorage:(ANStorageModel*)storage
-                                             kind:(NSString*)kind
 {
+    NSAssert(storage.headerKind, @"you need to register header model before");
     ANStorageUpdateModel* update = [ANStorageUpdateModel new];
-    
-    NSIndexSet* set = [ANStorageUpdater createSectionIfNotExist:sectionIndex inStorage:storage];
-    [update addInsertedSectionIndexes:set];
-//    if (!set.count) // if no insert we need to reload section
-//    {
-//        [update addUpdatedSectionIndex:sectionIndex];
-//    }
-    ANStorageSectionModel* section = [ANStorageLoader sectionAtIndex:sectionIndex inStorage:storage];
-    [section updateSupplementaryModel:headerModel forKind:kind];
+    if ((sectionIndex != NSNotFound) && (sectionIndex >= 0))
+    {
+        NSIndexSet* set = [ANStorageUpdater createSectionIfNotExist:sectionIndex inStorage:storage];
+        [update addInsertedSectionIndexes:set];
+        //    if (!set.count) // if no insert we need to reload section
+        //    {
+        //        [update addUpdatedSectionIndex:sectionIndex];
+        //    }
+        ANStorageSectionModel* section = [ANStorageLoader sectionAtIndex:sectionIndex inStorage:storage];
+        [section updateSupplementaryModel:headerModel forKind:storage.headerKind];
+    }
     return update;
 }
 
 + (ANStorageUpdateModel*)updateSectionFooterModel:(id)footerModel
-                                  forSectionIndex:(NSUInteger)sectionIndex
+                                  forSectionIndex:(NSInteger)sectionIndex
                                         inStorage:(ANStorageModel*)storage
-                                             kind:(NSString*)kind
 {
+    NSAssert(storage.footerKind, @"you need to register footer model before");
     ANStorageUpdateModel* update = [ANStorageUpdateModel new];
     
-    NSIndexSet* set = [ANStorageUpdater createSectionIfNotExist:sectionIndex inStorage:storage];
-    [update addInsertedSectionIndexes:set];
-    ANStorageSectionModel* section = [ANStorageLoader sectionAtIndex:sectionIndex inStorage:storage];
-    [section updateSupplementaryModel:footerModel forKind:kind];
+    if ((sectionIndex != NSNotFound) && (sectionIndex >= 0))
+    {
+        NSIndexSet* set = [ANStorageUpdater createSectionIfNotExist:sectionIndex inStorage:storage];
+        [update addInsertedSectionIndexes:set];
+        ANStorageSectionModel* section = [ANStorageLoader sectionAtIndex:sectionIndex inStorage:storage];
+        [section updateSupplementaryModel:footerModel forKind:storage.footerKind];
+    }
     return update;
 }
 

@@ -12,7 +12,8 @@
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
-		D73FD53C1DA91C2100AB5B7D /* ANStorageControllerCRUDTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D73FD5301DA91C2100AB5B7D /* ANStorageControllerCRUDTest.m */; };
+		C38385C205FD3A46E42FA30D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C3838AD440EE20B2370CB440 /* Localizable.strings */; };
+		D73FD53C1DA91C2100AB5B7D /* ANStorageController_CRUD_Test.m in Sources */ = {isa = PBXBuildFile; fileRef = D73FD5301DA91C2100AB5B7D /* ANStorageController_CRUD_Test.m */; };
 		D73FD53D1DA91C2100AB5B7D /* ANStorageMovedIndexPathModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D73FD5311DA91C2100AB5B7D /* ANStorageMovedIndexPathModelTest.m */; };
 		D73FD53E1DA91C2100AB5B7D /* ANStorageRemoverTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D73FD5321DA91C2100AB5B7D /* ANStorageRemoverTest.m */; };
 		D73FD53F1DA91C2100AB5B7D /* ANStorageUpdaterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D73FD5331DA91C2100AB5B7D /* ANStorageUpdaterTests.m */; };
@@ -20,6 +21,7 @@
 		D73FD5421DA91C2100AB5B7D /* ANStorageSectionModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D73FD5371DA91C2100AB5B7D /* ANStorageSectionModelTest.m */; };
 		D73FD5431DA91C2100AB5B7D /* ANStorageUpdateModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D73FD5381DA91C2100AB5B7D /* ANStorageUpdateModelTest.m */; };
 		D7549A531DAAA36700956D8D /* ANStorageUpdateModel+Test.m in Sources */ = {isa = PBXBuildFile; fileRef = D7549A521DAAA36700956D8D /* ANStorageUpdateModel+Test.m */; };
+		D7549A581DAC2C4200956D8D /* ANStorageController_SupplemetariesTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D7549A571DAC2C4200956D8D /* ANStorageController_SupplemetariesTest.m */; };
 		D795BA071DA7253400668587 /* StyleSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = D795BA061DA7253400668587 /* StyleSettings.plist */; };
 		D7A21E011DA895B500D6D803 /* ANAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21DE71DA895B500D6D803 /* ANAppDelegate.m */; };
 		D7A21E031DA895B500D6D803 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7A21DEB1DA895B500D6D803 /* Assets.xcassets */; };
@@ -75,10 +77,6 @@
 		D7A21E991DA8A2A500D6D803 /* ANTestViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21E6C1DA8A2A500D6D803 /* ANTestViewModel.m */; };
 		D7A21E9B1DA8A49C00D6D803 /* ANECustomFooterViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21E9A1DA8A49C00D6D803 /* ANECustomFooterViewTest.m */; };
 		D7A21E9D1DA8A4C400D6D803 /* ANECustomFooterViewModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21E9C1DA8A4C400D6D803 /* ANECustomFooterViewModelTest.m */; };
-		D7EC43B21D50C7DE00128012 /* (null) in Resources */ = {isa = PBXBuildFile; };
-		D7EC43B31D50C7DE00128012 /* (null) in Resources */ = {isa = PBXBuildFile; };
-		D7EC43B61D50C7EB00128012 /* (null) in Resources */ = {isa = PBXBuildFile; };
-		D7EC43B71D50C7EB00128012 /* (null) in Resources */ = {isa = PBXBuildFile; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,8 +109,9 @@
 		714527334026D6C1A2430887 /* libPods-Alister-Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Alister-Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8D594C6A1CAF9F8A83D2691 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		AC990585C63BBA3EFB2F905E /* libPods-Alister-Example-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Alister-Example-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3838AD440EE20B2370CB440 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		CB2099F6E4049388FFBA7187 /* Pods-Alister-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister-Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Alister-Example/Pods-Alister-Example.debug.xcconfig"; sourceTree = "<group>"; };
-		D73FD5301DA91C2100AB5B7D /* ANStorageControllerCRUDTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageControllerCRUDTest.m; sourceTree = "<group>"; };
+		D73FD5301DA91C2100AB5B7D /* ANStorageController_CRUD_Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageController_CRUD_Test.m; sourceTree = "<group>"; };
 		D73FD5311DA91C2100AB5B7D /* ANStorageMovedIndexPathModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageMovedIndexPathModelTest.m; sourceTree = "<group>"; };
 		D73FD5321DA91C2100AB5B7D /* ANStorageRemoverTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageRemoverTest.m; sourceTree = "<group>"; };
 		D73FD5331DA91C2100AB5B7D /* ANStorageUpdaterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageUpdaterTests.m; sourceTree = "<group>"; };
@@ -121,6 +120,7 @@
 		D73FD5381DA91C2100AB5B7D /* ANStorageUpdateModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageUpdateModelTest.m; sourceTree = "<group>"; };
 		D7549A511DAAA36700956D8D /* ANStorageUpdateModel+Test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ANStorageUpdateModel+Test.h"; path = "Helpers/ANStorageUpdateModel+Test.h"; sourceTree = "<group>"; };
 		D7549A521DAAA36700956D8D /* ANStorageUpdateModel+Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ANStorageUpdateModel+Test.m"; path = "Helpers/ANStorageUpdateModel+Test.m"; sourceTree = "<group>"; };
+		D7549A571DAC2C4200956D8D /* ANStorageController_SupplemetariesTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageController_SupplemetariesTest.m; sourceTree = "<group>"; };
 		D795BA061DA7253400668587 /* StyleSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = StyleSettings.plist; sourceTree = "<group>"; };
 		D7A21DE61DA895B500D6D803 /* ANAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANAppDelegate.h; sourceTree = "<group>"; };
 		D7A21DE71DA895B500D6D803 /* ANAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANAppDelegate.m; sourceTree = "<group>"; };
@@ -292,7 +292,8 @@
 		D73FD52F1DA91C2100AB5B7D /* ANStorage */ = {
 			isa = PBXGroup;
 			children = (
-				D73FD5301DA91C2100AB5B7D /* ANStorageControllerCRUDTest.m */,
+				D7549A571DAC2C4200956D8D /* ANStorageController_SupplemetariesTest.m */,
+				D73FD5301DA91C2100AB5B7D /* ANStorageController_CRUD_Test.m */,
 				D73FD5311DA91C2100AB5B7D /* ANStorageMovedIndexPathModelTest.m */,
 				D73FD5321DA91C2100AB5B7D /* ANStorageRemoverTest.m */,
 				D73FD5331DA91C2100AB5B7D /* ANStorageUpdaterTests.m */,
@@ -395,6 +396,7 @@
 				D7A21DFE1DA895B500D6D803 /* ANEDefaultSupplementaryVC.m */,
 				D7A21DFF1DA895B500D6D803 /* ANEMainVC.h */,
 				D7A21E001DA895B500D6D803 /* ANEMainVC.m */,
+				C3838AD440EE20B2370CB440 /* Localizable.strings */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -662,14 +664,19 @@
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Oksana Kovalchuk";
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = 7VYW9J77NX;
+						ProvisioningStyle = Automatic;
+					};
 					D7A21E111DA89A7500D6D803 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 7VYW9J77NX;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 6003F589195388D20070C39A;
 					};
 					D7EC43CB1D512EE300128012 = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = 7VYW9J77NX;
+						ProvisioningStyle = Manual;
 						TestTargetID = 6003F589195388D20070C39A;
 					};
 				};
@@ -700,12 +707,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7A21E041DA895B500D6D803 /* InfoPlist.strings in Resources */,
-				D7EC43B71D50C7EB00128012 /* (null) in Resources */,
 				D795BA071DA7253400668587 /* StyleSettings.plist in Resources */,
-				D7EC43B61D50C7EB00128012 /* (null) in Resources */,
 				D7A21E031DA895B500D6D803 /* Assets.xcassets in Resources */,
-				D7EC43B21D50C7DE00128012 /* (null) in Resources */,
-				D7EC43B31D50C7DE00128012 /* (null) in Resources */,
+				C38385C205FD3A46E42FA30D /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -991,10 +995,11 @@
 				D7A21E941DA8A2A500D6D803 /* ANTestableTableView.m in Sources */,
 				D73FD53F1DA91C2100AB5B7D /* ANStorageUpdaterTests.m in Sources */,
 				D7A21E871DA8A2A500D6D803 /* ANStorageUpdateOperationTests.m in Sources */,
-				D73FD53C1DA91C2100AB5B7D /* ANStorageControllerCRUDTest.m in Sources */,
+				D73FD53C1DA91C2100AB5B7D /* ANStorageController_CRUD_Test.m in Sources */,
 				D7A21E921DA8A2A500D6D803 /* ANTestableStorageUpateOperation.m in Sources */,
 				D7A21E711DA8A2A500D6D803 /* ANListControllerConfigurationModelTest.m in Sources */,
 				D7A21E6F1DA8A2A500D6D803 /* ANCollectionControllerConfigurationModelTest.m in Sources */,
+				D7549A581DAC2C4200956D8D /* ANStorageController_SupplemetariesTest.m in Sources */,
 				D7A21E771DA8A2A500D6D803 /* ANBaseTableFooterViewTests.m in Sources */,
 				D7A21E951DA8A2A500D6D803 /* ANTestableTextField.m in Sources */,
 				D7A21E7A1DA8A2A500D6D803 /* ANCollectionViewCellTests.m in Sources */,
@@ -1209,6 +1214,8 @@
 				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES_AGGRESSIVE;
 				CLANG_WARN__EXIT_TIME_DESTRUCTORS = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Alister-Example/BundleFiles/Alister-Example-Prefix.pch";
 				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
@@ -1231,6 +1238,8 @@
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "mobi.anoda.Alister-Example";
 				PRODUCT_NAME = "Alister-Example_Example";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1260,6 +1269,8 @@
 				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES_AGGRESSIVE;
 				CLANG_WARN__EXIT_TIME_DESTRUCTORS = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Alister-Example/BundleFiles/Alister-Example-Prefix.pch";
 				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
@@ -1282,6 +1293,8 @@
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "mobi.anoda.Alister-Example";
 				PRODUCT_NAME = "Alister-Example_Example";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1292,8 +1305,9 @@
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = 7VYW9J77NX;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Alister-Example-UITests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1309,9 +1323,10 @@
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = 7VYW9J77NX;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Alister-Example-UITests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1329,6 +1344,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 7VYW9J77NX;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1351,6 +1367,7 @@
 				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = NO;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 7VYW9J77NX;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

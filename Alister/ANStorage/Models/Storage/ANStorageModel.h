@@ -10,6 +10,9 @@
 
 @interface ANStorageModel : NSObject
 
+@property (nonatomic, copy) NSString* footerKind;
+@property (nonatomic, copy) NSString* headerKind;
+
 - (NSArray*)itemsInSection:(NSUInteger)section;
 - (NSArray*)sections;
 

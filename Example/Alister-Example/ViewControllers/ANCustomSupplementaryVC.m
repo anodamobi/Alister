@@ -73,12 +73,12 @@
         [self.storage updateWithAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
             
             [storageController addItems:items];
-            [storageController setSectionFooterModel:footer forSectionIndex:0];
-            [storageController setSectionHeaderModel:headerViewModel forSectionIndex:0];
+            [storageController updateSectionFooterModel:footer forSectionIndex:0];
+            [storageController updateSectionHeaderModel:headerViewModel forSectionIndex:0];
             
             [storageController addItems:items toSection:1];
-            [storageController setSectionFooterModel:@"I'm footer section 1" forSectionIndex:1];
-            [storageController setSectionHeaderModel:@"I'm header section 1" forSectionIndex:1];
+            [storageController updateSectionFooterModel:@"I'm footer section 1" forSectionIndex:1];
+            [storageController updateSectionHeaderModel:@"I'm header section 1" forSectionIndex:1];
         }]; 
         
     });

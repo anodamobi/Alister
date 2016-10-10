@@ -52,7 +52,7 @@
     
     //when
     [self.storage updateWithoutAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
-        [storageController setSectionHeaderModel:object forSectionIndex:0];
+        [storageController updateSectionHeaderModel:object forSectionIndex:0];
     }];
 }
 
@@ -64,7 +64,7 @@
     
     //when
     [self.storage updateWithoutAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
-        [storageController setSectionHeaderModel:object forSectionIndex:0];
+        [storageController updateSectionHeaderModel:object forSectionIndex:0];
     }];
 }
 
@@ -148,7 +148,7 @@
     
     //when
     [self.storage updateWithoutAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
-        [storageController setSectionHeaderModel:testModel forSectionIndex:0];
+        [storageController updateSectionHeaderModel:testModel forSectionIndex:0];
     }];
     
     //then
@@ -193,7 +193,7 @@
         [configurator registerFooterClass:[ANTestTableHeaderFooter class] forSystemClass:[object class]];
     }];
     [self.storage updateWithoutAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
-        [storageController setSectionFooterModel:object forSectionIndex:0];
+        [storageController updateSectionFooterModel:object forSectionIndex:0];
     }];
 }
 
@@ -203,7 +203,7 @@
         [configurator registerFooterClass:[ANTestTableHeaderFooter class] forModelClass:[object class]];
     }];
     [self.storage updateWithoutAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
-        [storageController setSectionFooterModel:object forSectionIndex:0];
+        [storageController updateSectionFooterModel:object forSectionIndex:0];
     }];
 }
 
@@ -216,7 +216,7 @@
     
     //when
     [self.storage updateWithoutAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
-        [storageController setSectionFooterModel:testModel forSectionIndex:0];
+        [storageController updateSectionFooterModel:testModel forSectionIndex:0];
     }];
     
     //then
@@ -280,7 +280,7 @@
     
     //when
     [self.storage updateWithoutAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
-        [storageController setSectionFooterModel:testModel forSectionIndex:0];
+        [storageController updateSectionFooterModel:testModel forSectionIndex:0];
     }];
     
     //then

@@ -15,7 +15,7 @@
 
 @interface ANStorageController : NSObject <ANStorageUpdatableInterface, ANStorageRetrivingInterface>
 
-@property (nonatomic, strong) ANStorageModel* storage;
+@property (nonatomic, strong) ANStorageModel* storageModel;
 @property (nonatomic, weak) id<ANStorageUpdateOperationInterface> updateDelegate;
 
 @end

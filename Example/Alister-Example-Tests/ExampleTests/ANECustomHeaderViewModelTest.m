@@ -6,7 +6,6 @@
 //  Copyright © 2016 Oksana Kovalchuk. All rights reserved.
 //
 
-#import <XCTest/XCTest.h>
 #import "ANECustomHeaderViewModel.h"
 
 SpecBegin(ANECustomHeaderViewModel)
@@ -63,5 +62,3 @@ describe(@"ANECustomHeaderViewModel", ^{
 });
 
 SpecEnd
-
-

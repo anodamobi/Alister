@@ -46,13 +46,13 @@
 
 #pragma mark - Views Models
 
-- (void)setSectionHeaderModel:(id)headerModel forSectionIndex:(NSUInteger)sectionIndex;
-- (void)setSectionFooterModel:(id)footerModel forSectionIndex:(NSUInteger)sectionIndex;
+- (void)updateSectionHeaderModel:(id)headerModel forSectionIndex:(NSUInteger)sectionIndex;
+- (void)updateSectionFooterModel:(id)footerModel forSectionIndex:(NSUInteger)sectionIndex;
 
 
 //collection view
 
-- (void)setSupplementaryHeaderKind:(NSString*)headerKind;
-- (void)setSupplementaryFooterKind:(NSString*)footerKind;
+- (void)updateSupplementaryHeaderKind:(NSString*)headerKind;
+- (void)updateSupplementaryFooterKind:(NSString*)footerKind;
 
 @end

@@ -26,4 +26,7 @@
 
 - (BOOL)isEmpty;
 
+- (NSString*)footerSupplementaryKind;
+- (NSString*)headerSupplementaryKind;
+
 @end

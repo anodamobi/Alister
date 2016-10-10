@@ -106,8 +106,8 @@
 
 - (void)updateHeaderKind:(NSString*)headerKind footerKind:(NSString*)footerKind
 {
-    [self.controller setSupplementaryHeaderKind:headerKind];
-    [self.controller setSupplementaryFooterKind:footerKind];
+    [self.controller updateSupplementaryHeaderKind:headerKind];
+    [self.controller updateSupplementaryFooterKind:footerKind];
 }
 
 
