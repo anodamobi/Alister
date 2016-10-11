@@ -35,6 +35,10 @@
     {
         return [self addItems:@[item] toSection:sectionNumber toStorage:model];
     }
+    else
+    {
+        ANStorageLog(@"You trying to add nil item in storage");
+    }
     return nil;
 }
 
@@ -66,8 +70,8 @@
 
 + (ANStorageUpdateModel*)addItem:(id)item atIndexPath:(NSIndexPath*)indexPath toStorage:(ANStorageModel*)storage
 {
-    ANStorageUpdateModel* update = [ANStorageUpdateModel new];
-    if (indexPath)
+    ANStorageUpdateModel* update = nil;
+    if (indexPath && item && storage)
     {
         NSIndexSet* insertedSections = [self createSectionIfNotExist:(NSUInteger)indexPath.section
                                                            inStorage:storage];
@@ -81,12 +85,15 @@
                          (long)indexPath.section,
                          (long)indexPath.row,
                          (unsigned long)[section.objects count]);
-            return update;
         }
-        [section insertItem:item atIndex:(NSUInteger)indexPath.row];
-        
-        [update addInsertedSectionIndexes:insertedSections];
-        [update addInsertedIndexPaths:@[indexPath]];
+        else
+        {
+            update = [ANStorageUpdateModel new];
+            
+            [section insertItem:item atIndex:(NSUInteger)indexPath.row];
+            [update addInsertedSectionIndexes:insertedSections];
+            [update addInsertedIndexPaths:@[indexPath]];
+        }
     }
     return update;
 }
@@ -95,7 +102,7 @@
 {
     ANStorageUpdateModel* update = [ANStorageUpdateModel new];
     NSIndexPath* originalIndexPath = [ANStorageLoader indexPathForItem:itemToReplace inStorage:storage];
-   
+    
     if (originalIndexPath && replacingItem)
     {
         ANStorageSectionModel* section = [ANStorageLoader sectionAtIndex:(NSUInteger)originalIndexPath.section inStorage:storage];
@@ -144,23 +151,25 @@
 
 #pragma mark - Reload Items
 
-+ (ANStorageUpdateModel*)reloadItem:(id)item inStorage:(ANStorageModel*)storage
++ (ANStorageUpdateModel*)reloadItem:(id)item inStorage:(ANStorageModel*)storage //TODO:
 {
-    ANStorageUpdateModel* update = [ANStorageUpdateModel new];
+    ANStorageUpdateModel* update = nil;
     NSIndexPath* indexPathToReload = [ANStorageLoader indexPathForItem:item inStorage:storage];
     if (indexPathToReload)
     {
+        update = [ANStorageUpdateModel new];
         [update addUpdatedIndexPaths:@[indexPathToReload]];
     }
     return update;
 }
 
-+ (ANStorageUpdateModel*)reloadItems:(id)items inStorage:(ANStorageModel*)storage
++ (ANStorageUpdateModel*)reloadItems:(NSArray*)items inStorage:(ANStorageModel*)storage
 {
-    ANStorageUpdateModel* update = [ANStorageUpdateModel new];
+    ANStorageUpdateModel* update = nil;
     NSArray* indexPathesArrayToReload = [ANStorageLoader indexPathArrayForItems:items inStorage:storage];
     if (indexPathesArrayToReload)
     {
+        update = [ANStorageUpdateModel new];
         [update addUpdatedIndexPaths:indexPathesArrayToReload];
     }
     return update;
@@ -168,7 +177,7 @@
 
 + (NSIndexSet*)createSectionIfNotExist:(NSUInteger)sectionNumber inStorage:(ANStorageModel*)storage
 {
-     NSMutableIndexSet* insertedSectionIndexes = [NSMutableIndexSet indexSet];
+    NSMutableIndexSet* insertedSectionIndexes = [NSMutableIndexSet indexSet];
     if (sectionNumber < ANStorageMaxItemsCount)
     {
         for (NSUInteger sectionIterator = storage.sections.count; sectionIterator <= sectionNumber; sectionIterator++)
