@@ -248,29 +248,9 @@ describe(@"addItem: atIndexPath:", ^{
 });
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //Reload items
 
 describe(@"reloadItem:", ^{
-    
-    it(@"item reloaded if exists", ^{
-        failure(@"Pending"); //TODO: mocks?
-    });
     
     it(@"no assert if item not exists in storageModel", ^{
         void(^block)() = ^() {
@@ -298,7 +278,11 @@ describe(@"reloadItem:", ^{
 
 
 
-describe(@"replaceItem:withItem:", ^{
+
+
+
+
+describe(@"replaceItem: withItem:", ^{
     
     it(@"no assert if new item is nil", ^{
         NSString* item = @"test";
