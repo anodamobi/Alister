@@ -92,66 +92,70 @@ describe(@"addItems:", ^{
 });
 
 
+describe(@"adding objects in non-existing section creating required sections with method", ^{
+    
+    it(@"addItems", ^{
+        NSArray* testModel = @[@"one", @"two", @"three"];
+        [ANStorageUpdater addItems:testModel toStorage:storage];
+        
+        expect(storage.sections).haveCount(1);
+    });
+    
+    it(@"addItem", ^{
+        [ANStorageUpdater addItem:@"test" toStorage:storage];
+        expect(storage.sections).haveCount(1);
+    });
+    
+    it(@"addItem: toSection:", ^{
+        [ANStorageUpdater addItem:@"Test" toSection:2 toStorage:storage];
+        
+        expect([storage itemsInSection:0]).haveCount(0);
+        expect([storage itemsInSection:1]).haveCount(0);
+        expect([storage itemsInSection:2]).haveCount(1);
+        expect([storage sections]).haveCount(3);
+    });
+});
 
 
-//
-//
-//describe(@"adding objects in non-existing section creating required sections with method", ^{
-//    
-//    it(@"addItems", ^{
-//        NSArray* testModel = @[@"one", @"two", @"three"];
-//        [ANStorageUpdater addItems:testModel];
-//        
-//        expect(ANStorageUpdater.sections).haveCount(1);
-//    });
-//    
-//    it(@"addItem", ^{
-//        [ANStorageUpdater addItem:@"test"];
-//        expect(ANStorageUpdater.sections).haveCount(1);
-//    });
-//    
-//    it(@"addItem: toSection:", ^{
-//        [ANStorageUpdater addItem:@"Test" toSection:2];
-//        
-//        expect([ANStorageUpdater itemsInSection:0]).haveCount(0);
-//        expect([ANStorageUpdater itemsInSection:1]).haveCount(0);
-//        expect([ANStorageUpdater itemsInSection:2]).haveCount(1);
-//        expect([ANStorageUpdater sections]).haveCount(3);
-//    });
-//});
-//
-//
-//describe(@"addItem: toSection:", ^{
-//    
-//    it(@"no assert if item is nil", ^{
-//        void(^block)() = ^() {
-//            [ANStorageUpdater addItem:nil toSection:2];
-//        };
-//        expect(block).notTo.raiseAny();
-//    });
-//    
-//    it(@"no assert if section not exists", ^{
-//        void(^block)() = ^() {
-//            [ANStorageUpdater addItem:@"test" toSection:2];
-//        };
-//        expect(block).notTo.raiseAny();
-//    });
-//    
-//    it(@"added item equal to retrived", ^{
-//        NSString* item = @"test";
-//        [ANStorageUpdater addItem:item toSection:0];
-//        
-//        expect([ANStorageUpdater itemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]]).equal(item);
-//    });
-//    
-//    it(@"no assert if section index is NSNotFound", ^{
-//        void(^block)() = ^() {
-//            [ANStorageUpdater addItem:@"test" toSection:NSNotFound];
-//        };
-//        expect(block).notTo.raiseAny();
-//    });
-//});
-//
+describe(@"addItem: toSection:", ^{
+    
+    it(@"no assert if item is nil", ^{
+        void(^block)() = ^() {
+            [ANStorageUpdater addItem:nil toSection:2 toStorage:storage];
+        };
+        expect(block).notTo.raiseAny();
+    });
+    
+    it(@"no assert if section not exists", ^{
+        void(^block)() = ^() {
+            [ANStorageUpdater addItem:@"test" toSection:2 toStorage:storage];
+        };
+        expect(block).notTo.raiseAny();
+    });
+    
+    it(@"added item equal to retrived", ^{
+        NSString* item = @"test";
+        [ANStorageUpdater addItem:item toSection:0 toStorage:storage];
+        
+        expect([storage itemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]]).equal(item);
+    });
+    
+    it(@"no assert if section index is NSNotFound", ^{
+        void(^block)() = ^() {
+            [ANStorageUpdater addItem:@"test" toSection:NSNotFound toStorage:storage];
+        };
+        expect(block).notTo.raiseAny();
+    });
+    
+    it(@"no assert if storage is nil", ^{
+        void(^block)() = ^() {
+            [ANStorageUpdater addItem:@"test" toStorage:nil];
+        };
+        expect(block).notTo.raiseAny();
+    });
+});
+
+
 //
 //describe(@"addItems: toSection:", ^{
 //    
