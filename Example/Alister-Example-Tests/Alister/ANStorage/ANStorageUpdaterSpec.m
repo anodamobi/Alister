@@ -10,7 +10,7 @@
 #import <Alister/ANStorageModel.h>
 #import <Alister/ANStorageUpdateModel.h>
 
-SpecBegin()
+SpecBegin(ANStorageUpdater_CRUD)
 
 __block ANStorageModel* storage = nil;
 
@@ -53,51 +53,47 @@ describe(@"addItem:", ^{
 });
 
 
-describe(@"update addItem:", ^{
+describe(@"addItems:", ^{
     
-    it(@"if added first item in section ", ^{
-        ANStorageUpdateModel* expected = [ANStorageUpdateModel new];
-        [expected addInsertedIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]]];
-        [expected addInsertedSectionIndex:0];
+    it(@"objects from array added in a correct order", ^{
         
-        ANStorageUpdateModel* update = [ANStorageUpdater addItem:@"test" toStorage:storage];
+        NSString* testModel0 = @"test0";
+        NSString* testModel1 = @"test1";
+        NSString* testModel2 = @"test2";
+        NSArray* testModel = @[testModel0, testModel1, testModel2];
+        [ANStorageUpdater addItems:testModel toStorage:storage];
         
-        expect(update).equal(expected);
+        expect([storage itemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]]).equal(testModel[0]);
+        expect([storage itemAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]]).equal(testModel[1]);
+        expect([storage itemAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]]).equal(testModel[2]);
+    });
+    
+    it(@"no assert if add nil", ^{
+        void(^block)() = ^() {
+            [ANStorageUpdater addItems:nil toStorage:storage];
+        };
+        expect(block).notTo.raiseAny();
+    });
+    
+    it(@"no assert if storage is nil", ^{
+        void(^block)() = ^() {
+            [ANStorageUpdater addItems:@[@"test"] toStorage:nil];
+        };
+        expect(block).notTo.raiseAny();
+    });
+    
+    it(@"items count in array equals items count in section", ^{
+        
+        NSArray* testModel = @[@"one", @"two", @"three"];
+        [ANStorageUpdater addItems:testModel toStorage:storage];
+        
+        expect([storage itemsInSection:0]).haveCount(testModel.count);
     });
 });
 
 
 
-//
-//describe(@"addItems:", ^{
-//    
-//    it(@"objects from array added in a correct order", ^{
-//        
-//        NSString* testModel0 = @"test0";
-//        NSString* testModel1 = @"test1";
-//        NSString* testModel2 = @"test2";
-//        NSArray* testModel = @[testModel0, testModel1, testModel2];
-//        [ANStorageUpdater addItems:testModel];
-//        
-//        expect([ANStorageUpdater itemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]]).equal(testModel[0]);
-//        expect([ANStorageUpdater itemAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]]).equal(testModel[1]);
-//        expect([ANStorageUpdater itemAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]]).equal(testModel[2]);
-//    });
-//    
-//    it(@"no assert if add nil", ^{
-//        void(^block)() = ^() {
-//            [ANStorageUpdater addItems:nil];
-//        };
-//        expect(block).notTo.raiseAny();
-//    });
-//    
-//    it(@"items count in array equals items count in section", ^{
-//        NSArray* testModel = @[@"one", @"two", @"three"];
-//        [ANStorageUpdater addItems:testModel];
-//        
-//        expect([ANStorageUpdater itemsInSection:0]).haveCount(testModel.count);
-//    });
-//});
+
 //
 //
 //describe(@"adding objects in non-existing section creating required sections with method", ^{

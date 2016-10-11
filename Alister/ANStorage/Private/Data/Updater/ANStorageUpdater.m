@@ -14,6 +14,8 @@
 #import <Alister/ANStorageModel.h>
 #import "ANStorageLog.h"
 #import "ANStorageConstants.h"
+#import "ANStorageValidator.h"
+#import "ANHelperFunctions.h"
 
 @implementation ANStorageUpdater
 
@@ -36,29 +38,28 @@
     return nil;
 }
 
-+ (ANStorageUpdateModel*)addItems:(NSArray*)items toSection:(NSUInteger)sectionNumber toStorage:(ANStorageModel*)storage
++ (ANStorageUpdateModel*)addItems:(NSArray*)items toSection:(NSInteger)sectionNumber toStorage:(ANStorageModel*)storage
 {
-    ANStorageUpdateModel* update = [ANStorageUpdateModel new];
-    if (sectionNumber != NSNotFound)
+    ANStorageUpdateModel* update = nil;
+    if (ANIsIndexValid(sectionNumber) && !ANIsEmpty(items) && storage)
     {
-        if (items && items.count)
+        update = [ANStorageUpdateModel new];
+        
+        NSIndexSet* insertedSections = [self createSectionIfNotExist:sectionNumber inStorage:storage];
+        ANStorageSectionModel* section = [ANStorageLoader sectionAtIndex:sectionNumber inStorage:storage];
+        
+        NSInteger numberOfItems = [section numberOfObjects];
+        NSMutableArray* insertedIndexPaths = [NSMutableArray array];
+        for (id item in items)
         {
-            NSIndexSet* insertedSections = [self createSectionIfNotExist:sectionNumber inStorage:storage];
-            ANStorageSectionModel* section = [ANStorageLoader sectionAtIndex:sectionNumber inStorage:storage];
-            
-            NSUInteger numberOfItems = [section numberOfObjects];
-            NSMutableArray* insertedIndexPaths = [NSMutableArray array];
-            for (id item in items)
-            {
-                [section addItem:item];
-                [insertedIndexPaths addObject:[NSIndexPath indexPathForRow:(NSInteger)numberOfItems
-                                                                 inSection:(NSInteger)sectionNumber]];
-                numberOfItems++;
-            }
-            
-            [update addInsertedSectionIndexes:insertedSections];
-            [update addInsertedIndexPaths:insertedIndexPaths];
+            [section addItem:item];
+            [insertedIndexPaths addObject:[NSIndexPath indexPathForRow:numberOfItems
+                                                             inSection:sectionNumber]];
+            numberOfItems++;
         }
+        
+        [update addInsertedSectionIndexes:insertedSections];
+        [update addInsertedIndexPaths:insertedIndexPaths];
     }
     return update;
 }
