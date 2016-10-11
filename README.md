@@ -25,6 +25,19 @@ it, simply add the following line to your Podfile:
 pod "Alister"
 ```
 
+## Changelog
+
+###0.2 
+
+renamed methods in ANStorage:
+- setHeaderModel: sectionIndex: 
+- setFooterModel: sectionIndex: 
+
+to update ... model
+
+
+
+
 ## Author
 
 Oksana Kovalchuk, oksana@anoda.mobi

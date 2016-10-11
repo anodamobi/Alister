@@ -10,7 +10,7 @@
 #import <Alister/ANStorageController.h>
 #import <Alister/ANStorageModel.h>
 
-SpecBegin()
+SpecBegin(ANStorageController_SupplemetariesTest)
 
 __block ANStorageController* controller = nil;
 

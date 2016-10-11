@@ -16,12 +16,12 @@
 		D73FD53C1DA91C2100AB5B7D /* ANStorageController_CRUD_Test.m in Sources */ = {isa = PBXBuildFile; fileRef = D73FD5301DA91C2100AB5B7D /* ANStorageController_CRUD_Test.m */; };
 		D73FD53D1DA91C2100AB5B7D /* ANStorageMovedIndexPathModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D73FD5311DA91C2100AB5B7D /* ANStorageMovedIndexPathModelTest.m */; };
 		D73FD53E1DA91C2100AB5B7D /* ANStorageRemoverTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D73FD5321DA91C2100AB5B7D /* ANStorageRemoverTest.m */; };
-		D73FD53F1DA91C2100AB5B7D /* ANStorageUpdaterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D73FD5331DA91C2100AB5B7D /* ANStorageUpdaterTests.m */; };
 		D73FD5401DA91C2100AB5B7D /* ANStorageModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D73FD5351DA91C2100AB5B7D /* ANStorageModelTest.m */; };
 		D73FD5421DA91C2100AB5B7D /* ANStorageSectionModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D73FD5371DA91C2100AB5B7D /* ANStorageSectionModelTest.m */; };
 		D73FD5431DA91C2100AB5B7D /* ANStorageUpdateModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D73FD5381DA91C2100AB5B7D /* ANStorageUpdateModelTest.m */; };
 		D7549A531DAAA36700956D8D /* ANStorageUpdateModel+Test.m in Sources */ = {isa = PBXBuildFile; fileRef = D7549A521DAAA36700956D8D /* ANStorageUpdateModel+Test.m */; };
 		D7549A581DAC2C4200956D8D /* ANStorageController_SupplemetariesTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D7549A571DAC2C4200956D8D /* ANStorageController_SupplemetariesTest.m */; };
+		D7549A5A1DAC358100956D8D /* ANStorageUpdaterSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = D7549A591DAC358100956D8D /* ANStorageUpdaterSpec.m */; };
 		D795BA071DA7253400668587 /* StyleSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = D795BA061DA7253400668587 /* StyleSettings.plist */; };
 		D7A21E011DA895B500D6D803 /* ANAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21DE71DA895B500D6D803 /* ANAppDelegate.m */; };
 		D7A21E031DA895B500D6D803 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7A21DEB1DA895B500D6D803 /* Assets.xcassets */; };
@@ -112,15 +112,16 @@
 		C3838AD440EE20B2370CB440 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		CB2099F6E4049388FFBA7187 /* Pods-Alister-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister-Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Alister-Example/Pods-Alister-Example.debug.xcconfig"; sourceTree = "<group>"; };
 		D73FD5301DA91C2100AB5B7D /* ANStorageController_CRUD_Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageController_CRUD_Test.m; sourceTree = "<group>"; };
-		D73FD5311DA91C2100AB5B7D /* ANStorageMovedIndexPathModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageMovedIndexPathModelTest.m; sourceTree = "<group>"; };
+		D73FD5311DA91C2100AB5B7D /* ANStorageMovedIndexPathModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ANStorageMovedIndexPathModelTest.m; path = ../ANStorageMovedIndexPathModelTest.m; sourceTree = "<group>"; };
 		D73FD5321DA91C2100AB5B7D /* ANStorageRemoverTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageRemoverTest.m; sourceTree = "<group>"; };
-		D73FD5331DA91C2100AB5B7D /* ANStorageUpdaterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageUpdaterTests.m; sourceTree = "<group>"; };
+		D73FD5331DA91C2100AB5B7D /* ANStorageUpdaterTests123.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageUpdaterTests123.m; sourceTree = "<group>"; };
 		D73FD5351DA91C2100AB5B7D /* ANStorageModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageModelTest.m; sourceTree = "<group>"; };
 		D73FD5371DA91C2100AB5B7D /* ANStorageSectionModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageSectionModelTest.m; sourceTree = "<group>"; };
 		D73FD5381DA91C2100AB5B7D /* ANStorageUpdateModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageUpdateModelTest.m; sourceTree = "<group>"; };
 		D7549A511DAAA36700956D8D /* ANStorageUpdateModel+Test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ANStorageUpdateModel+Test.h"; path = "Helpers/ANStorageUpdateModel+Test.h"; sourceTree = "<group>"; };
 		D7549A521DAAA36700956D8D /* ANStorageUpdateModel+Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ANStorageUpdateModel+Test.m"; path = "Helpers/ANStorageUpdateModel+Test.m"; sourceTree = "<group>"; };
 		D7549A571DAC2C4200956D8D /* ANStorageController_SupplemetariesTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageController_SupplemetariesTest.m; sourceTree = "<group>"; };
+		D7549A591DAC358100956D8D /* ANStorageUpdaterSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageUpdaterSpec.m; sourceTree = "<group>"; };
 		D795BA061DA7253400668587 /* StyleSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = StyleSettings.plist; sourceTree = "<group>"; };
 		D7A21DE61DA895B500D6D803 /* ANAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANAppDelegate.h; sourceTree = "<group>"; };
 		D7A21DE71DA895B500D6D803 /* ANAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANAppDelegate.m; sourceTree = "<group>"; };
@@ -294,9 +295,9 @@
 			children = (
 				D7549A571DAC2C4200956D8D /* ANStorageController_SupplemetariesTest.m */,
 				D73FD5301DA91C2100AB5B7D /* ANStorageController_CRUD_Test.m */,
-				D73FD5311DA91C2100AB5B7D /* ANStorageMovedIndexPathModelTest.m */,
 				D73FD5321DA91C2100AB5B7D /* ANStorageRemoverTest.m */,
-				D73FD5331DA91C2100AB5B7D /* ANStorageUpdaterTests.m */,
+				D7549A591DAC358100956D8D /* ANStorageUpdaterSpec.m */,
+				D73FD5331DA91C2100AB5B7D /* ANStorageUpdaterTests123.m */,
 				D73FD5341DA91C2100AB5B7D /* Models */,
 				D73FD5391DA91C2100AB5B7D /* Operations */,
 				D73FD53A1DA91C2100AB5B7D /* Private */,
@@ -308,6 +309,7 @@
 		D73FD5341DA91C2100AB5B7D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				D73FD5311DA91C2100AB5B7D /* ANStorageMovedIndexPathModelTest.m */,
 				D73FD5351DA91C2100AB5B7D /* ANStorageModelTest.m */,
 				D73FD5371DA91C2100AB5B7D /* ANStorageSectionModelTest.m */,
 				D73FD5381DA91C2100AB5B7D /* ANStorageUpdateModelTest.m */,
@@ -972,6 +974,7 @@
 				D7A21E721DA8A2A500D6D803 /* ANListControllerMappingModelTest.m in Sources */,
 				D7A21E6D1DA8A2A500D6D803 /* ANCollectionUpdateOperationTests.m in Sources */,
 				D7A21E8F1DA8A2A500D6D803 /* ANTestableListControllerUpdateOperationDelegate.m in Sources */,
+				D7549A5A1DAC358100956D8D /* ANStorageUpdaterSpec.m in Sources */,
 				D7A21E881DA8A2A500D6D803 /* ANTableControllerUpdateOperationTests.m in Sources */,
 				D7A21E8D1DA8A2A500D6D803 /* ANTestableCollectionView.m in Sources */,
 				D7A21E7E1DA8A2A500D6D803 /* ANTestTableHeaderFooter.m in Sources */,
@@ -993,7 +996,6 @@
 				D7A21E9D1DA8A4C400D6D803 /* ANECustomFooterViewModelTest.m in Sources */,
 				D7A21E9B1DA8A49C00D6D803 /* ANECustomFooterViewTest.m in Sources */,
 				D7A21E941DA8A2A500D6D803 /* ANTestableTableView.m in Sources */,
-				D73FD53F1DA91C2100AB5B7D /* ANStorageUpdaterTests.m in Sources */,
 				D7A21E871DA8A2A500D6D803 /* ANStorageUpdateOperationTests.m in Sources */,
 				D73FD53C1DA91C2100AB5B7D /* ANStorageController_CRUD_Test.m in Sources */,
 				D7A21E921DA8A2A500D6D803 /* ANTestableStorageUpateOperation.m in Sources */,

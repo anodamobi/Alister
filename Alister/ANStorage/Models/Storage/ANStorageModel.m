@@ -86,9 +86,9 @@
 
 #pragma mark - Private
 
-- (id)_objectAtIndex:(NSUInteger)index inSection:(NSUInteger)section
+- (id)_objectAtIndex:(NSInteger)index inSection:(NSInteger)section
 {
-    if (self.sectionModels.count > index)
+    if (self.sectionModels.count > section && section >= 0 && index >= 0)
     {
         ANStorageSectionModel* model = self.sectionModels[section];
         if ([model numberOfObjects] > index)

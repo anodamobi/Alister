@@ -76,7 +76,7 @@
         
         if ([section.objects count] < (NSUInteger)indexPath.row)
         {
-            ANStorageLog(@"Dailed to insert item for section: %ld, row: %ld, only %lu items in section",
+            ANStorageLog(@"Failed to insert item for section: %ld, row: %ld, only %lu items in section",
                          (long)indexPath.section,
                          (long)indexPath.row,
                          (unsigned long)[section.objects count]);

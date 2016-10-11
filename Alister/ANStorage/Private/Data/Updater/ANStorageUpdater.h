@@ -23,8 +23,9 @@
 + (ANStorageUpdateModel*)moveItemFromIndexPath:(NSIndexPath*)fromIndexPath
                                    toIndexPath:(NSIndexPath*)toIndexPath
                                      inStorage:(ANStorageModel*)storage;
+
 + (ANStorageUpdateModel*)reloadItem:(id)item inStorage:(ANStorageModel*)storage;
-+ (ANStorageUpdateModel*)reloadItems:(id)items inStorage:(ANStorageModel*)storage;
++ (ANStorageUpdateModel*)reloadItems:(NSArray*)items inStorage:(ANStorageModel*)storage;
 
 + (NSIndexSet*)createSectionIfNotExist:(NSUInteger)sectionNumber inStorage:(ANStorageModel*)storage;
 

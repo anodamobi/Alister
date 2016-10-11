@@ -10,7 +10,7 @@
 #import <Alister/ANStorageController.h>
 #import <Alister/ANStorageModel.h>
 
-SpecBegin(ANStorageController)
+SpecBegin(ANStorageController_CRUD_Test)
 
 __block ANStorageController* controller = nil;
 
@@ -209,6 +209,7 @@ describe(@"addItem: atIndexPath:", ^{
     });
 });
 
+////////////////
 
 describe(@"reloadItem:", ^{
     

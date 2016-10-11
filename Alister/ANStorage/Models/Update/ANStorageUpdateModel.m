@@ -71,6 +71,44 @@
     self.isRequireReload = ([model isRequireReload] || self.isRequireReload);
 }
 
+- (BOOL)isEqual:(id)other
+{
+    if (other == self)
+    {
+        return YES;
+    }
+    else
+    {
+        BOOL result = YES;
+        ANStorageUpdateModel* otherModel = other;
+        
+        result = (result && ([self.deletedRowIndexPaths isEqualToArray:self.deletedRowIndexPaths]));
+        result = (result && ([self.insertedRowIndexPaths isEqualToArray:self.insertedRowIndexPaths ]));
+        result = (result && ([self.updatedRowIndexPaths isEqualToArray:self.updatedRowIndexPaths]));
+        result = (result && ([self.movedRowsIndexPaths isEqualToArray:self.movedRowsIndexPaths]));
+        
+        result = (result && ([self.insertedSectionIndexes isEqualToIndexSet:self.insertedSectionIndexes]));
+        result = (result && ([self.deletedSectionIndexes isEqualToIndexSet:self.deletedSectionIndexes]));
+        result = (result && ([self.updatedSectionIndexes isEqualToIndexSet:self.updatedSectionIndexes]));
+        
+        result = result && (self.isRequireReload == otherModel.isRequireReload);
+        
+        return result;
+    }
+}
+
+- (NSUInteger)hash
+{
+    return (self.deletedSectionIndexes.hash +
+            self.insertedSectionIndexes.hash +
+            self.updatedSectionIndexes.hash +
+            self.deletedRowIndexPaths.hash +
+            self.insertedRowIndexPaths.hash +
+            self.updatedRowIndexPaths.hash +
+            self.movedRowsIndexPaths.hash +
+            self.isRequireReload);
+}
+
 
 #pragma mark - ANStorageUpdateModelInterface
 

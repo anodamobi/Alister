@@ -8,8 +8,9 @@
 
 #import "ANStorageUpdateModelInterface.h"
 #import "ANStorageMovedIndexPathModel.h"
+#import "ANBaseDomainModel.h" // TODO: temp for debug
 
-@interface ANStorageUpdateModel : NSObject <ANStorageUpdateModelInterface>
+@interface ANStorageUpdateModel : ANBaseDomainModel <ANStorageUpdateModelInterface>
 
 @property (nonatomic, assign) BOOL isRequireReload;
 

@@ -34,6 +34,7 @@ Pod::Spec.new do |s|
         sp.dependency 'Alister/ANListController'
         sp.dependency 'Alister/ANKeyboardHandler'
         sp.dependency 'Masonry'
+        sp.dependency 'libextobjc'
     end
 
 end
