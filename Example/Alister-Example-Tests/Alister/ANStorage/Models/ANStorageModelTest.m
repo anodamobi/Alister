@@ -177,7 +177,6 @@ describe(@"removeAllSections", ^{
 describe(@"itemAtIndexPath:", ^{
     
     it(@"returns valid item when indexPath exists", ^{
-       
         NSString* object = @"Test";
         ANStorageSectionModel* section = [ANStorageSectionModel new];
         [section addItem:object];
@@ -188,7 +187,6 @@ describe(@"itemAtIndexPath:", ^{
     });
     
     it(@"no assert when indexPath is nil", ^{
-        
         void(^testBlock)() = ^{
             [model itemAtIndexPath:nil];
         };
@@ -200,16 +198,27 @@ describe(@"itemAtIndexPath:", ^{
         NSIndexPath* negativeIndexPath = [NSIndexPath indexPathForItem:1 inSection:1];
         expect([model itemAtIndexPath:negativeIndexPath]).to.beNil();
     });
-    
-    it(@"no assert if provide not a instance of indexPath", ^{
-        
-        void(^testBlock)() = ^{
-            [model itemAtIndexPath:(NSIndexPath*)@""];
-        };
-        
-        expect(testBlock).notTo.raiseAny();
-    });
 });
 
+
+describe(@"isEmpty", ^{
+    
+    it(@"storage is empty when just created", ^{
+        expect(model.isEmpty).beTruthy();
+    });
+    
+    it(@"storage is not empty if it has items", ^{
+        ANStorageSectionModel* section = [ANStorageSectionModel new];
+        [section addItem:@"test"];
+        [model addSection:section];
+        
+        expect(model.isEmpty).beFalsy();
+    });
+    
+    it(@"storage is empty if has empty sections", ^{
+        [model addSection:[ANStorageSectionModel new]];
+        expect(model.isEmpty).beTruthy();
+    });
+});
 
 SpecEnd

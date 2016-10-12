@@ -83,6 +83,20 @@
     return object;
 }
 
+- (BOOL)isEmpty
+{
+    __block NSInteger count = 0;
+    [self.sections enumerateObjectsUsingBlock:^(ANStorageSectionModel*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        count += obj.numberOfObjects;
+        if (count)
+        {
+            *stop = YES;
+        }
+    }];
+    
+    return (count == 0);
+}
+
 
 #pragma mark - Private
 

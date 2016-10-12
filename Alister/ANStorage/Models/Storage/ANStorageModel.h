@@ -23,4 +23,6 @@
 - (void)removeSectionAtIndex:(NSUInteger)index;
 - (void)removeAllSections;
 
+- (BOOL)isEmpty;
+
 @end
