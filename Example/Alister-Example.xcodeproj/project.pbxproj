@@ -115,7 +115,6 @@
 		D73FD5301DA91C2100AB5B7D /* ANStorageController_CRUD_Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageController_CRUD_Test.m; sourceTree = "<group>"; };
 		D73FD5311DA91C2100AB5B7D /* ANStorageMovedIndexPathModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ANStorageMovedIndexPathModelTest.m; path = ../ANStorageMovedIndexPathModelTest.m; sourceTree = "<group>"; };
 		D73FD5321DA91C2100AB5B7D /* ANStorageRemoverTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageRemoverTest.m; sourceTree = "<group>"; };
-		D73FD5331DA91C2100AB5B7D /* ANStorageUpdaterTests123.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageUpdaterTests123.m; sourceTree = "<group>"; };
 		D73FD5351DA91C2100AB5B7D /* ANStorageModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageModelTest.m; sourceTree = "<group>"; };
 		D73FD5371DA91C2100AB5B7D /* ANStorageSectionModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageSectionModelTest.m; sourceTree = "<group>"; };
 		D73FD5381DA91C2100AB5B7D /* ANStorageUpdateModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageUpdateModelTest.m; sourceTree = "<group>"; };
@@ -304,7 +303,6 @@
 				D7549A691DADAA5300956D8D /* ANStorageRemover_UpdateVerification_Spec.m */,
 				D7549A591DAC358100956D8D /* ANStorageUpdater_Spec.m */,
 				D7549A651DAD3E3B00956D8D /* ANStorageUpdater_UpdateVerification_Spec.m */,
-				D73FD5331DA91C2100AB5B7D /* ANStorageUpdaterTests123.m */,
 				D73FD5341DA91C2100AB5B7D /* Models */,
 				D73FD5391DA91C2100AB5B7D /* Operations */,
 				D73FD53A1DA91C2100AB5B7D /* Private */,

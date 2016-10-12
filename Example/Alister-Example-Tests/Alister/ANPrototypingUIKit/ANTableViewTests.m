@@ -44,7 +44,8 @@
 }
 
 
-#pragma mark - bottomStickedFooterView
+//#pragma mark - bottomStickedFooterView
+
 
 //TODO:
 
