@@ -9,18 +9,18 @@
 @class ANStorageModel;
 @class ANStorageUpdateModel;
 
-@interface ANStorageUpdater : NSObject
-
-NS_ASSUME_NONNULL_BEGIN
-
 /**
-
- This is a private class. You shouldn't use it directly in your code. 
- ANStorageUpdater generates micro-transactions based on storage model updates. 
- Also it handles app possible invalid arguments situations like nil values, 
+ 
+ This is a private class. You shouldn't use it directly in your code.
+ ANStorageUpdater generates micro-transactions based on storage model updates.
+ Also it handles app possible invalid arguments situations like nil values,
  or NSNotFound indexes to avoid crash and freezes.
  
  */
+
+@interface ANStorageUpdater : NSObject
+
+NS_ASSUME_NONNULL_BEGIN
 
 
 /**
