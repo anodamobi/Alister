@@ -9,4 +9,14 @@
 
 @implementation ANStorageMovedIndexPathModel
 
++ (instancetype)modelWithFromIndexPath:(NSIndexPath*)fromIndexPath
+                           toIndexPath:(NSIndexPath*)indexPath
+{
+    ANStorageMovedIndexPathModel* model = [self new];
+    model.fromIndexPath = fromIndexPath;
+    model.toIndexPath = indexPath;
+    
+    return model;
+}
+
 @end

@@ -10,4 +10,7 @@
 @property (nonatomic, strong) NSIndexPath* fromIndexPath;
 @property (nonatomic, strong) NSIndexPath* toIndexPath;
 
++ (instancetype)modelWithFromIndexPath:(NSIndexPath*)fromIndexPath
+                           toIndexPath:(NSIndexPath*)indexPath;
+
 @end
