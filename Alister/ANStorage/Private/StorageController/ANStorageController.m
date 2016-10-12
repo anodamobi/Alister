@@ -95,7 +95,7 @@
 
 - (void)removeAllItemsAndSections
 {
-    ANStorageUpdateModel* update = [ANStorageRemover removeAllItemsFromStorage:self.storageModel];
+    ANStorageUpdateModel* update = [ANStorageRemover removeAllItemsAndSectionsFromStorage:self.storageModel];
     update.isRequireReload = YES;
     [self.updateDelegate collectUpdate:update];
 }

@@ -77,7 +77,7 @@
     return update;
 }
 
-+ (ANStorageUpdateModel*)removeAllItemsFromStorage:(ANStorageModel*)storage
++ (ANStorageUpdateModel*)removeAllItemsAndSectionsFromStorage:(ANStorageModel*)storage
 {
     ANStorageUpdateModel* update = [ANStorageUpdateModel new];
     if ([storage sections].count)

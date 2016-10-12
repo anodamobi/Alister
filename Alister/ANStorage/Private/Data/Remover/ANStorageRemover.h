@@ -18,6 +18,6 @@
 //section
 + (ANStorageUpdateModel*)removeSections:(NSIndexSet*)indexSet fromStorage:(ANStorageModel*)storage;
 //all
-+ (ANStorageUpdateModel*)removeAllItemsFromStorage:(ANStorageModel*)storage;
++ (ANStorageUpdateModel*)removeAllItemsAndSectionsFromStorage:(ANStorageModel*)storage;
 
 @end
