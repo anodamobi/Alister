@@ -89,15 +89,15 @@
     return nil;
 }
 
-- (CGSize)referenceSizeForHeaderInSection:(NSUInteger)sectionNumber withLayout:(UICollectionViewFlowLayout*)layout
+- (CGSize)referenceSizeForHeaderInSection:(NSUInteger)sectionIndex withLayout:(UICollectionViewFlowLayout*)layout
 {
-    BOOL isExist = [self _isExistMappingForSection:sectionNumber kind:self.configurationModel.defaultHeaderSupplementary];
+    BOOL isExist = [self _isExistMappingForSection:sectionIndex kind:self.configurationModel.defaultHeaderSupplementary];
     return isExist ? layout.headerReferenceSize : CGSizeZero;
 }
 
-- (CGSize)referenceSizeForFooterInSection:(NSUInteger)sectionNumber withLayout:(UICollectionViewFlowLayout*)layout
+- (CGSize)referenceSizeForFooterInSection:(NSUInteger)sectionIndex withLayout:(UICollectionViewFlowLayout*)layout
 {
-    BOOL isExist = [self _isExistMappingForSection:sectionNumber kind:self.configurationModel.defaultFooterSupplementary];
+    BOOL isExist = [self _isExistMappingForSection:sectionIndex kind:self.configurationModel.defaultFooterSupplementary];
     return isExist ? layout.footerReferenceSize : CGSizeZero;
 }
 

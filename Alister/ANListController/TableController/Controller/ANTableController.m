@@ -72,39 +72,39 @@
 
 #pragma mark - Supplementaries
 
-- (NSString*)tableView:(__unused UITableView*)tableView titleForHeaderInSection:(NSInteger)sectionNumber
+- (NSString*)tableView:(__unused UITableView*)tableView titleForHeaderInSection:(NSInteger)sectionIndex
 {
-    return [self.tableManager titleForSupplementaryIndex:(NSUInteger)sectionNumber
+    return [self.tableManager titleForSupplementaryIndex:(NSUInteger)sectionIndex
                                                     type:ANTableViewSupplementaryTypeHeader];
 }
 
-- (NSString*)tableView:(__unused UITableView*)tableView titleForFooterInSection:(NSInteger)sectionNumber
+- (NSString*)tableView:(__unused UITableView*)tableView titleForFooterInSection:(NSInteger)sectionIndex
 {
-    return [self.tableManager titleForSupplementaryIndex:(NSUInteger)sectionNumber
+    return [self.tableManager titleForSupplementaryIndex:(NSUInteger)sectionIndex
                                                     type:ANTableViewSupplementaryTypeFooter];
 }
 
-- (UIView*)tableView:(__unused UITableView*)tableView viewForHeaderInSection:(NSInteger)sectionNumber
+- (UIView*)tableView:(__unused UITableView*)tableView viewForHeaderInSection:(NSInteger)sectionIndex
 {
-    return [self.tableManager supplementaryViewForIndex:(NSUInteger)sectionNumber
+    return [self.tableManager supplementaryViewForIndex:(NSUInteger)sectionIndex
                                                    type:ANTableViewSupplementaryTypeHeader];
 }
 
-- (UIView*)tableView:(__unused UITableView*)tableView viewForFooterInSection:(NSInteger)sectionNumber
+- (UIView*)tableView:(__unused UITableView*)tableView viewForFooterInSection:(NSInteger)sectionIndex
 {
-    return [self.tableManager supplementaryViewForIndex:(NSUInteger)sectionNumber
+    return [self.tableManager supplementaryViewForIndex:(NSUInteger)sectionIndex
                                                    type:ANTableViewSupplementaryTypeFooter];
 }
 
-- (CGFloat)tableView:(__unused UITableView*)tableView heightForHeaderInSection:(NSInteger)sectionNumber
+- (CGFloat)tableView:(__unused UITableView*)tableView heightForHeaderInSection:(NSInteger)sectionIndex
 {
-    return [self.tableManager heightForSupplementaryIndex:(NSUInteger)sectionNumber
+    return [self.tableManager heightForSupplementaryIndex:(NSUInteger)sectionIndex
                                                      type:ANTableViewSupplementaryTypeHeader];
 }
 
-- (CGFloat)tableView:(__unused UITableView*)tableView heightForFooterInSection:(NSInteger)sectionNumber
+- (CGFloat)tableView:(__unused UITableView*)tableView heightForFooterInSection:(NSInteger)sectionIndex
 {
-    return [self.tableManager heightForSupplementaryIndex:(NSUInteger)sectionNumber
+    return [self.tableManager heightForSupplementaryIndex:(NSUInteger)sectionIndex
                                                      type:ANTableViewSupplementaryTypeFooter];
 }
 

@@ -42,7 +42,7 @@
                                         inStorage:(ANStorageModel*)storage;
 
 + (id)supplementaryModelOfKind:(NSString*)kind
-               forSectionIndex:(NSUInteger)sectionNumber
+               forSectionIndex:(NSUInteger)sectionIndex
                      inStorage:(ANStorageModel*)storage;
 
 @end

@@ -81,16 +81,16 @@
 }
 
 - (CGSize)collectionView:(__unused UICollectionView*)collectionView
-                  layout:(UICollectionViewFlowLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)sectionNumber
+                  layout:(UICollectionViewFlowLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)sectionIndex
 {
-    return [self.collectionManager referenceSizeForHeaderInSection:(NSUInteger)sectionNumber
+    return [self.collectionManager referenceSizeForHeaderInSection:(NSUInteger)sectionIndex
                                                         withLayout:collectionViewLayout];
 }
 
 - (CGSize)collectionView:(__unused UICollectionView*)collectionView
-                  layout:(UICollectionViewFlowLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)sectionNumber
+                  layout:(UICollectionViewFlowLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)sectionIndex
 {
-    return [self.collectionManager referenceSizeForFooterInSection:(NSUInteger)sectionNumber
+    return [self.collectionManager referenceSizeForFooterInSection:(NSUInteger)sectionIndex
                                                         withLayout:collectionViewLayout];
 }
 
@@ -102,9 +102,9 @@
     return (NSInteger)[self.currentStorage sections].count;
 }
 
-- (NSInteger)collectionView:(__unused UICollectionView*)collectionView numberOfItemsInSection:(NSInteger)sectionNumber
+- (NSInteger)collectionView:(__unused UICollectionView*)collectionView numberOfItemsInSection:(NSInteger)sectionIndex
 {
-    id <ANStorageSectionModelInterface> sectionModel = [self.currentStorage sectionAtIndex:(NSUInteger)sectionNumber];
+    id <ANStorageSectionModelInterface> sectionModel = [self.currentStorage sectionAtIndex:(NSUInteger)sectionIndex];
     return (NSInteger)[sectionModel numberOfObjects];
 }
 

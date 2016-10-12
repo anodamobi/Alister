@@ -265,30 +265,30 @@
 }
 
 
-#pragma mark - createSectionIfNotExistSectionNumberInStorage
+#pragma mark - createSectionIfNotExistsectionIndexInStorage
 
 - (void)test_createSectionIfNotExistInStorage_positive_sectionCreatedAtSpecifiedIndex
 {
     // given
     ANStorageModel* storage = self.storage;
-    NSInteger sectionNumber = storage.sections.count + 3;
+    NSInteger sectionIndex = storage.sections.count + 3;
     
     // when
-    [ANStorageUpdater createSectionIfNotExist:sectionNumber inStorage:storage];
+    [ANStorageUpdater createSectionIfNotExist:sectionIndex inStorage:storage];
     
     // then
-    expect([storage sectionAtIndex:sectionNumber]).notTo.beNil();
+    expect([storage sectionAtIndex:sectionIndex]).notTo.beNil();
 }
 
 - (void)test_createSectionIfNotExistInStorage_positive_toNotRaiseExceptionWhenSectionExists
 {
     // given
     ANStorageModel* storage = self.storage;
-    NSInteger sectionNumber = storage.sections.count / 2;
+    NSInteger sectionIndex = storage.sections.count / 2;
     
     // when
     void(^testBlock)() = ^() {
-        [ANStorageUpdater createSectionIfNotExist:sectionNumber inStorage:storage];
+        [ANStorageUpdater createSectionIfNotExist:sectionIndex inStorage:storage];
     };
     
     // then
@@ -299,11 +299,11 @@
 {
     // given
     ANStorageModel* storage = self.storage;
-    NSInteger sectionNumber = -1;
+    NSInteger sectionIndex = -1;
     
     // when
     void(^testBlock)() = ^() {
-        [ANStorageUpdater createSectionIfNotExist:sectionNumber inStorage:storage];
+        [ANStorageUpdater createSectionIfNotExist:sectionIndex inStorage:storage];
     };
     
     // then
@@ -314,11 +314,11 @@
 {
     // given
     ANStorageModel* storage = nil;
-    NSInteger sectionNumber = storage.sections.count;
+    NSInteger sectionIndex = storage.sections.count;
     
     // when
     void(^testBlock)() = ^() {
-        [ANStorageUpdater createSectionIfNotExist:sectionNumber inStorage:storage];
+        [ANStorageUpdater createSectionIfNotExist:sectionIndex inStorage:storage];
     };
     
     // then

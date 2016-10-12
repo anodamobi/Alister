@@ -212,10 +212,10 @@
                                                          inStorage:self.storageModel];
 }
 
-- (id)supplementaryModelOfKind:(NSString*)kind forSectionIndex:(NSUInteger)sectionNumber
+- (id)supplementaryModelOfKind:(NSString*)kind forSectionIndex:(NSUInteger)sectionIndex
 {
     return [ANStorageSupplementaryManager supplementaryModelOfKind:kind
-                                                   forSectionIndex:sectionNumber
+                                                   forSectionIndex:sectionIndex
                                                          inStorage:self.storageModel];
 }
 

@@ -52,9 +52,9 @@
     return update;
 }
 
-+ (id)supplementaryModelOfKind:(NSString*)kind forSectionIndex:(NSUInteger)sectionNumber inStorage:(ANStorageModel*)storage
++ (id)supplementaryModelOfKind:(NSString*)kind forSectionIndex:(NSUInteger)sectionIndex inStorage:(ANStorageModel*)storage
 {
-    ANStorageSectionModel* sectionModel = [ANStorageLoader sectionAtIndex:sectionNumber inStorage:storage];
+    ANStorageSectionModel* sectionModel = [ANStorageLoader sectionAtIndex:sectionIndex inStorage:storage];
     return [sectionModel supplementaryModelOfKind:kind];
 }
 

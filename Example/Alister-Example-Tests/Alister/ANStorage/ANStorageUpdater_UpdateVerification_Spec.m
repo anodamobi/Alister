@@ -257,6 +257,37 @@ describe(@"reloadItem:", ^{
 });
 
 
+describe(@"reloadItems: inStorage:", ^{
+    
+    it(@"item reloaded if exists", ^{
+        
+        NSString* item = @"test";
+        [ANStorageUpdater addItem:item toStorage:storage];
+        ANStorageUpdateModel* update = [ANStorageUpdater reloadItem:item inStorage:storage];
+        
+        ANStorageUpdateModel* expected = [ANStorageUpdateModel new];
+        [expected addUpdatedIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]]];
+        
+        expect(update).equal(expected);
+    });
+    
+    it(@"no assert if items not exists in storageModel", ^{
+        ANStorageUpdateModel* update = [ANStorageUpdater reloadItems:@[@"test"] inStorage:storage];
+        expect(update.isEmpty).beTruthy();
+    });
+    
+    it(@"no assert if item is nil", ^{
+        ANStorageUpdateModel* update = [ANStorageUpdater reloadItems:nil inStorage:storage];
+        expect(update.isEmpty).beTruthy();
+    });
+    
+    it(@"no assert if storage is nil", ^{
+        ANStorageUpdateModel* update = [ANStorageUpdater reloadItems:@[@"test"] inStorage:nil];
+        expect(update.isEmpty).beTruthy();
+    });
+});
+
+
 describe(@"replaceItem: withItem:", ^{
     
     __block NSString* item = @"test";

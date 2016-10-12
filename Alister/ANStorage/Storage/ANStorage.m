@@ -138,9 +138,9 @@
     return [self.controller footerModelForSectionIndex:index];
 }
 
-- (id)supplementaryModelOfKind:(NSString*)kind forSectionIndex:(NSUInteger)sectionNumber
+- (id)supplementaryModelOfKind:(NSString*)kind forSectionIndex:(NSUInteger)sectionIndex
 {
-    return [self.controller supplementaryModelOfKind:kind forSectionIndex:sectionNumber];
+    return [self.controller supplementaryModelOfKind:kind forSectionIndex:sectionIndex];
 }
 
 - (NSArray*)itemsInSection:(NSUInteger)sectionIndex

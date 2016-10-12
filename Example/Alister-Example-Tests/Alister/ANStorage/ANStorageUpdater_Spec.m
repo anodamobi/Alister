@@ -10,6 +10,9 @@
 #import <Alister/ANStorageModel.h>
 #import <Alister/ANStorageUpdateModel.h>
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wnonnull"
+
 SpecBegin(ANStorageUpdater_CRUD)
 
 __block ANStorageModel* storage = nil;
@@ -273,6 +276,31 @@ describe(@"reloadItem:", ^{
 });
 
 
+describe(@"reloadItems: inStorage:", ^{
+    
+    it(@"no assert if items not exists in storageModel", ^{
+        void(^block)() = ^() {
+            [ANStorageUpdater reloadItems:@[@"test"] inStorage:storage];
+        };
+        expect(block).notTo.raiseAny();
+    });
+    
+    it(@"no assert if item is nil", ^{
+        void(^block)() = ^() {
+            [ANStorageUpdater reloadItems:nil inStorage:storage];
+        };
+        expect(block).notTo.raiseAny();
+    });
+    
+    it(@"no assert if storage is nil", ^{
+        void(^block)() = ^() {
+            [ANStorageUpdater reloadItems:@[@"test"] inStorage:nil];
+        };
+        expect(block).notTo.raiseAny();
+    });
+});
+
+
 describe(@"replaceItem: withItem:", ^{
     
     it(@"no assert if new item is nil", ^{
@@ -379,5 +407,11 @@ describe(@"moveItemFromIndexPath: toIndexPath:", ^{
     });
 });
 
+
+describe(@"createSectionIfNotExist:inStorage: ", ^{
+    failure(@"Pending");
+});
+
+#pragma clang diagnostic pop
 
 SpecEnd

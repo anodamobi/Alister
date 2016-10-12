@@ -73,12 +73,12 @@
     return foundedIndexPath;
 }
 
-+ (NSArray*)itemsInSection:(NSUInteger)sectionNumber inStorage:(ANStorageModel*)storage
++ (NSArray*)itemsInSection:(NSUInteger)sectionIndex inStorage:(ANStorageModel*)storage
 {
     NSArray* objects = nil;
-    if ([storage.sections count] > sectionNumber)
+    if ([storage.sections count] > sectionIndex)
     {
-        ANStorageSectionModel* section = storage.sections[sectionNumber];
+        ANStorageSectionModel* section = storage.sections[sectionIndex];
         objects = [section objects];
     }
     return objects;

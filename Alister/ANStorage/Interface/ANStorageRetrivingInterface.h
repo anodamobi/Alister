@@ -22,7 +22,7 @@
 - (id)headerModelForSectionIndex:(NSUInteger)index;
 - (id)footerModelForSectionIndex:(NSUInteger)index;
 
-- (id)supplementaryModelOfKind:(NSString*)kind forSectionIndex:(NSUInteger)sectionNumber;
+- (id)supplementaryModelOfKind:(NSString*)kind forSectionIndex:(NSUInteger)sectionIndex;
 
 - (BOOL)isEmpty;
 

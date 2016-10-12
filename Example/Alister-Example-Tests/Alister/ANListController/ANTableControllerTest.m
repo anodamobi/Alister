@@ -330,8 +330,8 @@
     //then
     [self.listController addUpdatesFinsihedTriggerBlock:^{
         __strong typeof(welf) strongSelf = welf;
-        NSInteger sectionNumber = [strongSelf.listController numberOfSectionsInTableView:self.tw];
-        XCTAssertEqual(sectionNumber, expectedSectionCount);
+        NSInteger sectionIndex = [strongSelf.listController numberOfSectionsInTableView:self.tw];
+        XCTAssertEqual(sectionIndex, expectedSectionCount);
         [expectation fulfill];
     }];
     

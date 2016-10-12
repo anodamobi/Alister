@@ -29,12 +29,12 @@
     return [self addItems:items toSection:0 toStorage:model];
 }
 
-+ (ANStorageUpdateModel*)addItem:(id)item toSection:(NSUInteger)sectionNumber toStorage:(ANStorageModel*)model
++ (ANStorageUpdateModel*)addItem:(id)item toSection:(NSUInteger)sectionIndex toStorage:(ANStorageModel*)model
 {
     ANStorageUpdateModel* update = [ANStorageUpdateModel new];
     if (item)
     {
-        update = [self addItems:@[item] toSection:sectionNumber toStorage:model];
+        update = [self addItems:@[item] toSection:sectionIndex toStorage:model];
     }
     else
     {
@@ -43,13 +43,13 @@
     return update;
 }
 
-+ (ANStorageUpdateModel*)addItems:(NSArray*)items toSection:(NSInteger)sectionNumber toStorage:(ANStorageModel*)storage
++ (ANStorageUpdateModel*)addItems:(NSArray*)items toSection:(NSInteger)sectionIndex toStorage:(ANStorageModel*)storage
 {
     ANStorageUpdateModel* update = [ANStorageUpdateModel new];
-    if (ANIsIndexValid(sectionNumber) && !ANIsEmpty(items) && storage)
+    if (ANIsIndexValid(sectionIndex) && !ANIsEmpty(items) && storage)
     {
-        NSIndexSet* insertedSections = [self createSectionIfNotExist:sectionNumber inStorage:storage];
-        ANStorageSectionModel* section = [ANStorageLoader sectionAtIndex:sectionNumber inStorage:storage];
+        NSIndexSet* insertedSections = [self createSectionIfNotExist:sectionIndex inStorage:storage];
+        ANStorageSectionModel* section = [ANStorageLoader sectionAtIndex:sectionIndex inStorage:storage];
         
         NSInteger numberOfItems = [section numberOfObjects];
         NSMutableArray* insertedIndexPaths = [NSMutableArray array];
@@ -57,7 +57,7 @@
         {
             [section addItem:item];
             [insertedIndexPaths addObject:[NSIndexPath indexPathForRow:numberOfItems
-                                                             inSection:sectionNumber]];
+                                                             inSection:sectionIndex]];
             numberOfItems++;
         }
         
@@ -169,12 +169,12 @@
     return update;
 }
 
-+ (NSIndexSet*)createSectionIfNotExist:(NSUInteger)sectionNumber inStorage:(ANStorageModel*)storage
++ (NSIndexSet*)createSectionIfNotExist:(NSUInteger)sectionIndex inStorage:(ANStorageModel*)storage
 {
     NSMutableIndexSet* insertedSectionIndexes = [NSMutableIndexSet indexSet];
-    if (sectionNumber < ANStorageMaxItemsCount)
+    if (sectionIndex < ANStorageMaxItemsCount)
     {
-        for (NSUInteger sectionIterator = storage.sections.count; sectionIterator <= sectionNumber; sectionIterator++)
+        for (NSUInteger sectionIterator = storage.sections.count; sectionIterator <= sectionIndex; sectionIterator++)
         {
             [storage addSection:[ANStorageSectionModel new]];
             [insertedSectionIndexes addIndex:sectionIterator];
@@ -182,7 +182,7 @@
     }
     else
     {
-        NSAssert(NO, @"Section number is too big %lu, check is everything ok? please submit issue", (unsigned long)sectionNumber);
+        NSAssert(NO, @"Section number is too big %lu, check is everything ok? please submit issue", (unsigned long)sectionIndex);
     }
     
     return insertedSectionIndexes;
