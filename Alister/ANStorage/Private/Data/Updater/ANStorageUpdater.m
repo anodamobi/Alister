@@ -40,6 +40,7 @@
     {
         ANStorageLog(@"You trying to add nil item in storage");
     }
+    
     return update;
 }
 
@@ -64,6 +65,7 @@
         [update addInsertedSectionIndexes:insertedSections];
         [update addInsertedIndexPaths:insertedIndexPaths];
     }
+    
     return update;
 }
 
@@ -92,6 +94,7 @@
             [update addInsertedIndexPaths:@[indexPath]];
         }
     }
+    
     return update;
 }
 
@@ -110,6 +113,7 @@
     {
         ANStorageLog(@"ANStorage: failed to replace item %@ at indexPath: %@", replacingItem, originalIndexPath);
     }
+    
     return update;
 }
 
@@ -142,6 +146,7 @@
             [update addMovedIndexPaths:@[path]];
         }
     }
+    
     return update;
 }
 
@@ -155,6 +160,7 @@
     {
         update = [self reloadItems:@[item] inStorage:storage];
     }
+    
     return update;
 }
 
@@ -166,13 +172,14 @@
     {
         [update addUpdatedIndexPaths:indexPathesArrayToReload];
     }
+    
     return update;
 }
 
-+ (NSIndexSet*)createSectionIfNotExist:(NSUInteger)sectionIndex inStorage:(ANStorageModel*)storage
++ (NSIndexSet*)createSectionIfNotExist:(NSInteger)sectionIndex inStorage:(ANStorageModel*)storage
 {
     NSMutableIndexSet* insertedSectionIndexes = [NSMutableIndexSet indexSet];
-    if (sectionIndex < ANStorageMaxItemsCount)
+    if (ANIsIndexValid(sectionIndex) && storage)
     {
         for (NSUInteger sectionIterator = storage.sections.count; sectionIterator <= sectionIndex; sectionIterator++)
         {
@@ -182,7 +189,7 @@
     }
     else
     {
-        NSAssert(NO, @"Section number is too big %lu, check is everything ok? please submit issue", (unsigned long)sectionIndex);
+        ANStorageLog(@"index for new section is invalid");
     }
     
     return insertedSectionIndexes;

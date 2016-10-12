@@ -163,7 +163,7 @@ NS_ASSUME_NONNULL_BEGIN
  @return NSIndexSet* that contains indexes of all creted sections.
  */
 
-+ (NSIndexSet*)createSectionIfNotExist:(NSUInteger)sectionIndex inStorage:(ANStorageModel*)storage;
++ (NSIndexSet*)createSectionIfNotExist:(NSInteger)sectionIndex inStorage:(ANStorageModel*)storage;
 
 NS_ASSUME_NONNULL_END
 
