@@ -31,24 +31,23 @@
 
 + (ANStorageUpdateModel*)addItem:(id)item toSection:(NSUInteger)sectionNumber toStorage:(ANStorageModel*)model
 {
+    ANStorageUpdateModel* update = [ANStorageUpdateModel new];
     if (item)
     {
-        return [self addItems:@[item] toSection:sectionNumber toStorage:model];
+        update = [self addItems:@[item] toSection:sectionNumber toStorage:model];
     }
     else
     {
         ANStorageLog(@"You trying to add nil item in storage");
     }
-    return nil;
+    return update;
 }
 
 + (ANStorageUpdateModel*)addItems:(NSArray*)items toSection:(NSInteger)sectionNumber toStorage:(ANStorageModel*)storage
 {
-    ANStorageUpdateModel* update = nil;
+    ANStorageUpdateModel* update = [ANStorageUpdateModel new];
     if (ANIsIndexValid(sectionNumber) && !ANIsEmpty(items) && storage)
     {
-        update = [ANStorageUpdateModel new];
-        
         NSIndexSet* insertedSections = [self createSectionIfNotExist:sectionNumber inStorage:storage];
         ANStorageSectionModel* section = [ANStorageLoader sectionAtIndex:sectionNumber inStorage:storage];
         
@@ -70,7 +69,7 @@
 
 + (ANStorageUpdateModel*)addItem:(id)item atIndexPath:(NSIndexPath*)indexPath toStorage:(ANStorageModel*)storage
 {
-    ANStorageUpdateModel* update = nil;
+    ANStorageUpdateModel* update = [ANStorageUpdateModel new];
     if (indexPath && item && storage)
     {
         NSIndexSet* insertedSections = [self createSectionIfNotExist:(NSUInteger)indexPath.section
@@ -88,8 +87,6 @@
         }
         else
         {
-            update = [ANStorageUpdateModel new];
-            
             [section insertItem:item atIndex:(NSUInteger)indexPath.row];
             [update addInsertedSectionIndexes:insertedSections];
             [update addInsertedIndexPaths:@[indexPath]];
@@ -123,14 +120,14 @@
     ANStorageUpdateModel* update = [ANStorageUpdateModel new];
     if (fromIndexPath && toIndexPath)
     {
-        ANStorageSectionModel* fromSection = [ANStorageLoader sectionAtIndex:(NSUInteger)fromIndexPath.section
+        ANStorageSectionModel* fromSection = [ANStorageLoader sectionAtIndex:fromIndexPath.section
                                                                    inStorage:storage];
         if (fromSection)
         {
-            NSIndexSet* insertedSections = [self createSectionIfNotExist:(NSUInteger)toIndexPath.section
+            NSIndexSet* insertedSections = [self createSectionIfNotExist:toIndexPath.section
                                                                inStorage:storage];
             
-            ANStorageSectionModel* toSection = [ANStorageLoader sectionAtIndex:(NSUInteger)toIndexPath.section
+            ANStorageSectionModel* toSection = [ANStorageLoader sectionAtIndex:toIndexPath.section
                                                                      inStorage:storage];
             id tableItem = [ANStorageLoader itemAtIndexPath:fromIndexPath inStorage:storage];
             
@@ -151,25 +148,22 @@
 
 #pragma mark - Reload Items
 
-+ (ANStorageUpdateModel*)reloadItem:(id)item inStorage:(ANStorageModel*)storage //TODO:
++ (ANStorageUpdateModel*)reloadItem:(id)item inStorage:(ANStorageModel*)storage
 {
-    ANStorageUpdateModel* update = nil;
-    NSIndexPath* indexPathToReload = [ANStorageLoader indexPathForItem:item inStorage:storage];
-    if (indexPathToReload)
+    ANStorageUpdateModel* update = [ANStorageUpdateModel new];
+    if (item)
     {
-        update = [ANStorageUpdateModel new];
-        [update addUpdatedIndexPaths:@[indexPathToReload]];
+        update = [self reloadItems:@[item] inStorage:storage];
     }
     return update;
 }
 
 + (ANStorageUpdateModel*)reloadItems:(NSArray*)items inStorage:(ANStorageModel*)storage
 {
-    ANStorageUpdateModel* update = nil;
+    ANStorageUpdateModel* update = [ANStorageUpdateModel new];
     NSArray* indexPathesArrayToReload = [ANStorageLoader indexPathArrayForItems:items inStorage:storage];
     if (indexPathesArrayToReload)
     {
-        update = [ANStorageUpdateModel new];
         [update addUpdatedIndexPaths:indexPathesArrayToReload];
     }
     return update;

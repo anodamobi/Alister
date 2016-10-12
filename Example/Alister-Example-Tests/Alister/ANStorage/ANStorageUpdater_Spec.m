@@ -248,8 +248,6 @@ describe(@"addItem: atIndexPath:", ^{
 });
 
 
-//Reload items
-
 describe(@"reloadItem:", ^{
     
     it(@"no assert if item not exists in storageModel", ^{
@@ -273,13 +271,6 @@ describe(@"reloadItem:", ^{
         expect(block).notTo.raiseAny();
     });
 });
-
-
-
-
-
-
-
 
 
 describe(@"replaceItem: withItem:", ^{
@@ -310,9 +301,16 @@ describe(@"replaceItem: withItem:", ^{
         expect([storage itemsInSection:0]).contain(item);
     });
     
-    it(@"no assert if old item is nil", ^{
+    it(@"no assert if storage is nil", ^{
         void(^block)() = ^() {
             [ANStorageUpdater replaceItem:nil withItem:@"test"  inStorage:storage];
+        };
+        expect(block).notTo.raiseAny();
+    });
+    
+    it(@"no assert if old item is nil", ^{
+        void(^block)() = ^() {
+            [ANStorageUpdater replaceItem:@"test" withItem:@"test"  inStorage:nil];
         };
         expect(block).notTo.raiseAny();
     });
@@ -358,6 +356,13 @@ describe(@"moveItemFromIndexPath: toIndexPath:", ^{
     it(@"no assert if both indexPaths are nil", ^{
         void(^block)() = ^() {
             [ANStorageUpdater moveItemFromIndexPath:nil toIndexPath:nil inStorage:storage];
+        };
+        expect(block).notTo.raiseAny();
+    });
+    
+    it(@"no assert if storage is nil", ^{
+        void(^block)() = ^() {
+            [ANStorageUpdater moveItemFromIndexPath:fromIndexPath toIndexPath:toIndexPath inStorage:nil];
         };
         expect(block).notTo.raiseAny();
     });
