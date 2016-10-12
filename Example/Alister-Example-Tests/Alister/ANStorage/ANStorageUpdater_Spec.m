@@ -209,6 +209,7 @@ describe(@"addItem: atIndexPath:", ^{
     it(@"added item equal to retrived from storage", ^{
         NSString* item = @"test";
         NSIndexPath* indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+        [ANStorageUpdater addItem:@"item" toStorage:storage];
         [ANStorageUpdater addItem:item atIndexPath:indexPath toStorage:storage];
         
         expect([storage itemAtIndexPath:indexPath]).equal(item);
