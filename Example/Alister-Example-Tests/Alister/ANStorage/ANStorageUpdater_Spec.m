@@ -409,9 +409,42 @@ describe(@"moveItemFromIndexPath: toIndexPath:", ^{
 
 
 describe(@"createSectionIfNotExist:inStorage: ", ^{
-    failure(@"Pending");
+    
+    it(@"successfully created section at specified index", ^{
+        [ANStorageUpdater addItem:@"test" toStorage:storage];
+        expect([storage sectionAtIndex:0]).notTo.beNil();
+    });
+    
+    it(@"no exception if section already exists", ^{
+        [ANStorageUpdater addItem:@"test" toStorage:storage];
+        void(^block)() = ^() {
+            [ANStorageUpdater createSectionIfNotExist:0 inStorage:storage];
+        };
+        expect(block).notTo.raiseAny();
+    });
+    
+    it(@"no assert if index is negative", ^{
+        void(^block)() = ^() {
+            [ANStorageUpdater createSectionIfNotExist:-1 inStorage:storage];
+        };
+        expect(block).notTo.raiseAny();
+    });
+    
+    it(@"no assert if index is NSNotFound", ^{
+        void(^block)() = ^() {
+            [ANStorageUpdater createSectionIfNotExist:NSNotFound inStorage:storage];
+        };
+        expect(block).notTo.raiseAny();
+    });
+    
+    it(@"no assert if storage is nil", ^{
+        void(^block)() = ^() {
+            [ANStorageUpdater createSectionIfNotExist:0 inStorage:nil];
+        };
+        expect(block).notTo.raiseAny();
+    });
 });
 
-#pragma clang diagnostic pop
-
 SpecEnd
+
+#pragma clang diagnostic pop

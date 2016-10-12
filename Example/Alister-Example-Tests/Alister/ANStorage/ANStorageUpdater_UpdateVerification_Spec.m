@@ -10,6 +10,9 @@
 #import <Alister/ANStorageModel.h>
 #import <Alister/ANStorageUpdateModel.h>
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wnonnull"
+
 SpecBegin(ANStorageUpdater_UpdateVerification)
 
 __block ANStorageModel* storage = nil;
@@ -271,17 +274,17 @@ describe(@"reloadItems: inStorage:", ^{
         expect(update).equal(expected);
     });
     
-    it(@"no assert if items not exists in storageModel", ^{
+    it(@"update will be empty if items not exists in storageModel", ^{
         ANStorageUpdateModel* update = [ANStorageUpdater reloadItems:@[@"test"] inStorage:storage];
         expect(update.isEmpty).beTruthy();
     });
     
-    it(@"no assert if item is nil", ^{
+    it(@"update will be empty if item is nil", ^{
         ANStorageUpdateModel* update = [ANStorageUpdater reloadItems:nil inStorage:storage];
         expect(update.isEmpty).beTruthy();
     });
     
-    it(@"no assert if storage is nil", ^{
+    it(@"update will be empty if storage is nil", ^{
         ANStorageUpdateModel* update = [ANStorageUpdater reloadItems:@[@"test"] inStorage:nil];
         expect(update.isEmpty).beTruthy();
     });
@@ -379,4 +382,36 @@ describe(@"moveItemFromIndexPath: toIndexPath:", ^{
     });
 });
 
+
+describe(@"createSectionIfNotExist:inStorage: ", ^{
+    
+    it(@"successfully created section at specified index", ^{
+        NSIndexSet* update = [ANStorageUpdater createSectionIfNotExist:0 inStorage:storage];
+        expect(update).equal([NSIndexSet indexSetWithIndex:0]);
+    });
+    
+    it(@"no exception if section already exists", ^{
+        [ANStorageUpdater addItem:@"test" toStorage:storage];
+        NSIndexSet* update =  [ANStorageUpdater createSectionIfNotExist:0 inStorage:storage];
+        expect(update).haveCount(0);
+    });
+    
+    it(@"update will be empty if index is negative", ^{
+        NSIndexSet* update = [ANStorageUpdater createSectionIfNotExist:-1 inStorage:storage];
+        expect(update).haveCount(0);
+    });
+    
+    it(@"update will be empty if index is NSNotFound", ^{
+        NSIndexSet* update = [ANStorageUpdater createSectionIfNotExist:NSNotFound inStorage:storage];
+        expect(update).haveCount(0);
+    });
+    
+    it(@"update will be empty if storage is nil", ^{
+        NSIndexSet* update = [ANStorageUpdater createSectionIfNotExist:0 inStorage:nil];
+        expect(update).haveCount(0);
+    });
+});
+
 SpecEnd
+
+#pragma clang diagnostic pop
