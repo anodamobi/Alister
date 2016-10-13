@@ -11,6 +11,9 @@
 #import <Alister/ANStorageModel.h>
 #import <Alister/ANStorageUpdateModel.h>
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wnonnull"
+
 SpecBegin(ANStorageRemoverSpec)
 
 __block ANStorageModel* storage = nil;
@@ -194,3 +197,5 @@ describe(@"removeSections:", ^{
 });
 
 SpecEnd
+
+#pragma clang diagnostic pop

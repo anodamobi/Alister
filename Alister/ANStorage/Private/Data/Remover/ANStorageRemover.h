@@ -18,6 +18,8 @@
  
  */
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface ANStorageRemover : NSObject
 
 
@@ -76,3 +78,5 @@
 + (ANStorageUpdateModel*)removeAllItemsAndSectionsFromStorage:(ANStorageModel*)storage;
 
 @end
+
+NS_ASSUME_NONNULL_END

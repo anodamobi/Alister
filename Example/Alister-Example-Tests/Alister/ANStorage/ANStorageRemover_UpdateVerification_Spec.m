@@ -11,6 +11,9 @@
 #import <Alister/ANStorageUpdateModel.h>
 #import <Alister/ANStorageRemover.h>
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wnonnull"
+
 SpecBegin(ANStorageRemover_UpdateVerification_Spec)
 
 __block ANStorageModel* storage = nil;
@@ -22,3 +25,5 @@ beforeEach(^{
 
 
 SpecEnd
+
+#pragma clang diagnostic pop
