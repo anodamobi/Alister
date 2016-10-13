@@ -390,7 +390,7 @@ describe(@"createSectionIfNotExist:inStorage: ", ^{
         expect(update).equal([NSIndexSet indexSetWithIndex:0]);
     });
     
-    it(@"no exception if section already exists", ^{
+    it(@"changed indexes are empty if section already exists", ^{
         [ANStorageUpdater addItem:@"test" toStorage:storage];
         NSIndexSet* update =  [ANStorageUpdater createSectionIfNotExist:0 inStorage:storage];
         expect(update).haveCount(0);
