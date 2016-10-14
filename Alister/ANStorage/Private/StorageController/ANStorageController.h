@@ -13,9 +13,22 @@
 @class ANStorageModel;
 @class ANStorageUpdateModel;
 
+/**
+ This class is like public proxy between public interface methods 
+ and private classes ANStorageLoader, ANStorageUpdater and ANStorageRemover.
+ */
 @interface ANStorageController : NSObject <ANStorageUpdatableInterface, ANStorageRetrivingInterface>
 
-@property (nonatomic, strong) ANStorageModel* storageModel;
-@property (nonatomic, weak) id<ANStorageUpdateOperationInterface> updateDelegate;
+
+/**
+ Current storage model that contains all items
+ */
+@property (nonatomic, strong, nonnull) ANStorageModel* storageModel;
+
+
+/**
+ Delegate for receiving updates
+ */
+@property (nonatomic, weak, nullable) id<ANStorageUpdateOperationInterface> updateDelegate;
 
 @end
