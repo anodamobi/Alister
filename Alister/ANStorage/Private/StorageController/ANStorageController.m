@@ -229,4 +229,19 @@
     return self.storageModel.headerKind;
 }
 
+
+#pragma mark - Private
+
+- (void)setUpdateDelegate:(id<ANStorageUpdateOperationInterface>)updateDelegate
+{
+    if ([updateDelegate conformsToProtocol:@protocol(ANStorageUpdateOperationInterface)] || !updateDelegate)
+    {
+        _updateDelegate = updateDelegate;
+    }
+    else
+    {
+        NSAssert(NO, @"Delegate must conforms to protocol");
+    }
+}
+
 @end
