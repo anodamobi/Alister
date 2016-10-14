@@ -28,7 +28,7 @@
     self = [super init];
     if (self)
     {
-        self.deletedRowIndexPaths = [NSMutableArray new];
+        self.deletedRowIndexPaths = [NSMutableArray new]; //TODO: check NSMutableSet option.
         self.insertedRowIndexPaths = [NSMutableArray new];
         self.updatedRowIndexPaths = [NSMutableArray new];
         self.movedRowsIndexPaths = [NSMutableArray new];
