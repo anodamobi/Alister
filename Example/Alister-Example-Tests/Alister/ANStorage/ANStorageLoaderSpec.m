@@ -6,34 +6,161 @@
 //  Copyright © 2016 Oksana Kovalchuk. All rights reserved.
 //
 
-#import <XCTest/XCTest.h>
+#import <Alister/ANStorageLoader.h>
+#import <Alister/ANStorageModel.h>
+#import <Alister/ANStorageUpdater.h>
+#import <Alister/ANStorageSectionModel.h>
 
-@interface ANStorageLoaderSpec : XCTestCase
+SpecBegin()
 
-@end
+__block ANStorageModel* storage = nil;
 
-@implementation ANStorageLoaderSpec
+beforeEach(^{
+    storage = [ANStorageModel new];
+});
 
-- (void)setUp {
-    [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
-}
 
-- (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    [super tearDown];
-}
+describe(@"itemAtIndexPath:", ^{
+    
+    __block NSString* item = @"test";
+    
+    beforeEach(^{
+        [ANStorageUpdater addItem:item toStorage:storage];
+    });
+    
+    it(@"correctly returns item", ^{
+        id result = [ANStorageLoader itemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] inStorage:storage];
+        expect(result).equal(item);
+    });
+    
+    it(@"no assert if indexPath is nil", ^{
+        void(^block)() = ^() {
+            [ANStorageLoader itemAtIndexPath:nil inStorage:storage];
+        };
+        expect(block).notTo.raiseAny();
+    });
+    
+    it(@"no assert if storage is nil", ^{
+        void(^block)() = ^() {
+            [ANStorageLoader itemAtIndexPath:[NSIndexPath indexPathWithIndex:0] inStorage:nil];
+        };
+        expect(block).notTo.raiseAny();
+    });
+});
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
-}
 
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
-}
+describe(@"sectionAtIndex:", ^{
+    
+    it(@"returns nil if section not exist", ^{
+        expect([ANStorageLoader sectionAtIndex:2 inStorage:storage]).to.beNil();
+    });
+    
+    it(@"returns correct section if it exists", ^{
+        NSString* item = @"test";
+        [ANStorageUpdater addItem:item toStorage:storage];
+        ANStorageSectionModel* sectionModel = [ANStorageLoader sectionAtIndex:0 inStorage:storage];
+        
+        expect(sectionModel.objects).contain(item);
+    });
+    
+    it(@"no assert if index is out of bounds", ^{
+        void(^block)() = ^() {
+            [ANStorageLoader sectionAtIndex:2 inStorage:storage];
+        };
+        expect(block).notTo.raiseAny();
+    });
+    
+    it(@"no assert if index is NSNotFound", ^{
+        void(^block)() = ^() {
+            [ANStorageLoader sectionAtIndex:NSNotFound inStorage:storage];
+        };
+        expect(block).notTo.raiseAny();
+    });
+    
+    it(@"no assert if storage is nil", ^{
+        void(^block)() = ^() {
+            [ANStorageLoader sectionAtIndex:1 inStorage:nil];
+        };
+        expect(block).notTo.raiseAny();
+    });
+    
+    it(@"no assert if index is negative", ^{
+        void(^block)() = ^() {
+            [ANStorageLoader sectionAtIndex:-1 inStorage:storage];
+        };
+        expect(block).notTo.raiseAny();
+    });
+});
 
-@end
+
+describe(@"itemsInSection:", ^{
+    
+    it(@"returns specified items", ^{
+        NSArray* items = @[@"test", @"test2"];
+        [ANStorageUpdater addItems:items toStorage:storage];
+        
+        expect([ANStorageLoader itemsInSection:0 inStorage:storage]).equal(items);
+    });
+    
+    it(@"no assert if index is out of bounds", ^{
+        void(^block)() = ^() {
+            [ANStorageLoader itemsInSection:1 inStorage:storage];
+        };
+        expect(block).notTo.raiseAny();
+    });
+    
+    it(@"no assert if storage is nil", ^{
+        void(^block)() = ^() {
+            [ANStorageLoader itemsInSection:1 inStorage:nil];
+        };
+        expect(block).notTo.raiseAny();
+    });
+    
+    it(@"no assert it index is NSNotFound", ^{
+        void(^block)() = ^() {
+            [ANStorageLoader itemsInSection:NSNotFound inStorage:storage];
+        };
+        expect(block).notTo.raiseAny();
+    });
+    
+    it(@"no assert if index is negative", ^{
+        void(^block)() = ^() {
+            [ANStorageLoader itemsInSection:-1 inStorage:storage];
+        };
+        expect(block).notTo.raiseAny();
+    });
+});
+
+
+describe(@"indexPathForItem:", ^{
+    
+    __block NSString* item = @"test";
+    
+    beforeEach(^{
+        [ANStorageUpdater addItem:item toStorage:storage];
+    });
+    
+    it(@"returns nil if item not exists in storageModel", ^{
+        expect([ANStorageLoader indexPathForItem:@"some" inStorage:storage]).to.beNil();
+    });
+    
+    it(@"returns specified item", ^{
+        expect([ANStorageLoader indexPathForItem:item inStorage:storage]).equal([NSIndexPath indexPathForRow:0 inSection:0]);
+    });
+    
+    it(@"no assert if item is nil", ^{
+        void(^block)() = ^() {
+            [ANStorageLoader indexPathForItem:nil inStorage:storage];
+        };
+        expect(block).notTo.raiseAny();
+    });
+    
+    it(@"no assert if storage is nil", ^{
+        void(^block)() = ^() {
+            [ANStorageLoader indexPathForItem:[NSIndexPath indexPathWithIndex:0] inStorage:nil];
+        };
+        expect(block).notTo.raiseAny();
+    });
+});
+
+SpecEnd
