@@ -30,6 +30,7 @@
     {
         ANStorageLog(@"ANStorage: item to delete: %@ was not found", item);
     }
+    
     return update;
 }
 
@@ -54,6 +55,7 @@
             ANStorageLog(@"ANStorage: item to delete was not found at indexPath : %@ ", indexPath);
         }
     }];
+    
     return update;
 }
 
@@ -62,8 +64,9 @@
     ANStorageUpdateModel* update = [ANStorageUpdateModel new];
     NSMutableArray* indexPaths = [NSMutableArray array];
     
-    [items enumerateObjectsUsingBlock:^(id  _Nonnull item, __unused BOOL*  _Nonnull stop) {
-       
+    NSArray* sortedItemsArray = [[[items allObjects] reverseObjectEnumerator] allObjects];
+    
+    [sortedItemsArray enumerateObjectsUsingBlock:^(id  _Nonnull item, NSUInteger idx, BOOL * _Nonnull stop) {
         NSIndexPath* indexPath = [ANStorageLoader indexPathForItem:item inStorage:storage];
         if (indexPath)
         {
@@ -74,6 +77,7 @@
     }];
     
     [update addDeletedIndexPaths:indexPaths];
+    
     return update;
 }
 
@@ -85,6 +89,7 @@
         [storage removeAllSections];
         update.isRequireReload = YES;
     }
+    
     return update;
 }
 
@@ -100,6 +105,7 @@
             [update addDeletedSectionIndex:reversedCounter];
         }
     }
+    
     return update;
 }
 
