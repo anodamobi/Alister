@@ -11,6 +11,8 @@
 #import <Alister/ANStorageModel.h>
 #import <Alister/ANStorageUpdateModel.h>
 
+
+
 SpecBegin(ANStorageController_SupplemetariesTest)
 
 __block ANStorageController* controller = nil;
@@ -62,7 +64,7 @@ describe(@"updateSupplementaryFooterKind:", ^{
     
     it(@"should match storageModel value", ^{
         [controller updateSupplementaryFooterKind:@"test"];
-        expect(controller.headerSupplementaryKind).equal(controller.storageModel.headerKind);
+        expect(controller.storageModel.headerKind).equal(controller.storageModel.headerKind);
     });
 });
 
@@ -71,7 +73,7 @@ describe(@"footerModelForSectionIndex:", ^{
     
     it(@"should match storageModel value", ^{
         [controller updateSupplementaryFooterKind:@"test"];
-        expect(controller.footerSupplementaryKind).equal(controller.storageModel.footerKind);
+        expect(controller.storageModel.footerKind).equal(controller.storageModel.footerKind);
     });
 });
 
