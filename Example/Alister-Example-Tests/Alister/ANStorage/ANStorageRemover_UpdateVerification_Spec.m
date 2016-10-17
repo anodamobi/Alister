@@ -69,13 +69,11 @@ describe(@"removeItemsAtIndexPaths:", ^{
     });
     
     it(@"update will be empty if indexPaths are nil", ^{
-        
         ANStorageUpdateModel* update = [ANStorageRemover removeItemsAtIndexPaths:nil fromStorage:storage];
         expect(update.isEmpty).beTruthy();
     });
     
     it(@"update will be empty if storage is nil", ^{
-        
         ANStorageUpdateModel* update = [ANStorageRemover removeItemsAtIndexPaths:[NSSet setWithObject:indexPath]
                                                                      fromStorage:nil];
         expect(update.isEmpty).beTruthy();
@@ -93,13 +91,14 @@ describe(@"removeItemsAtIndexPaths:", ^{
 describe(@"removeItems:", ^{
     
     it(@"removes only specified items", ^{
-        NSString* item1 = @"item1";
-        NSString* item2 = @"item2";
-        [ANStorageUpdater addItems:@[item1, item2, @"test1", @"test2"] toStorage:storage];
-        ANStorageUpdateModel* update = [ANStorageRemover removeItems:[NSSet setWithObjects:item1, item2, nil]
+        
+        NSArray* items = @[@"item4", @"item5"];
+        
+        [ANStorageUpdater addItems:[items arrayByAddingObjectsFromArray:@[@"test1", @"test2"]] toStorage:storage];
+        ANStorageUpdateModel* update = [ANStorageRemover removeItems:[NSSet setWithArray:items]
                                                          fromStorage:storage];
         
-        ANStorageUpdateModel* expected = [ANStorageUpdateModel new]; //expect index pathes in reversed order
+        ANStorageUpdateModel* expected = [ANStorageUpdateModel new]; //TODO:expect index pathes in reversed order
         [expected addDeletedIndexPaths:@[[NSIndexPath indexPathForRow:1 inSection:0],
                                          [NSIndexPath indexPathForRow:0 inSection:0]]];
         
