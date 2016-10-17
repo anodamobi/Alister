@@ -9,7 +9,14 @@
 @class ANStorageModel;
 @class ANStorageUpdateModel;
 
+
+/**
+ Private class for register and retrive supplementary models from storage. 
+ You shouldn't use this class directly in your code.
+ */
+
 @interface ANStorageSupplementaryManager : NSObject
+
 
 /**
  Convention method for tables to register header model. 
@@ -41,6 +48,15 @@
                                   forSectionIndex:(NSUInteger)sectionIndex
                                         inStorage:(ANStorageModel*)storage;
 
+/**
+ Returns supplemetary model for specified section and with specified kind
+
+ @param kind         for model
+ @param sectionIndex for section to return
+ @param storage      where should be found model
+
+ @return viewModel with specified kind
+ */
 + (id)supplementaryModelOfKind:(NSString*)kind
                forSectionIndex:(NSUInteger)sectionIndex
                      inStorage:(ANStorageModel*)storage;
