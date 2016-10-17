@@ -8,6 +8,8 @@
 
 #import "ANStorageSectionModelInterface.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  Private class to store section objects in memory.
  You should not call this call directly.
@@ -18,13 +20,13 @@
 /**
  Array of all objects in this section
  */
-@property (nonatomic, strong, readonly, nonnull) NSArray* objects;
+@property (nonatomic, strong, readonly) NSArray* objects;
 
 
 /**
  Dictionary with supplementaries (headers, footers) models and kinds
  */
-@property (nonatomic, strong, readonly, nonnull) NSDictionary* supplementaryObjects;
+@property (nonatomic, strong, readonly) NSDictionary* supplementaryObjects;
 
 
 /**
@@ -32,7 +34,7 @@
 
  @param item to add. If item will be nil no expection will be generated.
  */
-- (void)addItem:(nonnull id)item;
+- (void)addItem:(id)item;
 
 
 /**
@@ -41,7 +43,7 @@
  @param item  item to add in storage
  @param index for item in the existing objects array
  */
-- (void)insertItem:(nonnull id)item atIndex:(NSUInteger)index;
+- (void)insertItem:(id)item atIndex:(NSUInteger)index;
 
 
 /**
@@ -59,6 +61,8 @@
  @param index index for item to replace
  @param item  new item to insert
  */
-- (void)replaceItemAtIndex:(NSUInteger)index withItem:(_Nonnull id)item;
+- (void)replaceItemAtIndex:(NSUInteger)index withItem:(id)item;
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -61,9 +61,9 @@
 
  @param index index for section
 
- @return ANStorageSectionModel object from storage
+ @return ANStorageSectionModel* object from storage
  */
-- (id)sectionAtIndex:(NSUInteger)index;
+- (ANStorageSectionModel*)sectionAtIndex:(NSUInteger)index;
 
 
 /**

@@ -10,7 +10,10 @@
 
 @protocol ANStorageUpdatingInterface <NSObject>
 
-- (void)storageDidPerformUpdate:(ANStorageUpdateOperation*)updateOperation withIdentifier:(NSString*)identifier animatable:(BOOL)shouldAnimate;
+- (void)storageDidPerformUpdate:(ANStorageUpdateOperation*)updateOperation
+                 withIdentifier:(NSString*)identifier
+                     animatable:(BOOL)shouldAnimate;
+
 - (void)storageNeedsReloadWithIdentifier:(NSString*)identifier animated:(BOOL)shouldAnimate;
 
 @end
