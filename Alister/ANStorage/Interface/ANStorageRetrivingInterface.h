@@ -23,6 +23,7 @@
  */
 - (BOOL)isEmpty;
 
+
 /**
  Returns all sections from storage including empty
 
@@ -106,6 +107,5 @@
  @return viewModel from storage
  */
 - (nullable id)supplementaryModelOfKind:(NSString*)kind forSectionIndex:(NSUInteger)sectionIndex;
-
 
 @end
