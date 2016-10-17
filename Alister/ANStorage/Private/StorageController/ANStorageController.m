@@ -170,7 +170,18 @@
     return (count == 0);
 }
 
+
 #pragma mark - Supplementaries
+
+- (void)updateSupplementaryHeaderKind:(NSString*)headerKind
+{
+    self.storageModel.headerKind = headerKind;
+}
+
+- (void)updateSupplementaryFooterKind:(NSString*)footerKind
+{
+    self.storageModel.footerKind = footerKind;
+}
 
 - (void)updateSectionHeaderModel:(id)headerModel forSectionIndex:(NSInteger)sectionIndex
 {
@@ -186,16 +197,6 @@
                                                                            forSectionIndex:sectionIndex
                                                                                  inStorage:self.storageModel];
     [self.updateDelegate collectUpdate:update];
-}
-
-- (void)updateSupplementaryHeaderKind:(NSString*)headerKind
-{
-    self.storageModel.headerKind = headerKind;
-}
-
-- (void)updateSupplementaryFooterKind:(NSString*)footerKind
-{
-    self.storageModel.footerKind = footerKind;
 }
 
 - (id)headerModelForSectionIndex:(NSUInteger)index
