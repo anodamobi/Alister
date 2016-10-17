@@ -11,7 +11,7 @@
 #import <Alister/ANStorageUpdater.h>
 #import <Alister/ANStorageSectionModel.h>
 
-SpecBegin()
+SpecBegin(ANStorageLoaderSpec)
 
 __block ANStorageModel* storage = nil;
 
