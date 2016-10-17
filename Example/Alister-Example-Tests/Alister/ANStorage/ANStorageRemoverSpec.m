@@ -14,7 +14,7 @@
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wnonnull"
 
-SpecBegin(ANStorageRemoverSpec)
+SpecBegin(ANStorageRemover)
 
 __block ANStorageModel* storage = nil;
 
@@ -95,11 +95,12 @@ describe(@"removeItemsAtIndexPaths:", ^{
 describe(@"removeItems:", ^{
     
     it(@"removes only specified items", ^{
-        NSString* item = @"test";
-        [ANStorageUpdater addItems:@[item, @"test2"] toStorage:storage];
-        [ANStorageRemover removeItems:[NSSet setWithObject:item] fromStorage:storage];
+        NSArray* specifiedItems = @[@"test1", @"test2", @"test3"];
         
-        expect([storage itemsInSection:0]).haveCount(1);
+        [ANStorageUpdater addItems:[specifiedItems arrayByAddingObjectsFromArray:@[@"test10", @"test30"]] toStorage:storage];
+        [ANStorageRemover removeItems:[NSSet setWithArray:specifiedItems] fromStorage:storage];
+        
+        expect([storage itemsInSection:0]).haveCount(2);
     });
     
     it(@"no assert if items are nil", ^{
