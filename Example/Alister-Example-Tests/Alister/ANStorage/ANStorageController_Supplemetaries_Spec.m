@@ -11,8 +11,6 @@
 #import <Alister/ANStorageModel.h>
 #import <Alister/ANStorageUpdateModel.h>
 
-
-
 SpecBegin(ANStorageController_SupplemetariesTest)
 
 __block ANStorageController* controller = nil;

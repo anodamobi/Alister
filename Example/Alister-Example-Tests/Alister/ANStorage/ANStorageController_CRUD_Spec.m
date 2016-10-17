@@ -269,7 +269,4 @@ describe(@"isEmpty", ^{
     });
 });
 
-
-
 SpecEnd
-
