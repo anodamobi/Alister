@@ -238,14 +238,6 @@ describe(@"sections", ^{
 });
 
 
-describe(@"itemAtIndexPath:", ^{
-    
-    it(@"responds to selector", ^{
-        expect(controller).respondTo(@selector(itemAtIndexPath:));
-    });
-});
-
-
 describe(@"sectionAtIndex:", ^{
 
     it(@"responds to selector", ^{

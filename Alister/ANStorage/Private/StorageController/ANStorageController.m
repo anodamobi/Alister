@@ -146,11 +146,6 @@
     return [ANStorageLoader itemsInSection:sectionIndex inStorage:self.storageModel];
 }
 
-- (id)itemAtIndexPath:(NSIndexPath*)indexPath
-{
-    return [ANStorageLoader itemAtIndexPath:indexPath inStorage:self.storageModel];
-}
-
 - (NSIndexPath*)indexPathForItem:(id)item
 {
     return [ANStorageLoader indexPathForItem:item inStorage:self.storageModel];

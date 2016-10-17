@@ -148,11 +148,6 @@
     return [self.controller itemsInSection:sectionIndex];
 }
 
-- (id)itemAtIndexPath:(NSIndexPath*)indexPath
-{
-    return [self.controller itemAtIndexPath:indexPath];
-}
-
 - (NSIndexPath*)indexPathForItem:(id)item
 {
     return [self.controller indexPathForItem:item];

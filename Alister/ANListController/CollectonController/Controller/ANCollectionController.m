@@ -111,7 +111,7 @@
 - (UICollectionViewCell*)collectionView:(__unused UICollectionView*)collectionView
                  cellForItemAtIndexPath:(NSIndexPath*)indexPath
 {
-    id model = [self.currentStorage objectAtIndexPath:indexPath];;
+    id model = [self.currentStorage objectAtIndexPath:indexPath];
     return [self.collectionManager cellForModel:model atIndexPath:indexPath];
 }
 
