@@ -93,15 +93,17 @@ describe(@"removeItemsAtIndexPaths:", ^{
 describe(@"removeItems:", ^{
     
     it(@"removes only specified items", ^{
-        NSString* item = @"test";
-        [ANStorageUpdater addItems:@[item, @"test2"] toStorage:storage];
-        ANStorageUpdateModel* update = [ANStorageRemover removeItems:[NSSet setWithObject:item]
+        NSString* item1 = @"item1";
+        NSString* item2 = @"item2";
+        [ANStorageUpdater addItems:@[item1, item2, @"test1", @"test2"] toStorage:storage];
+        ANStorageUpdateModel* update = [ANStorageRemover removeItems:[NSSet setWithObjects:item1, item2, nil]
                                                          fromStorage:storage];
         
-        ANStorageUpdateModel* expected = [ANStorageUpdateModel new];
-        [expected addDeletedIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]]];
+        ANStorageUpdateModel* expected = [ANStorageUpdateModel new]; //expected index pathes in reversed order
+        [expected addDeletedIndexPaths:@[[NSIndexPath indexPathForRow:1 inSection:0],
+                                         [NSIndexPath indexPathForRow:0 inSection:0]]];
         
-        expect(update).equal(expected);
+        expect(update.deletedRowIndexPaths).equal(expected.deletedRowIndexPaths);
     });
     
     it(@"update will be empty if items are nil", ^{
