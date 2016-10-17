@@ -6,6 +6,8 @@
 //
 //
 
+NS_ASSUME_NONNULL_BEGIN
+
 @protocol ANStorageUpdatableInterface <NSObject>
 
 
@@ -56,3 +58,5 @@
 - (void)updateSupplementaryFooterKind:(NSString*)footerKind;
 
 @end
+
+NS_ASSUME_NONNULL_END

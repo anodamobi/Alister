@@ -215,16 +215,6 @@
                                                          inStorage:self.storageModel];
 }
 
-- (NSString*)footerSupplementaryKind
-{
-    return self.storageModel.footerKind;
-}
-
-- (NSString*)headerSupplementaryKind
-{
-    return self.storageModel.headerKind;
-}
-
 
 #pragma mark - Private
 

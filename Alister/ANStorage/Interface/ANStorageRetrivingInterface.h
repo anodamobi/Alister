@@ -8,6 +8,7 @@
 
 @class ANStorageSectionModel;
 
+NS_ASSUME_NONNULL_BEGIN
 
 /**
  This is public convention protocol to retrive items from storage
@@ -109,3 +110,5 @@
 - (nullable id)supplementaryModelOfKind:(NSString*)kind forSectionIndex:(NSUInteger)sectionIndex;
 
 @end
+
+NS_ASSUME_NONNULL_END
