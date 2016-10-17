@@ -6,34 +6,91 @@
 //  Copyright © 2016 Oksana Kovalchuk. All rights reserved.
 //
 
-#import <XCTest/XCTest.h>
 
-@interface ANStorageSupplementaryManagerSpec : XCTestCase
+#import <Alister/ANStorageSupplementaryManager.h>
+#import <Alister/ANStorageModel.h>
+#import <Alister/ANStorageSectionModel.h>
 
-@end
+SpecBegin(ANStorageSupplementaryManager)
 
-@implementation ANStorageSupplementaryManagerSpec
+__block ANStorageModel* storage = nil;
 
-- (void)setUp {
-    [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
-}
+beforeEach(^{
+    storage = [ANStorageModel new];
+});
 
-- (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    [super tearDown];
-}
+describe(@"updateSectionHeaderModel: forSectionIndex: inStorage:", ^{
+    
+    it(@"updates model successfully", ^{
+        
+        NSString* item = @"test";
+        [ANStorageSupplementaryManager updateSectionFooterModel:item
+                                                forSectionIndex:0
+                                                      inStorage:storage];
+        
+        expect([[storage sectionAtIndex:0] supplementaryModelOfKind:storage.footerKind]).equal(item);
+    });
+    
+    it(@"no assert if model is nil", ^{
+        void(^block)() = ^() {
+            [ANStorageSupplementaryManager updateSectionFooterModel:nil
+                                                    forSectionIndex:0
+                                                          inStorage:storage];
+        };
+        expect(block).notTo.raiseAny();
+    });
+    
+    it(@"no assert if index is out of bounds", ^{
+        void(^block)() = ^() {
+            [ANStorageSupplementaryManager updateSectionFooterModel:@"test"
+                                                    forSectionIndex:10
+                                                          inStorage:storage];
+        };
+        expect(block).notTo.raiseAny();
+    });
+    
+    it(@"no assert if index is negative", ^{
+        void(^block)() = ^() {
+            [ANStorageSupplementaryManager updateSectionFooterModel:@"test"
+                                                    forSectionIndex:-1
+                                                          inStorage:storage];
+        };
+        expect(block).notTo.raiseAny();
+    });
+    
+    it(@"no assert if index is NSNotFound", ^{
+        void(^block)() = ^() {
+            [ANStorageSupplementaryManager updateSectionFooterModel:@"test"
+                                                    forSectionIndex:NSNotFound
+                                                          inStorage:storage];
+        };
+        expect(block).notTo.raiseAny();
+    });
+    
+    it(@"no assert if storage is nil", ^{
+        void(^block)() = ^() {
+            [ANStorageSupplementaryManager updateSectionFooterModel:@"test"
+                                                    forSectionIndex:0
+                                                          inStorage:nil];
+        };
+        expect(block).notTo.raiseAny();
+    });
+});
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
-}
 
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
-}
+describe(@"updateSectionFooterModel: forSectionIndex: inStorage:", ^{
+   
+    it(@"no assert if model is nil", ^{
+        failure(@"Pending");
+    });
+});
 
-@end
+
+describe(@"supplementaryModelOfKind: forSectionIndex: inStorage:", ^{
+    
+    it(@"no assert if model is nil", ^{
+        failure(@"Pending");
+    });
+});
+
+SpecEnd
