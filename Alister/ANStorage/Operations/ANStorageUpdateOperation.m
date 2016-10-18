@@ -15,14 +15,16 @@
 @property (nonatomic, strong) NSMutableArray* updates;
 @property (nonatomic, copy) ANStorageUpdateOperationConfigurationBlock configurationBlock;
 
+- (ANStorageUpdateModel*)_mergeUpdates;
+
 @end
 
 @implementation ANStorageUpdateOperation
 
-+ (instancetype)operationWithExecutionBlock:(ANStorageUpdateOperationConfigurationBlock)executionBlock
++ (instancetype)operationWithConfigurationBlock:(ANStorageUpdateOperationConfigurationBlock)configBlock
 {
     ANStorageUpdateOperation* operation = [self new];
-    operation.configurationBlock = [executionBlock copy];
+    operation.configurationBlock = [configBlock copy];
     return operation;
 }
 
@@ -45,14 +47,15 @@
             __weak typeof(self) welf = self;
             self.configurationBlock(welf);
         }
-        ANStorageUpdateModel* updateModel = [self mergeUpdates];
+        ANStorageUpdateModel* updateModel = [self _mergeUpdates];
+        
         if (updateModel.isRequireReload)
         {
             [self.updaterDelegate updateStorageOperationRequiresForceReload:self];
         }
         else
         {
-            [self.controllerOperationDelegate storageUpdateModelGenerated:[self mergeUpdates]];
+            [self.controllerOperationDelegate storageUpdateModelGenerated:updateModel];
         }
     }
 }
@@ -69,14 +72,44 @@
     }
 }
 
-- (ANStorageUpdateModel*)mergeUpdates
+
+#pragma mark - Private
+
+- (ANStorageUpdateModel*)_mergeUpdates
 {
     __block ANStorageUpdateModel* update = [ANStorageUpdateModel new];
-    [self.updates enumerateObjectsUsingBlock:^(ANStorageUpdateModel*  _Nonnull obj, __unused NSUInteger idx, __unused BOOL*  _Nonnull stop) {
+    [self.updates enumerateObjectsUsingBlock:^(ANStorageUpdateModel*  _Nonnull obj,
+                                               __unused NSUInteger idx,
+                                               __unused BOOL*  _Nonnull stop) {
         [update mergeWith:obj];
     }];
     
     return update;
+}
+
+- (void)setUpdaterDelegate:(id<ANStorageUpdateControllerInterface>)updaterDelegate
+{
+    if ([updaterDelegate conformsToProtocol:@protocol(ANStorageUpdateControllerInterface)] || !updaterDelegate)
+    {
+        _updaterDelegate = updaterDelegate;
+    }
+    else
+    {
+        NSAssert(NO, @"Delegate must conform to protocol");
+    }
+}
+
+- (void)setControllerOperationDelegate:(id<ANStorageListUpdateOperationInterface>)controllerOperationDelegate
+{
+    if ([controllerOperationDelegate conformsToProtocol:@protocol(ANStorageListUpdateOperationInterface)] ||
+        !controllerOperationDelegate)
+    {
+        _controllerOperationDelegate = controllerOperationDelegate;
+    }
+    else
+    {
+        NSAssert(NO, @"Delegate must conform to protocol");
+    }
 }
 
 @end

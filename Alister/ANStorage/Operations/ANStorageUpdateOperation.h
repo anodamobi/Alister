@@ -16,7 +16,7 @@ typedef void(^ANStorageUpdateOperationConfigurationBlock)(ANStorageUpdateOperati
 
 @interface ANStorageUpdateOperation : NSOperation <ANStorageUpdateOperationInterface>
 
-+ (instancetype)operationWithExecutionBlock:(ANStorageUpdateOperationConfigurationBlock)executionBlock;
++ (instancetype)operationWithConfigurationBlock:(ANStorageUpdateOperationConfigurationBlock)executionBlock;
 
 @property (nonatomic, weak) id<ANStorageUpdateControllerInterface> updaterDelegate;
 @property (nonatomic, weak) id<ANStorageListUpdateOperationInterface> controllerOperationDelegate;
