@@ -58,7 +58,7 @@
             if (listController)
             {
                 ANStorageUpdateOperation* updateOperation = nil;
-                updateOperation = [ANStorageUpdateOperation operationWithExecutionBlock:^(ANStorageUpdateOperation* operation) {
+                updateOperation = [ANStorageUpdateOperation operationWithConfigurationBlock:^(ANStorageUpdateOperation* operation) {
                     self.controller.updateDelegate = operation;
                     block(self.controller);
                 }];

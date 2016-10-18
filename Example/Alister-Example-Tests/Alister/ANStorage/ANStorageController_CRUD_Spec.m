@@ -40,7 +40,7 @@ describe(@"default state", ^{
 
 describe(@"set delegate", ^{
     
-    it(@"no assert if if set nil", ^{
+    it(@"no assert if set nil", ^{
         void(^block)() = ^() {
             controller.updateDelegate = nil;
         };
@@ -56,6 +56,7 @@ describe(@"set delegate", ^{
     
     it(@"delegate set successfully", ^{
         controller.updateDelegate = delegate;
+        expect(controller.updateDelegate).equal(delegate);
     });
 });
 
