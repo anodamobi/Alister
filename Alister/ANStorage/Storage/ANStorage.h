@@ -20,7 +20,7 @@ typedef NSPredicate*(^ANStorageSearchPredicate)(NSString* searchString, NSIntege
 @property (nonatomic, copy) ANStorageSearchPredicate storagePredicateBlock;
 
 @property (nonatomic, strong, readonly) NSString* identifier;
-
+//TODO: update naming
 - (instancetype)searchStorageForSearchString:(NSString*)searchString
                                inSearchScope:(NSInteger)searchScope;
 

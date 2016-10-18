@@ -79,8 +79,7 @@
             [storageController addItems:items toSection:1];
             [storageController updateSectionFooterModel:@"I'm footer section 1" forSectionIndex:1];
             [storageController updateSectionHeaderModel:@"I'm header section 1" forSectionIndex:1];
-        }]; 
-        
+        }];
     });
 }
 

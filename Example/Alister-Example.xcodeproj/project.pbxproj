@@ -24,6 +24,7 @@
 		D741298A1DB5926F00D7BB72 /* ANStorageMovedIndexPathModelSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = D74129891DB5926F00D7BB72 /* ANStorageMovedIndexPathModelSpec.m */; };
 		D741298C1DB5939800D7BB72 /* ANStorageUpdateOperationSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = D741298B1DB5939800D7BB72 /* ANStorageUpdateOperationSpec.m */; };
 		D741298F1DB5AA4700D7BB72 /* ANStorageOperationFakeDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D741298E1DB5AA4700D7BB72 /* ANStorageOperationFakeDelegate.m */; };
+		D74129911DB66FF300D7BB72 /* ANStorageSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = D74129901DB66FF300D7BB72 /* ANStorageSpec.m */; };
 		D7549A531DAAA36700956D8D /* ANStorageUpdateModel+Test.m in Sources */ = {isa = PBXBuildFile; fileRef = D7549A521DAAA36700956D8D /* ANStorageUpdateModel+Test.m */; };
 		D7549A581DAC2C4200956D8D /* ANStorageController_Supplemetaries_Spec.m in Sources */ = {isa = PBXBuildFile; fileRef = D7549A571DAC2C4200956D8D /* ANStorageController_Supplemetaries_Spec.m */; };
 		D7549A5A1DAC358100956D8D /* ANStorageUpdater_Spec.m in Sources */ = {isa = PBXBuildFile; fileRef = D7549A591DAC358100956D8D /* ANStorageUpdater_Spec.m */; };
@@ -125,9 +126,10 @@
 		D74129831DB17FE500D7BB72 /* ANStorageSupplementaryManagerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageSupplementaryManagerSpec.m; sourceTree = "<group>"; };
 		D74129851DB1A18100D7BB72 /* ANStorageSupplementaryManager_UpdateVerification_Spec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageSupplementaryManager_UpdateVerification_Spec.m; sourceTree = "<group>"; };
 		D74129891DB5926F00D7BB72 /* ANStorageMovedIndexPathModelSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageMovedIndexPathModelSpec.m; sourceTree = "<group>"; };
-		D741298B1DB5939800D7BB72 /* ANStorageUpdateOperationSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageUpdateOperationSpec.m; sourceTree = "<group>"; };
-		D741298D1DB5AA4700D7BB72 /* ANStorageOperationFakeDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANStorageOperationFakeDelegate.h; sourceTree = "<group>"; };
-		D741298E1DB5AA4700D7BB72 /* ANStorageOperationFakeDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageOperationFakeDelegate.m; sourceTree = "<group>"; };
+		D741298B1DB5939800D7BB72 /* ANStorageUpdateOperationSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ANStorageUpdateOperationSpec.m; path = ../ANStorageUpdateOperationSpec.m; sourceTree = "<group>"; };
+		D741298D1DB5AA4700D7BB72 /* ANStorageOperationFakeDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ANStorageOperationFakeDelegate.h; path = ../ANStorageOperationFakeDelegate.h; sourceTree = "<group>"; };
+		D741298E1DB5AA4700D7BB72 /* ANStorageOperationFakeDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ANStorageOperationFakeDelegate.m; path = ../ANStorageOperationFakeDelegate.m; sourceTree = "<group>"; };
+		D74129901DB66FF300D7BB72 /* ANStorageSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageSpec.m; sourceTree = "<group>"; };
 		D7549A511DAAA36700956D8D /* ANStorageUpdateModel+Test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ANStorageUpdateModel+Test.h"; path = "Helpers/ANStorageUpdateModel+Test.h"; sourceTree = "<group>"; };
 		D7549A521DAAA36700956D8D /* ANStorageUpdateModel+Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ANStorageUpdateModel+Test.m"; path = "Helpers/ANStorageUpdateModel+Test.m"; sourceTree = "<group>"; };
 		D7549A571DAC2C4200956D8D /* ANStorageController_Supplemetaries_Spec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageController_Supplemetaries_Spec.m; sourceTree = "<group>"; };
@@ -305,9 +307,6 @@
 		D73FD52F1DA91C2100AB5B7D /* ANStorage */ = {
 			isa = PBXGroup;
 			children = (
-				D741298D1DB5AA4700D7BB72 /* ANStorageOperationFakeDelegate.h */,
-				D741298E1DB5AA4700D7BB72 /* ANStorageOperationFakeDelegate.m */,
-				D741298B1DB5939800D7BB72 /* ANStorageUpdateOperationSpec.m */,
 				D74129831DB17FE500D7BB72 /* ANStorageSupplementaryManagerSpec.m */,
 				D74129851DB1A18100D7BB72 /* ANStorageSupplementaryManager_UpdateVerification_Spec.m */,
 				D74129811DB15D5300D7BB72 /* ANStorageLoaderSpec.m */,
@@ -341,6 +340,9 @@
 		D73FD5391DA91C2100AB5B7D /* Operations */ = {
 			isa = PBXGroup;
 			children = (
+				D741298D1DB5AA4700D7BB72 /* ANStorageOperationFakeDelegate.h */,
+				D741298E1DB5AA4700D7BB72 /* ANStorageOperationFakeDelegate.m */,
+				D741298B1DB5939800D7BB72 /* ANStorageUpdateOperationSpec.m */,
 			);
 			path = Operations;
 			sourceTree = "<group>";
@@ -355,6 +357,7 @@
 		D73FD53B1DA91C2100AB5B7D /* Storage */ = {
 			isa = PBXGroup;
 			children = (
+				D74129901DB66FF300D7BB72 /* ANStorageSpec.m */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -984,6 +987,7 @@
 				D74129801DAF07FD00D7BB72 /* ANStorageRemover_UpdateVerification_Spec.m in Sources */,
 				D7A21E8A1DA8A2A500D6D803 /* ANECustomHeaderViewTest.m in Sources */,
 				D7A21E6E1DA8A2A500D6D803 /* ANKeyboardHandlerTest.m in Sources */,
+				D74129911DB66FF300D7BB72 /* ANStorageSpec.m in Sources */,
 				D7A21E721DA8A2A500D6D803 /* ANListControllerMappingModelTest.m in Sources */,
 				D7A21E6D1DA8A2A500D6D803 /* ANCollectionUpdateOperationTests.m in Sources */,
 				D7A21E8F1DA8A2A500D6D803 /* ANTestableListControllerUpdateOperationDelegate.m in Sources */,
