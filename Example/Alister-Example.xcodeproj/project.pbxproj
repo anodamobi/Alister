@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18B792DB1DB78F3C00C5A46A /* ANEDataGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B792DA1DB78F3C00C5A46A /* ANEDataGenerator.m */; };
 		3575344DD3C6C07070509DB1 /* libPods-Alister-Example-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC990585C63BBA3EFB2F905E /* libPods-Alister-Example-Tests.a */; };
 		458D05147925A10E0D7BA49B /* libPods-Alister-Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 714527334026D6C1A2430887 /* libPods-Alister-Example.a */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
@@ -40,7 +41,7 @@
 		D7A21E081DA895B500D6D803 /* ANECustomHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21DF51DA895B500D6D803 /* ANECustomHeaderView.m */; };
 		D7A21E091DA895B500D6D803 /* ANECustomHeaderViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21DF71DA895B500D6D803 /* ANECustomHeaderViewModel.m */; };
 		D7A21E0A1DA895B500D6D803 /* ANELabelTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21DF91DA895B500D6D803 /* ANELabelTableViewCell.m */; };
-		D7A21E0B1DA895B500D6D803 /* ANCustomSupplementaryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21DFC1DA895B500D6D803 /* ANCustomSupplementaryVC.m */; };
+		D7A21E0B1DA895B500D6D803 /* ANECustomSupplementaryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21DFC1DA895B500D6D803 /* ANECustomSupplementaryVC.m */; };
 		D7A21E0C1DA895B500D6D803 /* ANEDefaultSupplementaryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21DFE1DA895B500D6D803 /* ANEDefaultSupplementaryVC.m */; };
 		D7A21E0D1DA895B500D6D803 /* ANEMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21E001DA895B500D6D803 /* ANEMainVC.m */; };
 		D7A21E221DA89AD300D6D803 /* Alister_Example_ExampleUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21E1C1DA89AD300D6D803 /* Alister_Example_ExampleUITests.m */; };
@@ -107,6 +108,8 @@
 		019F2C73D93E6032B674EAE3 /* Pods-Alister-Example-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister-Example-Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Alister-Example-Tests/Pods-Alister-Example-Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		07CE62481D5169B300D1A43C /* Tests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		12C7B2C3A579D51E17C98434 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		18B792D91DB78F3C00C5A46A /* ANEDataGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANEDataGenerator.h; sourceTree = "<group>"; };
+		18B792DA1DB78F3C00C5A46A /* ANEDataGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANEDataGenerator.m; sourceTree = "<group>"; };
 		5A48C1C6D522CC417AF71E09 /* Pods-Alister-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister-Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Alister-Example/Pods-Alister-Example.release.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* Alister-Example_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Alister-Example_Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -155,8 +158,8 @@
 		D7A21DF71DA895B500D6D803 /* ANECustomHeaderViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANECustomHeaderViewModel.m; sourceTree = "<group>"; };
 		D7A21DF81DA895B500D6D803 /* ANELabelTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANELabelTableViewCell.h; sourceTree = "<group>"; };
 		D7A21DF91DA895B500D6D803 /* ANELabelTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANELabelTableViewCell.m; sourceTree = "<group>"; };
-		D7A21DFB1DA895B500D6D803 /* ANCustomSupplementaryVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANCustomSupplementaryVC.h; sourceTree = "<group>"; };
-		D7A21DFC1DA895B500D6D803 /* ANCustomSupplementaryVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANCustomSupplementaryVC.m; sourceTree = "<group>"; };
+		D7A21DFB1DA895B500D6D803 /* ANECustomSupplementaryVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANECustomSupplementaryVC.h; sourceTree = "<group>"; };
+		D7A21DFC1DA895B500D6D803 /* ANECustomSupplementaryVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANECustomSupplementaryVC.m; sourceTree = "<group>"; };
 		D7A21DFD1DA895B500D6D803 /* ANEDefaultSupplementaryVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANEDefaultSupplementaryVC.h; sourceTree = "<group>"; };
 		D7A21DFE1DA895B500D6D803 /* ANEDefaultSupplementaryVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANEDefaultSupplementaryVC.m; sourceTree = "<group>"; };
 		D7A21DFF1DA895B500D6D803 /* ANEMainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANEMainVC.h; sourceTree = "<group>"; };
@@ -257,6 +260,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		18B792D81DB78F2A00C5A46A /* DataGenerator */ = {
+			isa = PBXGroup;
+			children = (
+				18B792D91DB78F3C00C5A46A /* ANEDataGenerator.h */,
+				18B792DA1DB78F3C00C5A46A /* ANEDataGenerator.m */,
+			);
+			path = DataGenerator;
+			sourceTree = "<group>";
+		};
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
@@ -369,6 +381,7 @@
 				D7A21DE81DA895B500D6D803 /* BundleFiles */,
 				D7A21DEF1DA895B500D6D803 /* Cells */,
 				D7A21DFA1DA895B500D6D803 /* ViewControllers */,
+				18B792D81DB78F2A00C5A46A /* DataGenerator */,
 			);
 			path = "Alister-Example";
 			sourceTree = "<group>";
@@ -414,8 +427,8 @@
 		D7A21DFA1DA895B500D6D803 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				D7A21DFB1DA895B500D6D803 /* ANCustomSupplementaryVC.h */,
-				D7A21DFC1DA895B500D6D803 /* ANCustomSupplementaryVC.m */,
+				D7A21DFB1DA895B500D6D803 /* ANECustomSupplementaryVC.h */,
+				D7A21DFC1DA895B500D6D803 /* ANECustomSupplementaryVC.m */,
 				D7A21DFD1DA895B500D6D803 /* ANEDefaultSupplementaryVC.h */,
 				D7A21DFE1DA895B500D6D803 /* ANEDefaultSupplementaryVC.m */,
 				D7A21DFF1DA895B500D6D803 /* ANEMainVC.h */,
@@ -946,11 +959,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D7A21E0B1DA895B500D6D803 /* ANCustomSupplementaryVC.m in Sources */,
+				D7A21E0B1DA895B500D6D803 /* ANECustomSupplementaryVC.m in Sources */,
 				D7A21E0A1DA895B500D6D803 /* ANELabelTableViewCell.m in Sources */,
 				D7A21E061DA895B500D6D803 /* ANECustomFooterView.m in Sources */,
 				D7A21E091DA895B500D6D803 /* ANECustomHeaderViewModel.m in Sources */,
 				D7A21E051DA895B500D6D803 /* main.m in Sources */,
+				18B792DB1DB78F3C00C5A46A /* ANEDataGenerator.m in Sources */,
 				D7A21E081DA895B500D6D803 /* ANECustomHeaderView.m in Sources */,
 				D7A21E0D1DA895B500D6D803 /* ANEMainVC.m in Sources */,
 				D7A21E0C1DA895B500D6D803 /* ANEDefaultSupplementaryVC.m in Sources */,

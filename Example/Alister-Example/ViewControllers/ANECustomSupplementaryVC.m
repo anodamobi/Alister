@@ -1,12 +1,12 @@
 //
-//  ANCustomSupplementaryVC.m
+//  ANECustomSupplementaryVC.m
 //  Alister-Example
 //
 //  Created by Oksana Kovalchuk on 10/7/16.
 //  Copyright © 2016 Oksana Kovalchuk. All rights reserved.
 //
 
-#import "ANCustomSupplementaryVC.h"
+#import "ANECustomSupplementaryVC.h"
 #import <Alister/ANStorage.h>
 #import <Alister/ANTableController.h>
 #import "ANELabelTableViewCell.h"
@@ -14,7 +14,7 @@
 #import "ANECustomHeaderView.h"
 #import "ANECustomFooterView.h"
 
-@interface ANCustomSupplementaryVC () <ANECustomHeaderViewModelDelegate>
+@interface ANECustomSupplementaryVC () <ANECustomHeaderViewModelDelegate>
 
 @property (nonatomic, strong) UITableView* tableView;
 @property (nonatomic, strong) ANTableController* controller;
@@ -22,7 +22,7 @@
 
 @end
 
-@implementation ANCustomSupplementaryVC
+@implementation ANECustomSupplementaryVC
 
 - (instancetype)init
 {

@@ -11,7 +11,7 @@
 #import "ANTableController.h"
 #import "ANELabelTableViewCell.h"
 #import "ANEDefaultSupplementaryVC.h"
-#import "ANCustomSupplementaryVC.h"
+#import "ANECustomSupplementaryVC.h"
 
 typedef NS_ENUM(NSInteger, ANEMainSection)
 {
@@ -81,7 +81,7 @@ typedef NS_ENUM(NSInteger, ANEMainSection)
             
             case ANEMainSectionCustomSupplementaries:
             {
-                ANCustomSupplementaryVC* vc = [ANCustomSupplementaryVC new];
+                ANECustomSupplementaryVC* vc = [ANECustomSupplementaryVC new];
                 [self.navigationController pushViewController:vc animated:YES];
             } break;
             default: break;

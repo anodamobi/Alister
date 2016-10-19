@@ -1,5 +1,5 @@
 //
-//  ANCustomSupplementaryVC.h
+//  ANECustomSupplementaryVC.h
 //  Alister-Example
 //
 //  Created by Oksana Kovalchuk on 10/7/16.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ANCustomSupplementaryVC : UIViewController
+@interface ANECustomSupplementaryVC : UIViewController
 
 @end
