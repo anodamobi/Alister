@@ -12,6 +12,8 @@
 		180335711DB7AA0100332F5F /* ANEDefaultSupplementaryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1803356A1DB7AA0100332F5F /* ANEDefaultSupplementaryVC.m */; };
 		180335721DB7AA0100332F5F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1803356B1DB7AA0100332F5F /* Localizable.strings */; };
 		180335731DB7AA0100332F5F /* ANEMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1803356E1DB7AA0100332F5F /* ANEMainVC.m */; };
+		180335771DB7AE7B00332F5F /* ANEBottomStickedFooterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 180335761DB7AE7B00332F5F /* ANEBottomStickedFooterVC.m */; };
+		1803357A1DB7B1EA00332F5F /* ANEButtonFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 180335791DB7B1EA00332F5F /* ANEButtonFooterView.m */; };
 		18B792DB1DB78F3C00C5A46A /* ANEDataGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B792DA1DB78F3C00C5A46A /* ANEDataGenerator.m */; };
 		3575344DD3C6C07070509DB1 /* libPods-Alister-Example-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC990585C63BBA3EFB2F905E /* libPods-Alister-Example-Tests.a */; };
 		458D05147925A10E0D7BA49B /* libPods-Alister-Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 714527334026D6C1A2430887 /* libPods-Alister-Example.a */; };
@@ -118,6 +120,10 @@
 		1803356B1DB7AA0100332F5F /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		1803356D1DB7AA0100332F5F /* ANEMainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANEMainVC.h; sourceTree = "<group>"; };
 		1803356E1DB7AA0100332F5F /* ANEMainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANEMainVC.m; sourceTree = "<group>"; };
+		180335751DB7AE7B00332F5F /* ANEBottomStickedFooterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANEBottomStickedFooterVC.h; sourceTree = "<group>"; };
+		180335761DB7AE7B00332F5F /* ANEBottomStickedFooterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANEBottomStickedFooterVC.m; sourceTree = "<group>"; };
+		180335781DB7B1EA00332F5F /* ANEButtonFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANEButtonFooterView.h; sourceTree = "<group>"; };
+		180335791DB7B1EA00332F5F /* ANEButtonFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANEButtonFooterView.m; sourceTree = "<group>"; };
 		18B792D91DB78F3C00C5A46A /* ANEDataGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANEDataGenerator.h; sourceTree = "<group>"; };
 		18B792DA1DB78F3C00C5A46A /* ANEDataGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANEDataGenerator.m; sourceTree = "<group>"; };
 		5A48C1C6D522CC417AF71E09 /* Pods-Alister-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister-Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Alister-Example/Pods-Alister-Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -266,6 +272,7 @@
 		180335621DB7AA0100332F5F /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				180335741DB7AE5A00332F5F /* BottomStickedFooter */,
 				180335631DB7AA0100332F5F /* CustomSupplementary */,
 				180335681DB7AA0100332F5F /* DefaultSupplementary */,
 				1803356B1DB7AA0100332F5F /* Localizable.strings */,
@@ -301,6 +308,17 @@
 				1803356E1DB7AA0100332F5F /* ANEMainVC.m */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		180335741DB7AE5A00332F5F /* BottomStickedFooter */ = {
+			isa = PBXGroup;
+			children = (
+				180335751DB7AE7B00332F5F /* ANEBottomStickedFooterVC.h */,
+				180335761DB7AE7B00332F5F /* ANEBottomStickedFooterVC.m */,
+				180335781DB7B1EA00332F5F /* ANEButtonFooterView.h */,
+				180335791DB7B1EA00332F5F /* ANEButtonFooterView.m */,
+			);
+			path = BottomStickedFooter;
 			sourceTree = "<group>";
 		};
 		18B792D81DB78F2A00C5A46A /* DataGenerator */ = {
@@ -992,6 +1010,7 @@
 				D7A21E0A1DA895B500D6D803 /* ANELabelTableViewCell.m in Sources */,
 				D7A21E061DA895B500D6D803 /* ANECustomFooterView.m in Sources */,
 				D7A21E091DA895B500D6D803 /* ANECustomHeaderViewModel.m in Sources */,
+				1803357A1DB7B1EA00332F5F /* ANEButtonFooterView.m in Sources */,
 				D7A21E051DA895B500D6D803 /* main.m in Sources */,
 				18B792DB1DB78F3C00C5A46A /* ANEDataGenerator.m in Sources */,
 				1803356F1DB7AA0100332F5F /* ANECustomSupplementaryController.m in Sources */,
@@ -1000,6 +1019,7 @@
 				180335701DB7AA0100332F5F /* ANECustomSupplementaryVC.m in Sources */,
 				D7A21E071DA895B500D6D803 /* ANECustomFooterViewModel.m in Sources */,
 				180335711DB7AA0100332F5F /* ANEDefaultSupplementaryVC.m in Sources */,
+				180335771DB7AE7B00332F5F /* ANEBottomStickedFooterVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

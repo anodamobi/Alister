@@ -13,7 +13,7 @@
 + (NSArray*)generateStringsArray
 {
     NSMutableArray* mutableStringsArray = [NSMutableArray new];
-    NSUInteger randomValue = (arc4random() % 10) + 5;
+    NSUInteger randomValue = (arc4random() % 20) + 5;
     
     for (NSUInteger counter = 0; counter < randomValue; counter++)
     {
@@ -22,6 +22,11 @@
     }
     
     return mutableStringsArray;
+}
+
++ (NSArray*)bottomStickedItems
+{
+    return @[@"Item 1", @"Item 2", @"Item 3"];
 }
 
 + (NSString*)loremIpsumString

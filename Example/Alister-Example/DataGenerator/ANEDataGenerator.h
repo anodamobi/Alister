@@ -10,5 +10,6 @@
 
 + (NSArray*)generateStringsArray;
 + (NSString*)loremIpsumString;
++ (NSArray*)bottomStickedItems;
 
 @end
