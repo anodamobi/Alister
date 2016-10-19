@@ -136,7 +136,7 @@ PODS:
   - ReactiveCocoa/no-arc (2.5)
   - ReactiveCocoa/UI (2.5):
     - ReactiveCocoa/Core
-  - Reveal-SDK (2)
+  - Reveal-iOS-SDK (1.6.2)
   - Specta (1.0.5)
   - SVProgressHUD (2.0.3)
   - Typhoon (3.5.1):
@@ -149,7 +149,7 @@ DEPENDENCIES:
   - Masonry
   - OCMock
   - Octopus (from `ssh://git@stash.anoda.mobi:7999/anios/ios-octopus.git`, commit `1126bfc`, branch `0.1.0`)
-  - Reveal-SDK
+  - Reveal-iOS-SDK (~> 1.6.1)
   - Specta
 
 EXTERNAL SOURCES:
@@ -178,11 +178,11 @@ SPEC CHECKSUMS:
   Octopus: b1944c0d2610b89779a8354ce5733dd0767e89b7
   pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
-  Reveal-SDK: 4d36a47c7091843eee525b72219e005b90bbac0b
+  Reveal-iOS-SDK: e2250b3c155bcfac53ae223ddc1f76d08f206c33
   Specta: ac94d110b865115fe60ff2c6d7281053c6f8e8a2
   SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
   Typhoon: c0950bb9f2e835eb8a7dc6983160109b6baf2dda
 
-PODFILE CHECKSUM: e625b4a9deffdcaa461898a5418798d6ca26ea24
+PODFILE CHECKSUM: 3b28f602088ef82026fe624ffe0aecf8cd2d7953
 
 COCOAPODS: 1.0.1

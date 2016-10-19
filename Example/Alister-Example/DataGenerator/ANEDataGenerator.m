@@ -24,4 +24,9 @@
     return mutableStringsArray;
 }
 
++ (NSString*)loremIpsumString
+{
+    return @"Lorem Ipsum is simply dummy text.";
+}
+
 @end

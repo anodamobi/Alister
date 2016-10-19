@@ -6,8 +6,6 @@
 //  Copyright © 2016 Oksana Kovalchuk. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
 @interface ANECustomSupplementaryVC : UIViewController
 
 @end

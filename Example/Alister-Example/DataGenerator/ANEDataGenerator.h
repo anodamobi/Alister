@@ -9,5 +9,6 @@
 @interface ANEDataGenerator : NSObject
 
 + (NSArray*)generateStringsArray;
++ (NSString*)loremIpsumString;
 
 @end

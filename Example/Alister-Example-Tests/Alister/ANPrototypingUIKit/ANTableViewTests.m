@@ -46,7 +46,6 @@
 
 //#pragma mark - bottomStickedFooterView
 
-
 //TODO:
 
 
