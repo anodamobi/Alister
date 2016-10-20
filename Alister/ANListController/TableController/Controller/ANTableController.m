@@ -142,7 +142,7 @@
       toIndexPath:(NSIndexPath*)destinationIndexPath
 {
     [self.currentStorage updateWithoutAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
-        [storageController moveItemFromIndexPath:sourceIndexPath toIndexPath:destinationIndexPath];
+        [storageController moveItemWithoutUpdateFromIndexPath:sourceIndexPath toIndexPath:destinationIndexPath];
     }];
 }
 

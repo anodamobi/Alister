@@ -115,6 +115,16 @@
     [self.updateDelegate collectUpdate:update];
 }
 
+- (void)moveItemWithoutUpdateFromIndexPath:(NSIndexPath*)fromIndexPath toIndexPath:(NSIndexPath*)toIndexPath
+{
+    [ANStorageUpdater moveItemFromIndexPath:fromIndexPath
+                                toIndexPath:toIndexPath
+                                  inStorage:self.storageModel];
+    
+    //to be consistent, in this case we don't need update as it will corrupt already updated tableview
+    [self.updateDelegate collectUpdate:nil];
+}
+
 - (void)moveItemFromIndexPath:(NSIndexPath*)fromIndexPath toIndexPath:(NSIndexPath*)toIndexPath
 {
     ANStorageUpdateModel* update = [ANStorageUpdater moveItemFromIndexPath:fromIndexPath

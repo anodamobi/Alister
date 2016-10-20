@@ -6,7 +6,7 @@
 //
 //
 
-#ifdef ANListControllerLog
+#ifdef DEBUG
 #define ANListControllerLog(s, ...) NSLog(s, ##__VA_ARGS__)
 #else
 #define ANListControllerLog(s, ...)

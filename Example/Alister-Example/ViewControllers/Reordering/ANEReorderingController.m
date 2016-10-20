@@ -38,22 +38,6 @@
 
 #pragma mark - UITableViewDelegate
 
-- (UITableViewCell*)tableView:(__unused UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath
-{
-    ANELabelTableViewCell* cell = (id)[super tableView:tableView cellForRowAtIndexPath:indexPath];
-    cell.indexPath = indexPath;
-    return cell;
-}
-
-
-//- (void)tableView:(UITableView*)__unused tableView moveRowAtIndexPath:(NSIndexPath*)__unused sourceIndexPath
-//                                                          toIndexPath:(NSIndexPath*)__unused destinationIndexPath
-//{
-//    [self.currentStorage updateWithoutAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
-//        [storageController moveItemFromIndexPath:sourceIndexPath toIndexPath:destinationIndexPath];
-//    }];
-//}
-
 - (UITableViewCellEditingStyle)tableView:(UITableView*)__unused tableView editingStyleForRowAtIndexPath:(NSIndexPath*)__unused indexPath
 {
     return UITableViewCellEditingStyleNone;

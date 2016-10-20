@@ -10,6 +10,4 @@
 
 @interface ANELabelTableViewCell : ANBaseTableViewCell
 
-@property (nonatomic, strong) NSIndexPath* indexPath;
-
 @end

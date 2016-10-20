@@ -98,7 +98,7 @@ describe(@"removeItems:", ^{
         ANStorageUpdateModel* update = [ANStorageRemover removeItems:[NSSet setWithArray:items]
                                                          fromStorage:storage];
         
-        ANStorageUpdateModel* expected = [ANStorageUpdateModel new]; //TODO:expect index pathes in reversed order
+        ANStorageUpdateModel* expected = [ANStorageUpdateModel new];
         [expected addDeletedIndexPaths:@[[NSIndexPath indexPathForRow:1 inSection:0],
                                          [NSIndexPath indexPathForRow:0 inSection:0]]];
         

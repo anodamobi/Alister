@@ -214,6 +214,23 @@ describe(@"replaceItem:withItem:", ^{
 });
 
 
+describe(@"moveItemWithoutUpdateFromIndexPath: toIndexPath:", ^{
+    
+    it(@"generated update was NOT send to delegate", ^{
+        
+        [controller addItem:@"test"];
+        NSIndexPath* fromIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+        NSIndexPath* toIndexPath = [NSIndexPath indexPathForRow:0 inSection:1];
+        
+        delegate = OCMProtocolMock(@protocol(ANStorageUpdateOperationInterface));
+        controller.updateDelegate = delegate;
+        
+        [controller moveItemWithoutUpdateFromIndexPath:fromIndexPath toIndexPath:toIndexPath];
+        OCMVerify([delegate collectUpdate:[OCMArg isNil]]);
+    });
+});
+
+
 describe(@"moveItemFromIndexPath: toIndexPath:", ^{
     
     it(@"generated update was send to delegate", ^{
