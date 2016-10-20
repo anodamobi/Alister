@@ -11,12 +11,14 @@
 #import "ANTableController.h"
 #import "ANELabelTableViewCell.h"
 #import "ANEDefaultSupplementaryVC.h"
-#import "ANCustomSupplementaryVC.h"
+#import "ANECustomSupplementaryVC.h"
+#import "ANEBottomStickedFooterVC.h"
 
 typedef NS_ENUM(NSInteger, ANEMainSection)
 {
     ANEMainSectionGroupedDefaultSupplementaries,
-    ANEMainSectionCustomSupplementaries
+    ANEMainSectionCustomSupplementaries,
+    ANEMainSectionBottomStickedFooter
 };
 
 @interface ANEMainVC ()
@@ -81,7 +83,13 @@ typedef NS_ENUM(NSInteger, ANEMainSection)
             
             case ANEMainSectionCustomSupplementaries:
             {
-                ANCustomSupplementaryVC* vc = [ANCustomSupplementaryVC new];
+                ANECustomSupplementaryVC* vc = [ANECustomSupplementaryVC new];
+                [self.navigationController pushViewController:vc animated:YES];
+            } break;
+                
+            case ANEMainSectionBottomStickedFooter:
+            {
+                ANEBottomStickedFooterVC* vc = [ANEBottomStickedFooterVC new];
                 [self.navigationController pushViewController:vc animated:YES];
             } break;
             default: break;

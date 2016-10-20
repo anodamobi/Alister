@@ -11,4 +11,6 @@
 
 @interface ANECustomFooterView : ANBaseTableViewHeaderFooterView
 
+- (CGFloat)estimatedHeight;
+
 @end

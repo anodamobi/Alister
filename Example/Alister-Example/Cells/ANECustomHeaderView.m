@@ -12,6 +12,7 @@
 @interface ANECustomHeaderView ()
 
 @property (nonatomic, strong) UISegmentedControl* segmentControl;
+@property (nonatomic, strong) ANECustomHeaderViewModel* currentModel;
 
 @end
 
@@ -19,6 +20,7 @@
 
 - (void)updateWithModel:(ANECustomHeaderViewModel*)model
 {
+    self.currentModel = model;
     if (!self.segmentControl.numberOfSegments)
     {
         [model.segmentTitles enumerateObjectsUsingBlock:^(id _Nonnull obj, NSUInteger idx, __unused BOOL* _Nonnull stop) {
@@ -27,11 +29,22 @@
     }
 }
 
+
+#pragma mark - Actions
+
+- (void)segmentValueUpdated:(UISegmentedControl*)sender
+{
+    [self.currentModel itemSelectedWithIndex:(NSUInteger)sender.selectedSegmentIndex];
+}
+
 - (UISegmentedControl*)segmentControl
 {
     if (!_segmentControl)
     {
         _segmentControl = [UISegmentedControl new];
+        [_segmentControl addTarget:self
+                            action:@selector(segmentValueUpdated:)
+                  forControlEvents:UIControlEventValueChanged];
         [self.contentView addSubview:_segmentControl];
         
         [_segmentControl mas_makeConstraints:^(MASConstraintMaker* make) {

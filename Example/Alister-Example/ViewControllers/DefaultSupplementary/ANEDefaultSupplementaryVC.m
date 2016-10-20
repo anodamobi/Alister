@@ -12,6 +12,9 @@
 #import "ANELabelTableViewCell.h"
 #import "ANBaseTableFooterView.h"
 #import "ANBaseTableHeaderView.h"
+#import "ANEDataGenerator.h"
+
+static CGFloat const kDefaultHeaderFooterHeight = 30.0f;
 
 @interface ANEDefaultSupplementaryVC ()
 
@@ -32,6 +35,9 @@
         self.storage = [ANStorage new];
         
         self.controller = [ANTableController controllerWithTableView:self.tableView];
+        self.tableView.sectionHeaderHeight = kDefaultHeaderFooterHeight;
+        self.tableView.sectionFooterHeight = kDefaultHeaderFooterHeight;
+        
         [self.controller attachStorage:self.storage];
         
         [self.controller configureCellsWithBlock:^(id<ANListControllerReusableInterface> configurator) {
@@ -42,7 +48,7 @@
             [configurator registerFooterClass:[ANBaseTableFooterView class]
                                forSystemClass:[NSString class]];
             
-            [configurator registerFooterClass:[ANBaseTableHeaderView class]
+            [configurator registerHeaderClass:[ANBaseTableHeaderView class]
                                forSystemClass:[NSString class]];
         }];
     }
@@ -61,17 +67,23 @@
     
     self.title = @"";
     
-    NSArray* items = @[@"Test1", @"Test2", @"Test3", @"Test4"];
+    NSArray* firstSectionItems = [ANEDataGenerator generateStringsArray];
+    NSArray* secondSectionItems = [ANEDataGenerator generateStringsArray];
+    NSArray* thirsSectionItems = [ANEDataGenerator generateStringsArray];
     
     [self.storage updateWithAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
         
-        [storageController addItems:items];
-        [storageController updateSectionFooterModel:NSLocalizedString(@"default-supplementary.footer.section0", nil) forSectionIndex:0];
+        [storageController addItems:firstSectionItems];
+        [storageController updateSectionFooterModel:NSLocalizedString(@"I'm footer section 0", nil) forSectionIndex:0];
         [storageController updateSectionHeaderModel:@"I'm header section 0" forSectionIndex:0];
         
-        [storageController addItems:items toSection:1];
+        [storageController addItems:secondSectionItems toSection:1];
         [storageController updateSectionFooterModel:@"I'm footer section 1" forSectionIndex:1];
         [storageController updateSectionHeaderModel:@"I'm header section 1" forSectionIndex:1];
+        
+        [storageController addItems:thirsSectionItems toSection:2];
+        [storageController updateSectionFooterModel:@"I'm footer section 2" forSectionIndex:2];
+        [storageController updateSectionHeaderModel:@"I'm header section 2" forSectionIndex:2];
     }];
 }
 

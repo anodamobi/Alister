@@ -13,7 +13,7 @@
 {
     if ([model isKindOfClass:[NSString class]])
     {
-        self.titleLabel.text = [model uppercaseString];
+        self.titleLabel.text = NSLocalizedString([model uppercaseString], nil);
     }
 }
 

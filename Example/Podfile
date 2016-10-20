@@ -3,7 +3,7 @@
 target 'Alister-Example' do
   pod 'Alister', :path => '../'
   pod 'Masonry'
-  pod 'Reveal-SDK', :configurations => ['Debug']
+  pod 'Reveal-iOS-SDK', '~> 1.6.1', :configurations => ['Debug']
   pod 'Octopus', :git => 'ssh://git@stash.anoda.mobi:7999/anios/ios-octopus.git', :branch => '0.1.0', :commit => '1126bfc'
   
 end
