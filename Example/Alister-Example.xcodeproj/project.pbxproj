@@ -14,6 +14,10 @@
 		180335731DB7AA0100332F5F /* ANEMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1803356E1DB7AA0100332F5F /* ANEMainVC.m */; };
 		180335771DB7AE7B00332F5F /* ANEBottomStickedFooterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 180335761DB7AE7B00332F5F /* ANEBottomStickedFooterVC.m */; };
 		1803357A1DB7B1EA00332F5F /* ANEButtonFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 180335791DB7B1EA00332F5F /* ANEButtonFooterView.m */; };
+		1803357E1DB8C65A00332F5F /* ANEReorderingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1803357D1DB8C65A00332F5F /* ANEReorderingVC.m */; };
+		180335811DB8CD9D00332F5F /* ANEReorderingVCSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 180335801DB8CD9D00332F5F /* ANEReorderingVCSpec.m */; };
+		180335841DB8D9F800332F5F /* ANEReorderingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 180335831DB8D9F800332F5F /* ANEReorderingController.m */; };
+		180335861DB8DA5000332F5F /* ANEReorderingControllerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 180335851DB8DA5000332F5F /* ANEReorderingControllerSpec.m */; };
 		18B792DB1DB78F3C00C5A46A /* ANEDataGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B792DA1DB78F3C00C5A46A /* ANEDataGenerator.m */; };
 		3575344DD3C6C07070509DB1 /* libPods-Alister-Example-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC990585C63BBA3EFB2F905E /* libPods-Alister-Example-Tests.a */; };
 		458D05147925A10E0D7BA49B /* libPods-Alister-Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 714527334026D6C1A2430887 /* libPods-Alister-Example.a */; };
@@ -123,6 +127,12 @@
 		180335761DB7AE7B00332F5F /* ANEBottomStickedFooterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANEBottomStickedFooterVC.m; sourceTree = "<group>"; };
 		180335781DB7B1EA00332F5F /* ANEButtonFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANEButtonFooterView.h; sourceTree = "<group>"; };
 		180335791DB7B1EA00332F5F /* ANEButtonFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANEButtonFooterView.m; sourceTree = "<group>"; };
+		1803357C1DB8C65A00332F5F /* ANEReorderingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANEReorderingVC.h; sourceTree = "<group>"; };
+		1803357D1DB8C65A00332F5F /* ANEReorderingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANEReorderingVC.m; sourceTree = "<group>"; };
+		180335801DB8CD9D00332F5F /* ANEReorderingVCSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANEReorderingVCSpec.m; sourceTree = "<group>"; };
+		180335821DB8D9F800332F5F /* ANEReorderingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANEReorderingController.h; sourceTree = "<group>"; };
+		180335831DB8D9F800332F5F /* ANEReorderingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANEReorderingController.m; sourceTree = "<group>"; };
+		180335851DB8DA5000332F5F /* ANEReorderingControllerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANEReorderingControllerSpec.m; sourceTree = "<group>"; };
 		18B792D91DB78F3C00C5A46A /* ANEDataGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANEDataGenerator.h; sourceTree = "<group>"; };
 		18B792DA1DB78F3C00C5A46A /* ANEDataGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANEDataGenerator.m; sourceTree = "<group>"; };
 		5A48C1C6D522CC417AF71E09 /* Pods-Alister-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister-Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Alister-Example/Pods-Alister-Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -270,6 +280,7 @@
 		180335621DB7AA0100332F5F /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				1803357B1DB8C63E00332F5F /* Reordering */,
 				180335741DB7AE5A00332F5F /* BottomStickedFooter */,
 				180335631DB7AA0100332F5F /* CustomSupplementary */,
 				180335681DB7AA0100332F5F /* DefaultSupplementary */,
@@ -317,6 +328,26 @@
 				180335791DB7B1EA00332F5F /* ANEButtonFooterView.m */,
 			);
 			path = BottomStickedFooter;
+			sourceTree = "<group>";
+		};
+		1803357B1DB8C63E00332F5F /* Reordering */ = {
+			isa = PBXGroup;
+			children = (
+				180335821DB8D9F800332F5F /* ANEReorderingController.h */,
+				180335831DB8D9F800332F5F /* ANEReorderingController.m */,
+				1803357C1DB8C65A00332F5F /* ANEReorderingVC.h */,
+				1803357D1DB8C65A00332F5F /* ANEReorderingVC.m */,
+			);
+			path = Reordering;
+			sourceTree = "<group>";
+		};
+		1803357F1DB8CB6200332F5F /* ControllersTests */ = {
+			isa = PBXGroup;
+			children = (
+				180335801DB8CD9D00332F5F /* ANEReorderingVCSpec.m */,
+				180335851DB8DA5000332F5F /* ANEReorderingControllerSpec.m */,
+			);
+			path = ControllersTests;
 			sourceTree = "<group>";
 		};
 		18B792D81DB78F2A00C5A46A /* DataGenerator */ = {
@@ -590,6 +621,7 @@
 		D7A21E4C1DA8A2A500D6D803 /* ExampleTests */ = {
 			isa = PBXGroup;
 			children = (
+				1803357F1DB8CB6200332F5F /* ControllersTests */,
 				D7A21E4D1DA8A2A500D6D803 /* ANECustomHeaderViewModelTest.m */,
 				D7A21E4E1DA8A2A500D6D803 /* ANECustomHeaderViewTest.m */,
 				D7A21E4F1DA8A2A500D6D803 /* ANELabelTableViewCellTest.m */,
@@ -1012,9 +1044,11 @@
 				18B792DB1DB78F3C00C5A46A /* ANEDataGenerator.m in Sources */,
 				1803356F1DB7AA0100332F5F /* ANECustomSupplementaryController.m in Sources */,
 				D7A21E081DA895B500D6D803 /* ANECustomHeaderView.m in Sources */,
+				1803357E1DB8C65A00332F5F /* ANEReorderingVC.m in Sources */,
 				D7A21E011DA895B500D6D803 /* ANAppDelegate.m in Sources */,
 				180335701DB7AA0100332F5F /* ANECustomSupplementaryVC.m in Sources */,
 				D7A21E071DA895B500D6D803 /* ANECustomFooterViewModel.m in Sources */,
+				180335841DB8D9F800332F5F /* ANEReorderingController.m in Sources */,
 				180335711DB7AA0100332F5F /* ANEDefaultSupplementaryVC.m in Sources */,
 				180335771DB7AE7B00332F5F /* ANEBottomStickedFooterVC.m in Sources */,
 			);
@@ -1064,6 +1098,7 @@
 				D73FD5401DA91C2100AB5B7D /* ANStorageModelSpec.m in Sources */,
 				D7A21E701DA8A2A500D6D803 /* ANCollectionControllerTest.m in Sources */,
 				D7A21E931DA8A2A500D6D803 /* ANTestableTableUpdateOperation.m in Sources */,
+				180335811DB8CD9D00332F5F /* ANEReorderingVCSpec.m in Sources */,
 				D7A21E741DA8A2A500D6D803 /* ANTableControllerTest.m in Sources */,
 				D7549A531DAAA36700956D8D /* ANStorageUpdateModel+Test.m in Sources */,
 				D7A21E911DA8A2A500D6D803 /* ANTestableRange.m in Sources */,
@@ -1077,6 +1112,7 @@
 				D7A21E941DA8A2A500D6D803 /* ANTestableTableView.m in Sources */,
 				D73FD53C1DA91C2100AB5B7D /* ANStorageController_CRUD_Spec.m in Sources */,
 				D7A21E921DA8A2A500D6D803 /* ANTestableStorageUpateOperation.m in Sources */,
+				180335861DB8DA5000332F5F /* ANEReorderingControllerSpec.m in Sources */,
 				D7A21E711DA8A2A500D6D803 /* ANListControllerConfigurationModelTest.m in Sources */,
 				D7A21E6F1DA8A2A500D6D803 /* ANCollectionControllerConfigurationModelTest.m in Sources */,
 				D741298F1DB5AA4700D7BB72 /* ANStorageOperationFakeDelegate.m in Sources */,
