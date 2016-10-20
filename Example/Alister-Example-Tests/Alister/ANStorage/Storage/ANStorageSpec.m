@@ -8,7 +8,7 @@
 
 #import <Alister/ANStorage.h>
 
-SpecBegin()
+SpecBegin(ANStorage)
 
 __block ANStorage* storage = nil;
 
@@ -27,21 +27,19 @@ describe(@"at default state", ^{
 describe(@"searchStorageForSearchString: inSearchScope:", ^{
     
     beforeEach(^{
-        storage.storagePredicateBlock = ^NSPredicate*(NSString* searchString, NSInteger scope) {
+        storage.storagePredicateBlock = ^NSPredicate* (NSString* searchString, NSInteger scope) {
             
             NSPredicate* predicate = nil;
-            
-            if (scope == -1)
+            if (searchString)
             {
-                predicate = [NSPredicate predicateWithFormat:@"ANY self BEGINSWITH[c] %@", searchString];
-            }
-            else if (scope == 0)
-            {
-                predicate = nil;
-            }
-            else
-            {
-                //
+                if (scope == -1)
+                {
+                    predicate = [NSPredicate predicateWithFormat:@"ANY self BEGINSWITH[cd] %@", searchString];
+                }
+                else if (scope == 0)
+                {
+                     predicate = [NSPredicate predicateWithFormat:@"self CONTAINS[cd] %@", searchString];
+                }
             }
             
             return predicate;
@@ -65,12 +63,35 @@ describe(@"searchStorageForSearchString: inSearchScope:", ^{
         expect(block).notTo.raiseAny();
     });
     
-    it(@"searching predicate was called", ^{
+    it(@"filters by predicate ", ^{
+        NSArray* itemsForScope1 = @[@"test", @"test1", @"test2", @"test4"];
+        NSArray* items = [itemsForScope1 arrayByAddingObjectsFromArray:@[@"anoda", @"tiger", @"tooth",
+                                                                         @"tool", @"something", @"anything"]];
         
-        waitUntil(^(void (^done)(void)){
-            
-            storage.storagePredicateBlock = ^NSPredicate*(NSString* searchString, NSInteger scope) {
-              done();
+        [storage updateWithoutAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
+            [storageController addItems:items];
+        }];
+        
+        NSString* searchString = @"test";
+        ANStorage* searchStorage = [storage searchStorageForSearchString:searchString inSearchScope:0];
+        expect(searchStorage.sections).haveCount(1);
+        
+        [[searchStorage itemsInSection:0] enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger __unused idx, BOOL * _Nonnull stop) {
+           expect(obj).beginWith(searchString);
+        }];
+        
+        
+    });
+});
+
+
+describe(@"storagePredicateBlock", ^{
+    
+    it(@"called when searching storage created", ^{
+        waitUntil(^(void (^done)(void)) {
+            storage.storagePredicateBlock = ^NSPredicate* (NSString* __unused searchString, NSInteger __unused scope) {
+                done();
+                
                 return nil;
             };
             
@@ -78,67 +99,110 @@ describe(@"searchStorageForSearchString: inSearchScope:", ^{
         });
     });
     
-    it(@"", ^{
+    it(@"received correct parameters", ^{
+        __block NSString* searchStringItem = @"test";
+        __block NSInteger scopeItem = 2;
         
+        waitUntil(^(void (^done)(void)) {
+            storage.storagePredicateBlock = ^NSPredicate* (NSString* __unused searchString, NSInteger __unused scope) {
+                done();
+                
+                expect(searchString).equal(searchStringItem);
+                expect(scope).equal(scopeItem);
+                
+                return nil;
+            };
+            [storage searchStorageForSearchString:searchStringItem inSearchScope:scopeItem];
+        });
+    });
+    
+    it(@"no assert when block is nil", ^{
+        void(^block)() = ^() {
+            [storage searchStorageForSearchString:nil inSearchScope:0];
+        };
+        expect(block).notTo.raiseAny();
+    });
+});
+
+describe(@"updateWithAnimationChangeBlock:", ^{
+    it(@"no assert if block is nil", ^{
+        failure(@"Pending");
     });
 });
 
 
-describe(@"updateWithAnimationChangeBlock:", ^{
-    
-});
-
-
 describe(@"updateWithoutAnimationChangeBlock:", ^{
-    
+    it(@"no assert if block is nil", ^{
+        failure(@"Pending");
+    });
 });
 
 
 describe(@"reloadStorageWithAnimation:", ^{
-    
+    it(@"test", ^{
+        failure(@"Pending");
+    });
 });
 
 
 describe(@"updateHeaderKind: footerKind:", ^{
-    
+    it(@"no assert if both are nil", ^{
+        failure(@"Pending");
+    });
 });
 
 describe(@"sections", ^{
-    
+    it(@"responds", ^{
+        failure(@"Pending");
+    });
 });
 
 
 describe(@"objectAtIndexPath:", ^{
-    
+    it(@"responds", ^{
+        failure(@"Pending");
+    });
 });
 
 
 describe(@"sectionAtIndex:", ^{
-    
+    it(@"responds", ^{
+        failure(@"Pending");
+    });
 });
 
 
 describe(@"indexPathForItem:", ^{
-    
+    it(@"responds", ^{
+        failure(@"Pending");
+    });
 });
 
 describe(@"headerModelForSectionIndex:", ^{
-    
+    it(@"responds", ^{
+        failure(@"Pending");
+    });
 });
 
 
 describe(@"headerModelForSectionIndex:", ^{
-    
+    it(@"responds", ^{
+        failure(@"Pending");
+    });
 });
 
 
 describe(@"footerModelForSectionIndex:", ^{
-    
+    it(@"responds", ^{
+        failure(@"Pending");
+    });
 });
 
 
 describe(@"supplementaryModelOfKind: forSectionIndex:", ^{
-    
+    it(@"responds", ^{
+        failure(@"Pending");
+    });
 });
 
 SpecEnd
