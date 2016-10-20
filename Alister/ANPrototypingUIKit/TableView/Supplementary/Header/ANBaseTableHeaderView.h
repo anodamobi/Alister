@@ -9,7 +9,4 @@
 
 @interface ANBaseTableHeaderView : ANBaseTableViewHeaderFooterView
 
-@property (nonatomic, assign) UIEdgeInsets titleInsets;
-@property (nonatomic, strong) UILabel* titleLabel;
-
 @end

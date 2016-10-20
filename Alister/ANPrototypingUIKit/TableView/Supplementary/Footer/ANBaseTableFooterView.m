@@ -9,22 +9,4 @@
 
 @implementation ANBaseTableFooterView
 
-- (instancetype)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self)
-    {
-        self.textLabel.numberOfLines = 0;
-    }
-    return self;
-}
-
-- (void)updateWithModel:(id)model
-{
-    if ([model isKindOfClass:[NSString class]])
-    {
-        self.textLabel.text = NSLocalizedString(model, nil);
-    }
-}
-
 @end

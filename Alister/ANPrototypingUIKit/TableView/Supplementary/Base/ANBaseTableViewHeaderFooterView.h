@@ -10,5 +10,7 @@
 @interface ANBaseTableViewHeaderFooterView : UITableViewHeaderFooterView <ANListControllerUpdateViewInterface>
 
 @property (nonatomic, assign) BOOL isTransparent;
+@property (nonatomic, assign) UIEdgeInsets titleInsets;
+@property (nonatomic, strong) UILabel* titleLabel;
 
 @end
