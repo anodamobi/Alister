@@ -20,7 +20,7 @@
 
 @end
 
-SpecBegin(ANBottomStickedFooterVC)
+SpecBegin(ANEBottomStickedFooterVC)
 
 describe(@"ANEBottomStickedFooterVC", ^{
     
