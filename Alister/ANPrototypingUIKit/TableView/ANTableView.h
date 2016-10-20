@@ -7,8 +7,8 @@
 
 @interface ANTableView : UITableView
 
-+ (instancetype)cleanTableWithFrame:(CGRect)frame style:(UITableViewStyle)style;
-- (void)setupAppearance;
++ (instancetype)tableViewDefaultStyleWithFrame:(CGRect)frame style:(UITableViewStyle)style;
+
 - (void)addStickyFooter:(UIView*)footer withFixedHeight:(CGFloat)height;
 
 @end

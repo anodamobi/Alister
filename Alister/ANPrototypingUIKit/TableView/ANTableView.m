@@ -10,9 +10,6 @@
 static CGFloat const kDefaultTableViewCellHeight = 44;
 static CGFloat const kDefaultTableViewHeaderHeight = 40;
 
-#define SYSTEM_VERSION          ([[[UIDevice currentDevice] systemVersion] floatValue])
-#define IOS7_OR_HIGHER          (7.0 <= SYSTEM_VERSION)
-
 @interface ANTableView ()
 
 @property (nonatomic, strong) UIView* stickedContainer;
@@ -23,7 +20,7 @@ static CGFloat const kDefaultTableViewHeaderHeight = 40;
 
 @implementation ANTableView
 
-+ (instancetype)cleanTableWithFrame:(CGRect)frame style:(UITableViewStyle)style
++ (instancetype)tableViewDefaultStyleWithFrame:(CGRect)frame style:(UITableViewStyle)style
 {
     ANTableView* table = [[[self class] alloc] initWithFrame:frame style:style];
     [table setupAppearance];
@@ -36,10 +33,7 @@ static CGFloat const kDefaultTableViewHeaderHeight = 40;
     if (self)
     {
         self.delaysContentTouches = NO;
-        if (IOS7_OR_HIGHER)
-        {
-            self.keyboardDismissMode = UIScrollViewKeyboardDismissModeInteractive;
-        }
+        self.keyboardDismissMode = UIScrollViewKeyboardDismissModeInteractive;
     }
     return self;
 }
