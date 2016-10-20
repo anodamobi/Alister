@@ -14,8 +14,6 @@
 #import "ANBaseTableHeaderView.h"
 #import "ANEDataGenerator.h"
 
-static CGFloat const kDefaultHeaderFooterHeight = 30.0f;
-
 @interface ANEDefaultSupplementaryVC ()
 
 @property (nonatomic, strong) UITableView* tableView;

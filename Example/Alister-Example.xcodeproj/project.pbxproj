@@ -133,6 +133,8 @@
 		180335821DB8D9F800332F5F /* ANEReorderingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANEReorderingController.h; sourceTree = "<group>"; };
 		180335831DB8D9F800332F5F /* ANEReorderingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANEReorderingController.m; sourceTree = "<group>"; };
 		180335851DB8DA5000332F5F /* ANEReorderingControllerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANEReorderingControllerSpec.m; sourceTree = "<group>"; };
+		1803358D1DB8EBBF00332F5F /* ANEConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANEConstants.h; sourceTree = "<group>"; };
+		1803358E1DB8EBBF00332F5F /* ANEGlobalHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANEGlobalHeader.h; sourceTree = "<group>"; };
 		18B792D91DB78F3C00C5A46A /* ANEDataGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANEDataGenerator.h; sourceTree = "<group>"; };
 		18B792DA1DB78F3C00C5A46A /* ANEDataGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANEDataGenerator.m; sourceTree = "<group>"; };
 		5A48C1C6D522CC417AF71E09 /* Pods-Alister-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister-Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Alister-Example/Pods-Alister-Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -350,6 +352,23 @@
 			path = ControllersTests;
 			sourceTree = "<group>";
 		};
+		1803358B1DB8EBBF00332F5F /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				1803358C1DB8EBBF00332F5F /* Headers */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		1803358C1DB8EBBF00332F5F /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				1803358D1DB8EBBF00332F5F /* ANEConstants.h */,
+				1803358E1DB8EBBF00332F5F /* ANEGlobalHeader.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
 		18B792D81DB78F2A00C5A46A /* DataGenerator */ = {
 			isa = PBXGroup;
 			children = (
@@ -467,6 +486,7 @@
 		D7A21DE41DA895B500D6D803 /* Alister-Example */ = {
 			isa = PBXGroup;
 			children = (
+				1803358B1DB8EBBF00332F5F /* Library */,
 				180335621DB7AA0100332F5F /* ViewControllers */,
 				D7A21DE51DA895B500D6D803 /* AppDelegate */,
 				D7A21DE81DA895B500D6D803 /* BundleFiles */,
