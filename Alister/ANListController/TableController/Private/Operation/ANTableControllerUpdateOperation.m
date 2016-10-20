@@ -109,6 +109,8 @@
                 if (![update.deletedSectionIndexes containsIndex:(NSUInteger)obj.fromIndexPath.section])
                 {
                     [tableView moveRowAtIndexPath:obj.fromIndexPath toIndexPath:obj.toIndexPath];
+//                    [tableView deleteRowsAtIndexPaths:@[obj.fromIndexPath] withRowAnimation:deleteRowAnimation];
+//                    [tableView insertRowsAtIndexPaths:@[obj.toIndexPath] withRowAnimation:insertRowAnimation];
                 }
             }];
             

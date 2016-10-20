@@ -13,12 +13,7 @@ SpecBegin(ANCollectionViewCell)
 __block ANCollectionViewCell* cell = nil;
 
 beforeEach(^{
-    UICollectionView* cw = [[UICollectionView alloc] initWithFrame:CGRectZero];
-    NSString* identifier = @"testIndetifier";
-    [cw registerClass:[ANCollectionViewCell class] forCellWithReuseIdentifier:identifier];
-    
-    cell = [cw dequeueReusableCellWithReuseIdentifier:identifier
-                                         forIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
+    cell = [[ANCollectionViewCell alloc] initWithFrame:CGRectZero];
 });
 
 describe(@"updateWithModel:", ^{
