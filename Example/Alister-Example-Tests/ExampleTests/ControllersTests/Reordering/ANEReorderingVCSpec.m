@@ -46,7 +46,7 @@ describe(@"Thing", ^{
     it(@"controller should have non nil current storage", ^{
         expect(vc.controller.currentStorage).notTo.beNil();
     });
-    
+
     it(@"storage should have items after controller finished update", ^{
         
         __weak typeof(vc) weakVC = vc;

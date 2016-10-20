@@ -10,26 +10,33 @@
 
 SpecBegin(ANEReorderingControllerSpec)
 
-describe(@"Thing", ^{
+describe(@"ANEReorderingController", ^{
+    
+    __block ANEReorderingController* reorderingVC = nil;
     
     beforeEach(^{
-
+        reorderingVC = [[ANEReorderingController alloc] initWithTableView:[UITableView new]];
     });
     
-    it(@"should do stuff", ^{
-
+    it(@"controller should have non nil table view", ^{
+        expect(reorderingVC.tableView).notTo.beNil();
     });
     
-    it(@"should do some stuff asynchronously", ^{
-        waitUntil(^(DoneCallback done) {
-
-            done();
-        });
+    it(@"should implement updateWithModel: method", ^{
+        expect(reorderingVC).respondTo(@selector(updateWithStorage:));
+    });
+    
+    it(@"should set storage correctly after updateWithStorage: called", ^{
+        ANStorage* testStorage = [ANStorage new];
+        [reorderingVC updateWithStorage:testStorage];
+        expect(reorderingVC.currentStorage).notTo.beNil();
     });
     
     afterEach(^{
-
+        reorderingVC = nil;
     });
 });
 
 SpecEnd
+
+
