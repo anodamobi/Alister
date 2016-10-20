@@ -18,8 +18,9 @@ describe(@"ANEButtonFooterView", ^{
         footerView = [ANEButtonFooterView new];
     });
     
-    it(@"should do stuff", ^{
-
+    it(@"should have non nil actionButton", ^{
+        
+        expect(footerView.actionButton).notTo.beNil();
     });
     
     afterEach(^{
@@ -28,3 +29,4 @@ describe(@"ANEButtonFooterView", ^{
 });
 
 SpecEnd
+
