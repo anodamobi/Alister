@@ -20,6 +20,7 @@
 		180335951DB919A600332F5F /* ANEReorderingVCSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 180335931DB919A600332F5F /* ANEReorderingVCSpec.m */; };
 		180335981DB91A1100332F5F /* ANBottomStickedFooterVCSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 180335971DB91A1100332F5F /* ANBottomStickedFooterVCSpec.m */; };
 		1803359A1DB91A2600332F5F /* ANButtonFooterViewSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 180335991DB91A2600332F5F /* ANButtonFooterViewSpec.m */; };
+		1803359F1DB920B400332F5F /* ANEDefaultSupplementaryVCSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 1803359E1DB920B400332F5F /* ANEDefaultSupplementaryVCSpec.m */; };
 		18B792DB1DB78F3C00C5A46A /* ANEDataGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B792DA1DB78F3C00C5A46A /* ANEDataGenerator.m */; };
 		3575344DD3C6C07070509DB1 /* libPods-Alister-Example-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC990585C63BBA3EFB2F905E /* libPods-Alister-Example-Tests.a */; };
 		458D05147925A10E0D7BA49B /* libPods-Alister-Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 714527334026D6C1A2430887 /* libPods-Alister-Example.a */; };
@@ -139,6 +140,7 @@
 		180335931DB919A600332F5F /* ANEReorderingVCSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANEReorderingVCSpec.m; sourceTree = "<group>"; };
 		180335971DB91A1100332F5F /* ANBottomStickedFooterVCSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANBottomStickedFooterVCSpec.m; sourceTree = "<group>"; };
 		180335991DB91A2600332F5F /* ANButtonFooterViewSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANButtonFooterViewSpec.m; sourceTree = "<group>"; };
+		1803359E1DB920B400332F5F /* ANEDefaultSupplementaryVCSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANEDefaultSupplementaryVCSpec.m; sourceTree = "<group>"; };
 		18B792D91DB78F3C00C5A46A /* ANEDataGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANEDataGenerator.h; sourceTree = "<group>"; };
 		18B792DA1DB78F3C00C5A46A /* ANEDataGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANEDataGenerator.m; sourceTree = "<group>"; };
 		5A48C1C6D522CC417AF71E09 /* Pods-Alister-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister-Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Alister-Example/Pods-Alister-Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -350,6 +352,7 @@
 		1803357F1DB8CB6200332F5F /* ControllersTests */ = {
 			isa = PBXGroup;
 			children = (
+				1803359B1DB9204A00332F5F /* DefaultSupplementary */,
 				180335961DB919FF00332F5F /* BottomStickedFooter */,
 				180335911DB919A600332F5F /* Reordering */,
 			);
@@ -389,6 +392,14 @@
 				180335991DB91A2600332F5F /* ANButtonFooterViewSpec.m */,
 			);
 			path = BottomStickedFooter;
+			sourceTree = "<group>";
+		};
+		1803359B1DB9204A00332F5F /* DefaultSupplementary */ = {
+			isa = PBXGroup;
+			children = (
+				1803359E1DB920B400332F5F /* ANEDefaultSupplementaryVCSpec.m */,
+			);
+			path = DefaultSupplementary;
 			sourceTree = "<group>";
 		};
 		18B792D81DB78F2A00C5A46A /* DataGenerator */ = {
@@ -1148,6 +1159,7 @@
 				D7A21E8B1DA8A2A500D6D803 /* ANELabelTableViewCellTest.m in Sources */,
 				D7549A6D1DAEEA3E00956D8D /* ANStorageRemoverSpec.m in Sources */,
 				D7A21E7C1DA8A2A500D6D803 /* ANTableContainerViewSpec.m in Sources */,
+				1803359F1DB920B400332F5F /* ANEDefaultSupplementaryVCSpec.m in Sources */,
 				D73FD5421DA91C2100AB5B7D /* ANStorageSectionModelSpec.m in Sources */,
 				D7A21E9D1DA8A4C400D6D803 /* ANECustomFooterViewModelTest.m in Sources */,
 				D7A21E9B1DA8A49C00D6D803 /* ANECustomFooterViewTest.m in Sources */,
