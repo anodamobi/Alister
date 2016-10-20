@@ -29,6 +29,7 @@
     {
         self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
         self.storage = [ANStorage new];
+        self.tableView.sectionHeaderHeight = kDefaultHeaderFooterHeight;
         
         self.controller = [ANEReorderingController controllerWithTableView:self.tableView];
         [self.controller updateWithStorage:self.storage];
