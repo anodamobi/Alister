@@ -78,7 +78,6 @@
             @try
             {
                 [CATransaction begin];
-                [CATransaction setDisableActions:!self.shouldAnimate];
                 [CATransaction setCompletionBlock:^{
                     self.finished = YES;
                     self.executing = NO;
@@ -120,7 +119,6 @@
                 [tableView reloadRowsAtIndexPaths:update.updatedRowIndexPaths withRowAnimation:reloadRowAnimation];
                 
                 [tableView endUpdates];
-                [CATransaction setDisableActions:NO];
                 [CATransaction commit];
             }
             
