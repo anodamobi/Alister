@@ -8,6 +8,15 @@
 
 #import <Alister/ANTableView.h>
 
+@interface ANTableView ()
+
+@property (nonatomic, strong) UIView* stickedContainer;
+@property (nonatomic, assign) CGFloat stickedFooterHeight;
+@property (nonatomic, strong) UIView* bottomStickedFooterView;
+@property (nonatomic, assign) BOOL additionalContentSizeAdded;
+
+@end
+
 SpecBegin(ANTableView)
 
 describe(@"tableViewDefaultStyleWithFrame:style:", ^{
@@ -18,20 +27,47 @@ describe(@"tableViewDefaultStyleWithFrame:style:", ^{
     });
 });
 
+describe(@"addStickyFooter:withFixedHeight:", ^{
+    
+    __block ANTableView* tableView = nil;
+    
+    beforeEach(^{
+        tableView = [ANTableView tableViewDefaultStyleWithFrame:CGRectZero style:UITableViewStylePlain];
+    });
+    
+    it(@"should set bottomStickedFooterView correctly", ^{
+        UIView* footerView = [UIView new];
+        [tableView addStickyFooter:footerView withFixedHeight:0];
+        expect(tableView.bottomStickedFooterView).notTo.beNil();
+    });
+    
+    it(@"no assert if bottomStickedFooterView is nil", ^{
+        void(^block)() = ^() {
+            [tableView addStickyFooter:nil withFixedHeight:0];
+        };
+        expect(block).notTo.raiseAny();
+    });
+    
+    it(@"should set stickedFooterHeight correctly", ^{
+        CGFloat footerHeight = 50;
+        UIView* footerView = [UIView new];
+        [tableView addStickyFooter:footerView withFixedHeight:footerHeight];
+        expect(tableView.stickedFooterHeight).equal(footerHeight);
+    });
+    
+    it(@"should set correct frame for stickedContainer", ^{
+        tableView = [ANTableView tableViewDefaultStyleWithFrame:[UIScreen mainScreen].bounds
+                                                          style:UITableViewStylePlain];
+        CGFloat footerHeight = 50;
+        UIView* footerView = [UIView new];
+        [tableView addStickyFooter:footerView withFixedHeight:footerHeight];
+        [tableView setNeedsLayout];
+        expect(tableView.stickedFooterHeight).equal(footerHeight);
+    });
 
-//describe(@"addStickyFooter:withFixedHeight:", ^{
-//   
-//    it(@"if tableview height less than screen height", ^{
-//        failure(@"Pending");
-//    });
-//    
-//    it(@"handles navigation bar height", ^{
-//        failure(@"Pending");
-//    });
-//    
-//    it(@"handles status bar height", ^{
-//        failure(@"Pending");
-//    });
-//});
+    afterEach(^{
+        tableView = nil;
+    });
+});
 
 SpecEnd
