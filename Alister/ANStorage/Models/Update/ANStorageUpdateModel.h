@@ -8,14 +8,12 @@
 
 #import "ANStorageUpdateModelInterface.h"
 #import "ANStorageMovedIndexPathModel.h"
-#import "ANBaseDomainModel.h" // TODO: temp for debug
-
 
 /**
  Private class represents any update transaction related to ANStorageModel.
  Never should be used directly.
  */
-@interface ANStorageUpdateModel : ANBaseDomainModel <ANStorageUpdateModelInterface>
+@interface ANStorageUpdateModel : NSObject <ANStorageUpdateModelInterface>
 
 
 /**

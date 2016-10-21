@@ -7,3 +7,4 @@
 //
 
 BOOL ANIsIndexValid(NSInteger);
+BOOL ANItemIsEmpty(id);

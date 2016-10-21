@@ -14,7 +14,6 @@
 #import <Alister/ANStorageModel.h>
 #import "ANStorageLog.h"
 #import "ANStorageValidator.h"
-#import "ANHelperFunctions.h"
 
 @implementation ANStorageUpdater
 
@@ -46,7 +45,7 @@
 + (ANStorageUpdateModel*)addItems:(NSArray*)items toSection:(NSInteger)sectionIndex toStorage:(ANStorageModel*)storage
 {
     ANStorageUpdateModel* update = [ANStorageUpdateModel new];
-    if (ANIsIndexValid(sectionIndex) && !ANIsEmpty(items) && storage)
+    if (ANIsIndexValid(sectionIndex) && !ANItemIsEmpty(items) && storage)
     {
         NSIndexSet* insertedSections = [self createSectionIfNotExist:sectionIndex inStorage:storage];
         ANStorageSectionModel* section = [ANStorageLoader sectionAtIndex:sectionIndex inStorage:storage];

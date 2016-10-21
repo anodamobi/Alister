@@ -8,7 +8,6 @@
 
 #import "ANECustomFooterView.h"
 #import <Masonry/Masonry.h>
-#import "ANHelperFunctions.h"
 
 static UIEdgeInsets const kAttributedLabelInsets = {10.0f, 15.f, 10.0f, 15.f};
 
@@ -28,7 +27,7 @@ static UIEdgeInsets const kAttributedLabelInsets = {10.0f, 15.f, 10.0f, 15.f};
 - (CGFloat)estimatedHeight
 {
     CGFloat contentHeight = 0.f;
-    if (!ANIsEmpty(self.attributedLabel.attributedText))
+    if ((self.attributedLabel.attributedText.length != 0)&& self.attributedLabel.text)
     {
         CGFloat attributedLabelLeftRightOffsets = kAttributedLabelInsets.left + kAttributedLabelInsets.right;
         CGFloat attributedLabelTopBottomOffsets = kAttributedLabelInsets.top + kAttributedLabelInsets.bottom;

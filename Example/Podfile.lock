@@ -1,5 +1,4 @@
 PODS:
-  - AFNetworking/Reachability (3.1.0)
   - Alister (0.1.0):
     - Alister/ANKeyboardHandler (= 0.1.0)
     - Alister/ANListController (= 0.1.0)
@@ -16,7 +15,6 @@ PODS:
     - Masonry
   - Alister/ANStorage (0.1.0)
   - Expecta (1.0.5)
-  - KVOController (1.2.0)
   - libextobjc (0.4.1):
     - libextobjc/EXTADT (= 0.4.1)
     - libextobjc/EXTConcreteProtocol (= 0.4.1)
@@ -53,136 +51,31 @@ PODS:
   - libextobjc/RuntimeExtensions (0.4.1)
   - libextobjc/UmbrellaHeader (0.4.1)
   - Masonry (1.0.1)
-  - MSSPopMasonry (0.0.2):
-    - Masonry
-    - pop
   - OCMock (3.3)
-  - Octopus (0.1.0):
-    - Octopus/Core (= 0.1.0)
-    - Octopus/Network (= 0.1.0)
-    - Octopus/UI (= 0.1.0)
-  - Octopus/Core (0.1.0):
-    - Octopus/Core/ANBaseDomainModel (= 0.1.0)
-    - Octopus/Core/ANBaseModule (= 0.1.0)
-    - Octopus/Core/ANCategories (= 0.1.0)
-    - Octopus/Core/ANErrorBuilder (= 0.1.0)
-    - Octopus/Core/ANHelperFunctions (= 0.1.0)
-    - Octopus/Core/ANValidator (= 0.1.0)
-  - Octopus/Core/ANBaseDomainModel (0.1.0):
-    - libextobjc
-  - Octopus/Core/ANBaseModule (0.1.0):
-    - Octopus/Core/ANCategories
-    - Octopus/Core/ANHelperFunctions
-    - Octopus/UI/ANAlertController
-    - Octopus/UI/ANUIKit
-    - SVProgressHUD
-    - Typhoon
-  - Octopus/Core/ANCategories (0.1.0):
-    - Octopus/Core/ANHelperFunctions
-    - Octopus/UI/ANAlertController
-    - Octopus/UI/ANUIKit
-  - Octopus/Core/ANErrorBuilder (0.1.0):
-    - Octopus/Core/ANHelperFunctions
-  - Octopus/Core/ANHelperFunctions (0.1.0)
-  - Octopus/Core/ANValidator (0.1.0):
-    - Octopus/Core/ANCategories
-    - Octopus/Core/ANHelperFunctions
-  - Octopus/Network (0.1.0):
-    - Octopus/Network/ANNetworkManager (= 0.1.0)
-  - Octopus/Network/ANNetworkManager (0.1.0):
-    - AFNetworking/Reachability
-    - Octopus/Core/ANCategories
-    - ReactiveCocoa (~> 2.5)
-  - Octopus/UI (0.1.0):
-    - Octopus/UI/ANActionTimeoutValidator (= 0.1.0)
-    - Octopus/UI/ANAlertController (= 0.1.0)
-    - Octopus/UI/ANAnimator (= 0.1.0)
-    - Octopus/UI/ANColorTheme (= 0.1.0)
-    - Octopus/UI/ANDataStateViewManager (= 0.1.0)
-    - Octopus/UI/ANGraphicKeyObserver (= 0.1.0)
-    - Octopus/UI/ANInfiniteScrollController (= 0.1.0)
-    - Octopus/UI/ANUIKit (= 0.1.0)
-  - Octopus/UI/ANActionTimeoutValidator (0.1.0):
-    - Octopus/Core/ANHelperFunctions
-  - Octopus/UI/ANAlertController (0.1.0):
-    - Octopus/Core/ANHelperFunctions
-  - Octopus/UI/ANAnimator (0.1.0):
-    - Masonry
-    - MSSPopMasonry
-    - pop
-  - Octopus/UI/ANColorTheme (0.1.0):
-    - Octopus/Core/ANCategories
-    - Octopus/Core/ANHelperFunctions
-  - Octopus/UI/ANDataStateViewManager (0.1.0):
-    - Masonry
-    - Octopus/Core/ANCategories
-    - Octopus/Core/ANHelperFunctions
-    - Octopus/UI/ANActionTimeoutValidator
-    - Octopus/UI/ANInfiniteScrollController
-    - ReactiveCocoa (~> 2.5)
-  - Octopus/UI/ANGraphicKeyObserver (0.1.0):
-    - Octopus/Core/ANCategories
-    - Octopus/Core/ANHelperFunctions
-    - ReactiveCocoa (~> 2.5)
-  - Octopus/UI/ANInfiniteScrollController (0.1.0):
-    - KVOController
-  - Octopus/UI/ANUIKit (0.1.0):
-    - Octopus/UI/ANActionTimeoutValidator
-  - pop (1.0.9)
-  - ReactiveCocoa (2.5):
-    - ReactiveCocoa/UI (= 2.5)
-  - ReactiveCocoa/Core (2.5):
-    - ReactiveCocoa/no-arc
-  - ReactiveCocoa/no-arc (2.5)
-  - ReactiveCocoa/UI (2.5):
-    - ReactiveCocoa/Core
   - Reveal-iOS-SDK (1.6.2)
   - Specta (1.0.5)
-  - SVProgressHUD (2.0.3)
-  - Typhoon (3.5.1):
-    - Typhoon/no-arc (= 3.5.1)
-  - Typhoon/no-arc (3.5.1)
 
 DEPENDENCIES:
   - Alister (from `../`)
   - Expecta
   - Masonry
   - OCMock
-  - Octopus (from `ssh://git@stash.anoda.mobi:7999/anios/ios-octopus.git`, commit `1126bfc`, branch `0.1.0`)
   - Reveal-iOS-SDK (~> 1.6.1)
   - Specta
 
 EXTERNAL SOURCES:
   Alister:
     :path: "../"
-  Octopus:
-    :branch: 0.1.0
-    :commit: 1126bfc
-    :git: ssh://git@stash.anoda.mobi:7999/anios/ios-octopus.git
-
-CHECKOUT OPTIONS:
-  Octopus:
-    :branch: 0.1.0
-    :commit: 1126bfc
-    :git: ssh://git@stash.anoda.mobi:7999/anios/ios-octopus.git
 
 SPEC CHECKSUMS:
-  AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   Alister: d73b25b91b48de5a7ee04d55d5f2f45d901dd718
   Expecta: e1c022fcd33910b6be89c291d2775b3fe27a89fe
-  KVOController: d72ace34afea42468329623b3379ab3cd1d286b6
   libextobjc: a650fc1bf489a3d3a9bc2e621efa3e1006fc5471
   Masonry: a1a931a0d08870ed8ae415a2ea5ea68ebcac77df
-  MSSPopMasonry: 65d944fe99051e797d8a1311b0a62bc6090807fa
   OCMock: d68685bde31f69cb61d518dcb39269080c78b5ed
-  Octopus: b1944c0d2610b89779a8354ce5733dd0767e89b7
-  pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
-  ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
   Reveal-iOS-SDK: e2250b3c155bcfac53ae223ddc1f76d08f206c33
   Specta: ac94d110b865115fe60ff2c6d7281053c6f8e8a2
-  SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
-  Typhoon: c0950bb9f2e835eb8a7dc6983160109b6baf2dda
 
-PODFILE CHECKSUM: 3b28f602088ef82026fe624ffe0aecf8cd2d7953
+PODFILE CHECKSUM: 03b70d37adeca8da4c8a5cffbec1fcfbf33d49b0
 
 COCOAPODS: 1.0.1
