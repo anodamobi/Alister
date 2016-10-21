@@ -161,7 +161,6 @@ describe(@"addItem: toSection:", ^{
 });
 
 
-
 describe(@"addItems: toSection:", ^{
     
     it(@"items added in a correct order", ^{
@@ -366,6 +365,7 @@ describe(@"moveItemFromIndexPath: toIndexPath:", ^{
     
     beforeEach(^{
         [ANStorageUpdater addItem:item toStorage:storage];
+        [ANStorageUpdater addItems:@[@"testing", @"smt", @"thanks"] toSection:1 toStorage:storage];
     });
     
     it(@"no assert if from indexPath is nil", ^{
@@ -405,6 +405,7 @@ describe(@"moveItemFromIndexPath: toIndexPath:", ^{
     it(@"item successfully moved", ^{
         [ANStorageUpdater moveItemFromIndexPath:fromIndexPath toIndexPath:toIndexPath inStorage:storage];
         expect([storage itemAtIndexPath:toIndexPath]).equal(item);
+        expect([storage itemsInSection:0]).haveCount(0);
     });
 });
 

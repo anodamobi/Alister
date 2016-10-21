@@ -138,4 +138,12 @@
     }
 }
 
+- (void)tableView:(__unused UITableView*)tableView moveRowAtIndexPath:(NSIndexPath*)sourceIndexPath
+      toIndexPath:(NSIndexPath*)destinationIndexPath
+{
+    [self.currentStorage updateWithoutAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
+        [storageController moveItemWithoutUpdateFromIndexPath:sourceIndexPath toIndexPath:destinationIndexPath];
+    }];
+}
+
 @end

@@ -124,86 +124,86 @@ describe(@"storagePredicateBlock", ^{
     });
 });
 
-describe(@"updateWithAnimationChangeBlock:", ^{
-    it(@"no assert if block is nil", ^{
-        failure(@"Pending");
-    });
-});
-
-
-describe(@"updateWithoutAnimationChangeBlock:", ^{
-    it(@"no assert if block is nil", ^{
-        failure(@"Pending");
-    });
-});
-
-
-describe(@"reloadStorageWithAnimation:", ^{
-    it(@"test", ^{
-        failure(@"Pending");
-    });
-});
-
-
-describe(@"updateHeaderKind: footerKind:", ^{
-    it(@"no assert if both are nil", ^{
-        failure(@"Pending");
-    });
-});
-
-describe(@"sections", ^{
-    it(@"responds", ^{
-        failure(@"Pending");
-    });
-});
-
-
-describe(@"objectAtIndexPath:", ^{
-    it(@"responds", ^{
-        failure(@"Pending");
-    });
-});
-
-
-describe(@"sectionAtIndex:", ^{
-    it(@"responds", ^{
-        failure(@"Pending");
-    });
-});
-
-
-describe(@"indexPathForItem:", ^{
-    it(@"responds", ^{
-        failure(@"Pending");
-    });
-});
-
-describe(@"headerModelForSectionIndex:", ^{
-    it(@"responds", ^{
-        failure(@"Pending");
-    });
-});
-
-
-describe(@"headerModelForSectionIndex:", ^{
-    it(@"responds", ^{
-        failure(@"Pending");
-    });
-});
-
-
-describe(@"footerModelForSectionIndex:", ^{
-    it(@"responds", ^{
-        failure(@"Pending");
-    });
-});
-
-
-describe(@"supplementaryModelOfKind: forSectionIndex:", ^{
-    it(@"responds", ^{
-        failure(@"Pending");
-    });
-});
+//describe(@"updateWithAnimationChangeBlock:", ^{
+//    it(@"no assert if block is nil", ^{
+//        failure(@"Pending");
+//    });
+//});
+//
+//
+//describe(@"updateWithoutAnimationChangeBlock:", ^{
+//    it(@"no assert if block is nil", ^{
+//        failure(@"Pending");
+//    });
+//});
+//
+//
+//describe(@"reloadStorageWithAnimation:", ^{
+//    it(@"test", ^{
+//        failure(@"Pending");
+//    });
+//});
+//
+//
+//describe(@"updateHeaderKind: footerKind:", ^{
+//    it(@"no assert if both are nil", ^{
+//        failure(@"Pending");
+//    });
+//});
+//
+//describe(@"sections", ^{
+//    it(@"responds", ^{
+//        failure(@"Pending");
+//    });
+//});
+//
+//
+//describe(@"objectAtIndexPath:", ^{
+//    it(@"responds", ^{
+//        failure(@"Pending");
+//    });
+//});
+//
+//
+//describe(@"sectionAtIndex:", ^{
+//    it(@"responds", ^{
+//        failure(@"Pending");
+//    });
+//});
+//
+//
+//describe(@"indexPathForItem:", ^{
+//    it(@"responds", ^{
+//        failure(@"Pending");
+//    });
+//});
+//
+//describe(@"headerModelForSectionIndex:", ^{
+//    it(@"responds", ^{
+//        failure(@"Pending");
+//    });
+//});
+//
+//
+//describe(@"headerModelForSectionIndex:", ^{
+//    it(@"responds", ^{
+//        failure(@"Pending");
+//    });
+//});
+//
+//
+//describe(@"footerModelForSectionIndex:", ^{
+//    it(@"responds", ^{
+//        failure(@"Pending");
+//    });
+//});
+//
+//
+//describe(@"supplementaryModelOfKind: forSectionIndex:", ^{
+//    it(@"responds", ^{
+//        failure(@"Pending");
+//    });
+//});
 
 SpecEnd
 

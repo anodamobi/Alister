@@ -41,6 +41,16 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)moveItemFromIndexPath:(NSIndexPath*)fromIndexPath toIndexPath:(NSIndexPath*)toIndexPath;
 
 
+/**
+ This method specially to pair UITableView's method:
+ - (void)moveRowAtIndexPath:(NSIndexPath*)indexPath toIndexPath:(NSIndexPath*)newIndexPath
+
+ @param fromIndexPath from which indexPath item should removed
+ @param toIndexPath   to which indexPath item should be inserted
+ */
+- (void)moveItemWithoutUpdateFromIndexPath:(NSIndexPath*)fromIndexPath toIndexPath:(NSIndexPath*)toIndexPath;
+
+
 #pragma mark - Sections
 
 - (void)removeSections:(NSIndexSet*)indexSet;

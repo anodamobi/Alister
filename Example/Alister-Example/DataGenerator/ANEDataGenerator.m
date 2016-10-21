@@ -17,7 +17,7 @@
     
     for (NSUInteger counter = 0; counter < randomValue; counter++)
     {
-        NSString* item = [NSString stringWithFormat:@"Test %zd", counter];
+        NSString* item = [NSString stringWithFormat:@"Model #%zd", counter];
         [mutableStringsArray addObject:item];
     }
     

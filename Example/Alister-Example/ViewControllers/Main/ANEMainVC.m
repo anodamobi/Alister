@@ -13,12 +13,14 @@
 #import "ANEDefaultSupplementaryVC.h"
 #import "ANECustomSupplementaryVC.h"
 #import "ANEBottomStickedFooterVC.h"
+#import "ANEReorderingVC.h"
 
 typedef NS_ENUM(NSInteger, ANEMainSection)
 {
     ANEMainSectionGroupedDefaultSupplementaries,
     ANEMainSectionCustomSupplementaries,
-    ANEMainSectionBottomStickedFooter
+    ANEMainSectionBottomStickedFooter,
+    ANEMainSectionReordering
 };
 
 @interface ANEMainVC ()
@@ -78,20 +80,30 @@ typedef NS_ENUM(NSInteger, ANEMainSection)
             case ANEMainSectionGroupedDefaultSupplementaries:
             {
                 ANEDefaultSupplementaryVC* vc = [ANEDefaultSupplementaryVC new];
-                [self.navigationController pushViewController:vc animated:YES];
+                [self.navigationController pushViewController:vc
+                                                     animated:YES];
             } break;
             
             case ANEMainSectionCustomSupplementaries:
             {
                 ANECustomSupplementaryVC* vc = [ANECustomSupplementaryVC new];
-                [self.navigationController pushViewController:vc animated:YES];
+                [self.navigationController pushViewController:vc
+                                                     animated:YES];
             } break;
                 
             case ANEMainSectionBottomStickedFooter:
             {
                 ANEBottomStickedFooterVC* vc = [ANEBottomStickedFooterVC new];
-                [self.navigationController pushViewController:vc animated:YES];
+                [self.navigationController pushViewController:vc
+                                                     animated:YES];
             } break;
+                
+            case ANEMainSectionReordering:
+            {
+                ANEReorderingVC* vc = [ANEReorderingVC new];
+                [self.navigationController pushViewController:vc
+                                                     animated:YES];
+            }
             default: break;
         }
     }];

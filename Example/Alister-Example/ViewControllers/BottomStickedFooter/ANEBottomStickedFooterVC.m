@@ -34,7 +34,6 @@ static CGFloat const kDefaultBottomViewHeight = 100;
     {
         self.tableView = [[ANTableView alloc] initWithFrame:CGRectZero
                                                       style:UITableViewStyleGrouped];
-//        self.automaticallyAdjustsScrollViewInsets = YES;
         
         self.storage = [ANStorage new];
         
