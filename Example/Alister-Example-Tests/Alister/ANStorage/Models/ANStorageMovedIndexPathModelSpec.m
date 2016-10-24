@@ -31,6 +31,10 @@ describe(@"default value", ^{
         expect(model.toIndexPath).beNil();
         expect(model.fromIndexPath).beNil();
     });
+    
+    it(@"has debug description", ^{
+        expect([model debugDescription]).notTo.beNil();
+    });
 });
 
 

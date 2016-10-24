@@ -19,7 +19,7 @@
     return model;
 }
 
-- (NSString*)description
+- (NSString*)debugDescription
 {
     return [NSString stringWithFormat:@"fromIndexPath: %@, toIndexPath: %@", [self _descriptionStringForIndexPath:self.fromIndexPath],
                                                                              [self _descriptionStringForIndexPath:self.toIndexPath]];
@@ -27,7 +27,7 @@
 
 - (NSString*)_descriptionStringForIndexPath:(NSIndexPath*)indexPath
 {
-    return [NSString stringWithFormat:@"length = %zd, path = %zd - %zd", indexPath.length, indexPath.section, indexPath.row];
+    return [NSString stringWithFormat:@"(%zd - %zd)", indexPath.length, indexPath.section, indexPath.row];
 }
                                    
 @end

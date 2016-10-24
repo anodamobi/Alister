@@ -5,6 +5,8 @@
 //  Copyright (c) 2014 ANODA. All rights reserved.
 //
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  This is a private class for Alister. You should not call this methods directly.
  */
@@ -29,7 +31,9 @@
 
  @return ANStorageMovedIndexPathModel* new instance of object with setted properties.
  */
-+ (instancetype)modelWithFromIndexPath:(nonnull NSIndexPath*)fromIndexPath
-                           toIndexPath:(nonnull NSIndexPath*)indexPath;
++ (instancetype)modelWithFromIndexPath:(NSIndexPath*)fromIndexPath
+                           toIndexPath:(NSIndexPath*)indexPath;
 
 @end
+
+NS_ASSUME_NONNULL_END
