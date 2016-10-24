@@ -38,6 +38,21 @@ describe(@"model at default state", ^{
 });
 
 
+describe(@"isEqual", ^{
+    
+    it(@"empty models should be equal", ^{
+        ANStorageUpdateModel* emptyModel = [ANStorageUpdateModel new];
+        expect(emptyModel).equal(model);
+    });
+    
+    describe(@"models with identical changes are equal", ^{
+        ANStorageUpdateModel* secondModel = [ANStorageUpdateModel filledModel];
+        model = [ANStorageUpdateModel filledModel];
+        expect(model).equal(secondModel);
+    });
+});
+
+
 describe(@"isEmpty", ^{
     
     context(@"", ^{
