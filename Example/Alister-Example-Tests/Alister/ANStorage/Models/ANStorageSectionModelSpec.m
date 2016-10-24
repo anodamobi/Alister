@@ -67,8 +67,7 @@ describe(@"insertItem: atIndex:", ^{
     
     it(@"no assert when insert nil", ^{
         void(^block)() = ^() {
-            NSString* test = @"test";
-            [model insertItem:test atIndex:0];
+            [model insertItem:nil atIndex:0];
         };
         expect(block).notTo.raiseAny();
     });
