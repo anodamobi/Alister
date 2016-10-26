@@ -20,7 +20,7 @@ __block ANStorageUpdater* updater = nil;
 
 beforeEach(^{
     storage = [ANStorageModel new];
-    updater = [ANStorageUpdater updaterWithStorageModel:storage delegate:nil];
+    updater = [ANStorageUpdater updaterWithStorageModel:storage updateDelegate:nil];
 });
 
 

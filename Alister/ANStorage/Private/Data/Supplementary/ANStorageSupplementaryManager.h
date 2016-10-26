@@ -6,7 +6,8 @@
 //
 //
 
-@class ANStorageUpdateModel;
+#import "ANStorageUpdateOperationInterface.h"
+
 @class ANStorageModel;
 
 /**
@@ -16,8 +17,10 @@
 
 @interface ANStorageSupplementaryManager : NSObject
 
-+ (instancetype)supplementatyManagerWithStorageModel:(ANStorageModel*)model withDelegate:(id)delegate;
++ (instancetype)supplementatyManagerWithStorageModel:(ANStorageModel*)model
+                                      updateDelegate:(id<ANStorageUpdateOperationInterface>)delegate;
 
+//TODO: update doc for init method and return params and storage parameter
 
 /**
  Convention method for tables to register header model. 
@@ -25,12 +28,10 @@
  
  @param headerModel  viewModel for header
  @param sectionIndex section index in UITableView
- 
- @return ANStorageUpdateModel* generated update
  */
 
-- (ANStorageUpdateModel*)updateSectionHeaderModel:(id)headerModel
-                                  forSectionIndex:(NSInteger)sectionIndex;
+- (void)updateSectionHeaderModel:(id)headerModel forSectionIndex:(NSInteger)sectionIndex;
+
 
 /**
  Convention method for tables to register footer model
@@ -38,12 +39,10 @@
  
  @param headerModel  viewModel for footer
  @param sectionIndex section index in UITableView
- 
- @return ANStorageUpdateModel* generated update
  */
 
-- (ANStorageUpdateModel*)updateSectionFooterModel:(id)footerModel
-                                  forSectionIndex:(NSUInteger)sectionIndex;
+- (void)updateSectionFooterModel:(id)footerModel forSectionIndex:(NSUInteger)sectionIndex;
+
 
 /**
  Returns supplemetary model for specified section and with specified kind
@@ -53,7 +52,7 @@
 
  @return viewModel with specified kind
  */
-- (id)supplementaryModelOfKind:(NSString*)kind
-               forSectionIndex:(NSUInteger)sectionIndex;
+
+- (id)supplementaryModelOfKind:(NSString*)kind forSectionIndex:(NSUInteger)sectionIndex;
 
 @end

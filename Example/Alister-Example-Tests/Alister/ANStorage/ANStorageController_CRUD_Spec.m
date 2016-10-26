@@ -61,191 +61,191 @@ describe(@"set delegate", ^{
 });
 
 
-describe(@"adding items to storage", ^{
-    
-    beforeEach(^{
-        delegate = OCMProtocolMock(@protocol(ANStorageUpdateOperationInterface));
-        controller.updateDelegate = delegate;
-    });
-    
-    
-    it(@"addItem: generated update was send to delegate", ^{
-        NSString* item = @"test";
-        [controller addItem:item];
-        
-        OCMVerify([delegate collectUpdate:[OCMArg isKindOfClass:[ANStorageUpdateModel class]]]);
-    });
-    
-    it(@"addItems: generated update was send to delegate", ^{
-        [controller addItems:@[@"test0", @"test1", @"test2"]];
-        OCMVerify([delegate collectUpdate:[OCMArg isKindOfClass:[ANStorageUpdateModel class]]]);
-    });
-    
-    it(@"addItem: toSection: generated update was send to delegate", ^{
-        NSString* item = @"test";
-        [controller addItem:item toSection:0];
-        
-        OCMVerify([delegate collectUpdate:[OCMArg isKindOfClass:[ANStorageUpdateModel class]]]);
-    });
-    
-    it(@"generated update was send to delegate addItems: toSection:", ^{
-        NSArray* testModel = @[@"test0", @"test1", @"test2"];
-        [controller addItems:testModel toSection:3];
-        
-        OCMVerify([delegate collectUpdate:[OCMArg isKindOfClass:[ANStorageUpdateModel class]]]);
-    });
-    
-    it(@"addItem: atIndexPath: generated update was send to delegate", ^{
-        NSIndexPath* indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-        [controller addItem:@"test" atIndexPath:indexPath];
-        
-        OCMVerify([delegate collectUpdate:[OCMArg isKindOfClass:[ANStorageUpdateModel class]]]);
-    });
-});
-
-
-describe(@"reloadItem:", ^{
-    
-    beforeEach(^{
-        delegate = OCMProtocolMock(@protocol(ANStorageUpdateOperationInterface));
-        controller.updateDelegate = delegate;
-    });
-    
-    it(@"generated update was send to delegatel", ^{
-        [controller reloadItem:@"test"];
-        OCMVerify([delegate collectUpdate:[OCMArg isKindOfClass:[ANStorageUpdateModel class]]]);
-    });
-});
-
-
-describe(@"removeItem:", ^{
-    
-    it(@"generated update was send to delegate", ^{
-        NSString* item = @"test";
-        [controller addItem:item];
-        
-        delegate = OCMProtocolMock(@protocol(ANStorageUpdateOperationInterface));
-        controller.updateDelegate = delegate;
-        [controller removeItem:item];
-        
-        OCMVerify([delegate collectUpdate:[OCMArg isKindOfClass:[ANStorageUpdateModel class]]]);
-    });
-});
-
-
-describe(@"removeItemsAtIndexPaths:", ^{
-    
-    it(@"generated update was send to delegate", ^{
-        NSString* item = @"test";
-        NSIndexPath* indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-        [controller addItem:item atIndexPath:indexPath];
-        
-        delegate = OCMProtocolMock(@protocol(ANStorageUpdateOperationInterface));
-        controller.updateDelegate = delegate;
-        
-        [controller removeItemsAtIndexPaths:@[indexPath]];
-        
-        OCMVerify([delegate collectUpdate:[OCMArg isKindOfClass:[ANStorageUpdateModel class]]]);
-    });
-});
-
-describe(@"removeItems:", ^{
-    
-    it(@"generated update was send to delegate", ^{
-        NSString* item = @"test";
-        [controller addItems:@[item, @"test2"]];
-        
-        delegate = OCMProtocolMock(@protocol(ANStorageUpdateOperationInterface));
-        controller.updateDelegate = delegate;
-        [controller removeItem:item];
-        
-        OCMVerify([delegate collectUpdate:[OCMArg isKindOfClass:[ANStorageUpdateModel class]]]);
-    });
-});
-
-
-describe(@"removeAllItemsAndSections", ^{
-    
-    it(@"generated update was send to delegate", ^{
-        [controller addItem:@"test"];
-        [controller addItem:@"test2" atIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]];
-        
-        delegate = OCMProtocolMock(@protocol(ANStorageUpdateOperationInterface));
-        controller.updateDelegate = delegate;
-        
-        [controller removeAllItemsAndSections];
-        OCMVerify([delegate collectUpdate:[OCMArg isKindOfClass:[ANStorageUpdateModel class]]]);
-    });
-});
-
-
-describe(@"removeSections:", ^{
-    
-    it(@"generated update was send to delegate", ^{
-        NSArray* items = @[@"test1", @"test2", @"test3"];
-        
-        [controller addItems:items toSection:0];
-        
-        delegate = OCMProtocolMock(@protocol(ANStorageUpdateOperationInterface));
-        controller.updateDelegate = delegate;
-        
-        [controller removeSections:[NSIndexSet indexSetWithIndex:0]];
-        
-        OCMVerify([delegate collectUpdate:[OCMArg isKindOfClass:[ANStorageUpdateModel class]]]);
-    });
-});
-
-
-describe(@"replaceItem:withItem:", ^{
-    
-    it(@"generated update was send to delegate", ^{
-        NSString* testModel = @"test0";
-        NSString* testModel1 = @"test1";
-        
-        [controller addItem:testModel toSection:0];
-        
-        delegate = OCMProtocolMock(@protocol(ANStorageUpdateOperationInterface));
-        controller.updateDelegate = delegate;
-        
-        [controller replaceItem:testModel withItem:testModel1];
-        
-        OCMVerify([delegate collectUpdate:[OCMArg isKindOfClass:[ANStorageUpdateModel class]]]);
-    });
-});
-
-
-describe(@"moveItemWithoutUpdateFromIndexPath: toIndexPath:", ^{
-    
-    it(@"generated update was NOT send to delegate", ^{
-        
-        [controller addItem:@"test"];
-        NSIndexPath* fromIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-        NSIndexPath* toIndexPath = [NSIndexPath indexPathForRow:0 inSection:1];
-        
-        delegate = OCMProtocolMock(@protocol(ANStorageUpdateOperationInterface));
-        controller.updateDelegate = delegate;
-        
-        [controller moveItemWithoutUpdateFromIndexPath:fromIndexPath toIndexPath:toIndexPath];
-        OCMVerify([delegate collectUpdate:[OCMArg isNil]]);
-    });
-});
-
-
-describe(@"moveItemFromIndexPath: toIndexPath:", ^{
-    
-    it(@"generated update was send to delegate", ^{
-        
-        [controller addItem:@"test"];
-        NSIndexPath* fromIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-        NSIndexPath* toIndexPath = [NSIndexPath indexPathForRow:0 inSection:1];
-        
-        delegate = OCMProtocolMock(@protocol(ANStorageUpdateOperationInterface));
-        controller.updateDelegate = delegate;
-        
-        [controller moveItemFromIndexPath:fromIndexPath toIndexPath:toIndexPath];
-        OCMVerify([delegate collectUpdate:[OCMArg isKindOfClass:[ANStorageUpdateModel class]]]);
-    });
-});
+//describe(@"adding items to storage", ^{
+//    
+//    beforeEach(^{
+//        delegate = OCMProtocolMock(@protocol(ANStorageUpdateOperationInterface));
+//        controller.updateDelegate = delegate;
+//    });
+//    
+//    
+//    it(@"addItem: generated update was send to delegate", ^{
+//        NSString* item = @"test";
+//        [controller addItem:item];
+//        
+//        OCMVerify([delegate collectUpdate:[OCMArg isKindOfClass:[ANStorageUpdateModel class]]]);
+//    });
+//    
+//    it(@"addItems: generated update was send to delegate", ^{
+//        [controller addItems:@[@"test0", @"test1", @"test2"]];
+//        OCMVerify([delegate collectUpdate:[OCMArg isKindOfClass:[ANStorageUpdateModel class]]]);
+//    });
+//    
+//    it(@"addItem: toSection: generated update was send to delegate", ^{
+//        NSString* item = @"test";
+//        [controller addItem:item toSection:0];
+//        
+//        OCMVerify([delegate collectUpdate:[OCMArg isKindOfClass:[ANStorageUpdateModel class]]]);
+//    });
+//    
+//    it(@"generated update was send to delegate addItems: toSection:", ^{
+//        NSArray* testModel = @[@"test0", @"test1", @"test2"];
+//        [controller addItems:testModel toSection:3];
+//        
+//        OCMVerify([delegate collectUpdate:[OCMArg isKindOfClass:[ANStorageUpdateModel class]]]);
+//    });
+//    
+//    it(@"addItem: atIndexPath: generated update was send to delegate", ^{
+//        NSIndexPath* indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+//        [controller addItem:@"test" atIndexPath:indexPath];
+//        
+//        OCMVerify([delegate collectUpdate:[OCMArg isKindOfClass:[ANStorageUpdateModel class]]]);
+//    });
+//});
+//
+//
+//describe(@"reloadItem:", ^{
+//    
+//    beforeEach(^{
+//        delegate = OCMProtocolMock(@protocol(ANStorageUpdateOperationInterface));
+//        controller.updateDelegate = delegate;
+//    });
+//    
+//    it(@"generated update was send to delegatel", ^{
+//        [controller reloadItem:@"test"];
+//        OCMVerify([delegate collectUpdate:[OCMArg isKindOfClass:[ANStorageUpdateModel class]]]);
+//    });
+//});
+//
+//
+//describe(@"removeItem:", ^{
+//    
+//    it(@"generated update was send to delegate", ^{
+//        NSString* item = @"test";
+//        [controller addItem:item];
+//        
+//        delegate = OCMProtocolMock(@protocol(ANStorageUpdateOperationInterface));
+//        controller.updateDelegate = delegate;
+//        [controller removeItem:item];
+//        
+//        OCMVerify([delegate collectUpdate:[OCMArg isKindOfClass:[ANStorageUpdateModel class]]]);
+//    });
+//});
+//
+//
+//describe(@"removeItemsAtIndexPaths:", ^{
+//    
+//    it(@"generated update was send to delegate", ^{
+//        NSString* item = @"test";
+//        NSIndexPath* indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+//        [controller addItem:item atIndexPath:indexPath];
+//        
+//        delegate = OCMProtocolMock(@protocol(ANStorageUpdateOperationInterface));
+//        controller.updateDelegate = delegate;
+//        
+//        [controller removeItemsAtIndexPaths:@[indexPath]];
+//        
+//        OCMVerify([delegate collectUpdate:[OCMArg isKindOfClass:[ANStorageUpdateModel class]]]);
+//    });
+//});
+//
+//describe(@"removeItems:", ^{
+//    
+//    it(@"generated update was send to delegate", ^{
+//        NSString* item = @"test";
+//        [controller addItems:@[item, @"test2"]];
+//        
+//        delegate = OCMProtocolMock(@protocol(ANStorageUpdateOperationInterface));
+//        controller.updateDelegate = delegate;
+//        [controller removeItem:item];
+//        
+//        OCMVerify([delegate collectUpdate:[OCMArg isKindOfClass:[ANStorageUpdateModel class]]]);
+//    });
+//});
+//
+//
+//describe(@"removeAllItemsAndSections", ^{
+//    
+//    it(@"generated update was send to delegate", ^{
+//        [controller addItem:@"test"];
+//        [controller addItem:@"test2" atIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]];
+//        
+//        delegate = OCMProtocolMock(@protocol(ANStorageUpdateOperationInterface));
+//        controller.updateDelegate = delegate;
+//        
+//        [controller removeAllItemsAndSections];
+//        OCMVerify([delegate collectUpdate:[OCMArg isKindOfClass:[ANStorageUpdateModel class]]]);
+//    });
+//});
+//
+//
+//describe(@"removeSections:", ^{
+//    
+//    it(@"generated update was send to delegate", ^{
+//        NSArray* items = @[@"test1", @"test2", @"test3"];
+//        
+//        [controller addItems:items toSection:0];
+//        
+//        delegate = OCMProtocolMock(@protocol(ANStorageUpdateOperationInterface));
+//        controller.updateDelegate = delegate;
+//        
+//        [controller removeSections:[NSIndexSet indexSetWithIndex:0]];
+//        
+//        OCMVerify([delegate collectUpdate:[OCMArg isKindOfClass:[ANStorageUpdateModel class]]]);
+//    });
+//});
+//
+//
+//describe(@"replaceItem:withItem:", ^{
+//    
+//    it(@"generated update was send to delegate", ^{
+//        NSString* testModel = @"test0";
+//        NSString* testModel1 = @"test1";
+//        
+//        [controller addItem:testModel toSection:0];
+//        
+//        delegate = OCMProtocolMock(@protocol(ANStorageUpdateOperationInterface));
+//        controller.updateDelegate = delegate;
+//        
+//        [controller replaceItem:testModel withItem:testModel1];
+//        
+//        OCMVerify([delegate collectUpdate:[OCMArg isKindOfClass:[ANStorageUpdateModel class]]]);
+//    });
+//});
+//
+//
+//describe(@"moveItemWithoutUpdateFromIndexPath: toIndexPath:", ^{
+//    
+//    it(@"generated update was NOT send to delegate", ^{
+//        
+//        [controller addItem:@"test"];
+//        NSIndexPath* fromIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+//        NSIndexPath* toIndexPath = [NSIndexPath indexPathForRow:0 inSection:1];
+//        
+//        delegate = OCMProtocolMock(@protocol(ANStorageUpdateOperationInterface));
+//        controller.updateDelegate = delegate;
+//        
+//        [controller moveItemWithoutUpdateFromIndexPath:fromIndexPath toIndexPath:toIndexPath];
+//        OCMVerify([delegate collectUpdate:[OCMArg isNil]]);
+//    });
+//});
+//
+//
+//describe(@"moveItemFromIndexPath: toIndexPath:", ^{
+//    
+//    it(@"generated update was send to delegate", ^{
+//        
+//        [controller addItem:@"test"];
+//        NSIndexPath* fromIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+//        NSIndexPath* toIndexPath = [NSIndexPath indexPathForRow:0 inSection:1];
+//        
+//        delegate = OCMProtocolMock(@protocol(ANStorageUpdateOperationInterface));
+//        controller.updateDelegate = delegate;
+//        
+//        [controller moveItemFromIndexPath:fromIndexPath toIndexPath:toIndexPath];
+//        OCMVerify([delegate collectUpdate:[OCMArg isKindOfClass:[ANStorageUpdateModel class]]]);
+//    });
+//});
 
 
 describe(@"sections", ^{

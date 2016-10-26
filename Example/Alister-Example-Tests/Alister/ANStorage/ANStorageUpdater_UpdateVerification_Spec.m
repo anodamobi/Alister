@@ -9,16 +9,21 @@
 #import <Alister/ANStorageUpdater.h>
 #import <Alister/ANStorageModel.h>
 #import <Alister/ANStorageUpdateModel.h>
+#import "ANStorageFakeOperationDelegate.h"
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wnonnull"
 
 SpecBegin(ANStorageUpdater_UpdateVerification)
 
+__block ANStorageUpdater* updater = nil;
+__block ANStorageFakeOperationDelegate* fakeDelegate = nil;
 __block ANStorageModel* storage = nil;
 
 beforeEach(^{
     storage = [ANStorageModel new];
+    fakeDelegate = [ANStorageFakeOperationDelegate new];
+    updater = [ANStorageUpdater updaterWithStorageModel:storage updateDelegate:fakeDelegate];
 });
 
 
@@ -29,30 +34,32 @@ describe(@"update addItem:", ^{
         [expected addInsertedIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]]];
         [expected addInsertedSectionIndex:0];
         
-        ANStorageUpdateModel* update = [ANStorageUpdater addItem:@"test" toStorage:storage];
+        [updater addItem:@"test"];
         
-        expect(update).equal(expected);
+        expect(fakeDelegate.lastUpdate).equal(expected);
     });
     
     it(@"update will not create section if it exists", ^{
         
+        [updater addItem:@"test"];
         ANStorageUpdateModel* expected = [ANStorageUpdateModel new];
         [expected addInsertedIndexPaths:@[[NSIndexPath indexPathForRow:1 inSection:0]]];
         
-        [ANStorageUpdater addItem:@"test" toStorage:storage];
-        ANStorageUpdateModel* update = [ANStorageUpdater addItem:@"test" toStorage:storage];
+        [updater addItem:@"test"];
         
-        expect(update).equal(expected);
+        expect(fakeDelegate.lastUpdate).equal(expected);
     });
     
     it(@"update will be empty if item is nil", ^{
-        ANStorageUpdateModel* update = [ANStorageUpdater addItem:nil toStorage:storage];
-        expect(update.isEmpty).beTruthy();
+        [updater addItem:nil];
+        expect(fakeDelegate.lastUpdate.isEmpty).beTruthy();
     });
     
     it(@"update will be empty if storage is nil", ^{
-        ANStorageUpdateModel* update = [ANStorageUpdater addItem:@"test" toStorage:nil];
-        expect(update.isEmpty).beTruthy();
+        updater = [ANStorageUpdater updaterWithStorageModel:nil updateDelegate:fakeDelegate];
+        [updater addItem:@"test"];
+        
+        expect(fakeDelegate.lastUpdate.isEmpty).beTruthy();
     });
 });
 
@@ -60,30 +67,32 @@ describe(@"update addItem:", ^{
 describe(@"update addItems:", ^{
     
     it(@"objects from array added in a correct order", ^{
-        NSArray* testModel = @[@"test0", @"test1", @"test2"];
-        ANStorageUpdateModel* update = [ANStorageUpdater addItems:testModel toStorage:storage];
-        
         ANStorageUpdateModel* expected = [ANStorageUpdateModel new];
         [expected addInsertedSectionIndex:0];
         [expected addInsertedIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0],
                                           [NSIndexPath indexPathForRow:1 inSection:0],
                                           [NSIndexPath indexPathForRow:2 inSection:0]]];
-        expect(update).equal(expected);
+        
+        [updater addItems:@[@"test0", @"test1", @"test2"]];
+        
+        expect(fakeDelegate.lastUpdate).equal(expected);
     });
     
     it(@"no update generated if add nil", ^{
-        ANStorageUpdateModel* update = [ANStorageUpdater addItems:nil toStorage:storage];
-        expect(update.isEmpty).beTruthy();
+        [updater addItems:nil];
+        expect(fakeDelegate.lastUpdate.isEmpty).beTruthy();
     });
     
     it(@"no update generated if storage is nil", ^{
-        ANStorageUpdateModel* update = [ANStorageUpdater addItems:@[@"test"] toStorage:nil];
-        expect(update.isEmpty).beTruthy();
+        updater = [ANStorageUpdater updaterWithStorageModel:nil updateDelegate:fakeDelegate]; //TODO: move this test cases in one context
+        [updater addItems:@[@"test"]];
+        
+        expect(fakeDelegate.lastUpdate.isEmpty).beTruthy();
     });
     
     it(@"no update generated if add empty array", ^{
-        ANStorageUpdateModel* update = [ANStorageUpdater addItems:@[] toStorage:storage];
-        expect(update.isEmpty).beTruthy();
+        [updater addItems:@[]];
+        expect(fakeDelegate.lastUpdate.isEmpty).beTruthy();
     });
 });
 
@@ -91,16 +100,15 @@ describe(@"update addItems:", ^{
 describe(@"update adding objects in new section autocreates them", ^{
     
     it(@"addItems", ^{
-        NSArray* testModel = @[@"one", @"two", @"three"];
-        ANStorageUpdateModel* update = [ANStorageUpdater addItems:testModel toStorage:storage];
-        
         ANStorageUpdateModel* expected = [ANStorageUpdateModel new];
         [expected addInsertedSectionIndex:0];
         [expected addInsertedIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0],
                                           [NSIndexPath indexPathForRow:1 inSection:0],
                                           [NSIndexPath indexPathForRow:2 inSection:0]]];
         
-        expect(update).equal(expected);
+        [updater addItems:@[@"one", @"two", @"three"]];
+        
+        expect(fakeDelegate.lastUpdate).equal(expected);
     });
     
     it(@"addItem", ^{
@@ -108,20 +116,20 @@ describe(@"update adding objects in new section autocreates them", ^{
         [expected addInsertedIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]]];
         [expected addInsertedSectionIndex:0];
         
-        ANStorageUpdateModel* update = [ANStorageUpdater addItem:@"test" toStorage:storage];
+        [updater addItem:@"test"];
         
-        expect(update).equal(expected);
+        expect(fakeDelegate.lastUpdate).equal(expected);
     });
     
     it(@"addItem: toSection:", ^{
-        ANStorageUpdateModel* update = [ANStorageUpdater addItem:@"Test" toSection:2 toStorage:storage];
+        [updater addItem:@"Test" toSection:2];
         
         ANStorageUpdateModel* expected = [ANStorageUpdateModel new];
         [expected addInsertedSectionIndex:0];
         [expected addInsertedIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:1]]];
         [expected addInsertedSectionIndex:1];
         
-        expect(update).equal(expected);
+        expect(fakeDelegate.lastUpdate).equal(expected);
     });
 });
 
@@ -129,29 +137,31 @@ describe(@"update adding objects in new section autocreates them", ^{
 describe(@"update addItem: toSection:", ^{
     
     it(@"if section is not exists it will be generated", ^{
-        ANStorageUpdateModel* update = [ANStorageUpdater addItem:@"Test" toSection:2 toStorage:storage];
+        [updater addItem:@"Test" toSection:2];
         
         ANStorageUpdateModel* expected = [ANStorageUpdateModel new];
         [expected addInsertedSectionIndex:0];
         [expected addInsertedIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:1]]];
         [expected addInsertedSectionIndex:1];
         
-        expect(update).equal(expected);
+        expect(fakeDelegate.lastUpdate).equal(expected);
     });
     
     it(@"update will be empty if storage is nil", ^{
-        ANStorageUpdateModel* update = [ANStorageUpdater addItem:@"test" toStorage:nil];
-        expect(update.isEmpty).beTruthy();
+        updater = [ANStorageUpdater updaterWithStorageModel:nil updateDelegate:fakeDelegate];
+        [updater addItem:@"test"];
+       
+        expect(fakeDelegate.lastUpdate.isEmpty).beTruthy();
     });
     
     it(@"update will be empty if section index is NSNotFound", ^{
-        ANStorageUpdateModel* update = [ANStorageUpdater addItem:@"test" toSection:NSNotFound toStorage:storage];
-        expect(update.isEmpty).beTruthy();
+        [updater addItem:@"test" toSection:NSNotFound];
+        expect(fakeDelegate.lastUpdate.isEmpty).beTruthy();
     });
     
     it(@"no update generated if item is nil", ^{
-        ANStorageUpdateModel* update = [ANStorageUpdater addItem:nil toSection:2 toStorage:storage];
-        expect(update.isEmpty).beTruthy();
+        [updater addItem:nil toSection:2];
+        expect(fakeDelegate.lastUpdate.isEmpty).beTruthy();
     });
 });
 
@@ -160,29 +170,31 @@ describe(@"verify update for addItems: toSection:", ^{
     
     it(@"items added in a correct order", ^{
         NSArray* testModel = @[@"test0", @"test1", @"test2"];
-        ANStorageUpdateModel* update = [ANStorageUpdater addItems:testModel toSection:3 toStorage:storage];
+        [updater addItems:testModel toSection:3];
         
         ANStorageUpdateModel* expected = [ANStorageUpdateModel new];
         [expected addInsertedSectionIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, 3)]];
         [expected addInsertedIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:3],
                                           [NSIndexPath indexPathForRow:1 inSection:3],
                                           [NSIndexPath indexPathForRow:2 inSection:3]]];
-        expect(update).equal(expected);
+        expect(fakeDelegate.lastUpdate).equal(expected);
     });
     
     it(@"update will be empty if storage is nil", ^{
-        ANStorageUpdateModel* update = [ANStorageUpdater addItems:@[] toSection:0 toStorage:nil];
-        expect(update.isEmpty).beTruthy();
+        updater = [ANStorageUpdater updaterWithStorageModel:nil updateDelegate:fakeDelegate];
+        [updater addItems:@[] toSection:0];
+        
+        expect(fakeDelegate.lastUpdate.isEmpty).beTruthy();
     });
     
     it(@"update will be empty if section index is negative", ^{
-        ANStorageUpdateModel* update = [ANStorageUpdater addItems:@[] toSection:-1 toStorage:storage];
-        expect(update.isEmpty).beTruthy();
+        [updater addItems:@[] toSection:-1];
+        expect(fakeDelegate.lastUpdate.isEmpty).beTruthy();
     });
     
     it(@"update will be empty if section index NSNotFound", ^{
-        ANStorageUpdateModel* update = [ANStorageUpdater addItems:@[] toSection:NSNotFound toStorage:storage];
-        expect(update.isEmpty).beTruthy();
+        [updater addItems:@[] toSection:NSNotFound];
+        expect(fakeDelegate.lastUpdate.isEmpty).beTruthy();
     });
 });
 
@@ -192,39 +204,35 @@ describe(@"verify update for addItem: atIndexPath:", ^{
     it(@"added item equal to retrived from storage", ^{
         NSString* item = @"test";
         NSIndexPath* indexPath = [NSIndexPath indexPathForRow:0 inSection:1];
-        ANStorageUpdateModel* update = [ANStorageUpdater addItem:item atIndexPath:indexPath toStorage:storage];
+        [updater addItem:item atIndexPath:indexPath];
         
         ANStorageUpdateModel* expected = [ANStorageUpdateModel new];
         [expected addInsertedSectionIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, 2)]];
         [expected addInsertedIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:1]]];
         
-        expect(update).equal(expected);
+        expect(fakeDelegate.lastUpdate).equal(expected);
     });
     
     it(@"update will be empty  if item is nil", ^{
-        ANStorageUpdateModel* update = [ANStorageUpdater addItem:nil
-                                                     atIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]
-                                                       toStorage:storage];
-        expect(update.isEmpty).beTruthy();
+        [updater addItem:nil atIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+        expect(fakeDelegate.lastUpdate.isEmpty).beTruthy();
     });
     
     it(@"update will be empty if indexPath is nil", ^{
-        ANStorageUpdateModel* update = [ANStorageUpdater addItem:@"test" atIndexPath:nil toStorage:storage];
-        expect(update.isEmpty).beTruthy();
+        [updater addItem:@"test" atIndexPath:nil];
+        expect(fakeDelegate.lastUpdate.isEmpty).beTruthy();
     });
     
     it(@"update will be empty if row out of bounds", ^{
-        ANStorageUpdateModel* update = [ANStorageUpdater addItem:@"test"
-                                                     atIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]
-                                                       toStorage:storage];
-        expect(update.isEmpty).beTruthy();
+        [updater addItem:@"test" atIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
+        expect(fakeDelegate.lastUpdate.isEmpty).beTruthy();
     });
     
     it(@"update will be empty if storage is nil", ^{
-        ANStorageUpdateModel* update = [ANStorageUpdater addItem:@"test"
-                                                     atIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]
-                                                       toStorage:nil];
-        expect(update.isEmpty).beTruthy();
+        updater = [ANStorageUpdater updaterWithStorageModel:nil updateDelegate:fakeDelegate];
+        [updater addItem:@"test" atIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]];
+        
+        expect(fakeDelegate.lastUpdate.isEmpty).beTruthy();
     });
 });
 
@@ -234,28 +242,30 @@ describe(@"reloadItem:", ^{
     it(@"item reloaded if exists", ^{
         
         NSString* item = @"test";
-        [ANStorageUpdater addItem:item toStorage:storage];
-        ANStorageUpdateModel* update = [ANStorageUpdater reloadItem:item inStorage:storage];
+        [updater addItem:item];
+        [updater reloadItem:item];
         
         ANStorageUpdateModel* expected = [ANStorageUpdateModel new];
         [expected addUpdatedIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]]];
         
-        expect(update).equal(expected);
+        expect(fakeDelegate.lastUpdate).equal(expected);
     });
     
     it(@"update will be empty if item not exists in storageModel", ^{
-        ANStorageUpdateModel* update = [ANStorageUpdater reloadItem:@"test" inStorage:storage];
-        expect(update.isEmpty).beTruthy();
+        [updater reloadItem:@"test"];
+        expect(fakeDelegate.lastUpdate.isEmpty).beTruthy();
     });
     
     it(@"update will be empty if item is nil", ^{
-        ANStorageUpdateModel* update = [ANStorageUpdater reloadItem:nil inStorage:storage];
-        expect(update.isEmpty).beTruthy();
+        [updater reloadItem:nil];
+        expect(fakeDelegate.lastUpdate.isEmpty).beTruthy();
     });
     
     it(@"update will be empty if storage is nil", ^{
-        ANStorageUpdateModel* update = [ANStorageUpdater reloadItem:@"test" inStorage:nil];
-        expect(update.isEmpty).beTruthy();
+        updater = [ANStorageUpdater updaterWithStorageModel:nil updateDelegate:fakeDelegate];
+        [updater reloadItem:@"test"];
+        
+        expect(fakeDelegate.lastUpdate.isEmpty).beTruthy();
     });
 });
 
@@ -265,28 +275,30 @@ describe(@"reloadItems: inStorage:", ^{
     it(@"item reloaded if exists", ^{
         
         NSString* item = @"test";
-        [ANStorageUpdater addItem:item toStorage:storage];
-        ANStorageUpdateModel* update = [ANStorageUpdater reloadItem:item inStorage:storage];
+        [updater addItem:item];
+        [updater reloadItem:item];
         
         ANStorageUpdateModel* expected = [ANStorageUpdateModel new];
         [expected addUpdatedIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]]];
         
-        expect(update).equal(expected);
+        expect(fakeDelegate.lastUpdate).equal(expected);
     });
     
     it(@"update will be empty if items not exists in storageModel", ^{
-        ANStorageUpdateModel* update = [ANStorageUpdater reloadItems:@[@"test"] inStorage:storage];
-        expect(update.isEmpty).beTruthy();
+        [updater reloadItems:@[@"test"]];
+        expect(fakeDelegate.lastUpdate.isEmpty).beTruthy();
     });
     
     it(@"update will be empty if item is nil", ^{
-        ANStorageUpdateModel* update = [ANStorageUpdater reloadItems:nil inStorage:storage];
-        expect(update.isEmpty).beTruthy();
+        [updater reloadItems:nil];
+        expect(fakeDelegate.lastUpdate.isEmpty).beTruthy();
     });
     
     it(@"update will be empty if storage is nil", ^{
-        ANStorageUpdateModel* update = [ANStorageUpdater reloadItems:@[@"test"] inStorage:nil];
-        expect(update.isEmpty).beTruthy();
+        updater = [ANStorageUpdater updaterWithStorageModel:nil updateDelegate:fakeDelegate];
+        [updater reloadItems:@[@"test"]];
+        
+        expect(fakeDelegate.lastUpdate.isEmpty).beTruthy();
     });
 });
 
@@ -296,37 +308,39 @@ describe(@"replaceItem: withItem:", ^{
     __block NSString* item = @"test";
     
     beforeEach(^{
-        [ANStorageUpdater addItem:item toStorage:storage];
+        [updater addItem:item];
     });
     
     it(@"update will be empty if new item is nil", ^{
-        ANStorageUpdateModel* update = [ANStorageUpdater replaceItem:item withItem:nil inStorage:storage];
-        expect(update.isEmpty).beTruthy();
+        [updater replaceItem:item withItem:nil];
+        expect(fakeDelegate.lastUpdate.isEmpty).beTruthy();
     });
     
     it(@"update will be empty if both items are nil", ^{
-        ANStorageUpdateModel* update = [ANStorageUpdater replaceItem:nil withItem:nil inStorage:storage];
-        expect(update.isEmpty).beTruthy();
+        [updater replaceItem:nil withItem:nil];
+        expect(fakeDelegate.lastUpdate.isEmpty).beTruthy();
     });
     
     it(@"update will be empty if storage is nil", ^{
-        ANStorageUpdateModel* update = [ANStorageUpdater replaceItem:nil withItem:@"test"  inStorage:storage];
-        expect(update.isEmpty).beTruthy();
+        updater = [ANStorageUpdater updaterWithStorageModel:nil updateDelegate:fakeDelegate];
+        [updater replaceItem:@"test" withItem:@"test"];
+        
+        expect(fakeDelegate.lastUpdate.isEmpty).beTruthy();
     });
     
     it(@"update will be empty if old item is nil", ^{
-        ANStorageUpdateModel* update = [ANStorageUpdater replaceItem:@"test" withItem:@"test"  inStorage:nil];
-        expect(update.isEmpty).beTruthy();
+        [updater replaceItem:nil withItem:@"test"];
+        expect(fakeDelegate.lastUpdate.isEmpty).beTruthy();
     });
     
     it(@"successfully replaces item", ^{
         NSString* testModel = @"test0";
-        ANStorageUpdateModel* update = [ANStorageUpdater replaceItem:item withItem:testModel inStorage:storage];
+        [updater replaceItem:item withItem:testModel];
         
         ANStorageUpdateModel* expected = [ANStorageUpdateModel new];
         [expected addUpdatedIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]]];
         
-        expect(update).equal(expected);
+        expect(fakeDelegate.lastUpdate).equal(expected);
     });
 });
 
@@ -338,47 +352,40 @@ describe(@"moveItemFromIndexPath: toIndexPath:", ^{
     __block NSString* item = @"test";
     
     beforeEach(^{
-        [ANStorageUpdater addItem:item toStorage:storage];
+        [updater addItem:item];
     });
     
     it(@"update will be empty if from indexPath is nil", ^{
-        ANStorageUpdateModel* update = [ANStorageUpdater moveItemFromIndexPath:nil
-                                                                   toIndexPath:toIndexPath
-                                                                     inStorage:storage];
-        expect(update.isEmpty).beTruthy();
+        [updater moveItemFromIndexPath:nil toIndexPath:toIndexPath];
+        expect(fakeDelegate.lastUpdate.isEmpty).beTruthy();
     });
     
     it(@"update will be empty if to indexPath is nil", ^{
-        ANStorageUpdateModel* update = [ANStorageUpdater moveItemFromIndexPath:fromIndexPath
-                                                                   toIndexPath:nil
-                                                                     inStorage:storage];
-        expect(update.isEmpty).beTruthy();
+        [updater moveItemFromIndexPath:fromIndexPath toIndexPath:nil];
+        expect(fakeDelegate.lastUpdate.isEmpty).beTruthy();
     });
     
     it(@"update will be empty if both indexPaths are nil", ^{
-        ANStorageUpdateModel* update = [ANStorageUpdater moveItemFromIndexPath:nil
-                                                                   toIndexPath:nil
-                                                                     inStorage:storage];
-        expect(update.isEmpty).beTruthy();
+        [updater moveItemFromIndexPath:nil toIndexPath:nil];
+        expect(fakeDelegate.lastUpdate.isEmpty).beTruthy();
     });
     
     it(@"update will be empty if storage is nil", ^{
-        ANStorageUpdateModel* update = [ANStorageUpdater moveItemFromIndexPath:fromIndexPath
-                                                                   toIndexPath:toIndexPath
-                                                                     inStorage:nil];
-        expect(update.isEmpty).beTruthy();
+        updater = [ANStorageUpdater updaterWithStorageModel:nil updateDelegate:fakeDelegate];
+        [updater moveItemFromIndexPath:fromIndexPath toIndexPath:toIndexPath];
+        
+        expect(fakeDelegate.lastUpdate.isEmpty).beTruthy();
     });
     
     it(@"item successfully moved", ^{
-        ANStorageUpdateModel* update = [ANStorageUpdater moveItemFromIndexPath:fromIndexPath
-                                                                   toIndexPath:toIndexPath
-                                                                     inStorage:storage];
+        [updater moveItemFromIndexPath:fromIndexPath toIndexPath:toIndexPath];
+        
         ANStorageUpdateModel* expected = [ANStorageUpdateModel new];
         ANStorageMovedIndexPathModel* indexPath = [ANStorageMovedIndexPathModel modelWithFromIndexPath:fromIndexPath
                                                                                             toIndexPath:toIndexPath];
         [expected addMovedIndexPaths:@[indexPath]];
         
-        expect(update).equal(expected);
+        expect(fakeDelegate.lastUpdate).equal(expected);
     });
 });
 
@@ -386,28 +393,30 @@ describe(@"moveItemFromIndexPath: toIndexPath:", ^{
 describe(@"createSectionIfNotExist:inStorage: ", ^{
     
     it(@"successfully created section at specified index", ^{
-        NSIndexSet* update = [ANStorageUpdater createSectionIfNotExist:0 inStorage:storage];
+        NSIndexSet* update = [updater createSectionIfNotExist:0];
         expect(update).equal([NSIndexSet indexSetWithIndex:0]);
     });
     
     it(@"changed indexes are empty if section already exists", ^{
-        [ANStorageUpdater addItem:@"test" toStorage:storage];
-        NSIndexSet* update =  [ANStorageUpdater createSectionIfNotExist:0 inStorage:storage];
+        [updater addItem:@"test"];
+        NSIndexSet* update =  [updater createSectionIfNotExist:0];
         expect(update).haveCount(0);
     });
     
     it(@"update will be empty if index is negative", ^{
-        NSIndexSet* update = [ANStorageUpdater createSectionIfNotExist:-1 inStorage:storage];
+        NSIndexSet* update = [updater createSectionIfNotExist:-1];
         expect(update).haveCount(0);
     });
     
     it(@"update will be empty if index is NSNotFound", ^{
-        NSIndexSet* update = [ANStorageUpdater createSectionIfNotExist:NSNotFound inStorage:storage];
+        NSIndexSet* update = [updater createSectionIfNotExist:NSNotFound];
         expect(update).haveCount(0);
     });
     
     it(@"update will be empty if storage is nil", ^{
-        NSIndexSet* update = [ANStorageUpdater createSectionIfNotExist:0 inStorage:nil];
+        updater = [ANStorageUpdater updaterWithStorageModel:nil updateDelegate:fakeDelegate];
+        NSIndexSet* update = [updater createSectionIfNotExist:0];
+        
         expect(update).haveCount(0);
     });
 });

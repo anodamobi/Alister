@@ -14,9 +14,11 @@
 SpecBegin(ANStorageLoaderSpec)
 
 __block ANStorageModel* storage = nil;
+__block ANStorageUpdater* updater = nil;
 
 beforeEach(^{
     storage = [ANStorageModel new];
+    updater = [ANStorageUpdater updaterWithStorageModel:storage updateDelegate:nil];
 });
 
 
@@ -25,7 +27,7 @@ describe(@"itemAtIndexPath:", ^{
     __block NSString* item = @"test";
     
     beforeEach(^{
-        [ANStorageUpdater addItem:item toStorage:storage];
+        [updater addItem:item];
     });
     
     it(@"correctly returns item", ^{
@@ -57,7 +59,7 @@ describe(@"sectionAtIndex:", ^{
     
     it(@"returns correct section if it exists", ^{
         NSString* item = @"test";
-        [ANStorageUpdater addItem:item toStorage:storage];
+        [updater addItem:item];
         ANStorageSectionModel* sectionModel = [ANStorageLoader sectionAtIndex:0 inStorage:storage];
         
         expect(sectionModel.objects).contain(item);
@@ -97,7 +99,7 @@ describe(@"itemsInSection:", ^{
     
     it(@"returns specified items", ^{
         NSArray* items = @[@"test", @"test2"];
-        [ANStorageUpdater addItems:items toStorage:storage];
+        [updater addItems:items];
         
         expect([ANStorageLoader itemsInSection:0 inStorage:storage]).equal(items);
     });
@@ -137,7 +139,7 @@ describe(@"indexPathForItem:", ^{
     __block NSString* item = @"test";
     
     beforeEach(^{
-        [ANStorageUpdater addItem:item toStorage:storage];
+        [updater addItem:item];
     });
     
     it(@"returns nil if item not exists in storageModel", ^{

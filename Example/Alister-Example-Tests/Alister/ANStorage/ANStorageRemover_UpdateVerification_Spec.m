@@ -26,7 +26,7 @@ beforeEach(^{
     ANStorageModel* storage = [ANStorageModel new];
     
     fakeDelegate = [ANStorageFakeOperationDelegate new];
-    updater = [ANStorageUpdater updaterWithStorageModel:storage delegate:nil];
+    updater = [ANStorageUpdater updaterWithStorageModel:storage updateDelegate:nil];
     remover = [ANStorageRemover removerWithStorageModel:storage andUpdateDelegate:fakeDelegate];
 });
 

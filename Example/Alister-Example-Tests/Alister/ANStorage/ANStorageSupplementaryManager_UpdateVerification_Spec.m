@@ -10,13 +10,18 @@
 #import <Alister/ANStorageModel.h>
 #import <Alister/ANStorageSectionModel.h>
 #import <Alister/ANStorageUpdateModel.h>
+#import "ANStorageFakeOperationDelegate.h"
 
 SpecBegin(ANStorageSupplementaryManager_UpdateVerification)
 
 __block ANStorageModel* storage = nil;
+__block ANStorageSupplementaryManager* supplementaryManager = nil;
+__block ANStorageFakeOperationDelegate* fakeDelegate = nil;
 
 beforeEach(^{
     storage = [ANStorageModel new];
+    fakeDelegate = [ANStorageFakeOperationDelegate new];
+    supplementaryManager = [ANStorageSupplementaryManager supplementatyManagerWithStorageModel:storage updateDelegate:fakeDelegate];
 });
 
 describe(@"updateSectionHeaderModel: forSectionIndex: inStorage:", ^{
@@ -28,51 +33,41 @@ describe(@"updateSectionHeaderModel: forSectionIndex: inStorage:", ^{
     it(@"updates model successfully", ^{
         
         NSString* item = @"test";
-        ANStorageUpdateModel* update = [ANStorageSupplementaryManager updateSectionHeaderModel:item
-                                                                               forSectionIndex:0
-                                                                                     inStorage:storage];
+        [supplementaryManager updateSectionHeaderModel:item forSectionIndex:0];
         ANStorageUpdateModel* expected = [ANStorageUpdateModel new];
         [expected addInsertedSectionIndex:0];
         
-        expect(update).equal(expected);
+        expect(fakeDelegate.lastUpdate).equal(expected);
     });
     
     it(@"no update will be generated if model is nil", ^{
-        ANStorageUpdateModel* update = [ANStorageSupplementaryManager updateSectionHeaderModel:nil
-                                                                               forSectionIndex:0
-                                                                                     inStorage:storage];
-        expect(update.isEmpty).beTruthy();
+        [supplementaryManager updateSectionHeaderModel:nil forSectionIndex:0];
+        expect(fakeDelegate.lastUpdate.isEmpty).beTruthy();
     });
     
     it(@"successfully generated update if section is not exist", ^{
-        ANStorageUpdateModel* update = [ANStorageSupplementaryManager updateSectionHeaderModel:@"test"
-                                                                               forSectionIndex:1
-                                                                                     inStorage:storage];
+        [supplementaryManager updateSectionHeaderModel:@"test" forSectionIndex:1];
         ANStorageUpdateModel* expected = [ANStorageUpdateModel new];
         [expected addInsertedSectionIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, 2)]];
         
-        expect(update).equal(expected);
+        expect(fakeDelegate.lastUpdate).equal(expected);
     });
     
     it(@"no update will be generated if index is negative", ^{
-        ANStorageUpdateModel* update = [ANStorageSupplementaryManager updateSectionHeaderModel:@"test"
-                                                                               forSectionIndex:-1
-                                                                                     inStorage:storage];
-        expect(update.isEmpty).beTruthy();
+        [supplementaryManager updateSectionHeaderModel:@"test" forSectionIndex:-1];
+        expect(fakeDelegate.lastUpdate.isEmpty).beTruthy();
     });
     
     it(@"no update will be generated if index is NSNotFound", ^{
-        ANStorageUpdateModel* update = [ANStorageSupplementaryManager updateSectionHeaderModel:@"test"
-                                                                               forSectionIndex:NSNotFound
-                                                                                     inStorage:storage];
-        expect(update.isEmpty).beTruthy();
+        [supplementaryManager updateSectionHeaderModel:@"test" forSectionIndex:NSNotFound];
+        expect(fakeDelegate.lastUpdate.isEmpty).beTruthy();
     });
     
     it(@"no update will be generated if storage is nil", ^{
-        ANStorageUpdateModel* update = [ANStorageSupplementaryManager updateSectionHeaderModel:@"test"
-                                                                               forSectionIndex:0
-                                                                                     inStorage:nil];
-        expect(update.isEmpty).beTruthy();
+        supplementaryManager = [ANStorageSupplementaryManager supplementatyManagerWithStorageModel:nil
+                                                                                    updateDelegate:fakeDelegate];
+        [supplementaryManager updateSectionHeaderModel:@"test" forSectionIndex:0];
+        expect(fakeDelegate.lastUpdate.isEmpty).beTruthy();
     });
 });
 
@@ -86,52 +81,44 @@ describe(@"updateSectionFooterModel: forSectionIndex: inStorage:", ^{
     it(@"updates model successfully", ^{
         
         NSString* item = @"test";
-        ANStorageUpdateModel* update = [ANStorageSupplementaryManager updateSectionFooterModel:item
-                                                forSectionIndex:0
-                                                      inStorage:storage];
+        [supplementaryManager updateSectionFooterModel:item forSectionIndex:0];
         
         ANStorageUpdateModel* expected = [ANStorageUpdateModel new];
         [expected addInsertedSectionIndex:0];
         
-        expect(update).equal(expected);
+        expect(fakeDelegate.lastUpdate).equal(expected);
     });
     
     it(@"successfully generated update if section is not exist", ^{
-        ANStorageUpdateModel* update = [ANStorageSupplementaryManager updateSectionFooterModel:@"test"
-                                                                               forSectionIndex:1
-                                                                                     inStorage:storage];
+       
+        [supplementaryManager updateSectionFooterModel:@"test" forSectionIndex:1];
+        
         ANStorageUpdateModel* expected = [ANStorageUpdateModel new];
         [expected addInsertedSectionIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, 2)]];
         
-        expect(update).equal(expected);
+        expect(fakeDelegate.lastUpdate).equal(expected);
     });
     
     it(@"no update will be generated if model is nil", ^{
-        ANStorageUpdateModel* update = [ANStorageSupplementaryManager updateSectionFooterModel:nil
-                                                                               forSectionIndex:0
-                                                                                     inStorage:storage];
-        expect(update.isEmpty).beTruthy();
+        [supplementaryManager updateSectionFooterModel:nil forSectionIndex:0];
+        expect(fakeDelegate.lastUpdate.isEmpty).beTruthy();
     });
     
     it(@"no update will be generated if index is negative", ^{
-        ANStorageUpdateModel* update = [ANStorageSupplementaryManager updateSectionFooterModel:@"test"
-                                                                               forSectionIndex:-1
-                                                                                     inStorage:storage];
-        expect(update.isEmpty).beTruthy();
+        [supplementaryManager updateSectionFooterModel:@"test" forSectionIndex:-1];
+        expect(fakeDelegate.lastUpdate.isEmpty).beTruthy();
     });
     
     it(@"no update will be generated if index is NSNotFound", ^{
-        ANStorageUpdateModel* update = [ANStorageSupplementaryManager updateSectionFooterModel:@"test"
-                                                                               forSectionIndex:NSNotFound
-                                                                                     inStorage:storage];
-        expect(update.isEmpty).beTruthy();
+        [supplementaryManager updateSectionFooterModel:@"test" forSectionIndex:NSNotFound];
+        expect(fakeDelegate.lastUpdate.isEmpty).beTruthy();
     });
     
     it(@"no update will be generated if storage is nil", ^{
-        ANStorageUpdateModel* update = [ANStorageSupplementaryManager updateSectionFooterModel:@"test"
-                                                                               forSectionIndex:0
-                                                                                     inStorage:nil];
-        expect(update.isEmpty).beTruthy();
+        supplementaryManager = [ANStorageSupplementaryManager supplementatyManagerWithStorageModel:nil
+                                                                                    updateDelegate:fakeDelegate];
+        [supplementaryManager updateSectionFooterModel:@"test" forSectionIndex:0];
+        expect(fakeDelegate.lastUpdate.isEmpty).beTruthy();
     });
 });
 

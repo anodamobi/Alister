@@ -23,7 +23,7 @@ __block ANStorageUpdater* updater = nil;
 beforeEach(^{
     storage = [ANStorageModel new];
     remover = [ANStorageRemover removerWithStorageModel:storage andUpdateDelegate:nil];
-    updater = [ANStorageUpdater updaterWithStorageModel:storage delegate:nil];
+    updater = [ANStorageUpdater updaterWithStorageModel:storage updateDelegate:nil];
 });
 
 describe(@"removeItem:", ^{

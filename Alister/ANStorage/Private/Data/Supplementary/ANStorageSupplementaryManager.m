@@ -19,47 +19,39 @@
 @property (nonatomic, strong) ANStorageUpdater* updater; // TODO: init for it
 
 @property (nonatomic, strong) ANStorageModel* storageModel;
-@property (nonatomic, weak) id delegate;
+@property (nonatomic, weak) id<ANStorageUpdateOperationInterface> updateDelegate;
 
 @end
 
 @implementation ANStorageSupplementaryManager
 
-+ (instancetype)supplementatyManagerWithStorageModel:(id)model withDelegate:(id)delegate
++ (instancetype)supplementatyManagerWithStorageModel:(id)model updateDelegate:(id<ANStorageUpdateOperationInterface>)delegate
 {
     ANStorageSupplementaryManager* mananger = [self new];
-    mananger.delegate = delegate;
+    mananger.updateDelegate = delegate;
     mananger.storageModel = model;
+    
+    mananger.updater = [ANStorageUpdater updaterWithStorageModel:model
+                                                  updateDelegate:delegate];
     
     return mananger;
 }
 
-- (ANStorageUpdateModel*)updateSectionHeaderModel:(id)headerModel
-                                  forSectionIndex:(NSInteger)sectionIndex
-                                        inStorage:(ANStorageModel*)storage
+- (void)updateSectionHeaderModel:(id)headerModel forSectionIndex:(NSInteger)sectionIndex
 {
-    return [self _updateSupplementaryOfKind:storage.headerKind
-                                      model:headerModel
-                            forSectionIndex:sectionIndex
-                                  inStorage:storage];
+    ANStorageUpdateModel* update = [self _updateSupplementaryOfKind:self.storageModel.headerKind
+                                                              model:headerModel
+                                                    forSectionIndex:sectionIndex];
+    [self.updateDelegate collectUpdate:update];
 }
 
-- (ANStorageUpdateModel*)updateSectionFooterModel:(id)footerModel
-                                  forSectionIndex:(NSInteger)sectionIndex
-                                        inStorage:(ANStorageModel*)storage
+- (void)updateSectionFooterModel:(id)footerModel forSectionIndex:(NSInteger)sectionIndex
 {
-    return [self _updateSupplementaryOfKind:storage.footerKind
-                                      model:footerModel
-                            forSectionIndex:sectionIndex
-                                  inStorage:storage];
+    ANStorageUpdateModel* update = [self _updateSupplementaryOfKind:self.storageModel.footerKind
+                                                              model:footerModel
+                                                    forSectionIndex:sectionIndex];
+    [self.updateDelegate collectUpdate:update];
 }
-
-- (id)supplementaryModelOfKind:(NSString*)kind forSectionIndex:(NSUInteger)sectionIndex inStorage:(ANStorageModel*)storage
-{
-    ANStorageSectionModel* sectionModel = [ANStorageLoader sectionAtIndex:sectionIndex inStorage:storage];
-    return [sectionModel supplementaryModelOfKind:kind];
-}
-
 
 #pragma mark - Private
 
@@ -68,11 +60,10 @@
 - (ANStorageUpdateModel*)_updateSupplementaryOfKind:(NSString*)kind
                                               model:(id)model
                                     forSectionIndex:(NSUInteger)sectionIndex
-                                          inStorage:(ANStorageModel*)storage
 {
     ANStorageUpdateModel* update = [ANStorageUpdateModel new];
     
-    if (ANIsIndexValid(sectionIndex) && storage)
+    if (ANIsIndexValid(sectionIndex) && self.storageModel)
     {
         ANStorageSectionModel* section = nil;
         
@@ -80,17 +71,26 @@
         {
             NSIndexSet* set = [self.updater createSectionIfNotExist:sectionIndex];
             [update addInsertedSectionIndexes:set];
-            section = [ANStorageLoader sectionAtIndex:sectionIndex inStorage:storage];
+            section = [ANStorageLoader sectionAtIndex:sectionIndex inStorage:self.storageModel];
         }
         else
         {   // if section not exist we don't need to remove it's model,
             // so no new sections will be created and update will be empty
-            section = [ANStorageLoader sectionAtIndex:sectionIndex inStorage:storage];
+            section = [ANStorageLoader sectionAtIndex:sectionIndex inStorage:self.storageModel];
         }
         [section updateSupplementaryModel:model forKind:kind];
     }
+    
     return update;
-
 }
+
+- (id)supplementaryModelOfKind:(NSString*)kind forSectionIndex:(NSUInteger)sectionIndex
+{
+    ANStorageSectionModel* sectionModel = [ANStorageLoader sectionAtIndex:sectionIndex inStorage:self.storageModel];
+    return [sectionModel supplementaryModelOfKind:kind];
+}
+
+
+
 
 @end
