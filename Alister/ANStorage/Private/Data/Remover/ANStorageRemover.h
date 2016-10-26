@@ -29,55 +29,49 @@ NS_ASSUME_NONNULL_BEGIN
  Removes specified item from storage.
 
  @param item    item to remove
- @param storage storageModel storage where item should be deleted.
 
  @return UpdateModel that contains diff for current operation. If operation was terminated update will be empty.
  */
-- (ANStorageUpdateModel*)removeItem:(id)item fromStorage:(ANStorageModel*)storage;
+- (ANStorageUpdateModel*)removeItem:(id)item;
 
 
 /**
  Removes specified set of indexPaths from storage.
 
  @param indexPaths NSSet* of indexPaths which should be removed
- @param storage    storageModel storage where item should be deleted.
 
  @return UpdateModel that contains diff for current operation. If operation was terminated update will be empty.
  */
-- (ANStorageUpdateModel*)removeItemsAtIndexPaths:(NSSet*)indexPaths fromStorage:(ANStorageModel*)storage;
+- (ANStorageUpdateModel*)removeItemsAtIndexPaths:(NSSet*)indexPaths;
 
 
 /**
  Removes specified set of items from storage.
 
  @param items   NSSet* of items which should be removed. Not tested if storage contains equal objects.
- @param storage storageModel storage where item should be deleted.
 
  @return UpdateModel that contains diff for current operation. If operation was terminated update will be empty.
  */
-- (ANStorageUpdateModel*)removeItems:(NSSet*)items fromStorage:(ANStorageModel*)storage;
+- (ANStorageUpdateModel*)removeItems:(NSSet*)items;
 
 
 /**
   Removes specified set of section indexes from storage.
 
  @param indexSet NSIndexSet* of section indexes which you want to remove
- @param storage  storageModel storage where item should be deleted.
 
  @return UpdateModel that contains diff for current operation. If operation was terminated update will be empty.
  */
-- (ANStorageUpdateModel*)removeSections:(NSIndexSet*)indexSet fromStorage:(ANStorageModel*)storage;
+- (ANStorageUpdateModel*)removeSections:(NSIndexSet*)indexSet;
 
 
 /**
  Removes all sections and all items in sections. 
  Restores initial state.
 
- @param storage storageModel storage where item should be deleted.
-
  @return UpdateModel that contains diff for current operation. If operation was terminated update will be empty.
  */
-- (ANStorageUpdateModel*)removeAllItemsAndSectionsFromStorage:(ANStorageModel*)storage;
+- (ANStorageUpdateModel*)removeAllItemsAndSections;
 
 @end
 

@@ -84,32 +84,32 @@
 
 - (void)removeItem:(id)item
 {
-    ANStorageUpdateModel* update = [self.remover removeItem:item fromStorage:self.storageModel];
+    ANStorageUpdateModel* update = [self.remover removeItem:item];
     [self.updateDelegate collectUpdate:update];
 }
 
 - (void)removeItemsAtIndexPaths:(NSSet*)indexPaths
 {
-    ANStorageUpdateModel* update = [self.remover removeItemsAtIndexPaths:indexPaths fromStorage:self.storageModel];
+    ANStorageUpdateModel* update = [self.remover removeItemsAtIndexPaths:indexPaths];
     [self.updateDelegate collectUpdate:update];
 }
 
 - (void)removeItems:(NSSet*)items
 {
-    ANStorageUpdateModel* update = [self.remover removeItems:items fromStorage:self.storageModel];
+    ANStorageUpdateModel* update = [self.remover removeItems:items];
     [self.updateDelegate collectUpdate:update];
 }
 
 - (void)removeAllItemsAndSections
 {
-    ANStorageUpdateModel* update = [self.remover removeAllItemsAndSectionsFromStorage:self.storageModel];
+    ANStorageUpdateModel* update = [self.remover removeAllItemsAndSections];
     update.isRequireReload = YES;
     [self.updateDelegate collectUpdate:update];
 }
 
 - (void)removeSections:(NSIndexSet*)indexSet
 {
-    ANStorageUpdateModel* update = [self.remover removeSections:indexSet fromStorage:self.storageModel];
+    ANStorageUpdateModel* update = [self.remover removeSections:indexSet];
     [self.updateDelegate collectUpdate:update];
 }
 
