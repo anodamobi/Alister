@@ -23,16 +23,18 @@
 NS_ASSUME_NONNULL_BEGIN
 
 
+//TODO: doc
++ (instancetype)updaterWithStorageModel:(ANStorageModel*)model delegate:(id)delegate;
+
 /**
  Adds item to section at zero index.
  
  @param item  to add. If value is nil empty update will be generated
- @param storageModel storage where item will be inserted
  
  @return UpdateModel that contains diff for current operation. If operation was terminated update will be empty.
  */
 
-+ (ANStorageUpdateModel*)addItem:(id)item toStorage:(ANStorageModel*)storageModel;
+- (ANStorageUpdateModel*)addItem:(id)item;
 
 
 /**
@@ -43,12 +45,11 @@ NS_ASSUME_NONNULL_BEGIN
  
  @param item          to add in storage
  @param sectionIndex  section to add item.
- @param model         to insert to storage
  
  @return UpdateModel that contains diff for current operation. If operation was terminated update will be empty.
  */
 
-+ (ANStorageUpdateModel*)addItem:(id)item toSection:(NSUInteger)sectionIndex toStorage:(ANStorageModel*)model;
+- (ANStorageUpdateModel*)addItem:(id)item toSection:(NSUInteger)sectionIndex;
 
 
 /**
@@ -58,12 +59,11 @@ NS_ASSUME_NONNULL_BEGIN
  If any parameter will be nil, no update will be generated.
  
  @param items NSArray* of items to insert in specified storage
- @param model where this item should be inserted
  
  @return UpdateModel that contains diff for current operation. If operation was terminated update will be empty.
  */
 
-+ (ANStorageUpdateModel*)addItems:(NSArray*)items toStorage:(ANStorageModel*)model;
+- (ANStorageUpdateModel*)addItems:(NSArray*)items;
 
 
 /**
@@ -74,12 +74,11 @@ NS_ASSUME_NONNULL_BEGIN
  
  @param items         NSArray* of items to insert in specified storage
  @param sectionIndex  index for section where items should be added
- @param model         where this item should be inserted
  
  @return UpdateModel that contains diff for current operation. If operation was terminated update will be empty.
  */
 
-+ (ANStorageUpdateModel*)addItems:(NSArray*)items toSection:(NSUInteger)sectionIndex toStorage:(ANStorageModel*)model;
+- (ANStorageUpdateModel*)addItems:(NSArray*)items toSection:(NSUInteger)sectionIndex;
 
 
 /**
@@ -90,12 +89,11 @@ NS_ASSUME_NONNULL_BEGIN
  
  @param item      to add in storage
  @param indexPath for item in storage after update
- @param model     where this item should be inserted
 
  @return UpdateModel that contains diff for current operation. If operation was terminated update will be empty.
  */
 
-+ (ANStorageUpdateModel*)addItem:(id)item atIndexPath:(NSIndexPath*)indexPath toStorage:(ANStorageModel*)model;
+- (ANStorageUpdateModel*)addItem:(id)item atIndexPath:(NSIndexPath*)indexPath;
 
 
 /**
@@ -104,12 +102,11 @@ NS_ASSUME_NONNULL_BEGIN
 
  @param itemToReplace item to replace, old existing item should be in storage already
  @param replacingItem new item, on which old item should be replaced
- @param storage       where this item should be inserted
 
  @return UpdateModel that contains diff for current operation. If operation was terminated update will be empty.
  */
 
-+ (ANStorageUpdateModel*)replaceItem:(id)itemToReplace withItem:(id)replacingItem inStorage:(ANStorageModel*)storage;
+- (ANStorageUpdateModel*)replaceItem:(id)itemToReplace withItem:(id)replacingItem;
 
 
 /**
@@ -118,14 +115,12 @@ NS_ASSUME_NONNULL_BEGIN
 
  @param fromIndexPath NSIndexPath* to get item from. If there is no item at this indexPath operation will be terminated.
  @param toIndexPath   NSIndexPath* new place for item. If there is no section for indexPath.section it will be generated. If in thi section number of items less than specified indexPath.row operation will be ternimated.
- @param storage       where this item should be inserted
 
  @return UpdateModel that contains diff for current operation. If operation was terminated update will be empty.
  */
 
-+ (ANStorageUpdateModel*)moveItemFromIndexPath:(NSIndexPath*)fromIndexPath
-                                   toIndexPath:(NSIndexPath*)toIndexPath
-                                     inStorage:(ANStorageModel*)storage;
+- (ANStorageUpdateModel*)moveItemFromIndexPath:(NSIndexPath*)fromIndexPath
+                                   toIndexPath:(NSIndexPath*)toIndexPath;
 
 
 /**
@@ -133,12 +128,11 @@ NS_ASSUME_NONNULL_BEGIN
  You need this method when your item still the same, but it's content was updated.
  If any parameter will be nil, no update will be generated.
  @param item    to reload
- @param storage where this item should be reloaded.
 
  @return UpdateModel that contains diff for current operation. If operation was terminated update will be empty.
  */
 
-+ (ANStorageUpdateModel*)reloadItem:(id)item inStorage:(ANStorageModel*)storage;
+- (ANStorageUpdateModel*)reloadItem:(id)item;
 
 
 /**
@@ -147,23 +141,21 @@ NS_ASSUME_NONNULL_BEGIN
  If any parameter will be nil, no update will be generated.
 
  @param items   NSArray* items array for reload
- @param storage where this item should be inserted
 
  @return UpdateModel that contains diff for current operation. If operation was terminated update will be empty.
  */
-+ (ANStorageUpdateModel*)reloadItems:(NSArray*)items inStorage:(ANStorageModel*)storage;
+- (ANStorageUpdateModel*)reloadItems:(NSArray*)items;
 
 
 /**
  Generates empty sections to match count with specified index.
 
  @param sectionIndex section index up to what all section should be created
- @param storage       where this item should be inserted
 
  @return NSIndexSet* that contains indexes of all creted sections.
  */
 
-+ (NSIndexSet*)createSectionIfNotExist:(NSInteger)sectionIndex inStorage:(ANStorageModel*)storage;
+- (NSIndexSet*)createSectionIfNotExist:(NSInteger)sectionIndex;
 
 NS_ASSUME_NONNULL_END
 

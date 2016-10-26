@@ -6,9 +6,8 @@
 //
 //
 
-@class ANStorageModel;
 @class ANStorageUpdateModel;
-
+@class ANStorageModel;
 
 /**
  Private class for register and retrive supplementary models from storage. 
@@ -17,6 +16,8 @@
 
 @interface ANStorageSupplementaryManager : NSObject
 
++ (instancetype)supplementatyManagerWithStorageModel:(ANStorageModel*)model withDelegate:(id)delegate;
+
 
 /**
  Convention method for tables to register header model. 
@@ -24,14 +25,12 @@
  
  @param headerModel  viewModel for header
  @param sectionIndex section index in UITableView
- @param storage      current storage model
  
  @return ANStorageUpdateModel* generated update
  */
 
-+ (ANStorageUpdateModel*)updateSectionHeaderModel:(id)headerModel
-                                  forSectionIndex:(NSInteger)sectionIndex
-                                        inStorage:(ANStorageModel*)storage;
+- (ANStorageUpdateModel*)updateSectionHeaderModel:(id)headerModel
+                                  forSectionIndex:(NSInteger)sectionIndex;
 
 /**
  Convention method for tables to register footer model
@@ -39,26 +38,22 @@
  
  @param headerModel  viewModel for footer
  @param sectionIndex section index in UITableView
- @param storage      current storage model
  
  @return ANStorageUpdateModel* generated update
  */
 
-+ (ANStorageUpdateModel*)updateSectionFooterModel:(id)footerModel
-                                  forSectionIndex:(NSUInteger)sectionIndex
-                                        inStorage:(ANStorageModel*)storage;
+- (ANStorageUpdateModel*)updateSectionFooterModel:(id)footerModel
+                                  forSectionIndex:(NSUInteger)sectionIndex;
 
 /**
  Returns supplemetary model for specified section and with specified kind
 
  @param kind         for model
  @param sectionIndex for section to return
- @param storage      where should be found model
 
  @return viewModel with specified kind
  */
-+ (id)supplementaryModelOfKind:(NSString*)kind
-               forSectionIndex:(NSUInteger)sectionIndex
-                     inStorage:(ANStorageModel*)storage;
+- (id)supplementaryModelOfKind:(NSString*)kind
+               forSectionIndex:(NSUInteger)sectionIndex;
 
 @end

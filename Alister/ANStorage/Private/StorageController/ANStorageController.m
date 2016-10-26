@@ -18,6 +18,9 @@
 @interface ANStorageController ()
 
 @property (nonatomic, strong) ANStorageRemover* remover;
+@property (nonatomic, strong) ANStorageUpdater* updater;
+@property (nonatomic, strong) ANStorageSupplementaryManager* supplementaryManager;
+
 
 @end
 
@@ -30,37 +33,41 @@
     {
         self.storageModel = [ANStorageModel new];
         self.remover = [ANStorageRemover removerWithStorageModel:self.storageModel andUpdateDelegate:self.updateDelegate]; //TODO: delegate
+        self.updater = [ANStorageUpdater updaterWithStorageModel:self.storageModel delegate:self.updateDelegate];
+        
+        self.supplementaryManager = [ANStorageSupplementaryManager supplementatyManagerWithStorageModel:self.storageModel
+                                                                                           withDelegate:self.updateDelegate];
     }
     return self;
 }
 
 - (void)addItem:(id)item
 {
-    ANStorageUpdateModel* update = [ANStorageUpdater addItem:item toStorage:self.storageModel];
+    ANStorageUpdateModel* update = [self.updater addItem:item];
     [self.updateDelegate collectUpdate:update];
 }
 
 - (void)addItems:(NSArray*)items
 {
-    ANStorageUpdateModel* update = [ANStorageUpdater addItems:items toStorage:self.storageModel];
+    ANStorageUpdateModel* update = [self.updater addItems:items];
     [self.updateDelegate collectUpdate:update];
 }
 
 - (void)addItem:(id)item toSection:(NSUInteger)sectionIndex
 {
-    ANStorageUpdateModel* update = [ANStorageUpdater addItem:item toSection:sectionIndex toStorage:self.storageModel];
+    ANStorageUpdateModel* update = [self.updater addItem:item toSection:sectionIndex];
     [self.updateDelegate collectUpdate:update];
 }
 
 - (void)addItems:(NSArray*)items toSection:(NSUInteger)sectionIndex
 {
-    ANStorageUpdateModel* update = [ANStorageUpdater addItems:items toSection:sectionIndex toStorage:self.storageModel];
+    ANStorageUpdateModel* update = [self.updater addItems:items toSection:sectionIndex];
     [self.updateDelegate collectUpdate:update];
 }
 
 - (void)addItem:(id)item atIndexPath:(NSIndexPath*)indexPath
 {
-    ANStorageUpdateModel* update = [ANStorageUpdater addItem:item atIndexPath:indexPath toStorage:self.storageModel];
+    ANStorageUpdateModel* update = [self.updater addItem:item atIndexPath:indexPath];
     [self.updateDelegate collectUpdate:update];
 }
 
@@ -69,13 +76,13 @@
 
 - (void)reloadItem:(id)item
 {
-    ANStorageUpdateModel* update = [ANStorageUpdater reloadItem:item inStorage:self.storageModel];
+    ANStorageUpdateModel* update = [self.updater reloadItem:item];
     [self.updateDelegate collectUpdate:update];
 }
 
 - (void)reloadItems:(id)items
 {
-    ANStorageUpdateModel* update = [ANStorageUpdater reloadItems:items inStorage:self.storageModel];
+    ANStorageUpdateModel* update = [self.updater reloadItems:items];
     [self.updateDelegate collectUpdate:update];
 }
 
@@ -118,15 +125,14 @@
 
 - (void)replaceItem:(id)itemToReplace withItem:(id)replacingItem
 {
-    ANStorageUpdateModel* update = [ANStorageUpdater replaceItem:itemToReplace withItem:replacingItem inStorage:self.storageModel];
+    ANStorageUpdateModel* update = [self.updater replaceItem:itemToReplace withItem:replacingItem];
     [self.updateDelegate collectUpdate:update];
 }
 
 - (void)moveItemWithoutUpdateFromIndexPath:(NSIndexPath*)fromIndexPath toIndexPath:(NSIndexPath*)toIndexPath
 {
-    [ANStorageUpdater moveItemFromIndexPath:fromIndexPath
-                                toIndexPath:toIndexPath
-                                  inStorage:self.storageModel];
+    [self.updater moveItemFromIndexPath:fromIndexPath
+                                toIndexPath:toIndexPath];
     
     //to be consistent, in this case we don't need update as it will corrupt already updated tableview
     [self.updateDelegate collectUpdate:nil];
@@ -134,9 +140,8 @@
 
 - (void)moveItemFromIndexPath:(NSIndexPath*)fromIndexPath toIndexPath:(NSIndexPath*)toIndexPath
 {
-    ANStorageUpdateModel* update = [ANStorageUpdater moveItemFromIndexPath:fromIndexPath
-                                                               toIndexPath:toIndexPath
-                                                                 inStorage:self.storageModel];
+    ANStorageUpdateModel* update = [self.updater moveItemFromIndexPath:fromIndexPath
+                                                               toIndexPath:toIndexPath];
     [self.updateDelegate collectUpdate:update];
 }
 
@@ -197,39 +202,34 @@
 
 - (void)updateSectionHeaderModel:(id)headerModel forSectionIndex:(NSInteger)sectionIndex
 {
-    ANStorageUpdateModel* update = [ANStorageSupplementaryManager updateSectionHeaderModel:headerModel
-                                                                           forSectionIndex:sectionIndex
-                                                                                 inStorage:self.storageModel];
+    ANStorageUpdateModel* update = [self.supplementaryManager updateSectionHeaderModel:headerModel
+                                                                           forSectionIndex:sectionIndex];
     [self.updateDelegate collectUpdate:update];
 }
 
 - (void)updateSectionFooterModel:(id)footerModel forSectionIndex:(NSInteger)sectionIndex
 {
-    ANStorageUpdateModel* update = [ANStorageSupplementaryManager updateSectionFooterModel:footerModel
-                                                                           forSectionIndex:sectionIndex
-                                                                                 inStorage:self.storageModel];
+    ANStorageUpdateModel* update = [self.supplementaryManager updateSectionFooterModel:footerModel
+                                                                           forSectionIndex:sectionIndex];
     [self.updateDelegate collectUpdate:update];
 }
 
 - (id)headerModelForSectionIndex:(NSUInteger)index
 {
-    return [ANStorageSupplementaryManager supplementaryModelOfKind:self.storageModel.headerKind
-                                                   forSectionIndex:index
-                                                         inStorage:self.storageModel];
+    return [self.supplementaryManager supplementaryModelOfKind:self.storageModel.headerKind
+                                                   forSectionIndex:index];
 }
 
 - (id)footerModelForSectionIndex:(NSUInteger)index
 {
-    return [ANStorageSupplementaryManager supplementaryModelOfKind:self.storageModel.footerKind
-                                                   forSectionIndex:index
-                                                         inStorage:self.storageModel];
+    return [self.supplementaryManager supplementaryModelOfKind:self.storageModel.footerKind
+                                                   forSectionIndex:index];
 }
 
 - (id)supplementaryModelOfKind:(NSString*)kind forSectionIndex:(NSUInteger)sectionIndex
 {
-    return [ANStorageSupplementaryManager supplementaryModelOfKind:kind
-                                                   forSectionIndex:sectionIndex
-                                                         inStorage:self.storageModel];
+    return [self.supplementaryManager supplementaryModelOfKind:kind
+                                                   forSectionIndex:sectionIndex];
 }
 
 

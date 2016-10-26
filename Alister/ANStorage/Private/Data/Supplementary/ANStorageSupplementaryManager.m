@@ -14,9 +14,27 @@
 #import "ANStorageLoader.h"
 #import "ANStorageValidator.h"
 
+@interface ANStorageSupplementaryManager ()
+
+@property (nonatomic, strong) ANStorageUpdater* updater; // TODO: init for it
+
+@property (nonatomic, strong) ANStorageModel* storageModel;
+@property (nonatomic, weak) id delegate;
+
+@end
+
 @implementation ANStorageSupplementaryManager
 
-+ (ANStorageUpdateModel*)updateSectionHeaderModel:(id)headerModel
++ (instancetype)supplementatyManagerWithStorageModel:(id)model withDelegate:(id)delegate
+{
+    ANStorageSupplementaryManager* mananger = [self new];
+    mananger.delegate = delegate;
+    mananger.storageModel = model;
+    
+    return mananger;
+}
+
+- (ANStorageUpdateModel*)updateSectionHeaderModel:(id)headerModel
                                   forSectionIndex:(NSInteger)sectionIndex
                                         inStorage:(ANStorageModel*)storage
 {
@@ -26,7 +44,7 @@
                                   inStorage:storage];
 }
 
-+ (ANStorageUpdateModel*)updateSectionFooterModel:(id)footerModel
+- (ANStorageUpdateModel*)updateSectionFooterModel:(id)footerModel
                                   forSectionIndex:(NSInteger)sectionIndex
                                         inStorage:(ANStorageModel*)storage
 {
@@ -36,7 +54,7 @@
                                   inStorage:storage];
 }
 
-+ (id)supplementaryModelOfKind:(NSString*)kind forSectionIndex:(NSUInteger)sectionIndex inStorage:(ANStorageModel*)storage
+- (id)supplementaryModelOfKind:(NSString*)kind forSectionIndex:(NSUInteger)sectionIndex inStorage:(ANStorageModel*)storage
 {
     ANStorageSectionModel* sectionModel = [ANStorageLoader sectionAtIndex:sectionIndex inStorage:storage];
     return [sectionModel supplementaryModelOfKind:kind];
@@ -47,7 +65,7 @@
 
 //TODO: check is it need to be public for collectionView
 
-+ (ANStorageUpdateModel*)_updateSupplementaryOfKind:(NSString*)kind
+- (ANStorageUpdateModel*)_updateSupplementaryOfKind:(NSString*)kind
                                               model:(id)model
                                     forSectionIndex:(NSUInteger)sectionIndex
                                           inStorage:(ANStorageModel*)storage
@@ -60,7 +78,7 @@
         
         if (model)
         {
-            NSIndexSet* set = [ANStorageUpdater createSectionIfNotExist:sectionIndex inStorage:storage];
+            NSIndexSet* set = [self.updater createSectionIfNotExist:sectionIndex];
             [update addInsertedSectionIndexes:set];
             section = [ANStorageLoader sectionAtIndex:sectionIndex inStorage:storage];
         }

@@ -15,24 +15,40 @@
 #import "ANStorageLog.h"
 #import "ANStorageValidator.h"
 
+@interface ANStorageUpdater ()
+
+@property (nonatomic, strong) ANStorageModel* storageModel;
+@property (nonatomic, weak) id delegate;
+
+@end
+
 @implementation ANStorageUpdater
 
-+ (ANStorageUpdateModel*)addItem:(id)item toStorage:(ANStorageModel*)model
++ (instancetype)updaterWithStorageModel:(ANStorageModel*)model delegate:(id)delegate
 {
-    return [self addItem:item toSection:0 toStorage:model];
+    ANStorageUpdater* updater = [self new];
+    updater.storageModel = model;
+    updater.delegate = delegate;
+    
+    return updater;
 }
 
-+ (ANStorageUpdateModel*)addItems:(NSArray*)items toStorage:(ANStorageModel*)model
+- (ANStorageUpdateModel*)addItem:(id)item
 {
-    return [self addItems:items toSection:0 toStorage:model];
+    return [self addItem:item toSection:0];
 }
 
-+ (ANStorageUpdateModel*)addItem:(id)item toSection:(NSUInteger)sectionIndex toStorage:(ANStorageModel*)model
+- (ANStorageUpdateModel*)addItems:(NSArray*)items
+{
+    return [self addItems:items toSection:0];
+}
+
+- (ANStorageUpdateModel*)addItem:(id)item toSection:(NSUInteger)sectionIndex
 {
     ANStorageUpdateModel* update = [ANStorageUpdateModel new];
     if (item)
     {
-        update = [self addItems:@[item] toSection:sectionIndex toStorage:model];
+        update = [self addItems:@[item] toSection:sectionIndex];
     }
     else
     {
@@ -42,13 +58,13 @@
     return update;
 }
 
-+ (ANStorageUpdateModel*)addItems:(NSArray*)items toSection:(NSInteger)sectionIndex toStorage:(ANStorageModel*)storage
+- (ANStorageUpdateModel*)addItems:(NSArray*)items toSection:(NSInteger)sectionIndex
 {
     ANStorageUpdateModel* update = [ANStorageUpdateModel new];
-    if (ANIsIndexValid(sectionIndex) && !ANItemIsEmpty(items) && storage)
+    if (ANIsIndexValid(sectionIndex) && !ANItemIsEmpty(items) && self.storageModel)
     {
-        NSIndexSet* insertedSections = [self createSectionIfNotExist:sectionIndex inStorage:storage];
-        ANStorageSectionModel* section = [ANStorageLoader sectionAtIndex:sectionIndex inStorage:storage];
+        NSIndexSet* insertedSections = [self createSectionIfNotExist:sectionIndex];
+        ANStorageSectionModel* section = [ANStorageLoader sectionAtIndex:sectionIndex inStorage:self.storageModel];
         
         NSInteger numberOfItems = [section numberOfObjects];
         NSMutableArray* insertedIndexPaths = [NSMutableArray array];
@@ -67,16 +83,14 @@
     return update;
 }
 
-+ (ANStorageUpdateModel*)addItem:(id)item atIndexPath:(NSIndexPath*)indexPath toStorage:(ANStorageModel*)storage
+- (ANStorageUpdateModel*)addItem:(id)item atIndexPath:(NSIndexPath*)indexPath
 {
     ANStorageUpdateModel* update = [ANStorageUpdateModel new];
-    if (indexPath && item && storage)
+    if (indexPath && item && self.storageModel)
     {
-        NSIndexSet* insertedSections = [self createSectionIfNotExist:(NSUInteger)indexPath.section
-                                                           inStorage:storage];
+        NSIndexSet* insertedSections = [self createSectionIfNotExist:(NSUInteger)indexPath.section];
         
-        ANStorageSectionModel* section = [ANStorageLoader sectionAtIndex:(NSUInteger)indexPath.section
-                                                               inStorage:storage];
+        ANStorageSectionModel* section = [ANStorageLoader sectionAtIndex:(NSUInteger)indexPath.section inStorage:self.storageModel];
         
         if ([section.objects count] < (NSUInteger)indexPath.row)
         {
@@ -96,14 +110,14 @@
     return update;
 }
 
-+ (ANStorageUpdateModel*)replaceItem:(id)itemToReplace withItem:(id)replacingItem inStorage:(ANStorageModel*)storage
+- (ANStorageUpdateModel*)replaceItem:(id)itemToReplace withItem:(id)replacingItem
 {
     ANStorageUpdateModel* update = [ANStorageUpdateModel new];
-    NSIndexPath* originalIndexPath = [ANStorageLoader indexPathForItem:itemToReplace inStorage:storage];
+    NSIndexPath* originalIndexPath = [ANStorageLoader indexPathForItem:itemToReplace inStorage:self.storageModel];
     
     if (originalIndexPath && replacingItem)
     {
-        ANStorageSectionModel* section = [ANStorageLoader sectionAtIndex:(NSUInteger)originalIndexPath.section inStorage:storage];
+        ANStorageSectionModel* section = [ANStorageLoader sectionAtIndex:(NSUInteger)originalIndexPath.section inStorage:self.storageModel];
         [section replaceItemAtIndex:(NSUInteger)originalIndexPath.row withItem:replacingItem];
         [update addUpdatedIndexPaths:@[originalIndexPath]];
     }
@@ -115,23 +129,19 @@
     return update;
 }
 
-+ (ANStorageUpdateModel*)moveItemFromIndexPath:(NSIndexPath*)fromIndexPath
+- (ANStorageUpdateModel*)moveItemFromIndexPath:(NSIndexPath*)fromIndexPath
                                    toIndexPath:(NSIndexPath*)toIndexPath
-                                     inStorage:(ANStorageModel*)storage
 {
     ANStorageUpdateModel* update = [ANStorageUpdateModel new];
     if (fromIndexPath && toIndexPath)
     {
-        ANStorageSectionModel* fromSection = [ANStorageLoader sectionAtIndex:fromIndexPath.section
-                                                                   inStorage:storage];
+        ANStorageSectionModel* fromSection = [ANStorageLoader sectionAtIndex:fromIndexPath.section inStorage:self.storageModel];
         if (fromSection)
         {
-            NSIndexSet* insertedSections = [self createSectionIfNotExist:toIndexPath.section
-                                                               inStorage:storage];
+            NSIndexSet* insertedSections = [self createSectionIfNotExist:toIndexPath.section];
             
-            ANStorageSectionModel* toSection = [ANStorageLoader sectionAtIndex:toIndexPath.section
-                                                                     inStorage:storage];
-            id tableItem = [ANStorageLoader itemAtIndexPath:fromIndexPath inStorage:storage];
+            ANStorageSectionModel* toSection = [ANStorageLoader sectionAtIndex:toIndexPath.section inStorage:self.storageModel];
+            id tableItem = [ANStorageLoader itemAtIndexPath:fromIndexPath inStorage:self.storageModel];
             
             [fromSection removeItemAtIndex:(NSUInteger)fromIndexPath.row];
             [toSection insertItem:tableItem atIndex:(NSUInteger)toIndexPath.row]; // TODO: check is successfull operation
@@ -151,21 +161,21 @@
 
 #pragma mark - Reload Items
 
-+ (ANStorageUpdateModel*)reloadItem:(id)item inStorage:(ANStorageModel*)storage
+- (ANStorageUpdateModel*)reloadItem:(id)item inStorage:(ANStorageModel*)storage
 {
     ANStorageUpdateModel* update = [ANStorageUpdateModel new];
     if (item)
     {
-        update = [self reloadItems:@[item] inStorage:storage];
+        update = [self reloadItems:@[item]];
     }
     
     return update;
 }
 
-+ (ANStorageUpdateModel*)reloadItems:(NSArray*)items inStorage:(ANStorageModel*)storage
+- (ANStorageUpdateModel*)reloadItems:(NSArray*)items
 {
     ANStorageUpdateModel* update = [ANStorageUpdateModel new];
-    NSArray* indexPathesArrayToReload = [ANStorageLoader indexPathArrayForItems:items inStorage:storage];
+    NSArray* indexPathesArrayToReload = [ANStorageLoader indexPathArrayForItems:items inStorage:self.storageModel];
     if (indexPathesArrayToReload)
     {
         [update addUpdatedIndexPaths:indexPathesArrayToReload];
@@ -174,14 +184,14 @@
     return update;
 }
 
-+ (NSIndexSet*)createSectionIfNotExist:(NSInteger)sectionIndex inStorage:(ANStorageModel*)storage
+- (NSIndexSet*)createSectionIfNotExist:(NSInteger)sectionIndex
 {
     NSMutableIndexSet* insertedSectionIndexes = [NSMutableIndexSet indexSet];
-    if (ANIsIndexValid(sectionIndex) && storage)
+    if (ANIsIndexValid(sectionIndex) && self.storageModel)
     {
-        for (NSUInteger sectionIterator = storage.sections.count; sectionIterator <= sectionIndex; sectionIterator++)
+        for (NSUInteger sectionIterator = self.storageModel.sections.count; sectionIterator <= sectionIndex; sectionIterator++)
         {
-            [storage addSection:[ANStorageSectionModel new]];
+            [self.storageModel addSection:[ANStorageSectionModel new]];
             [insertedSectionIndexes addIndex:sectionIterator];
         }
     }
