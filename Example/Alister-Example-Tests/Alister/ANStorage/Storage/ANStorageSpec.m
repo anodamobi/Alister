@@ -7,6 +7,15 @@
 //
 
 #import <Alister/ANStorage.h>
+#import <Alister/ANStorageController.h>
+#import <Alister/ANStorageModel.h>
+
+@interface ANStorage ()
+
+@property (nonatomic, strong) ANStorageController* controller;
+@property (nonatomic, assign) BOOL isSearchingType;
+
+@end
 
 SpecBegin(ANStorage)
 
@@ -76,11 +85,12 @@ describe(@"searchStorageForSearchString: inSearchScope:", ^{
         ANStorage* searchStorage = [storage searchStorageForSearchString:searchString inSearchScope:0];
         expect(searchStorage.sections).haveCount(1);
         
-        [[searchStorage itemsInSection:0] enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger __unused idx, BOOL * _Nonnull stop) {
+        [[searchStorage itemsInSection:0] enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger __unused idx, BOOL * _Nonnull __unused stop) {
            expect(obj).beginWith(searchString);
         }];
         
-        
+        expect([searchStorage itemsInSection:0]).haveCount(itemsForScope1.count);
+        expect([searchStorage sections]).haveCount(1);
     });
 });
 
@@ -89,7 +99,8 @@ describe(@"storagePredicateBlock", ^{
     
     it(@"called when searching storage created", ^{
         waitUntil(^(void (^done)(void)) {
-            storage.storagePredicateBlock = ^NSPredicate* (NSString* __unused searchString, NSInteger __unused scope) {
+            storage.storagePredicateBlock = ^NSPredicate* (NSString* __unused searchString,
+                                                           NSInteger __unused scope) {
                 done();
                 
                 return nil;
@@ -138,19 +149,53 @@ describe(@"storagePredicateBlock", ^{
 //});
 //
 //
-//describe(@"reloadStorageWithAnimation:", ^{
-//    it(@"test", ^{
-//        failure(@"Pending");
-//    });
-//});
-//
-//
-//describe(@"updateHeaderKind: footerKind:", ^{
-//    it(@"no assert if both are nil", ^{
-//        failure(@"Pending");
-//    });
-//});
-//
+describe(@"reloadStorageWithAnimation:", ^{
+    
+});
+
+
+
+
+
+
+describe(@"updateHeaderKind: footerKind:", ^{
+    
+    __block NSString* headerKind = nil;
+    __block NSString* footerKind = nil;
+    
+    beforeAll(^{
+        headerKind = @"headerKind";
+        footerKind = @"footerKind";
+    });
+    
+    it(@"updates successfully with correct values", ^{
+        [storage updateHeaderKind:headerKind footerKind:footerKind];
+        expect(storage.controller.storageModel.headerKind).equal(headerKind);
+        expect(storage.controller.storageModel.footerKind).equal(footerKind);
+    });
+    
+    it(@"no assert if both are nil", ^{
+        void(^block)() = ^() {
+            [storage updateHeaderKind:nil footerKind:nil];
+        };
+        expect(block).notTo.raiseAny();
+    });
+    
+    it(@"no assert if header is nil", ^{
+        void(^block)() = ^() {
+            [storage updateHeaderKind:nil footerKind:footerKind];
+        };
+        expect(block).notTo.raiseAny();
+    });
+    
+    it(@"no assert if footer is nil", ^{
+        void(^block)() = ^() {
+            [storage updateHeaderKind:headerKind footerKind:nil];
+        };
+        expect(block).notTo.raiseAny();
+    });
+});
+
 //describe(@"sections", ^{
 //    it(@"responds", ^{
 //        failure(@"Pending");

@@ -1,24 +1,18 @@
-# Customise this file, documentation can be found here:
-# https://github.com/fastlane/fastlane/tree/master/fastlane/docs
-# All available actions: https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Actions.md
-# can also be listed using the `fastlane actions` command
 
-# Change the syntax highlighting to Ruby
-# All lines starting with a # are ignored when running `fastlane`
-
-# If you want to automatically update fastlane if a new version is available:
-# update_fastlane
-
-# This is the minimum version number required.
-# Update this, if you use features of a newer version
 fastlane_version "1.103.0"
-
 default_platform :ios
 
 platform :ios do
+  
   before_all do
-    ENV["SLACK_URL"] = "https://hooks.slack.com/services/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"
-    cocoapods
+
+    ENV["SLACK_URL"] = "https://hooks.slack.com/services/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"
+
+    cocoapods(
+      clean: true,
+      use_bundle_exec: false,
+      podfile: "./Podfile"
+    )
     
   end
 
@@ -27,27 +21,29 @@ platform :ios do
     scan
   end
 
-  desc "Submit a new Beta Build to Apple TestFlight"
-  desc "This will also make sure the profile is up to date"
-  lane :beta do
-    # match(type: "appstore") # more information: https://codesigning.guide
-    gym(scheme: "Debug") # Build your app - more options available
-    # pilot
+  # lane :deeptest do
+  #   scan (
+  #     # scheme: "Debug",
+  #     open_report: true,
+  #     clean: true,
+  #     code_coverage: true,
+  #     #output_types "html"
+  #     devices: [
+  #       "iPhone 5 (10.0)", 
+  #       "iPhone 5 (9.0)",
+  #       "iPhone 5 (9.1)", 
+  #       "iPhone 5 (9.2)", 
+  #       "iPhone 5 (9.3)", 
+  #       "iPhone 5 (8.0)", 
+  #       "iPhone 5 (8.1)",
+  #       "iPhone 5 (8.2)",
+  #       "iPhone 5 (8.3)",
+  #       "iPhone 5 (8.4)"
+  #     ]
+  #   )
+  # end
 
-    # sh "your_script.sh"
-    # You can also use other beta testing services here (run `fastlane actions`)
-  end
 
-  desc "Deploy a new version to the App Store"
-  lane :release do
-    # match(type: "appstore")
-    # snapshot
-    gym(scheme: "Debug") # Build your app - more options available
-    deliver(force: true)
-    # frameit
-  end
-
-  # You can define as many lanes as you want
 
   after_all do |lane|
     # This block is called, only if the executed lane was successful
@@ -55,6 +51,19 @@ platform :ios do
     slack(
       message: "Successfully deployed new App Update."
     )
+
+    xcov(
+      workspace: 'Alister-Example.xcworkspace',
+      scheme:"Debug",
+      output_directory:"xcov_output"
+    )
+
+    pod_lib_lint(
+      allow_warnings: true, 
+      verbose: true,
+      use_libraries: true
+    )
+
   end
 
   error do |lane, exception|
@@ -65,9 +74,3 @@ platform :ios do
   end
 end
 
-
-# More information about multiple platforms in fastlane: https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Platforms.md
-# All available actions: https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Actions.md
-
-# fastlane reports which actions are used
-# No personal data is recorded. Learn more at https://github.com/fastlane/enhancer
