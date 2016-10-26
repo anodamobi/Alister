@@ -16,9 +16,8 @@
 
 @interface ANStorageSupplementaryManager ()
 
-@property (nonatomic, strong) ANStorageUpdater* updater; // TODO: init for it
-
-@property (nonatomic, strong) ANStorageModel* storageModel;
+@property (nonatomic, strong) ANStorageUpdater* updater;
+@property (nonatomic, weak) ANStorageModel* storageModel;
 @property (nonatomic, weak) id<ANStorageUpdateOperationInterface> updateDelegate;
 
 @end
@@ -89,8 +88,5 @@
     ANStorageSectionModel* sectionModel = [ANStorageLoader sectionAtIndex:sectionIndex inStorage:self.storageModel];
     return [sectionModel supplementaryModelOfKind:kind];
 }
-
-
-
 
 @end
