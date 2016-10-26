@@ -6,29 +6,31 @@
 //  Copyright © 2016 Oksana Kovalchuk. All rights reserved.
 //
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wnonnull"
+
 #import <Alister/ANStorageUpdater.h>
 #import <Alister/ANStorageRemover.h>
 #import <Alister/ANStorageModel.h>
 #import <Alister/ANStorageUpdateModel.h>
 
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wnonnull"
-
 SpecBegin(ANStorageRemover)
 
 __block ANStorageModel* storage = nil;
 __block ANStorageRemover* remover = nil;
+__block ANStorageUpdater* updater = nil;
 
 beforeEach(^{
     storage = [ANStorageModel new];
-    remover = [ANStorageRemover removerWithStorageModel:storage andUpdateDelegate:nil]; // TODO: update delegate
+    remover = [ANStorageRemover removerWithStorageModel:storage andUpdateDelegate:nil];
+    updater = [ANStorageUpdater updaterWithStorageModel:storage delegate:nil];
 });
 
 describe(@"removeItem:", ^{
     
     it(@"successfully removes item", ^{
         NSString* item = @"test";
-        [ANStorageUpdater addItem:item toStorage:storage];
+        [updater addItem:item];
         [remover removeItem:item];
         
         expect([storage itemsInSection:0]).notTo.contain(item);
@@ -63,8 +65,8 @@ describe(@"removeItemsAtIndexPaths:", ^{
     
     it(@"removes only specified indexPaths", ^{
         NSString* item = @"test";
-        [ANStorageUpdater addItem:item toStorage:storage];
-        [ANStorageUpdater addItem:@"smt" atIndexPath:indexPath toStorage:storage];
+        [updater addItem:item];
+        [updater addItem:@"smt" atIndexPath:indexPath];
         [remover removeItemsAtIndexPaths:[NSSet setWithObject:indexPath]];
         
         expect([storage itemsInSection:0]).haveCount(1);
@@ -99,7 +101,7 @@ describe(@"removeItems:", ^{
     it(@"removes only specified items", ^{
         NSArray* specifiedItems = @[@"test1", @"test2", @"test3"];
         
-        [ANStorageUpdater addItems:[specifiedItems arrayByAddingObjectsFromArray:@[@"test10", @"test30"]] toStorage:storage];
+        [updater addItems:[specifiedItems arrayByAddingObjectsFromArray:@[@"test10", @"test30"]]];
         [remover removeItems:[NSSet setWithArray:specifiedItems]];
         
         expect([storage itemsInSection:0]).haveCount(2);
@@ -131,8 +133,8 @@ describe(@"removeItems:", ^{
 describe(@"removeAllItemsAndSections", ^{
     
     beforeEach(^{
-        [ANStorageUpdater addItem:@"test" toStorage:storage];
-        [ANStorageUpdater addItem:@"test2" atIndexPath:[NSIndexPath indexPathForRow:0 inSection:1] toStorage:storage];
+        [updater addItem:@"test"];
+        [updater addItem:@"test2" atIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]];
     });
     
     it(@"removes all sections", ^{
@@ -169,8 +171,8 @@ describe(@"removeSections:", ^{
         NSString* testModel = @"test0";
         NSArray* items = @[@"test1", @"test2", @"test3"];
         
-        [ANStorageUpdater addItem:testModel toSection:1 toStorage:storage];
-        [ANStorageUpdater addItems:items toSection:0 toStorage:storage];
+        [updater addItem:testModel toSection:1];
+        [updater addItems:items toSection:0];
         [remover removeSections:[NSIndexSet indexSetWithIndex:0]];
         
         expect([storage itemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]]).equal(testModel);

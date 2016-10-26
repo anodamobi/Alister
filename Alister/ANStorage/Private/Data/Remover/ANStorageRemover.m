@@ -15,23 +15,23 @@
 
 @interface ANStorageRemover ()
 
-@property (nonatomic, weak) ANStorageModel* storageModel;
-@property (nonatomic, weak) id delegate;
+@property (nonatomic, strong) ANStorageModel* storageModel;
+@property (nonatomic, strong) id<ANStorageUpdateOperationInterface> updateDelegate; //TODO:
 
 @end
 
 @implementation ANStorageRemover
 
-+ (instancetype)removerWithStorageModel:(ANStorageModel*)storageModel andUpdateDelegate:(id)delegate
++ (instancetype)removerWithStorageModel:(ANStorageModel*)storageModel andUpdateDelegate:(id<ANStorageUpdateOperationInterface>)delegate
 {
     ANStorageRemover* remover = [self new];
     remover.storageModel = storageModel;
-    remover.delegate = delegate;
+    remover.updateDelegate = delegate;
     
     return remover;
 }
 
-- (ANStorageUpdateModel*)removeItem:(id)item
+- (void)removeItem:(id)item
 {
     ANStorageUpdateModel* update = [ANStorageUpdateModel new];
     NSIndexPath* indexPath = [ANStorageLoader indexPathForItem:item inStorage:self.storageModel];
@@ -47,10 +47,10 @@
         ANStorageLog(@"ANStorage: item to delete: %@ was not found", item);
     }
     
-    return update;
+    [self.updateDelegate collectUpdate:update];
 }
 
-- (ANStorageUpdateModel*)removeItemsAtIndexPaths:(NSSet*)indexPaths
+- (void)removeItemsAtIndexPaths:(NSSet*)indexPaths
 {
     ANStorageUpdateModel* update = [ANStorageUpdateModel new];
 
@@ -72,10 +72,10 @@
         }
     }];
     
-    return update;
+    [self.updateDelegate collectUpdate:update];
 }
 
-- (ANStorageUpdateModel*)removeItems:(NSSet*)items
+- (void)removeItems:(NSSet*)items
 {
     ANStorageUpdateModel* update = [ANStorageUpdateModel new];
     NSMutableArray* indexPaths = [NSMutableArray array];
@@ -94,10 +94,10 @@
     
     [update addDeletedIndexPaths:indexPaths];
     
-    return update;
+    [self.updateDelegate collectUpdate:update];
 }
 
-- (ANStorageUpdateModel*)removeAllItemsAndSections
+- (void)removeAllItemsAndSections
 {
     ANStorageUpdateModel* update = [ANStorageUpdateModel new];
     if ([self.storageModel sections].count)
@@ -106,10 +106,10 @@
         update.isRequireReload = YES;
     }
     
-    return update;
+    [self.updateDelegate collectUpdate:update];
 }
 
-- (ANStorageUpdateModel*)removeSections:(NSIndexSet*)indexSet
+- (void)removeSections:(NSIndexSet*)indexSet
 {
     __block ANStorageUpdateModel* update = [ANStorageUpdateModel new];
     
@@ -122,7 +122,7 @@
         }
     }
     
-    return update;
+    [self.updateDelegate collectUpdate:update];
 }
 
 @end

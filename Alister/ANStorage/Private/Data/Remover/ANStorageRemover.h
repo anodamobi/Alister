@@ -9,6 +9,8 @@
 @class ANStorageModel;
 @class ANStorageUpdateModel;
 
+#import <Alister/ANStorageUpdateOperationInterface.h>
+
 /**
  
  This is a private class. You shouldn't use it directly in your code.
@@ -23,55 +25,57 @@ NS_ASSUME_NONNULL_BEGIN
 @interface ANStorageRemover : NSObject
 
 //TODO: doc
-+ (instancetype)removerWithStorageModel:(ANStorageModel*)storageModel andUpdateDelegate:(id)delegate;
++ (instancetype)removerWithStorageModel:(ANStorageModel*)storageModel andUpdateDelegate:(id<ANStorageUpdateOperationInterface>)delegate;
 
 /**
  Removes specified item from storage.
+ Sends to delegate UpdateModel that contains diff for current operation.
+ If operation was terminated update will be empty.
 
  @param item    item to remove
-
- @return UpdateModel that contains diff for current operation. If operation was terminated update will be empty.
+ 
  */
-- (ANStorageUpdateModel*)removeItem:(id)item;
+- (void)removeItem:(id)item;
 
 
 /**
  Removes specified set of indexPaths from storage.
-
+ Sends to delegate UpdateModel that contains diff for current operation.
+ If operation was terminated update will be empty.
+ 
  @param indexPaths NSSet* of indexPaths which should be removed
 
- @return UpdateModel that contains diff for current operation. If operation was terminated update will be empty.
  */
-- (ANStorageUpdateModel*)removeItemsAtIndexPaths:(NSSet*)indexPaths;
+- (void)removeItemsAtIndexPaths:(NSSet*)indexPaths;
 
 
 /**
  Removes specified set of items from storage.
-
+ Sends to delegate UpdateModel that contains diff for current operation.
+ If operation was terminated update will be empty.
+ 
  @param items   NSSet* of items which should be removed. Not tested if storage contains equal objects.
-
- @return UpdateModel that contains diff for current operation. If operation was terminated update will be empty.
  */
-- (ANStorageUpdateModel*)removeItems:(NSSet*)items;
+- (void)removeItems:(NSSet*)items;
 
 
 /**
-  Removes specified set of section indexes from storage.
-
+ Removes specified set of section indexes from storage.
+ Sends to delegate UpdateModel that contains diff for current operation.
+ If operation was terminated update will be empty.
+ 
  @param indexSet NSIndexSet* of section indexes which you want to remove
 
- @return UpdateModel that contains diff for current operation. If operation was terminated update will be empty.
  */
-- (ANStorageUpdateModel*)removeSections:(NSIndexSet*)indexSet;
+- (void)removeSections:(NSIndexSet*)indexSet;
 
 
 /**
- Removes all sections and all items in sections. 
- Restores initial state.
-
- @return UpdateModel that contains diff for current operation. If operation was terminated update will be empty.
+ Removes all sections and all items in sections and restores initial state.
+ Sends to delegate UpdateModel that contains diff for current operation. 
+ If operation was terminated update will be empty.
  */
-- (ANStorageUpdateModel*)removeAllItemsAndSections;
+- (void)removeAllItemsAndSections;
 
 @end
 
