@@ -45,6 +45,7 @@ describe(@"removeItem:", ^{
     
     it(@"no assert if storage is nil", ^{
         void(^block)() = ^() {
+            remover = [ANStorageRemover removerWithStorageModel:nil andUpdateDelegate:nil];
             [remover removeItem:@"test"];
         };
         expect(block).notTo.raiseAny();
@@ -123,6 +124,7 @@ describe(@"removeItems:", ^{
     
     it(@"no assert if storage is nil", ^{
         void(^block)() = ^() {
+            remover = [ANStorageRemover removerWithStorageModel:nil andUpdateDelegate:nil];
             [remover removeItems:[NSSet setWithObject:@"test"]];
         };
         expect(block).notTo.raiseAny();
@@ -157,6 +159,7 @@ describe(@"removeAllItemsAndSections", ^{
     
     it(@"no assert if storage is nil", ^{
         void(^block)() = ^() {
+            remover = [ANStorageRemover removerWithStorageModel:nil andUpdateDelegate:nil];
             [remover removeAllItemsAndSections];
         };
         expect(block).notTo.raiseAny();
@@ -195,6 +198,7 @@ describe(@"removeSections:", ^{
     
     it(@"no assert if storage is nil", ^{
         void(^block)() = ^() {
+            remover = [ANStorageRemover removerWithStorageModel:nil andUpdateDelegate:nil];
             [remover removeSections:[NSIndexSet indexSetWithIndex:0]];
         };
         expect(block).notTo.raiseAny();

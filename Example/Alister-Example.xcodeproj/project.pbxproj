@@ -539,10 +539,10 @@
 		D74129BE1DB9759900D7BB72 /* ANStorage */ = {
 			isa = PBXGroup;
 			children = (
-				D7389A171DC13FA600B54B9F /* ANStorageFakeOperationDelegate.h */,
-				D7389A181DC13FA600B54B9F /* ANStorageFakeOperationDelegate.m */,
 				D74129BF1DB9759900D7BB72 /* ANStorageController_CRUD_Spec.m */,
 				D74129C01DB9759900D7BB72 /* ANStorageController_Supplemetaries_Spec.m */,
+				D7389A171DC13FA600B54B9F /* ANStorageFakeOperationDelegate.h */,
+				D7389A181DC13FA600B54B9F /* ANStorageFakeOperationDelegate.m */,
 				D74129C11DB9759900D7BB72 /* ANStorageLoaderSpec.m */,
 				D74129C21DB9759900D7BB72 /* ANStorageOperationFakeDelegate.h */,
 				D74129C31DB9759900D7BB72 /* ANStorageOperationFakeDelegate.m */,
