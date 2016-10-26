@@ -155,16 +155,7 @@
 
 - (BOOL)isEmpty
 {
-    __block NSInteger count = 0;
-    [[self sections] enumerateObjectsUsingBlock:^(ANStorageSectionModel*  _Nonnull obj, __unused NSUInteger idx, __unused BOOL*  _Nonnull stop) {
-        
-        count += [obj numberOfObjects];
-        if (count)
-        {
-           *stop = YES;
-        }
-    }];
-    return (count == 0);
+    return [self.storageModel isEmpty];
 }
 
 
