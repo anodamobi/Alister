@@ -161,7 +161,7 @@
 
 #pragma mark - Reload Items
 
-- (ANStorageUpdateModel*)reloadItem:(id)item inStorage:(ANStorageModel*)storage
+- (ANStorageUpdateModel*)reloadItem:(id)item
 {
     ANStorageUpdateModel* update = [ANStorageUpdateModel new];
     if (item)
