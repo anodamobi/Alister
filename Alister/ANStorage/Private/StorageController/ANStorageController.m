@@ -15,6 +15,12 @@
 #import <Alister/ANStorageModel.h>
 #import <Alister/ANStorageSectionModel.h>
 
+@interface ANStorageController ()
+
+@property (nonatomic, strong) ANStorageRemover* remover;
+
+@end
+
 @implementation ANStorageController
 
 - (instancetype)init
@@ -23,6 +29,7 @@
     if (self)
     {
         self.storageModel = [ANStorageModel new];
+        self.remover = [ANStorageRemover removerWithStorageModel:self.storageModel andUpdateDelegate:self.updateDelegate]; //TODO: delegate
     }
     return self;
 }
@@ -77,32 +84,32 @@
 
 - (void)removeItem:(id)item
 {
-    ANStorageUpdateModel* update = [ANStorageRemover removeItem:item fromStorage:self.storageModel];
+    ANStorageUpdateModel* update = [self.remover removeItem:item fromStorage:self.storageModel];
     [self.updateDelegate collectUpdate:update];
 }
 
 - (void)removeItemsAtIndexPaths:(NSSet*)indexPaths
 {
-    ANStorageUpdateModel* update = [ANStorageRemover removeItemsAtIndexPaths:indexPaths fromStorage:self.storageModel];
+    ANStorageUpdateModel* update = [self.remover removeItemsAtIndexPaths:indexPaths fromStorage:self.storageModel];
     [self.updateDelegate collectUpdate:update];
 }
 
 - (void)removeItems:(NSSet*)items
 {
-    ANStorageUpdateModel* update = [ANStorageRemover removeItems:items fromStorage:self.storageModel];
+    ANStorageUpdateModel* update = [self.remover removeItems:items fromStorage:self.storageModel];
     [self.updateDelegate collectUpdate:update];
 }
 
 - (void)removeAllItemsAndSections
 {
-    ANStorageUpdateModel* update = [ANStorageRemover removeAllItemsAndSectionsFromStorage:self.storageModel];
+    ANStorageUpdateModel* update = [self.remover removeAllItemsAndSectionsFromStorage:self.storageModel];
     update.isRequireReload = YES;
     [self.updateDelegate collectUpdate:update];
 }
 
 - (void)removeSections:(NSIndexSet*)indexSet
 {
-    ANStorageUpdateModel* update = [ANStorageRemover removeSections:indexSet fromStorage:self.storageModel];
+    ANStorageUpdateModel* update = [self.remover removeSections:indexSet fromStorage:self.storageModel];
     [self.updateDelegate collectUpdate:update];
 }
 

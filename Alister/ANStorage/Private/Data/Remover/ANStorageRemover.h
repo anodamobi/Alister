@@ -22,6 +22,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ANStorageRemover : NSObject
 
+//TODO: doc
++ (instancetype)removerWithStorageModel:(ANStorageModel*)storageModel andUpdateDelegate:(id)delegate;
 
 /**
  Removes specified item from storage.
@@ -31,7 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  @return UpdateModel that contains diff for current operation. If operation was terminated update will be empty.
  */
-+ (ANStorageUpdateModel*)removeItem:(id)item fromStorage:(ANStorageModel*)storage;
+- (ANStorageUpdateModel*)removeItem:(id)item fromStorage:(ANStorageModel*)storage;
 
 
 /**
@@ -42,7 +44,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  @return UpdateModel that contains diff for current operation. If operation was terminated update will be empty.
  */
-+ (ANStorageUpdateModel*)removeItemsAtIndexPaths:(NSSet*)indexPaths fromStorage:(ANStorageModel*)storage;
+- (ANStorageUpdateModel*)removeItemsAtIndexPaths:(NSSet*)indexPaths fromStorage:(ANStorageModel*)storage;
 
 
 /**
@@ -53,7 +55,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  @return UpdateModel that contains diff for current operation. If operation was terminated update will be empty.
  */
-+ (ANStorageUpdateModel*)removeItems:(NSSet*)items fromStorage:(ANStorageModel*)storage;
+- (ANStorageUpdateModel*)removeItems:(NSSet*)items fromStorage:(ANStorageModel*)storage;
 
 
 /**
@@ -64,7 +66,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  @return UpdateModel that contains diff for current operation. If operation was terminated update will be empty.
  */
-+ (ANStorageUpdateModel*)removeSections:(NSIndexSet*)indexSet fromStorage:(ANStorageModel*)storage;
+- (ANStorageUpdateModel*)removeSections:(NSIndexSet*)indexSet fromStorage:(ANStorageModel*)storage;
 
 
 /**
@@ -75,7 +77,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  @return UpdateModel that contains diff for current operation. If operation was terminated update will be empty.
  */
-+ (ANStorageUpdateModel*)removeAllItemsAndSectionsFromStorage:(ANStorageModel*)storage;
+- (ANStorageUpdateModel*)removeAllItemsAndSectionsFromStorage:(ANStorageModel*)storage;
 
 @end
 

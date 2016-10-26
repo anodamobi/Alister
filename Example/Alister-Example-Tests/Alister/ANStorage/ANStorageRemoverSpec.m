@@ -17,9 +17,11 @@
 SpecBegin(ANStorageRemover)
 
 __block ANStorageModel* storage = nil;
+__block ANStorageRemover* remover = nil;
 
 beforeEach(^{
     storage = [ANStorageModel new];
+    remover = [ANStorageRemover removerWithStorageModel:storage andUpdateDelegate:nil]; // TODO: update delegate
 });
 
 describe(@"removeItem:", ^{
@@ -27,28 +29,28 @@ describe(@"removeItem:", ^{
     it(@"successfully removes item", ^{
         NSString* item = @"test";
         [ANStorageUpdater addItem:item toStorage:storage];
-        [ANStorageRemover removeItem:item fromStorage:storage];
+        [remover removeItem:item fromStorage:storage];
         
         expect([storage itemsInSection:0]).notTo.contain(item);
     });
     
     it(@"no assert if item is nil", ^{
         void(^block)() = ^() {
-            [ANStorageRemover removeItem:nil fromStorage:storage];
+            [remover removeItem:nil fromStorage:storage];
         };
         expect(block).notTo.raiseAny();
     });
     
     it(@"no assert if storage is nil", ^{
         void(^block)() = ^() {
-            [ANStorageRemover removeItem:@"test" fromStorage:nil];
+            [remover removeItem:@"test" fromStorage:nil];
         };
         expect(block).notTo.raiseAny();
     });
     
     it(@"no assert if item not exist in storageModel", ^{
         void(^block)() = ^() {
-            [ANStorageRemover removeItem:@"test" fromStorage:storage];
+            [remover removeItem:@"test" fromStorage:storage];
         };
         expect(block).notTo.raiseAny();
     });
@@ -63,7 +65,7 @@ describe(@"removeItemsAtIndexPaths:", ^{
         NSString* item = @"test";
         [ANStorageUpdater addItem:item toStorage:storage];
         [ANStorageUpdater addItem:@"smt" atIndexPath:indexPath toStorage:storage];
-        [ANStorageRemover removeItemsAtIndexPaths:[NSSet setWithObject:indexPath] fromStorage:storage];
+        [remover removeItemsAtIndexPaths:[NSSet setWithObject:indexPath] fromStorage:storage];
         
         expect([storage itemsInSection:0]).haveCount(1);
         expect([storage itemsInSection:0]).contain(item);
@@ -71,21 +73,21 @@ describe(@"removeItemsAtIndexPaths:", ^{
     
     it(@"no assert if indexPaths are nil", ^{
         void(^block)() = ^() {
-            [ANStorageRemover removeItemsAtIndexPaths:nil fromStorage:storage];
+            [remover removeItemsAtIndexPaths:nil fromStorage:storage];
         };
         expect(block).notTo.raiseAny();
     });
     
     it(@"no assert if storage is nil", ^{
         void(^block)() = ^() {
-            [ANStorageRemover removeItemsAtIndexPaths:[NSSet setWithObject:indexPath] fromStorage:nil];
+            [remover removeItemsAtIndexPaths:[NSSet setWithObject:indexPath] fromStorage:nil];
         };
         expect(block).notTo.raiseAny();
     });
     
     it(@"no assert if indexPaths are not exist in storageModel", ^{
         void(^block)() = ^() {
-            [ANStorageRemover removeItemsAtIndexPaths:[NSSet setWithObject:indexPath] fromStorage:storage];
+            [remover removeItemsAtIndexPaths:[NSSet setWithObject:indexPath] fromStorage:storage];
         };
         expect(block).notTo.raiseAny();
     });
@@ -98,28 +100,28 @@ describe(@"removeItems:", ^{
         NSArray* specifiedItems = @[@"test1", @"test2", @"test3"];
         
         [ANStorageUpdater addItems:[specifiedItems arrayByAddingObjectsFromArray:@[@"test10", @"test30"]] toStorage:storage];
-        [ANStorageRemover removeItems:[NSSet setWithArray:specifiedItems] fromStorage:storage];
+        [remover removeItems:[NSSet setWithArray:specifiedItems] fromStorage:storage];
         
         expect([storage itemsInSection:0]).haveCount(2);
     });
     
     it(@"no assert if items are nil", ^{
         void(^block)() = ^() {
-            [ANStorageRemover removeItems:nil fromStorage:storage];
+            [remover removeItems:nil fromStorage:storage];
         };
         expect(block).notTo.raiseAny();
     });
     
     it(@"no asert if items not exist in storageModel", ^{
         void(^block)() = ^() {
-            [ANStorageRemover removeItems:[NSSet setWithObject:@"test"] fromStorage:storage];
+            [remover removeItems:[NSSet setWithObject:@"test"] fromStorage:storage];
         };
         expect(block).notTo.raiseAny();
     });
     
     it(@"no assert if storage is nil", ^{
         void(^block)() = ^() {
-            [ANStorageRemover removeItems:[NSSet setWithObject:@"test"] fromStorage:nil];
+            [remover removeItems:[NSSet setWithObject:@"test"] fromStorage:nil];
         };
         expect(block).notTo.raiseAny();
     });
@@ -134,26 +136,26 @@ describe(@"removeAllItemsAndSections", ^{
     });
     
     it(@"removes all sections", ^{
-        [ANStorageRemover removeAllItemsAndSectionsFromStorage:storage];
+        [remover removeAllItemsAndSectionsFromStorage:storage];
         expect([storage sections]).haveCount(0);
         expect([storage isEmpty]).beTruthy();
     });
     
     it(@"storageModel is empty after call", ^{
-        [ANStorageRemover removeAllItemsAndSectionsFromStorage:storage];
+        [remover removeAllItemsAndSectionsFromStorage:storage];
         expect(storage.isEmpty).beTruthy();
     });
     
     it(@"no assert if storage is empty", ^{
         void(^block)() = ^() {
-            [ANStorageRemover removeAllItemsAndSectionsFromStorage:storage];
+            [remover removeAllItemsAndSectionsFromStorage:storage];
         };
         expect(block).notTo.raiseAny();
     });
     
     it(@"no assert if storage is nil", ^{
         void(^block)() = ^() {
-            [ANStorageRemover removeAllItemsAndSectionsFromStorage:nil];
+            [remover removeAllItemsAndSectionsFromStorage:nil];
         };
         expect(block).notTo.raiseAny();
     });
@@ -169,7 +171,7 @@ describe(@"removeSections:", ^{
         
         [ANStorageUpdater addItem:testModel toSection:1 toStorage:storage];
         [ANStorageUpdater addItems:items toSection:0 toStorage:storage];
-        [ANStorageRemover removeSections:[NSIndexSet indexSetWithIndex:0] fromStorage:storage];
+        [remover removeSections:[NSIndexSet indexSetWithIndex:0] fromStorage:storage];
         
         expect([storage itemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]]).equal(testModel);
         expect([storage sections]).haveCount(1);
@@ -177,21 +179,21 @@ describe(@"removeSections:", ^{
     
     it(@"no assert if section is not exist", ^{
         void(^block)() = ^() {
-            [ANStorageRemover removeSections:[NSIndexSet indexSetWithIndex:2] fromStorage:storage];
+            [remover removeSections:[NSIndexSet indexSetWithIndex:2] fromStorage:storage];
         };
         expect(block).notTo.raiseAny();
     });
     
     it(@"no assert if indexSet is nil", ^{
         void(^block)() = ^() {
-            [ANStorageRemover removeSections:nil fromStorage:storage];
+            [remover removeSections:nil fromStorage:storage];
         };
         expect(block).notTo.raiseAny();
     });
     
     it(@"no assert if storage is nil", ^{
         void(^block)() = ^() {
-            [ANStorageRemover removeSections:[NSIndexSet indexSetWithIndex:0] fromStorage:nil];
+            [remover removeSections:[NSIndexSet indexSetWithIndex:0] fromStorage:nil];
         };
         expect(block).notTo.raiseAny();
     });

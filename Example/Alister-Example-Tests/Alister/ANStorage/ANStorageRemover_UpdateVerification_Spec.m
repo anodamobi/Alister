@@ -17,9 +17,11 @@
 SpecBegin(ANStorageRemover_UpdateVerification_Spec)
 
 __block ANStorageModel* storage = nil;
+__block ANStorageRemover* remover = nil;
 
 beforeEach(^{
     storage = [ANStorageModel new];
+    remover = [ANStorageRemover removerWithStorageModel:storage andUpdateDelegate:nil];
 });
 
 describe(@"removeItem:", ^{
@@ -27,7 +29,7 @@ describe(@"removeItem:", ^{
     it(@"successfully removes item", ^{
         NSString* item = @"test";
         [ANStorageUpdater addItem:item toStorage:storage];
-        ANStorageUpdateModel* update = [ANStorageRemover removeItem:item fromStorage:storage];
+        ANStorageUpdateModel* update = [remover removeItem:item fromStorage:storage];
         
         ANStorageUpdateModel* expected = [ANStorageUpdateModel new];
         [expected addDeletedIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]]];
@@ -36,17 +38,17 @@ describe(@"removeItem:", ^{
     });
     
     it(@"update will be empty if item is nil", ^{
-        ANStorageUpdateModel* update = [ANStorageRemover removeItem:nil fromStorage:storage];
+        ANStorageUpdateModel* update = [remover removeItem:nil fromStorage:storage];
         expect(update.isEmpty).beTruthy();
     });
     
     it(@"update will be empty if storage is nil", ^{
-        ANStorageUpdateModel* update = [ANStorageRemover removeItem:@"test" fromStorage:nil];
+        ANStorageUpdateModel* update = [remover removeItem:@"test" fromStorage:nil];
         expect(update.isEmpty).beTruthy();
     });
     
     it(@"update will be empty if item not exist in storageModel", ^{
-        ANStorageUpdateModel* update = [ANStorageRemover removeItem:@"test" fromStorage:storage];
+        ANStorageUpdateModel* update = [remover removeItem:@"test" fromStorage:storage];
         expect(update.isEmpty).beTruthy();
     });
 });
@@ -60,7 +62,7 @@ describe(@"removeItemsAtIndexPaths:", ^{
         NSString* item = @"test";
         [ANStorageUpdater addItem:item toStorage:storage];
         [ANStorageUpdater addItem:@"smt" atIndexPath:indexPath toStorage:storage];
-        ANStorageUpdateModel* update = [ANStorageRemover removeItemsAtIndexPaths:[NSSet setWithObject:indexPath]
+        ANStorageUpdateModel* update = [remover removeItemsAtIndexPaths:[NSSet setWithObject:indexPath]
                                                                      fromStorage:storage];
         ANStorageUpdateModel* expected = [ANStorageUpdateModel new];
         [expected addDeletedIndexPaths:@[indexPath]];
@@ -69,19 +71,19 @@ describe(@"removeItemsAtIndexPaths:", ^{
     });
     
     it(@"update will be empty if indexPaths are nil", ^{
-        ANStorageUpdateModel* update = [ANStorageRemover removeItemsAtIndexPaths:nil fromStorage:storage];
+        ANStorageUpdateModel* update = [remover removeItemsAtIndexPaths:nil fromStorage:storage];
         expect(update.isEmpty).beTruthy();
     });
     
     it(@"update will be empty if storage is nil", ^{
-        ANStorageUpdateModel* update = [ANStorageRemover removeItemsAtIndexPaths:[NSSet setWithObject:indexPath]
+        ANStorageUpdateModel* update = [remover removeItemsAtIndexPaths:[NSSet setWithObject:indexPath]
                                                                      fromStorage:nil];
         expect(update.isEmpty).beTruthy();
     });
     
     it(@"update will be empty if indexPaths are not exist in storageModel", ^{
         
-        ANStorageUpdateModel* update = [ANStorageRemover removeItemsAtIndexPaths:[NSSet setWithObject:indexPath]
+        ANStorageUpdateModel* update = [remover removeItemsAtIndexPaths:[NSSet setWithObject:indexPath]
                                                                      fromStorage:storage];
         expect(update.isEmpty).beTruthy();
     });
@@ -95,7 +97,7 @@ describe(@"removeItems:", ^{
         NSArray* items = @[@"item4", @"item5"];
         
         [ANStorageUpdater addItems:[items arrayByAddingObjectsFromArray:@[@"test1", @"test2"]] toStorage:storage];
-        ANStorageUpdateModel* update = [ANStorageRemover removeItems:[NSSet setWithArray:items]
+        ANStorageUpdateModel* update = [remover removeItems:[NSSet setWithArray:items]
                                                          fromStorage:storage];
         
         ANStorageUpdateModel* expected = [ANStorageUpdateModel new];
@@ -106,18 +108,18 @@ describe(@"removeItems:", ^{
     });
     
     it(@"update will be empty if items are nil", ^{
-        ANStorageUpdateModel* update = [ANStorageRemover removeItems:nil fromStorage:storage];
+        ANStorageUpdateModel* update = [remover removeItems:nil fromStorage:storage];
         expect(update.isEmpty).beTruthy();
     });
     
     it(@"no asert if items not exist in storageModel", ^{
-        ANStorageUpdateModel* update = [ANStorageRemover removeItems:[NSSet setWithObject:@"test"]
+        ANStorageUpdateModel* update = [remover removeItems:[NSSet setWithObject:@"test"]
                                                          fromStorage:storage];
         expect(update.isEmpty).beTruthy();
     });
     
     it(@"update will be empty if storage is nil", ^{
-        ANStorageUpdateModel* update = [ANStorageRemover removeItems:[NSSet setWithObject:@"test"]
+        ANStorageUpdateModel* update = [remover removeItems:[NSSet setWithObject:@"test"]
                                                          fromStorage:nil];
         expect(update.isEmpty).beTruthy();
     });
@@ -131,7 +133,7 @@ describe(@"removeAllItemsAndSections", ^{
         [ANStorageUpdater addItem:@"test" toStorage:storage];
         [ANStorageUpdater addItem:@"test2" atIndexPath:[NSIndexPath indexPathForRow:0 inSection:1] toStorage:storage];
         
-        ANStorageUpdateModel* update = [ANStorageRemover removeAllItemsAndSectionsFromStorage:storage];
+        ANStorageUpdateModel* update = [remover removeAllItemsAndSectionsFromStorage:storage];
         ANStorageUpdateModel* expected = [ANStorageUpdateModel new];
         expected.isRequireReload = YES;
         
@@ -143,12 +145,12 @@ describe(@"removeAllItemsAndSections", ^{
     });
     
     it(@"update will be empty if storage is empty", ^{
-        ANStorageUpdateModel* update = [ANStorageRemover removeAllItemsAndSectionsFromStorage:storage];
+        ANStorageUpdateModel* update = [remover removeAllItemsAndSectionsFromStorage:storage];
         expect(update.isEmpty).beTruthy();
     });
     
     it(@"update will be empty if storage is nil", ^{
-        ANStorageUpdateModel* update = [ANStorageRemover removeAllItemsAndSectionsFromStorage:nil];
+        ANStorageUpdateModel* update = [remover removeAllItemsAndSectionsFromStorage:nil];
         expect(update.isEmpty).beTruthy();
     });
 });
@@ -162,7 +164,7 @@ describe(@"removeSections:", ^{
         
         [ANStorageUpdater addItem:testModel toSection:1 toStorage:storage];
         [ANStorageUpdater addItems:items toSection:0 toStorage:storage];
-        ANStorageUpdateModel* update = [ANStorageRemover removeSections:[NSIndexSet indexSetWithIndex:0] fromStorage:storage];
+        ANStorageUpdateModel* update = [remover removeSections:[NSIndexSet indexSetWithIndex:0] fromStorage:storage];
         
         ANStorageUpdateModel* expected = [ANStorageUpdateModel new];
         [expected addDeletedSectionIndex:0];
@@ -171,17 +173,17 @@ describe(@"removeSections:", ^{
     });
     
     it(@"update will be empty if section is not exist", ^{
-        ANStorageUpdateModel* update = [ANStorageRemover removeSections:[NSIndexSet indexSetWithIndex:2] fromStorage:storage];
+        ANStorageUpdateModel* update = [remover removeSections:[NSIndexSet indexSetWithIndex:2] fromStorage:storage];
         expect(update.isEmpty).beTruthy();
     });
     
     it(@"update will be empty if indexSet is nil", ^{
-        ANStorageUpdateModel* update = [ANStorageRemover removeSections:nil fromStorage:storage];
+        ANStorageUpdateModel* update = [remover removeSections:nil fromStorage:storage];
         expect(update.isEmpty).beTruthy();
     });
     
     it(@"update will be empty if storage is nil", ^{
-        ANStorageUpdateModel* update = [ANStorageRemover removeSections:[NSIndexSet indexSetWithIndex:0] fromStorage:nil];
+        ANStorageUpdateModel* update = [remover removeSections:[NSIndexSet indexSetWithIndex:0] fromStorage:nil];
         expect(update.isEmpty).beTruthy();
     });
 });

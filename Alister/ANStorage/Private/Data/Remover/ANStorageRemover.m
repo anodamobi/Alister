@@ -13,9 +13,25 @@
 #import <Alister/ANStorageSectionModel.h>
 #import "ANStorageLog.h"
 
+@interface ANStorageRemover ()
+
+@property (nonatomic, weak) ANStorageModel* storageModel;
+@property (nonatomic, weak) id delegate;
+
+@end
+
 @implementation ANStorageRemover
 
-+ (ANStorageUpdateModel*)removeItem:(id)item fromStorage:(ANStorageModel*)storage
++ (instancetype)removerWithStorageModel:(ANStorageModel *)storageModel andUpdateDelegate:(id)delegate
+{
+    ANStorageRemover* remover = [self new];
+    remover.storageModel = storageModel;
+    remover.delegate = delegate;
+    
+    return remover;
+}
+
+- (ANStorageUpdateModel*)removeItem:(id)item fromStorage:(ANStorageModel*)storage
 {
     ANStorageUpdateModel* update = [ANStorageUpdateModel new];
     NSIndexPath* indexPath = [ANStorageLoader indexPathForItem:item inStorage:storage];
@@ -34,7 +50,7 @@
     return update;
 }
 
-+ (ANStorageUpdateModel*)removeItemsAtIndexPaths:(NSSet*)indexPaths fromStorage:(ANStorageModel*)storage
+- (ANStorageUpdateModel*)removeItemsAtIndexPaths:(NSSet*)indexPaths fromStorage:(ANStorageModel*)storage
 {
     ANStorageUpdateModel* update = [ANStorageUpdateModel new];
 
@@ -59,7 +75,7 @@
     return update;
 }
 
-+ (ANStorageUpdateModel*)removeItems:(NSSet*)items fromStorage:(ANStorageModel*)storage
+- (ANStorageUpdateModel*)removeItems:(NSSet*)items fromStorage:(ANStorageModel*)storage
 {
     ANStorageUpdateModel* update = [ANStorageUpdateModel new];
     NSMutableArray* indexPaths = [NSMutableArray array];
@@ -81,7 +97,7 @@
     return update;
 }
 
-+ (ANStorageUpdateModel*)removeAllItemsAndSectionsFromStorage:(ANStorageModel*)storage
+- (ANStorageUpdateModel*)removeAllItemsAndSectionsFromStorage:(ANStorageModel*)storage
 {
     ANStorageUpdateModel* update = [ANStorageUpdateModel new];
     if ([storage sections].count)
@@ -93,7 +109,7 @@
     return update;
 }
 
-+ (ANStorageUpdateModel*)removeSections:(NSIndexSet*)indexSet fromStorage:(ANStorageModel*)storage
+- (ANStorageUpdateModel*)removeSections:(NSIndexSet*)indexSet fromStorage:(ANStorageModel*)storage
 {
     __block ANStorageUpdateModel* update = [ANStorageUpdateModel new];
     
