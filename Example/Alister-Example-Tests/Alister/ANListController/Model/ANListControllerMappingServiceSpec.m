@@ -17,55 +17,38 @@ beforeEach(^{
     mapping = [ANListControllerMappingService new];
 });
 
-describe(@"registerIdentifierForViewModel:", ^{
+describe(@"identifierForViewModelClass:", ^{
     
     it(@"will provide identifier for class", ^{
-        NSString* viewModel = @"testViewModel";
-        NSString* result1 = [mapping identifierForViewModel:[viewModel class]];
+        NSString* result1 = [mapping identifierForViewModelClass:[NSString class]];
         
         expect(result1).notTo.beNil();
     });
     
     it(@"no assert if class is nil", ^{
         void(^block)() = ^() {
-            [mapping identifierForViewModel:nil];
+            [mapping identifierForViewModelClass:nil];
         };
         expect(block).notTo.raiseAny();
     });
     
     it(@"identifier will be nil if class is nil", ^{
-        NSString* identifier = [mapping identifierForViewModel:nil];
+        NSString* identifier = [mapping identifierForViewModelClass:nil];
         expect(identifier).beNil();
     });
-});
-
-describe(@"identifierForViewModel: kind:", ^{
-    
-});
-
-describe(@"identifierForViewModel:", ^{
     
     it(@"if model is not registered will try to find parent registered class", ^{
         
         id viewModel1 = @"test";
         Class viewModelAnotherClass = [NSString class];
         
-        NSString* result1 = [mapping identifierForViewModel:viewModelAnotherClass];
-        NSString* result2 = [mapping identifierForViewModel:[viewModel1 class]];
+        NSString* result1 = [mapping identifierForViewModelClass:viewModelAnotherClass];
+        NSString* result2 = [mapping identifierForViewModelClass:[viewModel1 class]];
         
         expect(result1).equal(result2);
         expect(result2).notTo.beNil();
     });
-    
-    it(@"no assert if viewModel is nil", ^{
-        void(^block)() = ^() {
-            [mapping identifierForViewModel:nil];
-        };
-        expect(block).notTo.raiseAny();
-    });
 });
-
-
 
 //describe(@"mappingForViewModelClass: kind: isSystem:", ^{
 //    

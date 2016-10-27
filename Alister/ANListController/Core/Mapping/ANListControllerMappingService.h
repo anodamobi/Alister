@@ -12,20 +12,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-//- (NSString*)registerIdentifierForViewModel:(Class)viewModelClass;
-- (NSString*)registerIdentifierForViewModel:(Class)viewModelClass kind:(NSString*)kind;
-
-- (NSString*)identifierForViewModel:(Class)viewModelClass;
-- (NSString*)identifierForViewModel:(Class)viewModelClass kind:(NSString*)kind;
-
-
-
-//- (NSString*)registerCellClass:(Class)cellClass forViewModelClass:(Class)viewModeClass;
-//- (NSString*)registerSupplementaryClass:(Class)supplClass forViewModelClass:(Class)viewModel kind:(NSString*)kind;
-//
-//- (Class)reuseIndentifierForViewModelClass:(Class)viewModelClass;
-//- (Class)reuseIndentifierForViewModelClass:(Class)viewModelClass kind:(NSString*)kind;
-//
+- (NSString*)identifierForViewModelClass:(Class)keyClass;
+- (NSString*)identifierForViewModelClass:(Class)viewModelClass kind:(NSString*)kind;
 
 
 

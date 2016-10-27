@@ -28,9 +28,7 @@
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		D7389A191DC13FA600B54B9F /* ANStorageFakeOperationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D7389A181DC13FA600B54B9F /* ANStorageFakeOperationDelegate.m */; };
-		D7389A1B1DC23C9D00B54B9F /* ANListControllerMappingModelSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = D7389A1A1DC23C9D00B54B9F /* ANListControllerMappingModelSpec.m */; };
 		D7389A1F1DC23E6900B54B9F /* ANListControllerMappingServiceSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = D7389A1E1DC23E6900B54B9F /* ANListControllerMappingServiceSpec.m */; };
-		D7389A221DC245B300B54B9F /* ANMappingFixture.m in Sources */ = {isa = PBXBuildFile; fileRef = D7389A211DC245B300B54B9F /* ANMappingFixture.m */; };
 		D74129DA1DB9759900D7BB72 /* ANCollectionUpdateOperationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D74129A41DB9759900D7BB72 /* ANCollectionUpdateOperationTests.m */; };
 		D74129DB1DB9759900D7BB72 /* ANKeyboardHandlerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D74129A61DB9759900D7BB72 /* ANKeyboardHandlerTest.m */; };
 		D74129DC1DB9759900D7BB72 /* ANCollectionControllerConfigurationModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D74129A81DB9759900D7BB72 /* ANCollectionControllerConfigurationModelTest.m */; };
@@ -155,10 +153,7 @@
 		CB2099F6E4049388FFBA7187 /* Pods-Alister-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister-Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Alister-Example/Pods-Alister-Example.debug.xcconfig"; sourceTree = "<group>"; };
 		D7389A171DC13FA600B54B9F /* ANStorageFakeOperationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANStorageFakeOperationDelegate.h; sourceTree = "<group>"; };
 		D7389A181DC13FA600B54B9F /* ANStorageFakeOperationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageFakeOperationDelegate.m; sourceTree = "<group>"; };
-		D7389A1A1DC23C9D00B54B9F /* ANListControllerMappingModelSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ANListControllerMappingModelSpec.m; path = Model/ANListControllerMappingModelSpec.m; sourceTree = "<group>"; };
 		D7389A1E1DC23E6900B54B9F /* ANListControllerMappingServiceSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ANListControllerMappingServiceSpec.m; path = Model/ANListControllerMappingServiceSpec.m; sourceTree = "<group>"; };
-		D7389A201DC245B300B54B9F /* ANMappingFixture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ANMappingFixture.h; path = Model/ANMappingFixture.h; sourceTree = "<group>"; };
-		D7389A211DC245B300B54B9F /* ANMappingFixture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ANMappingFixture.m; path = Model/ANMappingFixture.m; sourceTree = "<group>"; };
 		D74129A41DB9759900D7BB72 /* ANCollectionUpdateOperationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANCollectionUpdateOperationTests.m; sourceTree = "<group>"; };
 		D74129A61DB9759900D7BB72 /* ANKeyboardHandlerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKeyboardHandlerTest.m; sourceTree = "<group>"; };
 		D74129A81DB9759900D7BB72 /* ANCollectionControllerConfigurationModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANCollectionControllerConfigurationModelTest.m; sourceTree = "<group>"; };
@@ -464,10 +459,7 @@
 		D7389A1D1DC23CC700B54B9F /* Mapping */ = {
 			isa = PBXGroup;
 			children = (
-				D7389A1A1DC23C9D00B54B9F /* ANListControllerMappingModelSpec.m */,
 				D7389A1E1DC23E6900B54B9F /* ANListControllerMappingServiceSpec.m */,
-				D7389A201DC245B300B54B9F /* ANMappingFixture.h */,
-				D7389A211DC245B300B54B9F /* ANMappingFixture.m */,
 			);
 			name = Mapping;
 			sourceTree = "<group>";
@@ -1190,7 +1182,6 @@
 				D74129DB1DB9759900D7BB72 /* ANKeyboardHandlerTest.m in Sources */,
 				D74129F01DB9759A00D7BB72 /* ANStorageRemover_UpdateVerification_Spec.m in Sources */,
 				D74129E11DB9759900D7BB72 /* ANTableControllerTest.m in Sources */,
-				D7389A221DC245B300B54B9F /* ANMappingFixture.m in Sources */,
 				D7A21E931DA8A2A500D6D803 /* ANTestableTableUpdateOperation.m in Sources */,
 				D74129E31DB9759900D7BB72 /* ANListControllerReloadOperationTests.m in Sources */,
 				D74129F61DB9759A00D7BB72 /* ANStorageUpdater_UpdateVerification_Spec.m in Sources */,
@@ -1212,7 +1203,6 @@
 				1803359A1DB91A2600332F5F /* ANEButtonFooterViewSpec.m in Sources */,
 				D7A21E941DA8A2A500D6D803 /* ANTestableTableView.m in Sources */,
 				D74129EE1DB9759A00D7BB72 /* ANStorageLoaderSpec.m in Sources */,
-				D7389A1B1DC23C9D00B54B9F /* ANListControllerMappingModelSpec.m in Sources */,
 				D7A21E921DA8A2A500D6D803 /* ANTestableStorageUpateOperation.m in Sources */,
 				180335981DB91A1100332F5F /* ANEBottomStickedFooterVCSpec.m in Sources */,
 				180335951DB919A600332F5F /* ANEReorderingVCSpec.m in Sources */,
