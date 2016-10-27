@@ -288,6 +288,21 @@ describe(@"storage ANStorageRetrivingInterface", ^{
         expect(storage).conformTo(@protocol(ANStorageRetrivingInterface));
     });
     
+    it(@"isEmpty should return YES",^{
+        [storage updateWithoutAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
+            [storageController removeAllItemsAndSections];
+        }];
+        expect([storage isEmpty]).to.beTruthy();
+    });
+    
+    it(@"isEmpty should return  NO after add items", ^{
+        [storage updateWithAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
+            [storageController addItem:@"some object"];
+        }];
+        expect([storage isEmpty]).to.beFalsy();
+    });
+    
+    
 });
 
 
