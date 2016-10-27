@@ -43,7 +43,7 @@ static CGFloat const kDefaultBottomViewHeight = 100;
         [self.controller configureCellsWithBlock:^(id<ANListControllerReusableInterface> configurator) {
             
             [configurator registerCellClass:[ANELabelTableViewCell class]
-                             forSystemClass:[NSString class]];
+                             forModelClass:[NSString class]];
         }];
     }
     

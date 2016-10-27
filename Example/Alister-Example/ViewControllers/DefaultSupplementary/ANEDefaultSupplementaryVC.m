@@ -41,13 +41,13 @@
         [self.controller configureCellsWithBlock:^(id<ANListControllerReusableInterface> configurator) {
             
             [configurator registerCellClass:[ANELabelTableViewCell class]
-                             forSystemClass:[NSString class]];
+                              forModelClass:[NSString class]];
             
             [configurator registerFooterClass:[ANBaseTableFooterView class]
-                               forSystemClass:[NSString class]];
+                                forModelClass:[NSString class]];
             
             [configurator registerHeaderClass:[ANBaseTableHeaderView class]
-                               forSystemClass:[NSString class]];
+                                forModelClass:[NSString class]];
         }];
     }
     

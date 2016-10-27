@@ -19,7 +19,7 @@
         [self configureCellsWithBlock:^(id<ANListControllerReusableInterface> configurator) {
             
             [configurator registerCellClass:[ANELabelTableViewCell class]
-                             forSystemClass:[NSString class]];
+                             forModelClass:[NSString class]];
             
             [configurator registerHeaderClass:[ANECustomHeaderView class]
                                 forModelClass:[ANECustomHeaderViewModel class]];

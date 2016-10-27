@@ -64,7 +64,7 @@
     NSString* identifier = [self.mappingService identifierForViewModelClass:modelClass kind:kind];
     if (identifier)
     {
-        [[self.delegate listViewWrapper] registerSupplementaryClass:modelClass reuseIdentifier:identifier kind:kind];
+        [[self.delegate listViewWrapper] registerSupplementaryClass:supplementaryClass reuseIdentifier:identifier kind:kind];
     }
     else
     {

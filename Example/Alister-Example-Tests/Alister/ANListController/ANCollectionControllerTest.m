@@ -78,7 +78,7 @@
     NSString* testModel = @"Mock";
     
     [self.listController configureCellsWithBlock:^(id<ANListControllerReusableInterface> configurator) {
-        [configurator registerCellClass:[ANCollectionViewCell class] forSystemClass:[NSString class]];
+        [configurator registerCellClass:[ANCollectionViewCell class] forModelClass:[NSString class]];
     }];
     
     //when
@@ -113,7 +113,7 @@
     NSIndexPath* selectedIndexPath = [NSIndexPath indexPathForRow:1 inSection:0];
     
     [self.listController configureCellsWithBlock:^(id<ANListControllerReusableInterface> configurator) {
-        [configurator registerCellClass:[ANCollectionViewCell class] forSystemClass:[NSString class]];
+        [configurator registerCellClass:[ANCollectionViewCell class] forModelClass:[NSString class]];
     }];
     
     //when
@@ -167,7 +167,7 @@
     NSString* testModel = @"Mock";
     
     [self.listController configureCellsWithBlock:^(id<ANListControllerReusableInterface> configurator) {
-        [configurator registerCellClass:[ANCollectionViewCell class] forSystemClass:[NSString class]];
+        [configurator registerCellClass:[ANCollectionViewCell class] forModelClass:[NSString class]];
     }];
     
     //when
@@ -236,7 +236,7 @@
     __weak typeof(self) welf = self;
     
     [self.listController configureCellsWithBlock:^(id<ANListControllerReusableInterface> configurator) {
-        [configurator registerCellClass:[ANCollectionViewCell class] forSystemClass:[NSString class]];
+        [configurator registerCellClass:[ANCollectionViewCell class] forModelClass:[NSString class]];
     }];
     
     //when
@@ -262,7 +262,7 @@
     __weak typeof(self) welf = self;
     
     [self.listController configureCellsWithBlock:^(id<ANListControllerReusableInterface> configurator) {
-        [configurator registerCellClass:[ANCollectionViewCell class] forSystemClass:[NSString class]];
+        [configurator registerCellClass:[ANCollectionViewCell class] forModelClass:[NSString class]];
     }];
     
     //when
@@ -291,7 +291,7 @@
     NSString* testModel = @"Mock";
     
     [self.listController configureCellsWithBlock:^(id<ANListControllerReusableInterface> configurator) {
-        [configurator registerCellClass:[ANCollectionViewCell class] forSystemClass:[NSString class]];
+        [configurator registerCellClass:[ANCollectionViewCell class] forModelClass:[NSString class]];
     }];
     
     //when
@@ -324,7 +324,7 @@
     NSString* testModel = @"test model";
     
     [self.listController configureCellsWithBlock:^(id<ANListControllerReusableInterface> configurator) {
-        [configurator registerCellClass:[ANCollectionViewCell class] forSystemClass:[NSString class]];
+        [configurator registerCellClass:[ANCollectionViewCell class] forModelClass:[NSString class]];
     }];
     
     //when
