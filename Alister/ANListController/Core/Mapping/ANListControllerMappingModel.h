@@ -8,9 +8,19 @@
 
 @interface ANListControllerMappingModel : NSObject
 
-@property (nonatomic, copy) NSString* classIdentifier;
-@property (nonatomic, copy) NSString* kind;
-@property (nonatomic, strong) Class mappingClass;
-@property (nonatomic, assign) BOOL isSystem;
+@property (nonatomic, strong, readonly) Class mappingClass;
+@property (nonatomic, assign, readonly) BOOL isSystem;
+@property (nonatomic, copy, readonly) NSString* reuseIdentifier;
+@property (nonatomic, copy, readonly) NSString* kind;
+
++ (instancetype)modelWithMappingClass:(Class)mappingClass
+                                 kind:(NSString*)kind
+                             isSystem:(BOOL)isSystem
+                      classIdentifier:(NSString*)classIdentifier;
+
+- (instancetype)initWithMappingClass:(Class)mappingClass
+                                kind:(NSString*)kind
+                            isSystem:(BOOL)isSystem
+                     classIdentifier:(NSString*)classIdentifier;
 
 @end

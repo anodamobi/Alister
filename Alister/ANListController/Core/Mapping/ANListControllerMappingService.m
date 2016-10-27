@@ -14,6 +14,8 @@ static NSString* const kCellConstant = @"kANCellIdentifier";
 
 @property (nonatomic, strong) NSMutableArray* mappings;
 
+@property (nonatomic, strong) NSMutableDictionary* viewModelToIndentifierMap;
+
 @end
 
 @implementation ANListControllerMappingService
@@ -24,9 +26,81 @@ static NSString* const kCellConstant = @"kANCellIdentifier";
     if (self)
     {
         self.mappings = [NSMutableArray new];
+        self.viewModelToIndentifierMap = [NSMutableDictionary new];
     }
     return self;
 }
+
+- (NSString*)registerIdentifierForViewModel:(Class)viewModelClass
+{
+    NSString* identifier = nil;
+    if (viewModelClass)
+    {
+        identifier = NSStringFromClass(viewModelClass);
+        [self.viewModelToIndentifierMap setObject:identifier forKey:viewModelClass];
+    }
+    return identifier;
+}
+
+- (NSString*)registerIdentifierForViewModel:(Class)viewModelClass kind:(NSString*)kind
+{
+    
+}
+
+- (NSString*)identifierForViewModel:(Class)keyClass
+{
+    NSString* identifier = nil;
+    
+    if (keyClass)
+    {
+        identifier = [self.viewModelToIndentifierMap objectForKey:keyClass];
+        
+        if (!identifier)
+        {
+            // No mapping found for this key class, but it may be a subclass of another object that does
+            // have a mapping, so let's see what we can find.
+            Class superClass = nil;
+            for (Class class in self.viewModelToIndentifierMap.allKeys)
+            {
+                // We want to find the lowest node in the class hierarchy so that we pick the lowest ancestor
+                // in the hierarchy tree.
+                if ([keyClass isSubclassOfClass:class] && (!superClass || [class isSubclassOfClass:superClass]))
+                {
+                    superClass = class;
+                }
+            }
+            
+            if (nil != superClass)
+            {
+                identifier = [self.viewModelToIndentifierMap objectForKey:superClass];
+                
+                // Add this subclass to the map so that next time this result is instant.
+                [self.viewModelToIndentifierMap setObject:identifier forKey:keyClass];
+            }
+        }
+        
+        if (!identifier)
+        {
+            // We couldn't find a mapping at all so let's add an empty mapping.
+            [self.viewModelToIndentifierMap setObject:[NSNull class] forKey:keyClass];
+            
+        }
+        else if (identifier == [NSNull class])
+        {
+            // Don't return null mappings.
+            identifier = nil;
+        }
+    }
+    return identifier;
+}
+
+- (NSString*)identifierForViewModel:(Class)viewModelClass kind:(NSString*)kind
+{
+    return nil;
+}
+
+
+
 
 - (ANListControllerMappingModel*)mappingForViewModelClass:(Class)viewModelClass kind:(NSString*)kind isSystem:(BOOL)isSystem
 {
@@ -36,11 +110,10 @@ static NSString* const kCellConstant = @"kANCellIdentifier";
     ANListControllerMappingModel* model = [self _existingMappingForViewModel:viewModelClass kind:kind];
     if (!model)
     {
-        model = [ANListControllerMappingModel new];
-        model.classIdentifier = NSStringFromClass(viewModelClass);
-        model.isSystem = isSystem;
-        model.mappingClass = viewModelClass;
-        model.kind = kind;
+        model = [ANListControllerMappingModel modelWithMappingClass:viewModelClass
+                                                               kind:kind
+                                                           isSystem:isSystem
+                                                    classIdentifier:NSStringFromClass(viewModelClass)];
     }
     return model;
 }
@@ -62,7 +135,7 @@ static NSString* const kCellConstant = @"kANCellIdentifier";
 
 - (void)addMapping:(ANListControllerMappingModel*)model
 {
-    [self _addMapping:model];
+    [self.mappings addObject:model];
 }
 
 
@@ -81,7 +154,7 @@ static NSString* const kCellConstant = @"kANCellIdentifier";
                 if ([viewModel isKindOfClass:obj.mappingClass])
                 {
                     mappingModel = obj;
-                   * stop = YES;
+                    * stop = YES;
                 }
             }
             else
@@ -89,20 +162,12 @@ static NSString* const kCellConstant = @"kANCellIdentifier";
                 if ([viewModel isMemberOfClass:obj.mappingClass])
                 {
                     mappingModel = obj;
-                   * stop = YES;
+                    * stop = YES;
                 }
             }
         }
     }];
     return mappingModel;
-}
-
-
-#pragma mark - Private
-
-- (void)_addMapping:(ANListControllerMappingModel*)model
-{
-    [self.mappings addObject:model];
 }
 
 @end

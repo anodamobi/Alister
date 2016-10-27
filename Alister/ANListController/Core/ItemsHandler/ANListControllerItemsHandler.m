@@ -104,7 +104,7 @@
     id<ANListControllerUpdateViewInterface> cell = nil;
     if (mapping)
     {
-        cell = [[self.delegate listViewWrapper] cellForReuseIdentifier:mapping.classIdentifier ? : @""
+        cell = [[self.delegate listViewWrapper] cellForReuseIdentifier:mapping.reuseIdentifier ? : @""
                                                            atIndexPath:indexPath];
         [cell updateWithModel:viewModel];
     }
@@ -118,7 +118,7 @@
     id<ANListControllerUpdateViewInterface> view = nil;
     if (mapping)
     {
-        view = [[self.delegate listViewWrapper] supplementaryViewForReuseIdentifer:mapping.classIdentifier ? : @""
+        view = [[self.delegate listViewWrapper] supplementaryViewForReuseIdentifer:mapping.reuseIdentifier ? : @""
                                                                               kind:mapping.kind
                                                                        atIndexPath:indexPath];
         [view updateWithModel:viewModel];
@@ -140,7 +140,7 @@
                                                                                      kind:kind
                                                                                  isSystem:isSystem];
     [[self.delegate listViewWrapper] registerSupplementaryClass:viewClass
-                                                reuseIdentifier:mapping.classIdentifier
+                                                reuseIdentifier:mapping.reuseIdentifier
                                                            kind:kind];
     [self.mappingService addMapping:mapping];
 }
@@ -150,7 +150,7 @@
     ANListControllerMappingModel* mapping = [self.mappingService cellMappingForViewModelClass:viewModelClass
                                                                                      isSystem:isSystem];
     
-    [[self.delegate listViewWrapper] registerCellClass:cellClass forReuseIdentifier:mapping.classIdentifier];
+    [[self.delegate listViewWrapper] registerCellClass:cellClass forReuseIdentifier:mapping.reuseIdentifier];
     [self.mappingService addMapping:mapping];
 }
 
