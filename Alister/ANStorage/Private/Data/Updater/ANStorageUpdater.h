@@ -6,8 +6,9 @@
 //
 //
 
+#import "ANStorageUpdateOperationInterface.h"
+
 @class ANStorageModel;
-@class ANStorageUpdateModel;
 
 /**
  
@@ -22,148 +23,142 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+//TODO: doc
++ (instancetype)updaterWithStorageModel:(ANStorageModel*)model updateDelegate:(id<ANStorageUpdateOperationInterface>)delegate;
 
 /**
  Adds item to section at zero index.
+ Sends to delegate UpdateModel that contains diff for current operation.
+ If operation was terminated update will be empty.
  
  @param item  to add. If value is nil empty update will be generated
- @param storageModel storage where item will be inserted
- 
- @return UpdateModel that contains diff for current operation. If operation was terminated update will be empty.
  */
 
-+ (ANStorageUpdateModel*)addItem:(id)item toStorage:(ANStorageModel*)storageModel;
+- (void)addItem:(id)item;
 
 
 /**
  Adds item to the specified section. If section index higher than existing sections count,
  all non-existing sections will be generated with empty rows array.
  Item will be appended to current items array.
- If any parameter will be nil, no update will be generated.
+ Sends to delegate UpdateModel that contains diff for current operation.
+ If operation was terminated update will be empty.
  
  @param item          to add in storage
  @param sectionIndex  section to add item.
- @param model         to insert to storage
- 
- @return UpdateModel that contains diff for current operation. If operation was terminated update will be empty.
  */
 
-+ (ANStorageUpdateModel*)addItem:(id)item toSection:(NSUInteger)sectionIndex toStorage:(ANStorageModel*)model;
+- (void)addItem:(id)item toSection:(NSUInteger)sectionIndex;
 
 
 /**
  Adds array of items to the zero section. If section index higher than existing sections count,
  all non-existing sections will be generated with empty rows array.
  Items will be appended to current items array.
- If any parameter will be nil, no update will be generated.
+ Sends to delegate UpdateModel that contains diff for current operation.
+ If operation was terminated update will be empty.
  
  @param items NSArray* of items to insert in specified storage
- @param model where this item should be inserted
- 
- @return UpdateModel that contains diff for current operation. If operation was terminated update will be empty.
  */
 
-+ (ANStorageUpdateModel*)addItems:(NSArray*)items toStorage:(ANStorageModel*)model;
+- (void)addItems:(NSArray*)items;
 
 
 /**
  Adds array of items to the specified section. If section index higher than existing sections count,
  all non-existing sections will be generated with empty rows array.
  Items will be appended to current items array.
- If any parameter will be nil, no update will be generated.
+ Sends to delegate UpdateModel that contains diff for current operation.
+ If operation was terminated update will be empty.
  
  @param items         NSArray* of items to insert in specified storage
  @param sectionIndex  index for section where items should be added
- @param model         where this item should be inserted
- 
- @return UpdateModel that contains diff for current operation. If operation was terminated update will be empty.
  */
 
-+ (ANStorageUpdateModel*)addItems:(NSArray*)items toSection:(NSUInteger)sectionIndex toStorage:(ANStorageModel*)model;
+- (void)addItems:(NSArray*)items toSection:(NSUInteger)sectionIndex;
 
 
 /**
  
  Adds item to the specified indexPath in storage. If row higher that existed count of
  objects in section, update will be ignored. 
- If any parameter will be nil, no update will be generated.
+ Sends to delegate UpdateModel that contains diff for current operation.
+ If operation was terminated update will be empty.
  
  @param item      to add in storage
  @param indexPath for item in storage after update
- @param model     where this item should be inserted
-
- @return UpdateModel that contains diff for current operation. If operation was terminated update will be empty.
  */
 
-+ (ANStorageUpdateModel*)addItem:(id)item atIndexPath:(NSIndexPath*)indexPath toStorage:(ANStorageModel*)model;
+- (void)addItem:(id)item atIndexPath:(NSIndexPath*)indexPath;
 
 
 /**
  Replaces specified item with new one.
- If any parameter will be nil, no update will be generated.
+ Sends to delegate UpdateModel that contains diff for current operation.
+ If operation was terminated update will be empty.
 
  @param itemToReplace item to replace, old existing item should be in storage already
  @param replacingItem new item, on which old item should be replaced
- @param storage       where this item should be inserted
-
- @return UpdateModel that contains diff for current operation. If operation was terminated update will be empty.
  */
 
-+ (ANStorageUpdateModel*)replaceItem:(id)itemToReplace withItem:(id)replacingItem inStorage:(ANStorageModel*)storage;
+- (void)replaceItem:(id)itemToReplace withItem:(id)replacingItem;
+
+
+/**
+ This method specially to pair UITableView's method:
+ - (void)moveRowAtIndexPath:(NSIndexPath*)indexPath toIndexPath:(NSIndexPath*)newIndexPath
+ 
+ @param fromIndexPath from which indexPath item should removed
+ @param toIndexPath   to which indexPath item should be inserted
+ */
+- (void)moveItemWithoutUpdateFromIndexPath:(NSIndexPath*)fromIndexPath toIndexPath:(NSIndexPath*)toIndexPath;
 
 
 /**
  Moves item on specified indexPath to new indexPath. 
- If any parameter will be nil, no update will be generated.
+ Sends to delegate UpdateModel that contains diff for current operation.
+ If operation was terminated update will be empty.
 
  @param fromIndexPath NSIndexPath* to get item from. If there is no item at this indexPath operation will be terminated.
  @param toIndexPath   NSIndexPath* new place for item. If there is no section for indexPath.section it will be generated. If in thi section number of items less than specified indexPath.row operation will be ternimated.
- @param storage       where this item should be inserted
-
- @return UpdateModel that contains diff for current operation. If operation was terminated update will be empty.
  */
 
-+ (ANStorageUpdateModel*)moveItemFromIndexPath:(NSIndexPath*)fromIndexPath
-                                   toIndexPath:(NSIndexPath*)toIndexPath
-                                     inStorage:(ANStorageModel*)storage;
+- (void)moveItemFromIndexPath:(NSIndexPath*)fromIndexPath toIndexPath:(NSIndexPath*)toIndexPath;
 
 
 /**
  Reloads specified item. 
  You need this method when your item still the same, but it's content was updated.
- If any parameter will be nil, no update will be generated.
+ Sends to delegate UpdateModel that contains diff for current operation.
+ If operation was terminated update will be empty.
  @param item    to reload
- @param storage where this item should be reloaded.
-
- @return UpdateModel that contains diff for current operation. If operation was terminated update will be empty.
  */
 
-+ (ANStorageUpdateModel*)reloadItem:(id)item inStorage:(ANStorageModel*)storage;
+- (void)reloadItem:(id)item;
 
 
 /**
  Reloads specified items array in storage.
  You need this method when your item objects are still the same, but their content was updated.
- If any parameter will be nil, no update will be generated.
+ Sends to delegate UpdateModel that contains diff for current operation.
+ If operation was terminated update will be empty.
 
  @param items   NSArray* items array for reload
- @param storage where this item should be inserted
-
- @return UpdateModel that contains diff for current operation. If operation was terminated update will be empty.
  */
-+ (ANStorageUpdateModel*)reloadItems:(NSArray*)items inStorage:(ANStorageModel*)storage;
+- (void)reloadItems:(NSArray*)items;
 
 
 /**
  Generates empty sections to match count with specified index.
-
+ Sends to delegate UpdateModel that contains diff for current operation.
+ If operation was terminated update will be empty.
+ 
  @param sectionIndex section index up to what all section should be created
- @param storage       where this item should be inserted
 
  @return NSIndexSet* that contains indexes of all creted sections.
  */
 
-+ (NSIndexSet*)createSectionIfNotExist:(NSInteger)sectionIndex inStorage:(ANStorageModel*)storage;
+- (NSIndexSet*)createSectionIfNotExist:(NSInteger)sectionIndex;
 
 NS_ASSUME_NONNULL_END
 
