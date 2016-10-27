@@ -15,8 +15,8 @@
 
 @interface ANStorageRemover ()
 
-@property (nonatomic, strong) ANStorageModel* storageModel;
-@property (nonatomic, strong) id<ANStorageUpdateOperationInterface> updateDelegate; //TODO:
+@property (nonatomic, weak) ANStorageModel* storageModel;
+@property (nonatomic, weak) id<ANStorageUpdateOperationInterface> updateDelegate;
 
 @end
 
