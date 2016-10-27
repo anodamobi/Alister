@@ -26,6 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 //TODO: doc
 + (instancetype)updaterWithStorageModel:(ANStorageModel*)model updateDelegate:(id<ANStorageUpdateOperationInterface>)delegate;
 
+
 /**
  Adds item to section at zero index.
  Sends to delegate UpdateModel that contains diff for current operation.
@@ -159,6 +160,29 @@ NS_ASSUME_NONNULL_BEGIN
  */
 
 - (NSIndexSet*)createSectionIfNotExist:(NSInteger)sectionIndex;
+
+
+/**
+ Convention method for tables to register header model.
+ You need to update headerKind property on storageModel before any updates
+ 
+ @param headerModel  viewModel for header
+ @param sectionIndex section index in UITableView
+ */
+
+- (void)updateSectionHeaderModel:(id)headerModel forSectionIndex:(NSInteger)sectionIndex;
+
+
+/**
+ Convention method for tables to register footer model
+ You need to update footerKind property on storageModel before any updates
+ 
+ @param headerModel  viewModel for footer
+ @param sectionIndex section index in UITableView
+ */
+
+- (void)updateSectionFooterModel:(id)footerModel forSectionIndex:(NSUInteger)sectionIndex;
+
 
 NS_ASSUME_NONNULL_END
 

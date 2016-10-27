@@ -141,6 +141,7 @@
     [self.updateDelegate collectUpdate:update];
 }
 
+//TODO: should now it be private?
 - (NSIndexSet*)createSectionIfNotExist:(NSInteger)sectionIndex
 {
     NSMutableIndexSet* insertedSectionIndexes = [NSMutableIndexSet indexSet];
@@ -160,6 +161,21 @@
     return insertedSectionIndexes;
 }
 
+- (void)updateSectionHeaderModel:(id)headerModel forSectionIndex:(NSInteger)sectionIndex
+{
+    ANStorageUpdateModel* update = [self _updateSupplementaryOfKind:self.storageModel.headerKind
+                                                              model:headerModel
+                                                    forSectionIndex:sectionIndex];
+    [self.updateDelegate collectUpdate:update];
+}
+
+- (void)updateSectionFooterModel:(id)footerModel forSectionIndex:(NSInteger)sectionIndex
+{
+    ANStorageUpdateModel* update = [self _updateSupplementaryOfKind:self.storageModel.footerKind
+                                                              model:footerModel
+                                                    forSectionIndex:sectionIndex];
+    [self.updateDelegate collectUpdate:update];
+}
 
 
 #pragma mark - Private
@@ -225,6 +241,34 @@
             [update addInsertedSectionIndexes:insertedSections];
             [update addMovedIndexPaths:@[path]];
         }
+    }
+    
+    return update;
+}
+
+//TODO: check is it need to be public for collectionView
+- (ANStorageUpdateModel*)_updateSupplementaryOfKind:(NSString*)kind
+                                              model:(id)model
+                                    forSectionIndex:(NSUInteger)sectionIndex
+{
+    ANStorageUpdateModel* update = [ANStorageUpdateModel new];
+    
+    if (ANIsIndexValid(sectionIndex) && self.storageModel)
+    {
+        ANStorageSectionModel* section = nil;
+        
+        if (model)
+        {
+            NSIndexSet* set = [self createSectionIfNotExist:sectionIndex];
+            [update addInsertedSectionIndexes:set];
+            section = [ANStorageLoader sectionAtIndex:sectionIndex inStorage:self.storageModel];
+        }
+        else
+        {   // if section not exist we don't need to remove it's model,
+            // so no new sections will be created and update will be empty
+            section = [ANStorageLoader sectionAtIndex:sectionIndex inStorage:self.storageModel];
+        }
+        [section updateSupplementaryModel:model forKind:kind];
     }
     
     return update;

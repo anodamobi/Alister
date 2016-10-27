@@ -9,7 +9,6 @@
 #import <Alister/ANStorageController.h>
 #import "ANStorageUpdateModel.h"
 #import "ANStorageUpdater.h"
-#import "ANStorageSupplementaryManager.h"
 #import "ANStorageRemover.h"
 #import "ANStorageLoader.h"
 #import <Alister/ANStorageModel.h>
@@ -19,7 +18,6 @@
 
 @property (nonatomic, strong) ANStorageRemover* remover;
 @property (nonatomic, strong) ANStorageUpdater* updater;
-@property (nonatomic, strong) ANStorageSupplementaryManager* supplementaryManager;
 
 
 @end
@@ -32,11 +30,8 @@
     if (self)
     {
         self.storageModel = [ANStorageModel new];
-        self.remover = [ANStorageRemover removerWithStorageModel:self.storageModel andUpdateDelegate:self.updateDelegate]; //TODO: delegate
+        self.remover = [ANStorageRemover removerWithStorageModel:self.storageModel andUpdateDelegate:self.updateDelegate];
         self.updater = [ANStorageUpdater updaterWithStorageModel:self.storageModel updateDelegate:self.updateDelegate];
-        
-        self.supplementaryManager = [ANStorageSupplementaryManager supplementatyManagerWithStorageModel:self.storageModel
-                                                                                         updateDelegate:self.updateDelegate];
     }
     return self;
 }
@@ -173,30 +168,33 @@
 
 - (void)updateSectionHeaderModel:(id)headerModel forSectionIndex:(NSInteger)sectionIndex
 {
-    [self.supplementaryManager updateSectionHeaderModel:headerModel forSectionIndex:sectionIndex];
+    [self.updater updateSectionHeaderModel:headerModel forSectionIndex:sectionIndex];
 }
 
 - (void)updateSectionFooterModel:(id)footerModel forSectionIndex:(NSInteger)sectionIndex
 {
-    [self.supplementaryManager updateSectionFooterModel:footerModel forSectionIndex:sectionIndex];
+    [self.updater updateSectionFooterModel:footerModel forSectionIndex:sectionIndex];
 }
 
 - (id)headerModelForSectionIndex:(NSUInteger)index
 {
-    return [self.supplementaryManager supplementaryModelOfKind:self.storageModel.headerKind
-                                                   forSectionIndex:index];
+    return [ANStorageLoader supplementaryModelOfKind:self.storageModel.headerKind
+                                     forSectionIndex:index
+                                           inStorage:self.storageModel];
 }
 
 - (id)footerModelForSectionIndex:(NSUInteger)index
 {
-    return [self.supplementaryManager supplementaryModelOfKind:self.storageModel.footerKind
-                                                   forSectionIndex:index];
+    return [ANStorageLoader supplementaryModelOfKind:self.storageModel.footerKind
+                                     forSectionIndex:index
+                                           inStorage:self.storageModel];
 }
 
 - (id)supplementaryModelOfKind:(NSString*)kind forSectionIndex:(NSUInteger)sectionIndex
 {
-    return [self.supplementaryManager supplementaryModelOfKind:kind
-                                                   forSectionIndex:sectionIndex];
+    return [ANStorageLoader supplementaryModelOfKind:kind
+                                     forSectionIndex:sectionIndex
+                                           inStorage:self.storageModel];
 }
 
 

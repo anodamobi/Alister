@@ -8,6 +8,7 @@
 
 #import <Alister/ANStorageUpdater.h>
 #import <Alister/ANStorageModel.h>
+#import <Alister/ANStorageSectionModel.h>
 #import <Alister/ANStorageUpdateModel.h>
 
 #pragma clang diagnostic push
@@ -448,6 +449,109 @@ describe(@"createSectionIfNotExist:inStorage: ", ^{
     });
 });
 
-SpecEnd
+
+describe(@"updateSectionHeaderModel: forSectionIndex: inStorage:", ^{
+    
+    beforeEach(^{
+        storage.headerKind = @"testKind";
+    });
+    
+    it(@"updates model successfully", ^{
+        
+        NSString* item = @"test";
+        [updater updateSectionHeaderModel:item forSectionIndex:0];
+        
+        expect([[storage sectionAtIndex:0] supplementaryModelOfKind:storage.headerKind]).equal(item);
+    });
+    
+    it(@"no assert if model is nil", ^{
+        void(^block)() = ^() {
+            [updater updateSectionHeaderModel:nil forSectionIndex:0];
+        };
+        expect(block).notTo.raiseAny();
+    });
+    
+    it(@"no assert if index is out of bounds", ^{
+        void(^block)() = ^() {
+            [updater updateSectionHeaderModel:@"test" forSectionIndex:10];
+        };
+        expect(block).notTo.raiseAny();
+    });
+    
+    it(@"no assert if index is negative", ^{
+        void(^block)() = ^() {
+            [updater updateSectionHeaderModel:@"test" forSectionIndex:-1];
+        };
+        expect(block).notTo.raiseAny();
+    });
+    
+    it(@"no assert if index is NSNotFound", ^{
+        void(^block)() = ^() {
+            [updater updateSectionHeaderModel:@"test" forSectionIndex:NSNotFound];
+        };
+        expect(block).notTo.raiseAny();
+    });
+    
+    it(@"no assert if storage is nil", ^{
+        void(^block)() = ^() {
+            [updater updateSectionHeaderModel:@"test" forSectionIndex:0];
+        };
+        expect(block).notTo.raiseAny();
+    });
+});
+
+
+describe(@"updateSectionFooterModel: forSectionIndex: inStorage:", ^{
+    
+    beforeEach(^{
+        storage.footerKind = @"testKind";
+    });
+    
+    it(@"updates model successfully", ^{
+        
+        NSString* item = @"test";
+        [updater updateSectionFooterModel:item forSectionIndex:0];
+        
+        expect([[storage sectionAtIndex:0] supplementaryModelOfKind:storage.footerKind]).equal(item);
+    });
+    
+    it(@"no assert if model is nil", ^{
+        void(^block)() = ^() {
+            [updater updateSectionFooterModel:nil forSectionIndex:0];
+        };
+        expect(block).notTo.raiseAny();
+    });
+    
+    it(@"no assert if index is out of bounds", ^{
+        void(^block)() = ^() {
+            [updater updateSectionFooterModel:@"test" forSectionIndex:10];
+        };
+        expect(block).notTo.raiseAny();
+    });
+    
+    it(@"no assert if index is negative", ^{
+        void(^block)() = ^() {
+            [updater updateSectionFooterModel:@"test" forSectionIndex:-1];
+        };
+        expect(block).notTo.raiseAny();
+    });
+    
+    it(@"no assert if index is NSNotFound", ^{
+        void(^block)() = ^() {
+            [updater updateSectionFooterModel:@"test" forSectionIndex:NSNotFound];
+        };
+        expect(block).notTo.raiseAny();
+    });
+    
+    it(@"no assert if storage is nil", ^{
+        void(^block)() = ^() {
+            [updater updateSectionFooterModel:@"test" forSectionIndex:0];
+        };
+        expect(block).notTo.raiseAny();
+    });
+});
 
 #pragma clang diagnostic pop
+
+SpecEnd
+

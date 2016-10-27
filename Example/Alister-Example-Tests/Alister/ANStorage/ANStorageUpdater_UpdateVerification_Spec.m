@@ -11,10 +11,10 @@
 #import <Alister/ANStorageUpdateModel.h>
 #import "ANStorageFakeOperationDelegate.h"
 
+SpecBegin(ANStorageUpdater_UpdateVerification)
+
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wnonnull"
-
-SpecBegin(ANStorageUpdater_UpdateVerification)
 
 __block ANStorageUpdater* updater = nil;
 __block ANStorageFakeOperationDelegate* fakeDelegate = nil;
@@ -421,6 +421,103 @@ describe(@"createSectionIfNotExist:inStorage: ", ^{
     });
 });
 
-SpecEnd
+describe(@"updateSectionHeaderModel: forSectionIndex: inStorage:", ^{
+    
+    beforeEach(^{
+        storage.headerKind = @"testKind";
+    });
+    
+    it(@"updates model successfully", ^{
+        
+        NSString* item = @"test";
+        [updater updateSectionHeaderModel:item forSectionIndex:0];
+        ANStorageUpdateModel* expected = [ANStorageUpdateModel new];
+        [expected addInsertedSectionIndex:0];
+        
+        expect(fakeDelegate.lastUpdate).equal(expected);
+    });
+    
+    it(@"no update will be generated if model is nil", ^{
+        [updater updateSectionHeaderModel:nil forSectionIndex:0];
+        expect(fakeDelegate.lastUpdate.isEmpty).beTruthy();
+    });
+    
+    it(@"successfully generated update if section is not exist", ^{
+        [updater updateSectionHeaderModel:@"test" forSectionIndex:1];
+        ANStorageUpdateModel* expected = [ANStorageUpdateModel new];
+        [expected addInsertedSectionIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, 2)]];
+        
+        expect(fakeDelegate.lastUpdate).equal(expected);
+    });
+    
+    it(@"no update will be generated if index is negative", ^{
+        [updater updateSectionHeaderModel:@"test" forSectionIndex:-1];
+        expect(fakeDelegate.lastUpdate.isEmpty).beTruthy();
+    });
+    
+    it(@"no update will be generated if index is NSNotFound", ^{
+        [updater updateSectionHeaderModel:@"test" forSectionIndex:NSNotFound];
+        expect(fakeDelegate.lastUpdate.isEmpty).beTruthy();
+    });
+    
+    it(@"no update will be generated if storage is nil", ^{
+        updater = [ANStorageUpdater updaterWithStorageModel:nil updateDelegate:fakeDelegate];
+        [updater updateSectionHeaderModel:@"test" forSectionIndex:0];
+        expect(fakeDelegate.lastUpdate.isEmpty).beTruthy();
+    });
+});
+
+
+describe(@"updateSectionFooterModel: forSectionIndex: inStorage:", ^{
+    
+    beforeEach(^{
+        storage.footerKind = @"testKind";
+    });
+    
+    it(@"updates model successfully", ^{
+        
+        NSString* item = @"test";
+        [updater updateSectionFooterModel:item forSectionIndex:0];
+        
+        ANStorageUpdateModel* expected = [ANStorageUpdateModel new];
+        [expected addInsertedSectionIndex:0];
+        
+        expect(fakeDelegate.lastUpdate).equal(expected);
+    });
+    
+    it(@"successfully generated update if section is not exist", ^{
+        
+        [updater updateSectionFooterModel:@"test" forSectionIndex:1];
+        
+        ANStorageUpdateModel* expected = [ANStorageUpdateModel new];
+        [expected addInsertedSectionIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, 2)]];
+        
+        expect(fakeDelegate.lastUpdate).equal(expected);
+    });
+    
+    it(@"no update will be generated if model is nil", ^{
+        [updater updateSectionFooterModel:nil forSectionIndex:0];
+        expect(fakeDelegate.lastUpdate.isEmpty).beTruthy();
+    });
+    
+    it(@"no update will be generated if index is negative", ^{
+        [updater updateSectionFooterModel:@"test" forSectionIndex:-1];
+        expect(fakeDelegate.lastUpdate.isEmpty).beTruthy();
+    });
+    
+    it(@"no update will be generated if index is NSNotFound", ^{
+        [updater updateSectionFooterModel:@"test" forSectionIndex:NSNotFound];
+        expect(fakeDelegate.lastUpdate.isEmpty).beTruthy();
+    });
+    
+    it(@"no update will be generated if storage is nil", ^{
+        updater = [ANStorageUpdater updaterWithStorageModel:nil updateDelegate:fakeDelegate];
+        [updater updateSectionFooterModel:@"test" forSectionIndex:0];
+        
+        expect(fakeDelegate.lastUpdate.isEmpty).beTruthy();
+    });
+});
 
 #pragma clang diagnostic pop
+
+SpecEnd

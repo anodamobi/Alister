@@ -97,4 +97,10 @@
     return nil;
 }
 
++ (id)supplementaryModelOfKind:(NSString*)kind forSectionIndex:(NSUInteger)sectionIndex inStorage:(ANStorageModel*)storage
+{
+    ANStorageSectionModel* sectionModel = [ANStorageLoader sectionAtIndex:sectionIndex inStorage:storage];
+    return [sectionModel supplementaryModelOfKind:kind];
+}
+
 @end

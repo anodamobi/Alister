@@ -50,8 +50,6 @@
 		D74129EF1DB9759A00D7BB72 /* ANStorageOperationFakeDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D74129C31DB9759900D7BB72 /* ANStorageOperationFakeDelegate.m */; };
 		D74129F01DB9759A00D7BB72 /* ANStorageRemover_UpdateVerification_Spec.m in Sources */ = {isa = PBXBuildFile; fileRef = D74129C41DB9759900D7BB72 /* ANStorageRemover_UpdateVerification_Spec.m */; };
 		D74129F11DB9759A00D7BB72 /* ANStorageRemoverSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = D74129C51DB9759900D7BB72 /* ANStorageRemoverSpec.m */; };
-		D74129F21DB9759A00D7BB72 /* ANStorageSupplementaryManager_UpdateVerification_Spec.m in Sources */ = {isa = PBXBuildFile; fileRef = D74129C61DB9759900D7BB72 /* ANStorageSupplementaryManager_UpdateVerification_Spec.m */; };
-		D74129F31DB9759A00D7BB72 /* ANStorageSupplementaryManagerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = D74129C71DB9759900D7BB72 /* ANStorageSupplementaryManagerSpec.m */; };
 		D74129F41DB9759A00D7BB72 /* ANStorageUpdateOperationSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = D74129C81DB9759900D7BB72 /* ANStorageUpdateOperationSpec.m */; };
 		D74129F51DB9759A00D7BB72 /* ANStorageUpdater_Spec.m in Sources */ = {isa = PBXBuildFile; fileRef = D74129C91DB9759900D7BB72 /* ANStorageUpdater_Spec.m */; };
 		D74129F61DB9759A00D7BB72 /* ANStorageUpdater_UpdateVerification_Spec.m in Sources */ = {isa = PBXBuildFile; fileRef = D74129CA1DB9759900D7BB72 /* ANStorageUpdater_UpdateVerification_Spec.m */; };
@@ -180,8 +178,6 @@
 		D74129C31DB9759900D7BB72 /* ANStorageOperationFakeDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageOperationFakeDelegate.m; sourceTree = "<group>"; };
 		D74129C41DB9759900D7BB72 /* ANStorageRemover_UpdateVerification_Spec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageRemover_UpdateVerification_Spec.m; sourceTree = "<group>"; };
 		D74129C51DB9759900D7BB72 /* ANStorageRemoverSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageRemoverSpec.m; sourceTree = "<group>"; };
-		D74129C61DB9759900D7BB72 /* ANStorageSupplementaryManager_UpdateVerification_Spec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageSupplementaryManager_UpdateVerification_Spec.m; sourceTree = "<group>"; };
-		D74129C71DB9759900D7BB72 /* ANStorageSupplementaryManagerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageSupplementaryManagerSpec.m; sourceTree = "<group>"; };
 		D74129C81DB9759900D7BB72 /* ANStorageUpdateOperationSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageUpdateOperationSpec.m; sourceTree = "<group>"; };
 		D74129C91DB9759900D7BB72 /* ANStorageUpdater_Spec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageUpdater_Spec.m; sourceTree = "<group>"; };
 		D74129CA1DB9759900D7BB72 /* ANStorageUpdater_UpdateVerification_Spec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageUpdater_UpdateVerification_Spec.m; sourceTree = "<group>"; };
@@ -548,8 +544,6 @@
 				D74129C31DB9759900D7BB72 /* ANStorageOperationFakeDelegate.m */,
 				D74129C41DB9759900D7BB72 /* ANStorageRemover_UpdateVerification_Spec.m */,
 				D74129C51DB9759900D7BB72 /* ANStorageRemoverSpec.m */,
-				D74129C61DB9759900D7BB72 /* ANStorageSupplementaryManager_UpdateVerification_Spec.m */,
-				D74129C71DB9759900D7BB72 /* ANStorageSupplementaryManagerSpec.m */,
 				D74129C81DB9759900D7BB72 /* ANStorageUpdateOperationSpec.m */,
 				D74129C91DB9759900D7BB72 /* ANStorageUpdater_Spec.m */,
 				D74129CA1DB9759900D7BB72 /* ANStorageUpdater_UpdateVerification_Spec.m */,
@@ -1197,12 +1191,10 @@
 				D7A21E9D1DA8A4C400D6D803 /* ANECustomFooterViewModelTest.m in Sources */,
 				D74129DF1DB9759900D7BB72 /* ANListControllerMappingModelTest.m in Sources */,
 				D7A21E9B1DA8A49C00D6D803 /* ANECustomFooterViewTest.m in Sources */,
-				D74129F21DB9759A00D7BB72 /* ANStorageSupplementaryManager_UpdateVerification_Spec.m in Sources */,
 				D74129FA1DB9759A00D7BB72 /* ANStorageUpdateModelSpec.m in Sources */,
 				1803359A1DB91A2600332F5F /* ANEButtonFooterViewSpec.m in Sources */,
 				D7A21E941DA8A2A500D6D803 /* ANTestableTableView.m in Sources */,
 				D74129EE1DB9759A00D7BB72 /* ANStorageLoaderSpec.m in Sources */,
-				D74129F31DB9759A00D7BB72 /* ANStorageSupplementaryManagerSpec.m in Sources */,
 				D7A21E921DA8A2A500D6D803 /* ANTestableStorageUpateOperation.m in Sources */,
 				180335981DB91A1100332F5F /* ANEBottomStickedFooterVCSpec.m in Sources */,
 				180335951DB919A600332F5F /* ANEReorderingVCSpec.m in Sources */,

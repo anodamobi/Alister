@@ -165,4 +165,57 @@ describe(@"indexPathForItem:", ^{
     });
 });
 
+describe(@"supplementaryModelOfKind: forSectionIndex: inStorage:", ^{
+    
+    __block NSString* kind = @"testKind";
+    __block NSString* item = @"item";
+    
+    beforeEach(^{
+        storage.footerKind = kind;
+        ANStorageSectionModel* section = [ANStorageSectionModel new];
+        [section updateSupplementaryModel:item forKind:kind];
+        [storage addSection:section];
+    });
+    
+    it(@"returns successfully", ^{
+        id model = [ANStorageLoader supplementaryModelOfKind:kind forSectionIndex:0 inStorage:storage];
+        expect(model).equal(item);
+    });
+    
+    it(@"no assert if kind is nil", ^{
+        void(^block)() = ^() {
+            [ANStorageLoader supplementaryModelOfKind:nil forSectionIndex:0 inStorage:storage];
+        };
+        expect(block).notTo.raiseAny();
+    });
+    
+    it(@"no assert if index is out of bounds", ^{
+        void(^block)() = ^() {
+            [ANStorageLoader supplementaryModelOfKind:kind forSectionIndex:5 inStorage:storage];
+        };
+        expect(block).notTo.raiseAny();
+    });
+    
+    it(@"no assert if index is negative", ^{
+        void(^block)() = ^() {
+            [ANStorageLoader supplementaryModelOfKind:kind forSectionIndex:-1 inStorage:storage];
+        };
+        expect(block).notTo.raiseAny();
+    });
+    
+    it(@"no assert if index is NSNotFound", ^{
+        void(^block)() = ^() {
+            [ANStorageLoader supplementaryModelOfKind:kind forSectionIndex:NSNotFound inStorage:storage];
+        };
+        expect(block).notTo.raiseAny();
+    });
+    
+    it(@"no assert if storage is nil", ^{
+        void(^block)() = ^() {
+            [ANStorageLoader supplementaryModelOfKind:kind forSectionIndex:0 inStorage:nil];
+        };
+        expect(block).notTo.raiseAny();
+    });
+});
+
 SpecEnd
