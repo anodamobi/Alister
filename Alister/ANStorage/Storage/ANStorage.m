@@ -63,6 +63,7 @@
                     block(self.controller);
                 }];
                 
+                
                 [listController storageDidPerformUpdate:updateOperation withIdentifier:self.identifier animatable:isAnimatable];
             }
             else
