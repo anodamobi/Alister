@@ -205,6 +205,8 @@
     if ([updateDelegate conformsToProtocol:@protocol(ANStorageUpdateOperationInterface)] || !updateDelegate)
     {
         _updateDelegate = updateDelegate;
+        self.updater.updateDelegate = updateDelegate;
+        self.remover.updateDelegate = updateDelegate;
     }
     else
     {

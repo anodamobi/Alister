@@ -1,4 +1,5 @@
 #use_frameworks!
+install! 'cocoapods', :deterministic_uuids => false
 
 target 'Alister-Example' do
   pod 'Alister', :path => '../'

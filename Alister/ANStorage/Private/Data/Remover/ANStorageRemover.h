@@ -27,6 +27,8 @@ NS_ASSUME_NONNULL_BEGIN
 //TODO: doc
 + (instancetype)removerWithStorageModel:(ANStorageModel*)storageModel andUpdateDelegate:(id<ANStorageUpdateOperationInterface>)delegate;
 
+@property (nonatomic, weak) id<ANStorageUpdateOperationInterface> updateDelegate;
+
 /**
  Removes specified item from storage.
  Sends to delegate UpdateModel that contains diff for current operation.
