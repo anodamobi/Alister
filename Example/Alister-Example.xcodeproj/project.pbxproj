@@ -31,6 +31,7 @@
 		D7389A1F1DC23E6900B54B9F /* ANListControllerMappingServiceSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = D7389A1E1DC23E6900B54B9F /* ANListControllerMappingServiceSpec.m */; };
 		D7389A261DC2BBBE00B54B9F /* ANListControllerItemsHandlerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = D7389A251DC2BBBE00B54B9F /* ANListControllerItemsHandlerSpec.m */; };
 		D7389A291DC2C81E00B54B9F /* ANTestingFixtureObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = D7389A281DC2C81E00B54B9F /* ANTestingFixtureObjects.m */; };
+		D7389A2C1DC2E63B00B54B9F /* ANTestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D7389A2B1DC2E63B00B54B9F /* ANTestHelper.m */; };
 		D74129DA1DB9759900D7BB72 /* ANCollectionUpdateOperationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D74129A41DB9759900D7BB72 /* ANCollectionUpdateOperationTests.m */; };
 		D74129DB1DB9759900D7BB72 /* ANKeyboardHandlerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D74129A61DB9759900D7BB72 /* ANKeyboardHandlerTest.m */; };
 		D74129DC1DB9759900D7BB72 /* ANCollectionControllerConfigurationModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D74129A81DB9759900D7BB72 /* ANCollectionControllerConfigurationModelTest.m */; };
@@ -158,6 +159,8 @@
 		D7389A251DC2BBBE00B54B9F /* ANListControllerItemsHandlerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ANListControllerItemsHandlerSpec.m; path = Model/ANListControllerItemsHandlerSpec.m; sourceTree = "<group>"; };
 		D7389A271DC2C81E00B54B9F /* ANTestingFixtureObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ANTestingFixtureObjects.h; path = Model/ANTestingFixtureObjects.h; sourceTree = "<group>"; };
 		D7389A281DC2C81E00B54B9F /* ANTestingFixtureObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ANTestingFixtureObjects.m; path = Model/ANTestingFixtureObjects.m; sourceTree = "<group>"; };
+		D7389A2A1DC2E63B00B54B9F /* ANTestHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ANTestHelper.h; path = ../ANTestHelper.h; sourceTree = "<group>"; };
+		D7389A2B1DC2E63B00B54B9F /* ANTestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ANTestHelper.m; path = ../ANTestHelper.m; sourceTree = "<group>"; };
 		D74129A41DB9759900D7BB72 /* ANCollectionUpdateOperationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANCollectionUpdateOperationTests.m; sourceTree = "<group>"; };
 		D74129A61DB9759900D7BB72 /* ANKeyboardHandlerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKeyboardHandlerTest.m; sourceTree = "<group>"; };
 		D74129A81DB9759900D7BB72 /* ANCollectionControllerConfigurationModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANCollectionControllerConfigurationModelTest.m; sourceTree = "<group>"; };
@@ -703,6 +706,8 @@
 		D7A21E251DA8A2A500D6D803 /* Alister */ = {
 			isa = PBXGroup;
 			children = (
+				D7389A2A1DC2E63B00B54B9F /* ANTestHelper.h */,
+				D7389A2B1DC2E63B00B54B9F /* ANTestHelper.m */,
 				D74129A71DB9759900D7BB72 /* ANListController */,
 				D74129A31DB9759900D7BB72 /* ANCollectionUpdateOperationTests */,
 				D74129A51DB9759900D7BB72 /* ANKeyboardHandler */,
@@ -1174,6 +1179,7 @@
 				D7A21E971DA8A2A500D6D803 /* ANTestKeyboardHandlerDelegate.m in Sources */,
 				D74129F71DB9759A00D7BB72 /* ANStorageModelSpec.m in Sources */,
 				D7A21E901DA8A2A500D6D803 /* ANTestableListView.m in Sources */,
+				D7389A2C1DC2E63B00B54B9F /* ANTestHelper.m in Sources */,
 				D7A21E8C1DA8A2A500D6D803 /* ANTestableCollectionUpdateOperation.m in Sources */,
 				180335941DB919A600332F5F /* ANEReorderingControllerSpec.m in Sources */,
 				D74129EF1DB9759A00D7BB72 /* ANStorageOperationFakeDelegate.m in Sources */,
