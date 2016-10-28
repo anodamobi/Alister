@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+static id const kANTestNil = nil;
+
 @interface ANTestHelper : NSObject
 
 @end
