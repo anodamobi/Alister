@@ -18,7 +18,6 @@
 @interface ANStorageUpdater ()
 
 @property (nonatomic, weak) ANStorageModel* storageModel;
-@property (nonatomic, weak) id<ANStorageUpdateOperationInterface> updateDelegate;
 
 @end
 
