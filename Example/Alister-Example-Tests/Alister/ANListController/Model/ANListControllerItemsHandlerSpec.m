@@ -14,11 +14,5 @@ beforeEach(^{
     
 });
 
-describe(@"<#NSString *name#>", ^{
-    
-    it(@"<#confition#>", ^{
-        
-    });
-});
 
 SpecEnd

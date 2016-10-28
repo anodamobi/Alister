@@ -28,6 +28,35 @@ static NSString* const kANDefaultCellKind = @"kANDefaultCellKind";
     return self;
 }
 
+- (NSString*)registerViewModelClass:(Class)viewModelClass
+{
+    NSString* identifier = [self registerViewModelClass:viewModelClass kind:kANDefaultCellKind];
+    
+    return identifier;
+}
+
+- (NSString*)registerViewModelClass:(Class)viewModelClass kind:(NSString*)kind
+{
+    NSString* identifier = nil;
+    if (kind && viewModelClass)
+    {
+        identifier = [self _identifierFromClass:viewModelClass];
+        
+        if (identifier)
+        {
+            NSMutableDictionary* dict = self.viewModelToIndentifierMap[kind];
+            if (!dict)
+            {
+                dict = [NSMutableDictionary dictionary];
+            }
+            [dict setObject:identifier forKey:viewModelClass];
+            self.viewModelToIndentifierMap[kind] = dict;
+        }
+    }
+    
+    return identifier;
+}
+
 - (NSString*)identifierForViewModelClass:(Class)keyClass
 {
     return [self identifierForViewModelClass:keyClass kind:kANDefaultCellKind];
@@ -45,12 +74,19 @@ static NSString* const kANDefaultCellKind = @"kANDefaultCellKind";
         }
         identifier = [self _identifierFromViewModelClass:viewModelClass map:self.viewModelToIndentifierMap[kind]];
     }
+    
     return identifier;
 }
 
 
 #pragma mark - Private
 
+- (NSString*)_identifierFromClass:(Class)someClass
+{
+    return NSStringFromClass(someClass);
+}
+
+//Nimbus workaround
 - (NSString*)_identifierFromViewModelClass:(Class)keyClass map:(NSMutableDictionary*)map
 {
     NSString* identifier = nil;
@@ -85,11 +121,10 @@ static NSString* const kANDefaultCellKind = @"kANDefaultCellKind";
         
         if (!identifier)
         {
-            // We couldn't find a mapping at all so let's add a new mapping.
-            identifier = NSStringFromClass(keyClass);
-            [map setObject:identifier forKey:keyClass];
+            // We couldn't find a mapping at all so let's add [NSNull null] mapping.
+            [map setObject:[NSNull null] forKey:keyClass];
         }
-        else if (identifier == [NSNull class])
+        else if ([identifier isKindOfClass:[NSNull class]])
         {
             // Don't return null mappings.
             identifier = nil;
