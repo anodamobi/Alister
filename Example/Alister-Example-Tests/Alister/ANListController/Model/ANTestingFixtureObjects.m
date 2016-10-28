@@ -11,8 +11,7 @@
 @implementation ANTestingFixtureObject
 
 @end
-
-
+////////////////////////////////////////////
 @implementation ANTestingFixtureObjectInherited
 
 @end
