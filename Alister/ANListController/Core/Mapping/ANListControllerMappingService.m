@@ -30,9 +30,7 @@ static NSString* const kANDefaultCellKind = @"kANDefaultCellKind";
 
 - (NSString*)registerViewModelClass:(Class)viewModelClass
 {
-    NSString* identifier = [self registerViewModelClass:viewModelClass kind:kANDefaultCellKind];
-    
-    return identifier;
+    [self registerViewModelClass:viewModelClass kind:kANDefaultCellKind];
 }
 
 - (NSString*)registerViewModelClass:(Class)viewModelClass kind:(NSString*)kind
@@ -54,7 +52,7 @@ static NSString* const kANDefaultCellKind = @"kANDefaultCellKind";
         }
     }
     
-    return identifier;
+    return [self _fullIdentifierFromID:identifier kind:kind];
 }
 
 - (NSString*)identifierForViewModelClass:(Class)keyClass
@@ -75,7 +73,7 @@ static NSString* const kANDefaultCellKind = @"kANDefaultCellKind";
         identifier = [self _identifierFromViewModelClass:viewModelClass map:self.viewModelToIndentifierMap[kind]];
     }
     
-    return identifier;
+    return [self _fullIdentifierFromID:identifier kind:kind];
 }
 
 
@@ -84,6 +82,16 @@ static NSString* const kANDefaultCellKind = @"kANDefaultCellKind";
 - (NSString*)_identifierFromClass:(Class)someClass
 {
     return NSStringFromClass(someClass);
+}
+
+- (NSString*)_fullIdentifierFromID:(NSString*)identifier kind:(NSString*)kind
+{
+    NSString* result = nil;
+    if (identifier && kind)
+    {
+        result = [NSString stringWithFormat:@"%@<=>%@", identifier, kind];
+    }
+    return result;
 }
 
 //Nimbus workaround

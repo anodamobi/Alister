@@ -19,7 +19,7 @@ __block NSString* kind = nil;
 beforeEach(^{
     mapping = [ANListControllerMappingService new];
     nilValue = nil;
-    kind = @"kind";
+    kind = [[NSUUID UUID] UUIDString];
 });
 
 
@@ -202,7 +202,4 @@ describe(@"identifierForViewModelClass: kind:", ^{
     });
 });
 
-
-
 SpecEnd
-
