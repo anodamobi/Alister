@@ -17,6 +17,7 @@
     {
         self.textLabel.numberOfLines = 0;
     }
+    
     return self;
 }
 

@@ -30,7 +30,7 @@ static NSString* const kANDefaultCellKind = @"kANDefaultCellKind";
 
 - (NSString*)registerViewModelClass:(Class)viewModelClass
 {
-    [self registerViewModelClass:viewModelClass kind:kANDefaultCellKind];
+    return [self registerViewModelClass:viewModelClass kind:kANDefaultCellKind];
 }
 
 - (NSString*)registerViewModelClass:(Class)viewModelClass kind:(NSString*)kind
