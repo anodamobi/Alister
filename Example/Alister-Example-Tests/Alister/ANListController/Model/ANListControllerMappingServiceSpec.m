@@ -13,21 +13,70 @@ SpecBegin(ANListControllerMappingService)
 
 __block ANListControllerMappingService* mapping = nil;
 __block id nilValue = nil;
+__block NSString* kind = nil;
+
 
 beforeEach(^{
     mapping = [ANListControllerMappingService new];
     nilValue = nil;
+    kind = @"kind";
 });
+
 
 describe(@"registerViewModelClass:", ^{
     
+    it(@"returns identifier if class not nil", ^{
+        expect([mapping registerViewModelClass:[NSString class]]).notTo.beNil();
+    });
+    
+    it(@"returns nill if class is nil", ^{
+        expect([mapping registerViewModelClass:nilValue]).beNil();
+    });
+    
+    it(@"no assert if class is nil", ^{
+        void(^block)() = ^() {
+            [mapping registerViewModelClass:nilValue];
+        };
+        expect(block).notTo.raiseAny();
+    });
 });
+
 
 describe(@"registerViewModelClass: kind:", ^{
     
+    it(@"returns identifier if class and kind is not nil", ^{
+        expect([mapping registerViewModelClass:[NSString class] kind:kind]).notTo.beNil();
+    });
+    
+    it(@"returns nil if class is nil", ^{
+        expect([mapping registerViewModelClass:nilValue kind:kind]).beNil();
+    });
+    
+    it(@"returns nil if kind is nil", ^{
+        expect([mapping registerViewModelClass:[NSString class] kind:nilValue]).beNil();
+    });
+    
+    it(@"no assert if class is nil", ^{
+        void(^block)() = ^() {
+            [mapping registerViewModelClass:nilValue kind:kind];
+        };
+        expect(block).notTo.raiseAny();
+    });
+    
+    it(@"no assert if kind is nil", ^{
+        void(^block)() = ^() {
+            [mapping registerViewModelClass:[NSString class] kind:nilValue];
+        };
+        expect(block).notTo.raiseAny();
+    });
+    
+    it(@"no assert if kind and class are nil", ^{
+        void(^block)() = ^() {
+            [mapping registerViewModelClass:nilValue kind:nilValue];
+        };
+        expect(block).notTo.raiseAny();
+    });
 });
-
-
 
 
 describe(@"identifierForViewModelClass:", ^{
@@ -87,8 +136,6 @@ describe(@"identifierForViewModelClass:", ^{
 
 
 describe(@"identifierForViewModelClass: kind:", ^{
-    
-    __block NSString* kind = @"kind";
     
     it(@"returns the same identifier for class when it was registered with same kind", ^{
        
