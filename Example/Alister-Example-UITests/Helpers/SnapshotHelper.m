@@ -38,12 +38,12 @@
 
 - (void)waitForLoadingIndicatorToDisappear
 {
-    XCUIElementQuery* query = [[[_app.statusBars childrenMatchingType:XCUIElementTypeOther] elementBoundByIndex:1] childrenMatchingType:XCUIElementTypeOther];
-
+    XCUIElementQuery* query = [[[_app.statusBars childrenMatchingType:XCUIElementTypeOther]
+                                elementBoundByIndex:1] childrenMatchingType:XCUIElementTypeOther];
     while (query.count > 4)
     {
         sleep(1);
-        NSLog(@"Number of Elements in Status Bar: %ld... waiting for status bar to disappear", query.count);
+        NSLog(@"Number of Elements in Status Bar: %ld... waiting for status bar to disappear", (unsigned long)query.count);
     }
 }
 
@@ -140,8 +140,10 @@
     if (path == nil)
     {
         NSLog(@"Couldn't find Snapshot configuration files at ~/Library/Caches/tools.fastlane");
+        
         return nil;
     }
+    
     return [path stringByAppendingPathComponent:@"Library/Caches/tools.fastlane"];
 }
 

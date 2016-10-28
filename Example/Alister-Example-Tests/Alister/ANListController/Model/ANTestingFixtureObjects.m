@@ -12,6 +12,7 @@
 
 @end
 ////////////////////////////////////////////
+
 @implementation ANTestingFixtureObjectInherited
 
 @end

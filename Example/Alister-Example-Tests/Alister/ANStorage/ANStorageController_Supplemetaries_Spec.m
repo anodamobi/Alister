@@ -33,7 +33,7 @@ describe(@"updateSupplementaryHeaderKind:", ^{
     
     it(@"no assert if kind is nil", ^{
         void(^block)() = ^() {
-            [controller updateSupplementaryHeaderKind:nil];
+            [controller updateSupplementaryHeaderKind:kANTestNil];
         };
         expect(block).notTo.raiseAny();
     });
@@ -51,7 +51,7 @@ describe(@"updateSupplementaryFooterKind:", ^{
     
     it(@"no assert if kind is nil", ^{
         void(^block)() = ^() {
-            [controller updateSupplementaryFooterKind:nil];
+            [controller updateSupplementaryFooterKind:kANTestNil];
         };
         expect(block).notTo.raiseAny();
     });
