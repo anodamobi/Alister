@@ -61,10 +61,12 @@
 
 - (void)registerSupplementaryClass:(Class)supplementaryClass forModelClass:(Class)modelClass kind:(NSString*)kind
 {
-    NSString* identifier = [self.mappingService identifierForViewModelClass:modelClass kind:kind];
+    NSString* identifier = [self.mappingService registerViewModelClass:modelClass kind:kind];
     if (identifier)
     {
-        [[self.delegate listViewWrapper] registerSupplementaryClass:supplementaryClass reuseIdentifier:identifier kind:kind];
+        [[self.delegate listViewWrapper] registerSupplementaryClass:supplementaryClass
+                                                    reuseIdentifier:identifier
+                                                               kind:kind];
     }
     else
     {
@@ -77,7 +79,7 @@
 
 - (void)registerCellClass:(Class)cellClass forModelClass:(Class)modelClass
 {
-    NSString* identifier = [self.mappingService identifierForViewModelClass:modelClass];
+    NSString* identifier = [self.mappingService registerViewModelClass:modelClass];
     if (identifier)
     {
         [[self.delegate listViewWrapper] registerCellClass:cellClass forReuseIdentifier:identifier];
@@ -124,7 +126,7 @@
     else
     {
          NSLog(@"%@ does not have supplementary mapping for model class: %@",
-               [self class], [viewModel class]);; //TODO: wrap logs
+               [self class], [viewModel class]); //TODO: wrap logs
     }
     return view;
 }
