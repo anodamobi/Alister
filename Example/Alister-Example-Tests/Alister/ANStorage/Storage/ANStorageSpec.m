@@ -9,6 +9,8 @@
 #import <Alister/ANStorage.h>
 #import <Alister/ANStorageController.h>
 #import <Alister/ANStorageModel.h>
+#import <Alister/ANListControllerQueueProcessor.h>
+
 
 @interface ANStorage ()
 
@@ -135,28 +137,21 @@ describe(@"storagePredicateBlock", ^{
     });
 });
 
-//describe(@"updateWithAnimationChangeBlock:", ^{
-//    it(@"no assert if block is nil", ^{
-//        failure(@"Pending");
-//    });
-//});
-//
-//
-//describe(@"updateWithoutAnimationChangeBlock:", ^{
-//    it(@"no assert if block is nil", ^{
-//        failure(@"Pending");
-//    });
-//});
-//
-//
 describe(@"reloadStorageWithAnimation:", ^{
+    __block id listController = nil;
+
+    beforeEach(^{
+        listController = OCMPartialMock([ANListControllerQueueProcessor new]);
+        storage.listController = listController;
+    });
+    
+    it(@"storage called reload in list controller",^{
+        OCMExpect([listController storageNeedsReloadWithIdentifier:[OCMArg any] animated:YES]);
+        [storage reloadStorageWithAnimation:YES];
+        OCMVerifyAll(listController);
+    });
     
 });
-
-
-
-
-
 
 describe(@"updateHeaderKind: footerKind:", ^{
     
@@ -195,6 +190,126 @@ describe(@"updateHeaderKind: footerKind:", ^{
         expect(block).notTo.raiseAny();
     });
 });
+
+describe(@"updateWithAnimationChangeBlock", ^{
+    
+    __block id listController = nil;
+    
+    beforeEach(^{
+        listController = OCMPartialMock([ANListControllerQueueProcessor new]);
+        storage.listController = listController;
+    });
+    
+    it(@"updateWithAnimationChangeBlock called list controller storageDidPerformUpdate", ^{
+        
+        storage.isSearchingType = NO;
+        OCMExpect([listController storageDidPerformUpdate:[OCMArg any] withIdentifier:storage.identifier animatable:YES]);
+        
+        [storage updateWithAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
+            [storageController addItem:@"first"];
+        }];
+        
+        OCMVerifyAll(listController);
+    });
+    
+    it(@"update with animation block return ANStorageUpdatableInterface instance", ^{
+        
+        storage.isSearchingType = YES;
+        
+        void (^testBlock)(id interfaceObject) = ^(id interfaceObject) {
+            expect(interfaceObject).conformTo(@protocol(ANStorageUpdatableInterface));
+        };
+        
+        [storage updateWithAnimationChangeBlock:testBlock];
+    });
+    
+    it(@"update with animation block return ANStorageUpdatableInterface instance, when list controller is nil",^{
+        storage.listController = nil;
+        
+        void (^testBlock)(id interfaceObject) = ^(id interfaceObject) {
+            expect(interfaceObject).conformTo(@protocol(ANStorageUpdatableInterface));
+        };
+        
+        [storage updateWithAnimationChangeBlock:testBlock];
+    });
+    
+});
+
+describe(@"updateWithoutAnimationChangeBlock", ^{
+    
+    __block id listController = nil;
+    
+    beforeEach(^{
+        listController = OCMPartialMock([ANListControllerQueueProcessor new]);
+        storage.listController = listController;
+    });
+    
+    it(@"called list controller storageDidPerformUpdate", ^{
+        storage.isSearchingType = NO;
+        OCMExpect([listController storageDidPerformUpdate:[OCMArg any] withIdentifier:[OCMArg any] animatable:NO]);
+        
+        [storage updateWithoutAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
+            [storageController addItem:@"first"];
+        }];
+        
+        OCMVerifyAll(listController);
+    });
+    
+    it(@"update without animation block return ANStorageUpdatableInterface instance", ^{
+        
+        storage.isSearchingType = YES;
+        
+        void (^testBlock)(id interfaceObject) = ^(id interfaceObject) {
+            expect(interfaceObject).conformTo(@protocol(ANStorageUpdatableInterface));
+        };
+        
+        [storage updateWithoutAnimationChangeBlock:testBlock];
+    });
+    
+    it(@"update without animation block return ANStorageUpdatableInterface instance, when list controller is nil",^{
+        storage.listController = nil;
+        
+        void (^testBlock)(id interfaceObject) = ^(id interfaceObject) {
+            expect(interfaceObject).conformTo(@protocol(ANStorageUpdatableInterface));
+        };
+        
+        [storage updateWithoutAnimationChangeBlock:testBlock];
+    });
+    
+    
+});
+
+
+#pragma mark - ANStorageRetrivingInterface tests
+
+describe(@"storage ANStorageRetrivingInterface", ^{
+    
+    it(@"storage conform to protocol ANStorageRetrivingInterface", ^{
+        expect(storage).conformTo(@protocol(ANStorageRetrivingInterface));
+    });
+    
+    it(@"isEmpty should return YES",^{
+        [storage updateWithoutAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
+            [storageController removeAllItemsAndSections];
+        }];
+        expect([storage isEmpty]).to.beTruthy();
+    });
+    
+    it(@"isEmpty should return  NO after add items", ^{
+        [storage updateWithAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
+            [storageController addItem:@"some object"];
+        }];
+        expect([storage isEmpty]).to.beFalsy();
+    });
+    
+    
+});
+
+
+
+
+
+
 
 //describe(@"sections", ^{
 //    it(@"responds", ^{

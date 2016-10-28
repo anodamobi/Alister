@@ -26,6 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 //TODO: doc
 + (instancetype)updaterWithStorageModel:(ANStorageModel*)model updateDelegate:(id<ANStorageUpdateOperationInterface>)delegate;
 
+@property (nonatomic, weak) id<ANStorageUpdateOperationInterface> updateDelegate;
 
 /**
  Adds item to section at zero index.
