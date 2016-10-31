@@ -27,6 +27,7 @@
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
+		AE9DB8111DC73A6E003EDB3C /* ANStorageRetrivingInterfaceTestsSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9DB8101DC73A6E003EDB3C /* ANStorageRetrivingInterfaceTestsSpec.m */; };
 		D7389A191DC13FA600B54B9F /* ANStorageFakeOperationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D7389A181DC13FA600B54B9F /* ANStorageFakeOperationDelegate.m */; };
 		D74129DA1DB9759900D7BB72 /* ANCollectionUpdateOperationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D74129A41DB9759900D7BB72 /* ANCollectionUpdateOperationTests.m */; };
 		D74129DB1DB9759900D7BB72 /* ANKeyboardHandlerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D74129A61DB9759900D7BB72 /* ANKeyboardHandlerTest.m */; };
@@ -150,6 +151,7 @@
 		714527334026D6C1A2430887 /* libPods-Alister-Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Alister-Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8D594C6A1CAF9F8A83D2691 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		AC990585C63BBA3EFB2F905E /* libPods-Alister-Example-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Alister-Example-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE9DB8101DC73A6E003EDB3C /* ANStorageRetrivingInterfaceTestsSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageRetrivingInterfaceTestsSpec.m; sourceTree = "<group>"; };
 		CB2099F6E4049388FFBA7187 /* Pods-Alister-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister-Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Alister-Example/Pods-Alister-Example.debug.xcconfig"; sourceTree = "<group>"; };
 		D7389A171DC13FA600B54B9F /* ANStorageFakeOperationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANStorageFakeOperationDelegate.h; sourceTree = "<group>"; };
 		D7389A181DC13FA600B54B9F /* ANStorageFakeOperationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageFakeOperationDelegate.m; sourceTree = "<group>"; };
@@ -594,6 +596,7 @@
 			isa = PBXGroup;
 			children = (
 				D74129D61DB9759900D7BB72 /* ANStorageSpec.m */,
+				AE9DB8101DC73A6E003EDB3C /* ANStorageRetrivingInterfaceTestsSpec.m */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -1187,6 +1190,7 @@
 				D74129E81DB9759A00D7BB72 /* ANBaseTableFooterViewSpec.m in Sources */,
 				D74129F41DB9759A00D7BB72 /* ANStorageUpdateOperationSpec.m in Sources */,
 				1803359F1DB920B400332F5F /* ANEDefaultSupplementaryVCSpec.m in Sources */,
+				AE9DB8111DC73A6E003EDB3C /* ANStorageRetrivingInterfaceTestsSpec.m in Sources */,
 				D7389A191DC13FA600B54B9F /* ANStorageFakeOperationDelegate.m in Sources */,
 				D7A21E9D1DA8A4C400D6D803 /* ANECustomFooterViewModelTest.m in Sources */,
 				D74129DF1DB9759900D7BB72 /* ANListControllerMappingModelTest.m in Sources */,
