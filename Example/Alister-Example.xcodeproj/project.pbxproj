@@ -46,8 +46,6 @@
 		D74129E91DB9759A00D7BB72 /* ANBaseTableViewHeaderFooterViewSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = D74129BB1DB9759900D7BB72 /* ANBaseTableViewHeaderFooterViewSpec.m */; };
 		D74129EA1DB9759A00D7BB72 /* ANTableContainerViewSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = D74129BC1DB9759900D7BB72 /* ANTableContainerViewSpec.m */; };
 		D74129EB1DB9759A00D7BB72 /* ANTableViewSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = D74129BD1DB9759900D7BB72 /* ANTableViewSpec.m */; };
-		D74129EC1DB9759A00D7BB72 /* ANStorageController_CRUD_Spec.m in Sources */ = {isa = PBXBuildFile; fileRef = D74129BF1DB9759900D7BB72 /* ANStorageController_CRUD_Spec.m */; };
-		D74129ED1DB9759A00D7BB72 /* ANStorageController_Supplemetaries_Spec.m in Sources */ = {isa = PBXBuildFile; fileRef = D74129C01DB9759900D7BB72 /* ANStorageController_Supplemetaries_Spec.m */; };
 		D74129EE1DB9759A00D7BB72 /* ANStorageLoaderSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = D74129C11DB9759900D7BB72 /* ANStorageLoaderSpec.m */; };
 		D74129EF1DB9759A00D7BB72 /* ANStorageOperationFakeDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D74129C31DB9759900D7BB72 /* ANStorageOperationFakeDelegate.m */; };
 		D74129F01DB9759A00D7BB72 /* ANStorageRemover_UpdateVerification_Spec.m in Sources */ = {isa = PBXBuildFile; fileRef = D74129C41DB9759900D7BB72 /* ANStorageRemover_UpdateVerification_Spec.m */; };
@@ -178,8 +176,6 @@
 		D74129BB1DB9759900D7BB72 /* ANBaseTableViewHeaderFooterViewSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANBaseTableViewHeaderFooterViewSpec.m; sourceTree = "<group>"; };
 		D74129BC1DB9759900D7BB72 /* ANTableContainerViewSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTableContainerViewSpec.m; sourceTree = "<group>"; };
 		D74129BD1DB9759900D7BB72 /* ANTableViewSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTableViewSpec.m; sourceTree = "<group>"; };
-		D74129BF1DB9759900D7BB72 /* ANStorageController_CRUD_Spec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageController_CRUD_Spec.m; sourceTree = "<group>"; };
-		D74129C01DB9759900D7BB72 /* ANStorageController_Supplemetaries_Spec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageController_Supplemetaries_Spec.m; sourceTree = "<group>"; };
 		D74129C11DB9759900D7BB72 /* ANStorageLoaderSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageLoaderSpec.m; sourceTree = "<group>"; };
 		D74129C21DB9759900D7BB72 /* ANStorageOperationFakeDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANStorageOperationFakeDelegate.h; sourceTree = "<group>"; };
 		D74129C31DB9759900D7BB72 /* ANStorageOperationFakeDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageOperationFakeDelegate.m; sourceTree = "<group>"; };
@@ -553,8 +549,6 @@
 		D74129BE1DB9759900D7BB72 /* ANStorage */ = {
 			isa = PBXGroup;
 			children = (
-				D74129BF1DB9759900D7BB72 /* ANStorageController_CRUD_Spec.m */,
-				D74129C01DB9759900D7BB72 /* ANStorageController_Supplemetaries_Spec.m */,
 				D7389A171DC13FA600B54B9F /* ANStorageFakeOperationDelegate.h */,
 				D7389A181DC13FA600B54B9F /* ANStorageFakeOperationDelegate.m */,
 				D74129C11DB9759900D7BB72 /* ANStorageLoaderSpec.m */,
@@ -1191,7 +1185,6 @@
 				D7A21E8D1DA8A2A500D6D803 /* ANTestableCollectionView.m in Sources */,
 				D7A21E961DA8A2A500D6D803 /* ANTestableTouch.m in Sources */,
 				D74129F11DB9759A00D7BB72 /* ANStorageRemoverSpec.m in Sources */,
-				D74129EC1DB9759A00D7BB72 /* ANStorageController_CRUD_Spec.m in Sources */,
 				D74129DB1DB9759900D7BB72 /* ANKeyboardHandlerTest.m in Sources */,
 				D74129F01DB9759A00D7BB72 /* ANStorageRemover_UpdateVerification_Spec.m in Sources */,
 				D74129E11DB9759900D7BB72 /* ANTableControllerTest.m in Sources */,
@@ -1225,7 +1218,6 @@
 				D74129DC1DB9759900D7BB72 /* ANCollectionControllerConfigurationModelTest.m in Sources */,
 				D74129FC1DB9759A00D7BB72 /* ANStorageSpec.m in Sources */,
 				D7A21E951DA8A2A500D6D803 /* ANTestableTextField.m in Sources */,
-				D74129ED1DB9759A00D7BB72 /* ANStorageController_Supplemetaries_Spec.m in Sources */,
 				D7A21E8E1DA8A2A500D6D803 /* ANTestableListControllerReloadOperationDelegate.m in Sources */,
 				D74129E21DB9759900D7BB72 /* ANTestTableHeaderFooter.m in Sources */,
 				D7A21E981DA8A2A500D6D803 /* ANTestTableCell.m in Sources */,
@@ -1439,7 +1431,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES_AGGRESSIVE;
 				CLANG_WARN__EXIT_TIME_DESTRUCTORS = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 7VYW9J77NX;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Alister-Example/BundleFiles/Alister-Example-Prefix.pch";
 				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
@@ -1458,7 +1450,7 @@
 				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_PARAMETER = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Alister-Example/BundleFiles/Alister-Example-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "mobi.anoda.Alister-Example";
 				PRODUCT_NAME = "Alister-Example_Example";
@@ -1494,7 +1486,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES_AGGRESSIVE;
 				CLANG_WARN__EXIT_TIME_DESTRUCTORS = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 7VYW9J77NX;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Alister-Example/BundleFiles/Alister-Example-Prefix.pch";
 				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
@@ -1513,7 +1505,7 @@
 				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_PARAMETER = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Alister-Example/BundleFiles/Alister-Example-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "mobi.anoda.Alister-Example";
 				PRODUCT_NAME = "Alister-Example_Example";

@@ -13,6 +13,7 @@
 #import "ANListControllerItemsHandler.h"
 #import "ANListControllerConfigurationModel.h"
 #import "ANTableControllerUpdateOperation.h"
+#import "ANListControllerMappingService.h"
 
 @interface ANTableControllerManager () <ANListControllerItemsHandlerDelegate, ANListControllerQueueProcessorDelegate>
 
@@ -29,7 +30,9 @@
     self = [super init];
     if (self)
     {
-        self.cellItemsHandler = [ANListControllerItemsHandler handlerWithDelegate:self];
+        self.cellItemsHandler = [[ANListControllerItemsHandler alloc] initWithMappingService:[ANListControllerMappingService new]];
+        self.cellItemsHandler.delegate = self;
+        
         self.updateProcessor = [ANListControllerQueueProcessor new];
         self.updateProcessor.delegate = self;
         self.updateProcessor.updateOperationClass = [ANTableControllerUpdateOperation class];

@@ -7,15 +7,13 @@
 //
 
 #import <Alister/ANStorage.h>
-#import <Alister/ANStorageController.h>
 #import <Alister/ANStorageModel.h>
 #import <Alister/ANListControllerQueueProcessor.h>
 
-
 @interface ANStorage ()
 
-@property (nonatomic, strong) ANStorageController* controller;
 @property (nonatomic, assign) BOOL isSearchingType;
+@property (nonatomic, strong, nonnull) ANStorageModel* storageModel;
 
 @end
 
@@ -33,6 +31,8 @@ describe(@"at default state", ^{
         expect(storage.identifier).notTo.beNil();
     });
 });
+
+
 
 
 describe(@"searchStorageForSearchString: inSearchScope:", ^{
@@ -165,8 +165,8 @@ describe(@"updateHeaderKind: footerKind:", ^{
     
     it(@"updates successfully with correct values", ^{
         [storage updateHeaderKind:headerKind footerKind:footerKind];
-        expect(storage.controller.storageModel.headerKind).equal(headerKind);
-        expect(storage.controller.storageModel.footerKind).equal(footerKind);
+        expect(storage.storageModel.headerKind).equal(headerKind);
+        expect(storage.storageModel.footerKind).equal(footerKind);
     });
     
     it(@"no assert if both are nil", ^{
@@ -223,7 +223,7 @@ describe(@"updateWithAnimationChangeBlock", ^{
         [storage updateWithAnimationChangeBlock:testBlock];
     });
     
-    it(@"update with animation block return ANStorageUpdatableInterface instance, when list controller is nil",^{
+    it(@"update with animation block return ANStorageUpdatableInterface instance, when list controller is nil", ^{
         storage.listController = nil;
         
         void (^testBlock)(id interfaceObject) = ^(id interfaceObject) {
@@ -311,59 +311,146 @@ describe(@"storage ANStorageRetrivingInterface", ^{
 
 
 
-//describe(@"sections", ^{
-//    it(@"responds", ^{
-//        failure(@"Pending");
+
+
+
+
+
+
+//describe(@"updateSupplementaryHeaderKind:", ^{
+//    
+//    it(@"should match stogeModel value after update", ^{
+//        NSString* item = @"test";
+//        [storage updateSupplementaryHeaderKind:item];
+//        
+//        expect(storage.storageModel.headerKind).equal(item);
+//    });
+//    
+//    it(@"no assert if kind is nil", ^{
+//        void(^block)() = ^() {
+//            [storage updateSupplementaryHeaderKind:kANTestNil];
+//        };
+//        expect(block).notTo.raiseAny();
+//    });
+//});
+
+
+//describe(@"updateSupplementaryFooterKind:", ^{
+//    
+//    it(@"should match stogeModel value after update", ^{
+//        NSString* item = @"test";
+//        [storage updateSupplementaryFooterKind:item];
+//        
+//        expect(storage.storageModel.footerKind).equal(item);
+//    });
+//    
+//    it(@"no assert if kind is nil", ^{
+//        void(^block)() = ^() {
+//            [storage updateSupplementaryFooterKind:kANTestNil];
+//        };
+//        expect(block).notTo.raiseAny();
 //    });
 //});
 //
 //
-//describe(@"objectAtIndexPath:", ^{
-//    it(@"responds", ^{
-//        failure(@"Pending");
-//    });
-//});
-//
-//
-//describe(@"sectionAtIndex:", ^{
-//    it(@"responds", ^{
-//        failure(@"Pending");
-//    });
-//});
-//
-//
-//describe(@"indexPathForItem:", ^{
-//    it(@"responds", ^{
-//        failure(@"Pending");
-//    });
-//});
-//
-//describe(@"headerModelForSectionIndex:", ^{
-//    it(@"responds", ^{
-//        failure(@"Pending");
-//    });
-//});
-//
-//
-//describe(@"headerModelForSectionIndex:", ^{
-//    it(@"responds", ^{
-//        failure(@"Pending");
+//describe(@"updateSupplementaryFooterKind:", ^{
+//    
+//    it(@"should match storageModel value", ^{
+//        [controller updateSupplementaryFooterKind:@"test"];
+//        expect(storage.storageModel.headerKind).equal(@"test");
 //    });
 //});
 //
 //
 //describe(@"footerModelForSectionIndex:", ^{
-//    it(@"responds", ^{
-//        failure(@"Pending");
+//    
+//    it(@"should match storageModel value", ^{
+//        [storage updateSupplementaryFooterKind:@"test"];
+//        expect(storage.storageModel.footerKind).equal(@"test");
 //    });
 //});
 //
 //
-//describe(@"supplementaryModelOfKind: forSectionIndex:", ^{
-//    it(@"responds", ^{
-//        failure(@"Pending");
-//    });
+//describe(@"updateSectionHeaderModel: forSectionIndex:", ^{
+//    
+//    [storage updateSectionHeaderModel:@"test" forSectionIndex:0];
+//    pending(@"Pending");
 //});
+//
+//
+//describe(@"updateSectionFooterModel: forSectionIndex:", ^{
+//    
+//    [storage updateSectionFooterModel:@"test" forSectionIndex:0];
+//    pending(@"Pending");
+//});
+
+
+describe(@"supplementaryModelOfKind: forSectionIndex:", ^{
+    
+    it(@"responds to selector", ^{
+        expect(storage).respondTo(@selector(supplementaryModelOfKind:forSectionIndex:));
+    });
+});
+
+
+
+
+
+
+
+describe(@"sections", ^{
+    it(@"responds", ^{
+        pending(@"Pending");
+    });
+});
+
+
+describe(@"objectAtIndexPath:", ^{
+    it(@"responds", ^{
+        pending(@"Pending");
+    });
+});
+
+
+describe(@"sectionAtIndex:", ^{
+    it(@"responds", ^{
+        pending(@"Pending");
+    });
+});
+
+
+describe(@"indexPathForItem:", ^{
+    it(@"responds", ^{
+        pending(@"Pending");
+    });
+});
+
+describe(@"headerModelForSectionIndex:", ^{
+    it(@"responds", ^{
+        pending(@"Pending");
+    });
+});
+
+
+describe(@"headerModelForSectionIndex:", ^{
+    it(@"responds", ^{
+        pending(@"Pending");
+    });
+});
+
+
+describe(@"footerModelForSectionIndex:", ^{
+    it(@"responds", ^{
+        pending(@"Pending");
+    });
+});
+
+
+describe(@"supplementaryModelOfKind: forSectionIndex:", ^{
+    it(@"responds", ^{
+        pending(@"Pending");
+    });
+});
 
 SpecEnd
 

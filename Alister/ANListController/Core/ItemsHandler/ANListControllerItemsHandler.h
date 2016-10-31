@@ -11,6 +11,8 @@
 #import "ANListControllerReusableLoadInterface.h"
 #import "ANListControllerConfigurationModelInterface.h"
 
+@class ANListControllerMappingService;
+
 @protocol ANListControllerItemsHandlerDelegate
 
 - (id<ANListControllerWrapperInterface>)listViewWrapper;
@@ -24,6 +26,8 @@
     ANListControllerReusableLoadInterface
 >
 
-+ (instancetype)handlerWithDelegate:(id<ANListControllerItemsHandlerDelegate>)delegate;
+- (instancetype)initWithMappingService:(ANListControllerMappingService*)mappingService;
+
+@property (nonatomic, weak) id<ANListControllerItemsHandlerDelegate> delegate;
 
 @end

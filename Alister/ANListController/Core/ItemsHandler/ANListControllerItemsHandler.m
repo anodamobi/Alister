@@ -11,26 +11,18 @@
 
 @interface ANListControllerItemsHandler ()
 
-@property (nonatomic, weak) id<ANListControllerItemsHandlerDelegate> delegate;
 @property (nonatomic, strong) ANListControllerMappingService* mappingService;
 
 @end
 
 @implementation ANListControllerItemsHandler
 
-+ (instancetype)handlerWithDelegate:(id<ANListControllerItemsHandlerDelegate>)delegate
-{
-    ANListControllerItemsHandler* model = [self new];
-    model.delegate = delegate;
-    return model;
-}
-
-- (instancetype)init
+- (instancetype)initWithMappingService:(ANListControllerMappingService*)mappingService
 {
     self = [super init];
     if (self)
     {
-        self.mappingService = [ANListControllerMappingService new];
+        self.mappingService = mappingService;
     }
     return self;
 }
