@@ -7,15 +7,26 @@
 //
 
 #import <Alister/ANStorage.h>
-#import <Alister/ANStorageController.h>
 #import "ANStorageUpdateOperation.h"
 #import "ANStorageUpdateModel.h"
 #import "ANStorageLog.h"
+#import "ANStorageUpdater.h"
+#import "ANStorageRemover.h"
+#import "ANStorageLoader.h"
+#import <Alister/ANStorageModel.h>
+#import <Alister/ANStorageSectionModel.h>
 
 @interface ANStorage ()
 
-@property (nonatomic, strong) ANStorageController* controller;
 @property (nonatomic, assign) BOOL isSearchingType;
+
+@property (nonatomic, strong) ANStorageRemover* remover;
+@property (nonatomic, strong) ANStorageUpdater* updater;
+
+/**
+ Current storage model that contains all items
+ */
+@property (nonatomic, strong, nonnull) ANStorageModel* storageModel;
 
 @end
 
@@ -27,7 +38,11 @@
     if (self)
     {
         _identifier = [[NSUUID UUID] UUIDString];
-        self.controller = [ANStorageController new];
+        
+        self.storageModel = [ANStorageModel new];
+        
+        self.remover = [ANStorageRemover removerWithStorageModel:self.storageModel andUpdateDelegate:nil];
+        self.updater = [ANStorageUpdater updaterWithStorageModel:self.storageModel updateDelegate:nil];
     }
     return self;
 }
@@ -59,20 +74,21 @@
             {
                 ANStorageUpdateOperation* updateOperation = nil;
                 updateOperation = [ANStorageUpdateOperation operationWithConfigurationBlock:^(ANStorageUpdateOperation* operation) {
-                    self.controller.updateDelegate = operation;
-                    block(self.controller);
+                    self.updater.updateDelegate = operation;
+                    self.remover.updateDelegate = operation;
+                    block(self);
                 }];
                 
                 [listController storageDidPerformUpdate:updateOperation withIdentifier:self.identifier animatable:isAnimatable];
             }
             else
             {
-                block(self.controller);
+                block(self);
             }
         }
         else
         {
-            block(self.controller);
+            block(self);
         }
     }
 }
@@ -106,8 +122,8 @@
 
 - (void)updateHeaderKind:(NSString*)headerKind footerKind:(NSString*)footerKind
 {
-    [self.controller updateSupplementaryHeaderKind:headerKind];
-    [self.controller updateSupplementaryFooterKind:footerKind];
+    [self updateSupplementaryHeaderKind:headerKind];
+    [self updateSupplementaryFooterKind:footerKind];
 }
 
 
@@ -115,47 +131,163 @@
 
 - (NSArray*)sections
 {
-    return [self.controller sections];
+    return [self.storageModel sections];
 }
 
 - (id)objectAtIndexPath:(NSIndexPath*)indexPath
 {
-    return [self.controller objectAtIndexPath:indexPath];
+    return [ANStorageLoader itemAtIndexPath:indexPath inStorage:self.storageModel];
 }
 
 - (ANStorageSectionModel*)sectionAtIndex:(NSUInteger)sectionIndex
 {
-    return [self.controller sectionAtIndex:sectionIndex];
-}
-
-- (id)headerModelForSectionIndex:(NSUInteger)index
-{
-    return [self.controller headerModelForSectionIndex:index];
-}
-
-- (id)footerModelForSectionIndex:(NSUInteger)index
-{
-    return [self.controller footerModelForSectionIndex:index];
-}
-
-- (id)supplementaryModelOfKind:(NSString*)kind forSectionIndex:(NSUInteger)sectionIndex
-{
-    return [self.controller supplementaryModelOfKind:kind forSectionIndex:sectionIndex];
+    return [ANStorageLoader sectionAtIndex:sectionIndex inStorage:self.storageModel];
 }
 
 - (NSArray*)itemsInSection:(NSUInteger)sectionIndex
 {
-    return [self.controller itemsInSection:sectionIndex];
+    return [ANStorageLoader itemsInSection:sectionIndex inStorage:self.storageModel];
 }
 
 - (NSIndexPath*)indexPathForItem:(id)item
 {
-    return [self.controller indexPathForItem:item];
+    return [ANStorageLoader indexPathForItem:item inStorage:self.storageModel];
 }
 
 - (BOOL)isEmpty
 {
-    return [self.controller isEmpty];
+    return [self.storageModel isEmpty];
+}
+
+- (id)headerModelForSectionIndex:(NSUInteger)index
+{
+    return [ANStorageLoader supplementaryModelOfKind:self.storageModel.headerKind
+                                     forSectionIndex:index
+                                           inStorage:self.storageModel];
+}
+
+- (id)footerModelForSectionIndex:(NSUInteger)index
+{
+    return [ANStorageLoader supplementaryModelOfKind:self.storageModel.footerKind
+                                     forSectionIndex:index
+                                           inStorage:self.storageModel];
+}
+
+- (id)supplementaryModelOfKind:(NSString*)kind forSectionIndex:(NSUInteger)sectionIndex
+{
+    return [ANStorageLoader supplementaryModelOfKind:kind
+                                     forSectionIndex:sectionIndex
+                                           inStorage:self.storageModel];
+}
+
+#pragma mark - Add Items
+
+
+- (void)addItem:(id)item
+{
+    [self.updater addItem:item];
+}
+
+- (void)addItems:(NSArray*)items
+{
+    [self.updater addItems:items];
+}
+
+- (void)addItem:(id)item toSection:(NSUInteger)sectionIndex
+{
+    [self.updater addItem:item toSection:sectionIndex];
+}
+
+- (void)addItems:(NSArray*)items toSection:(NSUInteger)sectionIndex
+{
+    [self.updater addItems:items toSection:sectionIndex];
+}
+
+- (void)addItem:(id)item atIndexPath:(NSIndexPath*)indexPath
+{
+    [self.updater addItem:item atIndexPath:indexPath];
+}
+
+
+#pragma mark - Reloading
+
+- (void)reloadItem:(id)item
+{
+    [self.updater reloadItem:item];
+}
+
+- (void)reloadItems:(id)items
+{
+    [self.updater reloadItems:items];
+}
+
+
+#pragma mark - Removing
+
+- (void)removeItem:(id)item
+{
+    [self.remover removeItem:item];
+}
+
+- (void)removeItemsAtIndexPaths:(NSSet*)indexPaths
+{
+    [self.remover removeItemsAtIndexPaths:indexPaths];
+}
+
+- (void)removeItems:(NSSet*)items
+{
+    [self.remover removeItems:items];
+}
+
+- (void)removeAllItemsAndSections
+{
+    [self.remover removeAllItemsAndSections];
+}
+
+- (void)removeSections:(NSIndexSet*)indexSet
+{
+    [self.remover removeSections:indexSet];
+}
+
+
+#pragma mark - Replacing / Moving
+
+- (void)replaceItem:(id)itemToReplace withItem:(id)replacingItem
+{
+    [self.updater replaceItem:itemToReplace withItem:replacingItem];
+}
+
+- (void)moveItemWithoutUpdateFromIndexPath:(NSIndexPath*)fromIndexPath toIndexPath:(NSIndexPath*)toIndexPath
+{
+    [self.updater moveItemWithoutUpdateFromIndexPath:fromIndexPath toIndexPath:toIndexPath];
+}
+
+- (void)moveItemFromIndexPath:(NSIndexPath*)fromIndexPath toIndexPath:(NSIndexPath*)toIndexPath
+{
+    [self.updater moveItemFromIndexPath:fromIndexPath toIndexPath:toIndexPath];
+}
+
+
+#pragma mark - Supplementaries
+
+- (void)updateSupplementaryHeaderKind:(NSString*)headerKind
+{
+    self.storageModel.headerKind = headerKind;
+}
+
+- (void)updateSupplementaryFooterKind:(NSString*)footerKind
+{
+    self.storageModel.footerKind = footerKind;
+}
+
+- (void)updateSectionHeaderModel:(id)headerModel forSectionIndex:(NSInteger)sectionIndex
+{
+    [self.updater updateSectionHeaderModel:headerModel forSectionIndex:sectionIndex];
+}
+
+- (void)updateSectionFooterModel:(id)footerModel forSectionIndex:(NSInteger)sectionIndex
+{
+    [self.updater updateSectionFooterModel:footerModel forSectionIndex:sectionIndex];
 }
 
 @end

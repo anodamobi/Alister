@@ -6,19 +6,17 @@
 //  Copyright © 2016 ANODA. All rights reserved.
 //
 
-#import "ANListControllerMappingModel.h"
 
 @interface ANListControllerMappingService : NSObject
 
-- (ANListControllerMappingModel*)mappingForViewModelClass:(Class)viewModelClass
-                                                     kind:(NSString*)kind
-                                                 isSystem:(BOOL)isSystem;
+NS_ASSUME_NONNULL_BEGIN
 
-- (ANListControllerMappingModel*)cellMappingForViewModelClass:(Class)viewModelClass isSystem:(BOOL)isSystem;
+- (NSString*)registerViewModelClass:(Class)viewModelClass;
+- (NSString*)registerViewModelClass:(Class)viewModelClass kind:(NSString*)kind;
 
-- (void)addMapping:(ANListControllerMappingModel*)model;;
+- (NSString*)identifierForViewModelClass:(Class)keyClass;
+- (NSString*)identifierForViewModelClass:(Class)viewModelClass kind:(NSString*)kind;
 
-- (ANListControllerMappingModel*)findCellMappingForViewModel:(id)viewModel;
-- (ANListControllerMappingModel*)findSupplementaryMappingForViewModel:(id)viewModel kind:(NSString*)kind;
+NS_ASSUME_NONNULL_END
 
 @end

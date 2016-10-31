@@ -18,7 +18,7 @@ __block ANStorageUpdater* updater = nil;
 
 beforeEach(^{
     storage = [ANStorageModel new];
-    updater = [ANStorageUpdater updaterWithStorageModel:storage updateDelegate:nil];
+    updater = [ANStorageUpdater updaterWithStorageModel:storage updateDelegate:kANTestNil];
 });
 
 
@@ -44,7 +44,7 @@ describe(@"itemAtIndexPath:", ^{
     
     it(@"no assert if storage is nil", ^{
         void(^block)() = ^() {
-            [ANStorageLoader itemAtIndexPath:[NSIndexPath indexPathWithIndex:0] inStorage:nil];
+            [ANStorageLoader itemAtIndexPath:[NSIndexPath indexPathWithIndex:0] inStorage:kANTestNil];
         };
         expect(block).notTo.raiseAny();
     });
@@ -152,14 +152,14 @@ describe(@"indexPathForItem:", ^{
     
     it(@"no assert if item is nil", ^{
         void(^block)() = ^() {
-            [ANStorageLoader indexPathForItem:nil inStorage:storage];
+            [ANStorageLoader indexPathForItem:kANTestNil inStorage:storage];
         };
         expect(block).notTo.raiseAny();
     });
     
     it(@"no assert if storage is nil", ^{
         void(^block)() = ^() {
-            [ANStorageLoader indexPathForItem:[NSIndexPath indexPathWithIndex:0] inStorage:nil];
+            [ANStorageLoader indexPathForItem:[NSIndexPath indexPathWithIndex:0] inStorage:kANTestNil];
         };
         expect(block).notTo.raiseAny();
     });
@@ -184,7 +184,7 @@ describe(@"supplementaryModelOfKind: forSectionIndex: inStorage:", ^{
     
     it(@"no assert if kind is nil", ^{
         void(^block)() = ^() {
-            [ANStorageLoader supplementaryModelOfKind:nil forSectionIndex:0 inStorage:storage];
+            [ANStorageLoader supplementaryModelOfKind:kANTestNil forSectionIndex:0 inStorage:storage];
         };
         expect(block).notTo.raiseAny();
     });
@@ -212,7 +212,7 @@ describe(@"supplementaryModelOfKind: forSectionIndex: inStorage:", ^{
     
     it(@"no assert if storage is nil", ^{
         void(^block)() = ^() {
-            [ANStorageLoader supplementaryModelOfKind:kind forSectionIndex:0 inStorage:nil];
+            [ANStorageLoader supplementaryModelOfKind:kind forSectionIndex:0 inStorage:kANTestNil];
         };
         expect(block).notTo.raiseAny();
     });

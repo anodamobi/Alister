@@ -8,7 +8,6 @@
 
 #import "Specta.h"
 #import <Alister/ANStorage.h>
-#import <Alister/ANStorageController.h>
 #import <Alister/ANStorageModel.h>
 
 SpecBegin(ANStorageRetrivingInterfaceTests)

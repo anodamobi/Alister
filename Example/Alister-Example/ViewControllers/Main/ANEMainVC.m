@@ -45,7 +45,7 @@ typedef NS_ENUM(NSInteger, ANEMainSection)
         [self.controller attachStorage:self.storage];
         
         [self.controller configureCellsWithBlock:^(id<ANListControllerReusableInterface> configurator) {
-            [configurator registerCellClass:[ANELabelTableViewCell class] forSystemClass:[NSString class]];
+            [configurator registerCellClass:[ANELabelTableViewCell class] forModelClass:[NSString class]];
         }];
     }
     

@@ -13,6 +13,7 @@
 #import "ANListControllerConfigurationModel.h"
 #import "ANListControllerQueueProcessor.h"
 #import "ANCollectionControllerUpdateOperation.h"
+#import "ANListControllerMappingService.h"
 
 @interface ANCollectionControllerManager ()
 <
@@ -33,7 +34,8 @@
     self = [super init];
     if (self)
     {
-        self.itemsHandler = [ANListControllerItemsHandler handlerWithDelegate:self];
+        self.itemsHandler = [[ANListControllerItemsHandler alloc] initWithMappingService:[ANListControllerMappingService new]];
+        self.itemsHandler.delegate = self;
         
         self.updateProcessor = [ANListControllerQueueProcessor new];
         self.updateProcessor.delegate = self;

@@ -48,12 +48,12 @@ describe(@"modelWithFromIndexPath: toIndexPath:", ^{
     });
     
     it(@"created object is not nil", ^{
-        id createdModel = [ANTestMovedIndexPath modelWithFromIndexPath:nil toIndexPath:nil];
+        id createdModel = [ANTestMovedIndexPath modelWithFromIndexPath:kANTestNil toIndexPath:kANTestNil];
         expect(createdModel).notTo.beNil();
     });
     
     it(@"inherited model is the same class", ^{
-        id createdModel = [ANTestMovedIndexPath modelWithFromIndexPath:nil toIndexPath:nil];
+        id createdModel = [ANTestMovedIndexPath modelWithFromIndexPath:kANTestNil toIndexPath:kANTestNil];
         expect(createdModel).beMemberOf([ANTestMovedIndexPath class]);
     });
 });

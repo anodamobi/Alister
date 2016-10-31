@@ -11,9 +11,11 @@
 SpecBegin(ANStorageSectionModel)
 
 __block ANStorageSectionModel* model = nil;
+__block id nilValue = nil;
 
 beforeEach(^{
     model = [ANStorageSectionModel new];
+    nilValue = nil;
 });
 
 describe(@"default state", ^{
@@ -67,7 +69,7 @@ describe(@"insertItem: atIndex:", ^{
     
     it(@"no assert when insert nil", ^{
         void(^block)() = ^() {
-            [model insertItem:nil atIndex:0];
+            [model insertItem:nilValue atIndex:0];
         };
         expect(block).notTo.raiseAny();
     });
@@ -228,7 +230,7 @@ context(@"supplementaries", ^{
         
         it(@"no assert when kind is nil", ^{
             void(^block)() = ^() {
-                [model supplementaryModelOfKind:nil];
+                [model supplementaryModelOfKind:nilValue];
             };
             expect(block).notTo.raiseAny();
         });
@@ -247,21 +249,21 @@ context(@"supplementaries", ^{
         
         it(@"no assert if kind is nil", ^{
             void(^block)() = ^() {
-                [model updateSupplementaryModel:@"test" forKind:nil];
+                [model updateSupplementaryModel:@"test" forKind:nilValue];
             };
             expect(block).notTo.raiseAny();
         });
         
         it(@"no assert if model is nil", ^{
             void(^block)() = ^() {
-                [model updateSupplementaryModel:nil forKind:@"test"];
+                [model updateSupplementaryModel:nilValue forKind:@"test"];
             };
             expect(block).notTo.raiseAny();
         });
         
         it(@"no assert when model and kind are nil", ^{
             void(^block)() = ^() {
-                [model updateSupplementaryModel:nil forKind:nil];
+                [model updateSupplementaryModel:nilValue forKind:nilValue];
             };
             expect(block).notTo.raiseAny();
         });

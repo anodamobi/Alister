@@ -13,8 +13,6 @@
 #import "ANTestTableCell.h"
 #import "ANTestTableHeaderFooter.h"
 
-
-
 @interface ANTableControllerTest : XCTestCase
 
 @property (nonatomic, strong) ANStorage* storage;
@@ -47,7 +45,6 @@
 }
 
 
-
 #pragma mark - 
 
 - (void)test_updateWithoutAnimationChangeBlock_positive_storageContainsAddedItems
@@ -56,7 +53,7 @@
     NSArray* items = @[@"test1", @"test2"];
     
     [self.listController configureCellsWithBlock:^(id<ANListControllerReusableInterface> configurator) {
-        [configurator registerCellClass:[ANTestTableCell class] forSystemClass:[NSString class]];
+        [configurator registerCellClass:[ANTestTableCell class] forModelClass:[NSString class]];
     }];
     
     // then
@@ -110,7 +107,7 @@
     NSString* testModel = @"Mock";
     
     [self.listController configureCellsWithBlock:^(id<ANListControllerReusableInterface> configurator) {
-        [configurator registerCellClass:[ANTestTableCell class] forSystemClass:[NSString class]];
+        [configurator registerCellClass:[ANTestTableCell class] forModelClass:[NSString class]];
     }];
     
     //when
@@ -145,7 +142,7 @@
     NSIndexPath* selectedIndexPath = [NSIndexPath indexPathForRow:1 inSection:0];
     
     [self.listController configureCellsWithBlock:^(id<ANListControllerReusableInterface> configurator) {
-        [configurator registerCellClass:[ANTestTableCell class] forSystemClass:[NSString class]];
+        [configurator registerCellClass:[ANTestTableCell class] forModelClass:[NSString class]];
     }];
     
     //when
@@ -199,7 +196,7 @@
     NSString* testModel = @"Mock";
     
     [self.listController configureCellsWithBlock:^(id<ANListControllerReusableInterface> configurator) {
-        [configurator registerCellClass:[ANTestTableCell class] forSystemClass:[NSString class]];
+        [configurator registerCellClass:[ANTestTableCell class] forModelClass:[NSString class]];
     }];
     
     //when
@@ -292,7 +289,7 @@
     __weak typeof(self) welf = self;
     
     [self.listController configureCellsWithBlock:^(id<ANListControllerReusableInterface> configurator) {
-        [configurator registerCellClass:[ANTestTableCell class] forSystemClass:[NSString class]];
+        [configurator registerCellClass:[ANTestTableCell class] forModelClass:[NSString class]];
     }];
     
     //when
@@ -322,7 +319,7 @@
     __weak typeof(self) welf = self;
     
     [self.listController configureCellsWithBlock:^(id<ANListControllerReusableInterface> configurator) {
-        [configurator registerCellClass:[ANTestTableCell class] forSystemClass:[NSString class]];
+        [configurator registerCellClass:[ANTestTableCell class] forModelClass:[NSString class]];
     }];
     
     //when
@@ -348,7 +345,7 @@
     __weak typeof(self) welf = self;
     
     [self.listController configureCellsWithBlock:^(id<ANListControllerReusableInterface> configurator) {
-        [configurator registerCellClass:[ANTestTableCell class] forSystemClass:[NSString class]];
+        [configurator registerCellClass:[ANTestTableCell class] forModelClass:[NSString class]];
     }];
     
     //when
@@ -375,7 +372,7 @@
     NSString* testModel = @"Mock";
     
     [self.listController configureCellsWithBlock:^(id<ANListControllerReusableInterface> configurator) {
-        [configurator registerCellClass:[ANTestTableCell class] forSystemClass:[NSString class]];
+        [configurator registerCellClass:[ANTestTableCell class] forModelClass:[NSString class]];
     }];
     
     //when
@@ -407,7 +404,7 @@
     NSString* testModel = @"test model";
     
     [self.listController configureCellsWithBlock:^(id<ANListControllerReusableInterface> configurator) {
-        [configurator registerCellClass:[ANTestTableCell class] forSystemClass:[NSString class]];
+        [configurator registerCellClass:[ANTestTableCell class] forModelClass:[NSString class]];
     }];
     
     //when

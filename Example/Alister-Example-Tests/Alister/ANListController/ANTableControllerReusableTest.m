@@ -47,7 +47,7 @@
 - (void)_setAsSystemHeader:(id)object
 {
     [self.listController configureCellsWithBlock:^(id<ANListControllerReusableInterface> configurator) {
-        [configurator registerHeaderClass:[ANTestTableHeaderFooter class] forSystemClass:[object class]];
+        [configurator registerHeaderClass:[ANTestTableHeaderFooter class] forModelClass:[object class]];
     }];
     
     //when
@@ -115,11 +115,11 @@
     [self waitForExpectationsWithTimeout:0.1 handler:nil];
 }
 
-- (void)testViewForHeaderInSectionForSystemClassAsExpect
+- (void)testViewForHeaderInSectionforModelClassAsExpect
 {
     //given
     NSNumber* testModel = @123;
-    XCTestExpectation* expectation = [self expectationWithDescription:@"testViewForHeaderInSectionForSystemClassAsExpect"];
+    XCTestExpectation* expectation = [self expectationWithDescription:@"testViewForHeaderInSectionforModelClassAsExpect"];
     __weak typeof(self) welf = self;
     
     //when
@@ -190,7 +190,7 @@
 - (void)_setAsSystemFooter:(id)object
 {
     [self.listController configureCellsWithBlock:^(id<ANListControllerReusableInterface> configurator) {
-        [configurator registerFooterClass:[ANTestTableHeaderFooter class] forSystemClass:[object class]];
+        [configurator registerFooterClass:[ANTestTableHeaderFooter class] forModelClass:[object class]];
     }];
     [self.storage updateWithoutAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
         [storageController updateSectionFooterModel:object forSectionIndex:0];
@@ -250,11 +250,11 @@
     [self waitForExpectationsWithTimeout:0.1 handler:nil];
 }
 
-- (void)testViewForFooterInSectionForSystemClassAsExpect
+- (void)testViewForFooterInSectionforModelClassAsExpect
 {
     //given
     NSNumber* testModel = @123;
-    XCTestExpectation* expectation = [self expectationWithDescription:@"testViewForFooterInSectionForSystemClassAsExpect"];
+    XCTestExpectation* expectation = [self expectationWithDescription:@"testViewForFooterInSectionforModelClassAsExpect"];
     __weak typeof(self) welf = self;
     
     //when
@@ -321,7 +321,7 @@
     
     //when
     [self.listController configureCellsWithBlock:^(id<ANListControllerReusableInterface> configurator) {
-        [configurator registerCellClass:[UITableViewCell class] forSystemClass:[NSString class]];
+        [configurator registerCellClass:[UITableViewCell class] forModelClass:[NSString class]];
     }];
     //then
     UITableViewCell* cell = [self.tw dequeueReusableCellWithIdentifier:NSStringFromClass([NSString class])];
@@ -329,18 +329,18 @@
     expect(cell).beKindOf([UITableViewCell class]);
 }
 
-- (void)testConfigureCellsWithBlockRegisterForSystemClassAsExpect
+- (void)testConfigureCellsWithBlockRegisterforModelClassAsExpect
 {
     //given
     NSString* testModel = @"Mock";
     __weak typeof(self) welf = self;
     
     [self.listController configureCellsWithBlock:^(id<ANListControllerReusableInterface> configurator) {
-        [configurator registerCellClass:[ANTestTableCell class] forSystemClass:[NSString class]];
+        [configurator registerCellClass:[ANTestTableCell class] forModelClass:[NSString class]];
     }];
     
     //when
-    XCTestExpectation* expectation = [self expectationWithDescription:@"testConfigureCellsWithBlockRegisterForSystemClassAsExpect called"];
+    XCTestExpectation* expectation = [self expectationWithDescription:@"testConfigureCellsWithBlockRegisterforModelClassAsExpect called"];
     
     //then
     [self.listController addUpdatesFinsihedTriggerBlock:^{
@@ -388,7 +388,7 @@
         [storageController addItem:testModel];
     }];
     
-    [self waitForExpectationsWithTimeout:0.1 handler:nil];
+    [self waitForExpectationsWithTimeout:0.5 handler:nil];
 }
 
 
