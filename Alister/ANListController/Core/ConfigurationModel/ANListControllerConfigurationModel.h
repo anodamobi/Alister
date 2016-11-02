@@ -25,9 +25,6 @@
 @property (nonatomic, assign) UITableViewRowAnimation deleteRowAnimation;
 @property (nonatomic, assign) UITableViewRowAnimation reloadRowAnimation;
 
-@property (nonatomic, copy) NSString* defaultHeaderSupplementary;
-@property (nonatomic, copy) NSString* defaultFooterSupplementary;
-
 @property (nonatomic, assign) CGFloat defaultAnimationDuration;
 
 + (instancetype)defaultModel;

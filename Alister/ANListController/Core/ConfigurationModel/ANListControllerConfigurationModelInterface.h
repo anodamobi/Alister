@@ -16,11 +16,6 @@
 - (NSString*)reloadAnimationKey;
 - (void)setReloadAnimationKey:(NSString*)model;
 
-- (NSString*)defaultHeaderSupplementary;
-- (NSString*)defaultFooterSupplementary;
-- (void)setDefaultHeaderSupplementary:(NSString*)model;
-- (void)setDefaultFooterSupplementary:(NSString*)model;
-
 
 #pragma mark - TableView Settings
 

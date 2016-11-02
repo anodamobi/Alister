@@ -8,7 +8,6 @@
 
 #import "ANListControllerWrapperInterface.h"
 #import "ANListControllerReusableInterface.h"
-#import "ANListControllerReusableLoadInterface.h"
 #import "ANListControllerConfigurationModelInterface.h"
 
 @class ANListControllerMappingService;
@@ -22,12 +21,16 @@
 
 @interface ANListControllerItemsHandler : NSObject
 <
-    ANListControllerReusableInterface,
-    ANListControllerReusableLoadInterface
+    ANListControllerReusableInterface
 >
-
-- (instancetype)initWithMappingService:(ANListControllerMappingService*)mappingService;
 
 @property (nonatomic, weak) id<ANListControllerItemsHandlerDelegate> delegate;
 
+- (instancetype)initWithMappingService:(ANListControllerMappingService*)mappingService;
+
+- (id<ANListControllerUpdateViewInterface>)cellForModel:(id)viewModel atIndexPath:(NSIndexPath*)indexPath;
+
+- (id<ANListControllerUpdateViewInterface>)supplementaryViewForModel:(id)viewModel
+                                                                kind:(NSString*)kind
+                                                        forIndexPath:(NSIndexPath*)indexPath;
 @end

@@ -29,12 +29,12 @@
 
 - (NSString*)headerDefaultKind
 {
-    return [self.delegate configurationModel].defaultHeaderSupplementary;
+    
 }
 
 - (NSString*)footerDefaultKind
 {
-    return [self.delegate configurationModel].defaultFooterSupplementary;
+    
 }
 
 
@@ -50,6 +50,7 @@
 {
     [self registerSupplementaryClass:viewClass forModelClass:modelClass kind:self.headerDefaultKind];
 }
+
 
 - (void)registerSupplementaryClass:(Class)supplementaryClass forModelClass:(Class)modelClass kind:(NSString*)kind
 {
@@ -96,7 +97,7 @@
     }
     else
     {
-         NSLog(@"%@ does not have cell mapping for model class: %@",[self class], [viewModel class]);; //TODO: wrap logs
+         NSLog(@"%@ does not have cell mapping for model class: %@", [self class], [viewModel class]);; //TODO: wrap logs
     }
 
     NSParameterAssert(cell);

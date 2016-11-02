@@ -9,12 +9,6 @@
 #import "ANListControllerManagerInterface.h"
 #import "ANListControllerConfigurationModelInterface.h"
 
-typedef NS_ENUM(NSInteger, ANTableViewSupplementaryType)
-{
-    ANTableViewSupplementaryTypeHeader,
-    ANTableViewSupplementaryTypeFooter
-};
-
 @class ANTableViewFactory;
 @class ANStorageUpdateController;
 @class ANStorage;
@@ -33,12 +27,12 @@ typedef NS_ENUM(NSInteger, ANTableViewSupplementaryType)
 
 @property (nonatomic, weak) id<ANTableControllerManagerDelegate> delegate;
 
-- (UITableViewCell*)cellForModel:(id)model atIndexPath:(NSIndexPath*)indexPath;
-- (UIView*)supplementaryViewForIndex:(NSUInteger)index type:(ANTableViewSupplementaryType)type;
-
-- (NSString*)titleForSupplementaryIndex:(NSUInteger)index type:(ANTableViewSupplementaryType)type;
-
-- (id)supplementaryModelForIndex:(NSUInteger)index type:(ANTableViewSupplementaryType)type;
-- (CGFloat)heightForSupplementaryIndex:(NSUInteger)index type:(ANTableViewSupplementaryType)type;
+//- (UITableViewCell*)cellForModel:(id)model atIndexPath:(NSIndexPath*)indexPath;
+//- (UIView*)supplementaryViewForIndex:(NSUInteger)index kind:(NSString*)kind;
+//
+//- (NSString*)titleForSupplementaryIndex:(NSUInteger)index kind:(NSString*)kind;
+//
+//- (id)supplementaryModelForIndex:(NSUInteger)index kind:(NSString*)kind;
+//- (CGFloat)heightForSupplementaryIndex:(NSUInteger)index kind:(NSString*)kind;
 
 @end

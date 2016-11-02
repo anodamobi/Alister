@@ -16,7 +16,7 @@
 #import <Alister/ANStorageModel.h>
 #import <Alister/ANStorageSectionModel.h>
 
-@interface ANStorage ()
+@interface ANStorage () <ANStorageUpdatableInterface>
 
 @property (nonatomic, assign) BOOL isSearchingType;
 
@@ -278,6 +278,16 @@
 - (void)updateSupplementaryFooterKind:(NSString*)footerKind
 {
     self.storageModel.footerKind = footerKind;
+}
+
+- (NSString*)footerSupplementaryKind
+{
+    return self.storageModel.footerKind;
+}
+
+- (NSString*)headerSupplementaryKind
+{
+    return self.storageModel.headerKind;
 }
 
 - (void)updateSectionHeaderModel:(id)headerModel forSectionIndex:(NSInteger)sectionIndex

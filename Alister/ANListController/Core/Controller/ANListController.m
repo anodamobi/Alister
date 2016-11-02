@@ -140,6 +140,11 @@
     }
 }
 
+- (void)setupHeaderFooterDefaultKindOnStorage:(ANStorage*)storage
+{
+    NSAssert(NO, @"You need to override this method");
+}
+
 #pragma mark - Private
 
 - (void)_updateKeyboardHandlerWithConfigurationModel:(ANListControllerConfigurationModel*)model
@@ -158,8 +163,7 @@
 - (void)_attachStorage:(ANStorage*)storage
 {
     storage.listController = [self.manager updateHandler];
-    ANListControllerConfigurationModel* model = self.manager.configurationModel;
-    [storage updateHeaderKind:model.defaultHeaderSupplementary footerKind:model.defaultFooterSupplementary];
+    [self setupHeaderFooterDefaultKindOnStorage:storage];
     [self.storage.listController storageNeedsReloadWithIdentifier:storage.identifier animated:NO];
 }
 

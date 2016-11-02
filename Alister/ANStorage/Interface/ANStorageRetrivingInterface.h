@@ -109,6 +109,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (nullable id)supplementaryModelOfKind:(NSString*)kind forSectionIndex:(NSUInteger)sectionIndex;
 
+//TODO: doc
+- (NSString*)headerSupplementaryKind;
+- (NSString*)footerSupplementaryKind;
+
 @end
 
 NS_ASSUME_NONNULL_END
