@@ -6,6 +6,7 @@
 //
 
 #import "ANListController.h"
+#import "ANTableUpdateConfigurationModel.h"
 
 @interface ANTableController : ANListController <UITableViewDataSource, UITableViewDelegate>
 
@@ -17,5 +18,7 @@
 + (instancetype)controllerWithTableView:(UITableView*)tableView;
 
 - (instancetype)initWithTableView:(UITableView*)tableView;
+
+- (void)updateDefaultUpdateAnimationModel:(ANTableUpdateConfigurationModel*)model;
 
 @end

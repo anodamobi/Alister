@@ -11,19 +11,16 @@
 #import "ANListControllerSearchManager.h"
 #import "ANKeyboardHandler.h"
 #import "ANListControllerItemsHandler.h"
-#import "ANListControllerQueueProcessor.h"
+#import "ANListControllerUpdateService.h"
+#import "ANListControllerUpdateOperation.h"
 
-@interface ANListController ()
-<
-    ANListControllerSearchManagerDelegate,
-    ANListControllerQueueProcessorDelegate
->
+@interface ANListController () <ANListControllerSearchManagerDelegate, ANListControllerUpdateServiceDelegate>
 
 @property (nonatomic, weak) ANStorage* storage;
 @property (nonatomic, strong) id<ANListViewInterface> listView;
 
 @property (nonatomic, strong) ANListControllerItemsHandler* itemsHandler;
-@property (nonatomic, strong) ANListControllerQueueProcessor* updateProcessor;
+@property (nonatomic, strong) ANListControllerUpdateService* updateService;
 
 @property (nonatomic, copy) ANListControllerItemSelectionBlock selectionBlock;
 @property (nonatomic, copy) ANListControllerUpdatesFinishedTriggerBlock updatesFinishedTrigger;
@@ -45,8 +42,8 @@
         self.itemsHandler = [[ANListControllerItemsHandler alloc] initWithListView:listView
                                                                     mappingService:nil];
         
-        self.updateProcessor = [[ANListControllerQueueProcessor alloc] initWithListView:listView];
-        self.updateProcessor.delegate = self;
+        self.updateService = [[ANListControllerUpdateService alloc] initWithListView:listView];
+        self.updateService.delegate = self;
         
         self.listView = listView;
     
@@ -56,21 +53,42 @@
     return self;
 }
 
-- (void)setListView:(id<ANListViewInterface>)listView
-{
-    [listView setDelegate:self];
-    [listView setDataSource:self];
-    _listView = listView;
-}
-
 - (void)dealloc
 {
     [self.listView setDelegate:nil];
     [self.listView setDataSource:nil];
 
-    self.storage.listController = nil;
+    self.storage.updatesHandler = nil;
     self.storage = nil;
 }
+
+
+#pragma mark - Public
+
+- (void)attachStorage:(ANStorage*)storage
+{
+    self.storage = storage;
+    [self _attachStorage:storage];
+}
+
+- (void)reloadStorageAnimated:(ANStorage*)storage
+{
+    [self.updateService storageNeedsReloadWithIdentifier:storage.identifier animated:YES];
+}
+
+- (void)reloadStorageWithoutAnimation:(ANStorage*)storage
+{
+    [self.updateService storageNeedsReloadWithIdentifier:storage.identifier animated:NO];
+}
+
+
+- (void)attachSearchBar:(UISearchBar*)searchBar
+{
+    self.searchManager.searchBar = searchBar;
+}
+
+
+#pragma mark - ANListControllerUpdateServiceDelegate
 
 - (void)allUpdatesFinished
 {
@@ -79,6 +97,33 @@
         self.updatesFinishedTrigger();
     }
 }
+
+
+#pragma mark - Override
+
+- (void)setupHeaderFooterDefaultKindOnStorage:(ANStorage*)storage
+{
+    NSAssert(NO, @"You need to override this method");
+}
+
+
+#pragma mark - SearchManager 
+
+- (void)searchControllerDidCancelSearch
+{
+    self.storage.updatesHandler = self.updateService;
+}
+
+- (void)searchControllerCreatedStorage:(ANStorage*)searchStorage
+{
+    [self _attachStorage:searchStorage];
+    [self.updateService storageNeedsReloadWithIdentifier:searchStorage.identifier animated:YES];
+    
+    searchStorage.updatesHandler = self.updateService; //TODO:
+}
+
+
+#pragma mark - Blocks
 
 - (void)configureCellsWithBlock:(ANListControllerCellConfigurationBlock)block
 {
@@ -98,59 +143,24 @@
     self.updatesFinishedTrigger = [block copy];
 }
 
-- (void)attachStorage:(ANStorage*)storage
+- (void)updateSearchingPredicateBlock:(ANListControllerSearchPredicateBlock)block
 {
-    self.storage = storage;
-    [self _attachStorage:storage];
+    self.searchManager.storagePredicateBlock = block;
 }
 
-- (void)reloadStorageAnimated:(ANStorage*)storage
-{
-    [self.updateProcessor storageNeedsReloadWithIdentifier:storage.identifier animated:YES];
-}
-
-- (void)reloadStorageWithoutAnimation:(ANStorage*)storage
-{
-    [self.updateProcessor storageNeedsReloadWithIdentifier:storage.identifier animated:NO];
-}
-
-- (void)searchControllerDidCancelSearch
-{
-    self.storage.listController = [self updateProcessor];
-}
-
-- (void)searchControllerCreatedStorage:(ANStorage*)searchStorage
-{
-    [self _attachStorage:searchStorage];
-    [self.updateProcessor storageNeedsReloadWithIdentifier:searchStorage.identifier animated:YES];
-    
-    searchStorage.listController = [self updateProcessor]; //TODO:
-}
+#pragma mark - Private
 
 - (ANStorage*)currentStorage
 {
     return [self.searchManager isSearching] ? self.searchManager.searchingStorage : self.storage;
 }
 
-- (void)attachSearchBar:(UISearchBar*)searchBar
+- (void)setListView:(id<ANListViewInterface>)listView
 {
-    self.searchManager.searchBar = searchBar;
+    [listView setDelegate:self];
+    [listView setDataSource:self];
+    _listView = listView;
 }
-
-- (void)allUpdatesWereFinished
-{
-    if (self.updatesFinishedTrigger)
-    {
-        self.updatesFinishedTrigger();
-    }
-}
-
-- (void)setupHeaderFooterDefaultKindOnStorage:(ANStorage*)storage
-{
-    NSAssert(NO, @"You need to override this method");
-}
-
-#pragma mark - Private
 
 /*
 //TODO:
@@ -170,9 +180,9 @@
 
 - (void)_attachStorage:(ANStorage*)storage
 {
-    storage.listController = [self updateProcessor];
+    storage.updatesHandler = self.updateService;
     [self setupHeaderFooterDefaultKindOnStorage:storage];
-    [self.storage.listController storageNeedsReloadWithIdentifier:storage.identifier animated:NO];
+    [self.storage.updatesHandler storageNeedsReloadWithIdentifier:storage.identifier animated:NO];
 }
 
 @end

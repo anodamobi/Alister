@@ -9,14 +9,6 @@
 #import "ANStorageListUpdateOperationInterface.h"
 #import "ANListViewInterface.h"
 
-@protocol ANListControllerUpdateOperationInterface <ANStorageListUpdateOperationInterface>
-
-- (void)setDelegate:(id)delegate;
-- (void)setShouldAnimate:(BOOL)shouldAnimate;
-
-@end
-
-
 @protocol ANListControllerUpdateOperationDelegate <NSObject>
 
 - (id<ANListViewInterface>)listView;

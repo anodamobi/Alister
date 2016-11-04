@@ -87,9 +87,9 @@
     return update;
 }
 
-- (void)setUpdaterDelegate:(id<ANListControllerQueueProcessorInterface>)updaterDelegate
+- (void)setUpdaterDelegate:(id<ANListControllerUpdateServiceInterface>)updaterDelegate
 {
-    if ([updaterDelegate conformsToProtocol:@protocol(ANListControllerQueueProcessorInterface)] || !updaterDelegate)
+    if ([updaterDelegate conformsToProtocol:@protocol(ANListControllerUpdateServiceInterface)] || !updaterDelegate)
     {
         _updaterDelegate = updaterDelegate;
     }

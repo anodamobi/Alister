@@ -8,8 +8,6 @@
 #import "ANTableController.h"
 #import "ANListTableView.h"
 #import "ANListController+Interitance.h"
-#import "ANTableControllerUpdateOperation.h"
-#import "ANListControllerQueueProcessor.h"
 #import "ANListTableView.h"
 
 @implementation ANTableController
@@ -25,7 +23,7 @@
     self = [super initWithListView:tw];
     if (self)
     {
-        [self.updateProcessor registerUpdateOperationClass:[ANTableControllerUpdateOperation class]];
+       
     }
     return self;
 }

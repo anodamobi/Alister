@@ -6,11 +6,11 @@
 //  Copyright © 2016 Oksana Kovalchuk. All rights reserved.
 //
 
-#import "ANListControllerReloadOperationInterface.h"
+@protocol ANListControllerUpdateServiceInterface;
 
-@interface ANListControllerReloadOperation : NSOperation <ANListControllerReloadOperationInterface>
+@interface ANListControllerReloadOperation : NSOperation
 
 @property (nonatomic, assign) BOOL shouldAnimate;
-@property (nonatomic, weak) id<ANListControllerReloadOperationDelegate> delegate;
+@property (nonatomic, weak) id<ANListControllerUpdateServiceInterface> delegate;
 
 @end

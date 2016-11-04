@@ -36,7 +36,7 @@ typedef NS_ENUM(NSInteger, ANListControllerSearchScope)
 - (void)dealloc
 {
     self.searchBar.delegate = nil;
-    self.searchingStorage.listController = nil;
+    self.searchingStorage.updatesHandler = nil;
 }
 
 - (void)setSearchBar:(UISearchBar*)searchBar
@@ -109,13 +109,13 @@ typedef NS_ENUM(NSInteger, ANListControllerSearchScope)
     
     if (isSearching && ![self isSearching])
     {
-        self.searchingStorage.listController = nil;
+        self.searchingStorage.updatesHandler = nil;
         [delegate searchControllerDidCancelSearch];
     }
     else
     {
         ANStorage* storage = delegate.storage;
-        storage.listController = nil;
+        storage.updatesHandler = nil;
         
         _searchingStorage = [self _searchStoragefromStorage:storage
                                             forSearchString:self.currentSearchString

@@ -15,7 +15,7 @@ typedef void(^ANDataStorageUpdateBlock)(id<ANStorageUpdatableInterface> storageC
 
 @interface ANStorage : NSObject <ANStorageRetrivingInterface>
 
-@property (nonatomic, weak) id<ANStorageUpdateEventsDelegate> listController;
+@property (nonatomic, weak) id<ANStorageUpdateEventsDelegate> updatesHandler;
 @property (nonatomic, strong, readonly) NSString* identifier;
 
 

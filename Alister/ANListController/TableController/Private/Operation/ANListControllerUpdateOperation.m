@@ -6,12 +6,12 @@
 //  Copyright © 2016 ANODA. All rights reserved.
 //
 
-#import "ANTableControllerUpdateOperation.h"
+#import "ANListControllerUpdateOperation.h"
 #import "ANStorageUpdateModel.h"
 #import "ANListControllerLog.h"
 #import "ANListViewInterface.h"
 
-@interface ANTableControllerUpdateOperation ()
+@interface ANListControllerUpdateOperation ()
 
 @property (nonatomic, strong) ANStorageUpdateModel* updateModel;
 @property (nonatomic, assign, getter=isFinished) BOOL finished;
@@ -19,7 +19,7 @@
 
 @end
 
-@implementation ANTableControllerUpdateOperation
+@implementation ANListControllerUpdateOperation
 
 @synthesize finished = _finished;
 @synthesize executing = _executing;
@@ -67,40 +67,33 @@
 
 - (void)_performAnimatedUpdate:(ANStorageUpdateModel*)update
 {
-    id<ANListControllerQueueProcessorInterface> delegate = self.delegate;
-    UITableView* tableView = (UITableView*)delegate.listView.view;
-    if ([tableView isKindOfClass:[UITableView class]])
-    {   
-        if (!update.isRequireReload)
+    id<ANListControllerUpdateServiceInterface> delegate = self.delegate;
+    
+    if (!update.isRequireReload)
+    {
+        @try
         {
-            @try
-            {
-                [CATransaction begin];
-                [CATransaction setCompletionBlock:^{
-                    self.finished = YES;
-                    self.executing = NO;
-                }];
-                
-                [delegate.listView performUpdate:update animated:self.shouldAnimate];
-                
-                [CATransaction commit];
-            }
+            [CATransaction begin];
+            [CATransaction setCompletionBlock:^{
+                self.finished = YES;
+                self.executing = NO;
+            }];
             
-            @catch (NSException *exception)
-            {
-                ANListControllerLog(@"❌Exception: %@\n❌%@", exception, update);
-            }
+            [delegate.listView performUpdate:update animated:self.shouldAnimate];
+            
+            [CATransaction commit];
         }
-        else
+        
+        @catch (NSException *exception)
         {
-            self.finished = YES;
-            self.executing = NO;
-            [delegate storageNeedsReloadWithIdentifier:self.name animated:NO];
+            ANListControllerLog(@"❌Exception: %@\n❌%@", exception, update);
         }
     }
     else
     {
-        NSAssert(NO, @"You assigned not a UITableView, this item can't be updated");
+        self.finished = YES;
+        self.executing = NO;
+        [delegate storageNeedsReloadWithIdentifier:self.name animated:NO];
     }
 }
 

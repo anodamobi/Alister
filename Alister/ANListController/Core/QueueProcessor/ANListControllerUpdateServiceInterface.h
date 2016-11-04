@@ -8,7 +8,7 @@
 
 @protocol ANListViewInterface;
 
-@protocol ANListControllerQueueProcessorInterface <NSObject>
+@protocol ANListControllerUpdateServiceInterface <NSObject>
 
 - (void)storageNeedsReloadWithIdentifier:(NSString*)identifier animated:(BOOL)isAnimated;
 - (id<ANListViewInterface>)listView;

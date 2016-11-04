@@ -59,7 +59,7 @@
 
 - (void)reloadStorageWithAnimation:(BOOL)isAnimatable
 {
-    id<ANStorageUpdateEventsDelegate> listController = self.listController;
+    id<ANStorageUpdateEventsDelegate> listController = self.updatesHandler;
     [listController storageNeedsReloadWithIdentifier:self.identifier animated:isAnimatable];
 }
 
@@ -69,7 +69,7 @@
     {
         if (!self.isSearchingType)
         {
-            id<ANStorageUpdateEventsDelegate> listController = self.listController;
+            id<ANStorageUpdateEventsDelegate> listController = self.updatesHandler;
             if (listController)
             {
                 ANStorageUpdateOperation* updateOperation = nil;

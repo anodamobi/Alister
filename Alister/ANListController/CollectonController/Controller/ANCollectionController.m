@@ -10,8 +10,6 @@
 #import "ANListViewInterface.h"
 #import "ANListCollectionView.h"
 #import "ANListController+Interitance.h"
-#import "ANListControllerQueueProcessor.h"
-#import "ANCollectionControllerUpdateOperation.h"
 
 @implementation ANCollectionController
 
@@ -26,7 +24,7 @@
     self = [super initWithListView:listView];
     if (self)
     {
-        [self.updateProcessor registerUpdateOperationClass:[ANCollectionControllerUpdateOperation class]];
+        
     }
     return self;
 }

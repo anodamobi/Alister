@@ -11,9 +11,7 @@
 
 @protocol ANListViewInterface;
 
-@class ANListControllerSearchManager;
 @class ANListControllerItemsHandler;
-@class ANListControllerQueueProcessor;
 
 @interface ANListController (Interitance)
 
@@ -21,7 +19,6 @@
 - (id<ANListViewInterface>)listView;
 - (ANListControllerItemSelectionBlock)selectionBlock;
 - (ANListControllerItemsHandler*)itemsHandler;
-- (ANListControllerQueueProcessor*)updateProcessor;
 
 - (instancetype)initWithListView:(id<ANListViewInterface>)listView;
 

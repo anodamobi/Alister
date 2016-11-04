@@ -8,6 +8,7 @@
 
 #import "ANListControllerReloadOperation.h"
 #import "ANListViewInterface.h"
+#import "ANListControllerUpdateServiceInterface.h"
 
 @implementation ANListControllerReloadOperation
 
@@ -17,7 +18,7 @@
 {
     if (!self.isCancelled)
     {
-        id<ANListControllerReloadOperationDelegate> delegate = self.delegate;
+        id<ANListControllerUpdateServiceInterface> delegate = self.delegate;
         [delegate.listView reloadData];
         if (self.shouldAnimate)
         {
