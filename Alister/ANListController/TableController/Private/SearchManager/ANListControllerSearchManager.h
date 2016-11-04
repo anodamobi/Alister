@@ -23,7 +23,7 @@
 @property (nonatomic, weak) id<ANListControllerSearchManagerDelegate> delegate;
 @property (nonatomic, strong, readonly) ANStorage* searchingStorage;
 @property (nonatomic, weak) UISearchBar* searchBar;
-@property (nonatomic, copy) ANListControllerSearchPredicateBlock storagePredicateBlock; //TODO: configuration
+@property (nonatomic, copy) ANListControllerSearchPredicateBlock searchPredicateConfigBlock; //TODO: configuration
 
 - (BOOL)isSearching;
 

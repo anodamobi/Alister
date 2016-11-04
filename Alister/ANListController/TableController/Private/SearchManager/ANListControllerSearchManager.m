@@ -8,6 +8,7 @@
 
 #import "ANListControllerSearchManager.h"
 #import "ANStorage.h"
+#import "ANListControllerLog.h"
 
 typedef NS_ENUM(NSInteger, ANListControllerSearchScope)
 {
@@ -135,9 +136,9 @@ typedef NS_ENUM(NSInteger, ANListControllerSearchScope)
     //storage.isSearchingType = YES; TODO:
     
     NSPredicate* predicate;
-    if (self.storagePredicateBlock)
+    if (self.searchPredicateConfigBlock)
     {
-        predicate = self.storagePredicateBlock(searchString, searchScope);
+        predicate = self.searchPredicateConfigBlock(searchString, searchScope);
     }
     if (predicate)
     {
@@ -151,7 +152,7 @@ typedef NS_ENUM(NSInteger, ANListControllerSearchScope)
     }
     else
     {
-        NSLog(@"No predicate was created, so no searching. Check your setter for storagePredicateBlock");
+        ANListControllerLog(@"No predicate was created, so no searching. Check your setter for storagePredicateBlock");
     }
     return storage;
 }

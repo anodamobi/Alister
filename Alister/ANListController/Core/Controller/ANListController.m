@@ -119,7 +119,7 @@
     [self _attachStorage:searchStorage];
     [self.updateService storageNeedsReloadWithIdentifier:searchStorage.identifier animated:YES];
     
-    searchStorage.updatesHandler = self.updateService; //TODO:
+    searchStorage.updatesHandler = self.updateService;
 }
 
 

@@ -10,6 +10,7 @@
 #import "ANListControllerMappingService.h"
 #import "ANListControllerUpdateViewInterface.h"
 #import "ANListViewInterface.h"
+#import "ANListControllerLog.h"
 
 @interface ANListControllerItemsHandler ()
 
@@ -54,7 +55,7 @@
     }
     else
     {
-        NSLog(@"No mapping was created for supplementary!"); //TODO: wrap logs
+        ANListControllerLog(@"No mapping was created for supplementary!");
     }
 }
 
@@ -70,14 +71,14 @@
     }
     else
     {
-        NSLog(@"No mapping was created for cell!"); //TODO: wrap logs
+        ANListControllerLog(@"No mapping was created for cell!");
     }
 }
 
 
 #pragma mark - Loading
 
-- (id<ANListControllerUpdateViewInterface>)cellForModel:(id)viewModel atIndexPath:(NSIndexPath*)indexPath
+- (nullable id<ANListControllerUpdateViewInterface>)cellForModel:(id)viewModel atIndexPath:(NSIndexPath*)indexPath
 {
     NSString* identifier = [self.mappingService identifierForViewModelClass:[viewModel class]];
     id<ANListControllerUpdateViewInterface> cell = nil;
@@ -88,16 +89,16 @@
     }
     else
     {
-        NSLog(@"%@ does not have cell mapping for model class: %@", [self class], [viewModel class]);; //TODO: wrap logs
+        ANListControllerLog(@"%@ does not have cell mapping for model class: %@", [self class], [viewModel class]);
     }
     
     NSParameterAssert(cell);
     return cell;
 }
 
-- (id<ANListControllerUpdateViewInterface>)supplementaryViewForModel:(id)viewModel
-                                                                kind:(NSString*)kind
-                                                        forIndexPath:(NSIndexPath*)indexPath
+- (nullable id<ANListControllerUpdateViewInterface>)supplementaryViewForModel:(id)viewModel
+                                                                         kind:(NSString*)kind
+                                                                 forIndexPath:(NSIndexPath*)indexPath
 {
     NSString* identifier = [self.mappingService identifierForViewModelClass:[viewModel class]];
     id<ANListControllerUpdateViewInterface> view = nil;
@@ -105,12 +106,12 @@
     {
         id<ANListViewInterface> wrapper = self.listView;
         view = [wrapper supplementaryViewForReuseIdentifer:identifier kind:kind atIndexPath:indexPath];
-        [view updateWithModel:viewModel]; //TODO: safety
+        [view updateWithModel:viewModel];
     }
     else
     {
-        NSLog(@"%@ does not have supplementary mapping for model class: %@",
-              [self class], [viewModel class]); //TODO: wrap logs
+        ANListControllerLog(@"%@ does not have supplementary mapping for model class: %@",
+                            [self class], [viewModel class]);
     }
     return view;
 }

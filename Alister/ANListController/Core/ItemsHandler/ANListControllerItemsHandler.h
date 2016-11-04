@@ -19,10 +19,9 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithListView:(id<ANListViewInterface>)listView
                   mappingService:(nullable id<ANListControllerMappingServiceInterface>)mappingService;
 
+- (nullable id<ANListControllerUpdateViewInterface>)cellForModel:(id)viewModel atIndexPath:(NSIndexPath*)indexPath;
 
-- (id<ANListControllerUpdateViewInterface>)cellForModel:(id)viewModel atIndexPath:(NSIndexPath*)indexPath;
-
-- (id<ANListControllerUpdateViewInterface>)supplementaryViewForModel:(id)viewModel
+- (nullable id<ANListControllerUpdateViewInterface>)supplementaryViewForModel:(id)viewModel
                                                                 kind:(NSString*)kind
                                                         forIndexPath:(NSIndexPath*)indexPath;
 NS_ASSUME_NONNULL_END
