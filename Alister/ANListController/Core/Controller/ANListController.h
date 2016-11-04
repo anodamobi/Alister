@@ -9,29 +9,29 @@
 #import "ANStorage.h"
 #import "ANListControllerReusableInterface.h"
 #import "ANListControllerConfigurationModel.h"
+#import "Alister.h" //TODO:
 
 @class ANKeyboardHandler;
-
-typedef void(^ANListControllerItemSelectionBlock)(id model, NSIndexPath* indexPath);
-typedef void(^ANListControllerCellConfigurationBlock)(id<ANListControllerReusableInterface> configurator);
-typedef void(^ANListConfigurationModelUpdateBlock)(ANListControllerConfigurationModel* configurationModel);
-typedef void (^ANListControllerUpdatesFinishedTriggerBlock)();
 
 @interface ANListController : NSObject
 
 @property (nonatomic, strong) ANKeyboardHandler* keyboardHandler;
 
 @property (nonatomic, assign) BOOL shouldHandleKeyboard;
+@property (nonatomic, strong, readonly) ANStorage* currentStorage;
 
 
-- (ANStorage*)currentStorage;
+- (void)attachStorage:(ANStorage*)storage;
 
 - (void)configureCellsWithBlock:(ANListControllerCellConfigurationBlock)block;
 - (void)configureItemSelectionBlock:(ANListControllerItemSelectionBlock)block;
+
+
 - (void)updateConfigurationModelWithBlock:(ANListConfigurationModelUpdateBlock)block;
-- (void)addUpdatesFinsihedTriggerBlock:(ANListControllerUpdatesFinishedTriggerBlock)block;
+- (void)addUpdatesFinishedTriggerBlock:(ANListControllerUpdatesFinishedTriggerBlock)block;
+
+- (void)updateSearchingPredicateBlock:(ANListControllerSearchPredicateBlock)block;
 
 - (void)attachSearchBar:(UISearchBar*)searchBar;
-- (void)attachStorage:(ANStorage*)storage;
 
 @end

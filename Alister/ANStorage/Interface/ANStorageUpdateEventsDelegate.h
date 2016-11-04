@@ -8,7 +8,7 @@
 
 @class ANStorageUpdateOperation;
 
-@protocol ANStorageUpdatingInterface <NSObject>
+@protocol ANStorageUpdateEventsDelegate <NSObject>
 
 - (void)storageDidPerformUpdate:(ANStorageUpdateOperation*)updateOperation
                  withIdentifier:(NSString*)identifier

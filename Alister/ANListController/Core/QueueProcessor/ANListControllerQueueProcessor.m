@@ -8,16 +8,15 @@
 
 #import "ANListControllerQueueProcessor.h"
 #import "ANStorageUpdateOperation.h"
-#import "ANStorageUpdateControllerInterface.h"
 #import "ANListControllerUpdateOperationInterface.h"
 #import "ANListControllerReloadOperation.h"
 #import "ANListControllerConfigurationModel.h"
+#import "ANListControllerQueueProcessorInterface.h"
 
 @interface ANListControllerQueueProcessor ()
 <
-    ANStorageUpdateControllerInterface,
-    ANListControllerReloadOperationDelegate,
-    ANListControllerUpdateOperationDelegate
+    ANListControllerQueueProcessorInterface,
+    ANListControllerReloadOperationDelegate
 >
 
 @property (nonatomic, strong) NSOperationQueue* queue;
@@ -35,6 +34,7 @@
     {
         self.queue = [NSOperationQueue mainQueue];
         self.queue.maxConcurrentOperationCount = 1;
+        
         [self.queue addObserver:self
                      forKeyPath:NSStringFromSelector(@selector(operations))
                         options:NSKeyValueObservingOptionNew

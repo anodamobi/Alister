@@ -187,6 +187,8 @@
 		AC990585C63BBA3EFB2F905E /* libPods-Alister-Example-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Alister-Example-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE9DB8101DC73A6E003EDB3C /* ANStorageRetrivingInterfaceTestsSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageRetrivingInterfaceTestsSpec.m; sourceTree = "<group>"; };
 		CB2099F6E4049388FFBA7187 /* Pods-Alister-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister-Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Alister-Example/Pods-Alister-Example.debug.xcconfig"; sourceTree = "<group>"; };
+		D7348F041DCD12FA00CC114A /* ANListControllerQueueProcessorInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ANListControllerQueueProcessorInterface.h; sourceTree = "<group>"; };
+		D7348F051DCD368900CC114A /* Alister.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Alister.h; sourceTree = "<group>"; };
 		D7389A171DC13FA600B54B9F /* ANStorageFakeOperationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANStorageFakeOperationDelegate.h; sourceTree = "<group>"; };
 		D7389A181DC13FA600B54B9F /* ANStorageFakeOperationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageFakeOperationDelegate.m; sourceTree = "<group>"; };
 		D7389A1E1DC23E6900B54B9F /* ANListControllerMappingServiceSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ANListControllerMappingServiceSpec.m; path = Model/ANListControllerMappingServiceSpec.m; sourceTree = "<group>"; };
@@ -260,7 +262,6 @@
 		D75F9E0D1DC982940070538F /* ANListTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ANListTableView.h; path = ../../Core/ViewWrappers/ANListTableView.h; sourceTree = "<group>"; };
 		D75F9E0E1DC982940070538F /* ANListTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ANListTableView.m; path = ../../Core/ViewWrappers/ANListTableView.m; sourceTree = "<group>"; };
 		D75F9E0F1DC982940070538F /* ANListViewInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ANListViewInterface.h; path = ../ViewWrappers/ANListViewInterface.h; sourceTree = "<group>"; };
-		D75F9E111DC982940070538F /* ANListControllerLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANListControllerLog.h; sourceTree = "<group>"; };
 		D75F9E141DC982940070538F /* ANTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTableController.h; sourceTree = "<group>"; };
 		D75F9E151DC982940070538F /* ANTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTableController.m; sourceTree = "<group>"; };
 		D75F9E171DC982940070538F /* ANListControllerLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANListControllerLog.h; sourceTree = "<group>"; };
@@ -289,7 +290,7 @@
 		D75F9E3F1DC982940070538F /* ANStorageLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANStorageLog.h; sourceTree = "<group>"; };
 		D75F9E411DC982940070538F /* ANStorageRetrivingInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANStorageRetrivingInterface.h; sourceTree = "<group>"; };
 		D75F9E421DC982940070538F /* ANStorageUpdatableInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANStorageUpdatableInterface.h; sourceTree = "<group>"; };
-		D75F9E431DC982940070538F /* ANStorageUpdatingInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANStorageUpdatingInterface.h; sourceTree = "<group>"; };
+		D75F9E431DC982940070538F /* ANStorageUpdateEventsDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANStorageUpdateEventsDelegate.h; sourceTree = "<group>"; };
 		D75F9E471DC982940070538F /* ANStorageMovedIndexPathModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANStorageMovedIndexPathModel.h; sourceTree = "<group>"; };
 		D75F9E481DC982940070538F /* ANStorageMovedIndexPathModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageMovedIndexPathModel.m; sourceTree = "<group>"; };
 		D75F9E4A1DC982940070538F /* ANStorageSectionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANStorageSectionModel.h; sourceTree = "<group>"; };
@@ -895,6 +896,7 @@
 		D75F9E051DC982940070538F /* QueueProcessor */ = {
 			isa = PBXGroup;
 			children = (
+				D7348F041DCD12FA00CC114A /* ANListControllerQueueProcessorInterface.h */,
 				D75F9E061DC982940070538F /* ANListControllerQueueProcessor.h */,
 				D75F9E071DC982940070538F /* ANListControllerQueueProcessor.m */,
 				D75F9DFA1DC982940070538F /* ANListControllerReloadOperationInterface.h */,
@@ -907,7 +909,7 @@
 		D75F9E101DC982940070538F /* Headers */ = {
 			isa = PBXGroup;
 			children = (
-				D75F9E111DC982940070538F /* ANListControllerLog.h */,
+				D7348F051DCD368900CC114A /* Alister.h */,
 			);
 			path = Headers;
 			sourceTree = "<group>";
@@ -1099,7 +1101,7 @@
 			children = (
 				D75F9E411DC982940070538F /* ANStorageRetrivingInterface.h */,
 				D75F9E421DC982940070538F /* ANStorageUpdatableInterface.h */,
-				D75F9E431DC982940070538F /* ANStorageUpdatingInterface.h */,
+				D75F9E431DC982940070538F /* ANStorageUpdateEventsDelegate.h */,
 			);
 			path = Interface;
 			sourceTree = "<group>";

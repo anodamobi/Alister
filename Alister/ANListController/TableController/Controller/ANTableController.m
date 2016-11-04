@@ -44,8 +44,6 @@
 }
 
 
-
-
 #pragma mark - Supplementaries
 
 - (NSString*)tableView:(__unused UITableView*)tableView titleForHeaderInSection:(NSInteger)sectionIndex
@@ -124,7 +122,6 @@
 
 
 #pragma mark - Private
-
 
 - (NSString*)_titleForSupplementaryIndex:(NSUInteger)index kind:(NSString*)kind
 {

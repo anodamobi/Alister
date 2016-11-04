@@ -45,6 +45,7 @@ typedef NS_ENUM(NSInteger, ANListControllerSearchScope)
     _searchBar = searchBar;
 }
 
+
 #pragma mark - Public
 
 - (BOOL)isSearching
@@ -99,7 +100,6 @@ typedef NS_ENUM(NSInteger, ANListControllerSearchScope)
         self.currentSearchString = searchString;
         
         [self _handleSearchWithCurrentSearchingValue:isSearching];
-        
     }
 }
 
@@ -117,11 +117,44 @@ typedef NS_ENUM(NSInteger, ANListControllerSearchScope)
         ANStorage* storage = delegate.storage;
         storage.listController = nil;
         
-        _searchingStorage = [storage searchStorageForSearchString:self.currentSearchString
-                                                        inSearchScope:self.currentSearchScope];
-        
+        _searchingStorage = [self _searchStoragefromStorage:storage
+                                            forSearchString:self.currentSearchString
+                                              inSearchScope:self.currentSearchScope];
+
         [delegate searchControllerCreatedStorage:_searchingStorage];
     }
+}
+
+
+#pragma mark - Private
+
+- (ANStorage*)_searchStoragefromStorage:(ANStorage*)storage
+                        forSearchString:(NSString*)searchString
+                          inSearchScope:(NSInteger)searchScope
+{
+    ANStorage* searchingStorage = [ANStorage new];
+    //storage.isSearchingType = YES; TODO:
+    
+    NSPredicate* predicate;
+    if (self.storagePredicateBlock)
+    {
+        predicate = self.storagePredicateBlock(searchString, searchScope);
+    }
+    if (predicate)
+    {
+        [storage updateWithoutAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
+            
+            [storage.sections enumerateObjectsUsingBlock:^(ANStorageSectionModel* obj, NSUInteger idx, __unused BOOL* stop) {
+                NSArray* filteredObjects = [obj.objects filteredArrayUsingPredicate:predicate];
+                [storageController addItems:filteredObjects toSection:idx];
+            }];
+        }];
+    }
+    else
+    {
+        NSLog(@"No predicate was created, so no searching. Check your setter for storagePredicateBlock");
+    }
+    return storage;
 }
 
 

@@ -59,7 +59,7 @@
 
 - (void)reloadStorageWithAnimation:(BOOL)isAnimatable
 {
-    id<ANStorageUpdatingInterface> listController = self.listController;
+    id<ANStorageUpdateEventsDelegate> listController = self.listController;
     [listController storageNeedsReloadWithIdentifier:self.identifier animated:isAnimatable];
 }
 
@@ -69,7 +69,7 @@
     {
         if (!self.isSearchingType)
         {
-            id<ANStorageUpdatingInterface> listController = self.listController;
+            id<ANStorageUpdateEventsDelegate> listController = self.listController;
             if (listController)
             {
                 ANStorageUpdateOperation* updateOperation = nil;
@@ -91,33 +91,6 @@
             block(self);
         }
     }
-}
-
-- (instancetype)searchStorageForSearchString:(NSString*)searchString inSearchScope:(NSInteger)searchScope
-{
-    ANStorage* storage = [[self class] new];
-    storage.isSearchingType = YES;
-    
-    NSPredicate* predicate;
-    if (self.storagePredicateBlock)
-    {
-        predicate = self.storagePredicateBlock(searchString, searchScope);
-    }
-    if (predicate)
-    {
-        [storage updateWithoutAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
-            
-            [self.sections enumerateObjectsUsingBlock:^(ANStorageSectionModel* obj, NSUInteger idx, __unused BOOL* stop) {
-                NSArray* filteredObjects = [obj.objects filteredArrayUsingPredicate:predicate];
-                [storageController addItems:filteredObjects toSection:idx];
-            }];
-        }];
-    }
-    else
-    {
-        ANStorageLog(@"No predicate was created, so no searching. Check your setter for storagePredicateBlock");
-    }
-    return storage;
 }
 
 - (void)updateHeaderKind:(NSString*)headerKind footerKind:(NSString*)footerKind

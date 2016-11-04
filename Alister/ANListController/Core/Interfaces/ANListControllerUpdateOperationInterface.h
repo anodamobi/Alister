@@ -16,6 +16,10 @@
 @end
 
 
+
+
+
+
 @protocol ANListControllerConfigurationModelInterface;
 @protocol ANListViewInterface;
 
@@ -23,6 +27,7 @@
 
 - (id<ANListViewInterface>)listView;
 - (id<ANListControllerConfigurationModelInterface>)configurationModel;
+
 - (void)storageNeedsReloadWithIdentifier:(NSString*)identifier;
 
 @end

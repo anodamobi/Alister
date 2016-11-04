@@ -68,7 +68,7 @@
 
 - (void)_performAnimatedUpdate:(ANStorageUpdateModel*)update
 {
-    id<ANListControllerUpdateOperationDelegate> delegate = self.delegate;
+    id<ANListControllerQueueProcessorInterface> delegate = self.delegate;
     UITableView* tableView = (UITableView*)delegate.listView.view;
     if ([tableView isKindOfClass:[UITableView class]])
     {   
@@ -132,7 +132,7 @@
         {
             self.finished = YES;
             self.executing = NO;
-            [delegate storageNeedsReloadWithIdentifier:self.name];
+            [delegate storageNeedsReloadWithIdentifier:self.name animated:NO];
         }
     }
     else
@@ -156,7 +156,7 @@
 
 - (void)setExecuting:(BOOL)executing
 {
-    if (!_executing != executing)
+    if (_executing != executing)
     {
         [self willChangeValueForKey:NSStringFromSelector(@selector(isExecuting))];
         _executing = executing;

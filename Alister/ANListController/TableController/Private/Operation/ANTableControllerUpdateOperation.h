@@ -7,6 +7,7 @@
 //
 
 #import "ANStorageListUpdateOperationInterface.h"
+#import "ANListControllerQueueProcessorInterface.h"
 #import "ANListControllerUpdateOperationInterface.h"
 
 @interface ANTableControllerUpdateOperation : NSOperation
@@ -15,7 +16,7 @@
     ANListControllerUpdateOperationInterface
 >
 
-@property (nonatomic, weak) id<ANListControllerUpdateOperationDelegate> delegate;
+@property (nonatomic, weak) id<ANListControllerQueueProcessorInterface> delegate;
 @property (nonatomic, assign) BOOL shouldAnimate;
 
 @end

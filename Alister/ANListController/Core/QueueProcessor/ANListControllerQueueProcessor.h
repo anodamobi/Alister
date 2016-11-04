@@ -6,7 +6,7 @@
 //  Copyright © 2016 Oksana Kovalchuk. All rights reserved.
 //
 
-#import "ANStorageUpdatingInterface.h"
+#import "ANStorageUpdateEventsDelegate.h"
 #import "ANListViewInterface.h"
 
 @protocol ANListControllerConfigurationModelInterface;
@@ -17,7 +17,7 @@
 
 @end
 
-@interface ANListControllerQueueProcessor : NSObject <ANStorageUpdatingInterface>
+@interface ANListControllerQueueProcessor : NSObject <ANStorageUpdateEventsDelegate>
 
 @property (nonatomic, weak) id<ANListControllerQueueProcessorDelegate> delegate;
 @property (nonatomic, strong, readonly) id<ANListControllerConfigurationModelInterface> configModel;

@@ -102,7 +102,7 @@
     }
 }
 
-- (void)addUpdatesFinsihedTriggerBlock:(ANListControllerUpdatesFinishedTriggerBlock)block
+- (void)addUpdatesFinishedTriggerBlock:(ANListControllerUpdatesFinishedTriggerBlock)block
 {
     self.updatesFinishedTrigger = [block copy];
 }
@@ -131,9 +131,9 @@
 - (void)searchControllerCreatedStorage:(ANStorage*)searchStorage
 {
     [self _attachStorage:searchStorage];
-    [[self updateProcessor] storageNeedsReloadWithIdentifier:searchStorage.identifier animated:YES];
+    [self.updateProcessor storageNeedsReloadWithIdentifier:searchStorage.identifier animated:YES];
     
-    searchStorage.listController = [self updateProcessor];
+    searchStorage.listController = [self updateProcessor]; //TODO:
 }
 
 - (ANStorage*)currentStorage

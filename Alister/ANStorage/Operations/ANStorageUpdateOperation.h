@@ -8,7 +8,7 @@
 
 #import "ANStorageUpdateOperationInterface.h"
 #import "ANStorageListUpdateOperationInterface.h"
-#import "ANStorageUpdateControllerInterface.h"
+#import "ANListControllerQueueProcessorInterface.h"
 
 @class ANStorageUpdateOperation;
 
@@ -18,7 +18,7 @@ typedef void(^ANStorageUpdateOperationConfigurationBlock)(ANStorageUpdateOperati
 
 + (instancetype)operationWithConfigurationBlock:(ANStorageUpdateOperationConfigurationBlock)executionBlock;
 
-@property (nonatomic, weak) id<ANStorageUpdateControllerInterface> updaterDelegate;
+@property (nonatomic, weak) id<ANListControllerQueueProcessorInterface> updaterDelegate;
 @property (nonatomic, weak) id<ANStorageListUpdateOperationInterface> controllerOperationDelegate;
 
 @end

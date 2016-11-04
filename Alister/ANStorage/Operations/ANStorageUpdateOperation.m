@@ -51,7 +51,7 @@
         
         if (updateModel.isRequireReload)
         {
-            [self.updaterDelegate updateStorageOperationRequiresForceReload:self];
+            [self.updaterDelegate storageNeedsReloadWithIdentifier:self.name animated:NO];
         }
         else
         {
@@ -87,9 +87,9 @@
     return update;
 }
 
-- (void)setUpdaterDelegate:(id<ANStorageUpdateControllerInterface>)updaterDelegate
+- (void)setUpdaterDelegate:(id<ANListControllerQueueProcessorInterface>)updaterDelegate
 {
-    if ([updaterDelegate conformsToProtocol:@protocol(ANStorageUpdateControllerInterface)] || !updaterDelegate)
+    if ([updaterDelegate conformsToProtocol:@protocol(ANListControllerQueueProcessorInterface)] || !updaterDelegate)
     {
         _updaterDelegate = updaterDelegate;
     }
