@@ -11,8 +11,7 @@
 
 @protocol ANListControllerReloadOperationDelegate <NSObject>
 
-- (UIView<ANListViewInterface>*)listView;
-- (ANListControllerConfigurationModel*)configurationModel;
+- (id<ANListViewInterface>)listView;
 
 @end
 

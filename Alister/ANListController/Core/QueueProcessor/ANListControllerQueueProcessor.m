@@ -11,6 +11,7 @@
 #import "ANStorageUpdateControllerInterface.h"
 #import "ANListControllerUpdateOperationInterface.h"
 #import "ANListControllerReloadOperation.h"
+#import "ANListControllerConfigurationModel.h"
 
 @interface ANListControllerQueueProcessor ()
 <
@@ -20,12 +21,14 @@
 >
 
 @property (nonatomic, strong) NSOperationQueue* queue;
+@property (nonatomic, strong, readonly) Class updateOperationClass;
+@property (nonatomic, strong, readonly) id<ANListViewInterface> listView;
 
 @end
 
 @implementation ANListControllerQueueProcessor
 
-- (instancetype)init
+- (instancetype)initWithListView:(id<ANListViewInterface>)listView
 {
     self = [super init];
     if (self)
@@ -36,6 +39,8 @@
                      forKeyPath:NSStringFromSelector(@selector(operations))
                         options:NSKeyValueObservingOptionNew
                         context:NULL];
+        
+        _listView = listView;
     }
     return self;
 }
@@ -45,15 +50,13 @@
     [self.queue removeObserver:self forKeyPath:NSStringFromSelector(@selector(operations))];
 }
 
-- (id<ANListControllerConfigurationModelInterface>)configurationModel
+- (void)registerUpdateOperationClass:(Class)operationClass
 {
-    return [self.delegate configurationModel];
+    _updateOperationClass = operationClass;
 }
 
-- (UIView<ANListViewInterface>*)listView
-{
-    return [self.delegate listView];
-}
+
+#pragma mark - ANStorageUpdatingInterface
 
 - (void)storageDidPerformUpdate:(ANStorageUpdateOperation*)updateOperation
                  withIdentifier:(NSString*)identifier
@@ -77,19 +80,25 @@
 
 }
 
-- (void)updateStorageOperationRequiresForceReload:(ANStorageUpdateOperation*)operation
+- (void)storageNeedsReloadWithIdentifier:(NSString*)identifier animated:(BOOL)shouldAnimate
 {
-    [self _reloadStorageWithAnimation:NO identifier:operation.name];
+    [self _reloadStorageWithAnimation:shouldAnimate identifier:identifier];
 }
+
+
+#pragma mark - ANListControllerUpdateOperationDelegate
 
 - (void)storageNeedsReloadWithIdentifier:(NSString*)identifier
 {
     [self _reloadStorageWithAnimation:NO identifier:identifier];
 }
 
-- (void)storageNeedsReloadWithIdentifier:(NSString*)identifier animated:(BOOL)shouldAnimate
+
+#pragma mark - ANStorageUpdateControllerInterface
+
+- (void)updateStorageOperationRequiresForceReload:(ANStorageUpdateOperation*)operation
 {
-    [self _reloadStorageWithAnimation:shouldAnimate identifier:identifier];
+    [self _reloadStorageWithAnimation:NO identifier:operation.name];
 }
 
 
@@ -140,6 +149,15 @@
     {
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
     }
+}
+
+- (id<ANListControllerConfigurationModelInterface>)configurationModel
+{
+    if (!_configModel)
+    {
+        _configModel = [ANListControllerConfigurationModel defaultModel];
+    }
+    return _configModel;
 }
 
 @end

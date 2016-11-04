@@ -6,8 +6,8 @@
 //
 //
 
-#import <Alister/ANStorageModel.h>
-#import <Alister/ANStorageSectionModel.h>
+#import "ANStorageModel.h"
+#import "ANStorageSectionModel.h"
 
 @interface ANStorageModel ()
 

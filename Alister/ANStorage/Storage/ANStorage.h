@@ -9,7 +9,7 @@
 #import "ANStorageUpdatableInterface.h"
 #import "ANStorageUpdatingInterface.h"
 #import "ANStorageRetrivingInterface.h"
-#import <Alister/ANStorageSectionModel.h>
+#import "ANStorageSectionModel.h"
 
 typedef void(^ANDataStorageUpdateBlock)(id<ANStorageUpdatableInterface> storageController);
 typedef NSPredicate*(^ANStorageSearchPredicate)(NSString* searchString, NSInteger scope);

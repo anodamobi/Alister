@@ -14,8 +14,6 @@
 {
     ANCollectionControllerConfigurationModel* model = [self new];
     model.isHandlingKeyboard = YES;
-    model.reloadAnimationDuration = 0.25;
-    model.reloadAnimationKey = @"UICollectionViewReloadDataAnimationKey";
     
     return model;
 }

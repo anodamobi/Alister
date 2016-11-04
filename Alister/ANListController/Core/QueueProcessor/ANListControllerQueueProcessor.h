@@ -13,15 +13,17 @@
 
 @protocol ANListControllerQueueProcessorDelegate <NSObject>
 
-- (id<ANListControllerConfigurationModelInterface>)configurationModel;
 - (void)allUpdatesFinished;
-- (UIView<ANListViewInterface>*)listView;
 
 @end
 
 @interface ANListControllerQueueProcessor : NSObject <ANStorageUpdatingInterface>
 
 @property (nonatomic, weak) id<ANListControllerQueueProcessorDelegate> delegate;
-@property (nonatomic, strong) Class updateOperationClass;
+@property (nonatomic, strong, readonly) id<ANListControllerConfigurationModelInterface> configModel;
+
+- (instancetype)initWithListView:(id<ANListViewInterface>)listView;
+
+- (void)registerUpdateOperationClass:(Class)operationClass;
 
 @end

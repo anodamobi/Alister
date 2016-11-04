@@ -7,9 +7,9 @@
 //
 
 #import "ANStorageLoader.h"
-#import <Alister/ANStorageModel.h>
+#import "ANStorageModel.h"
 #import "ANStorageSectionModelInterface.h"
-#import <Alister/ANStorageSectionModel.h>
+#import "ANStorageSectionModel.h"
 #import "ANStorageLog.h"
 
 @implementation ANStorageLoader

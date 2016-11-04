@@ -71,7 +71,7 @@ static CGFloat const kDefaultStatusBarHeight = 20;
         CGFloat additionalHeight = 0;
         if (self.window.rootViewController && [self.window.rootViewController isKindOfClass:[UINavigationController class]])
         {
-            UINavigationController* navigationController = self.window.rootViewController;
+            UINavigationController* navigationController = (UINavigationController*)self.window.rootViewController;
             
             BOOL isTopControllerModal = NO;
             if (navigationController.presentedViewController)

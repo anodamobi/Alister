@@ -47,7 +47,7 @@ static NSString* const kANDefaultCellKind = @"kANDefaultCellKind";
             {
                 dict = [NSMutableDictionary dictionary];
             }
-            [dict setObject:identifier forKey:viewModelClass];
+            [dict setObject:identifier forKey:(id<NSCopying>)viewModelClass];
             self.viewModelToIndentifierMap[kind] = dict;
         }
     }
@@ -60,7 +60,7 @@ static NSString* const kANDefaultCellKind = @"kANDefaultCellKind";
     return [self identifierForViewModelClass:keyClass kind:kANDefaultCellKind];
 }
 
-- (NSString*)identifierForViewModelClass:(Class)viewModelClass kind:(NSString*)kind
+- (NSString*)identifierForViewModelClass:(id<NSObject>)viewModelClass kind:(NSString*)kind
 {
     NSString* identifier = nil;
     if (kind && viewModelClass)
@@ -95,7 +95,7 @@ static NSString* const kANDefaultCellKind = @"kANDefaultCellKind";
 }
 
 //Nimbus workaround
-- (NSString*)_identifierFromViewModelClass:(Class)keyClass map:(NSMutableDictionary*)map
+- (NSString*)_identifierFromViewModelClass:(id<NSCopying>)keyClass map:(NSMutableDictionary*)map
 {
     NSString* identifier = nil;
     
@@ -112,7 +112,8 @@ static NSString* const kANDefaultCellKind = @"kANDefaultCellKind";
             {
                 // We want to find the lowest node in the class hierarchy so that we pick the lowest ancestor
                 // in the hierarchy tree.
-                if ([keyClass isSubclassOfClass:class] && (!superClass || [class isSubclassOfClass:superClass]))
+                Class currentClass = (Class)keyClass;
+                if ([currentClass isSubclassOfClass:class] && (!superClass || [class isSubclassOfClass:superClass]))
                 {
                     superClass = class;
                 }

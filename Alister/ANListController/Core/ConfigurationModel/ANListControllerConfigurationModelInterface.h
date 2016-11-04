@@ -6,23 +6,12 @@
 //  Copyright © 2016 ANODA. All rights reserved.
 //
 
-@protocol ANListControllerConfigurationModelInterface <NSObject>
-
-@required
-
-- (BOOL)shouldHandleKeyboard;
-- (CGFloat)reloadAnimationDuration;
-
-- (NSString*)reloadAnimationKey;
-- (void)setReloadAnimationKey:(NSString*)model;
-
+@protocol ANListControllerConfigurationModelInterface <NSObject> //TODO: make it for table
 
 #pragma mark - TableView Settings
 
 @optional
 
-- (BOOL)shouldDisplayHeaderOnEmptySection;
-- (BOOL)shouldDisplayFooterOnEmptySection;
 - (UITableViewRowAnimation)insertSectionAnimation;
 - (UITableViewRowAnimation)deleteSectionAnimation;
 - (UITableViewRowAnimation)reloadSectionAnimation;

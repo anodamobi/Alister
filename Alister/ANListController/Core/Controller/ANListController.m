@@ -7,43 +7,88 @@
 //
 
 #import "ANListController.h"
-#import "ANListControllerWrapperInterface.h"
+#import "ANListViewInterface.h"
 #import "ANListControllerSearchManager.h"
-#import "ANListController+Interitance.h"
-#import "ANListControllerManagerInterface.h"
 #import "ANKeyboardHandler.h"
-#import "ANListControllerConfigurationModel.h"
+#import "ANListControllerItemsHandler.h"
+#import "ANListControllerQueueProcessor.h"
 
-@interface ANListController () <ANListControllerSearchManagerDelegate>
+@interface ANListController ()
+<
+    ANListControllerSearchManagerDelegate,
+    ANListControllerQueueProcessorDelegate
+>
+
+@property (nonatomic, weak) ANStorage* storage;
+@property (nonatomic, strong) id<ANListViewInterface> listView;
+
+@property (nonatomic, strong) ANListControllerItemsHandler* itemsHandler;
+@property (nonatomic, strong) ANListControllerQueueProcessor* updateProcessor;
+
+@property (nonatomic, copy) ANListControllerItemSelectionBlock selectionBlock;
+@property (nonatomic, copy) ANListControllerUpdatesFinishedTriggerBlock updatesFinishedTrigger;
 
 @property (nonatomic, strong) ANStorage* searchingStorage;
 @property (nonatomic, strong) ANListControllerSearchManager* searchManager;
-@property (nonatomic, weak) ANStorage* storage;
-@property (nonatomic, strong) id<ANListControllerWrapperInterface> listViewWrapper;
-@property (nonatomic, strong) id<ANListControllerManagerInterface> manager;
-@property (nonatomic, copy) ANListControllerItemSelectionBlock selectionBlock;
-@property (nonatomic, copy) ANListControllerUpdatesFinishedTriggerBlock updatesFinishedTrigger;
 
 @end
 
 @implementation ANListController
 
-- (instancetype)init
+- (instancetype)initWithListView:(id<ANListViewInterface>)listView
 {
     self = [super init];
     if (self)
     {
         self.searchManager = [ANListControllerSearchManager new];
         self.searchManager.delegate = self;
+        
+        self.itemsHandler = [[ANListControllerItemsHandler alloc] initWithListView:listView
+                                                                    mappingService:nil];
+        
+        self.updateProcessor = [[ANListControllerQueueProcessor alloc] initWithListView:listView];
+        self.updateProcessor.delegate = self;
+        
+        self.listView = listView;
+    
+
+//        [self _updateKeyboardHandlerWithConfigurationModel:[self configurationModel]]; //TODO:
     }
     return self;
+}
+
+- (void)setListView:(id<ANListViewInterface>)listView
+{
+    [listView setDelegate:self];
+    [listView setDataSource:self];
+    _listView = listView;
+}
+
+- (void)dealloc
+{
+    [self.listView setDelegate:nil];
+    [self.listView setDataSource:nil];
+
+    self.storage.listController = nil;
+    self.storage = nil;
+    
+    self.searchBar.delegate = nil;
+    self.searchingStorage.listController = nil;
+}
+
+- (void)allUpdatesFinished
+{
+    if (self.updatesFinishedTrigger)
+    {
+        self.updatesFinishedTrigger();
+    }
 }
 
 - (void)configureCellsWithBlock:(ANListControllerCellConfigurationBlock)block
 {
     if (block)
     {
-        block([self.manager reusableViewsHandler]);
+        block(self.itemsHandler);
     }
 }
 
@@ -56,8 +101,8 @@
 {
     if (block)
     {
-        block(self.manager.configurationModel);
-        [self _updateKeyboardHandlerWithConfigurationModel:[self.manager configurationModel]];
+        block(self.updateProcessor.configModel);
+        [self _updateKeyboardHandlerWithConfigurationModel:self.updateProcessor.configModel];
     }
 }
 
@@ -72,39 +117,26 @@
     [self _attachStorage:storage];
 }
 
-- (void)dealloc
-{
-    self.searchBar.delegate = nil;
-    self.storage.listController = nil;
-    self.searchingStorage.listController = nil;
-}
-
 - (void)reloadStorageAnimated:(ANStorage*)storage
 {
-    [[self.manager updateHandler] storageNeedsReloadWithIdentifier:storage.identifier animated:YES];
+    [self.updateProcessor storageNeedsReloadWithIdentifier:storage.identifier animated:YES];
 }
 
 - (void)reloadStorageWithoutAnimation:(ANStorage*)storage
 {
-    [[self.manager updateHandler] storageNeedsReloadWithIdentifier:storage.identifier animated:NO];
+    [self.updateProcessor storageNeedsReloadWithIdentifier:storage.identifier animated:NO];
 }
 
 - (void)searchControllerDidCancelSearch
 {
     self.searchingStorage.listController = nil;
-    self.storage.listController = [self.manager updateHandler];
+    self.storage.listController = [self updateProcessor];
 }
 
 - (void)setSearchingStorage:(ANStorage*)searchingStorage
 {
     _searchingStorage = searchingStorage;
     [self _attachStorage:searchingStorage];
-}
-
-- (void)setManager:(id<ANListControllerManagerInterface>)manager
-{
-    _manager = manager;
-    [self _updateKeyboardHandlerWithConfigurationModel:[manager configurationModel]];
 }
 
 - (void)searchControllerRequiresStorageWithSearchString:(NSString*)searchString andScope:(NSInteger)scope
@@ -116,9 +148,9 @@
                                                     inSearchScope:scope];
     [self _attachStorage:self.searchingStorage];
     
-    [[self.manager updateHandler] storageNeedsReloadWithIdentifier:self.searchingStorage.identifier animated:YES];
+    [[self updateProcessor] storageNeedsReloadWithIdentifier:self.searchingStorage.identifier animated:YES];
     
-    self.searchingStorage.listController = [self.manager updateHandler];
+    self.searchingStorage.listController = [self updateProcessor];
 }
 
 - (ANStorage*)currentStorage
@@ -147,12 +179,13 @@
 
 #pragma mark - Private
 
+//TODO:
 - (void)_updateKeyboardHandlerWithConfigurationModel:(ANListControllerConfigurationModel*)model
 {
-    BOOL shouldHandleKeyboard = [model shouldHandleKeyboard];
+    BOOL shouldHandleKeyboard = [self shouldHandleKeyboard];
     if (shouldHandleKeyboard && !self.keyboardHandler)
     {
-        self.keyboardHandler = [ANKeyboardHandler handlerWithTarget:[self.listViewWrapper view]];
+        self.keyboardHandler = [ANKeyboardHandler handlerWithTarget:[self.listView view]];
     }
     if (!shouldHandleKeyboard)
     {
@@ -162,7 +195,7 @@
 
 - (void)_attachStorage:(ANStorage*)storage
 {
-    storage.listController = [self.manager updateHandler];
+    storage.listController = [self updateProcessor];
     [self setupHeaderFooterDefaultKindOnStorage:storage];
     [self.storage.listController storageNeedsReloadWithIdentifier:storage.identifier animated:NO];
 }

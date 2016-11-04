@@ -10,22 +10,12 @@
 
 @interface ANListControllerConfigurationModel : NSObject <ANListControllerConfigurationModelInterface>
 
-@property (nonatomic, assign) BOOL shouldHandleKeyboard;
-
-@property (nonatomic, assign) CGFloat reloadAnimationDuration;
-@property (nonatomic, copy) NSString* reloadAnimationKey;
-
-@property (nonatomic, assign) BOOL shouldDisplayHeaderOnEmptySection;
-@property (nonatomic, assign) BOOL shouldDisplayFooterOnEmptySection;
-
 @property (nonatomic, assign) UITableViewRowAnimation insertSectionAnimation;
 @property (nonatomic, assign) UITableViewRowAnimation deleteSectionAnimation;
 @property (nonatomic, assign) UITableViewRowAnimation reloadSectionAnimation;
 @property (nonatomic, assign) UITableViewRowAnimation insertRowAnimation;
 @property (nonatomic, assign) UITableViewRowAnimation deleteRowAnimation;
 @property (nonatomic, assign) UITableViewRowAnimation reloadRowAnimation;
-
-@property (nonatomic, assign) CGFloat defaultAnimationDuration;
 
 + (instancetype)defaultModel;
 

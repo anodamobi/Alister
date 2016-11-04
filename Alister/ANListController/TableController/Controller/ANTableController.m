@@ -6,31 +6,12 @@
 //
 
 #import "ANTableController.h"
-#import "ANStorageMovedIndexPathModel.h"
-#import "ANStorageUpdateModel.h"
-#import "ANStorageSectionModelInterface.h"
-#import "ANTableControllerManager.h"
-#import "ANStorageUpdatingInterface.h"
-#import <Alister/ANStorage.h>
-#import "ANListControllerSearchManager.h"
-#import "ANListControllerTableViewWrapper.h"
+#import "ANListTableView.h"
 #import "ANListController+Interitance.h"
-
-#import <Alister/ANStorage.h>
-#import <Alister/ANStorageSectionModel.h>
-#import "ANListControllerQueueProcessor.h"
-#import "ANListControllerItemsHandler.h"
-#import "ANListControllerConfigurationModel.h"
 #import "ANTableControllerUpdateOperation.h"
-#import "ANListControllerMappingService.h"
+#import "ANListControllerQueueProcessor.h"
 
-@interface ANTableController () <ANTableControllerManagerDelegate, ANListControllerTableViewWrapperDelegate, ANListControllerItemsHandlerDelegate, ANListControllerQueueProcessorDelegate>
-
-@property (nonatomic, strong) id<ANListControllerWrapperInterface> listViewWrapper;
-
-@property (nonatomic, strong) ANListControllerItemsHandler* cellItemsHandler;
-@property (nonatomic, strong) ANListControllerQueueProcessor* updateProcessor;
-@property (nonatomic, strong) ANListControllerConfigurationModel* configurationModel;
+@interface ANTableController ()
 
 @end
 
@@ -43,82 +24,26 @@
 
 - (instancetype)initWithTableView:(UITableView*)tableView
 {
-    self = [super init];
+    ANListTableView* tw = [ANListTableView wrapperWithTableView:tableView];
+    self = [super initWithListView:tw];
     if (self)
     {
-        self.tableView = tableView;
-        self.listViewWrapper = [ANListControllerTableViewWrapper wrapperWithDelegate:self]; //TODO: only tableView
-        
-        ANTableControllerManager* manager = [ANTableControllerManager new];
-        manager.delegate = self;
-        manager.configurationModel.reloadAnimationKey = @"UITableViewReloadDataAnimationKey";
-        self.manager = manager;
-        
-        self.cellItemsHandler = [[ANListControllerItemsHandler alloc] initWithMappingService:[ANListControllerMappingService new]];
-        self.cellItemsHandler.delegate = self;
-        
-        self.updateProcessor = [ANListControllerQueueProcessor new];
-        self.updateProcessor.delegate = self;
-        self.updateProcessor.updateOperationClass = [ANTableControllerUpdateOperation class];
-        
-        self.configurationModel = [ANListControllerConfigurationModel defaultModel];
+        [self.updateProcessor registerUpdateOperationClass:[ANTableControllerUpdateOperation class]];
     }
     return self;
 }
 
-- (id<ANListControllerReusableInterface>)reusableViewsHandler
+- (UITableView *)tableView
 {
-    return self.cellItemsHandler;
+    return (UITableView*)self.listView.view;
 }
-
-- (id<ANStorageUpdatingInterface>)updateHandler
-{
-    return self.updateProcessor;
-}
-
-- (UIView<ANListViewInterface>*)listView
-{
-    return (UIView<ANListViewInterface>*)[self tableView];
-}
-
-//- (id<ANListControllerWrapperInterface>)listViewWrapper
-//{
-//    return [self.delegate listViewWrapper];
-//}
-//
-//- (void)allUpdatesFinished
-//{
-//    [self.delegate allUpdatesWereFinished];
-//}
-
-
 
 - (void)setupHeaderFooterDefaultKindOnStorage:(ANStorage*)storage
 {
-    [storage updateHeaderKind:@"ANTableViewElementSectionHeader" footerKind:@"ANTableViewElementSectionFooter"];
+    [storage updateHeaderKind:[self.listView headerDefaultKind] footerKind:[self.listView footerDefaultKind]];
 }
 
-- (ANTableControllerManager*)tableManager
-{
-    return self.manager;
-}
 
-- (void)setTableView:(UITableView*)tableView
-{
-    tableView.delegate = self;
-    tableView.dataSource = self;
-    _tableView = tableView;
-}
-
-- (void)dealloc
-{
-    UITableView* tableView = self.tableView;
-    tableView.delegate = nil;
-    tableView.dataSource = nil;
-    self.tableView = nil;
-    self.storage.listController = nil;
-    self.storage = nil;
-}
 
 
 #pragma mark - Supplementaries
@@ -176,7 +101,7 @@
 - (UITableViewCell*)tableView:(__unused UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath
 {
     id model = [self.currentStorage objectAtIndexPath:indexPath];;
-    return [self _cellForModel:model atIndexPath:indexPath];
+    return (UITableViewCell*)[self.itemsHandler cellForModel:model atIndexPath:indexPath];
 }
 
 - (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath
@@ -218,15 +143,13 @@
 - (UIView*)_supplementaryViewForIndex:(NSUInteger)index kind:(NSString*)kind
 {
     id model = [self _supplementaryModelForIndex:index kind:kind];
-    return (UIView*)[self.cellItemsHandler supplementaryViewForModel:model kind:kind forIndexPath:nil];
+    return (UIView*)[self.itemsHandler supplementaryViewForModel:model kind:kind forIndexPath:nil];
 }
 
 - (id)_supplementaryModelForIndex:(NSUInteger)index kind:(NSString*)kind
 {
     BOOL isHeader = [kind isEqualToString:[self.currentStorage headerSupplementaryKind]];
-    BOOL value = isHeader ?
-    self.configurationModel.shouldDisplayHeaderOnEmptySection :
-    self.configurationModel.shouldDisplayFooterOnEmptySection;
+    BOOL value = isHeader ? self.shouldDisplayHeaderOnEmptySection : self.shouldDisplayFooterOnEmptySection;
     ANStorage* storage = self.currentStorage;
     
     if ((storage.sections.count && [[storage sectionAtIndex:index] numberOfObjects]) || value)
@@ -269,11 +192,6 @@
     {
         return minHeight;
     }
-}
-
-- (UITableViewCell*)_cellForModel:(id)model atIndexPath:(NSIndexPath*)indexPath
-{
-    return (UITableViewCell*)[self.cellItemsHandler cellForModel:model atIndexPath:indexPath];
 }
 
 @end

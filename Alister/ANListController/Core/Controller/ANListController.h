@@ -6,7 +6,7 @@
 //  Copyright © 2016 ANODA. All rights reserved.
 //
 
-#import <Alister/ANStorage.h>
+#import "ANStorage.h"
 #import "ANListControllerReusableInterface.h"
 #import "ANListControllerConfigurationModel.h"
 
@@ -21,6 +21,9 @@ typedef void (^ANListControllerUpdatesFinishedTriggerBlock)();
 
 @property (nonatomic, weak, readonly) UISearchBar* searchBar;
 @property (nonatomic, strong) ANKeyboardHandler* keyboardHandler;
+
+@property (nonatomic, assign) BOOL shouldHandleKeyboard;
+
 
 - (ANStorage*)currentStorage;
 

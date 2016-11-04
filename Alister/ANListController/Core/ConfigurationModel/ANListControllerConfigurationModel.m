@@ -26,13 +26,6 @@
     model.deleteRowAnimation = UITableViewRowAnimationAutomatic;
     model.reloadRowAnimation = UITableViewRowAnimationAutomatic;
     
-    model.shouldDisplayFooterOnEmptySection = YES;
-    model.shouldDisplayHeaderOnEmptySection = YES;
-    
-    model.shouldHandleKeyboard = YES;
-    
-    model.defaultAnimationDuration = 0.25f;
-    
     return model;
 }
 

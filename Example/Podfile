@@ -2,7 +2,8 @@
 install! 'cocoapods', :deterministic_uuids => false
 
 target 'Alister-Example' do
-  pod 'Alister', :path => '../'
+    pod 'libextobjc'
+#  pod 'Alister', :path => '../'
   pod 'Masonry'
   pod 'Reveal-iOS-SDK', '~> 1.6.1', :configurations => ['Debug']
 #  pod 'Octopus', :git => 'ssh://git@stash.anoda.mobi:7999/anios/ios-octopus.git', :branch => '0.1.0', :commit => '1126bfc'
@@ -12,7 +13,7 @@ end
 target 'Alister-Example-Tests' do
     pod 'Expecta'
     pod 'Specta'
-    pod 'Alister', :path => '../'
+#    pod 'Alister', :path => '../'
     pod 'OCMock'
 end
 

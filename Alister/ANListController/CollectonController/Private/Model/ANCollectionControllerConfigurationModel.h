@@ -10,9 +10,6 @@
 
 @property (nonatomic, assign) BOOL isHandlingKeyboard;
 
-@property (nonatomic, assign) CGFloat reloadAnimationDuration;
-@property (nonatomic, copy) NSString* reloadAnimationKey;
-
 + (instancetype)defaultModel;
 
 @end

@@ -6,7 +6,7 @@
 //
 //
 
-@class ANStorageSectionModel;
+#import "ANStorageSectionModel.h"
 
 /**
  Private class for storing in objects in memory.

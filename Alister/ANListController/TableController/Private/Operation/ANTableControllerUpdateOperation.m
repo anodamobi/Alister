@@ -10,6 +10,7 @@
 #import "ANStorageUpdateModel.h"
 #import "ANListControllerConfigurationModelInterface.h"
 #import "ANListControllerLog.h"
+#import "ANListViewInterface.h"
 
 @interface ANTableControllerUpdateOperation ()
 
@@ -68,7 +69,7 @@
 - (void)_performAnimatedUpdate:(ANStorageUpdateModel*)update
 {
     id<ANListControllerUpdateOperationDelegate> delegate = self.delegate;
-    UITableView* tableView = (UITableView*)[delegate listView];
+    UITableView* tableView = (UITableView*)delegate.listView.view;
     if ([tableView isKindOfClass:[UITableView class]])
     {   
         if (!update.isRequireReload)
