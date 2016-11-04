@@ -252,9 +252,9 @@
 		D75F9E0F1DC982940070538F /* ANListViewInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ANListViewInterface.h; path = ../ViewWrappers/ANListViewInterface.h; sourceTree = "<group>"; };
 		D75F9E141DC982940070538F /* ANTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTableController.h; sourceTree = "<group>"; };
 		D75F9E151DC982940070538F /* ANTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTableController.m; sourceTree = "<group>"; };
-		D75F9E171DC982940070538F /* ANListControllerLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANListControllerLog.h; sourceTree = "<group>"; };
-		D75F9E1B1DC982940070538F /* ANListControllerUpdateOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANListControllerUpdateOperation.h; sourceTree = "<group>"; };
-		D75F9E1C1DC982940070538F /* ANListControllerUpdateOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANListControllerUpdateOperation.m; sourceTree = "<group>"; };
+		D75F9E171DC982940070538F /* ANListControllerLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ANListControllerLog.h; path = ../TableController/Headers/ANListControllerLog.h; sourceTree = "<group>"; };
+		D75F9E1B1DC982940070538F /* ANListControllerUpdateOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ANListControllerUpdateOperation.h; path = ../../TableController/Private/Operation/ANListControllerUpdateOperation.h; sourceTree = "<group>"; };
+		D75F9E1C1DC982940070538F /* ANListControllerUpdateOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ANListControllerUpdateOperation.m; path = ../../TableController/Private/Operation/ANListControllerUpdateOperation.m; sourceTree = "<group>"; };
 		D75F9E1E1DC982940070538F /* ANListControllerSearchManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANListControllerSearchManager.h; sourceTree = "<group>"; };
 		D75F9E1F1DC982940070538F /* ANListControllerSearchManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANListControllerSearchManager.m; sourceTree = "<group>"; };
 		D75F9E221DC982940070538F /* ANCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANCollectionReusableView.h; sourceTree = "<group>"; };
@@ -773,7 +773,6 @@
 			isa = PBXGroup;
 			children = (
 				D75F9DE31DC982940070538F /* Controller */,
-				D75F9DE61DC982940070538F /* Private */,
 			);
 			path = CollectonController;
 			sourceTree = "<group>";
@@ -789,24 +788,10 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		D75F9DE61DC982940070538F /* Private */ = {
-			isa = PBXGroup;
-			children = (
-				D75F9DEB1DC982940070538F /* Operation */,
-			);
-			path = Private;
-			sourceTree = "<group>";
-		};
-		D75F9DEB1DC982940070538F /* Operation */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Operation;
-			sourceTree = "<group>";
-		};
 		D75F9DEE1DC982940070538F /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				D75F9E1D1DC982940070538F /* SearchManager */,
 				D75F9DF31DC982940070538F /* Controller */,
 				D75F9DF81DC982940070538F /* Interfaces */,
 				D75F9DFD1DC982940070538F /* ItemsHandler */,
@@ -874,6 +859,8 @@
 				D75F9E071DC982940070538F /* ANListControllerUpdateService.m */,
 				D75F9E081DC982940070538F /* ANListControllerReloadOperation.h */,
 				D75F9E091DC982940070538F /* ANListControllerReloadOperation.m */,
+				D75F9E1B1DC982940070538F /* ANListControllerUpdateOperation.h */,
+				D75F9E1C1DC982940070538F /* ANListControllerUpdateOperation.m */,
 			);
 			path = QueueProcessor;
 			sourceTree = "<group>";
@@ -882,6 +869,7 @@
 			isa = PBXGroup;
 			children = (
 				D7348F051DCD368900CC114A /* Alister.h */,
+				D75F9E171DC982940070538F /* ANListControllerLog.h */,
 			);
 			path = Headers;
 			sourceTree = "<group>";
@@ -891,8 +879,6 @@
 			children = (
 				D75F9DEF1DC982940070538F /* ConfigurationModel */,
 				D75F9E131DC982940070538F /* Controller */,
-				D75F9E161DC982940070538F /* Headers */,
-				D75F9E181DC982940070538F /* Private */,
 			);
 			path = TableController;
 			sourceTree = "<group>";
@@ -908,39 +894,14 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		D75F9E161DC982940070538F /* Headers */ = {
-			isa = PBXGroup;
-			children = (
-				D75F9E171DC982940070538F /* ANListControllerLog.h */,
-			);
-			path = Headers;
-			sourceTree = "<group>";
-		};
-		D75F9E181DC982940070538F /* Private */ = {
-			isa = PBXGroup;
-			children = (
-				D75F9E1A1DC982940070538F /* Operation */,
-				D75F9E1D1DC982940070538F /* SearchManager */,
-			);
-			path = Private;
-			sourceTree = "<group>";
-		};
-		D75F9E1A1DC982940070538F /* Operation */ = {
-			isa = PBXGroup;
-			children = (
-				D75F9E1B1DC982940070538F /* ANListControllerUpdateOperation.h */,
-				D75F9E1C1DC982940070538F /* ANListControllerUpdateOperation.m */,
-			);
-			path = Operation;
-			sourceTree = "<group>";
-		};
 		D75F9E1D1DC982940070538F /* SearchManager */ = {
 			isa = PBXGroup;
 			children = (
 				D75F9E1E1DC982940070538F /* ANListControllerSearchManager.h */,
 				D75F9E1F1DC982940070538F /* ANListControllerSearchManager.m */,
 			);
-			path = SearchManager;
+			name = SearchManager;
+			path = ../TableController/Private/SearchManager;
 			sourceTree = "<group>";
 		};
 		D75F9E201DC982940070538F /* ANPrototypingUIKit */ = {
