@@ -6,9 +6,7 @@
 //  Copyright © 2016 ANODA. All rights reserved.
 //
 
-#import "ANListControllerConfigurationModelInterface.h"
-
-@interface ANListControllerConfigurationModel : NSObject <ANListControllerConfigurationModelInterface>
+@interface ANTableUpdateConfigurationModel : NSObject
 
 @property (nonatomic, assign) UITableViewRowAnimation insertSectionAnimation;
 @property (nonatomic, assign) UITableViewRowAnimation deleteSectionAnimation;

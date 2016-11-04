@@ -7,15 +7,10 @@
 //
 
 @protocol ANListViewInterface;
-@protocol ANListControllerConfigurationModelInterface;
 
 @protocol ANListControllerQueueProcessorInterface <NSObject>
 
 - (void)storageNeedsReloadWithIdentifier:(NSString*)identifier animated:(BOOL)isAnimated;
-
 - (id<ANListViewInterface>)listView;
-
-//TODO: temp!
-- (id<ANListControllerConfigurationModelInterface>)configurationModel;
 
 @end

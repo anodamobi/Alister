@@ -9,8 +9,6 @@
 #import "ANStorageUpdateEventsDelegate.h"
 #import "ANListViewInterface.h"
 
-@protocol ANListControllerConfigurationModelInterface;
-
 @protocol ANListControllerQueueProcessorDelegate <NSObject>
 
 - (void)allUpdatesFinished;
@@ -20,7 +18,6 @@
 @interface ANListControllerQueueProcessor : NSObject <ANStorageUpdateEventsDelegate>
 
 @property (nonatomic, weak) id<ANListControllerQueueProcessorDelegate> delegate;
-@property (nonatomic, strong, readonly) id<ANListControllerConfigurationModelInterface> configModel;
 
 - (instancetype)initWithListView:(id<ANListViewInterface>)listView;
 

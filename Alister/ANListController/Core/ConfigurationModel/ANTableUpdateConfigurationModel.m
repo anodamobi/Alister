@@ -6,17 +6,17 @@
 //  Copyright © 2016 ANODA. All rights reserved.
 //
 
-#import "ANListControllerConfigurationModel.h"
+#import "ANTableUpdateConfigurationModel.h"
 
-@interface ANListControllerConfigurationModel ()
+@interface ANTableUpdateConfigurationModel ()
 
 @end
 
-@implementation ANListControllerConfigurationModel
+@implementation ANTableUpdateConfigurationModel
 
 + (instancetype)defaultModel
 {
-    ANListControllerConfigurationModel* model = [self new];
+    ANTableUpdateConfigurationModel* model = [self new];
     
     model.insertSectionAnimation = UITableViewRowAnimationNone;
     model.deleteSectionAnimation = UITableViewRowAnimationAutomatic;

@@ -8,7 +8,7 @@
 
 #import "ANListTableView.h"
 #import "ANStorageUpdateModel.h"
-#import "ANListControllerConfigurationModel.h"
+#import "ANTableUpdateConfigurationModel.h"
 
 @interface ANListTableView ()
 
@@ -104,7 +104,7 @@
 - (void)performUpdate:(ANStorageUpdateModel*)update animated:(BOOL)animated
 {
     UITableView* tableView = self.tableView;
-    ANListControllerConfigurationModel* configurationModel = self.configModel;
+    ANTableUpdateConfigurationModel* configurationModel = self.configModel;
     
     UITableViewRowAnimation insertSectionAnimation = UITableViewRowAnimationNone;
     UITableViewRowAnimation deleteSectionAnimation = UITableViewRowAnimationNone;

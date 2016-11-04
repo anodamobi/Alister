@@ -93,15 +93,6 @@
     self.selectionBlock = [block copy];
 }
 
-- (void)updateConfigurationModelWithBlock:(ANListConfigurationModelUpdateBlock)block
-{
-    if (block)
-    {
-        block(self.updateProcessor.configModel);
-        [self _updateKeyboardHandlerWithConfigurationModel:self.updateProcessor.configModel];
-    }
-}
-
 - (void)addUpdatesFinishedTriggerBlock:(ANListControllerUpdatesFinishedTriggerBlock)block
 {
     self.updatesFinishedTrigger = [block copy];
@@ -161,6 +152,7 @@
 
 #pragma mark - Private
 
+/*
 //TODO:
 - (void)_updateKeyboardHandlerWithConfigurationModel:(ANListControllerConfigurationModel*)model
 {
@@ -174,6 +166,7 @@
         self.keyboardHandler = nil;
     }
 }
+ */
 
 - (void)_attachStorage:(ANStorage*)storage
 {

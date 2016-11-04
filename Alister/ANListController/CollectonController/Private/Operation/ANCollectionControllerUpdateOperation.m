@@ -26,7 +26,7 @@
 }
 
 
-#pragma mark - ANStorageUpdateTableOperationDelegate
+#pragma mark - ANListControllerUpdateOperationInterface
 
 - (void)storageUpdateModelGenerated:(ANStorageUpdateModel*)updateModel
 {

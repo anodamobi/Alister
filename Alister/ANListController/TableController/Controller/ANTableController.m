@@ -10,10 +10,7 @@
 #import "ANListController+Interitance.h"
 #import "ANTableControllerUpdateOperation.h"
 #import "ANListControllerQueueProcessor.h"
-
-@interface ANTableController ()
-
-@end
+#import "ANListTableView.h"
 
 @implementation ANTableController
 
@@ -33,10 +30,17 @@
     return self;
 }
 
-- (UITableView *)tableView
+- (UITableView*)tableView
 {
     return (UITableView*)self.listView.view;
 }
+
+- (void)updateDefaultUpdateAnimationModel:(ANTableUpdateConfigurationModel*)model
+{
+    ANListTableView* listView = (ANListTableView*)self.listView;
+    listView.configModel = model;
+}
+
 
 - (void)setupHeaderFooterDefaultKindOnStorage:(ANStorage*)storage
 {

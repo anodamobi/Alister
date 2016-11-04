@@ -8,11 +8,11 @@
 
 #import "ANListViewInterface.h"
 
-@class ANListControllerConfigurationModel;
+@class ANTableUpdateConfigurationModel;
 
 @interface ANListTableView : NSObject <ANListViewInterface>
 
-@property (nonatomic, strong) ANListControllerConfigurationModel* configModel;
+@property (nonatomic, strong) ANTableUpdateConfigurationModel* configModel;
 
 + (instancetype)wrapperWithTableView:(UITableView*)tableView;
 

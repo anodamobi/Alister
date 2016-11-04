@@ -7,7 +7,6 @@
 //
 
 #import "ANListControllerReloadOperation.h"
-#import "ANListControllerConfigurationModel.h"
 #import "ANListViewInterface.h"
 
 @implementation ANListControllerReloadOperation

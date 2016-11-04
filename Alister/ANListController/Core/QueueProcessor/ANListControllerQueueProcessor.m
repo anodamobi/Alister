@@ -10,8 +10,6 @@
 #import "ANStorageUpdateOperation.h"
 #import "ANListControllerUpdateOperationInterface.h"
 #import "ANListControllerReloadOperation.h"
-#import "ANListControllerConfigurationModel.h"
-#import "ANListControllerQueueProcessorInterface.h"
 
 @interface ANListControllerQueueProcessor ()
 <
@@ -149,15 +147,6 @@
     {
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
     }
-}
-
-- (id<ANListControllerConfigurationModelInterface>)configurationModel
-{
-    if (!_configModel)
-    {
-        _configModel = [ANListControllerConfigurationModel defaultModel];
-    }
-    return _configModel;
 }
 
 @end

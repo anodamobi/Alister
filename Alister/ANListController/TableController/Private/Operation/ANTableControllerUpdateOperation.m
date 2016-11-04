@@ -8,7 +8,6 @@
 
 #import "ANTableControllerUpdateOperation.h"
 #import "ANStorageUpdateModel.h"
-#import "ANListControllerConfigurationModelInterface.h"
 #import "ANListControllerLog.h"
 #import "ANListViewInterface.h"
 
@@ -74,8 +73,6 @@
     {   
         if (!update.isRequireReload)
         {
-            id<ANListControllerConfigurationModelInterface> configurationModel = [delegate configurationModel];
-            
             @try
             {
                 [CATransaction begin];

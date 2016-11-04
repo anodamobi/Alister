@@ -77,7 +77,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param sectionIndex  index for section where items should be added
  */
 
-- (void)addItems:(NSArray*)items toSection:(NSUInteger)sectionIndex;
+- (void)addItems:(NSArray*)items toSection:(NSInteger)sectionIndex;
 
 
 /**

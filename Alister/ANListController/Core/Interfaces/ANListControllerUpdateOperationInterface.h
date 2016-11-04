@@ -17,17 +17,9 @@
 @end
 
 
-
-
-
-
-@protocol ANListControllerConfigurationModelInterface;
-
 @protocol ANListControllerUpdateOperationDelegate <NSObject>
 
 - (id<ANListViewInterface>)listView;
-- (id<ANListControllerConfigurationModelInterface>)configurationModel;
-
 - (void)storageNeedsReloadWithIdentifier:(NSString*)identifier;
 
 @end

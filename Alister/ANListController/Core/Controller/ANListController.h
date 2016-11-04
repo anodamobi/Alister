@@ -8,8 +8,8 @@
 
 #import "ANStorage.h"
 #import "ANListControllerReusableInterface.h"
-#import "ANListControllerConfigurationModel.h"
 #import "Alister.h" //TODO:
+#import "ANTableUpdateConfigurationModel.h"
 
 @class ANKeyboardHandler;
 
@@ -22,12 +22,17 @@
 
 
 - (void)attachStorage:(ANStorage*)storage;
+- (void)updateDefaultUpdateAnimationModel:(ANTableUpdateConfigurationModel*)model;
+
 
 - (void)configureCellsWithBlock:(ANListControllerCellConfigurationBlock)block;
 - (void)configureItemSelectionBlock:(ANListControllerItemSelectionBlock)block;
 
 
-- (void)updateConfigurationModelWithBlock:(ANListConfigurationModelUpdateBlock)block;
+//TODO:- (void)updateConfigurationModelWithBlock:(ANListConfigurationModelUpdateBlock)block;
+
+
+
 - (void)addUpdatesFinishedTriggerBlock:(ANListControllerUpdatesFinishedTriggerBlock)block;
 
 - (void)updateSearchingPredicateBlock:(ANListControllerSearchPredicateBlock)block;
