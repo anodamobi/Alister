@@ -132,7 +132,6 @@ typedef NS_ENUM(NSInteger, ANListControllerSearchScope)
                         forSearchString:(NSString*)searchString
                           inSearchScope:(NSInteger)searchScope
 {
-    ANStorage* searchingStorage = [ANStorage new];
     //storage.isSearchingType = YES; TODO:
     
     NSPredicate* predicate;

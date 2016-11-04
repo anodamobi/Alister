@@ -45,7 +45,6 @@
     [self registerSupplementaryClass:viewClass forModelClass:modelClass kind:self.listView.headerDefaultKind];
 }
 
-
 - (void)registerSupplementaryClass:(Class)supplementaryClass forModelClass:(Class)modelClass kind:(NSString*)kind
 {
     NSString* identifier = [self.mappingService registerViewModelClass:modelClass kind:kind];

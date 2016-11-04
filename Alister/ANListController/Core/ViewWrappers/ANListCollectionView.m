@@ -7,6 +7,7 @@
 //
 
 #import "ANListCollectionView.h"
+#import "ANStorageUpdateModel.h"
 
 @interface ANListCollectionView ()
 
@@ -105,6 +106,88 @@
     return [self.collectionView dequeueReusableSupplementaryViewOfKind:kind
                                                    withReuseIdentifier:reuseIdentifier
                                                           forIndexPath:indexPath];
+}
+
+- (void)performUpdate:(ANStorageUpdateModel*)update
+{
+    UICollectionView* collectionView = self.collectionView;
+
+    NSMutableIndexSet*  sectionsToInsert = [NSMutableIndexSet indexSet];
+
+    [update.insertedSectionIndexes enumerateIndexesUsingBlock:^(NSUInteger idx, __unused BOOL* stop) {
+        if ((NSUInteger)[collectionView numberOfSections] <= idx)
+        {
+            [sectionsToInsert addIndex:idx];
+        }
+    }];
+
+    NSUInteger sectionChanges = [update.deletedSectionIndexes count] +
+            [update.insertedSectionIndexes count] +
+            [update.updatedSectionIndexes count];
+
+    NSUInteger itemChanges = [update.deletedRowIndexPaths count] +
+            [update.insertedRowIndexPaths count] +
+            [update.updatedRowIndexPaths count];
+
+    if (sectionChanges)
+    {
+        [collectionView performBatchUpdates:^{
+            [collectionView deleteSections:update.deletedSectionIndexes];
+            [collectionView insertSections:sectionsToInsert];
+            [collectionView reloadSections:update.updatedSectionIndexes];
+        } completion:nil];
+    }
+
+    if ([self _shouldReloadCollectionView:collectionView
+   toPreventInsertFirstItemIssueForUpdate:update])
+    {
+        [collectionView reloadData];
+        return;
+    }
+
+    if ((itemChanges && (sectionChanges == 0)))
+    {
+        [collectionView performBatchUpdates:^{
+            [collectionView deleteItemsAtIndexPaths:update.deletedRowIndexPaths];
+            [collectionView insertItemsAtIndexPaths:update.insertedRowIndexPaths];
+            [collectionView reloadItemsAtIndexPaths:update.updatedRowIndexPaths];
+        } completion:nil];
+    }
+}
+
+#pragma mark - workarounds
+
+// This is to prevent a bug in UICollectionView from occurring.
+// The bug presents itself when inserting the first object or deleting the last object in a collection view.
+// http://stackoverflow.com/questions/12611292/uicollectionview-assertion-failure
+// http://stackoverflow.com/questions/13904049/assertion-failure-in-uicollectionviewdata-indexpathforitematglobalindex
+// This code should be removed once the bug has been fixed, it is tracked in OpenRadar
+// http://openradar.appspot.com/12954582
+- (BOOL)_shouldReloadCollectionView:(UICollectionView*)collectionView toPreventInsertFirstItemIssueForUpdate:(ANStorageUpdateModel*)update
+{
+    BOOL shouldReload = NO;
+
+    for (NSIndexPath* indexPath in update.insertedRowIndexPaths)
+    {
+        if ([collectionView numberOfItemsInSection:indexPath.section] == 0)
+        {
+            shouldReload = YES;
+        }
+    }
+
+    for (NSIndexPath* indexPath in update.deletedRowIndexPaths)
+    {
+        if ([collectionView numberOfItemsInSection:indexPath.section] == 1)
+        {
+            shouldReload = YES;
+        }
+    }
+
+    if (collectionView.window == nil)
+    {
+        shouldReload = YES;
+    }
+    return shouldReload;
 }
 
 @end

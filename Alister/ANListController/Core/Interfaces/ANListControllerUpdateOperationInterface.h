@@ -7,6 +7,7 @@
 //
 
 #import "ANStorageListUpdateOperationInterface.h"
+#import "ANListViewInterface.h"
 
 @protocol ANListControllerUpdateOperationInterface <ANStorageListUpdateOperationInterface>
 
@@ -21,7 +22,6 @@
 
 
 @protocol ANListControllerConfigurationModelInterface;
-@protocol ANListViewInterface;
 
 @protocol ANListControllerUpdateOperationDelegate <NSObject>
 

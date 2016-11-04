@@ -7,21 +7,11 @@
 //
 
 #import "ANCollectionController.h"
-#import "ANListControllerUpdateViewInterface.h"
-#import "ANStorage.h"
-#import "ANListControllerSearchManager.h"
 #import "ANListViewInterface.h"
 #import "ANListCollectionView.h"
 #import "ANListController+Interitance.h"
-#import "ANListControllerUpdateViewInterface.h"
-#import "ANListControllerItemsHandler.h"
-#import "ANListControllerConfigurationModel.h"
 #import "ANListControllerQueueProcessor.h"
 #import "ANCollectionControllerUpdateOperation.h"
-#import "ANListCollectionView.h"
-
-@class ANListControllerTableViewWrapper;
-@class ANListControllerCollectionViewWrapper;
 
 @implementation ANCollectionController
 
@@ -52,7 +42,7 @@
 }
 
 
-#pragma mark - Supplementaries
+#pragma mark - Supplementary
 
 - (UICollectionReusableView*)collectionView:(__unused UICollectionView*)collectionView
           viewForSupplementaryElementOfKind:(NSString*)kind
@@ -126,6 +116,5 @@ referenceSizeForHeaderInSection:(NSInteger)sectionIndex
     id model = [self.currentStorage supplementaryModelOfKind:kind forSectionIndex:section];
     return (model != nil);
 }
-
 
 @end

@@ -10,7 +10,6 @@
 #import "ANStorageUpdateModel.h"
 #import "ANStorageSectionModel.h"
 #import "ANStorageLoader.h"
-#import "ANStorageMovedIndexPathModel.h"
 #import "ANStorageModel.h"
 #import "ANStorageLog.h"
 #import "ANStorageValidator.h"

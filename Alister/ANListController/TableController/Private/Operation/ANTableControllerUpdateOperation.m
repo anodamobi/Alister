@@ -84,42 +84,8 @@
                     self.executing = NO;
                 }];
                 
-                UITableViewRowAnimation insertSectionAnimation = UITableViewRowAnimationNone;
-                UITableViewRowAnimation deleteSectionAnimation = UITableViewRowAnimationNone;
-                UITableViewRowAnimation reloadSectionAnimation = UITableViewRowAnimationNone;
-                UITableViewRowAnimation insertRowAnimation = UITableViewRowAnimationNone;
-                UITableViewRowAnimation deleteRowAnimation = UITableViewRowAnimationNone;
-                UITableViewRowAnimation reloadRowAnimation = UITableViewRowAnimationNone;
+                [delegate.listView performUpdate:update animated:self.shouldAnimate];
                 
-                if (self.shouldAnimate)
-                {
-                    insertSectionAnimation = configurationModel.insertSectionAnimation;
-                    deleteSectionAnimation = configurationModel.deleteSectionAnimation;
-                    reloadSectionAnimation = configurationModel.reloadSectionAnimation;
-                    insertRowAnimation = configurationModel.insertRowAnimation;
-                    deleteRowAnimation = configurationModel.deleteRowAnimation;
-                    reloadRowAnimation = configurationModel.reloadRowAnimation;
-                }
-
-                [tableView beginUpdates];
-                
-                [tableView insertSections:update.insertedSectionIndexes withRowAnimation:insertSectionAnimation];
-                [tableView deleteSections:update.deletedSectionIndexes withRowAnimation:deleteSectionAnimation];
-                [tableView reloadSections:update.updatedSectionIndexes withRowAnimation:reloadSectionAnimation];
-                
-                [update.movedRowsIndexPaths enumerateObjectsUsingBlock:^(ANStorageMovedIndexPathModel* obj, __unused NSUInteger idx, __unused BOOL* stop) {
-                    
-                    if (![update.deletedSectionIndexes containsIndex:(NSUInteger)obj.fromIndexPath.section])
-                    {
-                        [tableView moveRowAtIndexPath:obj.fromIndexPath toIndexPath:obj.toIndexPath];
-                    }
-                }];
-                
-                [tableView insertRowsAtIndexPaths:update.insertedRowIndexPaths withRowAnimation:insertRowAnimation];
-                [tableView deleteRowsAtIndexPaths:update.deletedRowIndexPaths withRowAnimation:deleteRowAnimation];
-                [tableView reloadRowsAtIndexPaths:update.updatedRowIndexPaths withRowAnimation:reloadRowAnimation];
-                
-                [tableView endUpdates];
                 [CATransaction commit];
             }
             

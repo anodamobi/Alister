@@ -8,6 +8,8 @@
 
 #import "ANListControllerUpdateViewInterface.h"
 
+@class ANStorageUpdateModel;
+
 @protocol ANListViewInterface <NSObject>
 
 - (void)registerSupplementaryClass:(Class)supplementaryClass
@@ -35,5 +37,7 @@
 
 - (void)setDelegate:(id)delegate;
 - (void)setDataSource:(id)dataSource;
+
+- (void)performUpdate:(ANStorageUpdateModel*)update animated:(BOOL)animated;
 
 @end
