@@ -6,16 +6,21 @@
 //  Copyright © 2016 ANODA. All rights reserved.
 //
 
+@class ANStorage;
+
 @protocol ANListControllerSearchManagerDelegate <NSObject>
 
 - (void)searchControllerDidCancelSearch;
-- (void)searchControllerRequiresStorageWithSearchString:(NSString*)searchString andScope:(NSInteger)scope;
+- (void)searchControllerCreatedStorage:(ANStorage*)searchStorage;
+- (ANStorage*)storage;
 
 @end
 
-@interface ANListControllerSearchManager : NSObject <UISearchBarDelegate>
+@interface ANListControllerSearchManager : NSObject
 
 @property (nonatomic, weak) id<ANListControllerSearchManagerDelegate> delegate;
+@property (nonatomic, strong, readonly) ANStorage* searchingStorage;
+@property (nonatomic, weak) UISearchBar* searchBar;
 
 - (BOOL)isSearching;
 

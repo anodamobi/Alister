@@ -28,7 +28,6 @@
 @property (nonatomic, copy) ANListControllerItemSelectionBlock selectionBlock;
 @property (nonatomic, copy) ANListControllerUpdatesFinishedTriggerBlock updatesFinishedTrigger;
 
-@property (nonatomic, strong) ANStorage* searchingStorage;
 @property (nonatomic, strong) ANListControllerSearchManager* searchManager;
 
 @end
@@ -71,9 +70,6 @@
 
     self.storage.listController = nil;
     self.storage = nil;
-    
-    self.searchBar.delegate = nil;
-    self.searchingStorage.listController = nil;
 }
 
 - (void)allUpdatesFinished
@@ -129,39 +125,25 @@
 
 - (void)searchControllerDidCancelSearch
 {
-    self.searchingStorage.listController = nil;
     self.storage.listController = [self updateProcessor];
 }
 
-- (void)setSearchingStorage:(ANStorage*)searchingStorage
+- (void)searchControllerCreatedStorage:(ANStorage*)searchStorage
 {
-    _searchingStorage = searchingStorage;
-    [self _attachStorage:searchingStorage];
-}
-
-- (void)searchControllerRequiresStorageWithSearchString:(NSString*)searchString andScope:(NSInteger)scope
-{
-    ANStorage* storage = self.storage;
-    storage.listController = nil;
+    [self _attachStorage:searchStorage];
+    [[self updateProcessor] storageNeedsReloadWithIdentifier:searchStorage.identifier animated:YES];
     
-    self.searchingStorage = [storage searchStorageForSearchString:searchString
-                                                    inSearchScope:scope];
-    [self _attachStorage:self.searchingStorage];
-    
-    [[self updateProcessor] storageNeedsReloadWithIdentifier:self.searchingStorage.identifier animated:YES];
-    
-    self.searchingStorage.listController = [self updateProcessor];
+    searchStorage.listController = [self updateProcessor];
 }
 
 - (ANStorage*)currentStorage
 {
-    return [self.searchManager isSearching] ? self.searchingStorage : self.storage;
+    return [self.searchManager isSearching] ? self.searchManager.searchingStorage : self.storage;
 }
 
 - (void)attachSearchBar:(UISearchBar*)searchBar
 {
-    searchBar.delegate = self.searchManager;
-    _searchBar = searchBar;
+    self.searchManager.searchBar = searchBar;
 }
 
 - (void)allUpdatesWereFinished

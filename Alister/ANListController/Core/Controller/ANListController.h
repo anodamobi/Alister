@@ -19,7 +19,6 @@ typedef void (^ANListControllerUpdatesFinishedTriggerBlock)();
 
 @interface ANListController : NSObject
 
-@property (nonatomic, weak, readonly) UISearchBar* searchBar;
 @property (nonatomic, strong) ANKeyboardHandler* keyboardHandler;
 
 @property (nonatomic, assign) BOOL shouldHandleKeyboard;

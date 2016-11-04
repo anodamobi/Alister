@@ -7,13 +7,14 @@
 //
 
 #import "ANListControllerSearchManager.h"
+#import "ANStorage.h"
 
 typedef NS_ENUM(NSInteger, ANListControllerSearchScope)
 {
     ANListControllerSearchScopeNone = -1,
 };
 
-@interface ANListControllerSearchManager ()
+@interface ANListControllerSearchManager () <UISearchBarDelegate>
 
 @property (nonatomic, copy) NSString* currentSearchString;
 @property (nonatomic, assign) NSInteger currentSearchScope;
@@ -32,6 +33,17 @@ typedef NS_ENUM(NSInteger, ANListControllerSearchScope)
     return self;
 }
 
+- (void)dealloc
+{
+    self.searchBar.delegate = nil;
+    self.searchingStorage.listController = nil;
+}
+
+- (void)setSearchBar:(UISearchBar*)searchBar
+{
+    searchBar.delegate = self;
+    _searchBar = searchBar;
+}
 
 #pragma mark - Public
 
@@ -97,13 +109,20 @@ typedef NS_ENUM(NSInteger, ANListControllerSearchScope)
     
     if (isSearching && ![self isSearching])
     {
+        self.searchingStorage.listController = nil;
         [delegate searchControllerDidCancelSearch];
     }
     else
     {
-        [delegate searchControllerRequiresStorageWithSearchString:self.currentSearchString
-                                                         andScope:self.currentSearchScope];
+        ANStorage* storage = delegate.storage;
+        storage.listController = nil;
+        
+        _searchingStorage = [storage searchStorageForSearchString:self.currentSearchString
+                                                        inSearchScope:self.currentSearchScope];
+        
+        [delegate searchControllerCreatedStorage:_searchingStorage];
     }
 }
+
 
 @end
