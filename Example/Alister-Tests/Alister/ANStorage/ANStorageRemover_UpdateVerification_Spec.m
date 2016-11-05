@@ -137,10 +137,6 @@ describe(@"removeAllItemsAndSections", ^{
         ANStorageUpdateModel* expected = [ANStorageUpdateModel new];
         expected.isRequireReload = YES;
         
-        //TODO: check this after unit tests on operations
-//        [expected addDeletedSectionIndex:0];
-//        [expected addDeletedSectionIndex:1];
-        
         expect(fakeDelegate.lastUpdate).equal(expected);
     });
     

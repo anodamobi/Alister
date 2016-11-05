@@ -14,7 +14,7 @@
 
 @interface ANStorageRemover ()
 
-@property (nonatomic, weak) ANStorageModel* storageModel;
+@property (nonatomic, strong) ANStorageModel* storageModel; //HOTFIX:
 
 @end
 
@@ -81,16 +81,21 @@
     ANStorageModel* storage = self.storageModel;
     NSMutableArray* indexPaths = [NSMutableArray array];
     
-    NSArray* sortedItemsArray = [[[items allObjects] reverseObjectEnumerator] allObjects];
-    
-    [sortedItemsArray enumerateObjectsUsingBlock:^(id  _Nonnull item, NSUInteger idx, BOOL * _Nonnull stop) {
+    [items.allObjects enumerateObjectsUsingBlock:^(id  _Nonnull item, NSUInteger idx, BOOL * _Nonnull stop) {
+       
         NSIndexPath* indexPath = [ANStorageLoader indexPathForItem:item inStorage:storage];
         if (indexPath)
         {
-            ANStorageSectionModel* section = [storage sectionAtIndex:(NSUInteger)indexPath.section];
-            [section removeItemAtIndex:(NSUInteger)indexPath.row];
             [indexPaths addObject:indexPath];
         }
+    }];
+    
+    [indexPaths sortUsingSelector:@selector(compare:)];
+    NSArray* reversed = [[indexPaths reverseObjectEnumerator] allObjects];
+    
+    [reversed enumerateObjectsUsingBlock:^(NSIndexPath*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        ANStorageSectionModel* section = [storage sectionAtIndex:(NSUInteger)obj.section];
+        [section removeItemAtIndex:(NSUInteger)obj.row];
     }];
     
     [update addDeletedIndexPaths:indexPaths];
