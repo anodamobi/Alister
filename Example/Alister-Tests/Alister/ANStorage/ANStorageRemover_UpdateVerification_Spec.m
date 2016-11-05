@@ -26,8 +26,9 @@ beforeEach(^{
     ANStorageModel* storage = [ANStorageModel new];
     
     fakeDelegate = [ANStorageFakeOperationDelegate new];
-    updater = [ANStorageUpdater updaterWithStorageModel:storage updateDelegate:nil];
-    remover = [ANStorageRemover removerWithStorageModel:storage andUpdateDelegate:fakeDelegate];
+    updater = [ANStorageUpdater updaterWithStorageModel:storage];
+    remover = [ANStorageRemover removerWithStorageModel:storage];
+    remover.updateDelegate = fakeDelegate;
 });
 
 describe(@"removeItem:", ^{

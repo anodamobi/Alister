@@ -41,8 +41,8 @@
         
         self.storageModel = [ANStorageModel new];
         
-        self.remover = [ANStorageRemover removerWithStorageModel:self.storageModel andUpdateDelegate:nil];
-        self.updater = [ANStorageUpdater updaterWithStorageModel:self.storageModel updateDelegate:nil];
+        self.remover = [ANStorageRemover removerWithStorageModel:self.storageModel];
+        self.updater = [ANStorageUpdater updaterWithStorageModel:self.storageModel];
     }
     return self;
 }
@@ -69,8 +69,8 @@
     {
         if (!self.isSearchingType)
         {
-            id<ANStorageUpdateEventsDelegate> listController = self.updatesHandler;
-            if (listController)
+            id<ANStorageUpdateEventsDelegate> updatesHandler = self.updatesHandler;
+            if (updatesHandler)
             {
                 ANStorageUpdateOperation* updateOperation = nil;
                 updateOperation = [ANStorageUpdateOperation operationWithConfigurationBlock:^(ANStorageUpdateOperation* operation) {
@@ -79,7 +79,7 @@
                     block(self);
                 }];
                 
-                [listController storageDidPerformUpdate:updateOperation withIdentifier:self.identifier animatable:isAnimatable];
+                [updatesHandler storageDidPerformUpdate:updateOperation withIdentifier:self.identifier animatable:isAnimatable];
             }
             else
             {

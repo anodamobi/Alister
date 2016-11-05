@@ -20,11 +20,10 @@
 
 @implementation ANStorageRemover
 
-+ (instancetype)removerWithStorageModel:(ANStorageModel*)storageModel andUpdateDelegate:(id<ANStorageUpdateOperationInterface>)delegate
++ (instancetype)removerWithStorageModel:(ANStorageModel*)storageModel
 {
     ANStorageRemover* remover = [self new];
     remover.storageModel = storageModel;
-    remover.updateDelegate = delegate;
     
     return remover;
 }

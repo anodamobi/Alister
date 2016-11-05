@@ -23,7 +23,8 @@ __block ANStorageModel* storage = nil;
 beforeEach(^{
     storage = [ANStorageModel new];
     fakeDelegate = [ANStorageFakeOperationDelegate new];
-    updater = [ANStorageUpdater updaterWithStorageModel:storage updateDelegate:fakeDelegate];
+    updater = [ANStorageUpdater updaterWithStorageModel:storage];
+    updater.updateDelegate = fakeDelegate;
 });
 
 
@@ -56,7 +57,8 @@ describe(@"update addItem:", ^{
     });
     
     it(@"update will be empty if storage is nil", ^{
-        updater = [ANStorageUpdater updaterWithStorageModel:nil updateDelegate:fakeDelegate];
+        updater = [ANStorageUpdater updaterWithStorageModel:nil];
+        updater.updateDelegate = fakeDelegate;
         [updater addItem:@"test"];
         
         expect(fakeDelegate.lastUpdate.isEmpty).beTruthy();
@@ -84,7 +86,9 @@ describe(@"update addItems:", ^{
     });
     
     it(@"no update generated if storage is nil", ^{
-        updater = [ANStorageUpdater updaterWithStorageModel:nil updateDelegate:fakeDelegate]; //TODO: move this test cases in one context
+        updater = [ANStorageUpdater updaterWithStorageModel:nil];
+        updater.updateDelegate = fakeDelegate;
+        //TODO: move this test cases in one context
         [updater addItems:@[@"test"]];
         
         expect(fakeDelegate.lastUpdate.isEmpty).beTruthy();
@@ -148,7 +152,8 @@ describe(@"update addItem: toSection:", ^{
     });
     
     it(@"update will be empty if storage is nil", ^{
-        updater = [ANStorageUpdater updaterWithStorageModel:nil updateDelegate:fakeDelegate];
+        updater = [ANStorageUpdater updaterWithStorageModel:nil];
+        updater.updateDelegate = fakeDelegate;
         [updater addItem:@"test"];
        
         expect(fakeDelegate.lastUpdate.isEmpty).beTruthy();
@@ -181,7 +186,8 @@ describe(@"verify update for addItems: toSection:", ^{
     });
     
     it(@"update will be empty if storage is nil", ^{
-        updater = [ANStorageUpdater updaterWithStorageModel:nil updateDelegate:fakeDelegate];
+        updater = [ANStorageUpdater updaterWithStorageModel:nil];
+        updater.updateDelegate = fakeDelegate;
         [updater addItems:@[] toSection:0];
         
         expect(fakeDelegate.lastUpdate.isEmpty).beTruthy();
@@ -229,7 +235,8 @@ describe(@"verify update for addItem: atIndexPath:", ^{
     });
     
     it(@"update will be empty if storage is nil", ^{
-        updater = [ANStorageUpdater updaterWithStorageModel:nil updateDelegate:fakeDelegate];
+        updater = [ANStorageUpdater updaterWithStorageModel:nil];
+        updater.updateDelegate = fakeDelegate;
         [updater addItem:@"test" atIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]];
         
         expect(fakeDelegate.lastUpdate.isEmpty).beTruthy();
@@ -262,7 +269,8 @@ describe(@"reloadItem:", ^{
     });
     
     it(@"update will be empty if storage is nil", ^{
-        updater = [ANStorageUpdater updaterWithStorageModel:nil updateDelegate:fakeDelegate];
+        updater = [ANStorageUpdater updaterWithStorageModel:nil];
+        updater.updateDelegate = fakeDelegate;
         [updater reloadItem:@"test"];
         
         expect(fakeDelegate.lastUpdate.isEmpty).beTruthy();
@@ -295,7 +303,8 @@ describe(@"reloadItems: inStorage:", ^{
     });
     
     it(@"update will be empty if storage is nil", ^{
-        updater = [ANStorageUpdater updaterWithStorageModel:nil updateDelegate:fakeDelegate];
+        updater = [ANStorageUpdater updaterWithStorageModel:nil];
+        updater.updateDelegate = fakeDelegate;
         [updater reloadItems:@[@"test"]];
         
         expect(fakeDelegate.lastUpdate.isEmpty).beTruthy();
@@ -322,7 +331,8 @@ describe(@"replaceItem: withItem:", ^{
     });
     
     it(@"update will be empty if storage is nil", ^{
-        updater = [ANStorageUpdater updaterWithStorageModel:nil updateDelegate:fakeDelegate];
+        updater = [ANStorageUpdater updaterWithStorageModel:nil];
+        updater.updateDelegate = fakeDelegate;
         [updater replaceItem:@"test" withItem:@"test"];
         
         expect(fakeDelegate.lastUpdate.isEmpty).beTruthy();
@@ -371,7 +381,8 @@ describe(@"moveItemFromIndexPath: toIndexPath:", ^{
     });
     
     it(@"update will be empty if storage is nil", ^{
-        updater = [ANStorageUpdater updaterWithStorageModel:nil updateDelegate:fakeDelegate];
+        updater = [ANStorageUpdater updaterWithStorageModel:nil];
+        updater.updateDelegate = fakeDelegate;
         [updater moveItemFromIndexPath:fromIndexPath toIndexPath:toIndexPath];
         
         expect(fakeDelegate.lastUpdate.isEmpty).beTruthy();
@@ -414,7 +425,8 @@ describe(@"createSectionIfNotExist:inStorage: ", ^{
     });
     
     it(@"update will be empty if storage is nil", ^{
-        updater = [ANStorageUpdater updaterWithStorageModel:nil updateDelegate:fakeDelegate];
+        updater = [ANStorageUpdater updaterWithStorageModel:nil];
+        updater.updateDelegate = fakeDelegate;
         NSIndexSet* update = [updater createSectionIfNotExist:0];
         
         expect(update).haveCount(0);
@@ -461,7 +473,8 @@ describe(@"updateSectionHeaderModel: forSectionIndex: inStorage:", ^{
     });
     
     it(@"no update will be generated if storage is nil", ^{
-        updater = [ANStorageUpdater updaterWithStorageModel:nil updateDelegate:fakeDelegate];
+        updater = [ANStorageUpdater updaterWithStorageModel:nil];
+        updater.updateDelegate = fakeDelegate;
         [updater updateSectionHeaderModel:@"test" forSectionIndex:0];
         expect(fakeDelegate.lastUpdate.isEmpty).beTruthy();
     });
@@ -511,7 +524,8 @@ describe(@"updateSectionFooterModel: forSectionIndex: inStorage:", ^{
     });
     
     it(@"no update will be generated if storage is nil", ^{
-        updater = [ANStorageUpdater updaterWithStorageModel:nil updateDelegate:fakeDelegate];
+        updater = [ANStorageUpdater updaterWithStorageModel:nil];
+        updater.updateDelegate = fakeDelegate;
         [updater updateSectionFooterModel:@"test" forSectionIndex:0];
         
         expect(fakeDelegate.lastUpdate.isEmpty).beTruthy();

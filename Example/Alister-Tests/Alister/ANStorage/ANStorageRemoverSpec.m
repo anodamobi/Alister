@@ -22,8 +22,8 @@ __block ANStorageUpdater* updater = nil;
 
 beforeEach(^{
     storage = [ANStorageModel new];
-    remover = [ANStorageRemover removerWithStorageModel:storage andUpdateDelegate:nil];
-    updater = [ANStorageUpdater updaterWithStorageModel:storage updateDelegate:nil];
+    remover = [ANStorageRemover removerWithStorageModel:storage];
+    updater = [ANStorageUpdater updaterWithStorageModel:storage];
 });
 
 describe(@"removeItem:", ^{
@@ -45,7 +45,7 @@ describe(@"removeItem:", ^{
     
     it(@"no assert if storage is nil", ^{
         void(^block)() = ^() {
-            remover = [ANStorageRemover removerWithStorageModel:nil andUpdateDelegate:nil];
+            remover = [ANStorageRemover removerWithStorageModel:nil];
             [remover removeItem:@"test"];
         };
         expect(block).notTo.raiseAny();
@@ -124,7 +124,7 @@ describe(@"removeItems:", ^{
     
     it(@"no assert if storage is nil", ^{
         void(^block)() = ^() {
-            remover = [ANStorageRemover removerWithStorageModel:nil andUpdateDelegate:nil];
+            remover = [ANStorageRemover removerWithStorageModel:nil];
             [remover removeItems:[NSSet setWithObject:@"test"]];
         };
         expect(block).notTo.raiseAny();
@@ -159,7 +159,7 @@ describe(@"removeAllItemsAndSections", ^{
     
     it(@"no assert if storage is nil", ^{
         void(^block)() = ^() {
-            remover = [ANStorageRemover removerWithStorageModel:nil andUpdateDelegate:nil];
+            remover = [ANStorageRemover removerWithStorageModel:nil];
             [remover removeAllItemsAndSections];
         };
         expect(block).notTo.raiseAny();
@@ -198,7 +198,7 @@ describe(@"removeSections:", ^{
     
     it(@"no assert if storage is nil", ^{
         void(^block)() = ^() {
-            remover = [ANStorageRemover removerWithStorageModel:nil andUpdateDelegate:nil];
+            remover = [ANStorageRemover removerWithStorageModel:nil];
             [remover removeSections:[NSIndexSet indexSetWithIndex:0]];
         };
         expect(block).notTo.raiseAny();

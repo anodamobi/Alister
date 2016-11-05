@@ -18,7 +18,7 @@ __block ANStorageUpdater* updater = nil;
 
 beforeEach(^{
     storage = [ANStorageModel new];
-    updater = [ANStorageUpdater updaterWithStorageModel:storage updateDelegate:kANTestNil];
+    updater = [ANStorageUpdater updaterWithStorageModel:storage];
 });
 
 

@@ -22,11 +22,10 @@
 
 @implementation ANStorageUpdater
 
-+ (instancetype)updaterWithStorageModel:(ANStorageModel*)model updateDelegate:(nonnull id<ANStorageUpdateOperationInterface>)delegate
++ (instancetype)updaterWithStorageModel:(ANStorageModel*)model
 {
     ANStorageUpdater* updater = [self new];
     updater.storageModel = model;
-    updater.updateDelegate = delegate;
     
     return updater;
 }

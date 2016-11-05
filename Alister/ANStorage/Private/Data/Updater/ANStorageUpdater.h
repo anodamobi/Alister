@@ -24,7 +24,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 //TODO: doc
-+ (instancetype)updaterWithStorageModel:(ANStorageModel*)model updateDelegate:(id<ANStorageUpdateOperationInterface>)delegate;
++ (instancetype)updaterWithStorageModel:(ANStorageModel*)model;
 
 @property (nonatomic, weak) id<ANStorageUpdateOperationInterface> updateDelegate;
 
