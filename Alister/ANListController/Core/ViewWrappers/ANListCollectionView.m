@@ -108,7 +108,7 @@
                                                           forIndexPath:indexPath];
 }
 
-- (void)performUpdate:(ANStorageUpdateModel*)update
+- (void)performUpdate:(ANStorageUpdateModel*)update animated:(BOOL)animated //TODO: handle animation
 {
     UICollectionView* collectionView = self.collectionView;
 

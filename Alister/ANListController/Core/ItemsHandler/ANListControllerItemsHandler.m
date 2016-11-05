@@ -98,7 +98,7 @@
 
 - (nullable id<ANListControllerUpdateViewInterface>)supplementaryViewForModel:(id)viewModel
                                                                          kind:(NSString*)kind
-                                                                 forIndexPath:(NSIndexPath*)indexPath
+                                                                 forIndexPath:(nullable NSIndexPath*)indexPath
 {
     NSString* identifier = [self.mappingService identifierForViewModelClass:[viewModel class]];
     id<ANListControllerUpdateViewInterface> view = nil;

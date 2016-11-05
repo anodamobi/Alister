@@ -7,7 +7,12 @@
 //
 
 #import "ANListControllerUpdateOperationInterface.h"
+#import "ANListControllerUpdateServiceInterface.h"
 
-@interface ANStorageOperationFakeDelegate : NSObject <ANListControllerUpdateOperationDelegate>
+@interface ANStorageOperationFakeDelegate : NSObject
+<
+    ANListControllerUpdateOperationDelegate,
+    ANListControllerUpdateServiceInterface
+>
 
 @end

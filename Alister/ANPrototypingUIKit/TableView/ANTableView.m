@@ -62,7 +62,7 @@ static CGFloat const kDefaultStatusBarHeight = 20;
 
 - (void)layoutTableFooterView
 {
-    if (self.bottomStickedFooterView && self.contentSize.height)
+    if (self.bottomStickedFooterView && self.contentSize.height > 0)
     {
         CGFloat contentSizeWithoutFooter = self.tableFooterView.frame.origin.y;
         CGFloat stickedFooterHeight = self.stickedFooterHeight;
@@ -166,7 +166,7 @@ static CGFloat const kDefaultStatusBarHeight = 20;
     {
         isModal = YES;
     }
-    if ([[viewController presentingViewController] presentedViewController] == self)
+    if ([[viewController presentingViewController] presentedViewController] == viewController)
     {
         isModal = YES;
     }

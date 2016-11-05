@@ -186,7 +186,6 @@ describe(@"header for model in section", ^{
         
     });
     
-    
     it(@"return expected header model", ^{
         
         NSString* headerModel = @"test header string model";
@@ -195,11 +194,11 @@ describe(@"header for model in section", ^{
             [storageController updateSectionHeaderModel:headerModel forSectionIndex:0];
         }];
         
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        waitUntil(^(void (^done)(void)){
             id model = [storage headerModelForSectionIndex:0];
-            expect(model).notTo.beNil();
+            expect(model).equal(headerModel);
+            done();
         });
-
     });
 });
 

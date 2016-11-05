@@ -36,12 +36,12 @@
 + (id)itemAtIndexPath:(NSIndexPath*)indexPath inStorage:(ANStorageModel*)storage
 {
     id object = nil;
-    if ((NSUInteger)indexPath.section < [storage.sections count])
+    if (indexPath.section < [storage numberOfSections])
     {
-        NSArray* section = [self itemsInSection:(NSUInteger)indexPath.section inStorage:storage];
-        if ((NSUInteger)indexPath.row < [section count])
+        NSArray* sectionItems = [self itemsInSection:indexPath.section inStorage:storage];
+        if ((NSUInteger)indexPath.row < [sectionItems count])
         {
-            object = section[(NSUInteger)indexPath.row];
+            object = sectionItems[(NSUInteger)indexPath.row];
         }
         else
         {
@@ -73,31 +73,32 @@
     return foundedIndexPath;
 }
 
-+ (NSArray*)itemsInSection:(NSUInteger)sectionIndex inStorage:(ANStorageModel*)storage
++ (NSArray*)itemsInSection:(NSInteger)sectionIndex inStorage:(ANStorageModel*)storage
 {
     NSArray* objects = nil;
-    if ([storage.sections count] > sectionIndex)
+    if ([storage numberOfSections] > sectionIndex)
     {
-        ANStorageSectionModel* section = storage.sections[sectionIndex];
+        ANStorageSectionModel* section = [storage sectionAtIndex:sectionIndex];
         objects = [section objects];
     }
     return objects;
 }
 
-+ (ANStorageSectionModel*)sectionAtIndex:(NSUInteger)sectionIndex inStorage:(ANStorageModel*)storage
++ (ANStorageSectionModel*)sectionAtIndex:(NSInteger)sectionIndex inStorage:(ANStorageModel*)storage
 {
-    if (storage.sections.count > sectionIndex)
+    ANStorageSectionModel* model = nil;
+    if ((NSInteger)storage.sections.count > sectionIndex)
     {
-        return storage.sections[sectionIndex];
+        model = [storage sectionAtIndex:sectionIndex];
     }
     else
     {
         ANStorageLog(@"Section index is out of bounds");
     }
-    return nil;
+    return model;
 }
 
-+ (id)supplementaryModelOfKind:(NSString*)kind forSectionIndex:(NSUInteger)sectionIndex inStorage:(ANStorageModel*)storage
++ (id)supplementaryModelOfKind:(NSString*)kind forSectionIndex:(NSInteger)sectionIndex inStorage:(ANStorageModel*)storage
 {
     ANStorageSectionModel* sectionModel = [ANStorageLoader sectionAtIndex:sectionIndex inStorage:storage];
     return [sectionModel supplementaryModelOfKind:kind];

@@ -40,7 +40,7 @@
     [self addItems:items toSection:0];
 }
 
-- (void)addItem:(id)item toSection:(NSUInteger)sectionIndex
+- (void)addItem:(id)item toSection:(NSInteger)sectionIndex
 {
     ANStorageUpdateModel* update = [ANStorageUpdateModel new];
     if (item)
@@ -64,11 +64,14 @@
 - (void)addItem:(id)item atIndexPath:(NSIndexPath*)indexPath
 {
     ANStorageUpdateModel* update = [ANStorageUpdateModel new];
-    if (indexPath && item && self.storageModel)
+    ANStorageModel* storageModel = self.storageModel;
+    
+    if (indexPath && item && storageModel)
     {
-        NSIndexSet* insertedSections = [self createSectionIfNotExist:(NSUInteger)indexPath.section];
+        NSIndexSet* insertedSections = [self createSectionIfNotExist:indexPath.section];
         
-        ANStorageSectionModel* section = [ANStorageLoader sectionAtIndex:(NSUInteger)indexPath.section inStorage:self.storageModel];
+        ANStorageSectionModel* section = [ANStorageLoader sectionAtIndex:indexPath.section
+                                                               inStorage:storageModel];
         
         if ([section.objects count] < (NSUInteger)indexPath.row)
         {
@@ -79,7 +82,7 @@
         }
         else
         {
-            [section insertItem:item atIndex:(NSUInteger)indexPath.row];
+            [section insertItem:item atIndex:indexPath.row];
             [update addInsertedSectionIndexes:insertedSections];
             [update addInsertedIndexPaths:@[indexPath]];
         }
@@ -91,12 +94,16 @@
 - (void)replaceItem:(id)itemToReplace withItem:(id)replacingItem
 {
     ANStorageUpdateModel* update = [ANStorageUpdateModel new];
-    NSIndexPath* originalIndexPath = [ANStorageLoader indexPathForItem:itemToReplace inStorage:self.storageModel];
+    ANStorageModel* storageModel = self.storageModel;
+    
+    NSIndexPath* originalIndexPath = [ANStorageLoader indexPathForItem:itemToReplace inStorage:storageModel];
     
     if (originalIndexPath && replacingItem)
     {
-        ANStorageSectionModel* section = [ANStorageLoader sectionAtIndex:(NSUInteger)originalIndexPath.section inStorage:self.storageModel];
-        [section replaceItemAtIndex:(NSUInteger)originalIndexPath.row withItem:replacingItem];
+        ANStorageSectionModel* section = [ANStorageLoader sectionAtIndex:originalIndexPath.section
+                                                               inStorage:storageModel];
+        
+        [section replaceItemAtIndex:originalIndexPath.row withItem:replacingItem];
         [update addUpdatedIndexPaths:@[originalIndexPath]];
     }
     else
@@ -141,13 +148,14 @@
 //TODO: should now it be private?
 - (NSIndexSet*)createSectionIfNotExist:(NSInteger)sectionIndex
 {
+    ANStorageModel* model = self.storageModel;
     NSMutableIndexSet* insertedSectionIndexes = [NSMutableIndexSet indexSet];
-    if (ANIsIndexValid(sectionIndex) && self.storageModel)
+    if (ANIsIndexValid(sectionIndex) && model)
     {
-        for (NSUInteger sectionIterator = self.storageModel.sections.count; sectionIterator <= sectionIndex; sectionIterator++)
+        for (NSInteger sectionIterator = [model numberOfSections]; sectionIterator <= sectionIndex; sectionIterator++)
         {
-            [self.storageModel addSection:[ANStorageSectionModel new]];
-            [insertedSectionIndexes addIndex:sectionIterator];
+            [model addSection:[ANStorageSectionModel new]];
+            [insertedSectionIndexes addIndex:(NSUInteger)sectionIterator];
         }
     }
     else
@@ -179,11 +187,12 @@
 
 - (ANStorageUpdateModel*)_addItems:(NSArray*)items toSection:(NSInteger)sectionIndex
 {
+    ANStorageModel* model = self.storageModel;
     ANStorageUpdateModel* update = [ANStorageUpdateModel new];
-    if (ANIsIndexValid(sectionIndex) && !ANItemIsEmpty(items) && self.storageModel)
+    if (ANIsIndexValid(sectionIndex) && !ANItemIsEmpty(items) && model)
     {
         NSIndexSet* insertedSections = [self createSectionIfNotExist:sectionIndex];
-        ANStorageSectionModel* section = [ANStorageLoader sectionAtIndex:sectionIndex inStorage:self.storageModel];
+        ANStorageSectionModel* section = [ANStorageLoader sectionAtIndex:sectionIndex inStorage:model];
         
         NSInteger numberOfItems = [section numberOfObjects];
         NSMutableArray* insertedIndexPaths = [NSMutableArray array];
@@ -204,8 +213,9 @@
 
 - (ANStorageUpdateModel*)_reloadItems:(NSArray*)items
 {
+    ANStorageModel* model = self.storageModel;
     ANStorageUpdateModel* update = [ANStorageUpdateModel new];
-    NSArray* indexPathesArrayToReload = [ANStorageLoader indexPathArrayForItems:items inStorage:self.storageModel];
+    NSArray* indexPathesArrayToReload = [ANStorageLoader indexPathArrayForItems:items inStorage:model];
     if (indexPathesArrayToReload)
     {
         [update addUpdatedIndexPaths:indexPathesArrayToReload];
@@ -217,19 +227,20 @@
 - (ANStorageUpdateModel*)_moveItemFromIndexPath:(NSIndexPath*)fromIndexPath
                                     toIndexPath:(NSIndexPath*)toIndexPath
 {
+    ANStorageModel* storageModel = self.storageModel;
     ANStorageUpdateModel* update = [ANStorageUpdateModel new];
     if (fromIndexPath && toIndexPath)
     {
-        ANStorageSectionModel* fromSection = [ANStorageLoader sectionAtIndex:fromIndexPath.section inStorage:self.storageModel];
+        ANStorageSectionModel* fromSection = [ANStorageLoader sectionAtIndex:fromIndexPath.section inStorage:storageModel];
         if (fromSection)
         {
             NSIndexSet* insertedSections = [self createSectionIfNotExist:toIndexPath.section];
             
-            ANStorageSectionModel* toSection = [ANStorageLoader sectionAtIndex:toIndexPath.section inStorage:self.storageModel];
-            id tableItem = [ANStorageLoader itemAtIndexPath:fromIndexPath inStorage:self.storageModel];
+            ANStorageSectionModel* toSection = [ANStorageLoader sectionAtIndex:toIndexPath.section inStorage:storageModel];
+            id tableItem = [ANStorageLoader itemAtIndexPath:fromIndexPath inStorage:storageModel];
             
-            [fromSection removeItemAtIndex:(NSUInteger)fromIndexPath.row];
-            [toSection insertItem:tableItem atIndex:(NSUInteger)toIndexPath.row]; // TODO: check is successfull operation
+            [fromSection removeItemAtIndex:fromIndexPath.row];
+            [toSection insertItem:tableItem atIndex:toIndexPath.row]; // TODO: check is successfull operation
             
             ANStorageMovedIndexPathModel* path = [ANStorageMovedIndexPathModel new];
             path.fromIndexPath = fromIndexPath;
@@ -246,11 +257,12 @@
 //TODO: check is it need to be public for collectionView
 - (ANStorageUpdateModel*)_updateSupplementaryOfKind:(NSString*)kind
                                               model:(id)model
-                                    forSectionIndex:(NSUInteger)sectionIndex
+                                    forSectionIndex:(NSInteger)sectionIndex
 {
+    ANStorageModel* storageModel = self.storageModel;
     ANStorageUpdateModel* update = [ANStorageUpdateModel new];
     
-    if (ANIsIndexValid(sectionIndex) && self.storageModel)
+    if (ANIsIndexValid(sectionIndex) && storageModel)
     {
         ANStorageSectionModel* section = nil;
         
@@ -258,12 +270,12 @@
         {
             NSIndexSet* set = [self createSectionIfNotExist:sectionIndex];
             [update addInsertedSectionIndexes:set];
-            section = [ANStorageLoader sectionAtIndex:sectionIndex inStorage:self.storageModel];
+            section = [ANStorageLoader sectionAtIndex:sectionIndex inStorage:storageModel];
         }
         else
         {   // if section not exist we don't need to remove it's model,
             // so no new sections will be created and update will be empty
-            section = [ANStorageLoader sectionAtIndex:sectionIndex inStorage:self.storageModel];
+            section = [ANStorageLoader sectionAtIndex:sectionIndex inStorage:storageModel];
         }
         [section updateSupplementaryModel:model forKind:kind];
     }

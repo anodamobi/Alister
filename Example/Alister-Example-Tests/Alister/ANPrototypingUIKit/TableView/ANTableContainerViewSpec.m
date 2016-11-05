@@ -40,19 +40,19 @@ describe(@"containerWithTableViewStyle:", ^{
 describe(@"initWithStyle:", ^{
     
     it(@"tableView property is not nil", ^{
-        ANTableContainerView* view = [[ANTableContainerView alloc] initWithStyle:UITableViewStylePlain];
+        ANTableContainerView* view = [[ANTableContainerView alloc] initWithTableViewStyle:UITableViewStylePlain];
         expect(view.tableView).notTo.beNil();
     });
     
     it(@"tableView style match passed value", ^{
         NSInteger style = UITableViewStylePlain;
-        ANTableContainerView* view = [[ANTableContainerView alloc] initWithStyle:style];
+        ANTableContainerView* view = [[ANTableContainerView alloc] initWithTableViewStyle:style];
         
         expect(view.tableView.style).equal(style);
     });
     
     it(@"contains ANTableView as subview", ^{
-        ANTableContainerView* view = [[ANTableContainerView alloc] initWithStyle:UITableViewStylePlain];
+        ANTableContainerView* view = [[ANTableContainerView alloc] initWithTableViewStyle:UITableViewStylePlain];
         expect(view.subviews).contain(view.tableView);
     });
 });

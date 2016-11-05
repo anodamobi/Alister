@@ -146,7 +146,7 @@ typedef NS_ENUM(NSInteger, ANListControllerSearchScope)
             
             [storage.sections enumerateObjectsUsingBlock:^(ANStorageSectionModel* obj, NSUInteger idx, __unused BOOL* stop) {
                 NSArray* filteredObjects = [obj.objects filteredArrayUsingPredicate:predicate];
-                [storageController addItems:filteredObjects toSection:idx];
+                [storageController addItems:filteredObjects toSection:(NSInteger)idx];
             }];
         }];
     }

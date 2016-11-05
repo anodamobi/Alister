@@ -8,6 +8,7 @@
 
 #import "ANStorageSectionModel.h"
 #import "ANStorageLog.h"
+#import "ANStorageValidator.h"
 
 @interface ANStorageSectionModel ()
 
@@ -37,9 +38,9 @@
     return [self.items copy];
 }
 
-- (NSUInteger)numberOfObjects
+- (NSInteger)numberOfObjects
 {
-    return [self.items count];
+    return (NSInteger)[self.items count];
 }
 
 
@@ -57,15 +58,15 @@
     }
 }
 
-- (void)insertItem:(id)item atIndex:(NSUInteger)index
+- (void)insertItem:(id)item atIndex:(NSInteger)index
 {
     if (item)
     {
-        if (index != NSNotFound)
+        if (ANIsIndexValid(index))
         {
-            if (self.items.count >= index)
+            if (self.items.count >= (NSUInteger)index)
             {
-                [self.items insertObject:item atIndex:index];
+                [self.items insertObject:item atIndex:(NSUInteger)index];
             }
             else
             {
@@ -86,11 +87,11 @@
 
 #pragma mark - Remove
 
-- (void)removeItemAtIndex:(NSUInteger)index
+- (void)removeItemAtIndex:(NSInteger)index
 {
-    if (self.items.count > index)
+    if (ANIsIndexValid(index) && self.items.count > (NSUInteger)index)
     {
-        [self.items removeObjectAtIndex:index];
+        [self.items removeObjectAtIndex:(NSUInteger)index];
     }
     else
     {
@@ -101,13 +102,13 @@
 
 #pragma mark - Replace
 
-- (void)replaceItemAtIndex:(NSUInteger)index withItem:(id)item
+- (void)replaceItemAtIndex:(NSInteger)index withItem:(id)item
 {
-    if (item)
+    if (item && ANIsIndexValid(index))
     {
-        if (self.items.count >= index && self.items.count != 0)
+        if (self.items.count >= (NSUInteger)index && self.items.count != 0)
         {
-            [self.items replaceObjectAtIndex:index withObject:item];
+            [self.items replaceObjectAtIndex:(NSUInteger)index withObject:item];
         }
         else
         {

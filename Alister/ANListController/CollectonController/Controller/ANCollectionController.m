@@ -46,7 +46,7 @@
           viewForSupplementaryElementOfKind:(NSString*)kind
                                 atIndexPath:(NSIndexPath*)indexPath
 {
-    id model = [self.currentStorage supplementaryModelOfKind:kind forSectionIndex:(NSUInteger)indexPath.section];
+    id model = [self.currentStorage supplementaryModelOfKind:kind forSectionIndex:indexPath.section];
     if (model)
     {
         return (UICollectionReusableView*)[self.itemsHandler supplementaryViewForModel:model
@@ -60,7 +60,7 @@
                   layout:(UICollectionViewFlowLayout*)collectionViewLayout
 referenceSizeForHeaderInSection:(NSInteger)sectionIndex
 {
-    BOOL isExist = [self _isExistMappingForSection:(NSUInteger)sectionIndex
+    BOOL isExist = [self _isExistMappingForSection:sectionIndex
                                               kind:self.currentStorage.headerSupplementaryKind];
     
     return isExist ? collectionViewLayout.headerReferenceSize : CGSizeZero;
@@ -69,7 +69,7 @@ referenceSizeForHeaderInSection:(NSInteger)sectionIndex
 - (CGSize)collectionView:(__unused UICollectionView*)collectionView
                   layout:(UICollectionViewFlowLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)sectionIndex
 {
-    BOOL isExist = [self _isExistMappingForSection:(NSUInteger)sectionIndex
+    BOOL isExist = [self _isExistMappingForSection:sectionIndex
                                               kind:self.currentStorage.footerSupplementaryKind];
     
     return isExist ? collectionViewLayout.footerReferenceSize : CGSizeZero;
@@ -85,8 +85,8 @@ referenceSizeForHeaderInSection:(NSInteger)sectionIndex
 
 - (NSInteger)collectionView:(__unused UICollectionView*)collectionView numberOfItemsInSection:(NSInteger)sectionIndex
 {
-    id <ANStorageSectionModelInterface> sectionModel = [self.currentStorage sectionAtIndex:(NSUInteger)sectionIndex];
-    return (NSInteger)[sectionModel numberOfObjects];
+    id <ANStorageSectionModelInterface> sectionModel = [self.currentStorage sectionAtIndex:sectionIndex];
+    return [sectionModel numberOfObjects];
 }
 
 - (UICollectionViewCell*)collectionView:(__unused UICollectionView*)collectionView
@@ -109,7 +109,7 @@ referenceSizeForHeaderInSection:(NSInteger)sectionIndex
 
 #pragma mark - Private
 
-- (BOOL)_isExistMappingForSection:(NSUInteger)section kind:(NSString*)kind
+- (BOOL)_isExistMappingForSection:(NSInteger)section kind:(NSString*)kind
 {
     id model = [self.currentStorage supplementaryModelOfKind:kind forSectionIndex:section];
     return (model != nil);

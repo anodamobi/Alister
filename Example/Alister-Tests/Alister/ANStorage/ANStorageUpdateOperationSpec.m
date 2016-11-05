@@ -8,7 +8,7 @@
 
 #import "ANStorageUpdateOperation.h"
 #import "ANStorageUpdateModel.h"
-#import "ANStorageOperationFakeDelegate.h"
+#import "ANStorageFakeOperationDelegate.h"
 
 @interface ANStorageUpdateOperation ()
 
@@ -116,7 +116,7 @@ describe(@"set updaterDelegate", ^{
     });
     
     it(@"delegate set successfully", ^{
-        id fakeDelegate = [ANStorageOperationFakeDelegate new];
+        id fakeDelegate = [ANStorageFakeOperationDelegate new];
         op.updaterDelegate = fakeDelegate;
         
         expect(op.updaterDelegate).equal(fakeDelegate);
@@ -145,7 +145,7 @@ describe(@"controllerOperationDelegate", ^{
     });
     
     it(@"delegate set successfully", ^{
-        id fakeDelegate = [ANStorageOperationFakeDelegate new];
+        id fakeDelegate = [ANStorageFakeOperationDelegate new];
         op.controllerOperationDelegate = fakeDelegate;
         
         expect(op.controllerOperationDelegate).equal(fakeDelegate);

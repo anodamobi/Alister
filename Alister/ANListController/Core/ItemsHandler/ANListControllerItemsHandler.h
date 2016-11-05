@@ -22,8 +22,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (nullable id<ANListControllerUpdateViewInterface>)cellForModel:(id)viewModel atIndexPath:(NSIndexPath*)indexPath;
 
 - (nullable id<ANListControllerUpdateViewInterface>)supplementaryViewForModel:(id)viewModel
-                                                                kind:(NSString*)kind
-                                                        forIndexPath:(NSIndexPath*)indexPath;
+                                                                         kind:(NSString*)kind
+                                                                 forIndexPath:(nullable NSIndexPath*)indexPath;
 NS_ASSUME_NONNULL_END
 
 @end

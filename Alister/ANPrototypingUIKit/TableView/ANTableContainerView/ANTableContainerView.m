@@ -14,10 +14,10 @@
 
 + (instancetype)containerWithTableViewStyle:(UITableViewStyle)style
 {
-    return [[self alloc] initWithStyle:style];
+    return [[self alloc] initWithTableViewStyle:style];
 }
 
-- (instancetype)initWithStyle:(UITableViewStyle)style
+- (instancetype)initWithTableViewStyle:(UITableViewStyle)style
 {
     self = [super init];
     if (self)

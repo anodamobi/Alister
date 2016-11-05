@@ -112,12 +112,12 @@
     return [ANStorageLoader itemAtIndexPath:indexPath inStorage:self.storageModel];
 }
 
-- (ANStorageSectionModel*)sectionAtIndex:(NSUInteger)sectionIndex
+- (ANStorageSectionModel*)sectionAtIndex:(NSInteger)sectionIndex
 {
     return [ANStorageLoader sectionAtIndex:sectionIndex inStorage:self.storageModel];
 }
 
-- (NSArray*)itemsInSection:(NSUInteger)sectionIndex
+- (NSArray*)itemsInSection:(NSInteger)sectionIndex
 {
     return [ANStorageLoader itemsInSection:sectionIndex inStorage:self.storageModel];
 }
@@ -132,21 +132,21 @@
     return [self.storageModel isEmpty];
 }
 
-- (id)headerModelForSectionIndex:(NSUInteger)index
+- (id)headerModelForSectionIndex:(NSInteger)index
 {
     return [ANStorageLoader supplementaryModelOfKind:self.storageModel.headerKind
                                      forSectionIndex:index
                                            inStorage:self.storageModel];
 }
 
-- (id)footerModelForSectionIndex:(NSUInteger)index
+- (id)footerModelForSectionIndex:(NSInteger)index
 {
     return [ANStorageLoader supplementaryModelOfKind:self.storageModel.footerKind
                                      forSectionIndex:index
                                            inStorage:self.storageModel];
 }
 
-- (id)supplementaryModelOfKind:(NSString*)kind forSectionIndex:(NSUInteger)sectionIndex
+- (id)supplementaryModelOfKind:(NSString*)kind forSectionIndex:(NSInteger)sectionIndex
 {
     return [ANStorageLoader supplementaryModelOfKind:kind
                                      forSectionIndex:sectionIndex
@@ -166,12 +166,12 @@
     [self.updater addItems:items];
 }
 
-- (void)addItem:(id)item toSection:(NSUInteger)sectionIndex
+- (void)addItem:(id)item toSection:(NSInteger)sectionIndex
 {
     [self.updater addItem:item toSection:sectionIndex];
 }
 
-- (void)addItems:(NSArray*)items toSection:(NSUInteger)sectionIndex
+- (void)addItems:(NSArray*)items toSection:(NSInteger)sectionIndex
 {
     [self.updater addItems:items toSection:sectionIndex];
 }

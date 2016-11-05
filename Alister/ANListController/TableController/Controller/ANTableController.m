@@ -39,7 +39,6 @@
     listView.configModel = model;
 }
 
-
 - (void)setupHeaderFooterDefaultKindOnStorage:(ANStorage*)storage
 {
     [storage updateHeaderKind:[self.listView headerDefaultKind] footerKind:[self.listView footerDefaultKind]];
@@ -50,37 +49,37 @@
 
 - (NSString*)tableView:(__unused UITableView*)tableView titleForHeaderInSection:(NSInteger)sectionIndex
 {
-    return [self _titleForSupplementaryIndex:(NSUInteger)sectionIndex
+    return [self _titleForSupplementaryIndex:sectionIndex
                                         kind:self.currentStorage.headerSupplementaryKind];
 }
 
 - (NSString*)tableView:(__unused UITableView*)tableView titleForFooterInSection:(NSInteger)sectionIndex
 {
-    return [self _titleForSupplementaryIndex:(NSUInteger)sectionIndex
+    return [self _titleForSupplementaryIndex:sectionIndex
                                         kind:self.currentStorage.footerSupplementaryKind];
 }
 
 - (UIView*)tableView:(__unused UITableView*)tableView viewForHeaderInSection:(NSInteger)sectionIndex
 {
-    return [self _supplementaryViewForIndex:(NSUInteger)sectionIndex
+    return [self _supplementaryViewForIndex:sectionIndex
                                        kind:self.currentStorage.headerSupplementaryKind];
 }
 
 - (UIView*)tableView:(__unused UITableView*)tableView viewForFooterInSection:(NSInteger)sectionIndex
 {
-    return [self _supplementaryViewForIndex:(NSUInteger)sectionIndex
+    return [self _supplementaryViewForIndex:sectionIndex
                                        kind:self.currentStorage.footerSupplementaryKind];
 }
 
 - (CGFloat)tableView:(__unused UITableView*)tableView heightForHeaderInSection:(NSInteger)sectionIndex
 {
-    return [self _heightForSupplementaryIndex:(NSUInteger)sectionIndex
+    return [self _heightForSupplementaryIndex:sectionIndex
                                          kind:self.currentStorage.headerSupplementaryKind];
 }
 
 - (CGFloat)tableView:(__unused UITableView*)tableView heightForFooterInSection:(NSInteger)sectionIndex
 {
-    return [self _heightForSupplementaryIndex:(NSUInteger)sectionIndex
+    return [self _heightForSupplementaryIndex:sectionIndex
                                          kind:self.currentStorage.footerSupplementaryKind];
 }
 
@@ -94,7 +93,7 @@
 
 - (NSInteger)tableView:(__unused UITableView*)tableView numberOfRowsInSection:(NSInteger)section
 {
-    id <ANStorageSectionModelInterface> sectionModel = [self.currentStorage sectionAtIndex:(NSUInteger)section];
+    id <ANStorageSectionModelInterface> sectionModel = [self.currentStorage sectionAtIndex:section];
     return (NSInteger)[sectionModel numberOfObjects];
 }
 
@@ -125,7 +124,7 @@
 
 #pragma mark - Private
 
-- (NSString*)_titleForSupplementaryIndex:(NSUInteger)index kind:(NSString*)kind
+- (NSString*)_titleForSupplementaryIndex:(NSInteger)index kind:(NSString*)kind
 {
     id model = [self _supplementaryModelForIndex:index kind:kind];
     if ([model isKindOfClass:[NSString class]])
@@ -139,13 +138,13 @@
     return nil;
 }
 
-- (UIView*)_supplementaryViewForIndex:(NSUInteger)index kind:(NSString*)kind
+- (UIView*)_supplementaryViewForIndex:(NSInteger)index kind:(NSString*)kind
 {
     id model = [self _supplementaryModelForIndex:index kind:kind];
     return (UIView*)[self.itemsHandler supplementaryViewForModel:model kind:kind forIndexPath:nil];
 }
 
-- (id)_supplementaryModelForIndex:(NSUInteger)index kind:(NSString*)kind
+- (id)_supplementaryModelForIndex:(NSInteger)index kind:(NSString*)kind
 {
     BOOL isHeader = [kind isEqualToString:[self.currentStorage headerSupplementaryKind]];
     BOOL value = isHeader ? self.shouldDisplayHeaderOnEmptySection : self.shouldDisplayFooterOnEmptySection;
@@ -165,13 +164,15 @@
     return nil;
 }
 
-- (CGFloat)_heightForSupplementaryIndex:(NSUInteger)index kind:(NSString*)kind
+- (CGFloat)_heightForSupplementaryIndex:(NSInteger)index kind:(NSString*)kind
 {
     //apple bug HACK: for plain tables, for bottom section separator visibility
     
+    UITableView* tableView = self.tableView;
+    
     BOOL isHeader = [kind isEqualToString:[self.currentStorage headerSupplementaryKind]];
     
-    BOOL shouldMaskSeparator = ((self.tableView.style == UITableViewStylePlain) && !isHeader);
+    BOOL shouldMaskSeparator = ((tableView.style == UITableViewStylePlain) && !isHeader);
     
     CGFloat minHeight = shouldMaskSeparator ? 0.1f : CGFLOAT_MIN;
     id model = [self _supplementaryModelForIndex:index kind:kind];
@@ -184,7 +185,7 @@
         }
         else
         {
-            return isHeader ? self.tableView.sectionHeaderHeight : self.tableView.sectionFooterHeight;
+            return isHeader ? tableView.sectionHeaderHeight : tableView.sectionFooterHeight;
         }
     }
     else

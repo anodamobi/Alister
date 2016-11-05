@@ -36,9 +36,8 @@
     
     if (indexPath)
     {
-        ANStorageSectionModel* section = [ANStorageLoader sectionAtIndex:(NSUInteger)indexPath.section
-                                                               inStorage:storage];
-        [section removeItemAtIndex:(NSUInteger)indexPath.row];
+        ANStorageSectionModel* section = [ANStorageLoader sectionAtIndex:indexPath.section inStorage:storage];
+        [section removeItemAtIndex:indexPath.row];
         [update addDeletedIndexPaths:@[indexPath]];
     }
     else
@@ -61,9 +60,9 @@
         id object = [ANStorageLoader itemAtIndexPath:indexPath inStorage:storage];
         if (object)
         {
-            ANStorageSectionModel* section = [ANStorageLoader sectionAtIndex:(NSUInteger)indexPath.section
+            ANStorageSectionModel* section = [ANStorageLoader sectionAtIndex:indexPath.section
                                                                    inStorage:storage];
-            [section removeItemAtIndex:(NSUInteger)indexPath.row];
+            [section removeItemAtIndex:indexPath.row];
             [update addDeletedIndexPaths:@[indexPath]];
         }
         else
@@ -94,8 +93,8 @@
     NSArray* reversed = [[indexPaths reverseObjectEnumerator] allObjects];
     
     [reversed enumerateObjectsUsingBlock:^(NSIndexPath*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        ANStorageSectionModel* section = [storage sectionAtIndex:(NSUInteger)obj.section];
-        [section removeItemAtIndex:(NSUInteger)obj.row];
+        ANStorageSectionModel* section = [storage sectionAtIndex:obj.section];
+        [section removeItemAtIndex:obj.row];
     }];
     
     [update addDeletedIndexPaths:indexPaths];
@@ -121,15 +120,15 @@
     __block ANStorageUpdateModel* update = [ANStorageUpdateModel new];
     ANStorageModel* storage = self.storageModel;
     
-    for (NSInteger reversedCounter = storage.sections.count - 1; reversedCounter >= 0; reversedCounter--)
+    for (NSInteger counter = [storage numberOfSections] - 1; counter >= 0; counter --)
     {
-        if ([indexSet containsIndex:reversedCounter])
+        if ([indexSet containsIndex:(NSUInteger)counter])
         {
-            [storage removeSectionAtIndex:reversedCounter];
-            [update addDeletedSectionIndex:reversedCounter];
+            [storage removeSectionAtIndex:counter];
+            [update addDeletedSectionIndex:(NSUInteger)counter];
         }
     }
-    
+
     [self.updateDelegate collectUpdate:update];
 }
 
