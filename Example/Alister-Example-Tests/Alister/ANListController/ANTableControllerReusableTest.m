@@ -6,9 +6,9 @@
 //  Copyright © 2016 Oksana Kovalchuk. All rights reserved.
 //
 
-#import <XCTest/XCTest.h>
+#import <XCTest/XCTest.h"
 #import "ANTableController.h"
-#import <Alister/ANStorage.h>
+#import "ANStorage.h"
 #import "ANTestTableCell.h"
 #import "ANTestTableHeaderFooter.h"
 #import "ANTestViewModel.h"

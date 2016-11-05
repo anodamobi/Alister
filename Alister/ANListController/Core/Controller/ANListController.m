@@ -145,7 +145,7 @@
 
 - (void)updateSearchingPredicateBlock:(ANListControllerSearchPredicateBlock)block
 {
-    self.searchManager.storagePredicateBlock = block;
+    self.searchManager.searchPredicateConfigBlock = block;
 }
 
 #pragma mark - Private

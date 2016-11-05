@@ -6,7 +6,6 @@
 //  Copyright © 2016 Oksana Kovalchuk. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import "ANListViewInterface.h"
 
 @interface ANTestableCollectionView : UICollectionView <ANListViewInterface>

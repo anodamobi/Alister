@@ -17,3 +17,9 @@ target 'Alister-Example-Tests' do
     pod 'OCMock'
 end
 
+
+target 'Alister-Tests' do
+    pod 'Expecta'
+    pod 'Specta'
+    pod 'OCMock'
+end

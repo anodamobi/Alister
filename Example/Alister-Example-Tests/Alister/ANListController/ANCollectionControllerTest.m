@@ -7,7 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
-#import <Alister/ANStorage.h>
+#import "ANStorage.h"
 #import "ANCollectionController.h"
 #import "ANCollectionViewCell.h"
 

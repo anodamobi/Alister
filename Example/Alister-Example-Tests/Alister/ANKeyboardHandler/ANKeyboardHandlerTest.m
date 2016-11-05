@@ -7,8 +7,6 @@
 //
 
 #import <XCTest/XCTest.h>
-#import <Expecta/Expecta.h>
-#import <OCMock/OCMock.h>
 #import "ANKeyboardHandler.h"
 #import "ANTestKeyboardHandlerDelegate.h"
 #import "ANTestableTextField.h"

@@ -7,7 +7,6 @@
 //
 
 #import "ANECustomHeaderView.h"
-#import <Specta/Specta.h>
 
 @interface ANECustomHeaderView ()
 

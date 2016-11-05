@@ -6,7 +6,6 @@
 //  Copyright © 2016 Oksana Kovalchuk. All rights reserved.
 //
 
-#import <XCTest/XCTest.h>
 #import "ANECustomFooterViewModel.h"
 
 SpecBegin(ANECustomFooterViewModel)

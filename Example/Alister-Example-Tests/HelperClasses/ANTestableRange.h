@@ -6,8 +6,6 @@
 //  Copyright © 2016 Oksana Kovalchuk. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
 @interface ANTestableRange : UITextRange
 
 @property (nonatomic, strong) UITextPosition* rangePosition;

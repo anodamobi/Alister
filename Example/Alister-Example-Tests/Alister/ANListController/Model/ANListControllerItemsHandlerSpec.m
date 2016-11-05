@@ -6,7 +6,7 @@
 //  Copyright © 2016 Oksana Kovalchuk. All rights reserved.
 //
 
-#import <Alister/ANListControllerItemsHandler.h>
+#import "ANListControllerItemsHandler.h"
 
 SpecBegin(ANListControllerItemsHandler)
 

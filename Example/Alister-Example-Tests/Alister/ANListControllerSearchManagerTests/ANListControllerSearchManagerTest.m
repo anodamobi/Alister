@@ -7,8 +7,6 @@
 //
 
 #import <XCTest/XCTest.h>
-#import <Expecta/Expecta.h>
-#import <OCMock/OCMock.h>
 #import "ANListControllerSearchManager.h"
 
 @interface ANListControllerSearchManager ()
@@ -26,6 +24,109 @@
 @end
 
 @implementation ANListControllerSearchManagerTest
+
+describe(@"searchStorageForSearchString: inSearchScope:", ^{
+    
+    beforeEach(^{
+        storage.storagePredicateBlock = ^NSPredicate* (NSString* searchString, NSInteger scope) {
+            
+            NSPredicate* predicate = nil;
+            if (searchString)
+            {
+                if (scope == -1)
+                {
+                    predicate = [NSPredicate predicateWithFormat:@"ANY self BEGINSWITH[cd] %@", searchString];
+                }
+                else if (scope == 0)
+                {
+                    predicate = [NSPredicate predicateWithFormat:@"self CONTAINS[cd] %@", searchString];
+                }
+            }
+            
+            return predicate;
+        };
+    });
+    
+    it(@"successfully created", ^{
+        ANStorage* searchStorage = [storage searchStorageForSearchString:@"test" inSearchScope:0];
+        expect(searchStorage).notTo.beNil();
+    });
+    
+    it(@"successfully created when string is nil", ^{
+        ANStorage* searchStorage = [storage searchStorageForSearchString:nil inSearchScope:0];
+        expect(searchStorage).notTo.beNil();
+    });
+    
+    it(@"no assert if string is nil", ^{
+        void(^block)() = ^() {
+            [storage searchStorageForSearchString:nil inSearchScope:0];
+        };
+        expect(block).notTo.raiseAny();
+    });
+    
+    it(@"filters by predicate ", ^{
+        NSArray* itemsForScope1 = @[@"test", @"test1", @"test2", @"test4"];
+        NSArray* items = [itemsForScope1 arrayByAddingObjectsFromArray:@[@"anoda", @"tiger", @"tooth",
+                                                                         @"tool", @"something", @"anything"]];
+        
+        [storage updateWithoutAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
+            [storageController addItems:items];
+        }];
+        
+        NSString* searchString = @"test";
+        ANStorage* searchStorage = [storage searchStorageForSearchString:searchString inSearchScope:0];
+        expect(searchStorage.sections).haveCount(1);
+        
+        [[searchStorage itemsInSection:0] enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger __unused idx, BOOL * _Nonnull __unused stop) {
+            expect(obj).beginWith(searchString);
+        }];
+        
+        expect([searchStorage itemsInSection:0]).haveCount(itemsForScope1.count);
+        expect([searchStorage sections]).haveCount(1);
+    });
+});
+
+
+describe(@"storagePredicateBlock", ^{
+    
+    it(@"called when searching storage created", ^{
+        waitUntil(^(void (^done)(void)) {
+            storage.storagePredicateBlock = ^NSPredicate* (NSString* __unused searchString,
+                                                           NSInteger __unused scope) {
+                done();
+                
+                return nil;
+            };
+            
+            [storage searchStorageForSearchString:nil inSearchScope:0];
+        });
+    });
+    
+    it(@"received correct parameters", ^{
+        __block NSString* searchStringItem = @"test";
+        __block NSInteger scopeItem = 2;
+        
+        waitUntil(^(void (^done)(void)) {
+            storage.storagePredicateBlock = ^NSPredicate* (NSString* __unused searchString, NSInteger __unused scope) {
+                done();
+                
+                expect(searchString).equal(searchStringItem);
+                expect(scope).equal(scopeItem);
+                
+                return nil;
+            };
+            [storage searchStorageForSearchString:searchStringItem inSearchScope:scopeItem];
+        });
+    });
+    
+    it(@"no assert when block is nil", ^{
+        void(^block)() = ^() {
+            [storage searchStorageForSearchString:nil inSearchScope:0];
+        };
+        expect(block).notTo.raiseAny();
+    });
+});
+
 
 - (void)setUp
 {

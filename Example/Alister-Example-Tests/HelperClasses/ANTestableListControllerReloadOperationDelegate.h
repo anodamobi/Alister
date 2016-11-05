@@ -6,9 +6,8 @@
 //  Copyright © 2016 Oksana Kovalchuk. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import "ANListControllerReloadOperation.h"
+#import "ANListControllerUpdateServiceInterface.h"
 
-@interface ANTestableListControllerReloadOperationDelegate : NSObject <ANListControllerReloadOperationDelegate>
+@interface ANTestableListControllerReloadOperationDelegate : NSObject <ANListControllerUpdateServiceInterface>
 
 @end

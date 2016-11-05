@@ -50,7 +50,7 @@ describe(@"Thing", ^{
     it(@"storage should have items after controller finished update", ^{
         
         __weak typeof(vc) weakVC = vc;
-        [vc.controller addUpdatesFinsihedTriggerBlock:^{
+        [vc.controller addUpdatesFinishedTriggerBlock:^{
             NSArray* storageItems = [weakVC.storage itemsInSection:0];
             expect(storageItems).notTo.beNil();
         }];
