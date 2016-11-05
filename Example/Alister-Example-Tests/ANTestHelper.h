@@ -6,10 +6,18 @@
 //  Copyright © 2016 Oksana Kovalchuk. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
 static id const kANTestNil = nil;
 
 @interface ANTestHelper : NSObject
+
++ (NSArray*)randomArray;
++ (NSArray*)randomArrayIncludingObject:(id)object atIndex:(NSInteger)index;
++ (NSArray*)randomArrayWithLength:(NSUInteger)count;
+
++ (NSString*)randomString;
+
++ (NSNumber*)randomNumber;
+
++ (NSDictionary*)randomDictionary;
 
 @end
