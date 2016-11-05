@@ -185,7 +185,7 @@ describe(@"main", ^{
         [op collectUpdate:update1];
         [op collectUpdate:update2];
         
-        OCMVerify([op.updaterDelegate storageNeedsReloadWithIdentifier:[OCMArg any] animated:[OCMArg any]]);
+        OCMVerify([op.updaterDelegate storageNeedsReloadWithIdentifier:[OCMArg any] animated:(BOOL)[OCMArg any]]);
     });
     
     it(@"if no model requires update will call storageUpdateModelGenerated", ^{

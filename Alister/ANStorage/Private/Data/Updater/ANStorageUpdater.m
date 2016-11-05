@@ -215,10 +215,9 @@
 {
     ANStorageModel* model = self.storageModel;
     ANStorageUpdateModel* update = [ANStorageUpdateModel new];
-    NSArray* indexPathesArrayToReload = [ANStorageLoader indexPathArrayForItems:items inStorage:model];
-    if (indexPathesArrayToReload)
-    {
-        [update addUpdatedIndexPaths:indexPathesArrayToReload];
+    NSArray* indexPathsArrayToReload = [ANStorageLoader indexPathArrayForItems:items inStorage:model];
+    if (indexPathsArrayToReload) {
+        [update addUpdatedIndexPaths:indexPathsArrayToReload];
     }
     
     return update;

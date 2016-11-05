@@ -28,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  @return NSArray* of all objects in this section
  */
-- (NSArray*)objects;
+- (nullable NSArray*)objects;
 
 
 /**
@@ -38,7 +38,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  @return model for the specified kind
  */
-- (id)supplementaryModelOfKind:(NSString*)kind;
+- (nullable id)supplementaryModelOfKind:(NSString*)kind;
 
 
 /**

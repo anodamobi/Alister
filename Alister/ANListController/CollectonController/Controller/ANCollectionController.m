@@ -46,37 +46,37 @@
           viewForSupplementaryElementOfKind:(NSString*)kind
                                 atIndexPath:(NSIndexPath*)indexPath
 {
+    UICollectionReusableView* view = nil;
     id model = [self.currentStorage supplementaryModelOfKind:kind forSectionIndex:indexPath.section];
     if (model)
     {
-        return (UICollectionReusableView*)[self.itemsHandler supplementaryViewForModel:model
+        view = (UICollectionReusableView*)[self.itemsHandler supplementaryViewForModel:model
                                                                                   kind:kind
                                                                           forIndexPath:indexPath];
     }
-    return nil;
+    return view;
 }
 
 - (CGSize)collectionView:(__unused UICollectionView*)collectionView
-                  layout:(UICollectionViewFlowLayout*)collectionViewLayout
-referenceSizeForHeaderInSection:(NSInteger)sectionIndex
+                  layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)sectionIndex
 {
     BOOL isExist = [self _isExistMappingForSection:sectionIndex
                                               kind:self.currentStorage.headerSupplementaryKind];
     
-    return isExist ? collectionViewLayout.headerReferenceSize : CGSizeZero;
+    return isExist ? ((UICollectionViewFlowLayout*)collectionViewLayout).headerReferenceSize : CGSizeZero;
 }
 
 - (CGSize)collectionView:(__unused UICollectionView*)collectionView
-                  layout:(UICollectionViewFlowLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)sectionIndex
+                  layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)sectionIndex
 {
     BOOL isExist = [self _isExistMappingForSection:sectionIndex
                                               kind:self.currentStorage.footerSupplementaryKind];
     
-    return isExist ? collectionViewLayout.footerReferenceSize : CGSizeZero;
+    return isExist ? ((UICollectionViewFlowLayout*)collectionViewLayout).footerReferenceSize : CGSizeZero;
 }
 
 
-#pragma mark - UICollectionView datasource
+#pragma mark - UICollectionView Data Source
 
 - (NSInteger)numberOfSectionsInCollectionView:(__unused UICollectionView*)collectionView
 {

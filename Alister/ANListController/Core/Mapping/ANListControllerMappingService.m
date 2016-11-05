@@ -60,7 +60,7 @@ static NSString* const kANDefaultCellKind = @"kANDefaultCellKind";
     return [self identifierForViewModelClass:keyClass kind:kANDefaultCellKind];
 }
 
-- (NSString*)identifierForViewModelClass:(id<NSObject>)viewModelClass kind:(NSString*)kind
+- (NSString*)identifierForViewModelClass:(Class)viewModelClass kind:(NSString*)kind
 {
     NSString* identifier = nil;
     if (kind && viewModelClass)
@@ -95,13 +95,13 @@ static NSString* const kANDefaultCellKind = @"kANDefaultCellKind";
 }
 
 //Nimbus workaround
-- (NSString*)_identifierFromViewModelClass:(id<NSCopying>)keyClass map:(NSMutableDictionary*)map
+- (NSString*)_identifierFromViewModelClass:(Class)keyClass map:(NSMutableDictionary*)map
 {
     NSString* identifier = nil;
     
     if (keyClass)
     {
-        identifier = [map objectForKey:keyClass];
+        identifier = [map objectForKey:(id<NSCopying>)keyClass];
         
         if (!identifier)
         {
@@ -124,14 +124,14 @@ static NSString* const kANDefaultCellKind = @"kANDefaultCellKind";
                 identifier = [map objectForKey:superClass];
                 
                 // Add this subclass to the map so that next time this result is instant.
-                [map setObject:identifier forKey:keyClass];
+                [map setObject:identifier forKey:(id<NSCopying>)keyClass];
             }
         }
         
         if (!identifier)
         {
             // We couldn't find a mapping at all so let's add [NSNull null] mapping.
-            [map setObject:[NSNull null] forKey:keyClass];
+            [map setObject:[NSNull null] forKey:(id<NSCopying>)keyClass];
         }
         else if ([identifier isKindOfClass:[NSNull class]])
         {
