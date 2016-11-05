@@ -46,15 +46,10 @@
           viewForSupplementaryElementOfKind:(NSString*)kind
                                 atIndexPath:(NSIndexPath*)indexPath
 {
-    UICollectionReusableView* view = nil;
     id model = [self.currentStorage supplementaryModelOfKind:kind forSectionIndex:indexPath.section];
-    if (model)
-    {
-        view = (UICollectionReusableView*)[self.itemsHandler supplementaryViewForModel:model
-                                                                                  kind:kind
-                                                                          forIndexPath:indexPath];
-    }
-    return view;
+    return (UICollectionReusableView*)[self.itemsHandler supplementaryViewForModel:model
+                                                                              kind:kind
+                                                                      forIndexPath:indexPath];
 }
 
 - (CGSize)collectionView:(__unused UICollectionView*)collectionView
