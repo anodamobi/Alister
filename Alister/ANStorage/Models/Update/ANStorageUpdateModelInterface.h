@@ -39,33 +39,33 @@
 /**
  Returns array of deleted indexPaths
 
- @return NSArray* deleted indexPaths
+ @return NSSet* deleted indexPaths
  */
-- (NSArray*)deletedRowIndexPaths;
+- (NSSet*)deletedRowIndexPaths;
 
 
 /**
  Returns array of inserted indexPaths
  
- @return NSArray* inserted indexPaths
+ @return NSSet* inserted indexPaths
  */
-- (NSArray*)insertedRowIndexPaths;
+- (NSSet*)insertedRowIndexPaths;
 
 
 /**
  Returns array of updated indexPaths
  
- @return NSArray* updated indexPaths
+ @return NSSet* updated indexPaths
  */
-- (NSArray*)updatedRowIndexPaths;
+- (NSSet*)updatedRowIndexPaths;
 
 
 /**
  Returns array of moved indexPaths
  
- @return NSArray* moved indexPaths
+ @return NSSet* moved indexPaths
  */
-- (NSArray*)movedRowsIndexPaths;
+- (NSSet*)movedRowsIndexPaths;
 
 
 /**

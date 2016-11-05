@@ -66,8 +66,8 @@
 }
 
 - (void)registerSupplementaryClass:(Class)supplementaryClass
-                    reuseIdentifier:(NSString*)reuseIdentifier
-                               kind:(NSString*)kind
+                   reuseIdentifier:(NSString*)reuseIdentifier
+                              kind:(NSString*)kind
 {
     NSAssert(kind, @"You must specify supplementary kind");
     NSAssert(reuseIdentifier, @"You must specify reuse identifier");
@@ -94,8 +94,8 @@
 }
 
 - (id<ANListControllerUpdateViewInterface>)supplementaryViewForReuseIdentifer:(NSString*)reuseIdentifier
-                                                     kind:(__unused NSString*)kind
-                                              atIndexPath:(__unused NSIndexPath*)indexPath
+                                                                         kind:(__unused NSString*)kind
+                                                                  atIndexPath:(__unused NSIndexPath*)indexPath
 {
     NSParameterAssert(reuseIdentifier);
     return [self.tableView dequeueReusableHeaderFooterViewWithIdentifier:reuseIdentifier];
@@ -129,17 +129,18 @@
     [tableView deleteSections:update.deletedSectionIndexes withRowAnimation:deleteSectionAnimation];
     [tableView reloadSections:update.updatedSectionIndexes withRowAnimation:reloadSectionAnimation];
     
-    [update.movedRowsIndexPaths enumerateObjectsUsingBlock:^(ANStorageMovedIndexPathModel* obj, __unused NSUInteger idx, __unused BOOL* stop) {
+    [update.movedRowsIndexPaths enumerateObjectsUsingBlock:^(id  _Nonnull obj, BOOL * _Nonnull stop) {
         
-        if (![update.deletedSectionIndexes containsIndex:(NSUInteger)obj.fromIndexPath.section])
+        ANStorageMovedIndexPathModel* movedIndexPath = (ANStorageMovedIndexPathModel*)obj;
+        if (![update.deletedSectionIndexes containsIndex:(NSUInteger)movedIndexPath.fromIndexPath.section])
         {
-            [tableView moveRowAtIndexPath:obj.fromIndexPath toIndexPath:obj.toIndexPath];
+            [tableView moveRowAtIndexPath:movedIndexPath.fromIndexPath toIndexPath:movedIndexPath.toIndexPath];
         }
     }];
     
-    [tableView insertRowsAtIndexPaths:update.insertedRowIndexPaths withRowAnimation:insertRowAnimation];
-    [tableView deleteRowsAtIndexPaths:update.deletedRowIndexPaths withRowAnimation:deleteRowAnimation];
-    [tableView reloadRowsAtIndexPaths:update.updatedRowIndexPaths withRowAnimation:reloadRowAnimation];
+    [tableView insertRowsAtIndexPaths:update.insertedRowIndexPaths.allObjects withRowAnimation:insertRowAnimation];
+    [tableView deleteRowsAtIndexPaths:update.deletedRowIndexPaths.allObjects withRowAnimation:deleteRowAnimation];
+    [tableView reloadRowsAtIndexPaths:update.updatedRowIndexPaths.allObjects withRowAnimation:reloadRowAnimation];
     
     [tableView endUpdates];
 }

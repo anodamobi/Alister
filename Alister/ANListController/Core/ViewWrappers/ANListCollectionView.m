@@ -148,9 +148,9 @@
     if ((itemChanges && (sectionChanges == 0)))
     {
         [collectionView performBatchUpdates:^{
-            [collectionView deleteItemsAtIndexPaths:update.deletedRowIndexPaths];
-            [collectionView insertItemsAtIndexPaths:update.insertedRowIndexPaths];
-            [collectionView reloadItemsAtIndexPaths:update.updatedRowIndexPaths];
+            [collectionView deleteItemsAtIndexPaths:update.deletedRowIndexPaths.allObjects];
+            [collectionView insertItemsAtIndexPaths:update.insertedRowIndexPaths.allObjects];
+            [collectionView reloadItemsAtIndexPaths:update.updatedRowIndexPaths.allObjects];
         } completion:nil];
     }
 }
