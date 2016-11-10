@@ -134,7 +134,10 @@
         ANStorageMovedIndexPathModel* movedIndexPath = (ANStorageMovedIndexPathModel*)obj;
         if (![update.deletedSectionIndexes containsIndex:(NSUInteger)movedIndexPath.fromIndexPath.section])
         {
-            [tableView moveRowAtIndexPath:movedIndexPath.fromIndexPath toIndexPath:movedIndexPath.toIndexPath];
+            if (movedIndexPath.fromIndexPath && movedIndexPath.toIndexPath)
+            {
+                [tableView moveRowAtIndexPath:movedIndexPath.fromIndexPath toIndexPath:movedIndexPath.toIndexPath];
+            }
         }
     }];
     

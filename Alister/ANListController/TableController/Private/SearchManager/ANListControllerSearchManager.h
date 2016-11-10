@@ -8,6 +8,11 @@
 
 #import "Alister.h"
 
+typedef NS_ENUM(NSInteger, ANListControllerSearchScope)
+{
+    ANListControllerSearchScopeNone = -1,
+};
+
 @class ANStorage;
 
 @protocol ANListControllerSearchManagerDelegate <NSObject>
@@ -18,7 +23,7 @@
 
 @end
 
-@interface ANListControllerSearchManager : NSObject
+@interface ANListControllerSearchManager : NSObject <UISearchBarDelegate>
 
 @property (nonatomic, weak) id<ANListControllerSearchManagerDelegate> delegate;
 @property (nonatomic, strong, readonly) ANStorage* searchingStorage;

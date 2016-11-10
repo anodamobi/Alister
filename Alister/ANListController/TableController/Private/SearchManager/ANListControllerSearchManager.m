@@ -10,12 +10,7 @@
 #import "ANStorage.h"
 #import "ANListControllerLog.h"
 
-typedef NS_ENUM(NSInteger, ANListControllerSearchScope)
-{
-    ANListControllerSearchScopeNone = -1,
-};
-
-@interface ANListControllerSearchManager () <UISearchBarDelegate>
+@interface ANListControllerSearchManager ()
 
 @property (nonatomic, copy) NSString* currentSearchString;
 @property (nonatomic, assign) NSInteger currentSearchScope;
@@ -60,7 +55,7 @@ typedef NS_ENUM(NSInteger, ANListControllerSearchScope)
 
 - (void)searchBar:(UISearchBar*)searchBar textDidChange:(__unused NSString*)searchText
 {
-    [self _filterItemsForSearchString:searchBar.text inScope:ANListControllerSearchScopeNone reload:NO];
+    [self _filterItemsForSearchString:searchBar.text inScope:searchBar.selectedScopeButtonIndex reload:NO];
 }
 
 - (void)searchBar:(UISearchBar*)searchBar selectedScopeButtonIndexDidChange:(NSInteger)selectedScope
@@ -125,9 +120,6 @@ typedef NS_ENUM(NSInteger, ANListControllerSearchScope)
         [delegate searchControllerCreatedStorage:_searchingStorage];
     }
 }
-
-
-#pragma mark - Private
 
 - (ANStorage*)_searchStoragefromStorage:(ANStorage*)storage
                         forSearchString:(NSString*)searchString

@@ -93,10 +93,6 @@
     {
         _updaterDelegate = updaterDelegate;
     }
-    else
-    {
-        NSAssert(NO, @"Delegate must conform to protocol");
-    }
 }
 
 - (void)setControllerOperationDelegate:(id<ANStorageListUpdateOperationInterface>)controllerOperationDelegate
@@ -105,10 +101,6 @@
         !controllerOperationDelegate)
     {
         _controllerOperationDelegate = controllerOperationDelegate;
-    }
-    else
-    {
-        NSAssert(NO, @"Delegate must conform to protocol");
     }
 }
 

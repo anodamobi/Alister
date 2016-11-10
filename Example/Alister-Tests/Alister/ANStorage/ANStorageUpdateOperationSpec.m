@@ -101,18 +101,9 @@ describe(@"set updaterDelegate", ^{
         op = [ANStorageUpdateOperation operationWithConfigurationBlock:nil];
     });
     
-    it(@"no assert if set nil", ^{
-        void(^block)() = ^() {
-            op.updaterDelegate = nil;
-        };
-        expect(block).notTo.raiseAny();
-    });
-    
-    it(@"assert if delegate doesn't conform to protocol", ^{
-        void(^block)() = ^() {
-            op.updaterDelegate = (id)[NSObject new];
-        };
-        expect(block).to.raiseAny();
+    it(@"not set if delegate doesn't conform to protocol", ^{
+        op.updaterDelegate = (id)[NSObject new];
+        expect(op.updaterDelegate).to.beNil();
     });
     
     it(@"delegate set successfully", ^{
@@ -130,18 +121,9 @@ describe(@"controllerOperationDelegate", ^{
         op = [ANStorageUpdateOperation operationWithConfigurationBlock:nil];
     });
     
-    it(@"no assert if set nil", ^{
-        void(^block)() = ^() {
-            op.controllerOperationDelegate = nil;
-        };
-        expect(block).notTo.raiseAny();
-    });
-    
-    it(@"assert if delegate doesn't confirm to protocol", ^{
-        void(^block)() = ^() {
-            op.controllerOperationDelegate = (id)[NSObject new];
-        };
-        expect(block).to.raiseAny();
+    it(@"not set if delegate doesn't conform to protocol", ^{
+        op.controllerOperationDelegate = (id)[NSObject new];
+        expect(op.controllerOperationDelegate).to.beNil();
     });
     
     it(@"delegate set successfully", ^{

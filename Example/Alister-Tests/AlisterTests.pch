@@ -6,15 +6,16 @@
 //  Copyright © 2016 Oksana Kovalchuk. All rights reserved.
 //
 
-#ifdef __OBJC__
-
 #import <Expecta/Expecta.h>
 #import <OCMock/OCMock.h>
 #import <Specta/Specta.h>
 
 #import "ANTestHelper.h"
 
+#ifdef NS_BLOCK_ASSERTIONS
+#undef NS_BLOCK_ASSERTIONS
+#endif
+
 @import Foundation;
 @import UIKit;
 
-#endif

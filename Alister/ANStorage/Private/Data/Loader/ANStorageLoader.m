@@ -36,21 +36,28 @@
 + (id)itemAtIndexPath:(NSIndexPath*)indexPath inStorage:(ANStorageModel*)storage
 {
     id object = nil;
-    if (indexPath.section < [storage numberOfSections])
+    if (storage && indexPath)
     {
-        NSArray* sectionItems = [self itemsInSection:indexPath.section inStorage:storage];
-        if ((NSUInteger)indexPath.row < [sectionItems count])
+        if (indexPath.section < [storage numberOfSections])
         {
-            object = sectionItems[(NSUInteger)indexPath.row];
+            NSArray* sectionItems = [self itemsInSection:indexPath.section inStorage:storage];
+            if ((NSUInteger)indexPath.row < [sectionItems count])
+            {
+                object = sectionItems[(NSUInteger)indexPath.row];
+            }
+            else
+            {
+                ANStorageLog(@"ANStorage: Row not found while searching for item");
+            }
         }
         else
         {
-            ANStorageLog(@"ANStorage: Row not found while searching for item");
+            ANStorageLog(@"ANStorage: Section not found while searching for item");
         }
     }
     else
     {
-        ANStorageLog(@"ANStorage: Section not found while searching for item");
+        ANStorageLog(@"ANStorage: Storage or indexPath is nil");
     }
     return object;
 }

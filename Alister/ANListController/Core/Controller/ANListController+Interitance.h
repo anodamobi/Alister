@@ -22,4 +22,6 @@
 
 - (instancetype)initWithListView:(id<ANListViewInterface>)listView;
 
+- (void)setupHeaderFooterDefaultKindOnStorage:(ANStorage*)storage;
+
 @end
