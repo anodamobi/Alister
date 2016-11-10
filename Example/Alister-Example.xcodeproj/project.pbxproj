@@ -75,6 +75,8 @@
 		D74129FA1DB9759A00D7BB72 /* ANStorageUpdateModelSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = D74129CF1DB9759900D7BB72 /* ANStorageUpdateModelSpec.m */; };
 		D74129FB1DB9759A00D7BB72 /* ANStorageUpdateModel+Test.m in Sources */ = {isa = PBXBuildFile; fileRef = D74129D21DB9759900D7BB72 /* ANStorageUpdateModel+Test.m */; };
 		D74129FC1DB9759A00D7BB72 /* ANStorageSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = D74129D61DB9759900D7BB72 /* ANStorageSpec.m */; };
+		D74623161DD5277200099D0A /* ANStorageDebugDataGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = D74623151DD5277200099D0A /* ANStorageDebugDataGenerator.m */; };
+		D746231A1DD527F700099D0A /* ANStorageDebugDataGeneratorSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = D74623191DD527F700099D0A /* ANStorageDebugDataGeneratorSpec.m */; };
 		D75F9E6B1DC982940070538F /* ANKeyboardHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = D75F9DE01DC982940070538F /* ANKeyboardHandler.m */; };
 		D75F9E6C1DC982940070538F /* ANCollectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = D75F9DE51DC982940070538F /* ANCollectionController.m */; };
 		D75F9E6F1DC982940070538F /* ANTableUpdateConfigurationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D75F9DF11DC982940070538F /* ANTableUpdateConfigurationModel.m */; };
@@ -279,6 +281,9 @@
 		D74129D21DB9759900D7BB72 /* ANStorageUpdateModel+Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ANStorageUpdateModel+Test.m"; sourceTree = "<group>"; };
 		D74129D61DB9759900D7BB72 /* ANStorageSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageSpec.m; sourceTree = "<group>"; };
 		D74129D91DB9759900D7BB72 /* ANTableControllerUpdateOperationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTableControllerUpdateOperationTests.m; sourceTree = "<group>"; };
+		D74623141DD5277200099D0A /* ANStorageDebugDataGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ANStorageDebugDataGenerator.h; path = DebugData/ANStorageDebugDataGenerator.h; sourceTree = "<group>"; };
+		D74623151DD5277200099D0A /* ANStorageDebugDataGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ANStorageDebugDataGenerator.m; path = DebugData/ANStorageDebugDataGenerator.m; sourceTree = "<group>"; };
+		D74623191DD527F700099D0A /* ANStorageDebugDataGeneratorSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageDebugDataGeneratorSpec.m; sourceTree = "<group>"; };
 		D75F9DDF1DC982940070538F /* ANKeyboardHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKeyboardHandler.h; sourceTree = "<group>"; };
 		D75F9DE01DC982940070538F /* ANKeyboardHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKeyboardHandler.m; sourceTree = "<group>"; };
 		D75F9DE41DC982940070538F /* ANCollectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANCollectionController.h; sourceTree = "<group>"; };
@@ -722,6 +727,7 @@
 				D7348F281DCD629B00CC114A /* Fixtures */,
 				D7348F301DCD629B00CC114A /* Models */,
 				D7348F351DCD629B00CC114A /* Storage */,
+				D74623191DD527F700099D0A /* ANStorageDebugDataGeneratorSpec.m */,
 			);
 			path = ANStorage;
 			sourceTree = "<group>";
@@ -937,6 +943,15 @@
 				D74129D91DB9759900D7BB72 /* ANTableControllerUpdateOperationTests.m */,
 			);
 			path = ANTableControllerUpdateOperationTests;
+			sourceTree = "<group>";
+		};
+		D74623171DD5277600099D0A /* DebugDataGenerator */ = {
+			isa = PBXGroup;
+			children = (
+				D74623141DD5277200099D0A /* ANStorageDebugDataGenerator.h */,
+				D74623151DD5277200099D0A /* ANStorageDebugDataGenerator.m */,
+			);
+			name = DebugDataGenerator;
 			sourceTree = "<group>";
 		};
 		D75F9DDD1DC982940070538F /* Alister */ = {
@@ -1315,6 +1330,7 @@
 			children = (
 				D75F9E5B1DC982940070538F /* Data */,
 				D75F9E651DC982940070538F /* Validator */,
+				D74623171DD5277600099D0A /* DebugDataGenerator */,
 			);
 			path = Private;
 			sourceTree = "<group>";
@@ -2017,6 +2033,7 @@
 				D75F9E7B1DC982940070538F /* ANCollectionViewCell.m in Sources */,
 				D75F9E6F1DC982940070538F /* ANTableUpdateConfigurationModel.m in Sources */,
 				D75F9E861DC982940070538F /* ANStorageUpdateModel.m in Sources */,
+				D74623161DD5277200099D0A /* ANStorageDebugDataGenerator.m in Sources */,
 				D75F9E7A1DC982940070538F /* ANCollectionReusableView.m in Sources */,
 				D75F9E731DC982940070538F /* ANListControllerUpdateService.m in Sources */,
 				D75F9E8B1DC982940070538F /* ANStorageValidator.m in Sources */,
@@ -2053,6 +2070,7 @@
 				D7348F441DCD629B00CC114A /* ANStorageLoaderSpec.m in Sources */,
 				D7348F4D1DCD629B00CC114A /* ANStorageModelSpec.m in Sources */,
 				D7DFE0C81DCE87EF007171E6 /* ANListControllerSpec.m in Sources */,
+				D746231A1DD527F700099D0A /* ANStorageDebugDataGeneratorSpec.m in Sources */,
 				D7348F421DCD629B00CC114A /* ANTableContainerViewSpec.m in Sources */,
 				D7348F4E1DCD629B00CC114A /* ANStorageMovedIndexPathModelSpec.m in Sources */,
 			);
