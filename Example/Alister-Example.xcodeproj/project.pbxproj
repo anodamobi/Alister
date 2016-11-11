@@ -31,6 +31,8 @@
 		8C4CAB541DD5D8A000ABE0CD /* ANESearchBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C4CAB531DD5D8A000ABE0CD /* ANESearchBarView.m */; };
 		8C4CAB571DD5E65B00ABE0CD /* ANESearchBarVCSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C4CAB561DD5E65B00ABE0CD /* ANESearchBarVCSpec.m */; };
 		8C4CAB5A1DD5E69A00ABE0CD /* ANESearchBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C4CAB591DD5E69A00ABE0CD /* ANESearchBarController.m */; };
+		8C4CAB5E1DD5EB2300ABE0CD /* ANESearchBarViewSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C4CAB5D1DD5EB2300ABE0CD /* ANESearchBarViewSpec.m */; };
+		8C4CAB611DD5EC8200ABE0CD /* ANESearchBarControllerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C4CAB601DD5EC8200ABE0CD /* ANESearchBarControllerSpec.m */; };
 		AE9DB8111DC73A6E003EDB3C /* ANStorageRetrivingInterfaceTestsSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9DB8101DC73A6E003EDB3C /* ANStorageRetrivingInterfaceTestsSpec.m */; };
 		D7389A191DC13FA600B54B9F /* ANStorageFakeOperationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D7389A181DC13FA600B54B9F /* ANStorageFakeOperationDelegate.m */; };
 		D7389A1F1DC23E6900B54B9F /* ANListControllerMappingServiceSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = D7389A1E1DC23E6900B54B9F /* ANListControllerMappingServiceSpec.m */; };
@@ -160,6 +162,8 @@
 		8C4CAB561DD5E65B00ABE0CD /* ANESearchBarVCSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANESearchBarVCSpec.m; sourceTree = "<group>"; };
 		8C4CAB581DD5E69A00ABE0CD /* ANESearchBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANESearchBarController.h; sourceTree = "<group>"; };
 		8C4CAB591DD5E69A00ABE0CD /* ANESearchBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANESearchBarController.m; sourceTree = "<group>"; };
+		8C4CAB5D1DD5EB2300ABE0CD /* ANESearchBarViewSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANESearchBarViewSpec.m; sourceTree = "<group>"; };
+		8C4CAB601DD5EC8200ABE0CD /* ANESearchBarControllerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANESearchBarControllerSpec.m; sourceTree = "<group>"; };
 		A8D594C6A1CAF9F8A83D2691 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		AC990585C63BBA3EFB2F905E /* libPods-Alister-Example-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Alister-Example-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE9DB8101DC73A6E003EDB3C /* ANStorageRetrivingInterfaceTestsSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageRetrivingInterfaceTestsSpec.m; sourceTree = "<group>"; };
@@ -491,6 +495,8 @@
 			isa = PBXGroup;
 			children = (
 				8C4CAB561DD5E65B00ABE0CD /* ANESearchBarVCSpec.m */,
+				8C4CAB5D1DD5EB2300ABE0CD /* ANESearchBarViewSpec.m */,
+				8C4CAB601DD5EC8200ABE0CD /* ANESearchBarControllerSpec.m */,
 			);
 			path = SearchBar;
 			sourceTree = "<group>";
@@ -1219,6 +1225,7 @@
 				D74129EF1DB9759A00D7BB72 /* ANStorageOperationFakeDelegate.m in Sources */,
 				D7A21E8A1DA8A2A500D6D803 /* ANECustomHeaderViewTest.m in Sources */,
 				D74129EA1DB9759A00D7BB72 /* ANTableContainerViewSpec.m in Sources */,
+				8C4CAB5E1DD5EB2300ABE0CD /* ANESearchBarViewSpec.m in Sources */,
 				D7A21E8F1DA8A2A500D6D803 /* ANTestableListControllerUpdateOperationDelegate.m in Sources */,
 				D74129DE1DB9759900D7BB72 /* ANListControllerConfigurationModelTest.m in Sources */,
 				D74129DA1DB9759900D7BB72 /* ANCollectionUpdateOperationTests.m in Sources */,
@@ -1245,6 +1252,7 @@
 				AE9DB8111DC73A6E003EDB3C /* ANStorageRetrivingInterfaceTestsSpec.m in Sources */,
 				D7389A191DC13FA600B54B9F /* ANStorageFakeOperationDelegate.m in Sources */,
 				D7389A1F1DC23E6900B54B9F /* ANListControllerMappingServiceSpec.m in Sources */,
+				8C4CAB611DD5EC8200ABE0CD /* ANESearchBarControllerSpec.m in Sources */,
 				D7A21E9D1DA8A4C400D6D803 /* ANECustomFooterViewModelTest.m in Sources */,
 				D7A21E9B1DA8A49C00D6D803 /* ANECustomFooterViewTest.m in Sources */,
 				D74129FA1DB9759A00D7BB72 /* ANStorageUpdateModelSpec.m in Sources */,

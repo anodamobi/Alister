@@ -6,25 +6,53 @@
 //  Copyright © 2016 Oksana Kovalchuk. All rights reserved.
 //
 
-#import <XCTest/XCTest.h>
-#import "Expecta.h"
+#import "ANESearchBarVC.h"
+#import "ANESearchBarView.h"
+#import "ANStorage.h"
+#import "ANESearchBarController.h"
 
-@interface ANESearchBarVCSpec : XCTestCase
+@interface ANESearchBarVC ()
 
-@end
-
-@implementation ANESearchBarVCSpec
-
-- (void)setUp
-{
-    [super setUp];
-
-}
-
-- (void)tearDown
-{
-
-    [super tearDown];
-}
+@property (nonatomic, strong) ANESearchBarView* contentView;
+@property (nonatomic, strong) ANStorage* storage;
+@property (nonatomic, strong) ANESearchBarController* controller;
 
 @end
+
+SpecBegin(ANESearchBarVC)
+
+describe(@"ANESearchBarVC", ^{
+    
+    __block ANESearchBarVC* viewController = nil;
+    __weak typeof(viewController)weakVC = viewController;
+
+    beforeEach(^{
+        viewController = [ANESearchBarVC new];
+    });
+    
+    it(@"should have non nil contentView", ^{
+        expect(viewController.contentView).notTo.beNil();
+    });
+    
+    it(@"should have non nil storage", ^{
+        expect(viewController.storage).notTo.beNil();
+    });
+    
+    it(@"should have non nil controller", ^{
+        expect(viewController.controller).notTo.beNil();
+    });
+    
+    it(@"storage should have items in section 0 after controller finished update", ^{
+        
+        [viewController.controller addUpdatesFinsihedTriggerBlock:^{
+            NSArray* storageItems = [weakVC.storage itemsInSection:0];
+            expect(storageItems).notTo.beNil();
+        }];
+    });
+    
+    afterEach(^{
+        viewController = nil;
+    });
+});
+
+SpecEnd
