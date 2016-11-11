@@ -34,10 +34,8 @@ describe(@"registerViewModelClass:", ^{
     });
     
     it(@"no assert if class is nil", ^{
-        void(^block)() = ^() {
-            [mapping registerViewModelClass:kANTestNil];
-        };
-        expect(block).notTo.raiseAny();
+        id result = [mapping registerViewModelClass:kANTestNil];
+        expect(result).beNil();
     });
 });
 
@@ -59,25 +57,9 @@ describe(@"registerViewModelClass: kind:", ^{
         expect(result).beNil();
     });
     
-    it(@"no assert if class is nil", ^{
-        void(^block)() = ^() {
-            [mapping registerViewModelClass:kANTestNil kind:kind];
-        };
-        expect(block).notTo.raiseAny();
-    });
-    
-    it(@"no assert if kind is nil", ^{
-        void(^block)() = ^() {
-            [mapping registerViewModelClass:[NSString class] kind:kANTestNil];
-        };
-        expect(block).notTo.raiseAny();
-    });
-    
-    it(@"no assert if kind and class are nil", ^{
-        void(^block)() = ^() {
-            [mapping registerViewModelClass:kANTestNil kind:kANTestNil];
-        };
-        expect(block).notTo.raiseAny();
+    it(@"returns nil if kind and class are nil", ^{
+        id result = [mapping registerViewModelClass:kANTestNil kind:kANTestNil];
+        expect(result).beNil();
     });
 });
 
@@ -98,11 +80,9 @@ describe(@"identifierForViewModelClass:", ^{
         expect(result).beNil();
     });
     
-    it(@"no assert if class is nil", ^{
-        void(^block)() = ^() {
-            [mapping identifierForViewModelClass:kANTestNil];
-        };
-        expect(block).notTo.raiseAny();
+    it(@"will return nil if class is nil", ^{
+        id result = [mapping identifierForViewModelClass:kANTestNil];
+        expect(result).beNil();
     });
     
     it(@"identifier will be nil if class is nil", ^{
@@ -187,27 +167,6 @@ describe(@"identifierForViewModelClass: kind:", ^{
     it(@"returns nil if kind and class are nil", ^{
         NSString* result = [mapping identifierForViewModelClass:kANTestNil kind:kANTestNil];
         expect(result).beNil();
-    });
-    
-    it(@"no assert if class is nil", ^{
-        void(^block)() = ^() {
-            [mapping identifierForViewModelClass:kANTestNil kind:kind];
-        };
-        expect(block).notTo.raiseAny();
-    });
-    
-    it(@"no assert if kind is nil", ^{
-        void(^block)() = ^() {
-            [mapping identifierForViewModelClass:[NSString class] kind:kANTestNil];
-        };
-        expect(block).notTo.raiseAny();
-    });
-    
-    it(@"no assert if kind and class are nil", ^{
-        void(^block)() = ^() {
-            [mapping identifierForViewModelClass:kANTestNil kind:kANTestNil];
-        };
-        expect(block).notTo.raiseAny();
     });
 });
 
