@@ -11,5 +11,6 @@
 + (NSArray*)generateStringsArray;
 + (NSString*)loremIpsumString;
 + (NSArray*)bottomStickedItems;
++ (NSArray*)searchItems;
 
 @end

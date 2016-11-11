@@ -27,6 +27,8 @@
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
+		8C4CAB511DD5D32500ABE0CD /* ANESearchBarVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C4CAB501DD5D32500ABE0CD /* ANESearchBarVC.m */; };
+		8C4CAB541DD5D8A000ABE0CD /* ANESearchBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C4CAB531DD5D8A000ABE0CD /* ANESearchBarView.m */; };
 		AE9DB8111DC73A6E003EDB3C /* ANStorageRetrivingInterfaceTestsSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9DB8101DC73A6E003EDB3C /* ANStorageRetrivingInterfaceTestsSpec.m */; };
 		D7389A191DC13FA600B54B9F /* ANStorageFakeOperationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D7389A181DC13FA600B54B9F /* ANStorageFakeOperationDelegate.m */; };
 		D7389A1F1DC23E6900B54B9F /* ANListControllerMappingServiceSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = D7389A1E1DC23E6900B54B9F /* ANListControllerMappingServiceSpec.m */; };
@@ -149,6 +151,10 @@
 		6003F591195388D20070C39A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		714527334026D6C1A2430887 /* libPods-Alister-Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Alister-Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C4CAB4F1DD5D32500ABE0CD /* ANESearchBarVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANESearchBarVC.h; sourceTree = "<group>"; };
+		8C4CAB501DD5D32500ABE0CD /* ANESearchBarVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANESearchBarVC.m; sourceTree = "<group>"; };
+		8C4CAB521DD5D8A000ABE0CD /* ANESearchBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANESearchBarView.h; sourceTree = "<group>"; };
+		8C4CAB531DD5D8A000ABE0CD /* ANESearchBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANESearchBarView.m; sourceTree = "<group>"; };
 		A8D594C6A1CAF9F8A83D2691 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		AC990585C63BBA3EFB2F905E /* libPods-Alister-Example-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Alister-Example-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE9DB8101DC73A6E003EDB3C /* ANStorageRetrivingInterfaceTestsSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageRetrivingInterfaceTestsSpec.m; sourceTree = "<group>"; };
@@ -296,6 +302,7 @@
 				180335631DB7AA0100332F5F /* CustomSupplementary */,
 				180335681DB7AA0100332F5F /* DefaultSupplementary */,
 				1803356B1DB7AA0100332F5F /* Localizable.strings */,
+				8C4CAB4E1DD5D2F400ABE0CD /* SearchBar */,
 				1803356C1DB7AA0100332F5F /* Main */,
 			);
 			path = ViewControllers;
@@ -459,6 +466,17 @@
 				A8D594C6A1CAF9F8A83D2691 /* LICENSE */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		8C4CAB4E1DD5D2F400ABE0CD /* SearchBar */ = {
+			isa = PBXGroup;
+			children = (
+				8C4CAB4F1DD5D32500ABE0CD /* ANESearchBarVC.h */,
+				8C4CAB501DD5D32500ABE0CD /* ANESearchBarVC.m */,
+				8C4CAB521DD5D8A000ABE0CD /* ANESearchBarView.h */,
+				8C4CAB531DD5D8A000ABE0CD /* ANESearchBarView.m */,
+			);
+			path = SearchBar;
 			sourceTree = "<group>";
 		};
 		D7389A1D1DC23CC700B54B9F /* Mapping */ = {
@@ -1150,6 +1168,8 @@
 				D7A21E071DA895B500D6D803 /* ANECustomFooterViewModel.m in Sources */,
 				180335841DB8D9F800332F5F /* ANEReorderingController.m in Sources */,
 				180335711DB7AA0100332F5F /* ANEDefaultSupplementaryVC.m in Sources */,
+				8C4CAB541DD5D8A000ABE0CD /* ANESearchBarView.m in Sources */,
+				8C4CAB511DD5D32500ABE0CD /* ANESearchBarVC.m in Sources */,
 				180335771DB7AE7B00332F5F /* ANEBottomStickedFooterVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -14,13 +14,16 @@
 #import "ANECustomSupplementaryVC.h"
 #import "ANEBottomStickedFooterVC.h"
 #import "ANEReorderingVC.h"
+#import "ANESearchBarVC.h"
 
 typedef NS_ENUM(NSInteger, ANEMainSection)
 {
     ANEMainSectionGroupedDefaultSupplementaries,
     ANEMainSectionCustomSupplementaries,
     ANEMainSectionBottomStickedFooter,
-    ANEMainSectionReordering
+    ANEMainSectionReordering,
+    ANEMainSectionXibCells,
+    ANEMainSectionSearchBar
 };
 
 @interface ANEMainVC ()
@@ -103,7 +106,17 @@ typedef NS_ENUM(NSInteger, ANEMainSection)
                 ANEReorderingVC* vc = [ANEReorderingVC new];
                 [self.navigationController pushViewController:vc
                                                      animated:YES];
-            }
+            } break;
+            case ANEMainSectionXibCells:
+            {
+                
+            } break;
+            case ANEMainSectionSearchBar:
+            {
+                ANESearchBarVC* vc = [ANESearchBarVC new];
+                [self.navigationController pushViewController:vc
+                                                     animated:YES];
+            } break;
             default: break;
         }
     }];

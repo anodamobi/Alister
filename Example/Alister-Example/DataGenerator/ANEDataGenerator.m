@@ -10,6 +10,18 @@
 
 @implementation ANEDataGenerator
 
+static NSString* kNamesArray[] = {
+    @"Corrie", @"Jennette", @"Shavonne",
+    @"Delila", @"Lula", @"Normand",
+    @"Marshall", @"Arcelia", @"Ara",
+    @"John", @"Vella", @"Dennise",
+    @"Shawnee", @"Jenise", @"Izola",
+    @"Gwenda", @"Beckie", @"Laurel",
+    @"Lorriane", @"Joan", @"Woodrow",
+    @"Sigrid", @"Melinda", @"Claribel",
+    @"Mellie", @"Leonard", @"Joie"
+};
+
 + (NSArray*)generateStringsArray
 {
     NSMutableArray* mutableStringsArray = [NSMutableArray new];
@@ -32,6 +44,19 @@
 + (NSString*)loremIpsumString
 {
     return @"Lorem Ipsum is simply dummy text.";
+}
+
++ (NSArray*)searchItems
+{
+    NSMutableArray* items = [NSMutableArray new];
+    NSUInteger countNames = sizeof(kNamesArray) / sizeof(kNamesArray[0]);
+    
+    for (NSUInteger counter = 0; counter < countNames; counter++)
+    {
+        [items addObject:kNamesArray[counter]];
+    }
+    
+    return items;
 }
 
 @end
