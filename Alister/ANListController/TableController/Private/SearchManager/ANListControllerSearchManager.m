@@ -38,7 +38,22 @@
 - (void)setSearchBar:(UISearchBar*)searchBar
 {
     searchBar.delegate = self;
+    searchBar.selectedScopeButtonIndex = ANListControllerSearchScopeNone;
     _searchBar = searchBar;
+}
+
+- (void)setDelegate:(id<ANListControllerSearchManagerDelegate>)delegate
+{
+    if ([delegate conformsToProtocol:@protocol(ANListControllerSearchManagerDelegate)] || !delegate)
+    {
+        _delegate = delegate;
+    }
+    else
+    {
+        ANListControllerLog(@"Delegate must conform to protocol %@",
+                            NSStringFromProtocol(@protocol(ANListControllerSearchManagerDelegate)));
+        _delegate = nil;
+    }
 }
 
 
@@ -127,6 +142,8 @@
 {
     //storage.isSearchingType = YES; TODO:
     
+    ANStorage* searchStorage = nil;
+    
     NSPredicate* predicate;
     if (self.searchPredicateConfigBlock)
     {
@@ -134,7 +151,9 @@
     }
     if (predicate)
     {
-        [storage updateWithoutAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
+        searchStorage = [ANStorage new];
+        
+        [searchStorage updateWithoutAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
             
             [storage.sections enumerateObjectsUsingBlock:^(ANStorageSectionModel* obj, NSUInteger idx, __unused BOOL* stop) {
                 NSArray* filteredObjects = [obj.objects filteredArrayUsingPredicate:predicate];
@@ -146,7 +165,7 @@
     {
         ANListControllerLog(@"No predicate was created, so no searching. Check your setter for storagePredicateBlock");
     }
-    return storage;
+    return searchStorage;
 }
 
 
