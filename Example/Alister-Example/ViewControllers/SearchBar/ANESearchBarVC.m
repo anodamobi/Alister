@@ -9,16 +9,15 @@
 #import "ANESearchBarVC.h"
 #import <Alister/ANTableView.h>
 #import <Alister/ANStorage.h>
-#import <Alister/ANTableController.h>
 #import "ANEDataGenerator.h"
-#import "ANELabelTableViewCell.h"
 #import "ANESearchBarView.h"
+#import "ANESearchBarController.h"
 
 @interface ANESearchBarVC ()
 
 @property (nonatomic, strong) ANESearchBarView* contentView;
 @property (nonatomic, strong) ANStorage* storage;
-@property (nonatomic, strong) ANTableController* controller;
+@property (nonatomic, strong) ANESearchBarController* controller;
 
 @end
 
@@ -30,28 +29,12 @@
     if (self)
     {
         self.storage = [ANStorage new];
-        self.storage.storagePredicateBlock = ^NSPredicate* (NSString* searchString, NSInteger __unused scope) {
-
-            NSPredicate* predicate = nil;
-            if (searchString)
-            {
-                predicate = [NSPredicate predicateWithFormat:@"self BEGINSWITH[cd] %@", searchString];
-            }
-            
-            return predicate;
-        };
-        
         self.contentView = [ANESearchBarView new];
+        self.controller = [ANESearchBarController controllerWithTableView:self.contentView.tableView];
+        [self.controller updateWithStorage:self.storage];
+        [self.controller updateWithSearchBar:self.contentView.searchBar];
         
-        self.controller = [ANTableController controllerWithTableView:self.contentView.tableView];
-        [self.controller attachStorage:self.storage];
-        [self.controller attachSearchBar:self.contentView.searchBar];
-        
-        [self.controller configureCellsWithBlock:^(id<ANListControllerReusableInterface> configurator) {
-            
-            [configurator registerCellClass:[ANELabelTableViewCell class]
-                              forModelClass:[NSString class]];
-        }];
+        self.storage.storagePredicateBlock = [self _predicateBlock];
     }
     
     return self;
@@ -73,6 +56,23 @@
         
         [storageController addItems:items];
     }];
+}
+
+
+#pragma mark - Private
+
+- (ANStorageSearchPredicate)_predicateBlock
+{
+    return ^NSPredicate* (NSString* searchString, NSInteger __unused scope) {
+        
+        NSPredicate* predicate = nil;
+        if (searchString)
+        {
+            predicate = [NSPredicate predicateWithFormat:@"self BEGINSWITH[cd] %@", searchString];
+        }
+        
+        return predicate;
+    };
 }
 
 @end
