@@ -9,12 +9,13 @@
 #import "ANListControllerFixture.h"
 #import "ANListController+Interitance.h"
 
-SpecBegin()
+SpecBegin(ANListController)
 
 __block ANListControllerFixture* controller = nil;
+__block id<ANListViewInterface> listView;
 
 beforeEach(^{
-    controller = [ANListControllerFixture new];
+    controller = [[ANListControllerFixture alloc] initWithListView:listView];
 });
 
 describe(@"at default state", ^{

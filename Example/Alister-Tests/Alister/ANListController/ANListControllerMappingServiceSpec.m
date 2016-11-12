@@ -17,7 +17,7 @@ __block NSString* kind = nil;
 
 beforeEach(^{
     mapping = [ANListControllerMappingService new];
-    kind = @"kind";
+    kind = [ANTestHelper randomString];
 });
 
 
