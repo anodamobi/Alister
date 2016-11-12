@@ -41,6 +41,7 @@ describe(@"initWithListView: mappingService:", ^{
 });
 
 describe(@"methods ANListControllerReusableInterface", ^{
+    
     __block Class modelClass = nil;
     __block Class viewClass = nil;
     __block NSString* kind = nil;
@@ -69,7 +70,6 @@ describe(@"methods ANListControllerReusableInterface", ^{
             expect(listView.lastIdentifier).equal(mappingIdentifier);
             expect(listView.lastCellClass).equal(viewClass);
             expect(listView.wasRegisterCalled).beTruthy();
-            
         });
         
         it(@"will not register if identifier is nil", ^{ //TODO: check does we need this nil check, or better to move it as assert inside anlistview?
@@ -97,7 +97,6 @@ describe(@"methods ANListControllerReusableInterface", ^{
             expect(listView.lastIdentifier).equal(mappingIdentifier);
             expect(listView.lastCellClass).equal(viewClass);
             expect(listView.wasRegisterCalled).beTruthy();
-            
         });
         
         it(@"will not register if identifier is nil", ^{ //TODO: check does we need this nil check, or better to move it as assert inside anlistview?
@@ -126,7 +125,6 @@ describe(@"methods ANListControllerReusableInterface", ^{
             expect(listView.lastCellClass).equal(viewClass);
             expect(listView.lastKind).equal(kind);
             expect(listView.wasRegisterCalled).beTruthy();
-            
         });
         
         it(@"will not register if identifier is nil", ^{ //TODO: check does we need this nil check, or better to move it as assert inside anlistview?
@@ -138,19 +136,45 @@ describe(@"methods ANListControllerReusableInterface", ^{
         });
     });
     
+    
     describe(@"registerCellClass: forModelClass:", ^{
-       pending(@"Pending");
+       
+        it(@"will register mapping for model class", ^{
+            [handler registerCellClass:viewClass forModelClass:modelClass];
+            OCMVerify([mappingService registerViewModelClass:modelClass]);
+        });
+        
+        it(@"will call register on listView", ^{
+            
+            [OCMStub([mappingService registerViewModelClass:[OCMArg any]]) andReturn:mappingIdentifier];
+            [handler registerCellClass:viewClass forModelClass:modelClass];
+            
+            expect(listView.lastIdentifier).equal(mappingIdentifier);
+            expect(listView.lastCellClass).equal(viewClass);
+            expect(listView.wasRegisterCalled).beTruthy();
+        });
+        
+        it(@"will not register if identifier is nil", ^{ //TODO: check does we need this nil check, or better to move it as assert inside anlistview?
+            
+            [OCMStub([mappingService registerViewModelClass:[OCMArg any]]) andReturn:nil];
+            [handler registerCellClass:viewClass forModelClass:modelClass];
+            
+            expect(listView.wasRegisterCalled).beFalsy();
+        });
     });
 });
 
 
-
-
-
-//- (nullable id<ANListControllerUpdateViewInterface>)cellForModel:(id)viewModel atIndexPath:(NSIndexPath*)indexPath;
-//
-//- (nullable id<ANListControllerUpdateViewInterface>)supplementaryViewForModel:(id)viewModel
-//kind:(NSString*)kind
-//forIndexPath:(nullable NSIndexPath*)indexPath;
+describe(@"retirive views", ^{
+    
+    describe(@"cellForModel: atIndexPath:", ^{
+        
+    });
+    
+    
+    describe(@"supplementaryViewForModel: kind: forIndexPath:", ^{
+        
+    });
+});
 
 SpecEnd
