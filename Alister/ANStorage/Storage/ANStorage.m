@@ -273,7 +273,4 @@
     [self.updater updateSectionFooterModel:footerModel forSectionIndex:sectionIndex];
 }
 
-
-#pragma mark - 
-
 @end
