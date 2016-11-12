@@ -12,14 +12,9 @@
 #import "ANListViewInterface.h"
 #import "ANListControllerLog.h"
 
-@interface ANListControllerItemsHandler ()
-
-@property (nonatomic, strong) id<ANListControllerMappingServiceInterface> mappingService;
-@property (nonatomic, weak) id<ANListViewInterface> listView;
-
-@end
-
 @implementation ANListControllerItemsHandler
+
+@synthesize mappingService = _mappingService;
 
 - (instancetype)initWithListView:(id<ANListViewInterface>)listView
                   mappingService:(id<ANListControllerMappingServiceInterface>)mappingService
@@ -27,8 +22,8 @@
     self = [super init];
     if (self)
     {
-        self.listView = listView;
-        self.mappingService = mappingService;
+        _listView = listView;
+        _mappingService = mappingService;
     }
     return self;
 }

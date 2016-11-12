@@ -16,6 +16,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@property (nonatomic, strong, readonly) id<ANListControllerMappingServiceInterface> mappingService;
+@property (nonatomic, weak, readonly) id<ANListViewInterface> listView;
+
 - (instancetype)initWithListView:(id<ANListViewInterface>)listView
                   mappingService:(nullable id<ANListControllerMappingServiceInterface>)mappingService;
 
