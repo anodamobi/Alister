@@ -21,5 +21,6 @@ static id const kANTestNil = nil;
 + (NSDictionary*)randomDictionary;
 
 + (id)randomObject;
++ (Class)randomClass;
 
 @end

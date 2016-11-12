@@ -18,32 +18,45 @@
         case 0:
         {
             return [NSObject new];
-        }
-        break;
+        } break;
             
         case 1:
         {
             return [self randomNumber];
-        }
-        break;
+        } break;
             
         case 2:
         {
             return [self randomString];
-        }
-        break;
+        } break;
             
         case 3:
         {
             return @{[self randomString] : [self randomNumber]};
-        }
-        break;
+        } break;
             
         default:
         {
             return [NSNull null];
-        }
-        break;
+        } break;
+    }
+}
+
++ (Class)randomClass
+{
+    NSInteger numberOfObjects = arc4random_uniform(10);
+    switch (numberOfObjects)
+    {
+        case 0: return [NSString class];
+        case 2: return [NSArray class];
+        case 3: return [NSDictionary class];
+        case 4: return [NSData class];
+        case 5: return [NSObject class];
+        case 6: return [NSDate class];
+        case 7: return [NSError class];
+        case 8: return [NSIndexPath class];
+            
+        default: return [NSSet class]; break;
     }
 }
 
