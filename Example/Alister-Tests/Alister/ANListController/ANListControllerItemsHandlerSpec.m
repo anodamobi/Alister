@@ -195,8 +195,9 @@ describe(@"retirive views", ^{
         
         it(@"will update retrived cell with model", ^{
             
+            [OCMStub([mappingService identifierForViewModelClass:[OCMArg any]]) andReturn:[ANTestHelper randomString]];
             ANListCellFixture* cell = [ANListCellFixture new];
-            [OCMStub([listView cellForReuseIdentifier:[OCMArg any] atIndexPath:indexPath]) andReturn:cell];
+            listView.cell = cell;
             [handler cellForModel:model atIndexPath:indexPath];
             
             expect(cell.wasUpdateCalled).beTruthy();
@@ -225,10 +226,13 @@ describe(@"retirive views", ^{
         });
         
         it(@"will retrieve supplementary from listView", ^{
+            
+            NSString* identifier = [ANTestHelper randomString];
+            [OCMStub([mappingService identifierForViewModelClass:[model class] kind:kind]) andReturn:identifier];
             [handler supplementaryViewForModel:model kind:kind forIndexPath:indexPath];
             
             expect(listView.lastIndexPath).equal(indexPath);
-            expect(listView.lastModelClass).equal([model class]);
+            expect(listView.lastIdentifier).equal(identifier);
             expect(listView.lastKind).equal(kind);
             expect(listView.wasRetriveCalled).beTruthy();
         });
@@ -236,6 +240,8 @@ describe(@"retirive views", ^{
         it(@"will update retrived supplementary with model", ^{
             ANListCellFixture* supplementary = [ANListCellFixture new];
             listView.supplementary = supplementary;
+            NSString* identifier = [ANTestHelper randomString];
+            [OCMStub([mappingService identifierForViewModelClass:[model class] kind:kind]) andReturn:identifier];
             [handler supplementaryViewForModel:model kind:kind forIndexPath:indexPath];
             
             expect(supplementary.wasUpdateCalled).beTruthy();

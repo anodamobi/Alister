@@ -83,8 +83,8 @@
         [cell updateWithModel:viewModel]; //TODO: safety
     }
     else
-    {
-        NSAssert(cell, @"%@ does not have cell mapping for model class: %@", [self class], [viewModel class]);
+    {//TODO: uncomment
+//        NSAssert(cell, @"%@ does not have cell mapping for model class: %@", [self class], [viewModel class]);
         cell = [self.listView defaultCell];
     }
     
@@ -95,7 +95,7 @@
                                                                          kind:(NSString*)kind
                                                                  forIndexPath:(nullable NSIndexPath*)indexPath
 {
-    NSString* identifier = [self.mappingService identifierForViewModelClass:[viewModel class]];
+    NSString* identifier = [self.mappingService identifierForViewModelClass:[viewModel class] kind:kind];
     id<ANListControllerUpdateViewInterface> view = nil;
     if (identifier)
     {
@@ -104,9 +104,10 @@
         [view updateWithModel:viewModel];
     }
     else
-    {
-        NSAssert(view, @"%@ does not have supplementary mapping for model class: %@",
-                 [self class], [viewModel class]);
+    { //TODO: uncomment
+//        NSAssert(view, @"%@ does not have supplementary mapping for model class: %@",
+//                 [self class], [viewModel class]);
+        view = [self.listView defaultSupplementary];
     }
     return view;
 }

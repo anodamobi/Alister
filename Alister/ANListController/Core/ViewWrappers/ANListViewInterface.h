@@ -26,6 +26,7 @@
                                                                   atIndexPath:(NSIndexPath*)indexPath;
 
 - (id)defaultCell;
+- (id)defaultSupplementary;
 
 - (UIScrollView*)view;
 

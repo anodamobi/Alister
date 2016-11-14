@@ -106,6 +106,11 @@
     return [UITableViewCell new];
 }
 
+- (id)defaultSupplementary
+{
+    return [UITableViewHeaderFooterView new];
+}
+
 - (void)performUpdate:(ANStorageUpdateModel*)update animated:(BOOL)animated
 {
     UITableView* tableView = self.tableView;

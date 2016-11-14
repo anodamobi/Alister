@@ -57,6 +57,16 @@
     return nil;
 }
 
+- (id)defaultCell
+{
+    return [UITableViewCell new];
+}
+
+- (id)defaultSupplementary
+{
+    return [UITableViewHeaderFooterView new];
+}
+
 - (NSString*)headerDefaultKind
 {
     if (!_headerDefaultKind)
