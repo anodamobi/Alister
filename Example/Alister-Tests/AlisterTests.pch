@@ -12,10 +12,6 @@
 
 #import "ANTestHelper.h"
 
-#ifdef NS_BLOCK_ASSERTIONS
-#undef NS_BLOCK_ASSERTIONS
-#endif
-
 @import Foundation;
 @import UIKit;
 

@@ -84,10 +84,10 @@
     }
     else
     {
-        ANListControllerLog(@"%@ does not have cell mapping for model class: %@", [self class], [viewModel class]);
+        NSAssert(cell, @"%@ does not have cell mapping for model class: %@", [self class], [viewModel class]);
+        cell = [self.listView defaultCell];
     }
     
-    NSParameterAssert(cell);
     return cell;
 }
 
@@ -105,8 +105,8 @@
     }
     else
     {
-        ANListControllerLog(@"%@ does not have supplementary mapping for model class: %@",
-                            [self class], [viewModel class]);
+        NSAssert(view, @"%@ does not have supplementary mapping for model class: %@",
+                 [self class], [viewModel class]);
     }
     return view;
 }

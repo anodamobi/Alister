@@ -180,10 +180,7 @@ describe(@"predicateBlock", ^{
         searchBar.selectedScopeButtonIndex = [ANTestHelper randomNumber].integerValue + 1;
         [manager searchBar:searchBar textDidChange:searchBar.text];
         
-        waitUntilTimeout(0.1, ^(DoneCallback done) {
-            done();
-            expect(calls).equal(1);
-        });
+        expect(calls).equal(1);
     });
     
     it(@"received correct parameters", ^{

@@ -27,14 +27,19 @@
                                                                   atIndexPath:(NSIndexPath *)indexPath
 {
     self.wasRetriveCalled = YES;
-    return nil;
+    self.lastIdentifier = reuseIdentifier;
+    self.lastIndexPath = indexPath;
+    self.lastKind = kind;
+    return self.supplementary;
 }
 
 - (id<ANListControllerUpdateViewInterface>)cellForReuseIdentifier:(NSString *)reuseIdentifier
                                                       atIndexPath:(NSIndexPath *)indexPath
 {
     self.wasRetriveCalled = YES;
-    return nil;
+    self.lastIdentifier = reuseIdentifier;
+    self.lastIndexPath = indexPath;
+    return self.cell;
 }
 
 - (void)registerSupplementaryClass:(Class)supplementaryClass

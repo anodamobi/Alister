@@ -9,7 +9,7 @@
 #import "ANListControllerItemsHandler.h"
 #import "ANListViewFixture.h"
 #import "ANListControllerMappingServiceFixture.h"
-
+#import "ANListCellFixture.h"
 
 SpecBegin(ANListControllerItemsHandler)
 
@@ -166,14 +166,85 @@ describe(@"methods ANListControllerReusableInterface", ^{
 
 
 describe(@"retirive views", ^{
+
+    __block id model = nil;
+    NSIndexPath* indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    
+    beforeEach(^{
+        model = [ANTestHelper randomObject];
+    });
     
     describe(@"cellForModel: atIndexPath:", ^{
         
+        it(@"will retrieve registered identifier", ^{
+            [OCMStub([mappingService identifierForViewModelClass:[OCMArg any]]) andReturn:[ANTestHelper randomString]];
+            
+            [handler cellForModel:model atIndexPath:indexPath];
+            OCMVerify([mappingService identifierForViewModelClass:[model class]]);
+        });
+        
+        it(@"will retrieve cell from listView", ^{
+            NSString* identifier = [ANTestHelper randomString];
+            [OCMStub([mappingService identifierForViewModelClass:[OCMArg any]]) andReturn:identifier];
+            [handler cellForModel:model atIndexPath:indexPath];
+            
+            expect(listView.lastIndexPath).equal(indexPath);
+            expect(listView.lastIdentifier).equal(identifier);
+            expect(listView.wasRetriveCalled).beTruthy();
+        });
+        
+        it(@"will update retrived cell with model", ^{
+            
+            ANListCellFixture* cell = [ANListCellFixture new];
+            [OCMStub([listView cellForReuseIdentifier:[OCMArg any] atIndexPath:indexPath]) andReturn:cell];
+            [handler cellForModel:model atIndexPath:indexPath];
+            
+            expect(cell.wasUpdateCalled).beTruthy();
+        });
+        
+        it(@"cell will not be nil nothing was returned from list view", ^{
+            id cell = [handler cellForModel:model atIndexPath:indexPath];
+            expect(cell).notTo.beNil();
+        });
     });
     
     
     describe(@"supplementaryViewForModel: kind: forIndexPath:", ^{
         
+        __block NSString* kind = nil;
+        
+        beforeEach(^{
+            kind = [ANTestHelper randomString];
+        });
+        
+        it(@"will retrieve registered identifier", ^{ //TODO: remove after disable asserts
+            [OCMStub([mappingService identifierForViewModelClass:[model class] kind:kind]) andReturn:[ANTestHelper randomString]];
+            
+            [handler supplementaryViewForModel:model kind:kind forIndexPath:indexPath];
+            OCMVerify([mappingService identifierForViewModelClass:[model class] kind:kind]);
+        });
+        
+        it(@"will retrieve supplementary from listView", ^{
+            [handler supplementaryViewForModel:model kind:kind forIndexPath:indexPath];
+            
+            expect(listView.lastIndexPath).equal(indexPath);
+            expect(listView.lastModelClass).equal([model class]);
+            expect(listView.lastKind).equal(kind);
+            expect(listView.wasRetriveCalled).beTruthy();
+        });
+        
+        it(@"will update retrived supplementary with model", ^{
+            ANListCellFixture* supplementary = [ANListCellFixture new];
+            listView.supplementary = supplementary;
+            [handler supplementaryViewForModel:model kind:kind forIndexPath:indexPath];
+            
+            expect(supplementary.wasUpdateCalled).beTruthy();
+        });
+        
+        it(@"supplementary will not be nil nothing was returned from list view", ^{
+            id cell = [handler supplementaryViewForModel:model kind:kind forIndexPath:indexPath];
+            expect(cell).notTo.beNil();
+        });
     });
 });
 

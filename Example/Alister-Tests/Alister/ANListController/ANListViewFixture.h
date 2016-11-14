@@ -22,6 +22,11 @@
 @property (nonatomic, strong) NSString* lastKind;
 @property (nonatomic, strong) NSString* lastIdentifier;
 
+@property (nonatomic, strong) NSIndexPath* lastIndexPath;
+
+@property (nonatomic, strong) id cell;
+@property (nonatomic, strong) id supplementary;
+
 @property (nonatomic, assign) BOOL wasRegisterCalled;
 @property (nonatomic, assign) BOOL wasRetriveCalled;
 

@@ -25,6 +25,8 @@
                                                                          kind:(NSString*)kind
                                                                   atIndexPath:(NSIndexPath*)indexPath;
 
+- (id)defaultCell;
+
 - (UIScrollView*)view;
 
 - (void)reloadData;

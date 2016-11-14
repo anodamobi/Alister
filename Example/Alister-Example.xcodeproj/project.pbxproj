@@ -30,6 +30,7 @@
 		AE9DB8111DC73A6E003EDB3C /* ANStorageRetrivingInterfaceTestsSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9DB8101DC73A6E003EDB3C /* ANStorageRetrivingInterfaceTestsSpec.m */; };
 		C38A7FCBD878748A3AEE97A8 /* libPods-Alister-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B2FC9B41E0B02F7C55AE811 /* libPods-Alister-Tests.a */; };
 		D7041D261DD55F9700752AEC /* ANListControllerMappingServiceFixture.m in Sources */ = {isa = PBXBuildFile; fileRef = D7041D251DD55F9700752AEC /* ANListControllerMappingServiceFixture.m */; };
+		D7041D291DD9BBC300752AEC /* ANListCellFixture.m in Sources */ = {isa = PBXBuildFile; fileRef = D7041D281DD9BBC300752AEC /* ANListCellFixture.m */; };
 		D7348F3D1DCD629B00CC114A /* ANListControllerMappingServiceSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = D7348F171DCD629B00CC114A /* ANListControllerMappingServiceSpec.m */; };
 		D7348F3E1DCD629B00CC114A /* ANCollectionReusableViewSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = D7348F1A1DCD629B00CC114A /* ANCollectionReusableViewSpec.m */; };
 		D7348F3F1DCD629B00CC114A /* ANCollectionViewCellSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = D7348F1B1DCD629B00CC114A /* ANCollectionViewCellSpec.m */; };
@@ -217,6 +218,8 @@
 		CB2099F6E4049388FFBA7187 /* Pods-Alister-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister-Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Alister-Example/Pods-Alister-Example.debug.xcconfig"; sourceTree = "<group>"; };
 		D7041D241DD55F9700752AEC /* ANListControllerMappingServiceFixture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANListControllerMappingServiceFixture.h; sourceTree = "<group>"; };
 		D7041D251DD55F9700752AEC /* ANListControllerMappingServiceFixture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANListControllerMappingServiceFixture.m; sourceTree = "<group>"; };
+		D7041D271DD9BBC300752AEC /* ANListCellFixture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANListCellFixture.h; sourceTree = "<group>"; };
+		D7041D281DD9BBC300752AEC /* ANListCellFixture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANListCellFixture.m; sourceTree = "<group>"; };
 		D7348F041DCD12FA00CC114A /* ANListControllerUpdateServiceInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ANListControllerUpdateServiceInterface.h; sourceTree = "<group>"; };
 		D7348F051DCD368900CC114A /* Alister.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Alister.h; sourceTree = "<group>"; };
 		D7348F0A1DCD61A300CC114A /* Alister-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Alister-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1546,6 +1549,8 @@
 				D746231E1DD55D2800099D0A /* ANListViewFixture.m */,
 				D7041D241DD55F9700752AEC /* ANListControllerMappingServiceFixture.h */,
 				D7041D251DD55F9700752AEC /* ANListControllerMappingServiceFixture.m */,
+				D7041D271DD9BBC300752AEC /* ANListCellFixture.h */,
+				D7041D281DD9BBC300752AEC /* ANListCellFixture.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -2084,6 +2089,7 @@
 				D7348F441DCD629B00CC114A /* ANStorageLoaderSpec.m in Sources */,
 				D746231F1DD55D2800099D0A /* ANListViewFixture.m in Sources */,
 				D7348F4D1DCD629B00CC114A /* ANStorageModelSpec.m in Sources */,
+				D7041D291DD9BBC300752AEC /* ANListCellFixture.m in Sources */,
 				D7DFE0C81DCE87EF007171E6 /* ANListControllerSpec.m in Sources */,
 				D746231A1DD527F700099D0A /* ANStorageDebugDataGeneratorSpec.m in Sources */,
 				D746231C1DD55B5500099D0A /* ANListControllerItemsHandlerSpec.m in Sources */,
@@ -2465,8 +2471,13 @@
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = 7VYW9J77NX;
+				ENABLE_NS_ASSERTIONS = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Alister-Tests/AlisterTests.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+				);
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "Alister-Tests/Info.plist";
@@ -2515,6 +2526,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = "";
+				ENABLE_NS_ASSERTIONS = NO;
 				INFOPLIST_FILE = "Alister-Example-UITests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -2555,6 +2567,7 @@
 				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = 7VYW9J77NX;
+				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

@@ -101,6 +101,11 @@
     return [self.tableView dequeueReusableHeaderFooterViewWithIdentifier:reuseIdentifier];
 }
 
+- (id<ANListControllerUpdateViewInterface>)defaultCell
+{
+    return [UITableViewCell new];
+}
+
 - (void)performUpdate:(ANStorageUpdateModel*)update animated:(BOOL)animated
 {
     UITableView* tableView = self.tableView;
