@@ -146,6 +146,9 @@
 		D7DFE0CC1DD2808F007171E6 /* ANListControllerFixture.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DFE0CB1DD2808F007171E6 /* ANListControllerFixture.m */; };
 		D7DFE0CF1DD28E51007171E6 /* ANListControllerSearchManagerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DFE0CE1DD28E51007171E6 /* ANListControllerSearchManagerSpec.m */; };
 		D7DFE0D31DD50568007171E6 /* ANSearchControllerDelegateFixture.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DFE0D21DD50568007171E6 /* ANSearchControllerDelegateFixture.m */; };
+		D7F624B11DDBC05600D00C64 /* ANListControllerUpdateServiceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D7F624B01DDBC05600D00C64 /* ANListControllerUpdateServiceTest.m */; };
+		D7F624B41DDBCCE500D00C64 /* ANListControllerUpdateServiceFixture.m in Sources */ = {isa = PBXBuildFile; fileRef = D7F624B31DDBCCE500D00C64 /* ANListControllerUpdateServiceFixture.m */; };
+		D7F624B71DDBCF1600D00C64 /* NSOperationQueueFixture.m in Sources */ = {isa = PBXBuildFile; fileRef = D7F624B61DDBCF1600D00C64 /* NSOperationQueueFixture.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -438,6 +441,11 @@
 		D7DFE0D21DD50568007171E6 /* ANSearchControllerDelegateFixture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANSearchControllerDelegateFixture.m; sourceTree = "<group>"; };
 		D7EC43CC1D512EE300128012 /* Alister-Example-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Alister-Example-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7EC43D01D512EE300128012 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D7F624B01DDBC05600D00C64 /* ANListControllerUpdateServiceTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANListControllerUpdateServiceTest.m; sourceTree = "<group>"; };
+		D7F624B21DDBCCE500D00C64 /* ANListControllerUpdateServiceFixture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANListControllerUpdateServiceFixture.h; sourceTree = "<group>"; };
+		D7F624B31DDBCCE500D00C64 /* ANListControllerUpdateServiceFixture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANListControllerUpdateServiceFixture.m; sourceTree = "<group>"; };
+		D7F624B51DDBCF1600D00C64 /* NSOperationQueueFixture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSOperationQueueFixture.h; sourceTree = "<group>"; };
+		D7F624B61DDBCF1600D00C64 /* NSOperationQueueFixture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSOperationQueueFixture.m; sourceTree = "<group>"; };
 		E301602B7936D5180834423D /* Alister.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Alister.podspec; path = ../Alister.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		F94C3A38CF0AB0BC1BBB034E /* Pods-Alister-Example-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister-Example-Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Alister-Example-Tests/Pods-Alister-Example-Tests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -694,6 +702,7 @@
 				D7348F171DCD629B00CC114A /* ANListControllerMappingServiceSpec.m */,
 				D7DFE0C71DCE87EF007171E6 /* ANListControllerSpec.m */,
 				D7DFE0CE1DD28E51007171E6 /* ANListControllerSearchManagerSpec.m */,
+				D7F624B01DDBC05600D00C64 /* ANListControllerUpdateServiceTest.m */,
 			);
 			path = ANListController;
 			sourceTree = "<group>";
@@ -1551,6 +1560,10 @@
 				D7041D251DD55F9700752AEC /* ANListControllerMappingServiceFixture.m */,
 				D7041D271DD9BBC300752AEC /* ANListCellFixture.h */,
 				D7041D281DD9BBC300752AEC /* ANListCellFixture.m */,
+				D7F624B21DDBCCE500D00C64 /* ANListControllerUpdateServiceFixture.h */,
+				D7F624B31DDBCCE500D00C64 /* ANListControllerUpdateServiceFixture.m */,
+				D7F624B51DDBCF1600D00C64 /* NSOperationQueueFixture.h */,
+				D7F624B61DDBCF1600D00C64 /* NSOperationQueueFixture.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -2072,6 +2085,7 @@
 				D7348F3D1DCD629B00CC114A /* ANListControllerMappingServiceSpec.m in Sources */,
 				D7348F461DCD629B00CC114A /* ANStorageRemoverSpec.m in Sources */,
 				D7DFE0D31DD50568007171E6 /* ANSearchControllerDelegateFixture.m in Sources */,
+				D7F624B41DDBCCE500D00C64 /* ANListControllerUpdateServiceFixture.m in Sources */,
 				D7348F491DCD629B00CC114A /* ANStorageUpdaterSpec.m in Sources */,
 				D7348F401DCD629B00CC114A /* ANBaseTableFooterViewSpec.m in Sources */,
 				D7348F3E1DCD629B00CC114A /* ANCollectionReusableViewSpec.m in Sources */,
@@ -2083,8 +2097,10 @@
 				D7348F3F1DCD629B00CC114A /* ANCollectionViewCellSpec.m in Sources */,
 				D7DFE0C61DCE8276007171E6 /* ANTestHelper.m in Sources */,
 				D7348F531DCD629B00CC114A /* ANTestingFixtureObjects.m in Sources */,
+				D7F624B71DDBCF1600D00C64 /* NSOperationQueueFixture.m in Sources */,
 				D7041D261DD55F9700752AEC /* ANListControllerMappingServiceFixture.m in Sources */,
 				D7348F451DCD629B00CC114A /* ANStorageRemover_UpdateVerification_Spec.m in Sources */,
+				D7F624B11DDBC05600D00C64 /* ANListControllerUpdateServiceTest.m in Sources */,
 				D7348F541DCD629B00CC114A /* ANTestTableHeaderFooter.m in Sources */,
 				D7348F441DCD629B00CC114A /* ANStorageLoaderSpec.m in Sources */,
 				D746231F1DD55D2800099D0A /* ANListViewFixture.m in Sources */,

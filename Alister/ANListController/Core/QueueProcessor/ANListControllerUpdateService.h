@@ -8,6 +8,7 @@
 
 #import "ANStorageUpdateEventsDelegate.h"
 #import "ANListViewInterface.h"
+#import "ANListControllerUpdateServiceInterface.h"
 
 @protocol ANListControllerUpdateServiceDelegate <NSObject>
 
@@ -15,8 +16,9 @@
 
 @end
 
-@interface ANListControllerUpdateService : NSObject <ANStorageUpdateEventsDelegate>
+@interface ANListControllerUpdateService : NSObject <ANStorageUpdateEventsDelegate, ANListControllerUpdateServiceInterface>
 
+@property (nonatomic, strong, readonly) id<ANListViewInterface> listView;
 @property (nonatomic, weak) id<ANListControllerUpdateServiceDelegate> delegate;
 
 - (instancetype)initWithListView:(id<ANListViewInterface>)listView;

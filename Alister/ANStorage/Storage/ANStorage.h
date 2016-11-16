@@ -18,7 +18,6 @@ typedef void(^ANDataStorageUpdateBlock)(id<ANStorageUpdatableInterface> storageC
 @property (nonatomic, weak) id<ANStorageUpdateEventsDelegate> updatesHandler;
 @property (nonatomic, strong, readonly) NSString* identifier;
 
-
 - (void)updateWithAnimationChangeBlock:(ANDataStorageUpdateBlock)block;
 - (void)updateWithoutAnimationChangeBlock:(ANDataStorageUpdateBlock)block;
 - (void)reloadStorageWithAnimation:(BOOL)isAnimatable;

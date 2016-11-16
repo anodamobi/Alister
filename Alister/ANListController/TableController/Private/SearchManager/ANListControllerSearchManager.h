@@ -30,6 +30,8 @@ typedef NS_ENUM(NSInteger, ANListControllerSearchScope)
 @property (nonatomic, weak) UISearchBar* searchBar;
 @property (nonatomic, copy) ANListControllerSearchPredicateBlock searchPredicateConfigBlock; //TODO: configuration
 
+- (instancetype)initWithDelegate:(id<ANListControllerSearchManagerDelegate>)delegate;
+
 - (BOOL)isSearching;
 
 @end

@@ -7,17 +7,15 @@
 //
 
 #import "ANListControllerUpdateService.h"
-#import "ANListControllerUpdateServiceInterface.h"
 
 //operations
 #import "ANStorageUpdateOperation.h"
 #import "ANListControllerReloadOperation.h"
 #import "ANListControllerUpdateOperation.h"
 
-@interface ANListControllerUpdateService () <ANListControllerUpdateServiceInterface>
+@interface ANListControllerUpdateService ()
 
 @property (nonatomic, strong) NSOperationQueue* queue;
-@property (nonatomic, strong, readonly) id<ANListViewInterface> listView;
 
 @end
 
@@ -28,14 +26,6 @@
     self = [super init];
     if (self)
     {
-        self.queue = [NSOperationQueue mainQueue];
-        self.queue.maxConcurrentOperationCount = 1;
-        
-        [self.queue addObserver:self
-                     forKeyPath:NSStringFromSelector(@selector(operations))
-                        options:NSKeyValueObservingOptionNew
-                        context:NULL];
-        
         _listView = listView;
     }
     return self;
@@ -133,6 +123,21 @@
     {
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
     }
+}
+
+- (NSOperationQueue *)queue
+{
+    if (!_queue)
+    {
+        _queue = [NSOperationQueue mainQueue];
+        _queue.maxConcurrentOperationCount = 1;
+        
+        [_queue addObserver:self
+                 forKeyPath:NSStringFromSelector(@selector(operations))
+                    options:NSKeyValueObservingOptionNew
+                    context:NULL];
+    }
+    return _queue;
 }
 
 @end

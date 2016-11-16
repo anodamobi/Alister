@@ -29,6 +29,16 @@
     return self;
 }
 
+- (instancetype)initWithDelegate:(id<ANListControllerSearchManagerDelegate>)delegate
+{
+    self = [super init];
+    if (self)
+    {
+        self.delegate = delegate;
+    }
+    return self;
+}
+
 - (void)dealloc
 {
     self.searchBar.delegate = nil;

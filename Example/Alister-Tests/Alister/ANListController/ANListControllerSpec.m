@@ -7,76 +7,160 @@
 //
 
 #import "ANListControllerFixture.h"
+#import "ANListViewInterface.h"
+#import <XCTest/XCTest.h>
+#import "ANListController.h"
 #import "ANListController+Interitance.h"
+#import "ANListViewFixture.h"
+#import "ANListControllerSearchManager.h"
+#import "ANListControllerReusableInterface.h"
 
-SpecBegin(ANListController)
+@interface ANListControllerTest : XCTestCase
 
-__block ANListControllerFixture* controller = nil;
-__block id<ANListViewInterface> listView;
+@property (nonatomic, strong) ANListControllerFixture* controller;
+@property (nonatomic, strong) ANListViewFixture* listView;
+@property (nonatomic, strong) id itemsHandler;
+@property (nonatomic, strong) id storage;
+@property (nonatomic, strong) id updateService;
+@property (nonatomic, strong) id searchManager;
 
-beforeEach(^{
-    controller = [[ANListControllerFixture alloc] initWithListView:listView];
-});
+@end
 
-describe(@"at default state", ^{
+@implementation ANListControllerTest
+
+- (void)setUp
+{
+    [super setUp];
+    self.listView = [ANListViewFixture new];
+    self.controller = [[ANListControllerFixture alloc] initWithListView:self.listView];
+    self.itemsHandler = OCMProtocolMock(@protocol(ANListControllerReusableInterface));
+    self.updateService = OCMProtocolMock(@protocol(ANStorageUpdateEventsDelegate));
+    self.storage = OCMClassMock([ANStorage class]);
+    self.searchManager = OCMClassMock([ANListControllerSearchManager class]);
     
-    it(@"storage will be nil", ^{
-        expect(controller.currentStorage).beNil();
-    });
-});
+    self.controller.itemsHandler = self.itemsHandler;
+    self.controller.updateService = self.updateService;
+    self.controller.searchManager = self.searchManager;
+}
 
+- (void)tearDown
+{
+    self.controller = nil;
+    self.listView = nil;
+    self.storage = nil;
+    self.itemsHandler = nil;
+    [super tearDown];
+}
 
-describe(@"initWithListView:", ^{
-    
-    it(@"no assert if view is nil", ^{
+- (void)testDefaultState
+{
+    expect(self.controller.currentStorage).beNil();
+}
+
+- (void)test_configureCellsWithBlock_shouldExecuteAndPassConfigurator
+{
+    waitUntilTimeout(0.1, ^(DoneCallback done) {
         
+        [self.controller configureCellsWithBlock:^(id<ANListControllerReusableInterface> configurator) {
+            done();
+            expect(self.itemsHandler).equal(configurator);
+        }];
     });
-});
+}
 
-describe(@"attachStorage:", ^{
+
+- (void)test_attachStorage_shouldEqualCurrentIfNoActiveSearch
+{
+    [self.controller attachStorage:self.storage];
+    expect(self.controller.currentStorage).equal(self.storage);
+}
+
+- (void)test_attachStorage_shouldSetDelegate
+{
+    [self.controller attachStorage:self.storage];
+    OCMVerify([self.storage setUpdatesHandler:self.updateService]);
+}
+
+- (void)test_attachStorage_shouldBeReloaded
+{
+    ANStorage* storageMock = OCMClassMock([ANStorage class]);
+    [self.controller attachStorage:storageMock];
     
-    __block ANStorage* storage = nil;
+    OCMVerify([self.listView reloadData]);
+}
+
+
+- (void)test_attachSearchBar_shouldUpdateSearchManager
+{
+    UISearchBar* searchBar = [UISearchBar new];
+    [self.controller attachSearchBar:searchBar];
     
-    beforeEach(^{
-        storage = [ANStorage new];
-    });
+    OCMVerify([self.searchManager setSearchBar:searchBar]);
+}
+
+
+- (void)test_configureCellsWithBlock_shouldNotRaiseIfNil
+{
+    void(^block)() = ^() {
+        [self.controller configureCellsWithBlock:nil];
+    };
+    expect(block).notTo.raiseAny();
+}
+
+- (void)test_configureCellsWithBlock_shouldProvideItemsHandler
+{
+    __block BOOL wasCalled = NO;
+    ANListControllerCellConfigurationBlock block = ^(id<ANListControllerReusableInterface> configurator) {
+        wasCalled = YES;
+        expect(configurator).equal(self.itemsHandler);
+    };
+    [self.controller configureCellsWithBlock:block];
     
-    it(@"no assert if storage is nil", ^{
-        void(^block)() = ^() {
-            [controller attachStorage:nil];
-        };
-        expect(block).notTo.raiseAny();
-    });
-    
-    it(@"prevoius storage will reset if new is nil", ^{
-        [controller attachStorage:storage];
-        [controller attachStorage:nil];
-    
-        expect(controller.currentStorage).beNil();
-    });
-    
-    it(@"attached storage will become current storage", ^{
-        [controller attachStorage:storage];
-        expect(controller.currentStorage).equal(storage);
-    });
-    
-    it(@"storage will have update delegates after assign", ^{
-        [controller attachStorage:storage];
-        expect(controller.currentStorage.updatesHandler).notTo.beNil();
-    });
-    
-    it(@"after attach storage must be reloaded", ^{
-        ANStorage* storageMock = OCMClassMock([ANStorage class]);
-        OCMExpect([storageMock reloadStorageWithAnimation:(BOOL)[OCMArg any]]);
-        [controller attachStorage:storageMock];
+    expect(wasCalled).beTruthy();
+}
+
+
+- (void)test_configureItemSelectionBlock_shouldBeEqualToPropertyAfterSet
+{
+    ANListControllerItemSelectionBlock block = ^(id model, NSIndexPath *indexPath) {
         
-        OCMVerify(storageMock);
-    });
-});
-
-
-describe(@"attachSearchBar:", ^{
+    };
+    [self.controller configureItemSelectionBlock:block];
     
-});
+    expect(block).equal(self.controller.selectionBlock);
+}
 
-SpecEnd
+
+- (void)test_addUpdatesFinishedTriggerBlock_shouldNotRaiseIfNil
+{
+    [self.controller addUpdatesFinishedTriggerBlock:nil];
+    void(^block)() = ^() {
+        [self.controller allUpdatesFinished];
+    };
+    expect(block).notTo.raiseAny();
+}
+
+- (void)test_addUpdatesFinishedTriggerBlock_shouldCalledWhenDelegateMethodInvoked
+{
+    __block BOOL wasCalled = NO;
+    [self.controller addUpdatesFinishedTriggerBlock:^{
+        wasCalled = YES;
+    }];
+    [self.controller allUpdatesFinished];
+    
+    expect(wasCalled).beTruthy();
+}
+
+
+- (void)test_updateSearchingPredicateBlock_shouldPassItToSearchManager
+{
+    ANListControllerSearchPredicateBlock searchBlock = ^NSPredicate *(NSString *searchString, NSInteger scope) {
+        return [NSPredicate predicateWithValue:YES];
+    };
+    
+    [self.controller updateSearchingPredicateBlock:searchBlock];
+    
+    OCMVerify([self.searchManager setSearchPredicateConfigBlock:searchBlock]);
+}
+
+@end

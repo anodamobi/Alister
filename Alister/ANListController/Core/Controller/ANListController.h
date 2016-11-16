@@ -12,11 +12,11 @@
 
 @class ANKeyboardHandler;
 
-@interface ANListController : NSObject
+@interface ANListController : NSObject 
 
-@property (nonatomic, strong) ANKeyboardHandler* keyboardHandler;
+//@property (nonatomic, strong) ANKeyboardHandler* keyboardHandler;
+//@property (nonatomic, assign) BOOL shouldHandleKeyboard;
 
-@property (nonatomic, assign) BOOL shouldHandleKeyboard;
 @property (nonatomic, strong, readonly) ANStorage* currentStorage;
 
 
@@ -30,7 +30,5 @@
 - (void)addUpdatesFinishedTriggerBlock:(ANListControllerUpdatesFinishedTriggerBlock)block;
 
 - (void)updateSearchingPredicateBlock:(ANListControllerSearchPredicateBlock)block;
-
-
 
 @end

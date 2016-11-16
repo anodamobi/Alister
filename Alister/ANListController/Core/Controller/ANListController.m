@@ -185,4 +185,34 @@
     [self.storage.updatesHandler storageNeedsReloadWithIdentifier:storage.identifier animated:NO];
 }
 
+- (ANListControllerSearchManager*)searchManager
+{
+    if (!_searchManager)
+    {
+        _searchManager = [ANListControllerSearchManager new];
+        _searchManager.delegate = self;
+    }
+    return _searchManager;
+}
+
+- (ANListControllerItemsHandler*)itemsHandler
+{
+    if (!_itemsHandler)
+    {
+        _itemsHandler = [[ANListControllerItemsHandler alloc] initWithListView:self.listView
+                                                                mappingService:nil];
+    }
+    return _itemsHandler;
+}
+
+- (ANListControllerUpdateService*)updateService
+{
+    if (!_updateService)
+    {
+        _updateService = [[ANListControllerUpdateService alloc] initWithListView:self.listView];
+        _updateService.delegate = self;
+    }
+    return _updateService;
+}
+
 @end
