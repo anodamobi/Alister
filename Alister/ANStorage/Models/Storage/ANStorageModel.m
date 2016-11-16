@@ -119,4 +119,35 @@
     return nil;
 }
 
+- (NSString*)debugDescription
+{
+    NSMutableString* string = [NSMutableString string];
+    
+    [self.sectionModels enumerateObjectsUsingBlock:^(ANStorageSectionModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+       
+        [string appendFormat:@"=================Section #%d================\n", idx];
+        
+        //supplementaries
+        if (obj.supplementaryObjects.count)
+        {
+            [string appendFormat:@"supplementaries { \n"];
+            [obj.supplementaryObjects enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull object, BOOL * _Nonnull stop) {
+               
+                [string appendFormat:@"    %@ - %@\n", key, object];
+            }];
+            [string appendFormat:@"}\n"];
+        }
+        
+        [string appendFormat:@"Objects = { \n"];
+        
+        [obj.objects enumerateObjectsUsingBlock:^(id  _Nonnull object, NSUInteger index, BOOL * _Nonnull stop) {
+            [string appendFormat:@"    %d = { %@ }\n", index, object];
+        }];
+        
+        [string appendFormat:@"}\n"];
+    }];
+    
+    return string;
+}
+
 @end
