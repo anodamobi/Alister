@@ -23,7 +23,8 @@
     self = [super initWithListView:tw];
     if (self)
     {
-       
+        self.shouldDisplayHeaderOnEmptySection = YES;
+        self.shouldDisplayFooterOnEmptySection = YES;
     }
     return self;
 }
