@@ -69,7 +69,7 @@
     NSArray* secondSectionItems = [ANEDataGenerator generateStringsArray];
     NSArray* thirsSectionItems = [ANEDataGenerator generateStringsArray];
     
-    [self.storage updateWithAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
+    [self.storage updateWithoutAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
         
         [storageController addItems:firstSectionItems];
         [storageController updateSectionFooterModel:NSLocalizedString(@"I'm footer section 0", nil) forSectionIndex:0];

@@ -69,7 +69,7 @@
 {
     id<ANListControllerUpdateServiceInterface> delegate = self.delegate;
     
-    if (!update.isRequireReload)
+    if (update.isRequireReload == NO && self.shouldAnimate)
     {
         @try
         {
