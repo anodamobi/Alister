@@ -70,7 +70,7 @@
         _titleLabel.textColor = [UIColor colorWithRed:77/255 green:77/255 blue:77/255 alpha:1];
         _titleLabel.font = [UIFont systemFontOfSize:15];
         _titleLabel.clipsToBounds = NO;
-        [self addSubview:_titleLabel];
+        [self.contentView addSubview:_titleLabel];
     }
     return _titleLabel;
 }
