@@ -15,7 +15,7 @@
     self = [super init];
     if (self)
     {
-        self.operations = [NSMutableArray new];
+        
     }
     return self;
 }
@@ -23,6 +23,11 @@
 - (void)addOperation:(id)operation
 {
     [self.operations addObject:operation];
+}
+
+- (void)removeObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath
+{
+    
 }
 
 @end

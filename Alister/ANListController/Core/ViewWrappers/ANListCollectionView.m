@@ -108,6 +108,16 @@
                                                           forIndexPath:indexPath];
 }
 
+- (id)defaultCell
+{
+    return [UICollectionViewCell new];
+}
+
+- (id)defaultSupplementary
+{
+    return [UICollectionReusableView new];
+}
+
 - (void)performUpdate:(ANStorageUpdateModel*)update animated:(BOOL)animated //TODO: handle animation
 {
     UICollectionView* collectionView = self.collectionView;

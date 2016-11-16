@@ -49,7 +49,7 @@
     controllerOperation.shouldAnimate = shouldAnimate;
     
     updateOperation.controllerOperationDelegate = controllerOperation;
-    
+    //TODO: dependency
     [self _addUpdateOperation:updateOperation withIdentifier:identifier];
     [self.queue addOperation:controllerOperation];
 }
@@ -57,14 +57,6 @@
 - (void)storageNeedsReloadWithIdentifier:(NSString*)identifier animated:(BOOL)shouldAnimate
 {
     [self _reloadStorageWithAnimation:shouldAnimate identifier:identifier];
-}
-
-
-#pragma mark - ANListControllerUpdateOperationDelegate
-
-- (void)storageNeedsReloadWithIdentifier:(NSString*)identifier
-{
-    [self _reloadStorageWithAnimation:NO identifier:identifier];
 }
 
 

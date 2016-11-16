@@ -101,7 +101,7 @@
     return [self.tableView dequeueReusableHeaderFooterViewWithIdentifier:reuseIdentifier];
 }
 
-- (id<ANListControllerUpdateViewInterface>)defaultCell
+- (id)defaultCell
 {
     return [UITableViewCell new];
 }

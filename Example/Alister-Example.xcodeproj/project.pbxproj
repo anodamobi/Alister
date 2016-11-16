@@ -307,7 +307,6 @@
 		D75F9DF41DC982940070538F /* ANListController+Interitance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ANListController+Interitance.h"; sourceTree = "<group>"; };
 		D75F9DF51DC982940070538F /* ANListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANListController.h; sourceTree = "<group>"; };
 		D75F9DF61DC982940070538F /* ANListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANListController.m; sourceTree = "<group>"; };
-		D75F9DFB1DC982940070538F /* ANListControllerUpdateOperationInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANListControllerUpdateOperationInterface.h; sourceTree = "<group>"; };
 		D75F9DFC1DC982940070538F /* ANListControllerUpdateViewInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANListControllerUpdateViewInterface.h; sourceTree = "<group>"; };
 		D75F9DFE1DC982940070538F /* ANListControllerItemsHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANListControllerItemsHandler.h; sourceTree = "<group>"; };
 		D75F9DFF1DC982940070538F /* ANListControllerItemsHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANListControllerItemsHandler.m; sourceTree = "<group>"; };
@@ -1063,7 +1062,6 @@
 			isa = PBXGroup;
 			children = (
 				D75F9E0F1DC982940070538F /* ANListViewInterface.h */,
-				D75F9DFB1DC982940070538F /* ANListControllerUpdateOperationInterface.h */,
 				D75F9DFC1DC982940070538F /* ANListControllerUpdateViewInterface.h */,
 			);
 			path = Interfaces;
