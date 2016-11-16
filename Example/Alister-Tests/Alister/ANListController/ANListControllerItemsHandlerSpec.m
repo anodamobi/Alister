@@ -10,6 +10,7 @@
 #import "ANListViewFixture.h"
 #import "ANListControllerMappingServiceFixture.h"
 #import "ANListCellFixture.h"
+#import "Alister.h"
 
 SpecBegin(ANListControllerItemsHandler)
 
@@ -59,7 +60,7 @@ describe(@"methods ANListControllerReusableInterface", ^{
         
         it(@"will register mapping for model class with specified kind", ^{
             [handler registerFooterClass:viewClass forModelClass:modelClass];
-            OCMVerify([mappingService registerViewModelClass:modelClass kind:[listView footerDefaultKind]]);
+            OCMVerify([mappingService registerViewModelClass:modelClass kind:ANListDefaultFooterKind]);
         });
         
         it(@"will call register on listView", ^{
@@ -86,7 +87,7 @@ describe(@"methods ANListControllerReusableInterface", ^{
         
         it(@"will register mapping for model class with specified kind", ^{
             [handler registerHeaderClass:viewClass forModelClass:modelClass];
-            OCMVerify([mappingService registerViewModelClass:modelClass kind:[listView headerDefaultKind]]);
+            OCMVerify([mappingService registerViewModelClass:modelClass kind:ANListDefaultHeaderKind]);
         });
         
         it(@"will call register on listView", ^{

@@ -57,7 +57,7 @@ describe(@"update addItem:", ^{
     });
     
     it(@"update will be empty if storage is nil", ^{
-        updater = [ANStorageUpdater updaterWithStorageModel:storage];
+        updater = [ANStorageUpdater updaterWithStorageModel:nil];
         updater.updateDelegate = fakeDelegate;
         [updater addItem:@"test"];
         

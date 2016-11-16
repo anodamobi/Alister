@@ -122,19 +122,17 @@
 
 - (NSString*)_titleForSupplementaryIndex:(NSInteger)index kind:(NSString*)kind
 {
-    id model = [self _supplementaryModelForIndex:index kind:kind];
-    if ([model isKindOfClass:[NSString class]])
+    id viewModel = [self _supplementaryModelForIndex:index kind:kind];
+    id model = nil;
+    if ([viewModel isKindOfClass:[NSString class]])
     {
         UIView* view = [self _supplementaryViewForIndex:index kind:kind];
         if (!view)
         {
-            return model;
+            model = viewModel;
         }
     }
-    else
-    {   //we don't need value if its not a string
-        model = nil;
-    }
+    
     return model;
 }
 
