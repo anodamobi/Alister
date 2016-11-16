@@ -32,9 +32,6 @@
 
 - (void)reloadData;
 
-- (NSString*)headerDefaultKind;
-- (NSString*)footerDefaultKind;
-
 - (NSString*)animationKey;
 - (CGFloat)reloadAnimationDuration;
 

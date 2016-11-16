@@ -8,6 +8,7 @@
 
 #import "ANStorageModel.h"
 #import "ANStorageSectionModel.h"
+#import "Alister.h"
 
 @interface ANStorageModel ()
 
@@ -23,8 +24,8 @@
     if (self)
     {
         self.sectionModels = [NSMutableArray new];
-        self.headerKind = @"ANStorageHeaderKind";
-        self.footerKind = @"ANStorageFooterKind";
+        self.headerKind = ANListDefaultHeaderKind;
+        self.footerKind = ANListDefaultFooterKind;
     }
     return self;
 }

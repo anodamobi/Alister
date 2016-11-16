@@ -11,6 +11,7 @@
 #import "ANListControllerUpdateViewInterface.h"
 #import "ANListViewInterface.h"
 #import "ANListControllerLog.h"
+#import "Alister.h"
 
 @implementation ANListControllerItemsHandler
 
@@ -33,12 +34,12 @@
 
 - (void)registerFooterClass:(Class)viewClass forModelClass:(Class)modelClass
 {
-    [self registerSupplementaryClass:viewClass forModelClass:modelClass kind:self.listView.footerDefaultKind];
+    [self registerSupplementaryClass:viewClass forModelClass:modelClass kind:ANListDefaultFooterKind];
 }
 
 - (void)registerHeaderClass:(Class)viewClass forModelClass:(Class)modelClass
 {
-    [self registerSupplementaryClass:viewClass forModelClass:modelClass kind:self.listView.headerDefaultKind];
+    [self registerSupplementaryClass:viewClass forModelClass:modelClass kind:ANListDefaultHeaderKind];
 }
 
 - (void)registerSupplementaryClass:(Class)supplementaryClass forModelClass:(Class)modelClass kind:(NSString*)kind

@@ -12,3 +12,6 @@ typedef NSPredicate*(^ANListControllerSearchPredicateBlock)(NSString* searchStri
 typedef void(^ANListControllerItemSelectionBlock)(id model, NSIndexPath* indexPath);
 typedef void(^ANListControllerCellConfigurationBlock)(id<ANListControllerReusableInterface> configurator);
 typedef void (^ANListControllerUpdatesFinishedTriggerBlock)();
+
+static NSString* const ANListDefaultHeaderKind = @"ANStorageHeaderKind";
+static NSString* const ANListDefaultFooterKind = @"ANStorageFooterKind";

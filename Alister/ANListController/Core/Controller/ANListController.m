@@ -99,14 +99,6 @@
 }
 
 
-#pragma mark - Override
-
-- (void)setupHeaderFooterDefaultKindOnStorage:(ANStorage*)storage
-{
-    NSAssert(NO, @"You need to override this method");
-}
-
-
 #pragma mark - SearchManager 
 
 - (void)searchControllerDidCancelSearch
@@ -181,7 +173,6 @@
 - (void)_attachStorage:(ANStorage*)storage
 {
     storage.updatesHandler = self.updateService;
-    [self setupHeaderFooterDefaultKindOnStorage:storage];
     [self.storage.updatesHandler storageNeedsReloadWithIdentifier:storage.identifier animated:NO];
 }
 

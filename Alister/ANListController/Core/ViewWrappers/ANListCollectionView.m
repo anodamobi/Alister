@@ -29,16 +29,6 @@
     return self.collectionView;
 }
 
-- (NSString*)headerDefaultKind
-{
-    return UICollectionElementKindSectionHeader;
-}
-
-- (NSString*)footerDefaultKind
-{
-    return UICollectionElementKindSectionFooter;
-}
-
 - (CGFloat)reloadAnimationDuration
 {
     return 0.25;

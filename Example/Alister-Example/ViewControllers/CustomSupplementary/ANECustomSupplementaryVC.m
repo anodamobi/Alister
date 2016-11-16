@@ -31,7 +31,7 @@
         self.storage = [ANStorage new];
         
         self.controller = [ANECustomSupplementaryController controllerWithTableView:self.tableView];
-        [self.controller updateWithStorage:self.storage];
+        
     }
     
     return self;
@@ -61,18 +61,20 @@
     
     [self.storage updateWithAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
         
-        [storageController addItems:firstSectionItems];
+//        [storageController addItems:firstSectionItems];
         [storageController updateSectionFooterModel:footerViewModel forSectionIndex:0];
         [storageController updateSectionHeaderModel:headerViewModel forSectionIndex:0];
         
         [storageController addItems:secondSectionItems toSection:1];
-        [storageController updateSectionFooterModel:@"I'm footer section 1" forSectionIndex:1];
-        [storageController updateSectionHeaderModel:@"I'm header section 1" forSectionIndex:1];
+//        [storageController updateSectionFooterModel:@"I'm footer section 1" forSectionIndex:1];
+//        [storageController updateSectionHeaderModel:@"I'm header section 1" forSectionIndex:1];
         
         [storageController addItems:thirsSectionItems toSection:2];
-        [storageController updateSectionFooterModel:@"I'm footer section 2" forSectionIndex:2];
-        [storageController updateSectionHeaderModel:@"I'm header section 2" forSectionIndex:2];
+//        [storageController updateSectionFooterModel:@"I'm footer section 2" forSectionIndex:2];
+//        [storageController updateSectionHeaderModel:@"I'm header section 2" forSectionIndex:2];
     }];
+    
+    [self.controller updateWithStorage:self.storage];
 }
 
 - (void)headerViewModelIndexUpdatedTo:(NSUInteger)index onModel:(__unused ANECustomHeaderViewModel*)model

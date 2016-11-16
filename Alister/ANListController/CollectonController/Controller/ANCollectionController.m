@@ -34,11 +34,6 @@
     return (UICollectionView*)self.listView.view;
 }
 
-- (void)setupHeaderFooterDefaultKindOnStorage:(ANStorage*)storage
-{
-    [storage updateHeaderKind:UICollectionElementKindSectionHeader footerKind:UICollectionElementKindSectionFooter];
-}
-
 
 #pragma mark - Supplementary
 

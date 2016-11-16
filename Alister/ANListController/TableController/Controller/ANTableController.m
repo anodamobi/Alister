@@ -40,11 +40,6 @@
     listView.configModel = model;
 }
 
-- (void)setupHeaderFooterDefaultKindOnStorage:(ANStorage*)storage
-{
-    [storage updateHeaderKind:[self.listView headerDefaultKind] footerKind:[self.listView footerDefaultKind]];
-}
-
 
 #pragma mark - Supplementaries
 
@@ -136,7 +131,11 @@
             return model;
         }
     }
-    return nil;
+    else
+    {   //we don't need value if its not a string
+        model = nil;
+    }
+    return model;
 }
 
 - (UIView*)_supplementaryViewForIndex:(NSInteger)index kind:(NSString*)kind
@@ -151,18 +150,20 @@
     BOOL value = isHeader ? self.shouldDisplayHeaderOnEmptySection : self.shouldDisplayFooterOnEmptySection;
     ANStorage* storage = self.currentStorage;
     
+    id model = nil;
+    
     if ((storage.sections.count && [[storage sectionAtIndex:index] numberOfObjects]) || value)
     {
         if (isHeader)
         {
-            return [storage headerModelForSectionIndex:index];
+            model = [storage headerModelForSectionIndex:index];
         }
         else
         {
-            return [storage footerModelForSectionIndex:index];
+            model = [storage footerModelForSectionIndex:index];
         }
     }
-    return nil;
+    return model;
 }
 
 - (CGFloat)_heightForSupplementaryIndex:(NSInteger)index kind:(NSString*)kind
@@ -177,22 +178,21 @@
     
     CGFloat minHeight = shouldMaskSeparator ? 0.1f : CGFLOAT_MIN;
     id model = [self _supplementaryModelForIndex:index kind:kind];
+    
+    CGFloat height = minHeight;
     if (model)
     {
         BOOL isTitleStyle = ([self _titleForSupplementaryIndex:index kind:kind] != nil);
         if (isTitleStyle)
         {
-            return UITableViewAutomaticDimension;
+            height =  UITableViewAutomaticDimension;
         }
         else
         {
-            return isHeader ? tableView.sectionHeaderHeight : tableView.sectionFooterHeight;
+            height = isHeader ? tableView.sectionHeaderHeight : tableView.sectionFooterHeight;
         }
     }
-    else
-    {
-        return minHeight;
-    }
+    return height;
 }
 
 @end

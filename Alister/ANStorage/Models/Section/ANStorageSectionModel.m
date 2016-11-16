@@ -145,15 +145,16 @@
 
 - (id)supplementaryModelOfKind:(NSString*)kind
 {
+    id model = nil;
     if (kind)
     {
-        return self.supplementaries[kind];
+        model = self.supplementaries[kind];
     }
     else
     {
         ANStorageLog(@"You trying to get supplementary - with nil kind");
     }
-    return nil;
+    return model;
 }
 
 - (NSDictionary*)supplementaryObjects

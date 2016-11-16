@@ -30,16 +30,6 @@
     return self.tableView;
 }
 
-- (NSString*)headerDefaultKind
-{
-    return @"ANTableViewElementSectionHeader";
-}
-
-- (NSString*)footerDefaultKind
-{
-    return @"ANTableViewElementSectionFooter";
-}
-
 - (NSString*)animationKey
 {
     return @"UITableViewReloadDataAnimationKey";
