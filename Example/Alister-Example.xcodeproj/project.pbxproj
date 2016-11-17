@@ -140,6 +140,7 @@
 		D7A21E991DA8A2A500D6D803 /* ANTestViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21E6C1DA8A2A500D6D803 /* ANTestViewModel.m */; };
 		D7A21E9B1DA8A49C00D6D803 /* ANECustomFooterViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21E9A1DA8A49C00D6D803 /* ANECustomFooterViewTest.m */; };
 		D7A21E9D1DA8A4C400D6D803 /* ANECustomFooterViewModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21E9C1DA8A4C400D6D803 /* ANECustomFooterViewModelTest.m */; };
+		D7C68DB91DDD232800D3383D /* ANCollectionControllerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = D7C68DB81DDD232800D3383D /* ANCollectionControllerSpec.m */; };
 		D7DFE0C21DCD8624007171E6 /* ANStorageFakeOperationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D7348F2A1DCD629B00CC114A /* ANStorageFakeOperationDelegate.m */; };
 		D7DFE0C61DCE8276007171E6 /* ANTestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D7389A2B1DC2E63B00B54B9F /* ANTestHelper.m */; };
 		D7DFE0C81DCE87EF007171E6 /* ANListControllerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DFE0C71DCE87EF007171E6 /* ANListControllerSpec.m */; };
@@ -432,6 +433,7 @@
 		D7A21E6C1DA8A2A500D6D803 /* ANTestViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTestViewModel.m; sourceTree = "<group>"; };
 		D7A21E9A1DA8A49C00D6D803 /* ANECustomFooterViewTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANECustomFooterViewTest.m; sourceTree = "<group>"; };
 		D7A21E9C1DA8A4C400D6D803 /* ANECustomFooterViewModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANECustomFooterViewModelTest.m; sourceTree = "<group>"; };
+		D7C68DB81DDD232800D3383D /* ANCollectionControllerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANCollectionControllerSpec.m; sourceTree = "<group>"; };
 		D7DFE0C71DCE87EF007171E6 /* ANListControllerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANListControllerSpec.m; sourceTree = "<group>"; };
 		D7DFE0CA1DD2808F007171E6 /* ANListControllerFixture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANListControllerFixture.h; sourceTree = "<group>"; };
 		D7DFE0CB1DD2808F007171E6 /* ANListControllerFixture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANListControllerFixture.m; sourceTree = "<group>"; };
@@ -696,6 +698,7 @@
 		D7348F161DCD629B00CC114A /* ANListController */ = {
 			isa = PBXGroup;
 			children = (
+				D7C68DB81DDD232800D3383D /* ANCollectionControllerSpec.m */,
 				D7DFE0CD1DD28095007171E6 /* Helpers */,
 				D746231B1DD55B5500099D0A /* ANListControllerItemsHandlerSpec.m */,
 				D7348F171DCD629B00CC114A /* ANListControllerMappingServiceSpec.m */,
@@ -2008,7 +2011,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
-			shellScript = "";
+			shellScript = "if [[ -z ${SKIP_OBJCLEAN} || ${SKIP_OBJCLEAN} != 1 ]]; then\nif [[ -d \"${LOCAL_APPS_DIR}/Objective-Clean.app\" ]]; then\n\"${LOCAL_APPS_DIR}\"/Objective-Clean.app/Contents/Resources/ObjClean.app/Contents/MacOS/ObjClean \"${SRCROOT}\"?-NS,-UI,-XC\nelse\necho \"warning: You have to install and set up Objective-Clean to use its features!\"\nfi\nfi";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -2099,6 +2102,7 @@
 				D7041D261DD55F9700752AEC /* ANListControllerMappingServiceFixture.m in Sources */,
 				D7348F451DCD629B00CC114A /* ANStorageRemover_UpdateVerification_Spec.m in Sources */,
 				D7F624B11DDBC05600D00C64 /* ANListControllerUpdateServiceTest.m in Sources */,
+				D7C68DB91DDD232800D3383D /* ANCollectionControllerSpec.m in Sources */,
 				D7348F541DCD629B00CC114A /* ANTestTableHeaderFooter.m in Sources */,
 				D7348F441DCD629B00CC114A /* ANStorageLoaderSpec.m in Sources */,
 				D746231F1DD55D2800099D0A /* ANListViewFixture.m in Sources */,

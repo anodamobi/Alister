@@ -23,4 +23,6 @@ static id const kANTestNil = nil;
 + (id)randomObject;
 + (Class)randomClass;
 
++ (NSIndexPath*)zeroIndexPath;
+
 @end

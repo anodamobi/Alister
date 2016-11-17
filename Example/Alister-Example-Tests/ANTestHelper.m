@@ -72,6 +72,7 @@
     {
         [array addObject:[self randomObject]];
     }
+    
     return [array copy];
 }
 
@@ -79,6 +80,7 @@
 {
     NSMutableArray* array = [[self randomArrayWithLength:index*2] mutableCopy];
     [array insertObject:object atIndex:index];
+    
     return [array copy];
 }
 
@@ -101,7 +103,13 @@
     {
         [dict setObject:[self randomObject] forKey:[self randomString]];
     }
+    
     return [dict copy];
+}
+
++ (NSIndexPath*)zeroIndexPath
+{
+    return [NSIndexPath indexPathForRow:0 inSection:0];
 }
 
 @end
