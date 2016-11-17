@@ -11,23 +11,19 @@ platform :ios do
 
   desc "Runs all the tests"
   lane :test do
-    scan(scheme: "DEBUG")
+    scan(scheme: "TEST")
     slather(
       cobertura_xml: true,
       output_directory: "test_output",
       proj: "Alister-Example.xcodeproj",
       workspace: "Alister-Example.xcworkspace",
-      scheme: "DEBUG",
+      scheme: "TEST",
       ignore:['../../*', 
       'Pods/*', 
       '*/Vendor/*', 
       '*/Application/BundleFiles/*',
       '*/Controllers/Debug/DebugVC/*'])
   end
-
-#  lane :acceptance_tests do
-#    scan(scheme: "DEBUG_ACCEPTANCE")
-#  end
 
 
   after_all do |lane|
