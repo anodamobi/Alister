@@ -7,10 +7,11 @@
 //
 
 #import "ANCollectionController.h"
+#import "ANListController+Interitance.h"
 
 SpecBegin(ANCollectionController)
 
-fdescribe(@"", ^{
+describe(@"", ^{
     
     __block UICollectionView* collectionView = nil;
     __block ANCollectionController* controller = nil;
@@ -56,31 +57,91 @@ fdescribe(@"", ^{
     
     describe(@"collectionView: viewForSupplementaryElementOfKind: atIndexPath:", ^{
         
+        NSString* kind = [ANTestHelper randomString];
+        id object = [ANTestHelper randomObject];
+        
+        id storage = OCMClassMock([ANStorage class]);
+        [controller attachStorage:storage];
+        
+        OCMStub([storage supplementaryModelOfKind:kind forSectionIndex:zeroIndexPath.section]);
+        [OCMStub([controller.itemsHandler supplementaryViewForModel:[OCMArg any]
+                                                              kind:kind
+                                                      forIndexPath:zeroIndexPath]) andReturn:object];
+        
+        id result = [controller collectionView:collectionView
+             viewForSupplementaryElementOfKind:kind
+                                   atIndexPath:zeroIndexPath];
+        
+        expect(result).equal(object);
     });
     
     
     describe(@"collectionView: layout: referenceSizeForHeaderInSection:", ^{
-        
+        pending(@"Pending");
     });
 
     
     describe(@"collectionView: layout: referenceSizeForFooterInSection:", ^{
-        
+        pending(@"Pending");
     });
     
     
     describe(@"numberOfSectionsInCollectionView:", ^{
-        
+       
+        it(@"correct number of items", ^{
+            
+            id storage = OCMClassMock([ANStorage class]);
+            [controller attachStorage:storage];
+            NSArray* expectedSections = [ANTestHelper randomArray];
+            [OCMStub([storage sections]) andReturn:expectedSections];
+           
+            NSInteger actualSectionsCount = [controller numberOfSectionsInCollectionView:collectionView];
+            
+            OCMVerify([storage sections]);
+            expect(actualSectionsCount).equal(expectedSections.count);
+        });
     });
     
     
     describe(@"collectionView: numberOfItemsInSection:", ^{
         
+        it(@"no items when storage is nil", ^{
+            NSInteger result = [controller collectionView:collectionView numberOfItemsInSection:0];
+            expect(result).equal(0);
+        });
+        
+        it(@"correct number of items", ^{
+            
+            NSInteger sectionIndex = 0;
+            
+            NSNumber* objectCount = [ANTestHelper randomNumber];
+            id storage = OCMClassMock([ANStorage class]);
+            id section = OCMProtocolMock(@protocol(ANStorageSectionModelInterface));
+            
+            [controller attachStorage:storage];
+            
+            [OCMStub([storage sectionAtIndex:sectionIndex]) andReturn:section];
+            [OCMStub([section numberOfObjects]) andReturnValue:objectCount];
+            
+            NSInteger currentCount = [controller collectionView:collectionView numberOfItemsInSection:sectionIndex];
+            
+            OCMVerify([storage sectionAtIndex:sectionIndex]);
+            OCMVerify([section numberOfObjects]);
+            
+            expect(currentCount).equal(objectCount.integerValue);
+        });
     });
     
     
     describe(@"collectionView: cellForItemAtIndexPath:", ^{
         
+        it(@"should load cell by model object", ^{
+            
+            [controller collectionView:collectionView cellForItemAtIndexPath:zeroIndexPath];
+            
+            OCMVerify([controller.storage objectAtIndexPath:zeroIndexPath]);
+            OCMVerify([controller.itemsHandler cellForModel:[OCMArg any] atIndexPath:zeroIndexPath]);
+        });
     });
     
     
