@@ -24,10 +24,6 @@
             [configurator registerCellClass:[ANECollectionViewCell class]
                               forModelClass:[NSString class]];
             
-            //            [configurator registerSupplementaryClass:[ANECollectionHeaderView class]
-            //                                       forModelClass:[NSString class]
-            //                                                kind:UICollectionElementKindSectionHeader];
-            
             [configurator registerFooterClass:[ANECollectionFooterView class]
                                 forModelClass:[ANECollectionFooterViewModel class]];
         }];
