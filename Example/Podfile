@@ -1,5 +1,5 @@
 #use_frameworks!
-install! 'cocoapods', :deterministic_uuids => false
+#install! 'cocoapods', :deterministic_uuids => false
 
 target 'Alister-Example' do
     pod 'libextobjc'

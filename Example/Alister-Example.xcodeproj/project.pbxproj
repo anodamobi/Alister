@@ -102,8 +102,6 @@
 		D7A21E081DA895B500D6D803 /* ANECustomHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21DF51DA895B500D6D803 /* ANECustomHeaderView.m */; };
 		D7A21E091DA895B500D6D803 /* ANECustomHeaderViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21DF71DA895B500D6D803 /* ANECustomHeaderViewModel.m */; };
 		D7A21E0A1DA895B500D6D803 /* ANELabelTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21DF91DA895B500D6D803 /* ANELabelTableViewCell.m */; };
-		D7A21E231DA89AD300D6D803 /* SnapshotHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21E1F1DA89AD300D6D803 /* SnapshotHelper.m */; };
-		D7A21E241DA89AD300D6D803 /* XCTestCase+Springboard.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21E211DA89AD300D6D803 /* XCTestCase+Springboard.m */; };
 		D7A21E891DA8A2A500D6D803 /* ANECustomHeaderViewModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21E4D1DA8A2A500D6D803 /* ANECustomHeaderViewModelTest.m */; };
 		D7A21E8A1DA8A2A500D6D803 /* ANECustomHeaderViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21E4E1DA8A2A500D6D803 /* ANECustomHeaderViewTest.m */; };
 		D7A21E8B1DA8A2A500D6D803 /* ANELabelTableViewCellTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21E4F1DA8A2A500D6D803 /* ANELabelTableViewCellTest.m */; };
@@ -133,13 +131,6 @@
 
 /* Begin PBXContainerItemProxy section */
 		D7348F0F1DCD61A300CC114A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6003F582195388D10070C39A /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 6003F589195388D20070C39A;
-			remoteInfo = "Alister-Example";
-		};
-		D7A21E171DA89A7500D6D803 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6003F582195388D10070C39A /* Project object */;
 			proxyType = 1;
@@ -344,7 +335,6 @@
 		D7A21DF71DA895B500D6D803 /* ANECustomHeaderViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANECustomHeaderViewModel.m; sourceTree = "<group>"; };
 		D7A21DF81DA895B500D6D803 /* ANELabelTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANELabelTableViewCell.h; sourceTree = "<group>"; };
 		D7A21DF91DA895B500D6D803 /* ANELabelTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANELabelTableViewCell.m; sourceTree = "<group>"; };
-		D7A21E121DA89A7500D6D803 /* Alister-Example-UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Alister-Example-UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7A21E161DA89A7500D6D803 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D7A21E1C1DA89AD300D6D803 /* Alister_Example_ExampleUITests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Alister_Example_ExampleUITests.m; sourceTree = "<group>"; };
 		D7A21E1E1DA89AD300D6D803 /* SnapshotHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapshotHelper.h; sourceTree = "<group>"; };
@@ -417,13 +407,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C38A7FCBD878748A3AEE97A8 /* libPods-Alister-Tests.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D7A21E0F1DA89A7500D6D803 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -585,7 +568,6 @@
 			children = (
 				6003F58A195388D20070C39A /* Alister-Example_Example.app */,
 				D7EC43CC1D512EE300128012 /* Alister-Example-Tests.xctest */,
-				D7A21E121DA89A7500D6D803 /* Alister-Example-UITests.xctest */,
 				D7348F0A1DCD61A300CC114A /* Alister-Tests.xctest */,
 			);
 			name = Products;
@@ -1433,24 +1415,6 @@
 			productReference = D7348F0A1DCD61A300CC114A /* Alister-Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		D7A21E111DA89A7500D6D803 /* Alister-Example-UITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D7A21E1B1DA89A7500D6D803 /* Build configuration list for PBXNativeTarget "Alister-Example-UITests" */;
-			buildPhases = (
-				D7A21E0E1DA89A7500D6D803 /* Sources */,
-				D7A21E0F1DA89A7500D6D803 /* Frameworks */,
-				D7A21E101DA89A7500D6D803 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D7A21E181DA89A7500D6D803 /* PBXTargetDependency */,
-			);
-			name = "Alister-Example-UITests";
-			productName = "Alister-Example-UITests";
-			productReference = D7A21E121DA89A7500D6D803 /* Alister-Example-UITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 		D7EC43CB1D512EE300128012 /* Alister-Example-Tests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D7EC43D31D512EE300128012 /* Build configuration list for PBXNativeTarget "Alister-Example-Tests" */;
@@ -1495,11 +1459,6 @@
 						ProvisioningStyle = Automatic;
 						TestTargetID = 6003F589195388D20070C39A;
 					};
-					D7A21E111DA89A7500D6D803 = {
-						CreatedOnToolsVersion = 8.0;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 6003F589195388D20070C39A;
-					};
 					D7EC43CB1D512EE300128012 = {
 						CreatedOnToolsVersion = 7.2.1;
 						DevelopmentTeam = 7VYW9J77NX;
@@ -1523,7 +1482,6 @@
 			targets = (
 				6003F589195388D20070C39A /* Alister-Example */,
 				D7EC43CB1D512EE300128012 /* Alister-Example-Tests */,
-				D7A21E111DA89A7500D6D803 /* Alister-Example-UITests */,
 				D7348F091DCD61A300CC114A /* Alister-Tests */,
 			);
 		};
@@ -1542,13 +1500,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		D7348F081DCD61A300CC114A /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D7A21E101DA89A7500D6D803 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1607,7 +1558,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		57D5A486518A6A5E7C136536 /* [CP] Check Pods Manifest.lock */ = {
@@ -1622,7 +1573,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		59A0B9A8A89BB973779AF899 /* [CP] Check Pods Manifest.lock */ = {
@@ -1712,7 +1663,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		C4FA3412C402A21750F737FF /* [CP] Copy Pods Resources */ = {
@@ -1907,15 +1858,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D7A21E0E1DA89A7500D6D803 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D7A21E241DA89AD300D6D803 /* XCTestCase+Springboard.m in Sources */,
-				D7A21E231DA89AD300D6D803 /* SnapshotHelper.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		D7EC43C81D512EE300128012 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1954,11 +1896,6 @@
 			isa = PBXTargetDependency;
 			target = 6003F589195388D20070C39A /* Alister-Example */;
 			targetProxy = D7348F0F1DCD61A300CC114A /* PBXContainerItemProxy */;
-		};
-		D7A21E181DA89A7500D6D803 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 6003F589195388D20070C39A /* Alister-Example */;
-			targetProxy = D7A21E171DA89A7500D6D803 /* PBXContainerItemProxy */;
 		};
 		D7EC43D21D512EE300128012 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -2305,46 +2242,6 @@
 			};
 			name = Release;
 		};
-		D7A21E191DA89A7500D6D803 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = NO;
-				CLANG_WARN_SUSPICIOUS_MOVES = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = "";
-				ENABLE_NS_ASSERTIONS = NO;
-				INFOPLIST_FILE = "Alister-Example-UITests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "mobi.anoda.alister-uitests.Alister-Example-UITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = "Alister-Example";
-			};
-			name = Debug;
-		};
-		D7A21E1A1DA89A7500D6D803 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = NO;
-				CLANG_WARN_SUSPICIOUS_MOVES = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = "Alister-Example-UITests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "mobi.anoda.alister-uitests.Alister-Example-UITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = "Alister-Example";
-			};
-			name = Release;
-		};
 		D7EC43D41D512EE300128012 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 019F2C73D93E6032B674EAE3 /* Pods-Alister-Example-Tests.debug.xcconfig */;
@@ -2421,15 +2318,6 @@
 			buildConfigurations = (
 				D7348F121DCD61A300CC114A /* Debug */,
 				D7348F131DCD61A300CC114A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D7A21E1B1DA89A7500D6D803 /* Build configuration list for PBXNativeTarget "Alister-Example-UITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D7A21E191DA89A7500D6D803 /* Debug */,
-				D7A21E1A1DA89A7500D6D803 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
