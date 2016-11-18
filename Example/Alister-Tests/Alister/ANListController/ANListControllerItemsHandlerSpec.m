@@ -58,11 +58,6 @@ describe(@"methods ANListControllerReusableInterface", ^{
     
     describe(@"registerFooterClass: forModelClass:", ^{
         
-        it(@"will register mapping for model class with specified kind", ^{
-            [handler registerFooterClass:viewClass forModelClass:modelClass];
-            OCMVerify([mappingService registerViewModelClass:modelClass kind:ANListDefaultFooterKind]);
-        });
-        
         it(@"will call register on listView", ^{
             
             [OCMStub([mappingService registerViewModelClass:[OCMArg any] kind:[OCMArg any]]) andReturn:mappingIdentifier];
@@ -84,11 +79,6 @@ describe(@"methods ANListControllerReusableInterface", ^{
     
     
     describe(@"registerHeaderClass: forModelClass:", ^{
-        
-        it(@"will register mapping for model class with specified kind", ^{
-            [handler registerHeaderClass:viewClass forModelClass:modelClass];
-            OCMVerify([mappingService registerViewModelClass:modelClass kind:ANListDefaultHeaderKind]);
-        });
         
         it(@"will call register on listView", ^{
             

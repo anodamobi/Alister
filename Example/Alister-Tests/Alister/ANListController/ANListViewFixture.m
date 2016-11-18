@@ -67,12 +67,12 @@
     return [UITableViewHeaderFooterView new];
 }
 
-- (NSString *)defaultHeaderKind
+- (NSString*)defaultHeaderKind
 {
     return [ANTestHelper randomString];
 }
 
-- (NSString *)defaultFooterKind
+- (NSString*)defaultFooterKind
 {
     return [ANTestHelper randomString];
 }
