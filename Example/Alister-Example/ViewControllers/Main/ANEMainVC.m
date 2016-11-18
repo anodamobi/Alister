@@ -15,6 +15,9 @@
 #import "ANEBottomStickedFooterVC.h"
 #import "ANEReorderingVC.h"
 #import "ANESearchBarVC.h"
+#import "ANEXibVC.h"
+#import "ANECollectionViewVC.h"
+#import "ANECollectionCustomSupplementaryVC.h"
 
 typedef NS_ENUM(NSInteger, ANEMainSection)
 {
@@ -23,7 +26,9 @@ typedef NS_ENUM(NSInteger, ANEMainSection)
     ANEMainSectionBottomStickedFooter,
     ANEMainSectionReordering,
     ANEMainSectionXibCells,
-    ANEMainSectionSearchBar
+    ANEMainSectionSearchBar,
+    ANEMainSectionPlainCollectionView,
+    ANEMainSectionCollectionCustomSupplementary
 };
 
 @interface ANEMainVC ()
@@ -74,7 +79,8 @@ typedef NS_ENUM(NSInteger, ANEMainSection)
         [storageController addItem:@"Table reordering"];
         [storageController addItem:@"Table with xib cells"];
         [storageController addItem:@"Table with search bar and empty states"];
-        [storageController addItem:@"Collection controller"];
+        [storageController addItem:@"Plain collection view"];
+        [storageController addItem:@"Collection with custom header and footer"];
     }];
     
     [self.controller configureItemSelectionBlock:^(__unused id model, NSIndexPath* indexPath) {
@@ -109,11 +115,25 @@ typedef NS_ENUM(NSInteger, ANEMainSection)
             } break;
             case ANEMainSectionXibCells:
             {
-                
+                ANEXibVC* vc = [ANEXibVC new];
+                [self.navigationController pushViewController:vc
+                                                     animated:YES];
             } break;
             case ANEMainSectionSearchBar:
             {
                 ANESearchBarVC* vc = [ANESearchBarVC new];
+                [self.navigationController pushViewController:vc
+                                                     animated:YES];
+            } break;
+            case ANEMainSectionPlainCollectionView:
+            {
+                ANECollectionViewVC* vc = [ANECollectionViewVC new];
+                [self.navigationController pushViewController:vc
+                                                     animated:YES];
+            } break;
+            case ANEMainSectionCollectionCustomSupplementary:
+            {
+                ANECollectionCustomSupplementaryVC* vc = [ANECollectionCustomSupplementaryVC new];
                 [self.navigationController pushViewController:vc
                                                      animated:YES];
             } break;

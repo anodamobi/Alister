@@ -24,10 +24,16 @@ static NSString* kNamesArray[] = {
 
 + (NSArray*)generateStringsArray
 {
-    NSMutableArray* mutableStringsArray = [NSMutableArray new];
     NSUInteger randomValue = (arc4random() % 20) + 5;
     
-    for (NSUInteger counter = 0; counter < randomValue; counter++)
+    return [self generateStringsArrayWithCapacity:randomValue];
+}
+
++ (NSArray*)generateStringsArrayWithCapacity:(NSUInteger)capacity
+{
+    NSMutableArray* mutableStringsArray = [NSMutableArray new];
+    
+    for (NSUInteger counter = 0; counter < capacity; counter++)
     {
         NSString* item = [NSString stringWithFormat:@"Model #%zd", counter];
         [mutableStringsArray addObject:item];
@@ -46,7 +52,7 @@ static NSString* kNamesArray[] = {
     return @"Lorem Ipsum is simply dummy text.";
 }
 
-+ (NSArray*)searchItems
++ (NSArray*)generateUsernames
 {
     NSMutableArray* items = [NSMutableArray new];
     NSUInteger countNames = sizeof(kNamesArray) / sizeof(kNamesArray[0]);

@@ -50,7 +50,7 @@
     [super viewDidLoad];
     
     self.title = @"";
-    NSArray* items = [ANEDataGenerator searchItems];
+    NSArray* items = [ANEDataGenerator generateUsernames];
     
     [self.storage updateWithAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
         
