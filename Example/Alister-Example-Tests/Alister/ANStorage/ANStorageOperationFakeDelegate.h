@@ -6,13 +6,11 @@
 //  Copyright © 2016 Oksana Kovalchuk. All rights reserved.
 //
 
-#import <Alister/ANListControllerUpdateOperationInterface.h>
-#import <Alister/ANStorageUpdateControllerInterface.h>
+#import "ANListControllerUpdateServiceInterface.h"
 
 @interface ANStorageOperationFakeDelegate : NSObject
 <
-    ANListControllerUpdateOperationInterface,
-    ANStorageUpdateControllerInterface
+    ANListControllerUpdateServiceInterface
 >
 
 @end

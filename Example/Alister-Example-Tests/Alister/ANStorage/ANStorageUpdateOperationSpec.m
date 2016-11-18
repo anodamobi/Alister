@@ -6,8 +6,8 @@
 //  Copyright © 2016 Oksana Kovalchuk. All rights reserved.
 //
 
-#import <Alister/ANStorageUpdateOperation.h>
-#import <Alister/ANStorageUpdateModel.h>
+#import "ANStorageUpdateOperation.h"
+#import "ANStorageUpdateModel.h"
 #import "ANStorageOperationFakeDelegate.h"
 
 @interface ANStorageUpdateOperation ()
@@ -185,7 +185,7 @@ describe(@"main", ^{
         [op collectUpdate:update1];
         [op collectUpdate:update2];
         
-        OCMVerify([op.updaterDelegate updateStorageOperationRequiresForceReload:[OCMArg any]]);
+        OCMVerify([op.updaterDelegate storageNeedsReloadWithIdentifier:[OCMArg any] animated:[OCMArg any]]);
     });
     
     it(@"if no model requires update will call storageUpdateModelGenerated", ^{

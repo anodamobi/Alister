@@ -7,9 +7,9 @@
 //
 
 #import "ANEBottomStickedFooterVC.h"
-#import <Alister/ANTableView.h>
-#import <Alister/ANStorage.h>
-#import <Alister/ANTableController.h>
+#import "ANTableView.h"
+#import "ANStorage.h"
+#import "ANTableController.h"
 #import "ANELabelTableViewCell.h"
 #import "ANEDataGenerator.h"
 #import "ANEButtonFooterView.h"

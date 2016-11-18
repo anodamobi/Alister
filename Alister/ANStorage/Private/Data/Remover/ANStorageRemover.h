@@ -9,7 +9,7 @@
 @class ANStorageModel;
 @class ANStorageUpdateModel;
 
-#import <Alister/ANStorageUpdateOperationInterface.h>
+#import "ANStorageUpdateOperationInterface.h"
 
 /**
  
@@ -25,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface ANStorageRemover : NSObject
 
 //TODO: doc
-+ (instancetype)removerWithStorageModel:(ANStorageModel*)storageModel andUpdateDelegate:(id<ANStorageUpdateOperationInterface>)delegate;
++ (instancetype)removerWithStorageModel:(ANStorageModel*)storageModel;
 
 @property (nonatomic, weak) id<ANStorageUpdateOperationInterface> updateDelegate;
 

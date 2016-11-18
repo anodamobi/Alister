@@ -14,11 +14,11 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - Adding Items
 
 - (void)addItem:(id)item;
-- (void)addItem:(id)item toSection:(NSUInteger)sectionIndex;
+- (void)addItem:(id)item toSection:(NSInteger)sectionIndex;
 - (void)addItem:(id)item atIndexPath:(NSIndexPath*)indexPath;
 
 - (void)addItems:(NSArray*)items;
-- (void)addItems:(NSArray*)items toSection:(NSUInteger)sectionIndex;
+- (void)addItems:(NSArray*)items toSection:(NSInteger)sectionIndex;
 
 
 #pragma mark - Reloading Items
@@ -58,8 +58,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - Views Models
 
-- (void)updateSectionHeaderModel:(id)headerModel forSectionIndex:(NSUInteger)sectionIndex;
-- (void)updateSectionFooterModel:(id)footerModel forSectionIndex:(NSUInteger)sectionIndex;
+- (void)updateSectionHeaderModel:(id)headerModel forSectionIndex:(NSInteger)sectionIndex;
+- (void)updateSectionFooterModel:(id)footerModel forSectionIndex:(NSInteger)sectionIndex;
 
 
 //collection view

@@ -10,4 +10,19 @@
 
 @implementation ANStorageOperationFakeDelegate
 
+- (id<ANListViewInterface>)listView
+{
+    return nil;
+}
+
+- (void)storageNeedsReloadWithIdentifier:(NSString*)identifier animated:(BOOL)isAnimated
+{
+    
+}
+
+- (void)storageNeedsReloadWithIdentifier:(NSString*)identifier
+{
+    
+}
+
 @end

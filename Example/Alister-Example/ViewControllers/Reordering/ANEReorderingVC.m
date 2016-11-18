@@ -7,7 +7,7 @@
 //
 
 #import "ANEReorderingVC.h"
-#import <Alister/ANStorage.h>
+#import "ANStorage.h"
 #import "ANELabelTableViewCell.h"
 #import "ANEReorderingController.h"
 #import "ANEDataGenerator.h"

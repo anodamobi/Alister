@@ -7,8 +7,8 @@
 //
 
 #import "Specta.h"
-#import <Alister/ANStorage.h>
-#import <Alister/ANStorageModel.h>
+#import "ANStorage.h"
+#import "ANStorageModel.h"
 
 SpecBegin(ANStorageRetrivingInterfaceTests)
 
@@ -70,7 +70,7 @@ describe(@"storage return object at index path", ^{
         expect(object).to.beNil();
     });
     
-    it(@"return exepcted object at expsting index path", ^{
+    it(@"return exepcted object at existing index path", ^{
         
         NSArray* testObjects = @[@1,@2,@3,@4];
         

@@ -6,10 +6,10 @@
 //  Copyright © 2016 Oksana Kovalchuk. All rights reserved.
 //
 
-#import <Alister/ANStorageLoader.h>
-#import <Alister/ANStorageModel.h>
-#import <Alister/ANStorageUpdater.h>
-#import <Alister/ANStorageSectionModel.h>
+#import "ANStorageLoader.h"
+#import "ANStorageModel.h"
+#import "ANStorageUpdater.h"
+#import "ANStorageSectionModel.h"
 
 SpecBegin(ANStorageLoaderSpec)
 
@@ -18,7 +18,7 @@ __block ANStorageUpdater* updater = nil;
 
 beforeEach(^{
     storage = [ANStorageModel new];
-    updater = [ANStorageUpdater updaterWithStorageModel:storage updateDelegate:kANTestNil];
+    updater = [ANStorageUpdater updaterWithStorageModel:storage];
 });
 
 

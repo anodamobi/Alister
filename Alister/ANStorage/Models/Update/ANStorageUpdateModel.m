@@ -14,10 +14,10 @@
 @property (nonatomic, strong) NSMutableIndexSet* insertedSectionIndexes;
 @property (nonatomic, strong) NSMutableIndexSet* updatedSectionIndexes;
 
-@property (nonatomic, strong) NSMutableArray* deletedRowIndexPaths;
-@property (nonatomic, strong) NSMutableArray* insertedRowIndexPaths;
-@property (nonatomic, strong) NSMutableArray* updatedRowIndexPaths;
-@property (nonatomic, strong) NSMutableArray* movedRowsIndexPaths;
+@property (nonatomic, strong) NSMutableSet* deletedRowIndexPaths;
+@property (nonatomic, strong) NSMutableSet* insertedRowIndexPaths;
+@property (nonatomic, strong) NSMutableSet* updatedRowIndexPaths;
+@property (nonatomic, strong) NSMutableSet* movedRowsIndexPaths;
 
 @end
 
@@ -28,10 +28,10 @@
     self = [super init];
     if (self)
     {
-        self.deletedRowIndexPaths = [NSMutableArray new]; //TODO: check NSMutableSet option.
-        self.insertedRowIndexPaths = [NSMutableArray new];
-        self.updatedRowIndexPaths = [NSMutableArray new];
-        self.movedRowsIndexPaths = [NSMutableArray new];
+        self.deletedRowIndexPaths = [NSMutableSet new];
+        self.insertedRowIndexPaths = [NSMutableSet new];
+        self.updatedRowIndexPaths = [NSMutableSet new];
+        self.movedRowsIndexPaths = [NSMutableSet new];
         
         self.deletedSectionIndexes = [NSMutableIndexSet new];
         self.insertedSectionIndexes = [NSMutableIndexSet new];
@@ -63,10 +63,10 @@
     [self addUpdatedSectionIndexes:model.updatedSectionIndexes];
     [self addDeletedSectionIndexes:model.deletedSectionIndexes];
     
-    [self addInsertedIndexPaths:model.insertedRowIndexPaths];
-    [self addMovedIndexPaths:model.movedRowsIndexPaths];
-    [self addUpdatedIndexPaths:model.updatedRowIndexPaths];
-    [self addDeletedIndexPaths:model.deletedRowIndexPaths];
+    [self addInsertedIndexPaths:model.insertedRowIndexPaths.allObjects];
+    [self addMovedIndexPaths:model.movedRowsIndexPaths.allObjects];
+    [self addUpdatedIndexPaths:model.updatedRowIndexPaths.allObjects];
+    [self addDeletedIndexPaths:model.deletedRowIndexPaths.allObjects];
     
     self.isRequireReload = ([model isRequireReload] || self.isRequireReload);
 }
@@ -82,10 +82,10 @@
         BOOL result = YES;
         ANStorageUpdateModel* otherModel = other;
         
-        result = (result && ([self.deletedRowIndexPaths isEqualToArray:self.deletedRowIndexPaths]));
-        result = (result && ([self.insertedRowIndexPaths isEqualToArray:self.insertedRowIndexPaths ]));
-        result = (result && ([self.updatedRowIndexPaths isEqualToArray:self.updatedRowIndexPaths]));
-        result = (result && ([self.movedRowsIndexPaths isEqualToArray:self.movedRowsIndexPaths]));
+        result = (result && ([self.deletedRowIndexPaths isEqualToSet:self.deletedRowIndexPaths]));
+        result = (result && ([self.insertedRowIndexPaths isEqualToSet:self.insertedRowIndexPaths ]));
+        result = (result && ([self.updatedRowIndexPaths isEqualToSet:self.updatedRowIndexPaths]));
+        result = (result && ([self.movedRowsIndexPaths isEqualToSet:self.movedRowsIndexPaths]));
         
         result = (result && ([self.insertedSectionIndexes isEqualToIndexSet:self.insertedSectionIndexes]));
         result = (result && ([self.deletedSectionIndexes isEqualToIndexSet:self.deletedSectionIndexes]));
@@ -106,7 +106,7 @@
             self.insertedRowIndexPaths.hash +
             self.updatedRowIndexPaths.hash +
             self.movedRowsIndexPaths.hash +
-            self.isRequireReload);
+            (NSUInteger)self.isRequireReload);
 }
 
 

@@ -13,6 +13,6 @@
 @property (nonatomic, strong) ANTableView* tableView;
 
 + (instancetype)containerWithTableViewStyle:(UITableViewStyle)style;
-- (instancetype)initWithStyle:(UITableViewStyle)style;
+- (instancetype)initWithTableViewStyle:(UITableViewStyle)style;
 
 @end

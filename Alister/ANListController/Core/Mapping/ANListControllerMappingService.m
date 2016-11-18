@@ -47,7 +47,7 @@ static NSString* const kANDefaultCellKind = @"kANDefaultCellKind";
             {
                 dict = [NSMutableDictionary dictionary];
             }
-            [dict setObject:identifier forKey:viewModelClass];
+            [dict setObject:identifier forKey:(id<NSCopying>)viewModelClass];
             self.viewModelToIndentifierMap[kind] = dict;
         }
     }
@@ -101,7 +101,7 @@ static NSString* const kANDefaultCellKind = @"kANDefaultCellKind";
     
     if (keyClass)
     {
-        identifier = [map objectForKey:keyClass];
+        identifier = [map objectForKey:(id<NSCopying>)keyClass];
         
         if (!identifier)
         {
@@ -112,7 +112,8 @@ static NSString* const kANDefaultCellKind = @"kANDefaultCellKind";
             {
                 // We want to find the lowest node in the class hierarchy so that we pick the lowest ancestor
                 // in the hierarchy tree.
-                if ([keyClass isSubclassOfClass:class] && (!superClass || [class isSubclassOfClass:superClass]))
+                Class currentClass = (Class)keyClass;
+                if ([currentClass isSubclassOfClass:class] && (!superClass || [class isSubclassOfClass:superClass]))
                 {
                     superClass = class;
                 }
@@ -123,14 +124,14 @@ static NSString* const kANDefaultCellKind = @"kANDefaultCellKind";
                 identifier = [map objectForKey:superClass];
                 
                 // Add this subclass to the map so that next time this result is instant.
-                [map setObject:identifier forKey:keyClass];
+                [map setObject:identifier forKey:(id<NSCopying>)keyClass];
             }
         }
         
         if (!identifier)
         {
             // We couldn't find a mapping at all so let's add [NSNull null] mapping.
-            [map setObject:[NSNull null] forKey:keyClass];
+            [map setObject:[NSNull null] forKey:(id<NSCopying>)keyClass];
         }
         else if ([identifier isKindOfClass:[NSNull class]])
         {

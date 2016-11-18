@@ -6,17 +6,17 @@
 //
 //
 
-#import <Alister/ANStorage.h>
+#import "ANStorage.h"
 #import "ANStorageUpdateOperation.h"
 #import "ANStorageUpdateModel.h"
 #import "ANStorageLog.h"
 #import "ANStorageUpdater.h"
 #import "ANStorageRemover.h"
 #import "ANStorageLoader.h"
-#import <Alister/ANStorageModel.h>
-#import <Alister/ANStorageSectionModel.h>
+#import "ANStorageModel.h"
+#import "ANStorageSectionModel.h"
 
-@interface ANStorage ()
+@interface ANStorage () <ANStorageUpdatableInterface>
 
 @property (nonatomic, assign) BOOL isSearchingType;
 
@@ -41,8 +41,8 @@
         
         self.storageModel = [ANStorageModel new];
         
-        self.remover = [ANStorageRemover removerWithStorageModel:self.storageModel andUpdateDelegate:nil];
-        self.updater = [ANStorageUpdater updaterWithStorageModel:self.storageModel updateDelegate:nil];
+        self.remover = [ANStorageRemover removerWithStorageModel:self.storageModel];
+        self.updater = [ANStorageUpdater updaterWithStorageModel:self.storageModel];
     }
     return self;
 }
@@ -59,7 +59,7 @@
 
 - (void)reloadStorageWithAnimation:(BOOL)isAnimatable
 {
-    id<ANStorageUpdatingInterface> listController = self.listController;
+    id<ANStorageUpdateEventsDelegate> listController = self.updatesHandler;
     [listController storageNeedsReloadWithIdentifier:self.identifier animated:isAnimatable];
 }
 
@@ -69,8 +69,8 @@
     {
         if (!self.isSearchingType)
         {
-            id<ANStorageUpdatingInterface> listController = self.listController;
-            if (listController)
+            id<ANStorageUpdateEventsDelegate> updatesHandler = self.updatesHandler;
+            if (updatesHandler)
             {
                 ANStorageUpdateOperation* updateOperation = nil;
                 updateOperation = [ANStorageUpdateOperation operationWithConfigurationBlock:^(ANStorageUpdateOperation* operation) {
@@ -79,7 +79,7 @@
                     block(self);
                 }];
                 
-                [listController storageDidPerformUpdate:updateOperation withIdentifier:self.identifier animatable:isAnimatable];
+                [updatesHandler storageDidPerformUpdate:updateOperation withIdentifier:self.identifier animatable:isAnimatable];
             }
             else
             {
@@ -91,33 +91,6 @@
             block(self);
         }
     }
-}
-
-- (instancetype)searchStorageForSearchString:(NSString*)searchString inSearchScope:(NSInteger)searchScope
-{
-    ANStorage* storage = [[self class] new];
-    storage.isSearchingType = YES;
-    
-    NSPredicate* predicate;
-    if (self.storagePredicateBlock)
-    {
-        predicate = self.storagePredicateBlock(searchString, searchScope);
-    }
-    if (predicate)
-    {
-        [storage updateWithoutAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
-            
-            [self.sections enumerateObjectsUsingBlock:^(ANStorageSectionModel* obj, NSUInteger idx, __unused BOOL* stop) {
-                NSArray* filteredObjects = [obj.objects filteredArrayUsingPredicate:predicate];
-                [storageController addItems:filteredObjects toSection:idx];
-            }];
-        }];
-    }
-    else
-    {
-        ANStorageLog(@"No predicate was created, so no searching. Check your setter for storagePredicateBlock");
-    }
-    return storage;
 }
 
 - (void)updateHeaderKind:(NSString*)headerKind footerKind:(NSString*)footerKind
@@ -139,12 +112,12 @@
     return [ANStorageLoader itemAtIndexPath:indexPath inStorage:self.storageModel];
 }
 
-- (ANStorageSectionModel*)sectionAtIndex:(NSUInteger)sectionIndex
+- (ANStorageSectionModel*)sectionAtIndex:(NSInteger)sectionIndex
 {
     return [ANStorageLoader sectionAtIndex:sectionIndex inStorage:self.storageModel];
 }
 
-- (NSArray*)itemsInSection:(NSUInteger)sectionIndex
+- (NSArray*)itemsInSection:(NSInteger)sectionIndex
 {
     return [ANStorageLoader itemsInSection:sectionIndex inStorage:self.storageModel];
 }
@@ -159,21 +132,21 @@
     return [self.storageModel isEmpty];
 }
 
-- (id)headerModelForSectionIndex:(NSUInteger)index
+- (id)headerModelForSectionIndex:(NSInteger)index
 {
     return [ANStorageLoader supplementaryModelOfKind:self.storageModel.headerKind
                                      forSectionIndex:index
                                            inStorage:self.storageModel];
 }
 
-- (id)footerModelForSectionIndex:(NSUInteger)index
+- (id)footerModelForSectionIndex:(NSInteger)index
 {
     return [ANStorageLoader supplementaryModelOfKind:self.storageModel.footerKind
                                      forSectionIndex:index
                                            inStorage:self.storageModel];
 }
 
-- (id)supplementaryModelOfKind:(NSString*)kind forSectionIndex:(NSUInteger)sectionIndex
+- (id)supplementaryModelOfKind:(NSString*)kind forSectionIndex:(NSInteger)sectionIndex
 {
     return [ANStorageLoader supplementaryModelOfKind:kind
                                      forSectionIndex:sectionIndex
@@ -193,12 +166,12 @@
     [self.updater addItems:items];
 }
 
-- (void)addItem:(id)item toSection:(NSUInteger)sectionIndex
+- (void)addItem:(id)item toSection:(NSInteger)sectionIndex
 {
     [self.updater addItem:item toSection:sectionIndex];
 }
 
-- (void)addItems:(NSArray*)items toSection:(NSUInteger)sectionIndex
+- (void)addItems:(NSArray*)items toSection:(NSInteger)sectionIndex
 {
     [self.updater addItems:items toSection:sectionIndex];
 }
@@ -280,6 +253,16 @@
     self.storageModel.footerKind = footerKind;
 }
 
+- (NSString*)footerSupplementaryKind
+{
+    return self.storageModel.footerKind;
+}
+
+- (NSString*)headerSupplementaryKind
+{
+    return self.storageModel.headerKind;
+}
+
 - (void)updateSectionHeaderModel:(id)headerModel forSectionIndex:(NSInteger)sectionIndex
 {
     [self.updater updateSectionHeaderModel:headerModel forSectionIndex:sectionIndex];
@@ -288,6 +271,15 @@
 - (void)updateSectionFooterModel:(id)footerModel forSectionIndex:(NSInteger)sectionIndex
 {
     [self.updater updateSectionFooterModel:footerModel forSectionIndex:sectionIndex];
+}
+
+- (NSString *)debugDescription
+{
+    NSMutableString* string = [NSMutableString string];
+    [string appendFormat:@"ID: %@\n", self.identifier];
+    [string appendString:[self.storageModel debugDescription]];
+    
+    return string;
 }
 
 @end

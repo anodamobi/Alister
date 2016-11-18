@@ -61,7 +61,7 @@ describe(@"ANEBottomStickedFooterVC", ^{
     it(@"storage should have items in section 0 after controller finished update", ^{
         
         __weak typeof(footerVC) weakVC = footerVC;
-        [footerVC.controller addUpdatesFinsihedTriggerBlock:^{
+        [footerVC.controller addUpdatesFinishedTriggerBlock:^{
             NSArray* storageItems = [weakVC.storage itemsInSection:0];
             expect(storageItems).notTo.beNil();
         }];
@@ -70,7 +70,7 @@ describe(@"ANEBottomStickedFooterVC", ^{
     it(@"storage should have items in section 1 after controller finished update", ^{
         
         __weak typeof(footerVC) weakVC = footerVC;
-        [footerVC.controller addUpdatesFinsihedTriggerBlock:^{
+        [footerVC.controller addUpdatesFinishedTriggerBlock:^{
             NSArray* storageItems = [weakVC.storage itemsInSection:1];
             expect(storageItems).notTo.beNil();
         }];
@@ -79,7 +79,7 @@ describe(@"ANEBottomStickedFooterVC", ^{
     it(@"storage should have items in section 2 after controller finished update", ^{
         
         __weak typeof(footerVC) weakVC = footerVC;
-        [footerVC.controller addUpdatesFinsihedTriggerBlock:^{
+        [footerVC.controller addUpdatesFinishedTriggerBlock:^{
             NSArray* storageItems = [weakVC.storage itemsInSection:2];
             expect(storageItems).notTo.beNil();
         }];

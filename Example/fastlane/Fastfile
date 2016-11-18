@@ -1,70 +1,41 @@
 
-fastlane_version "1.103.0"
+fastlane_version "1.105.0"
+
 default_platform :ios
 
 platform :ios do
-  
   before_all do
-
     ENV["SLACK_URL"] = "https://hooks.slack.com/services/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"
-
-    cocoapods(
-      clean: true,
-      use_bundle_exec: false,
-      podfile: "./Podfile"
-    )
-    
+    cocoapods
   end
 
   desc "Runs all the tests"
   lane :test do
-    scan
+    scan(scheme: "Test")
+    slather(
+      cobertura_xml: true,
+      output_directory: "test_output",
+      proj: "Alister-Example.xcodeproj",
+      workspace: "Alister-Example.xcworkspace",
+      scheme: "Test",
+      ignore:['../../*', 
+      'Pods/*', 
+      '*/Vendor/*', 
+      '*/Application/BundleFiles/*',
+      '*/Controllers/Debug/DebugVC/*'])
   end
-
-  # lane :deeptest do
-  #   scan (
-  #     # scheme: "Debug",
-  #     open_report: true,
-  #     clean: true,
-  #     code_coverage: true,
-  #     #output_types "html"
-  #     devices: [
-  #       "iPhone 5 (10.0)", 
-  #       "iPhone 5 (9.0)",
-  #       "iPhone 5 (9.1)", 
-  #       "iPhone 5 (9.2)", 
-  #       "iPhone 5 (9.3)", 
-  #       "iPhone 5 (8.0)", 
-  #       "iPhone 5 (8.1)",
-  #       "iPhone 5 (8.2)",
-  #       "iPhone 5 (8.3)",
-  #       "iPhone 5 (8.4)"
-  #     ]
-  #   )
-  # end
-
 
 
   after_all do |lane|
-    # This block is called, only if the executed lane was successful
-
+    # This block is called, only if the executed lane was successful 
     slack(
-      message: "Successfully deployed new App Update."
+      use_webhook_configured_username_and_icon: true,
+      message: "Fastlane was successful :rocket:",
+      success: true,
+      default_payloads: [:lane, :test_result, :git_branch, :git_author],
     )
-
-    xcov(
-      workspace: 'Alister-Example.xcworkspace',
-      scheme:"Debug",
-      output_directory:"xcov_output"
-    )
-
-    pod_lib_lint(
-      allow_warnings: true, 
-      verbose: true,
-      use_libraries: true
-    )
-
   end
+
 
   error do |lane, exception|
     slack(
@@ -73,4 +44,3 @@ platform :ios do
     )
   end
 end
-

@@ -7,22 +7,9 @@
 //
 
 #import "ANCollectionController.h"
-#import "ANListControllerUpdateViewInterface.h"
-#import <Alister/ANStorage.h>
-#import "ANCollectionControllerManager.h"
-#import "ANListControllerSearchManager.h"
-#import "ANListControllerWrapperInterface.h"
-#import "ANListControllerCollectionViewWrapper.h"
+#import "ANListViewInterface.h"
+#import "ANListCollectionView.h"
 #import "ANListController+Interitance.h"
-
-@class ANListControllerTableViewWrapper;
-@class ANListControllerCollectionViewWrapper;
-
-@interface ANCollectionController () <ANCollectionControllerManagerDelegate, ANListControllerCollectionViewWrapperDelegate>
-
-@property (nonatomic, strong) id<ANListControllerWrapperInterface> listViewWrapper;
-
-@end
 
 @implementation ANCollectionController
 
@@ -33,69 +20,53 @@
 
 - (instancetype)initWithCollectionView:(UICollectionView*)collectionView
 {
-    self = [super init];
+    ANListCollectionView* listView = [ANListCollectionView wrapperWithCollectionView:collectionView];
+    self = [super initWithListView:listView];
     if (self)
     {
-        self.collectionView = collectionView;
-        self.listViewWrapper = [ANListControllerCollectionViewWrapper wrapperWithDelegate:self];
         
-        ANCollectionControllerManager* manager = [ANCollectionControllerManager new];
-        manager.delegate = self;
-        
-        manager.configurationModel.defaultFooterSupplementary = UICollectionElementKindSectionFooter;
-        manager.configurationModel.defaultHeaderSupplementary = UICollectionElementKindSectionHeader;
-        manager.configurationModel.reloadAnimationKey = @"UICollectionViewReloadDataAnimationKey";
-        
-        self.manager = manager;
     }
     return self;
 }
 
-- (ANCollectionControllerManager*)collectionManager
+- (UICollectionView *)collectionView
 {
-    return self.manager;
-}
-
-- (void)setCollectionView:(UICollectionView*  _Nullable)collectionView
-{
-    collectionView.delegate = self;
-    collectionView.dataSource = self;
-    _collectionView = collectionView;
-}
-
-- (void)dealloc
-{
-    UICollectionView* collectionView = self.collectionView;
-    collectionView.delegate = nil;
-    collectionView.dataSource = nil;
+    return (UICollectionView*)self.listView.view;
 }
 
 
-#pragma mark - Supplementaries
+#pragma mark - Supplementary
 
 - (UICollectionReusableView*)collectionView:(__unused UICollectionView*)collectionView
           viewForSupplementaryElementOfKind:(NSString*)kind
                                 atIndexPath:(NSIndexPath*)indexPath
 {
-    return [self.collectionManager supplementaryViewForIndexPath:indexPath kind:kind];
+    id model = [self.currentStorage supplementaryModelOfKind:kind forSectionIndex:indexPath.section];
+    return (UICollectionReusableView*)[self.itemsHandler supplementaryViewForModel:model
+                                                                              kind:kind
+                                                                      forIndexPath:indexPath];
 }
 
 - (CGSize)collectionView:(__unused UICollectionView*)collectionView
-                  layout:(UICollectionViewFlowLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)sectionIndex
+                  layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)sectionIndex
 {
-    return [self.collectionManager referenceSizeForHeaderInSection:(NSUInteger)sectionIndex
-                                                        withLayout:collectionViewLayout];
+    BOOL isExist = [self _isExistMappingForSection:sectionIndex
+                                              kind:self.currentStorage.headerSupplementaryKind];
+    
+    return isExist ? ((UICollectionViewFlowLayout*)collectionViewLayout).headerReferenceSize : CGSizeZero;
 }
 
 - (CGSize)collectionView:(__unused UICollectionView*)collectionView
-                  layout:(UICollectionViewFlowLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)sectionIndex
+                  layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)sectionIndex
 {
-    return [self.collectionManager referenceSizeForFooterInSection:(NSUInteger)sectionIndex
-                                                        withLayout:collectionViewLayout];
+    BOOL isExist = [self _isExistMappingForSection:sectionIndex
+                                              kind:self.currentStorage.footerSupplementaryKind];
+    
+    return isExist ? ((UICollectionViewFlowLayout*)collectionViewLayout).footerReferenceSize : CGSizeZero;
 }
 
 
-#pragma mark - UICollectionView datasource
+#pragma mark - UICollectionView Data Source
 
 - (NSInteger)numberOfSectionsInCollectionView:(__unused UICollectionView*)collectionView
 {
@@ -104,15 +75,15 @@
 
 - (NSInteger)collectionView:(__unused UICollectionView*)collectionView numberOfItemsInSection:(NSInteger)sectionIndex
 {
-    id <ANStorageSectionModelInterface> sectionModel = [self.currentStorage sectionAtIndex:(NSUInteger)sectionIndex];
-    return (NSInteger)[sectionModel numberOfObjects];
+    id <ANStorageSectionModelInterface> sectionModel = [self.currentStorage sectionAtIndex:sectionIndex];
+    return [sectionModel numberOfObjects];
 }
 
 - (UICollectionViewCell*)collectionView:(__unused UICollectionView*)collectionView
                  cellForItemAtIndexPath:(NSIndexPath*)indexPath
 {
     id model = [self.currentStorage objectAtIndexPath:indexPath];
-    return [self.collectionManager cellForModel:model atIndexPath:indexPath];
+    return (UICollectionViewCell*)[self.itemsHandler cellForModel:model atIndexPath:indexPath];
 }
 
 - (void)collectionView:(UICollectionView*)collectionView didSelectItemAtIndexPath:(NSIndexPath*)indexPath
@@ -123,6 +94,15 @@
         id model = [self.currentStorage objectAtIndexPath:indexPath];
         self.selectionBlock(model, indexPath);
     }
+}
+
+
+#pragma mark - Private
+
+- (BOOL)_isExistMappingForSection:(NSInteger)section kind:(NSString*)kind
+{
+    id model = [self.currentStorage supplementaryModelOfKind:kind forSectionIndex:section];
+    return (model != nil);
 }
 
 @end

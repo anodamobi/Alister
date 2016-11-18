@@ -24,7 +24,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 //TODO: doc
-+ (instancetype)updaterWithStorageModel:(ANStorageModel*)model updateDelegate:(id<ANStorageUpdateOperationInterface>)delegate;
++ (instancetype)updaterWithStorageModel:(ANStorageModel*)model;
 
 @property (nonatomic, weak) id<ANStorageUpdateOperationInterface> updateDelegate;
 
@@ -50,7 +50,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param sectionIndex  section to add item.
  */
 
-- (void)addItem:(id)item toSection:(NSUInteger)sectionIndex;
+- (void)addItem:(id)item toSection:(NSInteger)sectionIndex;
 
 
 /**
@@ -77,7 +77,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param sectionIndex  index for section where items should be added
  */
 
-- (void)addItems:(NSArray*)items toSection:(NSUInteger)sectionIndex;
+- (void)addItems:(NSArray*)items toSection:(NSInteger)sectionIndex;
 
 
 /**
@@ -178,11 +178,11 @@ NS_ASSUME_NONNULL_BEGIN
  Convention method for tables to register footer model
  You need to update footerKind property on storageModel before any updates
  
- @param headerModel  viewModel for footer
+ @param footerModel  viewModel for footer
  @param sectionIndex section index in UITableView
  */
 
-- (void)updateSectionFooterModel:(id)footerModel forSectionIndex:(NSUInteger)sectionIndex;
+- (void)updateSectionFooterModel:(id)footerModel forSectionIndex:(NSInteger)sectionIndex;
 
 
 NS_ASSUME_NONNULL_END

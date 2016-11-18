@@ -50,7 +50,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  @return ANStorageSectionModel* from storage
  */
-- (nullable ANStorageSectionModel*)sectionAtIndex:(NSUInteger)sectionIndex;
+- (nullable ANStorageSectionModel*)sectionAtIndex:(NSInteger)sectionIndex;
 
 
 /**
@@ -61,7 +61,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  @return NSArray* from specified section
  */
-- (nullable NSArray*)itemsInSection:(NSUInteger)sectionIndex;
+- (nullable NSArray*)itemsInSection:(NSInteger)sectionIndex;
 
 
 /**
@@ -84,7 +84,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  @return specified viewModel from storage
  */
-- (nullable id)headerModelForSectionIndex:(NSUInteger)index;
+- (nullable id)headerModelForSectionIndex:(NSInteger)index;
 
 
 /**
@@ -95,7 +95,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return specified viewModel from storage
  */
-- (nullable id)footerModelForSectionIndex:(NSUInteger)index;
+- (nullable id)footerModelForSectionIndex:(NSInteger)index;
 
 
 /**
@@ -107,7 +107,11 @@ NS_ASSUME_NONNULL_BEGIN
 
  @return viewModel from storage
  */
-- (nullable id)supplementaryModelOfKind:(NSString*)kind forSectionIndex:(NSUInteger)sectionIndex;
+- (nullable id)supplementaryModelOfKind:(NSString*)kind forSectionIndex:(NSInteger)sectionIndex;
+
+//TODO: doc
+- (NSString*)headerSupplementaryKind;
+- (NSString*)footerSupplementaryKind;
 
 @end
 

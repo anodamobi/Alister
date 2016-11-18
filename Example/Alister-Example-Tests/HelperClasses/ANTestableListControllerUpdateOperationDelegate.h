@@ -6,8 +6,6 @@
 //  Copyright © 2016 Oksana Kovalchuk. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
 #import "ANTableControllerUpdateOperation.h"
 #import "ANTestableTableView.h"
 #import "ANTestableCollectionView.h"

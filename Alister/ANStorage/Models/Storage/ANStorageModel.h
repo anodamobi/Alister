@@ -6,7 +6,7 @@
 //
 //
 
-@class ANStorageSectionModel;
+#import "ANStorageSectionModel.h"
 
 /**
  Private class for storing in objects in memory.
@@ -33,7 +33,7 @@
 
  @return array of items from specified section
  */
-- (NSArray*)itemsInSection:(NSUInteger)section;
+- (NSArray*)itemsInSection:(NSInteger)section;
 
 
 /**
@@ -43,6 +43,8 @@
  */
 - (NSArray*)sections;
 
+//TODO: doc
+- (NSInteger)numberOfSections;
 
 /**
  Returns specified object by indexPath. 
@@ -63,7 +65,7 @@
 
  @return ANStorageSectionModel* object from storage
  */
-- (ANStorageSectionModel*)sectionAtIndex:(NSUInteger)index;
+- (ANStorageSectionModel*)sectionAtIndex:(NSInteger)index;
 
 
 /**
@@ -79,7 +81,7 @@
 
  @param index index for section to remove
  */
-- (void)removeSectionAtIndex:(NSUInteger)index;
+- (void)removeSectionAtIndex:(NSInteger)index;
 
 
 /**

@@ -6,17 +6,8 @@
 //  Copyright © 2016 ANODA. All rights reserved.
 //
 
+#import "ANListControllerMappingServiceInterface.h"
 
-@interface ANListControllerMappingService : NSObject
-
-NS_ASSUME_NONNULL_BEGIN
-
-- (NSString*)registerViewModelClass:(Class)viewModelClass;
-- (NSString*)registerViewModelClass:(Class)viewModelClass kind:(NSString*)kind;
-
-- (NSString*)identifierForViewModelClass:(Class)keyClass;
-- (NSString*)identifierForViewModelClass:(Class)viewModelClass kind:(NSString*)kind;
-
-NS_ASSUME_NONNULL_END
+@interface ANListControllerMappingService : NSObject <ANListControllerMappingServiceInterface>
 
 @end

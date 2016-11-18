@@ -43,7 +43,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param item  item to add in storage
  @param index for item in the existing objects array
  */
-- (void)insertItem:(id)item atIndex:(NSUInteger)index;
+- (void)insertItem:(id)item atIndex:(NSInteger)index;
 
 
 /**
@@ -51,7 +51,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  @param index section index to remove
  */
-- (void)removeItemAtIndex:(NSUInteger)index;
+- (void)removeItemAtIndex:(NSInteger)index;
 
 
 /**
@@ -61,7 +61,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param index index for item to replace
  @param item  new item to insert
  */
-- (void)replaceItemAtIndex:(NSUInteger)index withItem:(id)item;
+- (void)replaceItemAtIndex:(NSInteger)index withItem:(id)item;
 
 @end
 

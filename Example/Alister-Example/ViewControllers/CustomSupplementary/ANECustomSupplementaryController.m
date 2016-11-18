@@ -43,7 +43,7 @@
 - (CGFloat)tableView:(UITableView*)__unused tableView heightForHeaderInSection:(NSInteger)section
 {
     CGFloat headerHeight = 25;
-    id model = [self.currentStorage headerModelForSectionIndex:(NSUInteger)section];
+    id model = [self.currentStorage headerModelForSectionIndex:section];
     if ([model isKindOfClass:[ANECustomHeaderViewModel class]])
     {
         headerHeight = 40;
@@ -55,7 +55,7 @@
 - (CGFloat)tableView:(UITableView*)__unused tableView heightForFooterInSection:(NSInteger)section
 {
     CGFloat footerHeight = 25;
-    id model = [self.currentStorage footerModelForSectionIndex:(NSUInteger)section];
+    id model = [self.currentStorage footerModelForSectionIndex:section];
     if ([model isKindOfClass:[ANECustomFooterViewModel class]])
     {
         footerHeight = 40;

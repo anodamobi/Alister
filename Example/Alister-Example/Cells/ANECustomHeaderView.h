@@ -6,7 +6,7 @@
 //  Copyright © 2016 Oksana Kovalchuk. All rights reserved.
 //
 
-#import <Alister/ANBaseTableViewHeaderFooterView.h>
+#import "ANBaseTableViewHeaderFooterView.h"
 #import "ANECustomHeaderViewModel.h"
 
 @interface ANECustomHeaderView : ANBaseTableViewHeaderFooterView

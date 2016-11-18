@@ -9,36 +9,35 @@
 #import "ANStorageRemover.h"
 #import "ANStorageUpdateModel.h"
 #import "ANStorageLoader.h"
-#import <Alister/ANStorageModel.h>
-#import <Alister/ANStorageSectionModel.h>
+#import "ANStorageModel.h"
 #import "ANStorageLog.h"
 
 @interface ANStorageRemover ()
 
-@property (nonatomic, weak) ANStorageModel* storageModel;
+@property (nonatomic, strong) ANStorageModel* storageModel; //HOTFIX:
 
 @end
 
 @implementation ANStorageRemover
 
-+ (instancetype)removerWithStorageModel:(ANStorageModel*)storageModel andUpdateDelegate:(id<ANStorageUpdateOperationInterface>)delegate
++ (instancetype)removerWithStorageModel:(ANStorageModel*)storageModel
 {
     ANStorageRemover* remover = [self new];
     remover.storageModel = storageModel;
-    remover.updateDelegate = delegate;
     
     return remover;
 }
 
 - (void)removeItem:(id)item
 {
+    ANStorageModel* storage = self.storageModel;
     ANStorageUpdateModel* update = [ANStorageUpdateModel new];
-    NSIndexPath* indexPath = [ANStorageLoader indexPathForItem:item inStorage:self.storageModel];
+    NSIndexPath* indexPath = [ANStorageLoader indexPathForItem:item inStorage:storage];
     
     if (indexPath)
     {
-        ANStorageSectionModel* section = [ANStorageLoader sectionAtIndex:(NSUInteger)indexPath.section inStorage:self.storageModel];
-        [section removeItemAtIndex:(NSUInteger)indexPath.row];
+        ANStorageSectionModel* section = [ANStorageLoader sectionAtIndex:indexPath.section inStorage:storage];
+        [section removeItemAtIndex:indexPath.row];
         [update addDeletedIndexPaths:@[indexPath]];
     }
     else
@@ -51,18 +50,19 @@
 
 - (void)removeItemsAtIndexPaths:(NSSet*)indexPaths
 {
+    ANStorageModel* storage = self.storageModel;
     ANStorageUpdateModel* update = [ANStorageUpdateModel new];
 
     NSSortDescriptor* sort = [NSSortDescriptor sortDescriptorWithKey:nil ascending:NO selector:@selector(compare:)];
     NSArray* indexPathsArray = [[indexPaths allObjects] sortedArrayUsingDescriptors:@[sort]];
     
     [indexPathsArray enumerateObjectsUsingBlock:^(NSIndexPath*  _Nonnull indexPath, __unused NSUInteger idx, __unused BOOL*  _Nonnull stop) {
-        id object = [ANStorageLoader itemAtIndexPath:indexPath inStorage:self.storageModel];
+        id object = [ANStorageLoader itemAtIndexPath:indexPath inStorage:storage];
         if (object)
         {
-            ANStorageSectionModel* section = [ANStorageLoader sectionAtIndex:(NSUInteger)indexPath.section
-                                                                   inStorage:self.storageModel];
-            [section removeItemAtIndex:(NSUInteger)indexPath.row];
+            ANStorageSectionModel* section = [ANStorageLoader sectionAtIndex:indexPath.section
+                                                                   inStorage:storage];
+            [section removeItemAtIndex:indexPath.row];
             [update addDeletedIndexPaths:@[indexPath]];
         }
         else
@@ -77,18 +77,24 @@
 - (void)removeItems:(NSSet*)items
 {
     ANStorageUpdateModel* update = [ANStorageUpdateModel new];
+    ANStorageModel* storage = self.storageModel;
     NSMutableArray* indexPaths = [NSMutableArray array];
     
-    NSArray* sortedItemsArray = [[[items allObjects] reverseObjectEnumerator] allObjects];
-    
-    [sortedItemsArray enumerateObjectsUsingBlock:^(id  _Nonnull item, NSUInteger idx, BOOL * _Nonnull stop) {
-        NSIndexPath* indexPath = [ANStorageLoader indexPathForItem:item inStorage:self.storageModel];
+    [items.allObjects enumerateObjectsUsingBlock:^(id  _Nonnull item, NSUInteger idx, BOOL * _Nonnull stop) {
+       
+        NSIndexPath* indexPath = [ANStorageLoader indexPathForItem:item inStorage:storage];
         if (indexPath)
         {
-            ANStorageSectionModel* section = [self.storageModel sectionAtIndex:(NSUInteger)indexPath.section];
-            [section removeItemAtIndex:(NSUInteger)indexPath.row];
             [indexPaths addObject:indexPath];
         }
+    }];
+    
+    [indexPaths sortUsingSelector:@selector(compare:)];
+    NSArray* reversed = [[indexPaths reverseObjectEnumerator] allObjects];
+    
+    [reversed enumerateObjectsUsingBlock:^(NSIndexPath*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        ANStorageSectionModel* section = [storage sectionAtIndex:obj.section];
+        [section removeItemAtIndex:obj.row];
     }];
     
     [update addDeletedIndexPaths:indexPaths];
@@ -99,9 +105,10 @@
 - (void)removeAllItemsAndSections
 {
     ANStorageUpdateModel* update = [ANStorageUpdateModel new];
-    if ([self.storageModel sections].count)
+    ANStorageModel* storage = self.storageModel;
+    if ([storage sections].count)
     {
-        [self.storageModel removeAllSections];
+        [storage removeAllSections];
         update.isRequireReload = YES;
     }
     
@@ -111,16 +118,17 @@
 - (void)removeSections:(NSIndexSet*)indexSet
 {
     __block ANStorageUpdateModel* update = [ANStorageUpdateModel new];
+    ANStorageModel* storage = self.storageModel;
     
-    for (NSInteger reversedCounter = self.storageModel.sections.count - 1; reversedCounter >= 0; reversedCounter--)
+    for (NSInteger counter = [storage numberOfSections] - 1; counter >= 0; counter --)
     {
-        if ([indexSet containsIndex:reversedCounter])
+        if ([indexSet containsIndex:(NSUInteger)counter])
         {
-            [self.storageModel removeSectionAtIndex:reversedCounter];
-            [update addDeletedSectionIndex:reversedCounter];
+            [storage removeSectionAtIndex:counter];
+            [update addDeletedSectionIndex:(NSUInteger)counter];
         }
     }
-    
+
     [self.updateDelegate collectUpdate:update];
 }
 

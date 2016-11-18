@@ -6,7 +6,6 @@
 //  Copyright © 2016 Oksana Kovalchuk. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import "ANTableControllerUpdateOperation.h"
 
 @interface ANTestableTableUpdateOperation : ANTableControllerUpdateOperation

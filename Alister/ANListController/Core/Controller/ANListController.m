@@ -7,43 +7,95 @@
 //
 
 #import "ANListController.h"
-#import "ANListControllerWrapperInterface.h"
+#import "ANListViewInterface.h"
 #import "ANListControllerSearchManager.h"
-#import "ANListController+Interitance.h"
-#import "ANListControllerManagerInterface.h"
 #import "ANKeyboardHandler.h"
-#import "ANListControllerConfigurationModel.h"
+#import "ANListControllerItemsHandler.h"
+#import "ANListControllerUpdateService.h"
+#import "ANListControllerUpdateOperation.h"
 
-@interface ANListController () <ANListControllerSearchManagerDelegate>
+@interface ANListController () <ANListControllerSearchManagerDelegate, ANListControllerUpdateServiceDelegate>
 
-@property (nonatomic, strong) ANStorage* searchingStorage;
-@property (nonatomic, strong) ANListControllerSearchManager* searchManager;
 @property (nonatomic, weak) ANStorage* storage;
-@property (nonatomic, strong) id<ANListControllerWrapperInterface> listViewWrapper;
-@property (nonatomic, strong) id<ANListControllerManagerInterface> manager;
+@property (nonatomic, strong) id<ANListViewInterface> listView;
+
+@property (nonatomic, strong) ANListControllerItemsHandler* itemsHandler;
+@property (nonatomic, strong) ANListControllerUpdateService* updateService;
+
 @property (nonatomic, copy) ANListControllerItemSelectionBlock selectionBlock;
 @property (nonatomic, copy) ANListControllerUpdatesFinishedTriggerBlock updatesFinishedTrigger;
+
+@property (nonatomic, strong) ANListControllerSearchManager* searchManager;
 
 @end
 
 @implementation ANListController
 
-- (instancetype)init
+- (instancetype)initWithListView:(id<ANListViewInterface>)listView
 {
     self = [super init];
     if (self)
     {
-        self.searchManager = [ANListControllerSearchManager new];
-        self.searchManager.delegate = self;
+        self.listView = listView;
     }
     return self;
 }
+
+- (void)dealloc
+{
+    [self.listView setDelegate:nil];
+    [self.listView setDataSource:nil];
+
+    self.storage.updatesHandler = nil;
+    self.storage = nil;
+}
+
+
+#pragma mark - Public
+
+- (void)attachStorage:(ANStorage*)storage
+{
+    self.storage = storage;
+    [self _attachStorage:storage];
+}
+
+- (void)attachSearchBar:(UISearchBar*)searchBar
+{
+    self.searchManager.searchBar = searchBar;
+}
+
+
+#pragma mark - ANListControllerUpdateServiceDelegate
+
+- (void)allUpdatesFinished
+{
+    if (self.updatesFinishedTrigger)
+    {
+        self.updatesFinishedTrigger();
+    }
+}
+
+
+#pragma mark - SearchManager 
+
+- (void)searchControllerDidCancelSearch
+{
+    self.storage.updatesHandler = self.updateService;
+}
+
+- (void)searchControllerCreatedStorage:(ANStorage*)searchStorage
+{
+    [self _attachStorage:searchStorage];
+}
+
+
+#pragma mark - Blocks
 
 - (void)configureCellsWithBlock:(ANListControllerCellConfigurationBlock)block
 {
     if (block)
     {
-        block([self.manager reusableViewsHandler]);
+        block(self.itemsHandler);
     }
 }
 
@@ -52,115 +104,64 @@
     self.selectionBlock = [block copy];
 }
 
-- (void)updateConfigurationModelWithBlock:(ANListConfigurationModelUpdateBlock)block
-{
-    if (block)
-    {
-        block(self.manager.configurationModel);
-        [self _updateKeyboardHandlerWithConfigurationModel:[self.manager configurationModel]];
-    }
-}
-
-- (void)addUpdatesFinsihedTriggerBlock:(ANListControllerUpdatesFinishedTriggerBlock)block
+- (void)addUpdatesFinishedTriggerBlock:(ANListControllerUpdatesFinishedTriggerBlock)block
 {
     self.updatesFinishedTrigger = [block copy];
 }
 
-- (void)attachStorage:(ANStorage*)storage
+- (void)updateSearchingPredicateBlock:(ANListControllerSearchPredicateBlock)block
 {
-    self.storage = storage;
-    [self _attachStorage:storage];
-}
-
-- (void)dealloc
-{
-    self.searchBar.delegate = nil;
-    self.storage.listController = nil;
-    self.searchingStorage.listController = nil;
-}
-
-- (void)reloadStorageAnimated:(ANStorage*)storage
-{
-    [[self.manager updateHandler] storageNeedsReloadWithIdentifier:storage.identifier animated:YES];
-}
-
-- (void)reloadStorageWithoutAnimation:(ANStorage*)storage
-{
-    [[self.manager updateHandler] storageNeedsReloadWithIdentifier:storage.identifier animated:NO];
-}
-
-- (void)searchControllerDidCancelSearch
-{
-    self.searchingStorage.listController = nil;
-    self.storage.listController = [self.manager updateHandler];
-}
-
-- (void)setSearchingStorage:(ANStorage*)searchingStorage
-{
-    _searchingStorage = searchingStorage;
-    [self _attachStorage:searchingStorage];
-}
-
-- (void)setManager:(id<ANListControllerManagerInterface>)manager
-{
-    _manager = manager;
-    [self _updateKeyboardHandlerWithConfigurationModel:[manager configurationModel]];
-}
-
-- (void)searchControllerRequiresStorageWithSearchString:(NSString*)searchString andScope:(NSInteger)scope
-{
-    ANStorage* storage = self.storage;
-    storage.listController = nil;
-    
-    self.searchingStorage = [storage searchStorageForSearchString:searchString
-                                                    inSearchScope:scope];
-    [self _attachStorage:self.searchingStorage];
-    
-    [[self.manager updateHandler] storageNeedsReloadWithIdentifier:self.searchingStorage.identifier animated:YES];
-    
-    self.searchingStorage.listController = [self.manager updateHandler];
-}
-
-- (ANStorage*)currentStorage
-{
-    return [self.searchManager isSearching] ? self.searchingStorage : self.storage;
-}
-
-- (void)attachSearchBar:(UISearchBar*)searchBar
-{
-    searchBar.delegate = self.searchManager;
-    _searchBar = searchBar;
-}
-
-- (void)allUpdatesWereFinished
-{
-    if (self.updatesFinishedTrigger)
-    {
-        self.updatesFinishedTrigger();
-    }
+    self.searchManager.searchPredicateConfigBlock = block;
 }
 
 #pragma mark - Private
 
-- (void)_updateKeyboardHandlerWithConfigurationModel:(ANListControllerConfigurationModel*)model
+- (ANStorage*)currentStorage
 {
-    BOOL shouldHandleKeyboard = [model shouldHandleKeyboard];
-    if (shouldHandleKeyboard && !self.keyboardHandler)
-    {
-        self.keyboardHandler = [ANKeyboardHandler handlerWithTarget:[self.listViewWrapper view]];
-    }
-    if (!shouldHandleKeyboard)
-    {
-        self.keyboardHandler = nil;
-    }
+    return [self.searchManager isSearching] ? self.searchManager.searchingStorage : self.storage;
+}
+
+- (void)setListView:(id<ANListViewInterface>)listView
+{
+    [listView setDelegate:self];
+    [listView setDataSource:self];
+    _listView = listView;
 }
 
 - (void)_attachStorage:(ANStorage*)storage
 {
-    storage.listController = [self.manager updateHandler];
-    ANListControllerConfigurationModel* model = self.manager.configurationModel;
-    [storage updateHeaderKind:model.defaultHeaderSupplementary footerKind:model.defaultFooterSupplementary];
-    [self.storage.listController storageNeedsReloadWithIdentifier:storage.identifier animated:NO];
+    storage.updatesHandler = self.updateService;
+    [self.updateService storageNeedsReloadWithIdentifier:storage.identifier animated:NO];
+}
+
+- (ANListControllerSearchManager*)searchManager
+{
+    if (!_searchManager)
+    {
+        _searchManager = [ANListControllerSearchManager new];
+        _searchManager.delegate = self;
+    }
+    return _searchManager;
+}
+
+- (ANListControllerItemsHandler*)itemsHandler
+{
+    if (!_itemsHandler)
+    {
+        _itemsHandler = [[ANListControllerItemsHandler alloc] initWithListView:self.listView
+                                                                mappingService:nil]; //TODO: remove mapping service param
+    }
+    return _itemsHandler;
+}
+
+- (ANListControllerUpdateService*)updateService
+{
+    if (!_updateService)
+    {
+        _updateService = [[ANListControllerUpdateService alloc] initWithListView:self.listView];
+        _updateService.delegate = self;
+    }
+    return _updateService;
 }
 
 @end

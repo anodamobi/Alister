@@ -27,7 +27,7 @@
 
 - (NSString*)_descriptionStringForIndexPath:(NSIndexPath*)indexPath
 {
-    return [NSString stringWithFormat:@"(%zd - %zd)", indexPath.length, indexPath.section, indexPath.row];
+    return [NSString stringWithFormat:@"(%zd - %zd)", indexPath.section, indexPath.row];
 }
                                    
 @end

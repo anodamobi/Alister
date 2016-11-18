@@ -7,11 +7,8 @@
 //
 
 #import "ANListControllerSearchManager.h"
-
-typedef NS_ENUM(NSInteger, ANListControllerSearchScope)
-{
-    ANListControllerSearchScopeNone = -1,
-};
+#import "ANStorage.h"
+#import "ANListControllerLog.h"
 
 @interface ANListControllerSearchManager ()
 
@@ -32,6 +29,43 @@ typedef NS_ENUM(NSInteger, ANListControllerSearchScope)
     return self;
 }
 
+- (instancetype)initWithDelegate:(id<ANListControllerSearchManagerDelegate>)delegate
+{
+    self = [super init];
+    if (self)
+    {
+        self.delegate = delegate;
+    }
+    return self;
+}
+
+- (void)dealloc
+{
+    self.searchBar.delegate = nil;
+    self.searchingStorage.updatesHandler = nil;
+}
+
+- (void)setSearchBar:(UISearchBar*)searchBar
+{
+    searchBar.delegate = self;
+    searchBar.selectedScopeButtonIndex = ANListControllerSearchScopeNone;
+    _searchBar = searchBar;
+}
+
+- (void)setDelegate:(id<ANListControllerSearchManagerDelegate>)delegate
+{
+    if ([delegate conformsToProtocol:@protocol(ANListControllerSearchManagerDelegate)] || !delegate)
+    {
+        _delegate = delegate;
+    }
+    else
+    {
+        ANListControllerLog(@"Delegate must conform to protocol %@",
+                            NSStringFromProtocol(@protocol(ANListControllerSearchManagerDelegate)));
+        _delegate = nil;
+    }
+}
+
 
 #pragma mark - Public
 
@@ -46,7 +80,7 @@ typedef NS_ENUM(NSInteger, ANListControllerSearchScope)
 
 - (void)searchBar:(UISearchBar*)searchBar textDidChange:(__unused NSString*)searchText
 {
-    [self _filterItemsForSearchString:searchBar.text inScope:ANListControllerSearchScopeNone reload:NO];
+    [self _filterItemsForSearchString:searchBar.text inScope:searchBar.selectedScopeButtonIndex reload:NO];
 }
 
 - (void)searchBar:(UISearchBar*)searchBar selectedScopeButtonIndexDidChange:(NSInteger)selectedScope
@@ -87,7 +121,6 @@ typedef NS_ENUM(NSInteger, ANListControllerSearchScope)
         self.currentSearchString = searchString;
         
         [self _handleSearchWithCurrentSearchingValue:isSearching];
-        
     }
 }
 
@@ -97,13 +130,53 @@ typedef NS_ENUM(NSInteger, ANListControllerSearchScope)
     
     if (isSearching && ![self isSearching])
     {
+        self.searchingStorage.updatesHandler = nil;
         [delegate searchControllerDidCancelSearch];
     }
     else
     {
-        [delegate searchControllerRequiresStorageWithSearchString:self.currentSearchString
-                                                         andScope:self.currentSearchScope];
+        ANStorage* storage = delegate.storage;
+        storage.updatesHandler = nil;
+        
+        _searchingStorage = [self _searchStoragefromStorage:storage
+                                            forSearchString:self.currentSearchString
+                                              inSearchScope:self.currentSearchScope];
+
+        [delegate searchControllerCreatedStorage:_searchingStorage];
     }
 }
+
+- (ANStorage*)_searchStoragefromStorage:(ANStorage*)storage
+                        forSearchString:(NSString*)searchString
+                          inSearchScope:(NSInteger)searchScope
+{
+    //storage.isSearchingType = YES; TODO:
+    
+    ANStorage* searchStorage = nil;
+    
+    NSPredicate* predicate;
+    if (self.searchPredicateConfigBlock)
+    {
+        predicate = self.searchPredicateConfigBlock(searchString, searchScope);
+    }
+    if (predicate)
+    {
+        searchStorage = [ANStorage new];
+        
+        [searchStorage updateWithoutAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
+            
+            [storage.sections enumerateObjectsUsingBlock:^(ANStorageSectionModel* obj, NSUInteger idx, __unused BOOL* stop) {
+                NSArray* filteredObjects = [obj.objects filteredArrayUsingPredicate:predicate];
+                [storageController addItems:filteredObjects toSection:(NSInteger)idx];
+            }];
+        }];
+    }
+    else
+    {
+        ANListControllerLog(@"No predicate was created, so no searching. Check your setter for storagePredicateBlock");
+    }
+    return searchStorage;
+}
+
 
 @end

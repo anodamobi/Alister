@@ -1,0 +1,17 @@
+//
+//  AlisterTests.pch
+//  Alister-Example
+//
+//  Created by Oksana Kovalchuk on 11/5/16.
+//  Copyright © 2016 Oksana Kovalchuk. All rights reserved.
+//
+
+#import <Expecta/Expecta.h>
+#import <OCMock/OCMock.h>
+#import <Specta/Specta.h>
+
+#import "ANTestHelper.h"
+
+@import Foundation;
+@import UIKit;
+

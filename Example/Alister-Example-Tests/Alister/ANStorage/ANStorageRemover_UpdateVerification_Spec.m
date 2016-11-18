@@ -6,10 +6,10 @@
 //  Copyright © 2016 Oksana Kovalchuk. All rights reserved.
 //
 
-#import <Alister/ANStorageUpdater.h>
-#import <Alister/ANStorageModel.h>
-#import <Alister/ANStorageUpdateModel.h>
-#import <Alister/ANStorageRemover.h>
+#import "ANStorageUpdater.h"
+#import "ANStorageModel.h"
+#import "ANStorageUpdateModel.h"
+#import "ANStorageRemover.h"
 #import "ANStorageFakeOperationDelegate.h"
 
 #pragma clang diagnostic push
@@ -26,8 +26,9 @@ beforeEach(^{
     ANStorageModel* storage = [ANStorageModel new];
     
     fakeDelegate = [ANStorageFakeOperationDelegate new];
-    updater = [ANStorageUpdater updaterWithStorageModel:storage updateDelegate:nil];
-    remover = [ANStorageRemover removerWithStorageModel:storage andUpdateDelegate:fakeDelegate];
+    updater = [ANStorageUpdater updaterWithStorageModel:storage];
+    remover = [ANStorageRemover removerWithStorageModel:storage];
+    remover.updateDelegate = fakeDelegate;
 });
 
 describe(@"removeItem:", ^{

@@ -51,7 +51,7 @@
         
         if (updateModel.isRequireReload)
         {
-            [self.updaterDelegate updateStorageOperationRequiresForceReload:self];
+            [self.updaterDelegate storageNeedsReloadWithIdentifier:self.name animated:NO];
         }
         else
         {
@@ -87,15 +87,11 @@
     return update;
 }
 
-- (void)setUpdaterDelegate:(id<ANStorageUpdateControllerInterface>)updaterDelegate
+- (void)setUpdaterDelegate:(id<ANListControllerUpdateServiceInterface>)updaterDelegate
 {
-    if ([updaterDelegate conformsToProtocol:@protocol(ANStorageUpdateControllerInterface)] || !updaterDelegate)
+    if ([updaterDelegate conformsToProtocol:@protocol(ANListControllerUpdateServiceInterface)] || !updaterDelegate)
     {
         _updaterDelegate = updaterDelegate;
-    }
-    else
-    {
-        NSAssert(NO, @"Delegate must conform to protocol");
     }
 }
 
@@ -105,10 +101,6 @@
         !controllerOperationDelegate)
     {
         _controllerOperationDelegate = controllerOperationDelegate;
-    }
-    else
-    {
-        NSAssert(NO, @"Delegate must conform to protocol");
     }
 }
 
