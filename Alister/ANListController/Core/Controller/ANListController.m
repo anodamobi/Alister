@@ -192,7 +192,7 @@
     if (!_itemsHandler)
     {
         _itemsHandler = [[ANListControllerItemsHandler alloc] initWithListView:self.listView
-                                                                mappingService:nil];
+                                                                mappingService:nil]; //TODO: remove mapping service param
     }
     return _itemsHandler;
 }

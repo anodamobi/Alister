@@ -54,7 +54,14 @@
 
 - (void)testDefaultState
 {
-    expect(self.controller.currentStorage).beNil();
+    id listView = OCMProtocolMock(@protocol(ANListViewInterface));
+    ANListControllerFixture* controller = [[ANListControllerFixture alloc] initWithListView:listView];
+    
+    expect(controller.listView).equal(listView);
+    expect(controller.searchManager).notTo.beNil();
+    expect(controller.itemsHandler).notTo.beNil();
+    expect(controller.updateService).notTo.beNil();
+    expect(controller.currentStorage).beNil();
 }
 
 - (void)test_currentStorage_shouldBeEqualToAttachedIfNoSearch

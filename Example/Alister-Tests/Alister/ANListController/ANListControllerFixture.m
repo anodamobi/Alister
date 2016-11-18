@@ -11,9 +11,4 @@
 
 @implementation ANListControllerFixture
 
-- (void)setupHeaderFooterDefaultKindOnStorage:(ANStorage*)storage
-{
-    
-}
-
 @end
