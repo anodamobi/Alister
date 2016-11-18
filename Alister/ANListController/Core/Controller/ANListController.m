@@ -37,7 +37,6 @@
     if (self)
     {
         self.listView = listView;
-//        [self _updateKeyboardHandlerWithConfigurationModel:[self configurationModel]]; //TODO:
     }
     return self;
 }
@@ -59,17 +58,6 @@
     self.storage = storage;
     [self _attachStorage:storage];
 }
-
-- (void)reloadStorageAnimated:(ANStorage*)storage
-{
-    [self.updateService storageNeedsReloadWithIdentifier:storage.identifier animated:YES];
-}
-
-- (void)reloadStorageWithoutAnimation:(ANStorage*)storage
-{
-    [self.updateService storageNeedsReloadWithIdentifier:storage.identifier animated:NO];
-}
-
 
 - (void)attachSearchBar:(UISearchBar*)searchBar
 {
@@ -98,10 +86,6 @@
 - (void)searchControllerCreatedStorage:(ANStorage*)searchStorage
 {
     [self _attachStorage:searchStorage];
-    //TODO: this lines are copy of attach storage
-//    [self.updateService storageNeedsReloadWithIdentifier:searchStorage.identifier animated:YES];
-//    
-//    searchStorage.updatesHandler = self.updateService;
 }
 
 
@@ -143,22 +127,6 @@
     [listView setDataSource:self];
     _listView = listView;
 }
-
-/*
-//TODO:
-- (void)_updateKeyboardHandlerWithConfigurationModel:(ANListControllerConfigurationModel*)model
-{
-    BOOL shouldHandleKeyboard = [self shouldHandleKeyboard];
-    if (shouldHandleKeyboard && !self.keyboardHandler)
-    {
-        self.keyboardHandler = [ANKeyboardHandler handlerWithTarget:[self.listView view]];
-    }
-    if (!shouldHandleKeyboard)
-    {
-        self.keyboardHandler = nil;
-    }
-}
- */
 
 - (void)_attachStorage:(ANStorage*)storage
 {

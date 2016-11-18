@@ -195,25 +195,8 @@
     OCMVerify([self.updateService storageNeedsReloadWithIdentifier:identifier animated:NO]);
 }
 
-- (void)test_reloadStorageAnimated_shouldCallReloadOnUpdateServiceAnimated
-{
-    [self _shouldReloadCurrentStorageAnimated:YES];
-}
-
-- (void)test_reloadStorageWithoutAnimation_shouldCallReloadOnUpdateServiceWithoutAnimation
-{
-    [self _shouldReloadCurrentStorageAnimated:NO];
-}
-
 
 #pragma mark - Helpers
-
-- (void)_shouldReloadCurrentStorageAnimated:(BOOL)isAnimated
-{
-    NSString* identifier = [ANTestHelper randomString];
-    [OCMStub([self.storage identifier]) andReturn:identifier];
-    OCMExpect([self.updateService storageNeedsReloadWithIdentifier:identifier animated:isAnimated]);
-}
 
 - (void)_attachStorageAndSetIsSearchingValueTo:(BOOL)isSearching
 {

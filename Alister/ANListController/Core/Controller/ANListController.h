@@ -12,13 +12,9 @@
 
 @class ANKeyboardHandler;
 
-@interface ANListController : NSObject 
-
-//@property (nonatomic, strong) ANKeyboardHandler* keyboardHandler;
-//@property (nonatomic, assign) BOOL shouldHandleKeyboard;
+@interface ANListController : NSObject
 
 @property (nonatomic, strong, readonly) ANStorage* currentStorage;
-
 
 - (void)attachStorage:(ANStorage*)storage;
 - (void)attachSearchBar:(UISearchBar*)searchBar;
