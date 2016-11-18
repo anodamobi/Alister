@@ -11,10 +11,21 @@
 #import "ANListControllerSearchManager.h"
 #import "ANListControllerUpdateService.h"
 
-@interface ANListControllerFixture : ANListController <ANListControllerSearchManagerDelegate, ANListControllerUpdateServiceDelegate>
+@interface ANListController () <ANListControllerSearchManagerDelegate, ANListControllerUpdateServiceDelegate>
+
+@property (nonatomic, weak) ANStorage* storage;
+@property (nonatomic, strong) id<ANListViewInterface> listView;
 
 @property (nonatomic, strong) ANListControllerItemsHandler* itemsHandler;
-@property (nonatomic, strong) id updateService;
-@property (nonatomic, strong) id searchManager;
+@property (nonatomic, strong) ANListControllerUpdateService* updateService;
+
+@property (nonatomic, copy) ANListControllerItemSelectionBlock selectionBlock;
+@property (nonatomic, copy) ANListControllerUpdatesFinishedTriggerBlock updatesFinishedTrigger;
+
+@property (nonatomic, strong) ANListControllerSearchManager* searchManager;
+
+@end
+
+@interface ANListControllerFixture : ANListController <ANListControllerSearchManagerDelegate, ANListControllerUpdateServiceDelegate>
 
 @end

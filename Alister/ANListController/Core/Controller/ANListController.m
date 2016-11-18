@@ -36,18 +36,7 @@
     self = [super init];
     if (self)
     {
-        self.searchManager = [ANListControllerSearchManager new];
-        self.searchManager.delegate = self;
-        
-        self.itemsHandler = [[ANListControllerItemsHandler alloc] initWithListView:listView
-                                                                    mappingService:nil];
-        
-        self.updateService = [[ANListControllerUpdateService alloc] initWithListView:listView];
-        self.updateService.delegate = self;
-        
         self.listView = listView;
-    
-
 //        [self _updateKeyboardHandlerWithConfigurationModel:[self configurationModel]]; //TODO:
     }
     return self;
