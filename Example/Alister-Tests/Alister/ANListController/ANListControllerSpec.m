@@ -57,6 +57,18 @@
     expect(self.controller.currentStorage).beNil();
 }
 
+- (void)test_currentStorage_shouldBeEqualToAttachedIfNoSearch
+{
+    id storage = [self _attachStorageAndSetIsSearchingValueTo:NO];
+    expect(self.controller.currentStorage).equal(storage);
+}
+
+- (void)test_currentStorage_shouldNotBeEqualToAttachedIfSearching
+{
+    id storage = [self _attachStorageAndSetIsSearchingValueTo:YES];
+    expect(self.controller.currentStorage).notTo.equal(storage);
+}
+
 - (void)test_configureCellsWithBlock_shouldExecuteAndPassConfigurator
 {
     waitUntilTimeout(0.1, ^(DoneCallback done) {
@@ -67,7 +79,6 @@
         }];
     });
 }
-
 
 - (void)test_attachStorage_shouldEqualCurrentIfNoActiveSearch
 {
@@ -89,7 +100,6 @@
     OCMVerify([self.listView reloadData]);
 }
 
-
 - (void)test_attachSearchBar_shouldUpdateSearchManager
 {
     UISearchBar* searchBar = [UISearchBar new];
@@ -97,7 +107,6 @@
     
     OCMVerify([self.searchManager setSearchBar:searchBar]);
 }
-
 
 - (void)test_configureCellsWithBlock_shouldNotRaiseIfNil
 {
@@ -119,7 +128,6 @@
     expect(wasCalled).beTruthy();
 }
 
-
 - (void)test_configureItemSelectionBlock_shouldBeEqualToPropertyAfterSet
 {
     ANListControllerItemSelectionBlock block = ^(id model, NSIndexPath *indexPath) {
@@ -129,7 +137,6 @@
     
     expect(block).equal(self.controller.selectionBlock);
 }
-
 
 - (void)test_addUpdatesFinishedTriggerBlock_shouldNotRaiseIfNil
 {
@@ -162,5 +169,37 @@
     
     OCMVerify([self.searchManager setSearchPredicateConfigBlock:searchBlock]);
 }
+
+- (void)test_searchControllerDidCancelSearch_shouldSetUpdatesHandler
+{
+    [self.controller attachStorage:self.storage];
+    [self.controller searchControllerDidCancelSearch];
+    OCMVerify([self.storage setUpdatesHandler:self.controller.updateService]);
+}
+
+- (void)test_searchControllerCreatedStorage_shouldSetUpdatesHandlerAndReload
+{
+    NSString* identifier = [ANTestHelper randomString];
+    
+    id searchStorage = OCMClassMock([ANStorage class]);
+    [OCMStub([searchStorage identifier]) andReturn:identifier];
+    [self.controller searchControllerCreatedStorage:searchStorage];
+    
+    OCMVerify([searchStorage setUpdatesHandler:self.updateService]);
+    OCMVerify([self.updateService storageNeedsReloadWithIdentifier:identifier animated:NO]);
+}
+
+
+#pragma mark - Helpers
+
+- (id)_attachStorageAndSetIsSearchingValueTo:(BOOL)isSearching
+{
+    id storage = OCMClassMock([ANStorage class]);
+    [self.controller attachStorage:storage];
+    [OCMStub([self.searchManager isSearching]) andReturnValue:OCMOCK_VALUE(isSearching)];
+    
+    return storage;
+}
+
 
 @end

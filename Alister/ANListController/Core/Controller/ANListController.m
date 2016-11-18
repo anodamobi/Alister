@@ -109,9 +109,10 @@
 - (void)searchControllerCreatedStorage:(ANStorage*)searchStorage
 {
     [self _attachStorage:searchStorage];
-    [self.updateService storageNeedsReloadWithIdentifier:searchStorage.identifier animated:YES];
-    
-    searchStorage.updatesHandler = self.updateService;
+    //TODO: this lines are copy of attach storage
+//    [self.updateService storageNeedsReloadWithIdentifier:searchStorage.identifier animated:YES];
+//    
+//    searchStorage.updatesHandler = self.updateService;
 }
 
 
@@ -173,7 +174,7 @@
 - (void)_attachStorage:(ANStorage*)storage
 {
     storage.updatesHandler = self.updateService;
-    [self.storage.updatesHandler storageNeedsReloadWithIdentifier:storage.identifier animated:NO];
+    [self.updateService storageNeedsReloadWithIdentifier:storage.identifier animated:NO];
 }
 
 - (ANListControllerSearchManager*)searchManager

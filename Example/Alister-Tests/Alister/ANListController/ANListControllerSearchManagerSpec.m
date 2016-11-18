@@ -58,6 +58,14 @@ describe(@"at default state", ^{
     });
 });
 
+describe(@"initWithDelegate:", ^{
+    
+    it(@"should have delegate after init", ^{
+        ANListControllerSearchManager* manager = [[ANListControllerSearchManager alloc] initWithDelegate:delegate];
+        expect(manager.delegate).equal(delegate);
+    });
+});
+
 
 describe(@"delegate", ^{
     
