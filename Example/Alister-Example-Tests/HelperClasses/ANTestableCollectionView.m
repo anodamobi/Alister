@@ -21,7 +21,7 @@
     
 }
 
-- (void)registerCellClass:(Class)cellClass forReuseIdentifier:(NSString *)identifier
+- (void)registerCellClass:(Class)cellClass forReuseIdentifier:(NSString*)identifier
 {
     
 }
@@ -36,22 +36,22 @@
     
 }
 
-- (id<ANListControllerUpdateViewInterface>)supplementaryViewForReuseIdentifer:(NSString *)reuseIdentifier
-                                                                         kind:(NSString *)kind
-                                                                  atIndexPath:(NSIndexPath *)indexPath
+- (id<ANListControllerUpdateViewInterface>)supplementaryViewForReuseIdentifer:(NSString*)reuseIdentifier
+                                                                         kind:(NSString*)kind
+                                                                  atIndexPath:(NSIndexPath*)indexPath
 {
     return nil;
 }
 
-- (id<ANListControllerUpdateViewInterface>)cellForReuseIdentifier:(NSString *)reuseIdentifier
-                                                      atIndexPath:(NSIndexPath *)indexPath
+- (id<ANListControllerUpdateViewInterface>)cellForReuseIdentifier:(NSString*)reuseIdentifier
+                                                      atIndexPath:(NSIndexPath*)indexPath
 {
     return nil;
 }
 
 - (void)registerSupplementaryClass:(Class)supplementaryClass
-                   reuseIdentifier:(NSString *)reuseIdentifier
-                              kind:(NSString *)kind
+                   reuseIdentifier:(NSString*)reuseIdentifier
+                              kind:(NSString*)kind
 {
     
 }
@@ -81,11 +81,10 @@
     return nil;
 }
 
-- (void)performUpdate:(ANStorageUpdateModel *)update animated:(BOOL)animated
+- (void)performUpdate:(ANStorageUpdateModel*)update animated:(BOOL)animated
 {
     
 }
-
 
 - (void)updateWindow:(UIWindow*)window
 {

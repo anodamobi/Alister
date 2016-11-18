@@ -72,7 +72,6 @@
     [self.updateService storageNeedsReloadWithIdentifier:identifier animated:NO];
     [self.operations removeLastObject]; //TODO: remove last reload operation as it will be added
     
-    
     for (NSOperation* op in self.operations)
     {
         if ([op.name isEqualToString:identifier])
@@ -103,6 +102,7 @@
     NSString* identifier = [ANTestHelper randomString];
     id updateOperation = OCMClassMock([ANStorageUpdateOperation class]);
     [self.updateService storageDidPerformUpdate:updateOperation withIdentifier:identifier animatable:NO];
+    
     return identifier;
 }
 
