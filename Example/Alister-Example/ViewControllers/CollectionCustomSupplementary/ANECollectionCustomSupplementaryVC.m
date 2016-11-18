@@ -35,7 +35,7 @@
         self.controller = [[ANECollectionCustomSupplementaryController alloc]
                            initWithCollectionView:self.collectionView];
         
-        [self.controller updateWithStorage:self.storage];
+        [self.controller attachStorage:self.storage];
     }
     return self;
 }
@@ -49,7 +49,7 @@
 {
     [super viewDidLoad];
     
-    NSArray* items = [ANEDataGenerator generateStringsArrayWithCapacity:30];
+    NSArray* items = [ANEDataGenerator generateStringsArrayWithCapacity:5];
     ANECollectionFooterViewModel* footerModel = [ANECollectionFooterViewModel new];
     
     [self.storage updateWithoutAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
@@ -73,6 +73,7 @@
     layout.headerReferenceSize = CGSizeMake(width, 1000);
     layout.footerReferenceSize = CGSizeMake(width, 1000);
     layout.itemSize = CGSizeMake(width, width);
+    
     return layout;
 }
 

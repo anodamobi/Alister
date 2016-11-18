@@ -24,22 +24,16 @@
             [configurator registerCellClass:[ANECollectionViewCell class]
                               forModelClass:[NSString class]];
             
-//            [configurator registerSupplementaryClass:[ANECollectionHeaderView class]
-//                                       forModelClass:[NSString class]
-//                                                kind:UICollectionElementKindSectionHeader];
+            //            [configurator registerSupplementaryClass:[ANECollectionHeaderView class]
+            //                                       forModelClass:[NSString class]
+            //                                                kind:UICollectionElementKindSectionHeader];
             
-            [configurator registerSupplementaryClass:[ANECollectionFooterView class]
-                                       forModelClass:[ANECollectionFooterViewModel class]
-                                                kind:UICollectionElementKindSectionFooter];
+            [configurator registerFooterClass:[ANECollectionFooterView class]
+                                forModelClass:[ANECollectionFooterViewModel class]];
         }];
     }
     
     return self;
-}
-
-- (void)updateWithStorage:(ANStorage*)storage
-{
-    [self attachStorage:storage];
 }
 
 @end

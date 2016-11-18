@@ -31,8 +31,9 @@
         self.collectionView.backgroundColor = [UIColor whiteColor];
         
         self.controller = [[ANECollectionViewController alloc] initWithCollectionView:self.collectionView];
-        [self.controller updateWithStorage:self.storage];
+        [self.controller attachStorage:self.storage];
     }
+    
     return self;
 }
 
@@ -65,6 +66,7 @@
     layout.minimumInteritemSpacing = 0;
     layout.sectionInset = UIEdgeInsetsZero;
     layout.itemSize = CGSizeMake(width, width);
+    
     return layout;
 }
 

@@ -11,7 +11,7 @@
 
 @implementation ANECollectionViewController
 
-- (instancetype)initWithCollectionView:(UICollectionView *)collectionView
+- (instancetype)initWithCollectionView:(UICollectionView*)collectionView
 {
     self = [super initWithCollectionView:collectionView];
     if (self)
@@ -22,11 +22,6 @@
     }
     
     return self;
-}
-
-- (void)updateWithStorage:(ANStorage*)storage
-{
-    [self attachStorage:storage];
 }
 
 @end
