@@ -30,6 +30,25 @@
     return self;
 }
 
+- (void)setHeaderKind:(NSString*)headerKind
+{
+    __block NSString* oldKind = _headerKind;
+    [self.sectionModels enumerateObjectsUsingBlock:^(ANStorageSectionModel* _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [obj replaceSupplementaryKind:oldKind onKind:headerKind];
+    }];
+    _headerKind = headerKind;
+}
+
+- (void)setFooterKind:(NSString*)footerKind
+{
+    __block NSString* oldKind = _footerKind;
+    [self.sectionModels enumerateObjectsUsingBlock:^(ANStorageSectionModel* _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [obj replaceSupplementaryKind:oldKind onKind:footerKind];
+    }];
+    _footerKind = footerKind;
+    
+}
+
 - (NSArray*)sections
 {
     return [self.sectionModels copy];

@@ -162,4 +162,18 @@
     return [self.supplementaries copy];
 }
 
+- (void)replaceSupplementaryKind:(NSString*)kind onKind:(NSString*)newKind
+{
+    NSMutableDictionary* supplementaries = [self.supplementaries mutableCopy];
+    
+    [[self.supplementaries allKeys] enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        
+        if ([obj isEqualToString:kind])
+        {
+            [supplementaries setObject:[supplementaries objectForKey:kind] forKey:newKind];
+            [supplementaries removeObjectForKey:kind];
+        }
+    }];
+}
+
 @end

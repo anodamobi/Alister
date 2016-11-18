@@ -132,6 +132,9 @@
 {
     storage.updatesHandler = self.updateService;
     [self.updateService storageNeedsReloadWithIdentifier:storage.identifier animated:NO];
+    
+    [storage updateHeaderKind:[self.listView defaultHeaderKind]
+                   footerKind:[self.listView defaultFooterKind]];
 }
 
 - (ANListControllerSearchManager*)searchManager

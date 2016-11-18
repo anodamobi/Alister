@@ -40,4 +40,7 @@
 
 - (void)performUpdate:(ANStorageUpdateModel*)update animated:(BOOL)animated;
 
+- (NSString*)defaultHeaderKind;
+- (NSString*)defaultFooterKind;
+
 @end

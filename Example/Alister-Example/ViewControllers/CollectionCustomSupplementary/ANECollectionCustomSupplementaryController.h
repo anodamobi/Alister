@@ -6,7 +6,7 @@
 //  Copyright © 2016 Oksana Kovalchuk. All rights reserved.
 //
 
-#import "Alister/ANCollectionController.h"
+#import "ANCollectionController.h"
 
 @interface ANECollectionCustomSupplementaryController : ANCollectionController
 

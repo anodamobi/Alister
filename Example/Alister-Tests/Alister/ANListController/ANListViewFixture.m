@@ -22,9 +22,9 @@
     self.wasRegisterCalled = YES;
 }
 
-- (id<ANListControllerUpdateViewInterface>)supplementaryViewForReuseIdentifer:(NSString *)reuseIdentifier
-                                                                         kind:(NSString *)kind
-                                                                  atIndexPath:(NSIndexPath *)indexPath
+- (id<ANListControllerUpdateViewInterface>)supplementaryViewForReuseIdentifer:(NSString*)reuseIdentifier
+                                                                         kind:(NSString*)kind
+                                                                  atIndexPath:(NSIndexPath*)indexPath
 {
     self.wasRetriveCalled = YES;
     self.lastIdentifier = reuseIdentifier;
@@ -33,8 +33,8 @@
     return self.supplementary;
 }
 
-- (id<ANListControllerUpdateViewInterface>)cellForReuseIdentifier:(NSString *)reuseIdentifier
-                                                      atIndexPath:(NSIndexPath *)indexPath
+- (id<ANListControllerUpdateViewInterface>)cellForReuseIdentifier:(NSString*)reuseIdentifier
+                                                      atIndexPath:(NSIndexPath*)indexPath
 {
     self.wasRetriveCalled = YES;
     self.lastIdentifier = reuseIdentifier;
@@ -67,12 +67,23 @@
     return [UITableViewHeaderFooterView new];
 }
 
+- (NSString *)defaultHeaderKind
+{
+    return [ANTestHelper randomString];
+}
+
+- (NSString *)defaultFooterKind
+{
+    return [ANTestHelper randomString];
+}
+
 - (NSString*)headerDefaultKind
 {
     if (!_headerDefaultKind)
     {
         _headerDefaultKind = [ANTestHelper randomString];
     }
+    
     return _headerDefaultKind;
 }
 
@@ -82,6 +93,7 @@
     {
         _footerDefaultKind = [ANTestHelper randomString];
     }
+    
     return _footerDefaultKind;
 }
 
@@ -96,6 +108,7 @@
     {
         _animationKey = [ANTestHelper randomString];
     }
+    
     return _animationKey;
 }
 

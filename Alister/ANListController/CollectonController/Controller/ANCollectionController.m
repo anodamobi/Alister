@@ -10,6 +10,7 @@
 #import "ANListViewInterface.h"
 #import "ANListCollectionView.h"
 #import "ANListController+Interitance.h"
+#import "Alister.h"
 
 @implementation ANCollectionController
 
@@ -104,5 +105,19 @@
     id model = [self.currentStorage supplementaryModelOfKind:kind forSectionIndex:section];
     return (model != nil);
 }
+
+//- (NSString*)_handleStorageKind:(NSString*)existingKind
+//{
+//    if ([existingKind isEqualToString:UICollectionElementKindSectionHeader])
+//    {
+//        existingKind = ANListDefaultHeaderKind;
+//    }
+//    else if ([existingKind isEqualToString:UICollectionElementKindSectionFooter])
+//    {
+//        existingKind = ANListDefaultFooterKind;
+//    }
+//    
+//    return existingKind;
+//}
 
 @end

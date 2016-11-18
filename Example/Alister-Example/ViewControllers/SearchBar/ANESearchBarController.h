@@ -6,7 +6,7 @@
 //  Copyright © 2016 Oksana Kovalchuk. All rights reserved.
 //
 
-#import <Alister/ANTableController.h>
+#import "ANTableController.h"
 
 @interface ANESearchBarController : ANTableController
 

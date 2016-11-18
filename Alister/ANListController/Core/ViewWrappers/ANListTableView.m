@@ -9,6 +9,7 @@
 #import "ANListTableView.h"
 #import "ANStorageUpdateModel.h"
 #import "ANTableUpdateConfigurationModel.h"
+#import "Alister.h"
 
 @interface ANListTableView ()
 
@@ -99,6 +100,16 @@
 - (id)defaultSupplementary
 {
     return [UITableViewHeaderFooterView new];
+}
+
+- (NSString*)defaultFooterKind
+{
+    return ANListDefaultFooterKind;
+}
+
+- (NSString*)defaultHeaderKind
+{
+    return ANListDefaultHeaderKind;
 }
 
 - (void)performUpdate:(ANStorageUpdateModel*)update animated:(BOOL)animated

@@ -7,8 +7,8 @@
 //
 
 #import "ANESearchBarVC.h"
-#import <Alister/ANTableView.h>
-#import <Alister/ANStorage.h>
+#import "ANTableView.h"
+#import "ANStorage.h"
 #import "ANEDataGenerator.h"
 #import "ANESearchBarView.h"
 #import "ANESearchBarController.h"
@@ -34,7 +34,7 @@
         [self.controller updateWithStorage:self.storage];
         [self.controller updateWithSearchBar:self.contentView.searchBar];
         
-        self.storage.storagePredicateBlock = [self _predicateBlock];
+        [self.controller updateSearchingPredicateBlock:[self _predicateBlock]];
     }
     
     return self;
@@ -61,7 +61,7 @@
 
 #pragma mark - Private
 
-- (ANStorageSearchPredicate)_predicateBlock
+- (ANListControllerSearchPredicateBlock)_predicateBlock
 {
     return ^NSPredicate* (NSString* searchString, NSInteger __unused scope) {
         

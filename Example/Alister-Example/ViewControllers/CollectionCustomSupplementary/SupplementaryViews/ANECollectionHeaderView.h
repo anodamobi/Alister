@@ -6,7 +6,7 @@
 //  Copyright © 2016 Oksana Kovalchuk. All rights reserved.
 //
 
-#import "Alister/ANCollectionReusableView.h"
+#import "ANCollectionReusableView.h"
 
 @interface ANECollectionHeaderView : ANCollectionReusableView
 
