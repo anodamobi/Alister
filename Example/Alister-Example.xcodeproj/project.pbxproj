@@ -18,6 +18,7 @@
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
+		AE0F25601DDF1107008145DD /* ANListCollectionViewSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0F255F1DDF1107008145DD /* ANListCollectionViewSpec.m */; };
 		C38A7FCBD878748A3AEE97A8 /* libPods-Alister-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B2FC9B41E0B02F7C55AE811 /* libPods-Alister-Tests.a */; };
 		D7041D261DD55F9700752AEC /* ANListControllerMappingServiceFixture.m in Sources */ = {isa = PBXBuildFile; fileRef = D7041D251DD55F9700752AEC /* ANListControllerMappingServiceFixture.m */; };
 		D7041D291DD9BBC300752AEC /* ANListCellFixture.m in Sources */ = {isa = PBXBuildFile; fileRef = D7041D281DD9BBC300752AEC /* ANListCellFixture.m */; };
@@ -187,6 +188,7 @@
 		714527334026D6C1A2430887 /* libPods-Alister-Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Alister-Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8D594C6A1CAF9F8A83D2691 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		AC990585C63BBA3EFB2F905E /* libPods-Alister-Example-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Alister-Example-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE0F255F1DDF1107008145DD /* ANListCollectionViewSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANListCollectionViewSpec.m; sourceTree = "<group>"; };
 		CB2099F6E4049388FFBA7187 /* Pods-Alister-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister-Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Alister-Example/Pods-Alister-Example.debug.xcconfig"; sourceTree = "<group>"; };
 		D7041D241DD55F9700752AEC /* ANListControllerMappingServiceFixture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANListControllerMappingServiceFixture.h; sourceTree = "<group>"; };
 		D7041D251DD55F9700752AEC /* ANListControllerMappingServiceFixture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANListControllerMappingServiceFixture.m; sourceTree = "<group>"; };
@@ -580,6 +582,14 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
+		AE0F255E1DDF10F8008145DD /* ANListCollectionViewTests */ = {
+			isa = PBXGroup;
+			children = (
+				AE0F255F1DDF1107008145DD /* ANListCollectionViewSpec.m */,
+			);
+			path = ANListCollectionViewTests;
+			sourceTree = "<group>";
+		};
 		D7348F0B1DCD61A300CC114A /* Alister-Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -614,6 +624,7 @@
 		D7348F161DCD629B00CC114A /* ANListController */ = {
 			isa = PBXGroup;
 			children = (
+				AE0F255E1DDF10F8008145DD /* ANListCollectionViewTests */,
 				D7C68DB81DDD232800D3383D /* ANCollectionControllerSpec.m */,
 				D7DFE0CD1DD28095007171E6 /* Helpers */,
 				D746231B1DD55B5500099D0A /* ANListControllerItemsHandlerSpec.m */,
@@ -1968,6 +1979,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE0F25601DDF1107008145DD /* ANListCollectionViewSpec.m in Sources */,
 				D7348F501DCD629B00CC114A /* ANStorageUpdateModelSpec.m in Sources */,
 				D7348F431DCD629B00CC114A /* ANTableViewSpec.m in Sources */,
 				D7348F521DCD629B00CC114A /* ANStorageSpec.m in Sources */,
