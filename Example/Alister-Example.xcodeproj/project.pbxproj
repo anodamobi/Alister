@@ -21,6 +21,8 @@
 		180335981DB91A1100332F5F /* ANEBottomStickedFooterVCSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 180335971DB91A1100332F5F /* ANEBottomStickedFooterVCSpec.m */; };
 		1803359A1DB91A2600332F5F /* ANEButtonFooterViewSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 180335991DB91A2600332F5F /* ANEButtonFooterViewSpec.m */; };
 		1803359F1DB920B400332F5F /* ANEDefaultSupplementaryVCSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 1803359E1DB920B400332F5F /* ANEDefaultSupplementaryVCSpec.m */; };
+		181D04581DDF01FA002D90AB /* ANTableControllerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 181D04571DDF01FA002D90AB /* ANTableControllerSpec.m */; };
+		181D045B1DDF2EC8002D90AB /* ANTableControllerFixture.m in Sources */ = {isa = PBXBuildFile; fileRef = 181D045A1DDF2EC8002D90AB /* ANTableControllerFixture.m */; };
 		18B792DB1DB78F3C00C5A46A /* ANEDataGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B792DA1DB78F3C00C5A46A /* ANEDataGenerator.m */; };
 		3575344DD3C6C07070509DB1 /* libPods-Alister-Example-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC990585C63BBA3EFB2F905E /* libPods-Alister-Example-Tests.a */; };
 		458D05147925A10E0D7BA49B /* libPods-Alister-Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 714527334026D6C1A2430887 /* libPods-Alister-Example.a */; };
@@ -174,6 +176,9 @@
 		180335971DB91A1100332F5F /* ANEBottomStickedFooterVCSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANEBottomStickedFooterVCSpec.m; sourceTree = "<group>"; };
 		180335991DB91A2600332F5F /* ANEButtonFooterViewSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANEButtonFooterViewSpec.m; sourceTree = "<group>"; };
 		1803359E1DB920B400332F5F /* ANEDefaultSupplementaryVCSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANEDefaultSupplementaryVCSpec.m; sourceTree = "<group>"; };
+		181D04571DDF01FA002D90AB /* ANTableControllerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTableControllerSpec.m; sourceTree = "<group>"; };
+		181D04591DDF2EC8002D90AB /* ANTableControllerFixture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTableControllerFixture.h; sourceTree = "<group>"; };
+		181D045A1DDF2EC8002D90AB /* ANTableControllerFixture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTableControllerFixture.m; sourceTree = "<group>"; };
 		18B792D91DB78F3C00C5A46A /* ANEDataGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANEDataGenerator.h; sourceTree = "<group>"; };
 		18B792DA1DB78F3C00C5A46A /* ANEDataGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANEDataGenerator.m; sourceTree = "<group>"; };
 		349A8056AC086F0DD0C757F1 /* Pods-Alister-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister-Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Alister-Tests/Pods-Alister-Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -631,6 +636,7 @@
 		D7348F161DCD629B00CC114A /* ANListController */ = {
 			isa = PBXGroup;
 			children = (
+				181D04571DDF01FA002D90AB /* ANTableControllerSpec.m */,
 				D7C68DB81DDD232800D3383D /* ANCollectionControllerSpec.m */,
 				D7DFE0CD1DD28095007171E6 /* Helpers */,
 				D746231B1DD55B5500099D0A /* ANListControllerItemsHandlerSpec.m */,
@@ -1338,6 +1344,8 @@
 				D7F624B31DDBCCE500D00C64 /* ANListControllerUpdateServiceFixture.m */,
 				D7F624B51DDBCF1600D00C64 /* NSOperationQueueFixture.h */,
 				D7F624B61DDBCF1600D00C64 /* NSOperationQueueFixture.m */,
+				181D04591DDF2EC8002D90AB /* ANTableControllerFixture.h */,
+				181D045A1DDF2EC8002D90AB /* ANTableControllerFixture.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -1381,8 +1389,8 @@
 				6003F588195388D20070C39A /* Resources */,
 				6D237E929AC908222EA8BC93 /* [CP] Embed Pods Frameworks */,
 				7026C6C66CCE5A847CEDB1A9 /* [CP] Copy Pods Resources */,
-				D08A4EF17770C1C105F37053 /* üì¶ Embed Pods Frameworks */,
-				10AA9226888A63821B7F7B0E /* üì¶ Copy Pods Resources */,
+				D08A4EF17770C1C105F37053 /* üì¶ Embed Pods Frameworks */,
+				10AA9226888A63821B7F7B0E /* üì¶ Copy Pods Resources */,
 				OBJCLEANCUSTOMRUNSCRIPTT /* Objective-Clean Run Script */,
 			);
 			buildRules = (
@@ -1426,8 +1434,8 @@
 				D7EC43CA1D512EE300128012 /* Resources */,
 				71C0A3D1AB9BD8D5A6B7F42F /* [CP] Embed Pods Frameworks */,
 				C4FA3412C402A21750F737FF /* [CP] Copy Pods Resources */,
-				305A6DD883E3CEEFE78A4585 /* üì¶ Embed Pods Frameworks */,
-				D56DD72273A720591DF36757 /* üì¶ Copy Pods Resources */,
+				305A6DD883E3CEEFE78A4585 /* üì¶ Embed Pods Frameworks */,
+				D56DD72273A720591DF36757 /* üì¶ Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1516,7 +1524,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		10AA9226888A63821B7F7B0E /* üì¶ Copy Pods Resources */ = {
+		10AA9226888A63821B7F7B0E /* üì¶ Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1531,7 +1539,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Alister-Example/Pods-Alister-Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		305A6DD883E3CEEFE78A4585 /* üì¶ Embed Pods Frameworks */ = {
+		305A6DD883E3CEEFE78A4585 /* üì¶ Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1681,7 +1689,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Alister-Example-Tests/Pods-Alister-Example-Tests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D08A4EF17770C1C105F37053 /* üì¶ Embed Pods Frameworks */ = {
+		D08A4EF17770C1C105F37053 /* üì¶ Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1696,7 +1704,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Alister-Example/Pods-Alister-Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D56DD72273A720591DF36757 /* üì¶ Copy Pods Resources */ = {
+		D56DD72273A720591DF36757 /* üì¶ Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1830,6 +1838,7 @@
 				D7DFE0D31DD50568007171E6 /* ANSearchControllerDelegateFixture.m in Sources */,
 				D7F624B41DDBCCE500D00C64 /* ANListControllerUpdateServiceFixture.m in Sources */,
 				D7348F491DCD629B00CC114A /* ANStorageUpdaterSpec.m in Sources */,
+				181D04581DDF01FA002D90AB /* ANTableControllerSpec.m in Sources */,
 				D7348F401DCD629B00CC114A /* ANBaseTableFooterViewSpec.m in Sources */,
 				D7348F3E1DCD629B00CC114A /* ANCollectionReusableViewSpec.m in Sources */,
 				D7348F471DCD629B00CC114A /* ANStorageUpdateOperationSpec.m in Sources */,
@@ -1849,6 +1858,7 @@
 				D7348F441DCD629B00CC114A /* ANStorageLoaderSpec.m in Sources */,
 				D746231F1DD55D2800099D0A /* ANListViewFixture.m in Sources */,
 				D7348F4D1DCD629B00CC114A /* ANStorageModelSpec.m in Sources */,
+				181D045B1DDF2EC8002D90AB /* ANTableControllerFixture.m in Sources */,
 				D7041D291DD9BBC300752AEC /* ANListCellFixture.m in Sources */,
 				D7DFE0C81DCE87EF007171E6 /* ANListControllerSpec.m in Sources */,
 				D746231A1DD527F700099D0A /* ANStorageDebugDataGeneratorSpec.m in Sources */,
