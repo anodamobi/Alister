@@ -21,5 +21,6 @@
 - (ANListControllerItemsHandler*)itemsHandler;
 
 - (instancetype)initWithListView:(id<ANListViewInterface>)listView;
+- (void)storageWasAttached:(ANStorage*)storage;
 
 @end

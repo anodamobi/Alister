@@ -63,6 +63,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)replaceItemAtIndex:(NSInteger)index withItem:(id)item;
 
+- (void)replaceSupplementaryKind:(NSString*)kind onKind:(NSString*)newKind;
+
 @end
 
 NS_ASSUME_NONNULL_END

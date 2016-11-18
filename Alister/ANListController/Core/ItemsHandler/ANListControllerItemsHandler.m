@@ -34,12 +34,12 @@
 
 - (void)registerFooterClass:(Class)viewClass forModelClass:(Class)modelClass
 {
-    [self registerSupplementaryClass:viewClass forModelClass:modelClass kind:ANListDefaultFooterKind];
+    [self registerSupplementaryClass:viewClass forModelClass:modelClass kind:[self.listView defaultFooterKind]];
 }
 
 - (void)registerHeaderClass:(Class)viewClass forModelClass:(Class)modelClass
 {
-    [self registerSupplementaryClass:viewClass forModelClass:modelClass kind:ANListDefaultHeaderKind];
+    [self registerSupplementaryClass:viewClass forModelClass:modelClass kind:[self.listView defaultHeaderKind]];
 }
 
 - (void)registerSupplementaryClass:(Class)supplementaryClass forModelClass:(Class)modelClass kind:(NSString*)kind

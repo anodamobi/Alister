@@ -9,7 +9,9 @@
 @interface ANEDataGenerator : NSObject
 
 + (NSArray*)generateStringsArray;
++ (NSArray*)generateStringsArrayWithCapacity:(NSUInteger)capacity;
 + (NSString*)loremIpsumString;
 + (NSArray*)bottomStickedItems;
++ (NSArray*)generateUsernames;
 
 @end

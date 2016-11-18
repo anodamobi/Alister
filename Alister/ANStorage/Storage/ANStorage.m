@@ -273,7 +273,7 @@
     [self.updater updateSectionFooterModel:footerModel forSectionIndex:sectionIndex];
 }
 
-- (NSString *)debugDescription
+- (NSString*)debugDescription
 {
     NSMutableString* string = [NSMutableString string];
     [string appendFormat:@"ID: %@\n", self.identifier];
