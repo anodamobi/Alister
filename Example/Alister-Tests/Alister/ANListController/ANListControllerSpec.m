@@ -66,14 +66,14 @@
 
 - (void)test_currentStorage_shouldBeEqualToAttachedIfNoSearch
 {
-    id storage = [self _attachStorageAndSetIsSearchingValueTo:NO];
-    expect(self.controller.currentStorage).equal(storage);
+    [self _attachStorageAndSetIsSearchingValueTo:NO];
+    expect(self.controller.currentStorage).equal(self.storage);
 }
 
 - (void)test_currentStorage_shouldNotBeEqualToAttachedIfSearching
 {
-    id storage = [self _attachStorageAndSetIsSearchingValueTo:YES];
-    expect(self.controller.currentStorage).notTo.equal(storage);
+    [self _attachStorageAndSetIsSearchingValueTo:YES];
+    expect(self.controller.currentStorage).notTo.equal(self.storage);
 }
 
 - (void)test_configureCellsWithBlock_shouldExecuteAndPassConfigurator
@@ -137,7 +137,7 @@
 
 - (void)test_configureItemSelectionBlock_shouldBeEqualToPropertyAfterSet
 {
-    ANListControllerItemSelectionBlock block = ^(id model, NSIndexPath *indexPath) {
+    ANListControllerItemSelectionBlock block = ^(id model, NSIndexPath* indexPath) {
         
     };
     [self.controller configureItemSelectionBlock:block];
@@ -165,10 +165,9 @@
     expect(wasCalled).beTruthy();
 }
 
-
 - (void)test_updateSearchingPredicateBlock_shouldPassItToSearchManager
 {
-    ANListControllerSearchPredicateBlock searchBlock = ^NSPredicate *(NSString *searchString, NSInteger scope) {
+    ANListControllerSearchPredicateBlock searchBlock = ^NSPredicate* (NSString* searchString, NSInteger scope) {
         return [NSPredicate predicateWithValue:YES];
     };
     
@@ -196,17 +195,30 @@
     OCMVerify([self.updateService storageNeedsReloadWithIdentifier:identifier animated:NO]);
 }
 
+- (void)test_reloadStorageAnimated_shouldCallReloadOnUpdateServiceAnimated
+{
+    [self _shouldReloadCurrentStorageAnimated:YES];
+}
+
+- (void)test_reloadStorageWithoutAnimation_shouldCallReloadOnUpdateServiceWithoutAnimation
+{
+    [self _shouldReloadCurrentStorageAnimated:NO];
+}
+
 
 #pragma mark - Helpers
 
-- (id)_attachStorageAndSetIsSearchingValueTo:(BOOL)isSearching
+- (void)_shouldReloadCurrentStorageAnimated:(BOOL)isAnimated
 {
-    id storage = OCMClassMock([ANStorage class]);
-    [self.controller attachStorage:storage];
-    [OCMStub([self.searchManager isSearching]) andReturnValue:OCMOCK_VALUE(isSearching)];
-    
-    return storage;
+    NSString* identifier = [ANTestHelper randomString];
+    [OCMStub([self.storage identifier]) andReturn:identifier];
+    OCMExpect([self.updateService storageNeedsReloadWithIdentifier:identifier animated:isAnimated]);
 }
 
+- (void)_attachStorageAndSetIsSearchingValueTo:(BOOL)isSearching
+{
+    [self.controller attachStorage:self.storage];
+    [OCMStub([self.searchManager isSearching]) andReturnValue:OCMOCK_VALUE(isSearching)];
+}
 
 @end
