@@ -10,7 +10,6 @@
 #import "ANECollectionCustomSupplementaryController.h"
 #import "ANStorage.h"
 #import "ANEDataGenerator.h"
-#import "ANECollectionFooterViewModel.h"
 
 @interface ANECollectionCustomSupplementaryVC ()
 
@@ -49,12 +48,25 @@
 {
     [super viewDidLoad];
     
-    NSArray* items = [ANEDataGenerator generateStringsArrayWithCapacity:5];
-    ANECollectionFooterViewModel* footerModel = [ANECollectionFooterViewModel new];
+    NSArray* firstSection = [ANEDataGenerator generateStringsArrayWithCapacity:3];
+    NSArray* secondSection = [ANEDataGenerator generateStringsArrayWithCapacity:4];
+    NSArray* thirdSection = [ANEDataGenerator generateStringsArrayWithCapacity:6];
+
+    NSString* headerTitle = NSLocalizedString(@"header.title-label.text", nil);
+    NSString* footerTitle = NSLocalizedString(@"footer.title-label.text", nil);
     
     [self.storage updateWithoutAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
-        [storageController addItems:items];
-        [storageController updateSectionFooterModel:footerModel forSectionIndex:0];
+        [storageController addItems:firstSection toSection:0];
+        [storageController updateSectionHeaderModel:headerTitle forSectionIndex:0];
+        [storageController updateSectionFooterModel:footerTitle forSectionIndex:0];
+        
+        [storageController addItems:secondSection toSection:1];
+        [storageController updateSectionHeaderModel:headerTitle forSectionIndex:1];
+        [storageController updateSectionFooterModel:footerTitle forSectionIndex:1];
+        
+        [storageController addItems:thirdSection toSection:2];
+        [storageController updateSectionHeaderModel:headerTitle forSectionIndex:2];
+        [storageController updateSectionFooterModel:footerTitle forSectionIndex:2];
     }];
 }
 
@@ -70,8 +82,8 @@
     layout.minimumLineSpacing = 0;
     layout.minimumInteritemSpacing = 0;
     layout.sectionInset = UIEdgeInsetsZero;
-    layout.headerReferenceSize = CGSizeMake(width, 1000);
-    layout.footerReferenceSize = CGSizeMake(width, 1000);
+    layout.headerReferenceSize = CGSizeMake(width, width);
+    layout.footerReferenceSize = CGSizeMake(width, width);
     layout.itemSize = CGSizeMake(width, width);
     
     return layout;

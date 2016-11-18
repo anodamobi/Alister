@@ -10,7 +10,6 @@
 #import "ANECollectionViewCell.h"
 #import "ANECollectionHeaderView.h"
 #import "ANECollectionFooterView.h"
-#import "ANECollectionFooterViewModel.h"
 
 @implementation ANECollectionCustomSupplementaryController
 
@@ -24,12 +23,12 @@
             [configurator registerCellClass:[ANECollectionViewCell class]
                               forModelClass:[NSString class]];
             
-            //            [configurator registerSupplementaryClass:[ANECollectionHeaderView class]
-            //                                       forModelClass:[NSString class]
-            //                                                kind:UICollectionElementKindSectionHeader];
+            [configurator registerSupplementaryClass:[ANECollectionHeaderView class]
+                                       forModelClass:[NSString class]
+                                                kind:UICollectionElementKindSectionHeader];
             
             [configurator registerFooterClass:[ANECollectionFooterView class]
-                                forModelClass:[ANECollectionFooterViewModel class]];
+                                forModelClass:[NSString class]];
         }];
     }
     

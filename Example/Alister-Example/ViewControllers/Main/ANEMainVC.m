@@ -15,7 +15,6 @@
 #import "ANEBottomStickedFooterVC.h"
 #import "ANEReorderingVC.h"
 #import "ANESearchBarVC.h"
-#import "ANEXibVC.h"
 #import "ANECollectionViewVC.h"
 #import "ANECollectionCustomSupplementaryVC.h"
 
@@ -25,7 +24,6 @@ typedef NS_ENUM(NSInteger, ANEMainSection)
     ANEMainSectionCustomSupplementaries,
     ANEMainSectionBottomStickedFooter,
     ANEMainSectionReordering,
-    ANEMainSectionXibCells,
     ANEMainSectionSearchBar,
     ANEMainSectionPlainCollectionView,
     ANEMainSectionCollectionCustomSupplementary
@@ -77,7 +75,6 @@ typedef NS_ENUM(NSInteger, ANEMainSection)
         [storageController addItem:@"Plain table with custom headers and footers"];
         [storageController addItem:@"Table with bottom sticked footer"];
         [storageController addItem:@"Table reordering"];
-        [storageController addItem:@"Table with xib cells"];
         [storageController addItem:@"Table with search bar and empty states"];
         [storageController addItem:@"Plain collection view"];
         [storageController addItem:@"Collection with custom header and footer"];
@@ -110,12 +107,6 @@ typedef NS_ENUM(NSInteger, ANEMainSection)
             case ANEMainSectionReordering:
             {
                 ANEReorderingVC* vc = [ANEReorderingVC new];
-                [self.navigationController pushViewController:vc
-                                                     animated:YES];
-            } break;
-            case ANEMainSectionXibCells:
-            {
-                ANEXibVC* vc = [ANEXibVC new];
                 [self.navigationController pushViewController:vc
                                                      animated:YES];
             } break;
