@@ -12,7 +12,7 @@
 
 SpecBegin(ANListCollectionView)
 
-fdescribe(@"ANListCollectionView", ^{
+describe(@"ANListCollectionView", ^{
 
     __block ANListCollectionView *listCollectionView = nil;
     __block UICollectionView *collectionView = nil;

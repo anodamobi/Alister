@@ -57,22 +57,25 @@ describe(@"", ^{
     
     describe(@"collectionView: viewForSupplementaryElementOfKind: atIndexPath:", ^{
         
-        NSString* kind = [ANTestHelper randomString];
-        id object = [ANTestHelper randomObject];
-        
-        id storage = OCMClassMock([ANStorage class]);
-        [controller attachStorage:storage];
-        
-        OCMStub([storage supplementaryModelOfKind:kind forSectionIndex:zeroIndexPath.section]);
-        [OCMStub([controller.itemsHandler supplementaryViewForModel:[OCMArg any]
-                                                              kind:kind
-                                                      forIndexPath:zeroIndexPath]) andReturn:object];
-        
-        id result = [controller collectionView:collectionView
-             viewForSupplementaryElementOfKind:kind
-                                   atIndexPath:zeroIndexPath];
-        
-        expect(result).equal(object);
+        it(@"will return correct supplementary header view", ^{
+            NSString* kind = [ANTestHelper randomString];
+
+            id reusableView = [UICollectionReusableView new];
+            
+            id storage = OCMClassMock([ANStorage class]);
+            [controller attachStorage:storage];
+            
+            OCMStub([storage supplementaryModelOfKind:kind forSectionIndex:zeroIndexPath.section]);
+            [OCMStub([controller.itemsHandler supplementaryViewForModel:[OCMArg any]
+                                                                  kind:kind
+                                                          forIndexPath:zeroIndexPath]) andReturn:reusableView];
+            
+            id result = [controller collectionView:collectionView
+                 viewForSupplementaryElementOfKind:kind
+                                       atIndexPath:zeroIndexPath];
+            
+            expect(result).equal(reusableView);
+        });
     });
     
     
