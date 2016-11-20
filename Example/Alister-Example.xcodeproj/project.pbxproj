@@ -137,6 +137,11 @@
 		D7F624B71DDBCF1600D00C64 /* NSOperationQueueFixture.m in Sources */ = {isa = PBXBuildFile; fileRef = D7F624B61DDBCF1600D00C64 /* NSOperationQueueFixture.m */; };
 		FA0BD2471DDFB17800F89599 /* ANECollectionFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0BD2441DDFB17800F89599 /* ANECollectionFooterView.m */; };
 		FA0BD24C1DDFB18D00F89599 /* ANECollectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0BD24B1DDFB18D00F89599 /* ANECollectionHeaderView.m */; };
+		FAB19E451DE2108800E30A81 /* ANECollectionHeaderViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB19E441DE2108800E30A81 /* ANECollectionHeaderViewTest.m */; };
+		FAB19E471DE2123A00E30A81 /* ANECollectionFooterViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB19E461DE2123A00E30A81 /* ANECollectionFooterViewTest.m */; };
+		FAB19E491DE212E000E30A81 /* ANECollectionCustomSupplementaryVCTest.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB19E481DE212E000E30A81 /* ANECollectionCustomSupplementaryVCTest.m */; };
+		FAB19E4D1DE2171800E30A81 /* ANECollectionViewVCTest.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB19E4C1DE2171800E30A81 /* ANECollectionViewVCTest.m */; };
+		FAB19E4F1DE217A700E30A81 /* ANECollectionViewCellTest.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB19E4E1DE217A700E30A81 /* ANECollectionViewCellTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -418,6 +423,11 @@
 		FA0BD2441DDFB17800F89599 /* ANECollectionFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANECollectionFooterView.m; sourceTree = "<group>"; };
 		FA0BD24A1DDFB18D00F89599 /* ANECollectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANECollectionHeaderView.h; sourceTree = "<group>"; };
 		FA0BD24B1DDFB18D00F89599 /* ANECollectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANECollectionHeaderView.m; sourceTree = "<group>"; };
+		FAB19E441DE2108800E30A81 /* ANECollectionHeaderViewTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANECollectionHeaderViewTest.m; sourceTree = "<group>"; };
+		FAB19E461DE2123A00E30A81 /* ANECollectionFooterViewTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANECollectionFooterViewTest.m; sourceTree = "<group>"; };
+		FAB19E481DE212E000E30A81 /* ANECollectionCustomSupplementaryVCTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANECollectionCustomSupplementaryVCTest.m; sourceTree = "<group>"; };
+		FAB19E4C1DE2171800E30A81 /* ANECollectionViewVCTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANECollectionViewVCTest.m; sourceTree = "<group>"; };
+		FAB19E4E1DE217A700E30A81 /* ANECollectionViewCellTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANECollectionViewCellTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -454,6 +464,8 @@
 		1803357F1DB8CB6200332F5F /* ControllersTests */ = {
 			isa = PBXGroup;
 			children = (
+				FAB19E421DE2106C00E30A81 /* CollectionCustomSupplementary */,
+				FAB19E431DE2106C00E30A81 /* PlainCollectionView */,
 				1803359B1DB9204A00332F5F /* DefaultSupplementary */,
 				180335961DB919FF00332F5F /* BottomStickedFooter */,
 				180335911DB919A600332F5F /* Reordering */,
@@ -1460,6 +1472,25 @@
 			path = Header;
 			sourceTree = "<group>";
 		};
+		FAB19E421DE2106C00E30A81 /* CollectionCustomSupplementary */ = {
+			isa = PBXGroup;
+			children = (
+				FAB19E441DE2108800E30A81 /* ANECollectionHeaderViewTest.m */,
+				FAB19E461DE2123A00E30A81 /* ANECollectionFooterViewTest.m */,
+				FAB19E481DE212E000E30A81 /* ANECollectionCustomSupplementaryVCTest.m */,
+			);
+			path = CollectionCustomSupplementary;
+			sourceTree = "<group>";
+		};
+		FAB19E431DE2106C00E30A81 /* PlainCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				FAB19E4C1DE2171800E30A81 /* ANECollectionViewVCTest.m */,
+				FAB19E4E1DE217A700E30A81 /* ANECollectionViewCellTest.m */,
+			);
+			path = PlainCollectionView;
+			sourceTree = "<group>";
+		};
 		FABC739016B08881E2AEF090 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1982,8 +2013,11 @@
 				D7389A291DC2C81E00B54B9F /* ANTestingFixtureObjects.m in Sources */,
 				D7A21E971DA8A2A500D6D803 /* ANTestKeyboardHandlerDelegate.m in Sources */,
 				D7A21E901DA8A2A500D6D803 /* ANTestableListView.m in Sources */,
+				FAB19E4F1DE217A700E30A81 /* ANECollectionViewCellTest.m in Sources */,
+				FAB19E4D1DE2171800E30A81 /* ANECollectionViewVCTest.m in Sources */,
 				D7389A2C1DC2E63B00B54B9F /* ANTestHelper.m in Sources */,
 				180335941DB919A600332F5F /* ANEReorderingControllerSpec.m in Sources */,
+				FAB19E471DE2123A00E30A81 /* ANECollectionFooterViewTest.m in Sources */,
 				D7A21E8A1DA8A2A500D6D803 /* ANECustomHeaderViewTest.m in Sources */,
 				D7DFE0C21DCD8624007171E6 /* ANStorageFakeOperationDelegate.m in Sources */,
 				D7A21E8D1DA8A2A500D6D803 /* ANTestableCollectionView.m in Sources */,
@@ -1997,6 +2031,8 @@
 				1803359A1DB91A2600332F5F /* ANEButtonFooterViewSpec.m in Sources */,
 				D7A21E941DA8A2A500D6D803 /* ANTestableTableView.m in Sources */,
 				D7A21E921DA8A2A500D6D803 /* ANTestableStorageUpateOperation.m in Sources */,
+				FAB19E451DE2108800E30A81 /* ANECollectionHeaderViewTest.m in Sources */,
+				FAB19E491DE212E000E30A81 /* ANECollectionCustomSupplementaryVCTest.m in Sources */,
 				180335981DB91A1100332F5F /* ANEBottomStickedFooterVCSpec.m in Sources */,
 				180335951DB919A600332F5F /* ANEReorderingVCSpec.m in Sources */,
 				D7A21E951DA8A2A500D6D803 /* ANTestableTextField.m in Sources */,
@@ -2322,7 +2358,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "Alister-Tests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "mobi.anoda.alister-tests.Alister-Tests";
@@ -2349,7 +2385,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "Alister-Tests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "mobi.anoda.alister-tests.Alister-Tests";

@@ -27,8 +27,9 @@
                                        forModelClass:[NSString class]
                                                 kind:UICollectionElementKindSectionHeader];
             
-            [configurator registerFooterClass:[ANECollectionFooterView class]
-                                forModelClass:[NSString class]];
+            [configurator registerSupplementaryClass:[ANECollectionFooterView class]
+                                       forModelClass:[NSString class]
+                                                kind:UICollectionElementKindSectionFooter];
         }];
     }
     
