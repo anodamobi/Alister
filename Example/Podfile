@@ -3,17 +3,13 @@
 
 target 'Alister-Example' do
     pod 'libextobjc'
-#  pod 'Alister', :path => '../'
-  pod 'Masonry'
-  pod 'Reveal-iOS-SDK', '~> 1.6.1', :configurations => ['Debug']
-#  pod 'Octopus', :git => 'ssh://git@stash.anoda.mobi:7999/anios/ios-octopus.git', :branch => '0.1.0', :commit => '1126bfc'
-
+    pod 'Masonry'
+    pod 'Reveal-iOS-SDK', '~> 1.6.1', :configurations => ['Debug']
 end
 
 target 'Alister-Example-Tests' do
     pod 'Expecta'
     pod 'Specta', :git => 'https://github.com/specta/specta.git', :commit => '18952b7'
-#    pod 'Alister', :path => '../'
     pod 'OCMock'
 end
 
