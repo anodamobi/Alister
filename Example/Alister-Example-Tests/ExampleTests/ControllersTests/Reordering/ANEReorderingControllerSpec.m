@@ -13,9 +13,11 @@ SpecBegin(ANEReorderingControllerSpec)
 describe(@"ANEReorderingController", ^{
     
     __block ANEReorderingController* reorderingVC = nil;
+    __block UITableView* tableView = nil;
     
     beforeEach(^{
-        reorderingVC = [[ANEReorderingController alloc] initWithTableView:[UITableView new]];
+        tableView = [UITableView new];
+        reorderingVC = [[ANEReorderingController alloc] initWithTableView:tableView];
     });
     
     it(@"controller should have non nil table view", ^{
