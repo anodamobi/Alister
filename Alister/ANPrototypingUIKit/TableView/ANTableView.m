@@ -18,7 +18,6 @@ static CGFloat const kDefaultStatusBarHeight = 20;
 @property (nonatomic, strong) UIView* stickedContainer;
 @property (nonatomic, assign) CGFloat stickedFooterHeight;
 @property (nonatomic, strong) UIView* bottomStickedFooterView;
-@property (nonatomic, assign) BOOL additionalContentSizeAdded;
 
 @end
 
@@ -104,12 +103,11 @@ static CGFloat const kDefaultStatusBarHeight = 20;
         else
         {
             footerFrame.size.height = stickedFooterHeight;
-            if (!self.additionalContentSizeAdded)
+            if (self.contentSize.height != minContentHeightWithFooter)
             {
                 CGSize currentSize = self.contentSize;
                 currentSize.height += stickedFooterHeight;
                 self.contentSize = currentSize;
-                self.additionalContentSizeAdded = YES;
             }
         }
         self.tableFooterView.frame = footerFrame;
