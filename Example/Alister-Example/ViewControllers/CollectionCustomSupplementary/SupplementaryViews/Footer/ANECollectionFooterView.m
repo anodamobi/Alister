@@ -24,6 +24,7 @@
     {
         self.backgroundColor = [UIColor greenColor];
     }
+    
     return self;
 }
 
@@ -44,12 +45,13 @@
         _titleLabel.font = [UIFont boldSystemFontOfSize:20];
         [self addSubview:_titleLabel];
         
-        [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        [_titleLabel mas_makeConstraints:^(MASConstraintMaker* make) {
             make.left.equalTo(self).offset(10);
             make.right.equalTo(self).offset(-10);
             make.top.bottom.equalTo(self);
         }];
     }
+    
     return _titleLabel;
 }
 

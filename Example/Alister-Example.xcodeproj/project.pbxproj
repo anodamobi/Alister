@@ -32,8 +32,6 @@
 		1841F2591DEC70CA00FE2999 /* ANESearchBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F23D1DEC70CA00FE2999 /* ANESearchBarController.m */; };
 		1841F25A1DEC70CA00FE2999 /* ANESearchBarVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F23F1DEC70CA00FE2999 /* ANESearchBarVC.m */; };
 		1841F25B1DEC70CA00FE2999 /* ANESearchBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F2411DEC70CA00FE2999 /* ANESearchBarView.m */; };
-		1841F27B1DEC70E300FE2999 /* ANTableController_ReusableTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F25E1DEC70E300FE2999 /* ANTableController_ReusableTest.m */; };
-		1841F27C1DEC70E300FE2999 /* ANTableControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F25F1DEC70E300FE2999 /* ANTableControllerTest.m */; };
 		1841F27D1DEC70E300FE2999 /* ANECustomFooterViewModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F2621DEC70E300FE2999 /* ANECustomFooterViewModelTest.m */; };
 		1841F27E1DEC70E300FE2999 /* ANECustomFooterViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F2631DEC70E300FE2999 /* ANECustomFooterViewTest.m */; };
 		1841F27F1DEC70E300FE2999 /* ANECustomHeaderViewModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F2641DEC70E300FE2999 /* ANECustomHeaderViewModelTest.m */; };
@@ -42,7 +40,6 @@
 		1841F2821DEC70E300FE2999 /* ANEBottomStickedFooterVCSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F2691DEC70E300FE2999 /* ANEBottomStickedFooterVCSpec.m */; };
 		1841F2831DEC70E300FE2999 /* ANEButtonFooterViewSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F26A1DEC70E300FE2999 /* ANEButtonFooterViewSpec.m */; };
 		1841F2841DEC70E300FE2999 /* ANECollectionCustomSupplementaryVCTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F26C1DEC70E300FE2999 /* ANECollectionCustomSupplementaryVCTest.m */; };
-		1841F2851DEC70E300FE2999 /* ANECollectionFooterViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F26D1DEC70E300FE2999 /* ANECollectionFooterViewTest.m */; };
 		1841F2861DEC70E300FE2999 /* ANECollectionHeaderViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F26E1DEC70E300FE2999 /* ANECollectionHeaderViewTest.m */; };
 		1841F2871DEC70E300FE2999 /* ANEDefaultSupplementaryVCSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F2701DEC70E300FE2999 /* ANEDefaultSupplementaryVCSpec.m */; };
 		1841F2881DEC70E300FE2999 /* ANECollectionViewCellTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F2721DEC70E300FE2999 /* ANECollectionViewCellTest.m */; };
@@ -95,6 +92,8 @@
 		1841F2FE1DEC710100FE2999 /* ANTestingFixtureObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F2D41DEC710100FE2999 /* ANTestingFixtureObjects.m */; };
 		1841F2FF1DEC710100FE2999 /* ANTestTableHeaderFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F2D61DEC710100FE2999 /* ANTestTableHeaderFooter.m */; };
 		1841F3021DEC735400FE2999 /* ANECollectionCustomSupplementaryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F3011DEC735400FE2999 /* ANECollectionCustomSupplementaryController.m */; };
+		18CD9DDE1DEC7B0100865B71 /* ANECollectionFooterViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F26D1DEC70E300FE2999 /* ANECollectionFooterViewTest.m */; };
+		18CD9DDF1DEC7B5300865B71 /* ANTestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F2971DEC710100FE2999 /* ANTestHelper.m */; };
 		3575344DD3C6C07070509DB1 /* libPods-Alister-Example-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC990585C63BBA3EFB2F905E /* libPods-Alister-Example-Tests.a */; };
 		458D05147925A10E0D7BA49B /* libPods-Alister-Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 714527334026D6C1A2430887 /* libPods-Alister-Example.a */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
@@ -1963,11 +1962,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1841F2871DEC70E300FE2999 /* ANEDefaultSupplementaryVCSpec.m in Sources */,
-				1841F2851DEC70E300FE2999 /* ANECollectionFooterViewTest.m in Sources */,
 				1841F28E1DEC70E300FE2999 /* ANESearchBarViewSpec.m in Sources */,
 				1841F2881DEC70E300FE2999 /* ANECollectionViewCellTest.m in Sources */,
-				1841F27C1DEC70E300FE2999 /* ANTableControllerTest.m in Sources */,
 				1841F27D1DEC70E300FE2999 /* ANECustomFooterViewModelTest.m in Sources */,
+				18CD9DDF1DEC7B5300865B71 /* ANTestHelper.m in Sources */,
 				1841F28B1DEC70E300FE2999 /* ANEReorderingVCSpec.m in Sources */,
 				1841F2801DEC70E300FE2999 /* ANECustomHeaderViewTest.m in Sources */,
 				1841F28C1DEC70E300FE2999 /* ANESearchBarControllerSpec.m in Sources */,
@@ -1976,13 +1974,13 @@
 				1841F2941DEC70F100FE2999 /* SnapshotHelper.m in Sources */,
 				1841F28D1DEC70E300FE2999 /* ANESearchBarVCSpec.m in Sources */,
 				1841F28A1DEC70E300FE2999 /* ANEReorderingControllerSpec.m in Sources */,
-				1841F27B1DEC70E300FE2999 /* ANTableController_ReusableTest.m in Sources */,
 				1841F2831DEC70E300FE2999 /* ANEButtonFooterViewSpec.m in Sources */,
 				1841F2951DEC70F100FE2999 /* XCTestCase+Springboard.m in Sources */,
 				1841F2811DEC70E300FE2999 /* ANELabelTableViewCellTest.m in Sources */,
 				1841F2861DEC70E300FE2999 /* ANECollectionHeaderViewTest.m in Sources */,
 				1841F27F1DEC70E300FE2999 /* ANECustomHeaderViewModelTest.m in Sources */,
 				1841F2891DEC70E300FE2999 /* ANECollectionViewVCTest.m in Sources */,
+				18CD9DDE1DEC7B0100865B71 /* ANECollectionFooterViewTest.m in Sources */,
 				1841F2821DEC70E300FE2999 /* ANEBottomStickedFooterVCSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

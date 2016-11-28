@@ -7,21 +7,14 @@
 //
 
 #import "ANECollectionHeaderView.h"
-
-@interface ANECollectionHeaderView ()
-
-@property (nonatomic, strong) UILabel* titleLabel;
-
-@end
+#import "ANTestHelper.h"
 
 SpecBegin(ANECollectionHeaderView)
 
 __block ANECollectionHeaderView* view = nil;
-__block NSString* model = nil;
 
 beforeEach(^{
     view = [ANECollectionHeaderView new];
-    model = @"model";
 });
 
 describe(@"ANECollectionHeaderView", ^{
@@ -31,6 +24,7 @@ describe(@"ANECollectionHeaderView", ^{
     });
     
     it(@"should update titleLabel", ^{
+        NSString* model = [ANTestHelper randomString];
         [view updateWithModel:model];
         
         expect(view.titleLabel.text).to.equal(model);

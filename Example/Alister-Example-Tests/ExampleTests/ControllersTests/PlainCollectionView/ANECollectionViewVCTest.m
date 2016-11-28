@@ -10,14 +10,6 @@
 #import "ANECollectionViewController.h"
 #import "ANStorage.h"
 
-@interface ANECollectionViewVC ()
-
-@property (nonatomic, strong) UICollectionView* collectionView;
-@property (nonatomic, strong) ANECollectionViewController* controller;
-@property (nonatomic, strong) ANStorage* storage;
-
-@end
-
 SpecBegin(ANECollectionViewVC)
 
 __block ANECollectionViewVC* vc = nil;

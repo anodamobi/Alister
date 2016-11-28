@@ -8,29 +8,22 @@
 
 #import "ANECollectionFooterView.h"
 
-@interface ANECollectionFooterView ()
-
-@property (nonatomic, strong) UILabel* titleLabel;
-
-@end
-
 SpecBegin(ANECollectionFooterView)
 
 __block ANECollectionFooterView* view = nil;
-__block NSString* model = nil;
 
 beforeEach(^{
     view = [ANECollectionFooterView new];
-    model = @"model";
 });
 
-describe(@"ANECollectionHeaderView", ^{
+describe(@"ANECollectionFooterView", ^{
     
     it(@"at default state titleLabel should not be nil", ^{
         expect(view.titleLabel).notTo.beNil();
     });
     
     it(@"should update titleLabel", ^{
+        NSString* model = [ANTestHelper randomString];
         [view updateWithModel:model];
         
         expect(view.titleLabel.text).to.equal(model);

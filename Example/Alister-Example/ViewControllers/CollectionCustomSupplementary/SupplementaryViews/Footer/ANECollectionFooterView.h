@@ -10,4 +10,6 @@
 
 @interface ANECollectionFooterView : ANCollectionReusableView
 
+@property (nonatomic, strong, readonly) UILabel* titleLabel;
+
 @end

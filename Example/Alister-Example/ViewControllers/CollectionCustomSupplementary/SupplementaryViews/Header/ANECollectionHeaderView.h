@@ -10,4 +10,6 @@
 
 @interface ANECollectionHeaderView : ANCollectionReusableView
 
+@property (nonatomic, strong, readonly) UILabel* titleLabel;
+
 @end
