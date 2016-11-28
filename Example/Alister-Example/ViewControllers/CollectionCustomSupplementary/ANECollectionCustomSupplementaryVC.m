@@ -36,6 +36,7 @@
         
         [self.controller attachStorage:self.storage];
     }
+    
     return self;
 }
 

@@ -16,7 +16,8 @@ describe(@"ANEReorderingController", ^{
     __block UITableView* tableView = nil;
     
     beforeEach(^{
-        tableView = [UITableView new];
+        tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 400, 400)
+                                                 style:UITableViewStyleGrouped];
         reorderingVC = [[ANEReorderingController alloc] initWithTableView:tableView];
     });
     

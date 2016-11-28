@@ -95,7 +95,7 @@ describe(@"identifierForViewModelClass:", ^{
         [mapping registerViewModelClass:[NSString class]];
         
         NSString* parentID = [mapping identifierForViewModelClass:[NSString class]];
-        NSString* childID = [mapping identifierForViewModelClass:[@"test" class]];
+        NSString* childID = [mapping identifierForViewModelClass:[[@"test" mutableCopy] class]];
         
         expect(parentID).equal(childID);
         expect(childID).notTo.beNil();

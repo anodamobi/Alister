@@ -13,7 +13,7 @@
 	<key>kRequireNoEmptyLineAsFirstLineInMethod</key>
 	<false/>
 	<key>kRequireSpaceBeforeOpeningBrace</key>
-	<true/>
+	<false/>
 	<key>KNumberOfEmptyLinesBetweenMethods</key>
 	<integer>1</integer>
 	<key>kNumberOfEmptyLinesBeforeImplementation</key>
@@ -36,8 +36,6 @@
 	<false/>
 	<key>kInterfaceColonSpacingRule</key>
 	<integer>1</integer>
-	<key>kRequireSpaceAfterCommas</key>
-	<true/>
 	<key>kRequireSpaceBeforeCaseColons</key>
 	<false/>
 	<key>kSignatureAsteriskSpacingRule</key>

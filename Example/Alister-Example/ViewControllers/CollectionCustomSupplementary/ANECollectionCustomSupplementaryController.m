@@ -13,7 +13,7 @@
 
 @implementation ANECollectionCustomSupplementaryController
 
-- (instancetype)initWithCollectionView:(UICollectionView *)collectionView
+- (instancetype)initWithCollectionView:(UICollectionView*)collectionView
 {
     self = [super initWithCollectionView:collectionView];
     if (self)
