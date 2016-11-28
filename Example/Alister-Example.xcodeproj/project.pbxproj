@@ -16,7 +16,6 @@
 		1841F2481DEC70CA00FE2999 /* ANEDataGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F20B1DEC70CA00FE2999 /* ANEDataGenerator.m */; };
 		1841F2491DEC70CA00FE2999 /* ANEBottomStickedFooterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F2131DEC70CA00FE2999 /* ANEBottomStickedFooterVC.m */; };
 		1841F24A1DEC70CA00FE2999 /* ANEButtonFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F2151DEC70CA00FE2999 /* ANEButtonFooterView.m */; };
-		1841F24B1DEC70CA00FE2999 /* ANECollectionCustomSupplementaryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F2181DEC70CA00FE2999 /* ANECollectionCustomSupplementaryController.m */; };
 		1841F24C1DEC70CA00FE2999 /* ANECollectionCustomSupplementaryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F21A1DEC70CA00FE2999 /* ANECollectionCustomSupplementaryVC.m */; };
 		1841F24D1DEC70CA00FE2999 /* ANECollectionFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F21E1DEC70CA00FE2999 /* ANECollectionFooterView.m */; };
 		1841F24E1DEC70CA00FE2999 /* ANECollectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F2211DEC70CA00FE2999 /* ANECollectionHeaderView.m */; };
@@ -95,6 +94,7 @@
 		1841F2FD1DEC710100FE2999 /* ANStorageSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F2D11DEC710100FE2999 /* ANStorageSpec.m */; };
 		1841F2FE1DEC710100FE2999 /* ANTestingFixtureObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F2D41DEC710100FE2999 /* ANTestingFixtureObjects.m */; };
 		1841F2FF1DEC710100FE2999 /* ANTestTableHeaderFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F2D61DEC710100FE2999 /* ANTestTableHeaderFooter.m */; };
+		1841F3021DEC735400FE2999 /* ANECollectionCustomSupplementaryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F3011DEC735400FE2999 /* ANECollectionCustomSupplementaryController.m */; };
 		3575344DD3C6C07070509DB1 /* libPods-Alister-Example-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC990585C63BBA3EFB2F905E /* libPods-Alister-Example-Tests.a */; };
 		458D05147925A10E0D7BA49B /* libPods-Alister-Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 714527334026D6C1A2430887 /* libPods-Alister-Example.a */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
@@ -181,8 +181,6 @@
 		1841F2131DEC70CA00FE2999 /* ANEBottomStickedFooterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANEBottomStickedFooterVC.m; sourceTree = "<group>"; };
 		1841F2141DEC70CA00FE2999 /* ANEButtonFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANEButtonFooterView.h; sourceTree = "<group>"; };
 		1841F2151DEC70CA00FE2999 /* ANEButtonFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANEButtonFooterView.m; sourceTree = "<group>"; };
-		1841F2171DEC70CA00FE2999 /* ANECollectionCustomSupplementaryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANECollectionCustomSupplementaryController.h; sourceTree = "<group>"; };
-		1841F2181DEC70CA00FE2999 /* ANECollectionCustomSupplementaryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANECollectionCustomSupplementaryController.m; sourceTree = "<group>"; };
 		1841F2191DEC70CA00FE2999 /* ANECollectionCustomSupplementaryVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANECollectionCustomSupplementaryVC.h; sourceTree = "<group>"; };
 		1841F21A1DEC70CA00FE2999 /* ANECollectionCustomSupplementaryVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANECollectionCustomSupplementaryVC.m; sourceTree = "<group>"; };
 		1841F21D1DEC70CA00FE2999 /* ANECollectionFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANECollectionFooterView.h; sourceTree = "<group>"; };
@@ -292,6 +290,8 @@
 		1841F2D51DEC710100FE2999 /* ANTestTableHeaderFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTestTableHeaderFooter.h; sourceTree = "<group>"; };
 		1841F2D61DEC710100FE2999 /* ANTestTableHeaderFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTestTableHeaderFooter.m; sourceTree = "<group>"; };
 		1841F2D71DEC710100FE2999 /* AlisterTests.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlisterTests.pch; sourceTree = "<group>"; };
+		1841F3001DEC735400FE2999 /* ANECollectionCustomSupplementaryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANECollectionCustomSupplementaryController.h; sourceTree = "<group>"; };
+		1841F3011DEC735400FE2999 /* ANECollectionCustomSupplementaryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANECollectionCustomSupplementaryController.m; sourceTree = "<group>"; };
 		349A8056AC086F0DD0C757F1 /* Pods-Alister-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister-Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Alister-Tests/Pods-Alister-Tests.release.xcconfig"; sourceTree = "<group>"; };
 		3955DB5286C6B62EADC4CFFF /* Pods-Alister-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister-Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Alister-Tests/Pods-Alister-Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		5A48C1C6D522CC417AF71E09 /* Pods-Alister-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister-Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Alister-Example/Pods-Alister-Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -516,8 +516,8 @@
 		1841F2161DEC70CA00FE2999 /* CollectionCustomSupplementary */ = {
 			isa = PBXGroup;
 			children = (
-				1841F2171DEC70CA00FE2999 /* ANECollectionCustomSupplementaryController.h */,
-				1841F2181DEC70CA00FE2999 /* ANECollectionCustomSupplementaryController.m */,
+				1841F3001DEC735400FE2999 /* ANECollectionCustomSupplementaryController.h */,
+				1841F3011DEC735400FE2999 /* ANECollectionCustomSupplementaryController.m */,
 				1841F2191DEC70CA00FE2999 /* ANECollectionCustomSupplementaryVC.h */,
 				1841F21A1DEC70CA00FE2999 /* ANECollectionCustomSupplementaryVC.m */,
 				1841F21B1DEC70CA00FE2999 /* SupplementaryViews */,
@@ -1863,7 +1863,6 @@
 				D75F9E771DC982940070538F /* ANTableController.m in Sources */,
 				1841F2481DEC70CA00FE2999 /* ANEDataGenerator.m in Sources */,
 				1841F24E1DEC70CA00FE2999 /* ANECollectionHeaderView.m in Sources */,
-				1841F24B1DEC70CA00FE2999 /* ANECollectionCustomSupplementaryController.m in Sources */,
 				1841F24C1DEC70CA00FE2999 /* ANECollectionCustomSupplementaryVC.m in Sources */,
 				D75F9E811DC982940070538F /* ANBaseTableFooterView.m in Sources */,
 				D75F9E891DC982940070538F /* ANStorageRemover.m in Sources */,
@@ -1871,6 +1870,7 @@
 				1841F25B1DEC70CA00FE2999 /* ANESearchBarView.m in Sources */,
 				D75F9E801DC982940070538F /* ANBaseTableViewHeaderFooterView.m in Sources */,
 				D75F9E781DC982940070538F /* ANListControllerUpdateOperation.m in Sources */,
+				1841F3021DEC735400FE2999 /* ANECollectionCustomSupplementaryController.m in Sources */,
 				D7A21E051DA895B500D6D803 /* main.m in Sources */,
 				D75F9E8C1DC982940070538F /* ANStorage.m in Sources */,
 				D75F9E841DC982940070538F /* ANStorageSectionModel.m in Sources */,
