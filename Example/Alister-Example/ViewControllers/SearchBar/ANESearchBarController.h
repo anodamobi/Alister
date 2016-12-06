@@ -10,7 +10,4 @@
 
 @interface ANESearchBarController : ANTableController
 
-- (void)updateWithStorage:(ANStorage*)storage;
-- (void)updateWithSearchBar:(UISearchBar*)searchBar;
-
 @end

@@ -26,14 +26,4 @@
     return self;
 }
 
-- (void)updateWithStorage:(ANStorage*)storage
-{
-    [self attachStorage:storage];
-}
-
-- (void)updateWithSearchBar:(UISearchBar*)searchBar
-{
-    [self attachSearchBar:searchBar];
-}
-
 @end

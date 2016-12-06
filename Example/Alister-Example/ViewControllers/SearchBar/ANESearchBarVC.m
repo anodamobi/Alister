@@ -31,8 +31,8 @@
         self.storage = [ANStorage new];
         self.contentView = [ANESearchBarView new];
         self.controller = [ANESearchBarController controllerWithTableView:self.contentView.tableView];
-        [self.controller updateWithStorage:self.storage];
-        [self.controller updateWithSearchBar:self.contentView.searchBar];
+        [self.controller attachStorage:self.storage];
+        [self.controller attachSearchBar:self.contentView.searchBar];
         
         [self.controller updateSearchingPredicateBlock:[self _predicateBlock]];
     }

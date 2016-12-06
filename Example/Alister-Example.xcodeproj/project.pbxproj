@@ -46,7 +46,6 @@
 		1841F2891DEC70E300FE2999 /* ANECollectionViewVCTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F2731DEC70E300FE2999 /* ANECollectionViewVCTest.m */; };
 		1841F28A1DEC70E300FE2999 /* ANEReorderingControllerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F2751DEC70E300FE2999 /* ANEReorderingControllerSpec.m */; };
 		1841F28B1DEC70E300FE2999 /* ANEReorderingVCSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F2761DEC70E300FE2999 /* ANEReorderingVCSpec.m */; };
-		1841F28C1DEC70E300FE2999 /* ANESearchBarControllerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F2781DEC70E300FE2999 /* ANESearchBarControllerSpec.m */; };
 		1841F28D1DEC70E300FE2999 /* ANESearchBarVCSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F2791DEC70E300FE2999 /* ANESearchBarVCSpec.m */; };
 		1841F28E1DEC70E300FE2999 /* ANESearchBarViewSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F27A1DEC70E300FE2999 /* ANESearchBarViewSpec.m */; };
 		1841F2941DEC70F100FE2999 /* SnapshotHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F2911DEC70F100FE2999 /* SnapshotHelper.m */; };
@@ -228,7 +227,6 @@
 		1841F2731DEC70E300FE2999 /* ANECollectionViewVCTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANECollectionViewVCTest.m; sourceTree = "<group>"; };
 		1841F2751DEC70E300FE2999 /* ANEReorderingControllerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANEReorderingControllerSpec.m; sourceTree = "<group>"; };
 		1841F2761DEC70E300FE2999 /* ANEReorderingVCSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANEReorderingVCSpec.m; sourceTree = "<group>"; };
-		1841F2781DEC70E300FE2999 /* ANESearchBarControllerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANESearchBarControllerSpec.m; sourceTree = "<group>"; };
 		1841F2791DEC70E300FE2999 /* ANESearchBarVCSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANESearchBarVCSpec.m; sourceTree = "<group>"; };
 		1841F27A1DEC70E300FE2999 /* ANESearchBarViewSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANESearchBarViewSpec.m; sourceTree = "<group>"; };
 		1841F2901DEC70F100FE2999 /* SnapshotHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapshotHelper.h; sourceTree = "<group>"; };
@@ -724,7 +722,6 @@
 		1841F2771DEC70E300FE2999 /* SearchBar */ = {
 			isa = PBXGroup;
 			children = (
-				1841F2781DEC70E300FE2999 /* ANESearchBarControllerSpec.m */,
 				1841F2791DEC70E300FE2999 /* ANESearchBarVCSpec.m */,
 				1841F27A1DEC70E300FE2999 /* ANESearchBarViewSpec.m */,
 			);
@@ -1968,7 +1965,6 @@
 				18CD9DDF1DEC7B5300865B71 /* ANTestHelper.m in Sources */,
 				1841F28B1DEC70E300FE2999 /* ANEReorderingVCSpec.m in Sources */,
 				1841F2801DEC70E300FE2999 /* ANECustomHeaderViewTest.m in Sources */,
-				1841F28C1DEC70E300FE2999 /* ANESearchBarControllerSpec.m in Sources */,
 				1841F27E1DEC70E300FE2999 /* ANECustomFooterViewTest.m in Sources */,
 				1841F2841DEC70E300FE2999 /* ANECollectionCustomSupplementaryVCTest.m in Sources */,
 				1841F2941DEC70F100FE2999 /* SnapshotHelper.m in Sources */,
