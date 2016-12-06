@@ -18,17 +18,11 @@ beforeEach(^{
     vc = [ANECollectionViewVC new];
 });
 
-describe(@"ANECollectionViewVC", ^{
+describe(@"at default state", ^{
     
-    it(@"should have non nil collectionView", ^{
+    it(@"should have non nil properties", ^{
         expect(vc.collectionView).notTo.beNil();
-    });
-    
-    it(@"should have non nil controller", ^{
         expect(vc.controller).notTo.beNil();
-    });
-    
-    it(@"should have non nil storage", ^{
         expect(vc.storage).notTo.beNil();
     });
 });

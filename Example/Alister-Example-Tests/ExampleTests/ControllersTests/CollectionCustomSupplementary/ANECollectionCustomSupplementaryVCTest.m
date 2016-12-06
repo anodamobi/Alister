@@ -21,27 +21,18 @@
 SpecBegin(ANECollectionCustomSupplementaryVC)
 
 __block ANECollectionCustomSupplementaryVC* vc = nil;
-__block __weak typeof(vc) weakVC = vc;
 
 beforeEach(^{
     vc = [ANECollectionCustomSupplementaryVC new];
-    weakVC = vc;
 });
 
 describe(@"ANECollectionCustomSupplementaryVC", ^{
    
-    it(@"should have non nil collectionView", ^{
+    it(@"should have non nil properties", ^{
         expect(vc.collectionView).notTo.beNil();
-    });
-    
-    it(@"should have non nil controller", ^{
         expect(vc.controller).notTo.beNil();
-    });
-    
-    it(@"should have non nil storage", ^{
         expect(vc.storage).notTo.beNil();
     });
-    
 });
 
 SpecEnd

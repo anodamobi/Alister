@@ -10,14 +10,6 @@
 #import "ANECollectionViewController.h"
 #import "ANEDataGenerator.h"
 
-@interface ANECollectionViewVC ()
-
-@property (nonatomic, strong) UICollectionView* collectionView;
-@property (nonatomic, strong) ANECollectionViewController* controller;
-@property (nonatomic, strong) ANStorage* storage;
-
-@end
-
 @implementation ANECollectionViewVC
 
 - (instancetype)init
@@ -25,12 +17,12 @@
     self = [super init];
     if (self)
     {
-        self.storage = [ANStorage new];
-        self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero
+        _storage = [ANStorage new];
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero
                                                  collectionViewLayout:[self _collectionLayout]];
         self.collectionView.backgroundColor = [UIColor whiteColor];
         
-        self.controller = [[ANECollectionViewController alloc] initWithCollectionView:self.collectionView];
+        _controller = [[ANECollectionViewController alloc] initWithCollectionView:self.collectionView];
         [self.controller attachStorage:self.storage];
     }
     

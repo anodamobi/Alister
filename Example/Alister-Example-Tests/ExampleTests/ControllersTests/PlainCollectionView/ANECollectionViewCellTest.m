@@ -21,7 +21,7 @@ __block NSString* model = nil;
 
 beforeEach(^{
     cell = [[ANECollectionViewCell alloc] initWithFrame:CGRectZero];
-    model = @"model";
+    model = [ANTestHelper randomString];
 });
 
 describe(@"ANECollectionViewCell", ^{

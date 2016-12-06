@@ -23,13 +23,11 @@
             [configurator registerCellClass:[ANECollectionViewCell class]
                               forModelClass:[NSString class]];
             
-            [configurator registerSupplementaryClass:[ANECollectionHeaderView class]
-                                       forModelClass:[NSString class]
-                                                kind:UICollectionElementKindSectionHeader];
+            [configurator registerHeaderClass:[ANECollectionHeaderView class]
+                                forModelClass:[NSString class]];
             
-            [configurator registerSupplementaryClass:[ANECollectionFooterView class]
-                                       forModelClass:[NSString class]
-                                                kind:UICollectionElementKindSectionFooter];
+            [configurator registerFooterClass:[ANECollectionFooterView class]
+                                forModelClass:[NSString class]];
         }];
     }
     
