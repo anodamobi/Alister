@@ -76,9 +76,9 @@
     return [array copy];
 }
 
-+ (NSArray *)randomArrayIncludingObject:(id)object atIndex:(NSInteger)index
++ (NSArray*)randomArrayIncludingObject:(id)object atIndex:(NSInteger)index
 {
-    NSMutableArray* array = [[self randomArrayWithLength:index*2] mutableCopy];
+    NSMutableArray* array = [[self randomArrayWithLength:index * 2] mutableCopy];
     [array insertObject:object atIndex:index];
     
     return [array copy];

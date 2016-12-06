@@ -53,7 +53,6 @@
     NSArray* items = [ANEDataGenerator generateUsernames];
     
     [self.storage updateWithAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
-        
         [storageController addItems:items];
     }];
 }

@@ -10,11 +10,10 @@
 #import "ANECollectionViewCell.h"
 #import "ANECollectionHeaderView.h"
 #import "ANECollectionFooterView.h"
-#import "ANECollectionFooterViewModel.h"
 
 @implementation ANECollectionCustomSupplementaryController
 
-- (instancetype)initWithCollectionView:(UICollectionView *)collectionView
+- (instancetype)initWithCollectionView:(UICollectionView*)collectionView
 {
     self = [super initWithCollectionView:collectionView];
     if (self)
@@ -24,8 +23,11 @@
             [configurator registerCellClass:[ANECollectionViewCell class]
                               forModelClass:[NSString class]];
             
+            [configurator registerHeaderClass:[ANECollectionHeaderView class]
+                                forModelClass:[NSString class]];
+            
             [configurator registerFooterClass:[ANECollectionFooterView class]
-                                forModelClass:[ANECollectionFooterViewModel class]];
+                                forModelClass:[NSString class]];
         }];
     }
     

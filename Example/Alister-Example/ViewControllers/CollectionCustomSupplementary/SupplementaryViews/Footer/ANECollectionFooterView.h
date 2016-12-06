@@ -1,5 +1,5 @@
 //
-//  ANECollectionHeaderView.h
+//  ANECollectionFooterView.h
 //  Alister-Example
 //
 //  Created by ANODA on 11/18/16.
@@ -8,6 +8,8 @@
 
 #import "ANCollectionReusableView.h"
 
-@interface ANECollectionHeaderView : ANCollectionReusableView
+@interface ANECollectionFooterView : ANCollectionReusableView
+
+@property (nonatomic, strong, readonly) UILabel* titleLabel;
 
 @end

@@ -44,7 +44,7 @@ describe(@"ANESearchBarVC", ^{
     
     it(@"storage should have items in section 0 after controller finished update", ^{
         
-        [viewController.controller addUpdatesFinsihedTriggerBlock:^{
+        [viewController.controller addUpdatesFinishedTriggerBlock:^{
             NSArray* storageItems = [weakVC.storage itemsInSection:0];
             expect(storageItems).notTo.beNil();
         }];

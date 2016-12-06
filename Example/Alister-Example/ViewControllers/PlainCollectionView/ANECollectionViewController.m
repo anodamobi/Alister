@@ -17,7 +17,9 @@
     if (self)
     {
         [self configureCellsWithBlock:^(id<ANListControllerReusableInterface> configurator) {
-            [configurator registerCellClass:[ANECollectionViewCell class] forModelClass:[NSString class]];
+            
+            [configurator registerCellClass:[ANECollectionViewCell class]
+                              forModelClass:[NSString class]];
         }];
     }
     

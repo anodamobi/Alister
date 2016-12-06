@@ -10,6 +10,4 @@
 
 @interface ANECollectionViewController : ANCollectionController
 
-- (void)updateWithStorage:(ANStorage*)storage;
-
 @end
