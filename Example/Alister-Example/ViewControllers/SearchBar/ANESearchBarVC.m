@@ -11,13 +11,14 @@
 #import "ANStorage.h"
 #import "ANEDataGenerator.h"
 #import "ANESearchBarView.h"
-#import "ANESearchBarController.h"
+#import "ANTableController.h"
+#import "ANELabelTableViewCell.h"
 
 @interface ANESearchBarVC ()
 
 @property (nonatomic, strong) ANESearchBarView* contentView;
 @property (nonatomic, strong) ANStorage* storage;
-@property (nonatomic, strong) ANESearchBarController* controller;
+@property (nonatomic, strong) ANTableController* controller;
 
 @end
 
@@ -30,10 +31,15 @@
     {
         self.storage = [ANStorage new];
         self.contentView = [ANESearchBarView new];
-        self.controller = [ANESearchBarController controllerWithTableView:self.contentView.tableView];
-        [self.controller updateWithStorage:self.storage];
-        [self.controller updateWithSearchBar:self.contentView.searchBar];
+        self.controller = [ANTableController controllerWithTableView:self.contentView.tableView];
         
+        [self.controller configureCellsWithBlock:^(id<ANListControllerReusableInterface> configurator) {
+            [configurator registerCellClass:[ANELabelTableViewCell class]
+                              forModelClass:[NSString class]];
+        }];
+        
+        [self.controller attachStorage:self.storage];
+        [self.controller attachSearchBar:self.contentView.searchBar];
         [self.controller updateSearchingPredicateBlock:[self _predicateBlock]];
     }
     

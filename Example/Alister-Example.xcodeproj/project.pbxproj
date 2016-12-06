@@ -29,7 +29,6 @@
 		1841F2561DEC70CA00FE2999 /* ANECollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F2351DEC70CA00FE2999 /* ANECollectionViewCell.m */; };
 		1841F2571DEC70CA00FE2999 /* ANEReorderingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F2381DEC70CA00FE2999 /* ANEReorderingController.m */; };
 		1841F2581DEC70CA00FE2999 /* ANEReorderingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F23A1DEC70CA00FE2999 /* ANEReorderingVC.m */; };
-		1841F2591DEC70CA00FE2999 /* ANESearchBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F23D1DEC70CA00FE2999 /* ANESearchBarController.m */; };
 		1841F25A1DEC70CA00FE2999 /* ANESearchBarVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F23F1DEC70CA00FE2999 /* ANESearchBarVC.m */; };
 		1841F25B1DEC70CA00FE2999 /* ANESearchBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F2411DEC70CA00FE2999 /* ANESearchBarView.m */; };
 		1841F27D1DEC70E300FE2999 /* ANECustomFooterViewModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F2621DEC70E300FE2999 /* ANECustomFooterViewModelTest.m */; };
@@ -46,7 +45,6 @@
 		1841F2891DEC70E300FE2999 /* ANECollectionViewVCTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F2731DEC70E300FE2999 /* ANECollectionViewVCTest.m */; };
 		1841F28A1DEC70E300FE2999 /* ANEReorderingControllerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F2751DEC70E300FE2999 /* ANEReorderingControllerSpec.m */; };
 		1841F28B1DEC70E300FE2999 /* ANEReorderingVCSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F2761DEC70E300FE2999 /* ANEReorderingVCSpec.m */; };
-		1841F28C1DEC70E300FE2999 /* ANESearchBarControllerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F2781DEC70E300FE2999 /* ANESearchBarControllerSpec.m */; };
 		1841F28D1DEC70E300FE2999 /* ANESearchBarVCSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F2791DEC70E300FE2999 /* ANESearchBarVCSpec.m */; };
 		1841F28E1DEC70E300FE2999 /* ANESearchBarViewSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F27A1DEC70E300FE2999 /* ANESearchBarViewSpec.m */; };
 		1841F2941DEC70F100FE2999 /* SnapshotHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F2911DEC70F100FE2999 /* SnapshotHelper.m */; };
@@ -205,8 +203,6 @@
 		1841F2381DEC70CA00FE2999 /* ANEReorderingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANEReorderingController.m; sourceTree = "<group>"; };
 		1841F2391DEC70CA00FE2999 /* ANEReorderingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANEReorderingVC.h; sourceTree = "<group>"; };
 		1841F23A1DEC70CA00FE2999 /* ANEReorderingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANEReorderingVC.m; sourceTree = "<group>"; };
-		1841F23C1DEC70CA00FE2999 /* ANESearchBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANESearchBarController.h; sourceTree = "<group>"; };
-		1841F23D1DEC70CA00FE2999 /* ANESearchBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANESearchBarController.m; sourceTree = "<group>"; };
 		1841F23E1DEC70CA00FE2999 /* ANESearchBarVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANESearchBarVC.h; sourceTree = "<group>"; };
 		1841F23F1DEC70CA00FE2999 /* ANESearchBarVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANESearchBarVC.m; sourceTree = "<group>"; };
 		1841F2401DEC70CA00FE2999 /* ANESearchBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANESearchBarView.h; sourceTree = "<group>"; };
@@ -228,7 +224,6 @@
 		1841F2731DEC70E300FE2999 /* ANECollectionViewVCTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANECollectionViewVCTest.m; sourceTree = "<group>"; };
 		1841F2751DEC70E300FE2999 /* ANEReorderingControllerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANEReorderingControllerSpec.m; sourceTree = "<group>"; };
 		1841F2761DEC70E300FE2999 /* ANEReorderingVCSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANEReorderingVCSpec.m; sourceTree = "<group>"; };
-		1841F2781DEC70E300FE2999 /* ANESearchBarControllerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANESearchBarControllerSpec.m; sourceTree = "<group>"; };
 		1841F2791DEC70E300FE2999 /* ANESearchBarVCSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANESearchBarVCSpec.m; sourceTree = "<group>"; };
 		1841F27A1DEC70E300FE2999 /* ANESearchBarViewSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANESearchBarViewSpec.m; sourceTree = "<group>"; };
 		1841F2901DEC70F100FE2999 /* SnapshotHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapshotHelper.h; sourceTree = "<group>"; };
@@ -615,8 +610,6 @@
 		1841F23B1DEC70CA00FE2999 /* SearchBar */ = {
 			isa = PBXGroup;
 			children = (
-				1841F23C1DEC70CA00FE2999 /* ANESearchBarController.h */,
-				1841F23D1DEC70CA00FE2999 /* ANESearchBarController.m */,
 				1841F23E1DEC70CA00FE2999 /* ANESearchBarVC.h */,
 				1841F23F1DEC70CA00FE2999 /* ANESearchBarVC.m */,
 				1841F2401DEC70CA00FE2999 /* ANESearchBarView.h */,
@@ -724,7 +717,6 @@
 		1841F2771DEC70E300FE2999 /* SearchBar */ = {
 			isa = PBXGroup;
 			children = (
-				1841F2781DEC70E300FE2999 /* ANESearchBarControllerSpec.m */,
 				1841F2791DEC70E300FE2999 /* ANESearchBarVCSpec.m */,
 				1841F27A1DEC70E300FE2999 /* ANESearchBarViewSpec.m */,
 			);
@@ -1892,7 +1884,6 @@
 				D75F9E761DC982940070538F /* ANListTableView.m in Sources */,
 				D75F9E6B1DC982940070538F /* ANKeyboardHandler.m in Sources */,
 				1841F2581DEC70CA00FE2999 /* ANEReorderingVC.m in Sources */,
-				1841F2591DEC70CA00FE2999 /* ANESearchBarController.m in Sources */,
 				D75F9E8A1DC982940070538F /* ANStorageUpdater.m in Sources */,
 				1841F25A1DEC70CA00FE2999 /* ANESearchBarVC.m in Sources */,
 				D75F9E871DC982940070538F /* ANStorageUpdateOperation.m in Sources */,
@@ -1968,7 +1959,6 @@
 				18CD9DDF1DEC7B5300865B71 /* ANTestHelper.m in Sources */,
 				1841F28B1DEC70E300FE2999 /* ANEReorderingVCSpec.m in Sources */,
 				1841F2801DEC70E300FE2999 /* ANECustomHeaderViewTest.m in Sources */,
-				1841F28C1DEC70E300FE2999 /* ANESearchBarControllerSpec.m in Sources */,
 				1841F27E1DEC70E300FE2999 /* ANECustomFooterViewTest.m in Sources */,
 				1841F2841DEC70E300FE2999 /* ANECollectionCustomSupplementaryVCTest.m in Sources */,
 				1841F2941DEC70F100FE2999 /* SnapshotHelper.m in Sources */,

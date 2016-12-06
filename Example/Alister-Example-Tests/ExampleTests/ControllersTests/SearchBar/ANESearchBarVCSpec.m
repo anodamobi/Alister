@@ -9,13 +9,13 @@
 #import "ANESearchBarVC.h"
 #import "ANESearchBarView.h"
 #import "ANStorage.h"
-#import "ANESearchBarController.h"
+#import "ANTableController.h"
 
 @interface ANESearchBarVC ()
 
 @property (nonatomic, strong) ANESearchBarView* contentView;
 @property (nonatomic, strong) ANStorage* storage;
-@property (nonatomic, strong) ANESearchBarController* controller;
+@property (nonatomic, strong) ANTableController* controller;
 
 @end
 
