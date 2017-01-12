@@ -10,5 +10,6 @@
 + (instancetype)tableViewDefaultStyleWithFrame:(CGRect)frame style:(UITableViewStyle)style;
 
 - (void)addStickyFooter:(UIView*)footer withFixedHeight:(CGFloat)height;
+- (void)updateStickerHeight:(CGFloat)height;
 
 @end
