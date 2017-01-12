@@ -47,6 +47,11 @@ static CGFloat const kDefaultStatusBarHeight = 20;
     self.bottomStickedFooterView = footer;
 }
 
+- (void)updateStickerHeight:(CGFloat)height
+{
+    self.stickedFooterHeight = height;
+}
+
 - (void)layoutSubviews
 {
     [super layoutSubviews];
