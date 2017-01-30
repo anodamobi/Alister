@@ -24,10 +24,22 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ANStorageRemover : NSObject
 
-//TODO: doc
+
+/**
+ Creates an instance of ANStorageRemover with specified storage model
+ 
+ @param storageModel        for removing items
+ 
+ @return ANStorageRemover with specified storage model
+ */
 + (instancetype)removerWithStorageModel:(ANStorageModel*)storageModel;
 
+
+/**
+ Delegate of updates. Must conform <ANStorageUpdateOperationInterface>
+ */
 @property (nonatomic, weak) id<ANStorageUpdateOperationInterface> updateDelegate;
+
 
 /**
  Removes specified item from storage.
