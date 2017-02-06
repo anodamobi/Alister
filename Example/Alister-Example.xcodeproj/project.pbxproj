@@ -90,6 +90,7 @@
 		1841F2FE1DEC710100FE2999 /* ANTestingFixtureObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F2D41DEC710100FE2999 /* ANTestingFixtureObjects.m */; };
 		1841F2FF1DEC710100FE2999 /* ANTestTableHeaderFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F2D61DEC710100FE2999 /* ANTestTableHeaderFooter.m */; };
 		1841F3021DEC735400FE2999 /* ANECollectionCustomSupplementaryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F3011DEC735400FE2999 /* ANECollectionCustomSupplementaryController.m */; };
+		1851AE361E48D8E0001BCBA7 /* ANActionTimeOutValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1851AE351E48D8E0001BCBA7 /* ANActionTimeOutValidator.m */; };
 		18CD9DDE1DEC7B0100865B71 /* ANECollectionFooterViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F26D1DEC70E300FE2999 /* ANECollectionFooterViewTest.m */; };
 		18CD9DDF1DEC7B5300865B71 /* ANTestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F2971DEC710100FE2999 /* ANTestHelper.m */; };
 		3575344DD3C6C07070509DB1 /* libPods-Alister-Example-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC990585C63BBA3EFB2F905E /* libPods-Alister-Example-Tests.a */; };
@@ -286,6 +287,8 @@
 		1841F2D71DEC710100FE2999 /* AlisterTests.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlisterTests.pch; sourceTree = "<group>"; };
 		1841F3001DEC735400FE2999 /* ANECollectionCustomSupplementaryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANECollectionCustomSupplementaryController.h; sourceTree = "<group>"; };
 		1841F3011DEC735400FE2999 /* ANECollectionCustomSupplementaryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANECollectionCustomSupplementaryController.m; sourceTree = "<group>"; };
+		1851AE341E48D8E0001BCBA7 /* ANActionTimeOutValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANActionTimeOutValidator.h; sourceTree = "<group>"; };
+		1851AE351E48D8E0001BCBA7 /* ANActionTimeOutValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANActionTimeOutValidator.m; sourceTree = "<group>"; };
 		349A8056AC086F0DD0C757F1 /* Pods-Alister-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister-Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Alister-Tests/Pods-Alister-Tests.release.xcconfig"; sourceTree = "<group>"; };
 		3955DB5286C6B62EADC4CFFF /* Pods-Alister-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister-Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Alister-Tests/Pods-Alister-Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		5A48C1C6D522CC417AF71E09 /* Pods-Alister-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister-Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Alister-Example/Pods-Alister-Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -880,6 +883,15 @@
 			path = SharedFixtures;
 			sourceTree = "<group>";
 		};
+		1851AE331E48D8E0001BCBA7 /* ANActionTimeoutValidator */ = {
+			isa = PBXGroup;
+			children = (
+				1851AE341E48D8E0001BCBA7 /* ANActionTimeOutValidator.h */,
+				1851AE351E48D8E0001BCBA7 /* ANActionTimeOutValidator.m */,
+			);
+			path = ANActionTimeoutValidator;
+			sourceTree = "<group>";
+		};
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
@@ -954,6 +966,7 @@
 		D75F9DDD1DC982940070538F /* Alister */ = {
 			isa = PBXGroup;
 			children = (
+				1851AE331E48D8E0001BCBA7 /* ANActionTimeoutValidator */,
 				D75F9DDE1DC982940070538F /* ANKeyboardHandler */,
 				D75F9DE11DC982940070538F /* ANListController */,
 				D75F9E201DC982940070538F /* ANPrototypingUIKit */,
@@ -1859,6 +1872,7 @@
 				D75F9E891DC982940070538F /* ANStorageRemover.m in Sources */,
 				D75F9E721DC982940070538F /* ANListControllerMappingService.m in Sources */,
 				1841F25B1DEC70CA00FE2999 /* ANESearchBarView.m in Sources */,
+				1851AE361E48D8E0001BCBA7 /* ANActionTimeOutValidator.m in Sources */,
 				D75F9E801DC982940070538F /* ANBaseTableViewHeaderFooterView.m in Sources */,
 				D75F9E781DC982940070538F /* ANListControllerUpdateOperation.m in Sources */,
 				1841F3021DEC735400FE2999 /* ANECollectionCustomSupplementaryController.m in Sources */,
