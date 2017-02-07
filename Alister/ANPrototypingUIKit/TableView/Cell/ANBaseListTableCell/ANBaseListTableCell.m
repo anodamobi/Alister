@@ -7,7 +7,7 @@
 //
 
 #import "ANBaseListTableCell.h"
-#import "Masonry.h"
+//#import "Masonry.h"
 
 static UIColor* kBaseColor = nil;
 static UIColor* kBaseTextColor = nil;
