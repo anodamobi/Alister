@@ -175,6 +175,7 @@
 		1895ED751E49F1C700385868 /* ANStorageDebugDataGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = D74623141DD5277200099D0A /* ANStorageDebugDataGenerator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1895ED761E49F1C700385868 /* ANStorage.h in Headers */ = {isa = PBXBuildFile; fileRef = D75F9E691DC982940070538F /* ANStorage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1895ED791E49F41A00385868 /* Masonry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1895ED781E49F41A00385868 /* Masonry.framework */; };
+		189A97401E4A3DAB005C4B62 /* Alister.h in Headers */ = {isa = PBXBuildFile; fileRef = D7348F051DCD368900CC114A /* Alister.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		18CD9DDE1DEC7B0100865B71 /* ANECollectionFooterViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F26D1DEC70E300FE2999 /* ANECollectionFooterViewTest.m */; };
 		18CD9DDF1DEC7B5300865B71 /* ANTestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F2971DEC710100FE2999 /* ANTestHelper.m */; };
 		3575344DD3C6C07070509DB1 /* libPods-Alister-Example-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC990585C63BBA3EFB2F905E /* libPods-Alister-Example-Tests.a */; };
@@ -1629,6 +1630,7 @@
 				1895ED6E1E49F1C700385868 /* ANStorageListUpdateOperationInterface.h in Headers */,
 				1895ED6F1E49F1C700385868 /* ANStorageUpdateOperation.h in Headers */,
 				1895ED701E49F1C700385868 /* ANStorageUpdateOperationInterface.h in Headers */,
+				189A97401E4A3DAB005C4B62 /* Alister.h in Headers */,
 				1895ED711E49F1C700385868 /* ANStorageLoader.h in Headers */,
 				1895ED721E49F1C700385868 /* ANStorageRemover.h in Headers */,
 				1895ED731E49F1C700385868 /* ANStorageUpdater.h in Headers */,
@@ -2288,7 +2290,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage",
 				);
-				GCC_PREFIX_HEADER = "Alister-Example/BundleFiles/Alister-Example-Prefix.pch";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Alister-Example/BundleFiles/Alister-Example-Prefix.pch";
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = AlisterIOS/Info.plist;
@@ -2321,7 +2323,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage",
 				);
-				GCC_PREFIX_HEADER = "Alister-Example/BundleFiles/Alister-Example-Prefix.pch";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Alister-Example/BundleFiles/Alister-Example-Prefix.pch";
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = AlisterIOS/Info.plist;
@@ -2524,7 +2526,7 @@
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 7VYW9J77NX;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Alister-Example/BundleFiles/Alister-Example-Prefix.pch";
+				GCC_PREFIX_HEADER = "";
 				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
 				GCC_TREAT_INCOMPATIBLE_POINTER_TYPE_WARNINGS_AS_ERRORS = YES;
 				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
@@ -2583,7 +2585,7 @@
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 7VYW9J77NX;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Alister-Example/BundleFiles/Alister-Example-Prefix.pch";
+				GCC_PREFIX_HEADER = "";
 				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
 				GCC_TREAT_INCOMPATIBLE_POINTER_TYPE_WARNINGS_AS_ERRORS = YES;
 				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
