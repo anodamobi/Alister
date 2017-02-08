@@ -7,6 +7,39 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		182A12AA1E4B7D68001B7DDA /* ANKeyboardHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 182A122B1E4B7D68001B7DDA /* ANKeyboardHandler.m */; };
+		182A12AB1E4B7D68001B7DDA /* ANCollectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 182A12301E4B7D68001B7DDA /* ANCollectionController.m */; };
+		182A12AC1E4B7D68001B7DDA /* ANTableUpdateConfigurationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 182A12341E4B7D68001B7DDA /* ANTableUpdateConfigurationModel.m */; };
+		182A12AD1E4B7D68001B7DDA /* ANListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 182A12381E4B7D68001B7DDA /* ANListController.m */; };
+		182A12AE1E4B7D68001B7DDA /* ANListControllerItemsHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 182A123D1E4B7D68001B7DDA /* ANListControllerItemsHandler.m */; };
+		182A12AF1E4B7D68001B7DDA /* ANListControllerMappingService.m in Sources */ = {isa = PBXBuildFile; fileRef = 182A12411E4B7D68001B7DDA /* ANListControllerMappingService.m */; };
+		182A12B01E4B7D68001B7DDA /* ANListControllerReloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 182A12451E4B7D68001B7DDA /* ANListControllerReloadOperation.m */; };
+		182A12B11E4B7D68001B7DDA /* ANListControllerUpdateService.m in Sources */ = {isa = PBXBuildFile; fileRef = 182A12471E4B7D68001B7DDA /* ANListControllerUpdateService.m */; };
+		182A12B21E4B7D68001B7DDA /* ANListCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 182A124B1E4B7D68001B7DDA /* ANListCollectionView.m */; };
+		182A12B31E4B7D68001B7DDA /* ANListTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 182A124D1E4B7D68001B7DDA /* ANListTableView.m */; };
+		182A12B41E4B7D68001B7DDA /* ANTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 182A12541E4B7D68001B7DDA /* ANTableController.m */; };
+		182A12B51E4B7D68001B7DDA /* ANListControllerUpdateOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 182A125A1E4B7D68001B7DDA /* ANListControllerUpdateOperation.m */; };
+		182A12B61E4B7D68001B7DDA /* ANListControllerSearchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 182A125D1E4B7D68001B7DDA /* ANListControllerSearchManager.m */; };
+		182A12B71E4B7D68001B7DDA /* ANCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 182A12611E4B7D68001B7DDA /* ANCollectionReusableView.m */; };
+		182A12B81E4B7D68001B7DDA /* ANCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 182A12631E4B7D68001B7DDA /* ANCollectionViewCell.m */; };
+		182A12B91E4B7D68001B7DDA /* ANTableContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 182A12671E4B7D68001B7DDA /* ANTableContainerView.m */; };
+		182A12BA1E4B7D68001B7DDA /* ANTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 182A12691E4B7D68001B7DDA /* ANTableView.m */; };
+		182A12BB1E4B7D68001B7DDA /* ANBaseListTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 182A126D1E4B7D68001B7DDA /* ANBaseListTableCell.m */; };
+		182A12BC1E4B7D68001B7DDA /* ANBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 182A12701E4B7D68001B7DDA /* ANBaseTableViewCell.m */; };
+		182A12BD1E4B7D69001B7DDA /* ANBaseTableViewHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 182A12741E4B7D68001B7DDA /* ANBaseTableViewHeaderFooterView.m */; };
+		182A12BE1E4B7D69001B7DDA /* ANBaseTableFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 182A12771E4B7D68001B7DDA /* ANBaseTableFooterView.m */; };
+		182A12BF1E4B7D69001B7DDA /* ANBaseTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 182A127A1E4B7D68001B7DDA /* ANBaseTableHeaderView.m */; };
+		182A12C01E4B7D69001B7DDA /* ANStorageMovedIndexPathModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 182A12851E4B7D68001B7DDA /* ANStorageMovedIndexPathModel.m */; };
+		182A12C11E4B7D69001B7DDA /* ANStorageSectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 182A12881E4B7D68001B7DDA /* ANStorageSectionModel.m */; };
+		182A12C21E4B7D69001B7DDA /* ANStorageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 182A128C1E4B7D68001B7DDA /* ANStorageModel.m */; };
+		182A12C31E4B7D69001B7DDA /* ANStorageUpdateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 182A128F1E4B7D68001B7DDA /* ANStorageUpdateModel.m */; };
+		182A12C41E4B7D69001B7DDA /* ANStorageUpdateOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 182A12941E4B7D68001B7DDA /* ANStorageUpdateOperation.m */; };
+		182A12C51E4B7D69001B7DDA /* ANStorageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 182A129A1E4B7D68001B7DDA /* ANStorageLoader.m */; };
+		182A12C61E4B7D69001B7DDA /* ANStorageRemover.m in Sources */ = {isa = PBXBuildFile; fileRef = 182A129D1E4B7D68001B7DDA /* ANStorageRemover.m */; };
+		182A12C71E4B7D69001B7DDA /* ANStorageUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = 182A12A01E4B7D68001B7DDA /* ANStorageUpdater.m */; };
+		182A12C81E4B7D69001B7DDA /* ANStorageDebugDataGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 182A12A31E4B7D68001B7DDA /* ANStorageDebugDataGenerator.m */; };
+		182A12C91E4B7D69001B7DDA /* ANStorageValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 182A12A61E4B7D68001B7DDA /* ANStorageValidator.m */; };
+		182A12CA1E4B7D69001B7DDA /* ANStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 182A12A91E4B7D68001B7DDA /* ANStorage.m */; };
 		1841F2421DEC70CA00FE2999 /* ANAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F1FD1DEC70CA00FE2999 /* ANAppDelegate.m */; };
 		1841F2431DEC70CA00FE2999 /* ANECustomFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F2001DEC70CA00FE2999 /* ANECustomFooterView.m */; };
 		1841F2441DEC70CA00FE2999 /* ANECustomFooterViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F2021DEC70CA00FE2999 /* ANECustomFooterViewModel.m */; };
@@ -56,7 +89,6 @@
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
-		C38A7FCBD878748A3AEE97A8 /* libPods-Alister-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B2FC9B41E0B02F7C55AE811 /* libPods-Alister-Tests.a */; };
 		D795BA071DA7253400668587 /* StyleSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = D795BA061DA7253400668587 /* StyleSettings.plist */; };
 		D7A21E031DA895B500D6D803 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7A21DEB1DA895B500D6D803 /* Assets.xcassets */; };
 		D7A21E041DA895B500D6D803 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D7A21DEC1DA895B500D6D803 /* InfoPlist.strings */; };
@@ -64,13 +96,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		D7348F0F1DCD61A300CC114A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6003F582195388D10070C39A /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 6003F589195388D20070C39A;
-			remoteInfo = "Alister-Example";
-		};
 		D7EC43D11D512EE300128012 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6003F582195388D10070C39A /* Project object */;
@@ -94,8 +119,89 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		019F2C73D93E6032B674EAE3 /* Pods-Alister-Example-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister-Example-Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Alister-Example-Tests/Pods-Alister-Example-Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		07CE62481D5169B300D1A43C /* Tests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
+		182A122A1E4B7D68001B7DDA /* ANKeyboardHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKeyboardHandler.h; sourceTree = "<group>"; };
+		182A122B1E4B7D68001B7DDA /* ANKeyboardHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKeyboardHandler.m; sourceTree = "<group>"; };
+		182A122F1E4B7D68001B7DDA /* ANCollectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANCollectionController.h; sourceTree = "<group>"; };
+		182A12301E4B7D68001B7DDA /* ANCollectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANCollectionController.m; sourceTree = "<group>"; };
+		182A12331E4B7D68001B7DDA /* ANTableUpdateConfigurationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTableUpdateConfigurationModel.h; sourceTree = "<group>"; };
+		182A12341E4B7D68001B7DDA /* ANTableUpdateConfigurationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTableUpdateConfigurationModel.m; sourceTree = "<group>"; };
+		182A12361E4B7D68001B7DDA /* ANListController+Interitance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ANListController+Interitance.h"; sourceTree = "<group>"; };
+		182A12371E4B7D68001B7DDA /* ANListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANListController.h; sourceTree = "<group>"; };
+		182A12381E4B7D68001B7DDA /* ANListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANListController.m; sourceTree = "<group>"; };
+		182A123A1E4B7D68001B7DDA /* ANListControllerUpdateViewInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANListControllerUpdateViewInterface.h; sourceTree = "<group>"; };
+		182A123C1E4B7D68001B7DDA /* ANListControllerItemsHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANListControllerItemsHandler.h; sourceTree = "<group>"; };
+		182A123D1E4B7D68001B7DDA /* ANListControllerItemsHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANListControllerItemsHandler.m; sourceTree = "<group>"; };
+		182A123E1E4B7D68001B7DDA /* ANListControllerReusableInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANListControllerReusableInterface.h; sourceTree = "<group>"; };
+		182A12401E4B7D68001B7DDA /* ANListControllerMappingService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANListControllerMappingService.h; sourceTree = "<group>"; };
+		182A12411E4B7D68001B7DDA /* ANListControllerMappingService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANListControllerMappingService.m; sourceTree = "<group>"; };
+		182A12421E4B7D68001B7DDA /* ANListControllerMappingServiceInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANListControllerMappingServiceInterface.h; sourceTree = "<group>"; };
+		182A12441E4B7D68001B7DDA /* ANListControllerReloadOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANListControllerReloadOperation.h; sourceTree = "<group>"; };
+		182A12451E4B7D68001B7DDA /* ANListControllerReloadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANListControllerReloadOperation.m; sourceTree = "<group>"; };
+		182A12461E4B7D68001B7DDA /* ANListControllerUpdateService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANListControllerUpdateService.h; sourceTree = "<group>"; };
+		182A12471E4B7D68001B7DDA /* ANListControllerUpdateService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANListControllerUpdateService.m; sourceTree = "<group>"; };
+		182A12481E4B7D68001B7DDA /* ANListControllerUpdateServiceInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANListControllerUpdateServiceInterface.h; sourceTree = "<group>"; };
+		182A124A1E4B7D68001B7DDA /* ANListCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANListCollectionView.h; sourceTree = "<group>"; };
+		182A124B1E4B7D68001B7DDA /* ANListCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANListCollectionView.m; sourceTree = "<group>"; };
+		182A124C1E4B7D68001B7DDA /* ANListTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANListTableView.h; sourceTree = "<group>"; };
+		182A124D1E4B7D68001B7DDA /* ANListTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANListTableView.m; sourceTree = "<group>"; };
+		182A124E1E4B7D68001B7DDA /* ANListViewInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANListViewInterface.h; sourceTree = "<group>"; };
+		182A12501E4B7D68001B7DDA /* Alister.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Alister.h; sourceTree = "<group>"; };
+		182A12531E4B7D68001B7DDA /* ANTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTableController.h; sourceTree = "<group>"; };
+		182A12541E4B7D68001B7DDA /* ANTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTableController.m; sourceTree = "<group>"; };
+		182A12561E4B7D68001B7DDA /* ANListControllerLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANListControllerLog.h; sourceTree = "<group>"; };
+		182A12591E4B7D68001B7DDA /* ANListControllerUpdateOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANListControllerUpdateOperation.h; sourceTree = "<group>"; };
+		182A125A1E4B7D68001B7DDA /* ANListControllerUpdateOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANListControllerUpdateOperation.m; sourceTree = "<group>"; };
+		182A125C1E4B7D68001B7DDA /* ANListControllerSearchManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANListControllerSearchManager.h; sourceTree = "<group>"; };
+		182A125D1E4B7D68001B7DDA /* ANListControllerSearchManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANListControllerSearchManager.m; sourceTree = "<group>"; };
+		182A12601E4B7D68001B7DDA /* ANCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANCollectionReusableView.h; sourceTree = "<group>"; };
+		182A12611E4B7D68001B7DDA /* ANCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANCollectionReusableView.m; sourceTree = "<group>"; };
+		182A12621E4B7D68001B7DDA /* ANCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANCollectionViewCell.h; sourceTree = "<group>"; };
+		182A12631E4B7D68001B7DDA /* ANCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANCollectionViewCell.m; sourceTree = "<group>"; };
+		182A12661E4B7D68001B7DDA /* ANTableContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTableContainerView.h; sourceTree = "<group>"; };
+		182A12671E4B7D68001B7DDA /* ANTableContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTableContainerView.m; sourceTree = "<group>"; };
+		182A12681E4B7D68001B7DDA /* ANTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTableView.h; sourceTree = "<group>"; };
+		182A12691E4B7D68001B7DDA /* ANTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTableView.m; sourceTree = "<group>"; };
+		182A126C1E4B7D68001B7DDA /* ANBaseListTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANBaseListTableCell.h; sourceTree = "<group>"; };
+		182A126D1E4B7D68001B7DDA /* ANBaseListTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANBaseListTableCell.m; sourceTree = "<group>"; };
+		182A126F1E4B7D68001B7DDA /* ANBaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANBaseTableViewCell.h; sourceTree = "<group>"; };
+		182A12701E4B7D68001B7DDA /* ANBaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANBaseTableViewCell.m; sourceTree = "<group>"; };
+		182A12731E4B7D68001B7DDA /* ANBaseTableViewHeaderFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANBaseTableViewHeaderFooterView.h; sourceTree = "<group>"; };
+		182A12741E4B7D68001B7DDA /* ANBaseTableViewHeaderFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANBaseTableViewHeaderFooterView.m; sourceTree = "<group>"; };
+		182A12761E4B7D68001B7DDA /* ANBaseTableFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANBaseTableFooterView.h; sourceTree = "<group>"; };
+		182A12771E4B7D68001B7DDA /* ANBaseTableFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANBaseTableFooterView.m; sourceTree = "<group>"; };
+		182A12791E4B7D68001B7DDA /* ANBaseTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANBaseTableHeaderView.h; sourceTree = "<group>"; };
+		182A127A1E4B7D68001B7DDA /* ANBaseTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANBaseTableHeaderView.m; sourceTree = "<group>"; };
+		182A127D1E4B7D68001B7DDA /* ANStorageLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANStorageLog.h; sourceTree = "<group>"; };
+		182A127F1E4B7D68001B7DDA /* ANStorageRetrivingInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANStorageRetrivingInterface.h; sourceTree = "<group>"; };
+		182A12801E4B7D68001B7DDA /* ANStorageUpdatableInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANStorageUpdatableInterface.h; sourceTree = "<group>"; };
+		182A12811E4B7D68001B7DDA /* ANStorageUpdateEventsDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANStorageUpdateEventsDelegate.h; sourceTree = "<group>"; };
+		182A12841E4B7D68001B7DDA /* ANStorageMovedIndexPathModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANStorageMovedIndexPathModel.h; sourceTree = "<group>"; };
+		182A12851E4B7D68001B7DDA /* ANStorageMovedIndexPathModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageMovedIndexPathModel.m; sourceTree = "<group>"; };
+		182A12871E4B7D68001B7DDA /* ANStorageSectionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANStorageSectionModel.h; sourceTree = "<group>"; };
+		182A12881E4B7D68001B7DDA /* ANStorageSectionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageSectionModel.m; sourceTree = "<group>"; };
+		182A12891E4B7D68001B7DDA /* ANStorageSectionModelInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANStorageSectionModelInterface.h; sourceTree = "<group>"; };
+		182A128B1E4B7D68001B7DDA /* ANStorageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANStorageModel.h; sourceTree = "<group>"; };
+		182A128C1E4B7D68001B7DDA /* ANStorageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageModel.m; sourceTree = "<group>"; };
+		182A128E1E4B7D68001B7DDA /* ANStorageUpdateModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANStorageUpdateModel.h; sourceTree = "<group>"; };
+		182A128F1E4B7D68001B7DDA /* ANStorageUpdateModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageUpdateModel.m; sourceTree = "<group>"; };
+		182A12901E4B7D68001B7DDA /* ANStorageUpdateModelInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANStorageUpdateModelInterface.h; sourceTree = "<group>"; };
+		182A12921E4B7D68001B7DDA /* ANStorageListUpdateOperationInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANStorageListUpdateOperationInterface.h; sourceTree = "<group>"; };
+		182A12931E4B7D68001B7DDA /* ANStorageUpdateOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANStorageUpdateOperation.h; sourceTree = "<group>"; };
+		182A12941E4B7D68001B7DDA /* ANStorageUpdateOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageUpdateOperation.m; sourceTree = "<group>"; };
+		182A12951E4B7D68001B7DDA /* ANStorageUpdateOperationInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANStorageUpdateOperationInterface.h; sourceTree = "<group>"; };
+		182A12991E4B7D68001B7DDA /* ANStorageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANStorageLoader.h; sourceTree = "<group>"; };
+		182A129A1E4B7D68001B7DDA /* ANStorageLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageLoader.m; sourceTree = "<group>"; };
+		182A129C1E4B7D68001B7DDA /* ANStorageRemover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANStorageRemover.h; sourceTree = "<group>"; };
+		182A129D1E4B7D68001B7DDA /* ANStorageRemover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageRemover.m; sourceTree = "<group>"; };
+		182A129F1E4B7D68001B7DDA /* ANStorageUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANStorageUpdater.h; sourceTree = "<group>"; };
+		182A12A01E4B7D68001B7DDA /* ANStorageUpdater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageUpdater.m; sourceTree = "<group>"; };
+		182A12A21E4B7D68001B7DDA /* ANStorageDebugDataGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANStorageDebugDataGenerator.h; sourceTree = "<group>"; };
+		182A12A31E4B7D68001B7DDA /* ANStorageDebugDataGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageDebugDataGenerator.m; sourceTree = "<group>"; };
+		182A12A51E4B7D68001B7DDA /* ANStorageValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANStorageValidator.h; sourceTree = "<group>"; };
+		182A12A61E4B7D68001B7DDA /* ANStorageValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageValidator.m; sourceTree = "<group>"; };
+		182A12A81E4B7D68001B7DDA /* ANStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANStorage.h; sourceTree = "<group>"; };
+		182A12A91E4B7D68001B7DDA /* ANStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorage.m; sourceTree = "<group>"; };
 		1841F1FC1DEC70CA00FE2999 /* ANAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANAppDelegate.h; sourceTree = "<group>"; };
 		1841F1FD1DEC70CA00FE2999 /* ANAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANAppDelegate.m; sourceTree = "<group>"; };
 		1841F1FF1DEC70CA00FE2999 /* ANECustomFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANECustomFooterView.h; sourceTree = "<group>"; };
@@ -168,19 +274,18 @@
 		1841F2931DEC70F100FE2999 /* XCTestCase+Springboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XCTestCase+Springboard.m"; sourceTree = "<group>"; };
 		1841F3001DEC735400FE2999 /* ANECollectionCustomSupplementaryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANECollectionCustomSupplementaryController.h; sourceTree = "<group>"; };
 		1841F3011DEC735400FE2999 /* ANECollectionCustomSupplementaryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANECollectionCustomSupplementaryController.m; sourceTree = "<group>"; };
-		349A8056AC086F0DD0C757F1 /* Pods-Alister-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister-Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Alister-Tests/Pods-Alister-Tests.release.xcconfig"; sourceTree = "<group>"; };
-		3955DB5286C6B62EADC4CFFF /* Pods-Alister-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister-Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Alister-Tests/Pods-Alister-Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		5A48C1C6D522CC417AF71E09 /* Pods-Alister-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister-Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Alister-Example/Pods-Alister-Example.release.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* Alister-Example_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Alister-Example_Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		6003F591195388D20070C39A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		67F723D14E37707CF7B3B190 /* Pods-Alister-Example-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister-Example-Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Alister-Example-Tests/Pods-Alister-Example-Tests.release.xcconfig"; sourceTree = "<group>"; };
 		6B2FC9B41E0B02F7C55AE811 /* libPods-Alister-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Alister-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		714527334026D6C1A2430887 /* libPods-Alister-Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Alister-Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B9D7C4E7D094FE97C47B15D /* Pods-Alister-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister-Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Alister-Example/Pods-Alister-Example.debug.xcconfig"; sourceTree = "<group>"; };
 		AC990585C63BBA3EFB2F905E /* libPods-Alister-Example-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Alister-Example-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		CB2099F6E4049388FFBA7187 /* Pods-Alister-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister-Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Alister-Example/Pods-Alister-Example.debug.xcconfig"; sourceTree = "<group>"; };
-		D7348F0A1DCD61A300CC114A /* Alister-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Alister-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CFE6FF2A30CDCD3F8BB0F6FF /* Pods-Alister-Example-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister-Example-Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Alister-Example-Tests/Pods-Alister-Example-Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		D03EB4CCE4B8E747D5914958 /* Pods-Alister-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister-Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Alister-Example/Pods-Alister-Example.release.xcconfig"; sourceTree = "<group>"; };
 		D795BA061DA7253400668587 /* StyleSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = StyleSettings.plist; sourceTree = "<group>"; };
 		D7A21DE91DA895B500D6D803 /* Alister-Example-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Alister-Example-Info.plist"; sourceTree = "<group>"; };
 		D7A21DEA1DA895B500D6D803 /* Alister-Example-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Alister-Example-Prefix.pch"; sourceTree = "<group>"; };
@@ -191,7 +296,6 @@
 		D7A21E1C1DA89AD300D6D803 /* Alister_Example_ExampleUITests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Alister_Example_ExampleUITests.m; sourceTree = "<group>"; };
 		D7EC43CC1D512EE300128012 /* Alister-Example-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Alister-Example-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7EC43D01D512EE300128012 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F94C3A38CF0AB0BC1BBB034E /* Pods-Alister-Example-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister-Example-Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Alister-Example-Tests/Pods-Alister-Example-Tests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,14 +310,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D7348F071DCD61A300CC114A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C38A7FCBD878748A3AEE97A8 /* libPods-Alister-Tests.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		D7EC43C91D512EE300128012 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -225,6 +321,472 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		182A12281E4B7D68001B7DDA /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				182A12291E4B7D68001B7DDA /* ANKeyboardHandler */,
+				182A122C1E4B7D68001B7DDA /* ANListController */,
+				182A125E1E4B7D68001B7DDA /* ANPrototypingUIKit */,
+				182A127B1E4B7D68001B7DDA /* ANStorage */,
+			);
+			name = Classes;
+			path = ../Alister/Classes;
+			sourceTree = "<group>";
+		};
+		182A12291E4B7D68001B7DDA /* ANKeyboardHandler */ = {
+			isa = PBXGroup;
+			children = (
+				182A122A1E4B7D68001B7DDA /* ANKeyboardHandler.h */,
+				182A122B1E4B7D68001B7DDA /* ANKeyboardHandler.m */,
+			);
+			path = ANKeyboardHandler;
+			sourceTree = "<group>";
+		};
+		182A122C1E4B7D68001B7DDA /* ANListController */ = {
+			isa = PBXGroup;
+			children = (
+				182A122D1E4B7D68001B7DDA /* CollectonController */,
+				182A12311E4B7D68001B7DDA /* Core */,
+				182A124F1E4B7D68001B7DDA /* Headers */,
+				182A12511E4B7D68001B7DDA /* TableController */,
+			);
+			path = ANListController;
+			sourceTree = "<group>";
+		};
+		182A122D1E4B7D68001B7DDA /* CollectonController */ = {
+			isa = PBXGroup;
+			children = (
+				182A122E1E4B7D68001B7DDA /* Controller */,
+			);
+			path = CollectonController;
+			sourceTree = "<group>";
+		};
+		182A122E1E4B7D68001B7DDA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				182A122F1E4B7D68001B7DDA /* ANCollectionController.h */,
+				182A12301E4B7D68001B7DDA /* ANCollectionController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		182A12311E4B7D68001B7DDA /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				182A12321E4B7D68001B7DDA /* ConfigurationModel */,
+				182A12351E4B7D68001B7DDA /* Controller */,
+				182A12391E4B7D68001B7DDA /* Interfaces */,
+				182A123B1E4B7D68001B7DDA /* ItemsHandler */,
+				182A123F1E4B7D68001B7DDA /* Mapping */,
+				182A12431E4B7D68001B7DDA /* QueueProcessor */,
+				182A12491E4B7D68001B7DDA /* ViewWrappers */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		182A12321E4B7D68001B7DDA /* ConfigurationModel */ = {
+			isa = PBXGroup;
+			children = (
+				182A12331E4B7D68001B7DDA /* ANTableUpdateConfigurationModel.h */,
+				182A12341E4B7D68001B7DDA /* ANTableUpdateConfigurationModel.m */,
+			);
+			path = ConfigurationModel;
+			sourceTree = "<group>";
+		};
+		182A12351E4B7D68001B7DDA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				182A12361E4B7D68001B7DDA /* ANListController+Interitance.h */,
+				182A12371E4B7D68001B7DDA /* ANListController.h */,
+				182A12381E4B7D68001B7DDA /* ANListController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		182A12391E4B7D68001B7DDA /* Interfaces */ = {
+			isa = PBXGroup;
+			children = (
+				182A123A1E4B7D68001B7DDA /* ANListControllerUpdateViewInterface.h */,
+			);
+			path = Interfaces;
+			sourceTree = "<group>";
+		};
+		182A123B1E4B7D68001B7DDA /* ItemsHandler */ = {
+			isa = PBXGroup;
+			children = (
+				182A123C1E4B7D68001B7DDA /* ANListControllerItemsHandler.h */,
+				182A123D1E4B7D68001B7DDA /* ANListControllerItemsHandler.m */,
+				182A123E1E4B7D68001B7DDA /* ANListControllerReusableInterface.h */,
+			);
+			path = ItemsHandler;
+			sourceTree = "<group>";
+		};
+		182A123F1E4B7D68001B7DDA /* Mapping */ = {
+			isa = PBXGroup;
+			children = (
+				182A12401E4B7D68001B7DDA /* ANListControllerMappingService.h */,
+				182A12411E4B7D68001B7DDA /* ANListControllerMappingService.m */,
+				182A12421E4B7D68001B7DDA /* ANListControllerMappingServiceInterface.h */,
+			);
+			path = Mapping;
+			sourceTree = "<group>";
+		};
+		182A12431E4B7D68001B7DDA /* QueueProcessor */ = {
+			isa = PBXGroup;
+			children = (
+				182A12441E4B7D68001B7DDA /* ANListControllerReloadOperation.h */,
+				182A12451E4B7D68001B7DDA /* ANListControllerReloadOperation.m */,
+				182A12461E4B7D68001B7DDA /* ANListControllerUpdateService.h */,
+				182A12471E4B7D68001B7DDA /* ANListControllerUpdateService.m */,
+				182A12481E4B7D68001B7DDA /* ANListControllerUpdateServiceInterface.h */,
+			);
+			path = QueueProcessor;
+			sourceTree = "<group>";
+		};
+		182A12491E4B7D68001B7DDA /* ViewWrappers */ = {
+			isa = PBXGroup;
+			children = (
+				182A124A1E4B7D68001B7DDA /* ANListCollectionView.h */,
+				182A124B1E4B7D68001B7DDA /* ANListCollectionView.m */,
+				182A124C1E4B7D68001B7DDA /* ANListTableView.h */,
+				182A124D1E4B7D68001B7DDA /* ANListTableView.m */,
+				182A124E1E4B7D68001B7DDA /* ANListViewInterface.h */,
+			);
+			path = ViewWrappers;
+			sourceTree = "<group>";
+		};
+		182A124F1E4B7D68001B7DDA /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				182A12501E4B7D68001B7DDA /* Alister.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		182A12511E4B7D68001B7DDA /* TableController */ = {
+			isa = PBXGroup;
+			children = (
+				182A12521E4B7D68001B7DDA /* Controller */,
+				182A12551E4B7D68001B7DDA /* Headers */,
+				182A12571E4B7D68001B7DDA /* Private */,
+			);
+			path = TableController;
+			sourceTree = "<group>";
+		};
+		182A12521E4B7D68001B7DDA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				182A12531E4B7D68001B7DDA /* ANTableController.h */,
+				182A12541E4B7D68001B7DDA /* ANTableController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		182A12551E4B7D68001B7DDA /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				182A12561E4B7D68001B7DDA /* ANListControllerLog.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		182A12571E4B7D68001B7DDA /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				182A12581E4B7D68001B7DDA /* Operation */,
+				182A125B1E4B7D68001B7DDA /* SearchManager */,
+			);
+			path = Private;
+			sourceTree = "<group>";
+		};
+		182A12581E4B7D68001B7DDA /* Operation */ = {
+			isa = PBXGroup;
+			children = (
+				182A12591E4B7D68001B7DDA /* ANListControllerUpdateOperation.h */,
+				182A125A1E4B7D68001B7DDA /* ANListControllerUpdateOperation.m */,
+			);
+			path = Operation;
+			sourceTree = "<group>";
+		};
+		182A125B1E4B7D68001B7DDA /* SearchManager */ = {
+			isa = PBXGroup;
+			children = (
+				182A125C1E4B7D68001B7DDA /* ANListControllerSearchManager.h */,
+				182A125D1E4B7D68001B7DDA /* ANListControllerSearchManager.m */,
+			);
+			path = SearchManager;
+			sourceTree = "<group>";
+		};
+		182A125E1E4B7D68001B7DDA /* ANPrototypingUIKit */ = {
+			isa = PBXGroup;
+			children = (
+				182A125F1E4B7D68001B7DDA /* CollectionView */,
+				182A12641E4B7D68001B7DDA /* TableView */,
+			);
+			path = ANPrototypingUIKit;
+			sourceTree = "<group>";
+		};
+		182A125F1E4B7D68001B7DDA /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				182A12601E4B7D68001B7DDA /* ANCollectionReusableView.h */,
+				182A12611E4B7D68001B7DDA /* ANCollectionReusableView.m */,
+				182A12621E4B7D68001B7DDA /* ANCollectionViewCell.h */,
+				182A12631E4B7D68001B7DDA /* ANCollectionViewCell.m */,
+			);
+			path = CollectionView;
+			sourceTree = "<group>";
+		};
+		182A12641E4B7D68001B7DDA /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				182A12651E4B7D68001B7DDA /* ANTableContainerView */,
+				182A12681E4B7D68001B7DDA /* ANTableView.h */,
+				182A12691E4B7D68001B7DDA /* ANTableView.m */,
+				182A126A1E4B7D68001B7DDA /* Cell */,
+				182A12711E4B7D68001B7DDA /* Supplementary */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		182A12651E4B7D68001B7DDA /* ANTableContainerView */ = {
+			isa = PBXGroup;
+			children = (
+				182A12661E4B7D68001B7DDA /* ANTableContainerView.h */,
+				182A12671E4B7D68001B7DDA /* ANTableContainerView.m */,
+			);
+			path = ANTableContainerView;
+			sourceTree = "<group>";
+		};
+		182A126A1E4B7D68001B7DDA /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				182A126B1E4B7D68001B7DDA /* ANBaseListTableCell */,
+				182A126E1E4B7D68001B7DDA /* ANBaseTableViewCell */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		182A126B1E4B7D68001B7DDA /* ANBaseListTableCell */ = {
+			isa = PBXGroup;
+			children = (
+				182A126C1E4B7D68001B7DDA /* ANBaseListTableCell.h */,
+				182A126D1E4B7D68001B7DDA /* ANBaseListTableCell.m */,
+			);
+			path = ANBaseListTableCell;
+			sourceTree = "<group>";
+		};
+		182A126E1E4B7D68001B7DDA /* ANBaseTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				182A126F1E4B7D68001B7DDA /* ANBaseTableViewCell.h */,
+				182A12701E4B7D68001B7DDA /* ANBaseTableViewCell.m */,
+			);
+			path = ANBaseTableViewCell;
+			sourceTree = "<group>";
+		};
+		182A12711E4B7D68001B7DDA /* Supplementary */ = {
+			isa = PBXGroup;
+			children = (
+				182A12721E4B7D68001B7DDA /* Base */,
+				182A12751E4B7D68001B7DDA /* Footer */,
+				182A12781E4B7D68001B7DDA /* Header */,
+			);
+			path = Supplementary;
+			sourceTree = "<group>";
+		};
+		182A12721E4B7D68001B7DDA /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				182A12731E4B7D68001B7DDA /* ANBaseTableViewHeaderFooterView.h */,
+				182A12741E4B7D68001B7DDA /* ANBaseTableViewHeaderFooterView.m */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		182A12751E4B7D68001B7DDA /* Footer */ = {
+			isa = PBXGroup;
+			children = (
+				182A12761E4B7D68001B7DDA /* ANBaseTableFooterView.h */,
+				182A12771E4B7D68001B7DDA /* ANBaseTableFooterView.m */,
+			);
+			path = Footer;
+			sourceTree = "<group>";
+		};
+		182A12781E4B7D68001B7DDA /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				182A12791E4B7D68001B7DDA /* ANBaseTableHeaderView.h */,
+				182A127A1E4B7D68001B7DDA /* ANBaseTableHeaderView.m */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		182A127B1E4B7D68001B7DDA /* ANStorage */ = {
+			isa = PBXGroup;
+			children = (
+				182A127C1E4B7D68001B7DDA /* Headers */,
+				182A127E1E4B7D68001B7DDA /* Interface */,
+				182A12821E4B7D68001B7DDA /* Models */,
+				182A12911E4B7D68001B7DDA /* Operations */,
+				182A12961E4B7D68001B7DDA /* Private */,
+				182A12A71E4B7D68001B7DDA /* Storage */,
+			);
+			path = ANStorage;
+			sourceTree = "<group>";
+		};
+		182A127C1E4B7D68001B7DDA /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				182A127D1E4B7D68001B7DDA /* ANStorageLog.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		182A127E1E4B7D68001B7DDA /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				182A127F1E4B7D68001B7DDA /* ANStorageRetrivingInterface.h */,
+				182A12801E4B7D68001B7DDA /* ANStorageUpdatableInterface.h */,
+				182A12811E4B7D68001B7DDA /* ANStorageUpdateEventsDelegate.h */,
+			);
+			path = Interface;
+			sourceTree = "<group>";
+		};
+		182A12821E4B7D68001B7DDA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				182A12831E4B7D68001B7DDA /* MovedIndexPath */,
+				182A12861E4B7D68001B7DDA /* Section */,
+				182A128A1E4B7D68001B7DDA /* Storage */,
+				182A128D1E4B7D68001B7DDA /* Update */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		182A12831E4B7D68001B7DDA /* MovedIndexPath */ = {
+			isa = PBXGroup;
+			children = (
+				182A12841E4B7D68001B7DDA /* ANStorageMovedIndexPathModel.h */,
+				182A12851E4B7D68001B7DDA /* ANStorageMovedIndexPathModel.m */,
+			);
+			path = MovedIndexPath;
+			sourceTree = "<group>";
+		};
+		182A12861E4B7D68001B7DDA /* Section */ = {
+			isa = PBXGroup;
+			children = (
+				182A12871E4B7D68001B7DDA /* ANStorageSectionModel.h */,
+				182A12881E4B7D68001B7DDA /* ANStorageSectionModel.m */,
+				182A12891E4B7D68001B7DDA /* ANStorageSectionModelInterface.h */,
+			);
+			path = Section;
+			sourceTree = "<group>";
+		};
+		182A128A1E4B7D68001B7DDA /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				182A128B1E4B7D68001B7DDA /* ANStorageModel.h */,
+				182A128C1E4B7D68001B7DDA /* ANStorageModel.m */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		182A128D1E4B7D68001B7DDA /* Update */ = {
+			isa = PBXGroup;
+			children = (
+				182A128E1E4B7D68001B7DDA /* ANStorageUpdateModel.h */,
+				182A128F1E4B7D68001B7DDA /* ANStorageUpdateModel.m */,
+				182A12901E4B7D68001B7DDA /* ANStorageUpdateModelInterface.h */,
+			);
+			path = Update;
+			sourceTree = "<group>";
+		};
+		182A12911E4B7D68001B7DDA /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				182A12921E4B7D68001B7DDA /* ANStorageListUpdateOperationInterface.h */,
+				182A12931E4B7D68001B7DDA /* ANStorageUpdateOperation.h */,
+				182A12941E4B7D68001B7DDA /* ANStorageUpdateOperation.m */,
+				182A12951E4B7D68001B7DDA /* ANStorageUpdateOperationInterface.h */,
+			);
+			path = Operations;
+			sourceTree = "<group>";
+		};
+		182A12961E4B7D68001B7DDA /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				182A12971E4B7D68001B7DDA /* Data */,
+				182A12A11E4B7D68001B7DDA /* DebugData */,
+				182A12A41E4B7D68001B7DDA /* Validator */,
+			);
+			path = Private;
+			sourceTree = "<group>";
+		};
+		182A12971E4B7D68001B7DDA /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				182A12981E4B7D68001B7DDA /* Loader */,
+				182A129B1E4B7D68001B7DDA /* Remover */,
+				182A129E1E4B7D68001B7DDA /* Updater */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		182A12981E4B7D68001B7DDA /* Loader */ = {
+			isa = PBXGroup;
+			children = (
+				182A12991E4B7D68001B7DDA /* ANStorageLoader.h */,
+				182A129A1E4B7D68001B7DDA /* ANStorageLoader.m */,
+			);
+			path = Loader;
+			sourceTree = "<group>";
+		};
+		182A129B1E4B7D68001B7DDA /* Remover */ = {
+			isa = PBXGroup;
+			children = (
+				182A129C1E4B7D68001B7DDA /* ANStorageRemover.h */,
+				182A129D1E4B7D68001B7DDA /* ANStorageRemover.m */,
+			);
+			path = Remover;
+			sourceTree = "<group>";
+		};
+		182A129E1E4B7D68001B7DDA /* Updater */ = {
+			isa = PBXGroup;
+			children = (
+				182A129F1E4B7D68001B7DDA /* ANStorageUpdater.h */,
+				182A12A01E4B7D68001B7DDA /* ANStorageUpdater.m */,
+			);
+			path = Updater;
+			sourceTree = "<group>";
+		};
+		182A12A11E4B7D68001B7DDA /* DebugData */ = {
+			isa = PBXGroup;
+			children = (
+				182A12A21E4B7D68001B7DDA /* ANStorageDebugDataGenerator.h */,
+				182A12A31E4B7D68001B7DDA /* ANStorageDebugDataGenerator.m */,
+			);
+			path = DebugData;
+			sourceTree = "<group>";
+		};
+		182A12A41E4B7D68001B7DDA /* Validator */ = {
+			isa = PBXGroup;
+			children = (
+				182A12A51E4B7D68001B7DDA /* ANStorageValidator.h */,
+				182A12A61E4B7D68001B7DDA /* ANStorageValidator.m */,
+			);
+			path = Validator;
+			sourceTree = "<group>";
+		};
+		182A12A71E4B7D68001B7DDA /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				182A12A81E4B7D68001B7DDA /* ANStorage.h */,
+				182A12A91E4B7D68001B7DDA /* ANStorage.m */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
 		1841F1FB1DEC70CA00FE2999 /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
@@ -509,13 +1071,14 @@
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
+				182A12281E4B7D68001B7DDA /* Classes */,
 				D7A21DE41DA895B500D6D803 /* Alister-Example */,
 				D7EC43CD1D512EE300128012 /* Alister-Example-Tests */,
 				D7A21E131DA89A7500D6D803 /* Alister-Example-UITests */,
 				D795BA061DA7253400668587 /* StyleSettings.plist */,
 				6003F58C195388D20070C39A /* Frameworks */,
 				6003F58B195388D20070C39A /* Products */,
-				FABC739016B08881E2AEF090 /* Pods */,
+				B55EB7EAEA696EC2F9D79446 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -524,7 +1087,6 @@
 			children = (
 				6003F58A195388D20070C39A /* Alister-Example_Example.app */,
 				D7EC43CC1D512EE300128012 /* Alister-Example-Tests.xctest */,
-				D7348F0A1DCD61A300CC114A /* Alister-Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -541,6 +1103,17 @@
 				6B2FC9B41E0B02F7C55AE811 /* libPods-Alister-Tests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B55EB7EAEA696EC2F9D79446 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8B9D7C4E7D094FE97C47B15D /* Pods-Alister-Example.debug.xcconfig */,
+				D03EB4CCE4B8E747D5914958 /* Pods-Alister-Example.release.xcconfig */,
+				CFE6FF2A30CDCD3F8BB0F6FF /* Pods-Alister-Example-Tests.debug.xcconfig */,
+				67F723D14E37707CF7B3B190 /* Pods-Alister-Example-Tests.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		D7A21DE41DA895B500D6D803 /* Alister-Example */ = {
@@ -588,19 +1161,6 @@
 			path = "Alister-Example-Tests";
 			sourceTree = "<group>";
 		};
-		FABC739016B08881E2AEF090 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				CB2099F6E4049388FFBA7187 /* Pods-Alister-Example.debug.xcconfig */,
-				5A48C1C6D522CC417AF71E09 /* Pods-Alister-Example.release.xcconfig */,
-				019F2C73D93E6032B674EAE3 /* Pods-Alister-Example-Tests.debug.xcconfig */,
-				F94C3A38CF0AB0BC1BBB034E /* Pods-Alister-Example-Tests.release.xcconfig */,
-				3955DB5286C6B62EADC4CFFF /* Pods-Alister-Tests.debug.xcconfig */,
-				349A8056AC086F0DD0C757F1 /* Pods-Alister-Tests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -608,17 +1168,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6003F5BF195388D20070C39A /* Build configuration list for PBXNativeTarget "Alister-Example" */;
 			buildPhases = (
-				8DEFFEDDAE67F3651325332D /* [CP] Check Pods Manifest.lock */,
-				59A0B9A8A89BB973779AF899 /* [CP] Check Pods Manifest.lock */,
+				B7F1CB3B1F2CFE530DA20D31 /* [CP] Check Pods Manifest.lock */,
 				6003F586195388D20070C39A /* Sources */,
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
-				6D237E929AC908222EA8BC93 /* [CP] Embed Pods Frameworks */,
-				7026C6C66CCE5A847CEDB1A9 /* [CP] Copy Pods Resources */,
-				D08A4EF17770C1C105F37053 /* üì¶ Embed Pods Frameworks */,
-				10AA9226888A63821B7F7B0E /* üì¶ Copy Pods Resources */,
 				OBJCLEANCUSTOMRUNSCRIPTT /* Objective-Clean Run Script */,
 				186EA9CA1E49E2CC00214F73 /* Embed Frameworks */,
+				8F7324D8C4210BA1460E1B5B /* [CP] Embed Pods Frameworks */,
+				484A3215907B057A94859523 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -628,27 +1185,6 @@
 			productName = Alister;
 			productReference = 6003F58A195388D20070C39A /* Alister-Example_Example.app */;
 			productType = "com.apple.product-type.application";
-		};
-		D7348F091DCD61A300CC114A /* Alister-Tests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D7348F111DCD61A300CC114A /* Build configuration list for PBXNativeTarget "Alister-Tests" */;
-			buildPhases = (
-				57522E1F6BB77B7389F61778 /* [CP] Check Pods Manifest.lock */,
-				D7348F061DCD61A300CC114A /* Sources */,
-				D7348F071DCD61A300CC114A /* Frameworks */,
-				D7348F081DCD61A300CC114A /* Resources */,
-				F05E7F7E433DEACBB36CD859 /* [CP] Embed Pods Frameworks */,
-				76E0EFEB3F8FE556F02786AC /* [CP] Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D7348F101DCD61A300CC114A /* PBXTargetDependency */,
-			);
-			name = "Alister-Tests";
-			productName = "Alister-Tests";
-			productReference = D7348F0A1DCD61A300CC114A /* Alister-Tests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		D7EC43CB1D512EE300128012 /* Alister-Example-Tests */ = {
 			isa = PBXNativeTarget;
@@ -688,12 +1224,6 @@
 						DevelopmentTeam = 7VYW9J77NX;
 						ProvisioningStyle = Automatic;
 					};
-					D7348F091DCD61A300CC114A = {
-						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = 7VYW9J77NX;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 6003F589195388D20070C39A;
-					};
 					D7EC43CB1D512EE300128012 = {
 						CreatedOnToolsVersion = 7.2.1;
 						DevelopmentTeam = 7VYW9J77NX;
@@ -717,7 +1247,6 @@
 			targets = (
 				6003F589195388D20070C39A /* Alister-Example */,
 				D7EC43CB1D512EE300128012 /* Alister-Example-Tests */,
-				D7348F091DCD61A300CC114A /* Alister-Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -734,13 +1263,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D7348F081DCD61A300CC114A /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		D7EC43CA1D512EE300128012 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -751,21 +1273,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		10AA9226888A63821B7F7B0E /* üì¶ Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "üì¶ Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Alister-Example/Pods-Alister-Example-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		305A6DD883E3CEEFE78A4585 /* üì¶ Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -781,19 +1288,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Alister-Example-Tests/Pods-Alister-Example-Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		57522E1F6BB77B7389F61778 /* [CP] Check Pods Manifest.lock */ = {
+		484A3215907B057A94859523 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "[CP] Check Pods Manifest.lock";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Alister-Example/Pods-Alister-Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		57D5A486518A6A5E7C136536 /* [CP] Check Pods Manifest.lock */ = {
@@ -811,51 +1318,6 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		59A0B9A8A89BB973779AF899 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		6D237E929AC908222EA8BC93 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Alister-Example/Pods-Alister-Example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7026C6C66CCE5A847CEDB1A9 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Alister-Example/Pods-Alister-Example-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		71C0A3D1AB9BD8D5A6B7F42F /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -871,22 +1333,22 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Alister-Example-Tests/Pods-Alister-Example-Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		76E0EFEB3F8FE556F02786AC /* [CP] Copy Pods Resources */ = {
+		8F7324D8C4210BA1460E1B5B /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "[CP] Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Alister-Tests/Pods-Alister-Tests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Alister-Example/Pods-Alister-Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8DEFFEDDAE67F3651325332D /* [CP] Check Pods Manifest.lock */ = {
+		B7F1CB3B1F2CFE530DA20D31 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -914,21 +1376,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Alister-Example-Tests/Pods-Alister-Example-Tests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D08A4EF17770C1C105F37053 /* üì¶ Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "üì¶ Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Alister-Example/Pods-Alister-Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D56DD72273A720591DF36757 /* üì¶ Copy Pods Resources */ = {
@@ -961,21 +1408,6 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		F05E7F7E433DEACBB36CD859 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Alister-Tests/Pods-Alister-Tests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		OBJCLEANCUSTOMRUNSCRIPTT /* Objective-Clean Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -997,38 +1429,64 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				182A12B61E4B7D68001B7DDA /* ANListControllerSearchManager.m in Sources */,
 				1841F2571DEC70CA00FE2999 /* ANEReorderingController.m in Sources */,
 				1841F24D1DEC70CA00FE2999 /* ANECollectionFooterView.m in Sources */,
+				182A12AA1E4B7D68001B7DDA /* ANKeyboardHandler.m in Sources */,
 				1841F2421DEC70CA00FE2999 /* ANAppDelegate.m in Sources */,
+				182A12C61E4B7D69001B7DDA /* ANStorageRemover.m in Sources */,
+				182A12AF1E4B7D68001B7DDA /* ANListControllerMappingService.m in Sources */,
+				182A12B51E4B7D68001B7DDA /* ANListControllerUpdateOperation.m in Sources */,
 				1841F2481DEC70CA00FE2999 /* ANEDataGenerator.m in Sources */,
+				182A12C51E4B7D69001B7DDA /* ANStorageLoader.m in Sources */,
 				1841F24E1DEC70CA00FE2999 /* ANECollectionHeaderView.m in Sources */,
 				1841F24C1DEC70CA00FE2999 /* ANECollectionCustomSupplementaryVC.m in Sources */,
+				182A12C21E4B7D69001B7DDA /* ANStorageModel.m in Sources */,
 				1841F25B1DEC70CA00FE2999 /* ANESearchBarView.m in Sources */,
 				1841F3021DEC735400FE2999 /* ANECollectionCustomSupplementaryController.m in Sources */,
+				182A12B11E4B7D68001B7DDA /* ANListControllerUpdateService.m in Sources */,
 				D7A21E051DA895B500D6D803 /* main.m in Sources */,
 				1841F2551DEC70CA00FE2999 /* ANECollectionViewVC.m in Sources */,
 				1841F2501DEC70CA00FE2999 /* ANECustomSupplementaryVC.m in Sources */,
 				1841F2511DEC70CA00FE2999 /* ANEDefaultSupplementaryVC.m in Sources */,
 				1841F2451DEC70CA00FE2999 /* ANECustomHeaderView.m in Sources */,
+				182A12C31E4B7D69001B7DDA /* ANStorageUpdateModel.m in Sources */,
 				1841F24F1DEC70CA00FE2999 /* ANECustomSupplementaryController.m in Sources */,
 				1841F2491DEC70CA00FE2999 /* ANEBottomStickedFooterVC.m in Sources */,
+				182A12BF1E4B7D69001B7DDA /* ANBaseTableHeaderView.m in Sources */,
+				182A12BA1E4B7D68001B7DDA /* ANTableView.m in Sources */,
+				182A12CA1E4B7D69001B7DDA /* ANStorage.m in Sources */,
 				1841F2441DEC70CA00FE2999 /* ANECustomFooterViewModel.m in Sources */,
+				182A12BE1E4B7D69001B7DDA /* ANBaseTableFooterView.m in Sources */,
 				1841F24A1DEC70CA00FE2999 /* ANEButtonFooterView.m in Sources */,
+				182A12BD1E4B7D69001B7DDA /* ANBaseTableViewHeaderFooterView.m in Sources */,
+				182A12AB1E4B7D68001B7DDA /* ANCollectionController.m in Sources */,
+				182A12BB1E4B7D68001B7DDA /* ANBaseListTableCell.m in Sources */,
+				182A12BC1E4B7D68001B7DDA /* ANBaseTableViewCell.m in Sources */,
+				182A12B81E4B7D68001B7DDA /* ANCollectionViewCell.m in Sources */,
+				182A12C01E4B7D69001B7DDA /* ANStorageMovedIndexPathModel.m in Sources */,
 				1841F2541DEC70CA00FE2999 /* ANECollectionViewController.m in Sources */,
 				1841F2471DEC70CA00FE2999 /* ANELabelTableViewCell.m in Sources */,
+				182A12AC1E4B7D68001B7DDA /* ANTableUpdateConfigurationModel.m in Sources */,
+				182A12C11E4B7D69001B7DDA /* ANStorageSectionModel.m in Sources */,
+				182A12AD1E4B7D68001B7DDA /* ANListController.m in Sources */,
 				1841F2531DEC70CA00FE2999 /* ANEMainVC.m in Sources */,
+				182A12B01E4B7D68001B7DDA /* ANListControllerReloadOperation.m in Sources */,
+				182A12B31E4B7D68001B7DDA /* ANListTableView.m in Sources */,
+				182A12B71E4B7D68001B7DDA /* ANCollectionReusableView.m in Sources */,
+				182A12C71E4B7D69001B7DDA /* ANStorageUpdater.m in Sources */,
+				182A12AE1E4B7D68001B7DDA /* ANListControllerItemsHandler.m in Sources */,
+				182A12B41E4B7D68001B7DDA /* ANTableController.m in Sources */,
+				182A12C91E4B7D69001B7DDA /* ANStorageValidator.m in Sources */,
 				1841F2581DEC70CA00FE2999 /* ANEReorderingVC.m in Sources */,
 				1841F25A1DEC70CA00FE2999 /* ANESearchBarVC.m in Sources */,
 				1841F2561DEC70CA00FE2999 /* ANECollectionViewCell.m in Sources */,
 				1841F2431DEC70CA00FE2999 /* ANECustomFooterView.m in Sources */,
+				182A12B91E4B7D68001B7DDA /* ANTableContainerView.m in Sources */,
+				182A12C81E4B7D69001B7DDA /* ANStorageDebugDataGenerator.m in Sources */,
+				182A12C41E4B7D69001B7DDA /* ANStorageUpdateOperation.m in Sources */,
 				1841F2461DEC70CA00FE2999 /* ANECustomHeaderViewModel.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D7348F061DCD61A300CC114A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				182A12B21E4B7D68001B7DDA /* ANListCollectionView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1061,11 +1519,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		D7348F101DCD61A300CC114A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 6003F589195388D20070C39A /* Alister-Example */;
-			targetProxy = D7348F0F1DCD61A300CC114A /* PBXContainerItemProxy */;
-		};
 		D7EC43D21D512EE300128012 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 6003F589195388D20070C39A /* Alister-Example */;
@@ -1245,7 +1698,7 @@
 		};
 		6003F5C0195388D20070C39A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CB2099F6E4049388FFBA7187 /* Pods-Alister-Example.debug.xcconfig */;
+			baseConfigurationReference = 8B9D7C4E7D094FE97C47B15D /* Pods-Alister-Example.debug.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1304,7 +1757,7 @@
 		};
 		6003F5C1195388D20070C39A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5A48C1C6D522CC417AF71E09 /* Pods-Alister-Example.release.xcconfig */;
+			baseConfigurationReference = D03EB4CCE4B8E747D5914958 /* Pods-Alister-Example.release.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1360,67 +1813,9 @@
 			};
 			name = Release;
 		};
-		D7348F121DCD61A300CC114A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3955DB5286C6B62EADC4CFFF /* Pods-Alister-Tests.debug.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ANALYZER_LOCALIZABILITY_EMPTY_CONTEXT = NO;
-				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = NO;
-				CLANG_WARN_SUSPICIOUS_MOVES = YES;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = 7VYW9J77NX;
-				ENABLE_NS_ASSERTIONS = NO;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Alister-Tests/AlisterTests.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"$(inherited)",
-					"COCOAPODS=1",
-				);
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "Alister-Tests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "mobi.anoda.alister-tests.Alister-Tests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Alister-Example_Example.app/Alister-Example_Example";
-			};
-			name = Debug;
-		};
-		D7348F131DCD61A300CC114A /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 349A8056AC086F0DD0C757F1 /* Pods-Alister-Tests.release.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ANALYZER_LOCALIZABILITY_EMPTY_CONTEXT = NO;
-				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = NO;
-				CLANG_WARN_SUSPICIOUS_MOVES = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = 7VYW9J77NX;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Alister-Tests/AlisterTests.pch";
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "Alister-Tests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "mobi.anoda.alister-tests.Alister-Tests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Alister-Example_Example.app/Alister-Example_Example";
-			};
-			name = Release;
-		};
 		D7EC43D41D512EE300128012 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 019F2C73D93E6032B674EAE3 /* Pods-Alister-Example-Tests.debug.xcconfig */;
+			baseConfigurationReference = CFE6FF2A30CDCD3F8BB0F6FF /* Pods-Alister-Example-Tests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_LOCALIZABILITY_EMPTY_CONTEXT = NO;
@@ -1445,7 +1840,7 @@
 		};
 		D7EC43D51D512EE300128012 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F94C3A38CF0AB0BC1BBB034E /* Pods-Alister-Example-Tests.release.xcconfig */;
+			baseConfigurationReference = 67F723D14E37707CF7B3B190 /* Pods-Alister-Example-Tests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_LOCALIZABILITY_EMPTY_CONTEXT = NO;
@@ -1485,15 +1880,6 @@
 			buildConfigurations = (
 				6003F5C0195388D20070C39A /* Debug */,
 				6003F5C1195388D20070C39A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D7348F111DCD61A300CC114A /* Build configuration list for PBXNativeTarget "Alister-Tests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D7348F121DCD61A300CC114A /* Debug */,
-				D7348F131DCD61A300CC114A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
