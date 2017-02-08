@@ -1,13 +1,7 @@
 #use_frameworks!
 #install! 'cocoapods', :deterministic_uuids => false
 
-target 'Alister-Example' do
-    pod 'libextobjc'
-    pod 'Masonry'
-    pod 'Reveal-iOS-SDK', '~> 1.6.1', :configurations => ['Debug']
-end
-
-target 'Alister-Example-Tests' do
+target 'Alister-Tests' do
     pod 'Expecta'
     pod 'Specta', :git => 'https://github.com/specta/specta.git', :commit => '18952b7'
     pod 'OCMock'

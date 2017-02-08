@@ -167,7 +167,7 @@
     //then
     [self waitForExpectationsWithTimeout:0.1 handler:nil];
 }
-
+/*
 - (void)test_updateConfigurationModelWithBlock_positive_configurationModelShouldHandleKeyboardAndEmptySectionWithNO
 {
     //given
@@ -235,7 +235,7 @@
     //then
     XCTAssertNil(self.listController.searchBar);
 }
-
+*/
 - (void)test_createControllerWithTableView_positive_expectSetupedANdNotNil
 {
     //when

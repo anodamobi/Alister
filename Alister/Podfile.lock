@@ -1,0 +1,28 @@
+PODS:
+  - Expecta (1.0.5)
+  - OCMock (3.4)
+  - Specta (1.0.5)
+
+DEPENDENCIES:
+  - Expecta
+  - OCMock
+  - Specta (from `https://github.com/specta/specta.git`, commit `18952b7`)
+
+EXTERNAL SOURCES:
+  Specta:
+    :commit: 18952b7
+    :git: https://github.com/specta/specta.git
+
+CHECKOUT OPTIONS:
+  Specta:
+    :commit: 18952b7
+    :git: https://github.com/specta/specta.git
+
+SPEC CHECKSUMS:
+  Expecta: e1c022fcd33910b6be89c291d2775b3fe27a89fe
+  OCMock: 35ae71d6a8fcc1b59434d561d1520b9dd4f15765
+  Specta: c89c6d4560eda861dcc5f50c2060a398b3073426
+
+PODFILE CHECKSUM: 3b221b96cc910b5a6145e6d4b39156fa41debdfd
+
+COCOAPODS: 1.0.1

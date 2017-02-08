@@ -1,0 +1,1518 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		182816341E4B606E00BA8F00 /* Masonry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 182816331E4B606E00BA8F00 /* Masonry.framework */; };
+		18A34F3B1E4B65A300E757C9 /* Alister_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 18A34F381E4B65A300E757C9 /* Alister_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18A34F3C1E4B65A300E757C9 /* AlisterGlobalHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 18A34F391E4B65A300E757C9 /* AlisterGlobalHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18A34FC01E4B661800E757C9 /* ANKeyboardHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 18A34F401E4B661800E757C9 /* ANKeyboardHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18A34FC11E4B661800E757C9 /* ANKeyboardHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A34F411E4B661800E757C9 /* ANKeyboardHandler.m */; };
+		18A34FC21E4B661800E757C9 /* ANCollectionController.h in Headers */ = {isa = PBXBuildFile; fileRef = 18A34F451E4B661800E757C9 /* ANCollectionController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18A34FC31E4B661800E757C9 /* ANCollectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A34F461E4B661800E757C9 /* ANCollectionController.m */; };
+		18A34FC41E4B661800E757C9 /* ANTableUpdateConfigurationModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 18A34F491E4B661800E757C9 /* ANTableUpdateConfigurationModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18A34FC51E4B661800E757C9 /* ANTableUpdateConfigurationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A34F4A1E4B661800E757C9 /* ANTableUpdateConfigurationModel.m */; };
+		18A34FC61E4B661900E757C9 /* ANListController+Interitance.h in Headers */ = {isa = PBXBuildFile; fileRef = 18A34F4C1E4B661800E757C9 /* ANListController+Interitance.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18A34FC71E4B661900E757C9 /* ANListController.h in Headers */ = {isa = PBXBuildFile; fileRef = 18A34F4D1E4B661800E757C9 /* ANListController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18A34FC81E4B661900E757C9 /* ANListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A34F4E1E4B661800E757C9 /* ANListController.m */; };
+		18A34FC91E4B661900E757C9 /* ANListControllerUpdateViewInterface.h in Headers */ = {isa = PBXBuildFile; fileRef = 18A34F501E4B661800E757C9 /* ANListControllerUpdateViewInterface.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18A34FCA1E4B661900E757C9 /* ANListControllerItemsHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 18A34F521E4B661800E757C9 /* ANListControllerItemsHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18A34FCB1E4B661900E757C9 /* ANListControllerItemsHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A34F531E4B661800E757C9 /* ANListControllerItemsHandler.m */; };
+		18A34FCC1E4B661900E757C9 /* ANListControllerReusableInterface.h in Headers */ = {isa = PBXBuildFile; fileRef = 18A34F541E4B661800E757C9 /* ANListControllerReusableInterface.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18A34FCD1E4B661900E757C9 /* ANListControllerMappingService.h in Headers */ = {isa = PBXBuildFile; fileRef = 18A34F561E4B661800E757C9 /* ANListControllerMappingService.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18A34FCE1E4B661900E757C9 /* ANListControllerMappingService.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A34F571E4B661800E757C9 /* ANListControllerMappingService.m */; };
+		18A34FCF1E4B661900E757C9 /* ANListControllerMappingServiceInterface.h in Headers */ = {isa = PBXBuildFile; fileRef = 18A34F581E4B661800E757C9 /* ANListControllerMappingServiceInterface.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18A34FD01E4B661900E757C9 /* ANListControllerReloadOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 18A34F5A1E4B661800E757C9 /* ANListControllerReloadOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18A34FD11E4B661900E757C9 /* ANListControllerReloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A34F5B1E4B661800E757C9 /* ANListControllerReloadOperation.m */; };
+		18A34FD21E4B661900E757C9 /* ANListControllerUpdateService.h in Headers */ = {isa = PBXBuildFile; fileRef = 18A34F5C1E4B661800E757C9 /* ANListControllerUpdateService.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18A34FD31E4B661900E757C9 /* ANListControllerUpdateService.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A34F5D1E4B661800E757C9 /* ANListControllerUpdateService.m */; };
+		18A34FD41E4B661900E757C9 /* ANListControllerUpdateServiceInterface.h in Headers */ = {isa = PBXBuildFile; fileRef = 18A34F5E1E4B661800E757C9 /* ANListControllerUpdateServiceInterface.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18A34FD51E4B661900E757C9 /* ANListCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 18A34F601E4B661800E757C9 /* ANListCollectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18A34FD61E4B661900E757C9 /* ANListCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A34F611E4B661800E757C9 /* ANListCollectionView.m */; };
+		18A34FD71E4B661900E757C9 /* ANListTableView.h in Headers */ = {isa = PBXBuildFile; fileRef = 18A34F621E4B661800E757C9 /* ANListTableView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18A34FD81E4B661900E757C9 /* ANListTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A34F631E4B661800E757C9 /* ANListTableView.m */; };
+		18A34FD91E4B661900E757C9 /* ANListViewInterface.h in Headers */ = {isa = PBXBuildFile; fileRef = 18A34F641E4B661800E757C9 /* ANListViewInterface.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18A34FDA1E4B661900E757C9 /* Alister.h in Headers */ = {isa = PBXBuildFile; fileRef = 18A34F661E4B661800E757C9 /* Alister.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18A34FDB1E4B661900E757C9 /* ANTableController.h in Headers */ = {isa = PBXBuildFile; fileRef = 18A34F691E4B661800E757C9 /* ANTableController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18A34FDC1E4B661900E757C9 /* ANTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A34F6A1E4B661800E757C9 /* ANTableController.m */; };
+		18A34FDD1E4B661900E757C9 /* ANListControllerLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 18A34F6C1E4B661800E757C9 /* ANListControllerLog.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18A34FDE1E4B661900E757C9 /* ANListControllerUpdateOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 18A34F6F1E4B661800E757C9 /* ANListControllerUpdateOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18A34FDF1E4B661900E757C9 /* ANListControllerUpdateOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A34F701E4B661800E757C9 /* ANListControllerUpdateOperation.m */; };
+		18A34FE01E4B661900E757C9 /* ANListControllerSearchManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 18A34F721E4B661800E757C9 /* ANListControllerSearchManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18A34FE11E4B661900E757C9 /* ANListControllerSearchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A34F731E4B661800E757C9 /* ANListControllerSearchManager.m */; };
+		18A34FE21E4B661900E757C9 /* ANCollectionReusableView.h in Headers */ = {isa = PBXBuildFile; fileRef = 18A34F761E4B661800E757C9 /* ANCollectionReusableView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18A34FE31E4B661900E757C9 /* ANCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A34F771E4B661800E757C9 /* ANCollectionReusableView.m */; };
+		18A34FE41E4B661900E757C9 /* ANCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 18A34F781E4B661800E757C9 /* ANCollectionViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18A34FE51E4B661900E757C9 /* ANCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A34F791E4B661800E757C9 /* ANCollectionViewCell.m */; };
+		18A34FE61E4B661900E757C9 /* ANTableContainerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 18A34F7C1E4B661800E757C9 /* ANTableContainerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18A34FE71E4B661900E757C9 /* ANTableContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A34F7D1E4B661800E757C9 /* ANTableContainerView.m */; };
+		18A34FE81E4B661900E757C9 /* ANTableView.h in Headers */ = {isa = PBXBuildFile; fileRef = 18A34F7E1E4B661800E757C9 /* ANTableView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18A34FE91E4B661900E757C9 /* ANTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A34F7F1E4B661800E757C9 /* ANTableView.m */; };
+		18A34FEA1E4B661900E757C9 /* ANBaseListTableCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 18A34F821E4B661800E757C9 /* ANBaseListTableCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18A34FEB1E4B661900E757C9 /* ANBaseListTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A34F831E4B661800E757C9 /* ANBaseListTableCell.m */; };
+		18A34FEC1E4B661900E757C9 /* ANBaseTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 18A34F851E4B661800E757C9 /* ANBaseTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18A34FED1E4B661900E757C9 /* ANBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A34F861E4B661800E757C9 /* ANBaseTableViewCell.m */; };
+		18A34FEE1E4B661900E757C9 /* ANBaseTableViewHeaderFooterView.h in Headers */ = {isa = PBXBuildFile; fileRef = 18A34F891E4B661800E757C9 /* ANBaseTableViewHeaderFooterView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18A34FEF1E4B661900E757C9 /* ANBaseTableViewHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A34F8A1E4B661800E757C9 /* ANBaseTableViewHeaderFooterView.m */; };
+		18A34FF01E4B661900E757C9 /* ANBaseTableFooterView.h in Headers */ = {isa = PBXBuildFile; fileRef = 18A34F8C1E4B661800E757C9 /* ANBaseTableFooterView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18A34FF11E4B661900E757C9 /* ANBaseTableFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A34F8D1E4B661800E757C9 /* ANBaseTableFooterView.m */; };
+		18A34FF21E4B661900E757C9 /* ANBaseTableHeaderView.h in Headers */ = {isa = PBXBuildFile; fileRef = 18A34F8F1E4B661800E757C9 /* ANBaseTableHeaderView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18A34FF31E4B661900E757C9 /* ANBaseTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A34F901E4B661800E757C9 /* ANBaseTableHeaderView.m */; };
+		18A34FF41E4B661900E757C9 /* ANStorageLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 18A34F931E4B661800E757C9 /* ANStorageLog.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18A34FF51E4B661900E757C9 /* ANStorageRetrivingInterface.h in Headers */ = {isa = PBXBuildFile; fileRef = 18A34F951E4B661800E757C9 /* ANStorageRetrivingInterface.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18A34FF61E4B661900E757C9 /* ANStorageUpdatableInterface.h in Headers */ = {isa = PBXBuildFile; fileRef = 18A34F961E4B661800E757C9 /* ANStorageUpdatableInterface.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18A34FF71E4B661900E757C9 /* ANStorageUpdateEventsDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 18A34F971E4B661800E757C9 /* ANStorageUpdateEventsDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18A34FF81E4B661900E757C9 /* ANStorageMovedIndexPathModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 18A34F9A1E4B661800E757C9 /* ANStorageMovedIndexPathModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18A34FF91E4B661900E757C9 /* ANStorageMovedIndexPathModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A34F9B1E4B661800E757C9 /* ANStorageMovedIndexPathModel.m */; };
+		18A34FFA1E4B661900E757C9 /* ANStorageSectionModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 18A34F9D1E4B661800E757C9 /* ANStorageSectionModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18A34FFB1E4B661900E757C9 /* ANStorageSectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A34F9E1E4B661800E757C9 /* ANStorageSectionModel.m */; };
+		18A34FFC1E4B661900E757C9 /* ANStorageSectionModelInterface.h in Headers */ = {isa = PBXBuildFile; fileRef = 18A34F9F1E4B661800E757C9 /* ANStorageSectionModelInterface.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18A34FFD1E4B661900E757C9 /* ANStorageModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 18A34FA11E4B661800E757C9 /* ANStorageModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18A34FFE1E4B661900E757C9 /* ANStorageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A34FA21E4B661800E757C9 /* ANStorageModel.m */; };
+		18A34FFF1E4B661900E757C9 /* ANStorageUpdateModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 18A34FA41E4B661800E757C9 /* ANStorageUpdateModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18A350001E4B661900E757C9 /* ANStorageUpdateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A34FA51E4B661800E757C9 /* ANStorageUpdateModel.m */; };
+		18A350011E4B661900E757C9 /* ANStorageUpdateModelInterface.h in Headers */ = {isa = PBXBuildFile; fileRef = 18A34FA61E4B661800E757C9 /* ANStorageUpdateModelInterface.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18A350021E4B661900E757C9 /* ANStorageListUpdateOperationInterface.h in Headers */ = {isa = PBXBuildFile; fileRef = 18A34FA81E4B661800E757C9 /* ANStorageListUpdateOperationInterface.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18A350031E4B661900E757C9 /* ANStorageUpdateOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 18A34FA91E4B661800E757C9 /* ANStorageUpdateOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18A350041E4B661900E757C9 /* ANStorageUpdateOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A34FAA1E4B661800E757C9 /* ANStorageUpdateOperation.m */; };
+		18A350051E4B661900E757C9 /* ANStorageUpdateOperationInterface.h in Headers */ = {isa = PBXBuildFile; fileRef = 18A34FAB1E4B661800E757C9 /* ANStorageUpdateOperationInterface.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18A350061E4B661900E757C9 /* ANStorageLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 18A34FAF1E4B661800E757C9 /* ANStorageLoader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18A350071E4B661900E757C9 /* ANStorageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A34FB01E4B661800E757C9 /* ANStorageLoader.m */; };
+		18A350081E4B661900E757C9 /* ANStorageRemover.h in Headers */ = {isa = PBXBuildFile; fileRef = 18A34FB21E4B661800E757C9 /* ANStorageRemover.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18A350091E4B661900E757C9 /* ANStorageRemover.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A34FB31E4B661800E757C9 /* ANStorageRemover.m */; };
+		18A3500A1E4B661900E757C9 /* ANStorageUpdater.h in Headers */ = {isa = PBXBuildFile; fileRef = 18A34FB51E4B661800E757C9 /* ANStorageUpdater.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18A3500B1E4B661900E757C9 /* ANStorageUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A34FB61E4B661800E757C9 /* ANStorageUpdater.m */; };
+		18A3500C1E4B661900E757C9 /* ANStorageDebugDataGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 18A34FB81E4B661800E757C9 /* ANStorageDebugDataGenerator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18A3500D1E4B661900E757C9 /* ANStorageDebugDataGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A34FB91E4B661800E757C9 /* ANStorageDebugDataGenerator.m */; };
+		18A3500E1E4B661900E757C9 /* ANStorageValidator.h in Headers */ = {isa = PBXBuildFile; fileRef = 18A34FBB1E4B661800E757C9 /* ANStorageValidator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18A3500F1E4B661900E757C9 /* ANStorageValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A34FBC1E4B661800E757C9 /* ANStorageValidator.m */; };
+		18A350101E4B661900E757C9 /* ANStorage.h in Headers */ = {isa = PBXBuildFile; fileRef = 18A34FBE1E4B661800E757C9 /* ANStorage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18A350111E4B661900E757C9 /* ANStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A34FBF1E4B661800E757C9 /* ANStorage.m */; };
+		18A350221E4B670400E757C9 /* Alister_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 182815461E4B5EC400BA8F00 /* Alister_iOS.framework */; };
+		18A3506C1E4B672F00E757C9 /* ANCollectionControllerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A3502A1E4B672F00E757C9 /* ANCollectionControllerSpec.m */; };
+		18A3506D1E4B672F00E757C9 /* ANListCellFixture.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A3502C1E4B672F00E757C9 /* ANListCellFixture.m */; };
+		18A3506E1E4B672F00E757C9 /* ANListCollectionViewSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A3502E1E4B672F00E757C9 /* ANListCollectionViewSpec.m */; };
+		18A3506F1E4B672F00E757C9 /* ANListControllerFixture.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A350301E4B672F00E757C9 /* ANListControllerFixture.m */; };
+		18A350701E4B672F00E757C9 /* ANListControllerItemsHandlerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A350311E4B672F00E757C9 /* ANListControllerItemsHandlerSpec.m */; };
+		18A350711E4B672F00E757C9 /* ANListControllerMappingServiceFixture.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A350331E4B672F00E757C9 /* ANListControllerMappingServiceFixture.m */; };
+		18A350721E4B672F00E757C9 /* ANListControllerMappingServiceSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A350341E4B672F00E757C9 /* ANListControllerMappingServiceSpec.m */; };
+		18A350731E4B672F00E757C9 /* ANListControllerSearchManagerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A350351E4B672F00E757C9 /* ANListControllerSearchManagerSpec.m */; };
+		18A350741E4B672F00E757C9 /* ANListControllerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A350361E4B672F00E757C9 /* ANListControllerSpec.m */; };
+		18A350751E4B672F00E757C9 /* ANListControllerUpdateServiceFixture.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A350381E4B672F00E757C9 /* ANListControllerUpdateServiceFixture.m */; };
+		18A350761E4B672F00E757C9 /* ANListControllerUpdateServiceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A350391E4B672F00E757C9 /* ANListControllerUpdateServiceTest.m */; };
+		18A350771E4B672F00E757C9 /* ANListViewFixture.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A3503B1E4B672F00E757C9 /* ANListViewFixture.m */; };
+		18A350781E4B672F00E757C9 /* ANSearchControllerDelegateFixture.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A3503D1E4B672F00E757C9 /* ANSearchControllerDelegateFixture.m */; };
+		18A350791E4B672F00E757C9 /* ANTableController_ReusableTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A3503E1E4B672F00E757C9 /* ANTableController_ReusableTest.m */; };
+		18A3507A1E4B672F00E757C9 /* ANTableControllerFixture.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A350401E4B672F00E757C9 /* ANTableControllerFixture.m */; };
+		18A3507B1E4B672F00E757C9 /* ANTableControllerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A350411E4B672F00E757C9 /* ANTableControllerSpec.m */; };
+		18A3507C1E4B672F00E757C9 /* ANTableControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A350421E4B672F00E757C9 /* ANTableControllerTest.m */; };
+		18A3507D1E4B672F00E757C9 /* NSOperationQueueFixture.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A350441E4B672F00E757C9 /* NSOperationQueueFixture.m */; };
+		18A3507E1E4B672F00E757C9 /* ANCollectionReusableViewSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A350471E4B672F00E757C9 /* ANCollectionReusableViewSpec.m */; };
+		18A3507F1E4B672F00E757C9 /* ANCollectionViewCellSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A350481E4B672F00E757C9 /* ANCollectionViewCellSpec.m */; };
+		18A350801E4B672F00E757C9 /* ANBaseTableFooterViewSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A3504A1E4B672F00E757C9 /* ANBaseTableFooterViewSpec.m */; };
+		18A350811E4B672F00E757C9 /* ANBaseTableViewHeaderFooterViewSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A3504B1E4B672F00E757C9 /* ANBaseTableViewHeaderFooterViewSpec.m */; };
+		18A350821E4B672F00E757C9 /* ANTableContainerViewSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A3504C1E4B672F00E757C9 /* ANTableContainerViewSpec.m */; };
+		18A350831E4B672F00E757C9 /* ANTableViewSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A3504D1E4B672F00E757C9 /* ANTableViewSpec.m */; };
+		18A350841E4B672F00E757C9 /* ANStorageDebugDataGeneratorSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A3504F1E4B672F00E757C9 /* ANStorageDebugDataGeneratorSpec.m */; };
+		18A350851E4B672F00E757C9 /* ANStorageLoaderSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A350501E4B672F00E757C9 /* ANStorageLoaderSpec.m */; };
+		18A350861E4B672F00E757C9 /* ANStorageRemover_UpdateVerification_Spec.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A350511E4B672F00E757C9 /* ANStorageRemover_UpdateVerification_Spec.m */; };
+		18A350871E4B672F00E757C9 /* ANStorageRemoverSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A350521E4B672F00E757C9 /* ANStorageRemoverSpec.m */; };
+		18A350881E4B672F00E757C9 /* ANStorageUpdateOperationSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A350531E4B672F00E757C9 /* ANStorageUpdateOperationSpec.m */; };
+		18A350891E4B672F00E757C9 /* ANStorageUpdater_UpdateVerification_Spec.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A350541E4B672F00E757C9 /* ANStorageUpdater_UpdateVerification_Spec.m */; };
+		18A3508A1E4B672F00E757C9 /* ANStorageUpdaterSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A350551E4B672F00E757C9 /* ANStorageUpdaterSpec.m */; };
+		18A3508B1E4B672F00E757C9 /* ANStorageFakeOperationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A350581E4B672F00E757C9 /* ANStorageFakeOperationDelegate.m */; };
+		18A3508C1E4B672F00E757C9 /* ANStorageUpdateModel+Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A3505B1E4B672F00E757C9 /* ANStorageUpdateModel+Test.m */; };
+		18A3508D1E4B672F00E757C9 /* ANStorageModelSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A3505D1E4B672F00E757C9 /* ANStorageModelSpec.m */; };
+		18A3508E1E4B672F00E757C9 /* ANStorageMovedIndexPathModelSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A3505E1E4B672F00E757C9 /* ANStorageMovedIndexPathModelSpec.m */; };
+		18A3508F1E4B672F00E757C9 /* ANStorageSectionModelSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A3505F1E4B672F00E757C9 /* ANStorageSectionModelSpec.m */; };
+		18A350901E4B672F00E757C9 /* ANStorageUpdateModelSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A350601E4B672F00E757C9 /* ANStorageUpdateModelSpec.m */; };
+		18A350911E4B672F00E757C9 /* ANStorageRetrivingInterfaceTestsSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A350621E4B672F00E757C9 /* ANStorageRetrivingInterfaceTestsSpec.m */; };
+		18A350921E4B672F00E757C9 /* ANStorageSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A350631E4B672F00E757C9 /* ANStorageSpec.m */; };
+		18A350931E4B672F00E757C9 /* ANTestingFixtureObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A350661E4B672F00E757C9 /* ANTestingFixtureObjects.m */; };
+		18A350941E4B672F00E757C9 /* ANTestTableHeaderFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A350681E4B672F00E757C9 /* ANTestTableHeaderFooter.m */; };
+		18A350951E4B672F00E757C9 /* ANTestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A3506B1E4B672F00E757C9 /* ANTestHelper.m */; };
+		734A0E9855AA7FE7DFE79E97 /* libPods-Alister-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD24732A8986B9B14739F8DD /* libPods-Alister-Tests.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		18A350231E4B670400E757C9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1828153D1E4B5EC400BA8F00 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 182815451E4B5EC400BA8F00;
+			remoteInfo = Alister_iOS;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		182815461E4B5EC400BA8F00 /* Alister_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Alister_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		182816331E4B606E00BA8F00 /* Masonry.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Masonry.framework; sourceTree = "<group>"; };
+		18A34F381E4B65A300E757C9 /* Alister_iOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Alister_iOS.h; sourceTree = "<group>"; };
+		18A34F391E4B65A300E757C9 /* AlisterGlobalHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlisterGlobalHeader.h; sourceTree = "<group>"; };
+		18A34F3A1E4B65A300E757C9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18A34F401E4B661800E757C9 /* ANKeyboardHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANKeyboardHandler.h; sourceTree = "<group>"; };
+		18A34F411E4B661800E757C9 /* ANKeyboardHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANKeyboardHandler.m; sourceTree = "<group>"; };
+		18A34F451E4B661800E757C9 /* ANCollectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANCollectionController.h; sourceTree = "<group>"; };
+		18A34F461E4B661800E757C9 /* ANCollectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANCollectionController.m; sourceTree = "<group>"; };
+		18A34F491E4B661800E757C9 /* ANTableUpdateConfigurationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTableUpdateConfigurationModel.h; sourceTree = "<group>"; };
+		18A34F4A1E4B661800E757C9 /* ANTableUpdateConfigurationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTableUpdateConfigurationModel.m; sourceTree = "<group>"; };
+		18A34F4C1E4B661800E757C9 /* ANListController+Interitance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ANListController+Interitance.h"; sourceTree = "<group>"; };
+		18A34F4D1E4B661800E757C9 /* ANListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANListController.h; sourceTree = "<group>"; };
+		18A34F4E1E4B661800E757C9 /* ANListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANListController.m; sourceTree = "<group>"; };
+		18A34F501E4B661800E757C9 /* ANListControllerUpdateViewInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANListControllerUpdateViewInterface.h; sourceTree = "<group>"; };
+		18A34F521E4B661800E757C9 /* ANListControllerItemsHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANListControllerItemsHandler.h; sourceTree = "<group>"; };
+		18A34F531E4B661800E757C9 /* ANListControllerItemsHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANListControllerItemsHandler.m; sourceTree = "<group>"; };
+		18A34F541E4B661800E757C9 /* ANListControllerReusableInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANListControllerReusableInterface.h; sourceTree = "<group>"; };
+		18A34F561E4B661800E757C9 /* ANListControllerMappingService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANListControllerMappingService.h; sourceTree = "<group>"; };
+		18A34F571E4B661800E757C9 /* ANListControllerMappingService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANListControllerMappingService.m; sourceTree = "<group>"; };
+		18A34F581E4B661800E757C9 /* ANListControllerMappingServiceInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANListControllerMappingServiceInterface.h; sourceTree = "<group>"; };
+		18A34F5A1E4B661800E757C9 /* ANListControllerReloadOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANListControllerReloadOperation.h; sourceTree = "<group>"; };
+		18A34F5B1E4B661800E757C9 /* ANListControllerReloadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANListControllerReloadOperation.m; sourceTree = "<group>"; };
+		18A34F5C1E4B661800E757C9 /* ANListControllerUpdateService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANListControllerUpdateService.h; sourceTree = "<group>"; };
+		18A34F5D1E4B661800E757C9 /* ANListControllerUpdateService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANListControllerUpdateService.m; sourceTree = "<group>"; };
+		18A34F5E1E4B661800E757C9 /* ANListControllerUpdateServiceInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANListControllerUpdateServiceInterface.h; sourceTree = "<group>"; };
+		18A34F601E4B661800E757C9 /* ANListCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANListCollectionView.h; sourceTree = "<group>"; };
+		18A34F611E4B661800E757C9 /* ANListCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANListCollectionView.m; sourceTree = "<group>"; };
+		18A34F621E4B661800E757C9 /* ANListTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANListTableView.h; sourceTree = "<group>"; };
+		18A34F631E4B661800E757C9 /* ANListTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANListTableView.m; sourceTree = "<group>"; };
+		18A34F641E4B661800E757C9 /* ANListViewInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANListViewInterface.h; sourceTree = "<group>"; };
+		18A34F661E4B661800E757C9 /* Alister.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Alister.h; sourceTree = "<group>"; };
+		18A34F691E4B661800E757C9 /* ANTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTableController.h; sourceTree = "<group>"; };
+		18A34F6A1E4B661800E757C9 /* ANTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTableController.m; sourceTree = "<group>"; };
+		18A34F6C1E4B661800E757C9 /* ANListControllerLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANListControllerLog.h; sourceTree = "<group>"; };
+		18A34F6F1E4B661800E757C9 /* ANListControllerUpdateOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANListControllerUpdateOperation.h; sourceTree = "<group>"; };
+		18A34F701E4B661800E757C9 /* ANListControllerUpdateOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANListControllerUpdateOperation.m; sourceTree = "<group>"; };
+		18A34F721E4B661800E757C9 /* ANListControllerSearchManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANListControllerSearchManager.h; sourceTree = "<group>"; };
+		18A34F731E4B661800E757C9 /* ANListControllerSearchManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANListControllerSearchManager.m; sourceTree = "<group>"; };
+		18A34F761E4B661800E757C9 /* ANCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANCollectionReusableView.h; sourceTree = "<group>"; };
+		18A34F771E4B661800E757C9 /* ANCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANCollectionReusableView.m; sourceTree = "<group>"; };
+		18A34F781E4B661800E757C9 /* ANCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANCollectionViewCell.h; sourceTree = "<group>"; };
+		18A34F791E4B661800E757C9 /* ANCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANCollectionViewCell.m; sourceTree = "<group>"; };
+		18A34F7C1E4B661800E757C9 /* ANTableContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTableContainerView.h; sourceTree = "<group>"; };
+		18A34F7D1E4B661800E757C9 /* ANTableContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTableContainerView.m; sourceTree = "<group>"; };
+		18A34F7E1E4B661800E757C9 /* ANTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTableView.h; sourceTree = "<group>"; };
+		18A34F7F1E4B661800E757C9 /* ANTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTableView.m; sourceTree = "<group>"; };
+		18A34F821E4B661800E757C9 /* ANBaseListTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANBaseListTableCell.h; sourceTree = "<group>"; };
+		18A34F831E4B661800E757C9 /* ANBaseListTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANBaseListTableCell.m; sourceTree = "<group>"; };
+		18A34F851E4B661800E757C9 /* ANBaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANBaseTableViewCell.h; sourceTree = "<group>"; };
+		18A34F861E4B661800E757C9 /* ANBaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANBaseTableViewCell.m; sourceTree = "<group>"; };
+		18A34F891E4B661800E757C9 /* ANBaseTableViewHeaderFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANBaseTableViewHeaderFooterView.h; sourceTree = "<group>"; };
+		18A34F8A1E4B661800E757C9 /* ANBaseTableViewHeaderFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANBaseTableViewHeaderFooterView.m; sourceTree = "<group>"; };
+		18A34F8C1E4B661800E757C9 /* ANBaseTableFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANBaseTableFooterView.h; sourceTree = "<group>"; };
+		18A34F8D1E4B661800E757C9 /* ANBaseTableFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANBaseTableFooterView.m; sourceTree = "<group>"; };
+		18A34F8F1E4B661800E757C9 /* ANBaseTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANBaseTableHeaderView.h; sourceTree = "<group>"; };
+		18A34F901E4B661800E757C9 /* ANBaseTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANBaseTableHeaderView.m; sourceTree = "<group>"; };
+		18A34F931E4B661800E757C9 /* ANStorageLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANStorageLog.h; sourceTree = "<group>"; };
+		18A34F951E4B661800E757C9 /* ANStorageRetrivingInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANStorageRetrivingInterface.h; sourceTree = "<group>"; };
+		18A34F961E4B661800E757C9 /* ANStorageUpdatableInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANStorageUpdatableInterface.h; sourceTree = "<group>"; };
+		18A34F971E4B661800E757C9 /* ANStorageUpdateEventsDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANStorageUpdateEventsDelegate.h; sourceTree = "<group>"; };
+		18A34F9A1E4B661800E757C9 /* ANStorageMovedIndexPathModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANStorageMovedIndexPathModel.h; sourceTree = "<group>"; };
+		18A34F9B1E4B661800E757C9 /* ANStorageMovedIndexPathModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageMovedIndexPathModel.m; sourceTree = "<group>"; };
+		18A34F9D1E4B661800E757C9 /* ANStorageSectionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANStorageSectionModel.h; sourceTree = "<group>"; };
+		18A34F9E1E4B661800E757C9 /* ANStorageSectionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageSectionModel.m; sourceTree = "<group>"; };
+		18A34F9F1E4B661800E757C9 /* ANStorageSectionModelInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANStorageSectionModelInterface.h; sourceTree = "<group>"; };
+		18A34FA11E4B661800E757C9 /* ANStorageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANStorageModel.h; sourceTree = "<group>"; };
+		18A34FA21E4B661800E757C9 /* ANStorageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageModel.m; sourceTree = "<group>"; };
+		18A34FA41E4B661800E757C9 /* ANStorageUpdateModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANStorageUpdateModel.h; sourceTree = "<group>"; };
+		18A34FA51E4B661800E757C9 /* ANStorageUpdateModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageUpdateModel.m; sourceTree = "<group>"; };
+		18A34FA61E4B661800E757C9 /* ANStorageUpdateModelInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANStorageUpdateModelInterface.h; sourceTree = "<group>"; };
+		18A34FA81E4B661800E757C9 /* ANStorageListUpdateOperationInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANStorageListUpdateOperationInterface.h; sourceTree = "<group>"; };
+		18A34FA91E4B661800E757C9 /* ANStorageUpdateOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANStorageUpdateOperation.h; sourceTree = "<group>"; };
+		18A34FAA1E4B661800E757C9 /* ANStorageUpdateOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageUpdateOperation.m; sourceTree = "<group>"; };
+		18A34FAB1E4B661800E757C9 /* ANStorageUpdateOperationInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANStorageUpdateOperationInterface.h; sourceTree = "<group>"; };
+		18A34FAF1E4B661800E757C9 /* ANStorageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANStorageLoader.h; sourceTree = "<group>"; };
+		18A34FB01E4B661800E757C9 /* ANStorageLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageLoader.m; sourceTree = "<group>"; };
+		18A34FB21E4B661800E757C9 /* ANStorageRemover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANStorageRemover.h; sourceTree = "<group>"; };
+		18A34FB31E4B661800E757C9 /* ANStorageRemover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageRemover.m; sourceTree = "<group>"; };
+		18A34FB51E4B661800E757C9 /* ANStorageUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANStorageUpdater.h; sourceTree = "<group>"; };
+		18A34FB61E4B661800E757C9 /* ANStorageUpdater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageUpdater.m; sourceTree = "<group>"; };
+		18A34FB81E4B661800E757C9 /* ANStorageDebugDataGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANStorageDebugDataGenerator.h; sourceTree = "<group>"; };
+		18A34FB91E4B661800E757C9 /* ANStorageDebugDataGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageDebugDataGenerator.m; sourceTree = "<group>"; };
+		18A34FBB1E4B661800E757C9 /* ANStorageValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANStorageValidator.h; sourceTree = "<group>"; };
+		18A34FBC1E4B661800E757C9 /* ANStorageValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageValidator.m; sourceTree = "<group>"; };
+		18A34FBE1E4B661800E757C9 /* ANStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANStorage.h; sourceTree = "<group>"; };
+		18A34FBF1E4B661800E757C9 /* ANStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorage.m; sourceTree = "<group>"; };
+		18A350131E4B669C00E757C9 /* Alister.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Alister.podspec; path = ../Alister.podspec; sourceTree = "<group>"; };
+		18A350141E4B669C00E757C9 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		18A350151E4B669C00E757C9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		18A3501D1E4B670400E757C9 /* Alister-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Alister-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		18A350211E4B670400E757C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18A3502A1E4B672F00E757C9 /* ANCollectionControllerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANCollectionControllerSpec.m; sourceTree = "<group>"; };
+		18A3502B1E4B672F00E757C9 /* ANListCellFixture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANListCellFixture.h; sourceTree = "<group>"; };
+		18A3502C1E4B672F00E757C9 /* ANListCellFixture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANListCellFixture.m; sourceTree = "<group>"; };
+		18A3502E1E4B672F00E757C9 /* ANListCollectionViewSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANListCollectionViewSpec.m; sourceTree = "<group>"; };
+		18A3502F1E4B672F00E757C9 /* ANListControllerFixture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANListControllerFixture.h; sourceTree = "<group>"; };
+		18A350301E4B672F00E757C9 /* ANListControllerFixture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANListControllerFixture.m; sourceTree = "<group>"; };
+		18A350311E4B672F00E757C9 /* ANListControllerItemsHandlerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANListControllerItemsHandlerSpec.m; sourceTree = "<group>"; };
+		18A350321E4B672F00E757C9 /* ANListControllerMappingServiceFixture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANListControllerMappingServiceFixture.h; sourceTree = "<group>"; };
+		18A350331E4B672F00E757C9 /* ANListControllerMappingServiceFixture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANListControllerMappingServiceFixture.m; sourceTree = "<group>"; };
+		18A350341E4B672F00E757C9 /* ANListControllerMappingServiceSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANListControllerMappingServiceSpec.m; sourceTree = "<group>"; };
+		18A350351E4B672F00E757C9 /* ANListControllerSearchManagerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANListControllerSearchManagerSpec.m; sourceTree = "<group>"; };
+		18A350361E4B672F00E757C9 /* ANListControllerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANListControllerSpec.m; sourceTree = "<group>"; };
+		18A350371E4B672F00E757C9 /* ANListControllerUpdateServiceFixture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANListControllerUpdateServiceFixture.h; sourceTree = "<group>"; };
+		18A350381E4B672F00E757C9 /* ANListControllerUpdateServiceFixture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANListControllerUpdateServiceFixture.m; sourceTree = "<group>"; };
+		18A350391E4B672F00E757C9 /* ANListControllerUpdateServiceTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANListControllerUpdateServiceTest.m; sourceTree = "<group>"; };
+		18A3503A1E4B672F00E757C9 /* ANListViewFixture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANListViewFixture.h; sourceTree = "<group>"; };
+		18A3503B1E4B672F00E757C9 /* ANListViewFixture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANListViewFixture.m; sourceTree = "<group>"; };
+		18A3503C1E4B672F00E757C9 /* ANSearchControllerDelegateFixture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANSearchControllerDelegateFixture.h; sourceTree = "<group>"; };
+		18A3503D1E4B672F00E757C9 /* ANSearchControllerDelegateFixture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANSearchControllerDelegateFixture.m; sourceTree = "<group>"; };
+		18A3503E1E4B672F00E757C9 /* ANTableController_ReusableTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTableController_ReusableTest.m; sourceTree = "<group>"; };
+		18A3503F1E4B672F00E757C9 /* ANTableControllerFixture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTableControllerFixture.h; sourceTree = "<group>"; };
+		18A350401E4B672F00E757C9 /* ANTableControllerFixture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTableControllerFixture.m; sourceTree = "<group>"; };
+		18A350411E4B672F00E757C9 /* ANTableControllerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTableControllerSpec.m; sourceTree = "<group>"; };
+		18A350421E4B672F00E757C9 /* ANTableControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTableControllerTest.m; sourceTree = "<group>"; };
+		18A350431E4B672F00E757C9 /* NSOperationQueueFixture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSOperationQueueFixture.h; sourceTree = "<group>"; };
+		18A350441E4B672F00E757C9 /* NSOperationQueueFixture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSOperationQueueFixture.m; sourceTree = "<group>"; };
+		18A350471E4B672F00E757C9 /* ANCollectionReusableViewSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANCollectionReusableViewSpec.m; sourceTree = "<group>"; };
+		18A350481E4B672F00E757C9 /* ANCollectionViewCellSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANCollectionViewCellSpec.m; sourceTree = "<group>"; };
+		18A3504A1E4B672F00E757C9 /* ANBaseTableFooterViewSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANBaseTableFooterViewSpec.m; sourceTree = "<group>"; };
+		18A3504B1E4B672F00E757C9 /* ANBaseTableViewHeaderFooterViewSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANBaseTableViewHeaderFooterViewSpec.m; sourceTree = "<group>"; };
+		18A3504C1E4B672F00E757C9 /* ANTableContainerViewSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTableContainerViewSpec.m; sourceTree = "<group>"; };
+		18A3504D1E4B672F00E757C9 /* ANTableViewSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTableViewSpec.m; sourceTree = "<group>"; };
+		18A3504F1E4B672F00E757C9 /* ANStorageDebugDataGeneratorSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageDebugDataGeneratorSpec.m; sourceTree = "<group>"; };
+		18A350501E4B672F00E757C9 /* ANStorageLoaderSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageLoaderSpec.m; sourceTree = "<group>"; };
+		18A350511E4B672F00E757C9 /* ANStorageRemover_UpdateVerification_Spec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageRemover_UpdateVerification_Spec.m; sourceTree = "<group>"; };
+		18A350521E4B672F00E757C9 /* ANStorageRemoverSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageRemoverSpec.m; sourceTree = "<group>"; };
+		18A350531E4B672F00E757C9 /* ANStorageUpdateOperationSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageUpdateOperationSpec.m; sourceTree = "<group>"; };
+		18A350541E4B672F00E757C9 /* ANStorageUpdater_UpdateVerification_Spec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageUpdater_UpdateVerification_Spec.m; sourceTree = "<group>"; };
+		18A350551E4B672F00E757C9 /* ANStorageUpdaterSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageUpdaterSpec.m; sourceTree = "<group>"; };
+		18A350571E4B672F00E757C9 /* ANStorageFakeOperationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANStorageFakeOperationDelegate.h; sourceTree = "<group>"; };
+		18A350581E4B672F00E757C9 /* ANStorageFakeOperationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageFakeOperationDelegate.m; sourceTree = "<group>"; };
+		18A3505A1E4B672F00E757C9 /* ANStorageUpdateModel+Test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ANStorageUpdateModel+Test.h"; sourceTree = "<group>"; };
+		18A3505B1E4B672F00E757C9 /* ANStorageUpdateModel+Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ANStorageUpdateModel+Test.m"; sourceTree = "<group>"; };
+		18A3505D1E4B672F00E757C9 /* ANStorageModelSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageModelSpec.m; sourceTree = "<group>"; };
+		18A3505E1E4B672F00E757C9 /* ANStorageMovedIndexPathModelSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageMovedIndexPathModelSpec.m; sourceTree = "<group>"; };
+		18A3505F1E4B672F00E757C9 /* ANStorageSectionModelSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageSectionModelSpec.m; sourceTree = "<group>"; };
+		18A350601E4B672F00E757C9 /* ANStorageUpdateModelSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageUpdateModelSpec.m; sourceTree = "<group>"; };
+		18A350621E4B672F00E757C9 /* ANStorageRetrivingInterfaceTestsSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageRetrivingInterfaceTestsSpec.m; sourceTree = "<group>"; };
+		18A350631E4B672F00E757C9 /* ANStorageSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStorageSpec.m; sourceTree = "<group>"; };
+		18A350651E4B672F00E757C9 /* ANTestingFixtureObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTestingFixtureObjects.h; sourceTree = "<group>"; };
+		18A350661E4B672F00E757C9 /* ANTestingFixtureObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTestingFixtureObjects.m; sourceTree = "<group>"; };
+		18A350671E4B672F00E757C9 /* ANTestTableHeaderFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTestTableHeaderFooter.h; sourceTree = "<group>"; };
+		18A350681E4B672F00E757C9 /* ANTestTableHeaderFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTestTableHeaderFooter.m; sourceTree = "<group>"; };
+		18A350691E4B672F00E757C9 /* AlisterTests.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlisterTests.pch; sourceTree = "<group>"; };
+		18A3506A1E4B672F00E757C9 /* ANTestHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTestHelper.h; sourceTree = "<group>"; };
+		18A3506B1E4B672F00E757C9 /* ANTestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTestHelper.m; sourceTree = "<group>"; };
+		935FEEBA5D8FB1CF164C4D10 /* Pods-Alister-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister-Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Alister-Tests/Pods-Alister-Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		9F4019DC1ADF310E40F73E8B /* Pods-Alister-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister-Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Alister-Tests/Pods-Alister-Tests.release.xcconfig"; sourceTree = "<group>"; };
+		CD24732A8986B9B14739F8DD /* libPods-Alister-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Alister-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		182815421E4B5EC400BA8F00 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				182816341E4B606E00BA8F00 /* Masonry.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18A3501A1E4B670400E757C9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18A350221E4B670400E757C9 /* Alister_iOS.framework in Frameworks */,
+				734A0E9855AA7FE7DFE79E97 /* libPods-Alister-Tests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0942B5AC2E181AD7A3945CF7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				935FEEBA5D8FB1CF164C4D10 /* Pods-Alister-Tests.debug.xcconfig */,
+				9F4019DC1ADF310E40F73E8B /* Pods-Alister-Tests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		1828153C1E4B5EC400BA8F00 = {
+			isa = PBXGroup;
+			children = (
+				18A350121E4B668500E757C9 /* PodspecMetadata */,
+				18A34F3E1E4B661800E757C9 /* Classes */,
+				18A34F371E4B65A300E757C9 /* BundleFiles */,
+				18A3501E1E4B670400E757C9 /* Alister-Tests */,
+				182816321E4B606E00BA8F00 /* Frameworks */,
+				182815471E4B5EC400BA8F00 /* Products */,
+				0942B5AC2E181AD7A3945CF7 /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		182815471E4B5EC400BA8F00 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				182815461E4B5EC400BA8F00 /* Alister_iOS.framework */,
+				18A3501D1E4B670400E757C9 /* Alister-Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		182816321E4B606E00BA8F00 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				182816331E4B606E00BA8F00 /* Masonry.framework */,
+				CD24732A8986B9B14739F8DD /* libPods-Alister-Tests.a */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
+		18A34F371E4B65A300E757C9 /* BundleFiles */ = {
+			isa = PBXGroup;
+			children = (
+				18A34F381E4B65A300E757C9 /* Alister_iOS.h */,
+				18A34F391E4B65A300E757C9 /* AlisterGlobalHeader.h */,
+				18A34F3A1E4B65A300E757C9 /* Info.plist */,
+			);
+			path = BundleFiles;
+			sourceTree = "<group>";
+		};
+		18A34F3E1E4B661800E757C9 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				18A34F3F1E4B661800E757C9 /* ANKeyboardHandler */,
+				18A34F421E4B661800E757C9 /* ANListController */,
+				18A34F741E4B661800E757C9 /* ANPrototypingUIKit */,
+				18A34F911E4B661800E757C9 /* ANStorage */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		18A34F3F1E4B661800E757C9 /* ANKeyboardHandler */ = {
+			isa = PBXGroup;
+			children = (
+				18A34F401E4B661800E757C9 /* ANKeyboardHandler.h */,
+				18A34F411E4B661800E757C9 /* ANKeyboardHandler.m */,
+			);
+			path = ANKeyboardHandler;
+			sourceTree = "<group>";
+		};
+		18A34F421E4B661800E757C9 /* ANListController */ = {
+			isa = PBXGroup;
+			children = (
+				18A34F431E4B661800E757C9 /* CollectonController */,
+				18A34F471E4B661800E757C9 /* Core */,
+				18A34F651E4B661800E757C9 /* Headers */,
+				18A34F671E4B661800E757C9 /* TableController */,
+			);
+			path = ANListController;
+			sourceTree = "<group>";
+		};
+		18A34F431E4B661800E757C9 /* CollectonController */ = {
+			isa = PBXGroup;
+			children = (
+				18A34F441E4B661800E757C9 /* Controller */,
+			);
+			path = CollectonController;
+			sourceTree = "<group>";
+		};
+		18A34F441E4B661800E757C9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				18A34F451E4B661800E757C9 /* ANCollectionController.h */,
+				18A34F461E4B661800E757C9 /* ANCollectionController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		18A34F471E4B661800E757C9 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				18A34F481E4B661800E757C9 /* ConfigurationModel */,
+				18A34F4B1E4B661800E757C9 /* Controller */,
+				18A34F4F1E4B661800E757C9 /* Interfaces */,
+				18A34F511E4B661800E757C9 /* ItemsHandler */,
+				18A34F551E4B661800E757C9 /* Mapping */,
+				18A34F591E4B661800E757C9 /* QueueProcessor */,
+				18A34F5F1E4B661800E757C9 /* ViewWrappers */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		18A34F481E4B661800E757C9 /* ConfigurationModel */ = {
+			isa = PBXGroup;
+			children = (
+				18A34F491E4B661800E757C9 /* ANTableUpdateConfigurationModel.h */,
+				18A34F4A1E4B661800E757C9 /* ANTableUpdateConfigurationModel.m */,
+			);
+			path = ConfigurationModel;
+			sourceTree = "<group>";
+		};
+		18A34F4B1E4B661800E757C9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				18A34F4C1E4B661800E757C9 /* ANListController+Interitance.h */,
+				18A34F4D1E4B661800E757C9 /* ANListController.h */,
+				18A34F4E1E4B661800E757C9 /* ANListController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		18A34F4F1E4B661800E757C9 /* Interfaces */ = {
+			isa = PBXGroup;
+			children = (
+				18A34F501E4B661800E757C9 /* ANListControllerUpdateViewInterface.h */,
+			);
+			path = Interfaces;
+			sourceTree = "<group>";
+		};
+		18A34F511E4B661800E757C9 /* ItemsHandler */ = {
+			isa = PBXGroup;
+			children = (
+				18A34F521E4B661800E757C9 /* ANListControllerItemsHandler.h */,
+				18A34F531E4B661800E757C9 /* ANListControllerItemsHandler.m */,
+				18A34F541E4B661800E757C9 /* ANListControllerReusableInterface.h */,
+			);
+			path = ItemsHandler;
+			sourceTree = "<group>";
+		};
+		18A34F551E4B661800E757C9 /* Mapping */ = {
+			isa = PBXGroup;
+			children = (
+				18A34F561E4B661800E757C9 /* ANListControllerMappingService.h */,
+				18A34F571E4B661800E757C9 /* ANListControllerMappingService.m */,
+				18A34F581E4B661800E757C9 /* ANListControllerMappingServiceInterface.h */,
+			);
+			path = Mapping;
+			sourceTree = "<group>";
+		};
+		18A34F591E4B661800E757C9 /* QueueProcessor */ = {
+			isa = PBXGroup;
+			children = (
+				18A34F5A1E4B661800E757C9 /* ANListControllerReloadOperation.h */,
+				18A34F5B1E4B661800E757C9 /* ANListControllerReloadOperation.m */,
+				18A34F5C1E4B661800E757C9 /* ANListControllerUpdateService.h */,
+				18A34F5D1E4B661800E757C9 /* ANListControllerUpdateService.m */,
+				18A34F5E1E4B661800E757C9 /* ANListControllerUpdateServiceInterface.h */,
+			);
+			path = QueueProcessor;
+			sourceTree = "<group>";
+		};
+		18A34F5F1E4B661800E757C9 /* ViewWrappers */ = {
+			isa = PBXGroup;
+			children = (
+				18A34F601E4B661800E757C9 /* ANListCollectionView.h */,
+				18A34F611E4B661800E757C9 /* ANListCollectionView.m */,
+				18A34F621E4B661800E757C9 /* ANListTableView.h */,
+				18A34F631E4B661800E757C9 /* ANListTableView.m */,
+				18A34F641E4B661800E757C9 /* ANListViewInterface.h */,
+			);
+			path = ViewWrappers;
+			sourceTree = "<group>";
+		};
+		18A34F651E4B661800E757C9 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				18A34F661E4B661800E757C9 /* Alister.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		18A34F671E4B661800E757C9 /* TableController */ = {
+			isa = PBXGroup;
+			children = (
+				18A34F681E4B661800E757C9 /* Controller */,
+				18A34F6B1E4B661800E757C9 /* Headers */,
+				18A34F6D1E4B661800E757C9 /* Private */,
+			);
+			path = TableController;
+			sourceTree = "<group>";
+		};
+		18A34F681E4B661800E757C9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				18A34F691E4B661800E757C9 /* ANTableController.h */,
+				18A34F6A1E4B661800E757C9 /* ANTableController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		18A34F6B1E4B661800E757C9 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				18A34F6C1E4B661800E757C9 /* ANListControllerLog.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		18A34F6D1E4B661800E757C9 /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				18A34F6E1E4B661800E757C9 /* Operation */,
+				18A34F711E4B661800E757C9 /* SearchManager */,
+			);
+			path = Private;
+			sourceTree = "<group>";
+		};
+		18A34F6E1E4B661800E757C9 /* Operation */ = {
+			isa = PBXGroup;
+			children = (
+				18A34F6F1E4B661800E757C9 /* ANListControllerUpdateOperation.h */,
+				18A34F701E4B661800E757C9 /* ANListControllerUpdateOperation.m */,
+			);
+			path = Operation;
+			sourceTree = "<group>";
+		};
+		18A34F711E4B661800E757C9 /* SearchManager */ = {
+			isa = PBXGroup;
+			children = (
+				18A34F721E4B661800E757C9 /* ANListControllerSearchManager.h */,
+				18A34F731E4B661800E757C9 /* ANListControllerSearchManager.m */,
+			);
+			path = SearchManager;
+			sourceTree = "<group>";
+		};
+		18A34F741E4B661800E757C9 /* ANPrototypingUIKit */ = {
+			isa = PBXGroup;
+			children = (
+				18A34F751E4B661800E757C9 /* CollectionView */,
+				18A34F7A1E4B661800E757C9 /* TableView */,
+			);
+			path = ANPrototypingUIKit;
+			sourceTree = "<group>";
+		};
+		18A34F751E4B661800E757C9 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				18A34F761E4B661800E757C9 /* ANCollectionReusableView.h */,
+				18A34F771E4B661800E757C9 /* ANCollectionReusableView.m */,
+				18A34F781E4B661800E757C9 /* ANCollectionViewCell.h */,
+				18A34F791E4B661800E757C9 /* ANCollectionViewCell.m */,
+			);
+			path = CollectionView;
+			sourceTree = "<group>";
+		};
+		18A34F7A1E4B661800E757C9 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				18A34F7B1E4B661800E757C9 /* ANTableContainerView */,
+				18A34F7E1E4B661800E757C9 /* ANTableView.h */,
+				18A34F7F1E4B661800E757C9 /* ANTableView.m */,
+				18A34F801E4B661800E757C9 /* Cell */,
+				18A34F871E4B661800E757C9 /* Supplementary */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		18A34F7B1E4B661800E757C9 /* ANTableContainerView */ = {
+			isa = PBXGroup;
+			children = (
+				18A34F7C1E4B661800E757C9 /* ANTableContainerView.h */,
+				18A34F7D1E4B661800E757C9 /* ANTableContainerView.m */,
+			);
+			path = ANTableContainerView;
+			sourceTree = "<group>";
+		};
+		18A34F801E4B661800E757C9 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				18A34F811E4B661800E757C9 /* ANBaseListTableCell */,
+				18A34F841E4B661800E757C9 /* ANBaseTableViewCell */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		18A34F811E4B661800E757C9 /* ANBaseListTableCell */ = {
+			isa = PBXGroup;
+			children = (
+				18A34F821E4B661800E757C9 /* ANBaseListTableCell.h */,
+				18A34F831E4B661800E757C9 /* ANBaseListTableCell.m */,
+			);
+			path = ANBaseListTableCell;
+			sourceTree = "<group>";
+		};
+		18A34F841E4B661800E757C9 /* ANBaseTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				18A34F851E4B661800E757C9 /* ANBaseTableViewCell.h */,
+				18A34F861E4B661800E757C9 /* ANBaseTableViewCell.m */,
+			);
+			path = ANBaseTableViewCell;
+			sourceTree = "<group>";
+		};
+		18A34F871E4B661800E757C9 /* Supplementary */ = {
+			isa = PBXGroup;
+			children = (
+				18A34F881E4B661800E757C9 /* Base */,
+				18A34F8B1E4B661800E757C9 /* Footer */,
+				18A34F8E1E4B661800E757C9 /* Header */,
+			);
+			path = Supplementary;
+			sourceTree = "<group>";
+		};
+		18A34F881E4B661800E757C9 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				18A34F891E4B661800E757C9 /* ANBaseTableViewHeaderFooterView.h */,
+				18A34F8A1E4B661800E757C9 /* ANBaseTableViewHeaderFooterView.m */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		18A34F8B1E4B661800E757C9 /* Footer */ = {
+			isa = PBXGroup;
+			children = (
+				18A34F8C1E4B661800E757C9 /* ANBaseTableFooterView.h */,
+				18A34F8D1E4B661800E757C9 /* ANBaseTableFooterView.m */,
+			);
+			path = Footer;
+			sourceTree = "<group>";
+		};
+		18A34F8E1E4B661800E757C9 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				18A34F8F1E4B661800E757C9 /* ANBaseTableHeaderView.h */,
+				18A34F901E4B661800E757C9 /* ANBaseTableHeaderView.m */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		18A34F911E4B661800E757C9 /* ANStorage */ = {
+			isa = PBXGroup;
+			children = (
+				18A34F921E4B661800E757C9 /* Headers */,
+				18A34F941E4B661800E757C9 /* Interface */,
+				18A34F981E4B661800E757C9 /* Models */,
+				18A34FA71E4B661800E757C9 /* Operations */,
+				18A34FAC1E4B661800E757C9 /* Private */,
+				18A34FBD1E4B661800E757C9 /* Storage */,
+			);
+			path = ANStorage;
+			sourceTree = "<group>";
+		};
+		18A34F921E4B661800E757C9 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				18A34F931E4B661800E757C9 /* ANStorageLog.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		18A34F941E4B661800E757C9 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				18A34F951E4B661800E757C9 /* ANStorageRetrivingInterface.h */,
+				18A34F961E4B661800E757C9 /* ANStorageUpdatableInterface.h */,
+				18A34F971E4B661800E757C9 /* ANStorageUpdateEventsDelegate.h */,
+			);
+			path = Interface;
+			sourceTree = "<group>";
+		};
+		18A34F981E4B661800E757C9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				18A34F991E4B661800E757C9 /* MovedIndexPath */,
+				18A34F9C1E4B661800E757C9 /* Section */,
+				18A34FA01E4B661800E757C9 /* Storage */,
+				18A34FA31E4B661800E757C9 /* Update */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		18A34F991E4B661800E757C9 /* MovedIndexPath */ = {
+			isa = PBXGroup;
+			children = (
+				18A34F9A1E4B661800E757C9 /* ANStorageMovedIndexPathModel.h */,
+				18A34F9B1E4B661800E757C9 /* ANStorageMovedIndexPathModel.m */,
+			);
+			path = MovedIndexPath;
+			sourceTree = "<group>";
+		};
+		18A34F9C1E4B661800E757C9 /* Section */ = {
+			isa = PBXGroup;
+			children = (
+				18A34F9D1E4B661800E757C9 /* ANStorageSectionModel.h */,
+				18A34F9E1E4B661800E757C9 /* ANStorageSectionModel.m */,
+				18A34F9F1E4B661800E757C9 /* ANStorageSectionModelInterface.h */,
+			);
+			path = Section;
+			sourceTree = "<group>";
+		};
+		18A34FA01E4B661800E757C9 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				18A34FA11E4B661800E757C9 /* ANStorageModel.h */,
+				18A34FA21E4B661800E757C9 /* ANStorageModel.m */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		18A34FA31E4B661800E757C9 /* Update */ = {
+			isa = PBXGroup;
+			children = (
+				18A34FA41E4B661800E757C9 /* ANStorageUpdateModel.h */,
+				18A34FA51E4B661800E757C9 /* ANStorageUpdateModel.m */,
+				18A34FA61E4B661800E757C9 /* ANStorageUpdateModelInterface.h */,
+			);
+			path = Update;
+			sourceTree = "<group>";
+		};
+		18A34FA71E4B661800E757C9 /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				18A34FA81E4B661800E757C9 /* ANStorageListUpdateOperationInterface.h */,
+				18A34FA91E4B661800E757C9 /* ANStorageUpdateOperation.h */,
+				18A34FAA1E4B661800E757C9 /* ANStorageUpdateOperation.m */,
+				18A34FAB1E4B661800E757C9 /* ANStorageUpdateOperationInterface.h */,
+			);
+			path = Operations;
+			sourceTree = "<group>";
+		};
+		18A34FAC1E4B661800E757C9 /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				18A34FAD1E4B661800E757C9 /* Data */,
+				18A34FB71E4B661800E757C9 /* DebugData */,
+				18A34FBA1E4B661800E757C9 /* Validator */,
+			);
+			path = Private;
+			sourceTree = "<group>";
+		};
+		18A34FAD1E4B661800E757C9 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				18A34FAE1E4B661800E757C9 /* Loader */,
+				18A34FB11E4B661800E757C9 /* Remover */,
+				18A34FB41E4B661800E757C9 /* Updater */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		18A34FAE1E4B661800E757C9 /* Loader */ = {
+			isa = PBXGroup;
+			children = (
+				18A34FAF1E4B661800E757C9 /* ANStorageLoader.h */,
+				18A34FB01E4B661800E757C9 /* ANStorageLoader.m */,
+			);
+			path = Loader;
+			sourceTree = "<group>";
+		};
+		18A34FB11E4B661800E757C9 /* Remover */ = {
+			isa = PBXGroup;
+			children = (
+				18A34FB21E4B661800E757C9 /* ANStorageRemover.h */,
+				18A34FB31E4B661800E757C9 /* ANStorageRemover.m */,
+			);
+			path = Remover;
+			sourceTree = "<group>";
+		};
+		18A34FB41E4B661800E757C9 /* Updater */ = {
+			isa = PBXGroup;
+			children = (
+				18A34FB51E4B661800E757C9 /* ANStorageUpdater.h */,
+				18A34FB61E4B661800E757C9 /* ANStorageUpdater.m */,
+			);
+			path = Updater;
+			sourceTree = "<group>";
+		};
+		18A34FB71E4B661800E757C9 /* DebugData */ = {
+			isa = PBXGroup;
+			children = (
+				18A34FB81E4B661800E757C9 /* ANStorageDebugDataGenerator.h */,
+				18A34FB91E4B661800E757C9 /* ANStorageDebugDataGenerator.m */,
+			);
+			path = DebugData;
+			sourceTree = "<group>";
+		};
+		18A34FBA1E4B661800E757C9 /* Validator */ = {
+			isa = PBXGroup;
+			children = (
+				18A34FBB1E4B661800E757C9 /* ANStorageValidator.h */,
+				18A34FBC1E4B661800E757C9 /* ANStorageValidator.m */,
+			);
+			path = Validator;
+			sourceTree = "<group>";
+		};
+		18A34FBD1E4B661800E757C9 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				18A34FBE1E4B661800E757C9 /* ANStorage.h */,
+				18A34FBF1E4B661800E757C9 /* ANStorage.m */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		18A350121E4B668500E757C9 /* PodspecMetadata */ = {
+			isa = PBXGroup;
+			children = (
+				18A350131E4B669C00E757C9 /* Alister.podspec */,
+				18A350141E4B669C00E757C9 /* LICENSE */,
+				18A350151E4B669C00E757C9 /* README.md */,
+			);
+			name = PodspecMetadata;
+			sourceTree = "<group>";
+		};
+		18A3501E1E4B670400E757C9 /* Alister-Tests */ = {
+			isa = PBXGroup;
+			children = (
+				18A350281E4B672F00E757C9 /* Alister */,
+				18A350691E4B672F00E757C9 /* AlisterTests.pch */,
+				18A3506A1E4B672F00E757C9 /* ANTestHelper.h */,
+				18A3506B1E4B672F00E757C9 /* ANTestHelper.m */,
+				18A350211E4B670400E757C9 /* Info.plist */,
+			);
+			path = "Alister-Tests";
+			sourceTree = "<group>";
+		};
+		18A350281E4B672F00E757C9 /* Alister */ = {
+			isa = PBXGroup;
+			children = (
+				18A350291E4B672F00E757C9 /* ANListController */,
+				18A350451E4B672F00E757C9 /* ANPrototypingUIKit */,
+				18A3504E1E4B672F00E757C9 /* ANStorage */,
+				18A350641E4B672F00E757C9 /* SharedFixtures */,
+			);
+			path = Alister;
+			sourceTree = "<group>";
+		};
+		18A350291E4B672F00E757C9 /* ANListController */ = {
+			isa = PBXGroup;
+			children = (
+				18A3502A1E4B672F00E757C9 /* ANCollectionControllerSpec.m */,
+				18A3502B1E4B672F00E757C9 /* ANListCellFixture.h */,
+				18A3502C1E4B672F00E757C9 /* ANListCellFixture.m */,
+				18A3502D1E4B672F00E757C9 /* ANListCollectionViewTests */,
+				18A3502F1E4B672F00E757C9 /* ANListControllerFixture.h */,
+				18A350301E4B672F00E757C9 /* ANListControllerFixture.m */,
+				18A350311E4B672F00E757C9 /* ANListControllerItemsHandlerSpec.m */,
+				18A350321E4B672F00E757C9 /* ANListControllerMappingServiceFixture.h */,
+				18A350331E4B672F00E757C9 /* ANListControllerMappingServiceFixture.m */,
+				18A350341E4B672F00E757C9 /* ANListControllerMappingServiceSpec.m */,
+				18A350351E4B672F00E757C9 /* ANListControllerSearchManagerSpec.m */,
+				18A350361E4B672F00E757C9 /* ANListControllerSpec.m */,
+				18A350371E4B672F00E757C9 /* ANListControllerUpdateServiceFixture.h */,
+				18A350381E4B672F00E757C9 /* ANListControllerUpdateServiceFixture.m */,
+				18A350391E4B672F00E757C9 /* ANListControllerUpdateServiceTest.m */,
+				18A3503A1E4B672F00E757C9 /* ANListViewFixture.h */,
+				18A3503B1E4B672F00E757C9 /* ANListViewFixture.m */,
+				18A3503C1E4B672F00E757C9 /* ANSearchControllerDelegateFixture.h */,
+				18A3503D1E4B672F00E757C9 /* ANSearchControllerDelegateFixture.m */,
+				18A3503E1E4B672F00E757C9 /* ANTableController_ReusableTest.m */,
+				18A3503F1E4B672F00E757C9 /* ANTableControllerFixture.h */,
+				18A350401E4B672F00E757C9 /* ANTableControllerFixture.m */,
+				18A350411E4B672F00E757C9 /* ANTableControllerSpec.m */,
+				18A350421E4B672F00E757C9 /* ANTableControllerTest.m */,
+				18A350431E4B672F00E757C9 /* NSOperationQueueFixture.h */,
+				18A350441E4B672F00E757C9 /* NSOperationQueueFixture.m */,
+			);
+			path = ANListController;
+			sourceTree = "<group>";
+		};
+		18A3502D1E4B672F00E757C9 /* ANListCollectionViewTests */ = {
+			isa = PBXGroup;
+			children = (
+				18A3502E1E4B672F00E757C9 /* ANListCollectionViewSpec.m */,
+			);
+			path = ANListCollectionViewTests;
+			sourceTree = "<group>";
+		};
+		18A350451E4B672F00E757C9 /* ANPrototypingUIKit */ = {
+			isa = PBXGroup;
+			children = (
+				18A350461E4B672F00E757C9 /* CollectionView */,
+				18A350491E4B672F00E757C9 /* TableView */,
+			);
+			path = ANPrototypingUIKit;
+			sourceTree = "<group>";
+		};
+		18A350461E4B672F00E757C9 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				18A350471E4B672F00E757C9 /* ANCollectionReusableViewSpec.m */,
+				18A350481E4B672F00E757C9 /* ANCollectionViewCellSpec.m */,
+			);
+			path = CollectionView;
+			sourceTree = "<group>";
+		};
+		18A350491E4B672F00E757C9 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				18A3504A1E4B672F00E757C9 /* ANBaseTableFooterViewSpec.m */,
+				18A3504B1E4B672F00E757C9 /* ANBaseTableViewHeaderFooterViewSpec.m */,
+				18A3504C1E4B672F00E757C9 /* ANTableContainerViewSpec.m */,
+				18A3504D1E4B672F00E757C9 /* ANTableViewSpec.m */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		18A3504E1E4B672F00E757C9 /* ANStorage */ = {
+			isa = PBXGroup;
+			children = (
+				18A3504F1E4B672F00E757C9 /* ANStorageDebugDataGeneratorSpec.m */,
+				18A350501E4B672F00E757C9 /* ANStorageLoaderSpec.m */,
+				18A350511E4B672F00E757C9 /* ANStorageRemover_UpdateVerification_Spec.m */,
+				18A350521E4B672F00E757C9 /* ANStorageRemoverSpec.m */,
+				18A350531E4B672F00E757C9 /* ANStorageUpdateOperationSpec.m */,
+				18A350541E4B672F00E757C9 /* ANStorageUpdater_UpdateVerification_Spec.m */,
+				18A350551E4B672F00E757C9 /* ANStorageUpdaterSpec.m */,
+				18A350561E4B672F00E757C9 /* Fixtures */,
+				18A3505C1E4B672F00E757C9 /* Models */,
+				18A350611E4B672F00E757C9 /* Storage */,
+			);
+			path = ANStorage;
+			sourceTree = "<group>";
+		};
+		18A350561E4B672F00E757C9 /* Fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				18A350571E4B672F00E757C9 /* ANStorageFakeOperationDelegate.h */,
+				18A350581E4B672F00E757C9 /* ANStorageFakeOperationDelegate.m */,
+				18A350591E4B672F00E757C9 /* Helpers */,
+			);
+			path = Fixtures;
+			sourceTree = "<group>";
+		};
+		18A350591E4B672F00E757C9 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				18A3505A1E4B672F00E757C9 /* ANStorageUpdateModel+Test.h */,
+				18A3505B1E4B672F00E757C9 /* ANStorageUpdateModel+Test.m */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		18A3505C1E4B672F00E757C9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				18A3505D1E4B672F00E757C9 /* ANStorageModelSpec.m */,
+				18A3505E1E4B672F00E757C9 /* ANStorageMovedIndexPathModelSpec.m */,
+				18A3505F1E4B672F00E757C9 /* ANStorageSectionModelSpec.m */,
+				18A350601E4B672F00E757C9 /* ANStorageUpdateModelSpec.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		18A350611E4B672F00E757C9 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				18A350621E4B672F00E757C9 /* ANStorageRetrivingInterfaceTestsSpec.m */,
+				18A350631E4B672F00E757C9 /* ANStorageSpec.m */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		18A350641E4B672F00E757C9 /* SharedFixtures */ = {
+			isa = PBXGroup;
+			children = (
+				18A350651E4B672F00E757C9 /* ANTestingFixtureObjects.h */,
+				18A350661E4B672F00E757C9 /* ANTestingFixtureObjects.m */,
+				18A350671E4B672F00E757C9 /* ANTestTableHeaderFooter.h */,
+				18A350681E4B672F00E757C9 /* ANTestTableHeaderFooter.m */,
+			);
+			path = SharedFixtures;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		182815431E4B5EC400BA8F00 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18A34FF51E4B661900E757C9 /* ANStorageRetrivingInterface.h in Headers */,
+				18A3500A1E4B661900E757C9 /* ANStorageUpdater.h in Headers */,
+				18A34FC01E4B661800E757C9 /* ANKeyboardHandler.h in Headers */,
+				18A34FEA1E4B661900E757C9 /* ANBaseListTableCell.h in Headers */,
+				18A34FC91E4B661900E757C9 /* ANListControllerUpdateViewInterface.h in Headers */,
+				18A34FF21E4B661900E757C9 /* ANBaseTableHeaderView.h in Headers */,
+				18A34FD91E4B661900E757C9 /* ANListViewInterface.h in Headers */,
+				18A34FFF1E4B661900E757C9 /* ANStorageUpdateModel.h in Headers */,
+				18A34FDA1E4B661900E757C9 /* Alister.h in Headers */,
+				18A350021E4B661900E757C9 /* ANStorageListUpdateOperationInterface.h in Headers */,
+				18A34FF41E4B661900E757C9 /* ANStorageLog.h in Headers */,
+				18A34FEC1E4B661900E757C9 /* ANBaseTableViewCell.h in Headers */,
+				18A34FD21E4B661900E757C9 /* ANListControllerUpdateService.h in Headers */,
+				18A34FCC1E4B661900E757C9 /* ANListControllerReusableInterface.h in Headers */,
+				18A34FD71E4B661900E757C9 /* ANListTableView.h in Headers */,
+				18A34FC21E4B661800E757C9 /* ANCollectionController.h in Headers */,
+				18A34FF81E4B661900E757C9 /* ANStorageMovedIndexPathModel.h in Headers */,
+				18A34FDE1E4B661900E757C9 /* ANListControllerUpdateOperation.h in Headers */,
+				18A34FE01E4B661900E757C9 /* ANListControllerSearchManager.h in Headers */,
+				18A350051E4B661900E757C9 /* ANStorageUpdateOperationInterface.h in Headers */,
+				18A34FDB1E4B661900E757C9 /* ANTableController.h in Headers */,
+				18A350011E4B661900E757C9 /* ANStorageUpdateModelInterface.h in Headers */,
+				18A34FC71E4B661900E757C9 /* ANListController.h in Headers */,
+				18A34F3B1E4B65A300E757C9 /* Alister_iOS.h in Headers */,
+				18A34FCA1E4B661900E757C9 /* ANListControllerItemsHandler.h in Headers */,
+				18A350061E4B661900E757C9 /* ANStorageLoader.h in Headers */,
+				18A34FE81E4B661900E757C9 /* ANTableView.h in Headers */,
+				18A350081E4B661900E757C9 /* ANStorageRemover.h in Headers */,
+				18A34FFA1E4B661900E757C9 /* ANStorageSectionModel.h in Headers */,
+				18A34FF71E4B661900E757C9 /* ANStorageUpdateEventsDelegate.h in Headers */,
+				18A34FF01E4B661900E757C9 /* ANBaseTableFooterView.h in Headers */,
+				18A34FCD1E4B661900E757C9 /* ANListControllerMappingService.h in Headers */,
+				18A34FDD1E4B661900E757C9 /* ANListControllerLog.h in Headers */,
+				18A34FCF1E4B661900E757C9 /* ANListControllerMappingServiceInterface.h in Headers */,
+				18A3500C1E4B661900E757C9 /* ANStorageDebugDataGenerator.h in Headers */,
+				18A34FE21E4B661900E757C9 /* ANCollectionReusableView.h in Headers */,
+				18A34FE41E4B661900E757C9 /* ANCollectionViewCell.h in Headers */,
+				18A34FC41E4B661800E757C9 /* ANTableUpdateConfigurationModel.h in Headers */,
+				18A34FEE1E4B661900E757C9 /* ANBaseTableViewHeaderFooterView.h in Headers */,
+				18A34FF61E4B661900E757C9 /* ANStorageUpdatableInterface.h in Headers */,
+				18A34FFC1E4B661900E757C9 /* ANStorageSectionModelInterface.h in Headers */,
+				18A350101E4B661900E757C9 /* ANStorage.h in Headers */,
+				18A350031E4B661900E757C9 /* ANStorageUpdateOperation.h in Headers */,
+				18A34FC61E4B661900E757C9 /* ANListController+Interitance.h in Headers */,
+				18A34FD41E4B661900E757C9 /* ANListControllerUpdateServiceInterface.h in Headers */,
+				18A34FFD1E4B661900E757C9 /* ANStorageModel.h in Headers */,
+				18A34F3C1E4B65A300E757C9 /* AlisterGlobalHeader.h in Headers */,
+				18A3500E1E4B661900E757C9 /* ANStorageValidator.h in Headers */,
+				18A34FD51E4B661900E757C9 /* ANListCollectionView.h in Headers */,
+				18A34FD01E4B661900E757C9 /* ANListControllerReloadOperation.h in Headers */,
+				18A34FE61E4B661900E757C9 /* ANTableContainerView.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		182815451E4B5EC400BA8F00 /* Alister_iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1828154E1E4B5EC400BA8F00 /* Build configuration list for PBXNativeTarget "Alister_iOS" */;
+			buildPhases = (
+				182815411E4B5EC400BA8F00 /* Sources */,
+				182815421E4B5EC400BA8F00 /* Frameworks */,
+				182815431E4B5EC400BA8F00 /* Headers */,
+				182815441E4B5EC400BA8F00 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Alister_iOS;
+			productName = Alister_iOS;
+			productReference = 182815461E4B5EC400BA8F00 /* Alister_iOS.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		18A3501C1E4B670400E757C9 /* Alister-Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 18A350251E4B670400E757C9 /* Build configuration list for PBXNativeTarget "Alister-Tests" */;
+			buildPhases = (
+				5BB1639D925FA00E3DFC2F75 /* [CP] Check Pods Manifest.lock */,
+				18A350191E4B670400E757C9 /* Sources */,
+				18A3501A1E4B670400E757C9 /* Frameworks */,
+				18A3501B1E4B670400E757C9 /* Resources */,
+				B742A0254181FBAB3B8F4A93 /* [CP] Embed Pods Frameworks */,
+				75F363B75DD2243187AF910C /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				18A350241E4B670400E757C9 /* PBXTargetDependency */,
+			);
+			name = "Alister-Tests";
+			productName = "Alister-Tests";
+			productReference = 18A3501D1E4B670400E757C9 /* Alister-Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1828153D1E4B5EC400BA8F00 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = ANODA;
+				TargetAttributes = {
+					182815451E4B5EC400BA8F00 = {
+						CreatedOnToolsVersion = 8.2;
+						ProvisioningStyle = Automatic;
+					};
+					18A3501C1E4B670400E757C9 = {
+						CreatedOnToolsVersion = 8.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 182815401E4B5EC400BA8F00 /* Build configuration list for PBXProject "Alister_iOS" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 1828153C1E4B5EC400BA8F00;
+			productRefGroup = 182815471E4B5EC400BA8F00 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				182815451E4B5EC400BA8F00 /* Alister_iOS */,
+				18A3501C1E4B670400E757C9 /* Alister-Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		182815441E4B5EC400BA8F00 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18A3501B1E4B670400E757C9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5BB1639D925FA00E3DFC2F75 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		75F363B75DD2243187AF910C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Alister-Tests/Pods-Alister-Tests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B742A0254181FBAB3B8F4A93 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Alister-Tests/Pods-Alister-Tests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		182815411E4B5EC400BA8F00 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18A34FD11E4B661900E757C9 /* ANListControllerReloadOperation.m in Sources */,
+				18A350041E4B661900E757C9 /* ANStorageUpdateOperation.m in Sources */,
+				18A34FCE1E4B661900E757C9 /* ANListControllerMappingService.m in Sources */,
+				18A34FD81E4B661900E757C9 /* ANListTableView.m in Sources */,
+				18A34FC81E4B661900E757C9 /* ANListController.m in Sources */,
+				18A34FF31E4B661900E757C9 /* ANBaseTableHeaderView.m in Sources */,
+				18A34FF11E4B661900E757C9 /* ANBaseTableFooterView.m in Sources */,
+				18A34FDC1E4B661900E757C9 /* ANTableController.m in Sources */,
+				18A34FF91E4B661900E757C9 /* ANStorageMovedIndexPathModel.m in Sources */,
+				18A34FC31E4B661800E757C9 /* ANCollectionController.m in Sources */,
+				18A34FEB1E4B661900E757C9 /* ANBaseListTableCell.m in Sources */,
+				18A34FFE1E4B661900E757C9 /* ANStorageModel.m in Sources */,
+				18A34FE71E4B661900E757C9 /* ANTableContainerView.m in Sources */,
+				18A34FEF1E4B661900E757C9 /* ANBaseTableViewHeaderFooterView.m in Sources */,
+				18A350111E4B661900E757C9 /* ANStorage.m in Sources */,
+				18A3500B1E4B661900E757C9 /* ANStorageUpdater.m in Sources */,
+				18A34FE91E4B661900E757C9 /* ANTableView.m in Sources */,
+				18A34FED1E4B661900E757C9 /* ANBaseTableViewCell.m in Sources */,
+				18A34FC11E4B661800E757C9 /* ANKeyboardHandler.m in Sources */,
+				18A34FD31E4B661900E757C9 /* ANListControllerUpdateService.m in Sources */,
+				18A3500D1E4B661900E757C9 /* ANStorageDebugDataGenerator.m in Sources */,
+				18A34FE51E4B661900E757C9 /* ANCollectionViewCell.m in Sources */,
+				18A34FC51E4B661800E757C9 /* ANTableUpdateConfigurationModel.m in Sources */,
+				18A34FDF1E4B661900E757C9 /* ANListControllerUpdateOperation.m in Sources */,
+				18A34FE31E4B661900E757C9 /* ANCollectionReusableView.m in Sources */,
+				18A34FFB1E4B661900E757C9 /* ANStorageSectionModel.m in Sources */,
+				18A3500F1E4B661900E757C9 /* ANStorageValidator.m in Sources */,
+				18A350071E4B661900E757C9 /* ANStorageLoader.m in Sources */,
+				18A34FD61E4B661900E757C9 /* ANListCollectionView.m in Sources */,
+				18A34FCB1E4B661900E757C9 /* ANListControllerItemsHandler.m in Sources */,
+				18A34FE11E4B661900E757C9 /* ANListControllerSearchManager.m in Sources */,
+				18A350001E4B661900E757C9 /* ANStorageUpdateModel.m in Sources */,
+				18A350091E4B661900E757C9 /* ANStorageRemover.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18A350191E4B670400E757C9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18A350741E4B672F00E757C9 /* ANListControllerSpec.m in Sources */,
+				18A350891E4B672F00E757C9 /* ANStorageUpdater_UpdateVerification_Spec.m in Sources */,
+				18A350901E4B672F00E757C9 /* ANStorageUpdateModelSpec.m in Sources */,
+				18A3508A1E4B672F00E757C9 /* ANStorageUpdaterSpec.m in Sources */,
+				18A350951E4B672F00E757C9 /* ANTestHelper.m in Sources */,
+				18A350921E4B672F00E757C9 /* ANStorageSpec.m in Sources */,
+				18A3506E1E4B672F00E757C9 /* ANListCollectionViewSpec.m in Sources */,
+				18A3508B1E4B672F00E757C9 /* ANStorageFakeOperationDelegate.m in Sources */,
+				18A350731E4B672F00E757C9 /* ANListControllerSearchManagerSpec.m in Sources */,
+				18A3506D1E4B672F00E757C9 /* ANListCellFixture.m in Sources */,
+				18A350871E4B672F00E757C9 /* ANStorageRemoverSpec.m in Sources */,
+				18A350931E4B672F00E757C9 /* ANTestingFixtureObjects.m in Sources */,
+				18A3507D1E4B672F00E757C9 /* NSOperationQueueFixture.m in Sources */,
+				18A350811E4B672F00E757C9 /* ANBaseTableViewHeaderFooterViewSpec.m in Sources */,
+				18A350841E4B672F00E757C9 /* ANStorageDebugDataGeneratorSpec.m in Sources */,
+				18A3507E1E4B672F00E757C9 /* ANCollectionReusableViewSpec.m in Sources */,
+				18A350791E4B672F00E757C9 /* ANTableController_ReusableTest.m in Sources */,
+				18A350911E4B672F00E757C9 /* ANStorageRetrivingInterfaceTestsSpec.m in Sources */,
+				18A3507A1E4B672F00E757C9 /* ANTableControllerFixture.m in Sources */,
+				18A350831E4B672F00E757C9 /* ANTableViewSpec.m in Sources */,
+				18A3508D1E4B672F00E757C9 /* ANStorageModelSpec.m in Sources */,
+				18A350721E4B672F00E757C9 /* ANListControllerMappingServiceSpec.m in Sources */,
+				18A350751E4B672F00E757C9 /* ANListControllerUpdateServiceFixture.m in Sources */,
+				18A3507F1E4B672F00E757C9 /* ANCollectionViewCellSpec.m in Sources */,
+				18A3507B1E4B672F00E757C9 /* ANTableControllerSpec.m in Sources */,
+				18A350701E4B672F00E757C9 /* ANListControllerItemsHandlerSpec.m in Sources */,
+				18A350851E4B672F00E757C9 /* ANStorageLoaderSpec.m in Sources */,
+				18A350761E4B672F00E757C9 /* ANListControllerUpdateServiceTest.m in Sources */,
+				18A350781E4B672F00E757C9 /* ANSearchControllerDelegateFixture.m in Sources */,
+				18A3506F1E4B672F00E757C9 /* ANListControllerFixture.m in Sources */,
+				18A350941E4B672F00E757C9 /* ANTestTableHeaderFooter.m in Sources */,
+				18A350801E4B672F00E757C9 /* ANBaseTableFooterViewSpec.m in Sources */,
+				18A350881E4B672F00E757C9 /* ANStorageUpdateOperationSpec.m in Sources */,
+				18A3508F1E4B672F00E757C9 /* ANStorageSectionModelSpec.m in Sources */,
+				18A3506C1E4B672F00E757C9 /* ANCollectionControllerSpec.m in Sources */,
+				18A3508C1E4B672F00E757C9 /* ANStorageUpdateModel+Test.m in Sources */,
+				18A350711E4B672F00E757C9 /* ANListControllerMappingServiceFixture.m in Sources */,
+				18A350771E4B672F00E757C9 /* ANListViewFixture.m in Sources */,
+				18A350861E4B672F00E757C9 /* ANStorageRemover_UpdateVerification_Spec.m in Sources */,
+				18A350821E4B672F00E757C9 /* ANTableContainerViewSpec.m in Sources */,
+				18A3508E1E4B672F00E757C9 /* ANStorageMovedIndexPathModelSpec.m in Sources */,
+				18A3507C1E4B672F00E757C9 /* ANTableControllerTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		18A350241E4B670400E757C9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 182815451E4B5EC400BA8F00 /* Alister_iOS */;
+			targetProxy = 18A350231E4B670400E757C9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1828154C1E4B5EC400BA8F00 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		1828154D1E4B5EC400BA8F00 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = "";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		1828154F1E4B5EC400BA8F00 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
+				GCC_PREFIX_HEADER = "$(SRCROOT)/BundleFiles/AlisterGlobalHeader.h";
+				GCC_PREPROCESSOR_DEFINITIONS = "ALISTER_FRAMEWORK_AVAILABLE=1";
+				INFOPLIST_FILE = "$(SRCROOT)/BundleFiles/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "mobi.anoda.Alister.Alister-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		182815501E4B5EC400BA8F00 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
+				GCC_PREFIX_HEADER = "$(SRCROOT)/BundleFiles/AlisterGlobalHeader.h";
+				GCC_PREPROCESSOR_DEFINITIONS = "ALISTER_FRAMEWORK_AVAILABLE=1";
+				INFOPLIST_FILE = "$(SRCROOT)/BundleFiles/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "mobi.anoda.Alister.Alister-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		18A350261E4B670400E757C9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 935FEEBA5D8FB1CF164C4D10 /* Pods-Alister-Tests.debug.xcconfig */;
+			buildSettings = {
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Alister-Tests/AlisterTests.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Alister-Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Oksana-Kovalchuk.Alister-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		18A350271E4B670400E757C9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F4019DC1ADF310E40F73E8B /* Pods-Alister-Tests.release.xcconfig */;
+			buildSettings = {
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Alister-Tests/AlisterTests.pch";
+				INFOPLIST_FILE = "Alister-Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Oksana-Kovalchuk.Alister-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		182815401E4B5EC400BA8F00 /* Build configuration list for PBXProject "Alister_iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1828154C1E4B5EC400BA8F00 /* Debug */,
+				1828154D1E4B5EC400BA8F00 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1828154E1E4B5EC400BA8F00 /* Build configuration list for PBXNativeTarget "Alister_iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1828154F1E4B5EC400BA8F00 /* Debug */,
+				182815501E4B5EC400BA8F00 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		18A350251E4B670400E757C9 /* Build configuration list for PBXNativeTarget "Alister-Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18A350261E4B670400E757C9 /* Debug */,
+				18A350271E4B670400E757C9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1828153D1E4B5EC400BA8F00 /* Project object */;
+}
