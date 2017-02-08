@@ -15,24 +15,24 @@ Pod::Spec.new do |s|
     s.ios.deployment_target = '8.0'
 
     s.subspec 'ANKeyboardHandler' do |sp|
-        sp.source_files = 'Alister/ANKeyboardHandler'
+        sp.source_files = 'Alister/Classes/ANKeyboardHandler'
     end
 
     s.subspec 'ANStorage' do |sp|
-        sp.source_files = 'Alister/ANStorage/**/*.{h,m}', 'Alister/ANStorage/**/**/*.{h,m}', 'Alister/ANStorage/**/**/**/*.{h,m}'
+        sp.source_files = 'Alister/Classes/ANStorage/**/*.{h,m}', 'Alister/Classes/ANStorage/**/**/*.{h,m}', 'Alister/Classes/ANStorage/**/**/**/*.{h,m}'
     end
 
     s.subspec 'ANListController' do |sp|
-        sp.source_files = 'Alister/ANListController/**/*.{h,m}'
-        sp.dependency 'Alister/ANStorage'
-        sp.dependency 'Alister/ANKeyboardHandler'
+        sp.source_files = 'Alister/Classes/ANListController/**/*.{h,m}'
+        sp.dependency 'Alister/Classes/ANStorage'
+        sp.dependency 'Alister/Classes/ANKeyboardHandler'
     end
     
     s.subspec 'ANPrototypingUIKit' do |sp|
-        sp.source_files = 'Alister/ANPrototypingUIKit/**/*.{h,m}',
-                          'Alister/ANPrototypingUIKit/**/**/*.{h,m}'
-        sp.dependency 'Alister/ANListController'
-        sp.dependency 'Alister/ANKeyboardHandler'
+        sp.source_files = 'Alister/Classes/ANPrototypingUIKit/**/*.{h,m}',
+                          'Alister/Classes/ANPrototypingUIKit/**/**/*.{h,m}'
+        sp.dependency 'Alister/Classes/ANListController'
+        sp.dependency 'Alister/Classes/ANKeyboardHandler'
         sp.dependency 'Masonry'
         sp.dependency 'libextobjc'
     end
