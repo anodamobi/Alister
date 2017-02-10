@@ -135,6 +135,7 @@
 		D7A21E031DA895B500D6D803 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7A21DEB1DA895B500D6D803 /* Assets.xcassets */; };
 		D7A21E041DA895B500D6D803 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D7A21DEC1DA895B500D6D803 /* InfoPlist.strings */; };
 		D7A21E051DA895B500D6D803 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21DEE1DA895B500D6D803 /* main.m */; };
+		FA20BB871E4C8D95007A626A /* ANStoragePerformanceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = FA20BB861E4C8D95007A626A /* ANStoragePerformanceTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -395,6 +396,7 @@
 		D7EC43D01D512EE300128012 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E301602B7936D5180834423D /* Alister.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Alister.podspec; path = ../Alister.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		F94C3A38CF0AB0BC1BBB034E /* Pods-Alister-Example-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister-Example-Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Alister-Example-Tests/Pods-Alister-Example-Tests.release.xcconfig"; sourceTree = "<group>"; };
+		FA20BB861E4C8D95007A626A /* ANStoragePerformanceTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStoragePerformanceTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -865,6 +867,7 @@
 			children = (
 				1841F2D01DEC710100FE2999 /* ANStorageRetrivingInterfaceTestsSpec.m */,
 				1841F2D11DEC710100FE2999 /* ANStorageSpec.m */,
+				FA20BB861E4C8D95007A626A /* ANStoragePerformanceTest.m */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -1936,6 +1939,7 @@
 				1841F2F11DEC710100FE2999 /* ANStorageRemover_UpdateVerification_Spec.m in Sources */,
 				1841F2F41DEC710100FE2999 /* ANStorageUpdater_UpdateVerification_Spec.m in Sources */,
 				1841F2FE1DEC710100FE2999 /* ANTestingFixtureObjects.m in Sources */,
+				FA20BB871E4C8D95007A626A /* ANStoragePerformanceTest.m in Sources */,
 				1841F2F51DEC710100FE2999 /* ANStorageUpdaterSpec.m in Sources */,
 				1841F2F71DEC710100FE2999 /* ANStorageUpdateModel+Test.m in Sources */,
 				1841F2DF1DEC710100FE2999 /* ANListControllerMappingServiceSpec.m in Sources */,
