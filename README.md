@@ -61,7 +61,8 @@ NSArray* models = [self generateModels];
 }];
 ```
 #### And that`s all!
-![sample](Assets/base-screen.png =497x883)
+Here is an inline ![smiley](smiley.png).
+![sample](Assets/base-screen.png){:height="497px" width="883px"}
 
 #### Changing cells order
 `Alister` will change order of cells and models in storage automatically.
