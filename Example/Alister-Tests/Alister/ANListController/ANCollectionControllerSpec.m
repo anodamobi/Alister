@@ -62,10 +62,7 @@ describe(@"", ^{
 
             id reusableView = [UICollectionReusableView new];
             
-            id storage = OCMClassMock([ANStorage class]);
-            [controller attachStorage:storage];
-            
-            OCMStub([storage supplementaryModelOfKind:kind forSectionIndex:zeroIndexPath.section]);
+            [controller setItemsHandler:OCMClassMock([ANListControllerItemsHandler class])];
             [OCMStub([controller.itemsHandler supplementaryViewForModel:[OCMArg any]
                                                                   kind:kind
                                                           forIndexPath:zeroIndexPath]) andReturn:reusableView];
