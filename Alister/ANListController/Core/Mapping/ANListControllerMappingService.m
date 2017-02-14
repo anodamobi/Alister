@@ -39,20 +39,21 @@ static NSString* const kANDefaultCellKind = @"kANDefaultCellKind";
     if (kind && viewModelClass)
     {
         identifier = [self _identifierFromClass:viewModelClass];
-        
-        if (identifier)
-        {
-            NSMutableDictionary* dict = self.viewModelToIndentifierMap[kind];
-            if (!dict)
-            {
-                dict = [NSMutableDictionary dictionary];
-            }
-            [dict setObject:identifier forKey:(id<NSCopying>)viewModelClass];
-            self.viewModelToIndentifierMap[kind] = dict;
-        }
+        [self _registerIdentifier:identifier forViewModelClass:viewModelClass kind:kind];
     }
     
     return [self _fullIdentifierFromID:identifier kind:kind];
+}
+
+- (NSString*)registerViewModelClass:(Class)viewModelClass kind:(NSString*)kind withNibName:(NSString*)nibName inBundle:(NSBundle*)bundle
+{
+    NSString* identifier = [self _fullIdentifierFromNibName:nibName bundle:bundle viewModelClass:viewModelClass kind:kind];
+    if (identifier)
+    {
+        [self _registerIdentifier:identifier forViewModelClass:viewModelClass kind:kind];
+    }
+    
+    return identifier;
 }
 
 - (NSString*)identifierForViewModelClass:(Class)keyClass
@@ -79,6 +80,20 @@ static NSString* const kANDefaultCellKind = @"kANDefaultCellKind";
 
 #pragma mark - Private
 
+- (void)_registerIdentifier:(NSString*)identifier forViewModelClass:(Class)viewModelClass kind:(NSString*)kind
+{
+    if (identifier)
+    {
+        NSMutableDictionary* dict = self.viewModelToIndentifierMap[kind];
+        if (!dict)
+        {
+            dict = [NSMutableDictionary dictionary];
+        }
+        [dict setObject:identifier forKey:(id<NSCopying>)viewModelClass];
+        self.viewModelToIndentifierMap[kind] = dict;
+    }
+}
+
 - (NSString*)_identifierFromClass:(Class)someClass
 {
     return NSStringFromClass(someClass);
@@ -92,6 +107,25 @@ static NSString* const kANDefaultCellKind = @"kANDefaultCellKind";
         result = [NSString stringWithFormat:@"%@<=>%@", identifier, kind];
     }
     return result;
+}
+
+- (NSString*)_fullIdentifierFromNibName:(NSString*)nibName
+                                 bundle:(NSBundle*)bundle
+                         viewModelClass:(Class)viewModelClass
+                                   kind:(NSString*)kind
+{
+    UINib* nib = [bundle loadNibNamed:nibName owner:nil options:nil].firstObject;
+    NSString* bundleIdentifier = bundle.bundleIdentifier;
+    NSString* className = [self _identifierFromClass:viewModelClass];
+    
+    NSString* identifier = nil;
+    if (nibName && bundleIdentifier && className)
+    {
+        identifier = [NSString stringWithFormat:@"%@<=>%@<=>%@", nibName, bundleIdentifier, className];
+        [self _registerIdentifier:identifier forViewModelClass:viewModelClass kind:kind];
+    }
+    
+    return identifier;
 }
 
 //Nimbus workaround

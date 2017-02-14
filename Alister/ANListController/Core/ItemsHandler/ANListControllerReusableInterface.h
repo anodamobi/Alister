@@ -12,9 +12,9 @@
 - (void)registerHeaderClass:(Class)viewClass forModelClass:(Class)modelClass;
 - (void)registerCellClass:(Class)cellClass forModelClass:(Class)modelClass;
 
-- (void)registerFooterClass:(Class)viewClass forModelClass:(Class)modelClass withNib:(UINib*)nib;
-- (void)registerHeaderClass:(Class)viewClass forModelClass:(Class)modelClass withNib:(UINib*)nib;
-- (void)registerCellClass:(Class)cellClass forModelClass:(Class)modelClass withNib:(UINib*)nib;
+- (void)registerFooterForNibName:(NSString*)nibName inBundle:(NSBundle*)bundle forModelClass:(Class)modelClass;
+- (void)registerHeaderForNibName:(NSString*)nibName inBundle:(NSBundle*)bundle forModelClass:(Class)modelClass;
+- (void)registerCellForNibName:(NSString*)nibName inBundle:(NSBundle*)bundle forModelClass:(Class)modelClass;
 
 #pragma mark - UICollectionView
 

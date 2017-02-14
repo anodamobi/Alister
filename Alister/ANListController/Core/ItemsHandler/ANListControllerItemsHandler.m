@@ -44,39 +44,60 @@
 
 - (void)registerSupplementaryClass:(Class)supplementaryClass forModelClass:(Class)modelClass kind:(NSString*)kind
 {
-    [self _registerSupplementaryClass:supplementaryClass forModelClass:modelClass kind:kind nib:nil];
-}
-
-- (void)registerFooterClass:(Class)viewClass forModelClass:(Class)modelClass withNib:(UINib*)nib
-{
-    [self _registerSupplementaryClass:viewClass forModelClass:modelClass kind:[self.listView defaultFooterKind] nib:nib];
-}
-
-- (void)registerHeaderClass:(Class)viewClass forModelClass:(Class)modelClass withNib:(UINib*)nib
-{
-    [self _registerSupplementaryClass:viewClass forModelClass:modelClass kind:[self.listView defaultHeaderKind] nib:nib];
-}
-
-- (void)_registerSupplementaryClass:(Class)supplementaryClass
-                      forModelClass:(Class)modelClass
-                               kind:(NSString*)kind
-                                nib:(UINib*)nib
-{
     NSString* identifier = [self.mappingService registerViewModelClass:modelClass kind:kind];
     if (identifier)
     {
-        if (nib)
-        {
-            [self.listView registerSupplementaryNib:nib reuseIdentifier:identifier kind:kind];
-        }
-        else
-        {
-            [self.listView registerSupplementaryClass:supplementaryClass reuseIdentifier:identifier kind:kind];
-        }
+        [self.listView registerSupplementaryClass:supplementaryClass reuseIdentifier:identifier kind:kind];
     }
     else
     {
         ANListControllerLog(@"No mapping was created for supplementary!");
+    }
+}
+
+
+#pragma mark - Nibs
+
+- (void)registerFooterForNibName:(NSString*)nibName inBundle:(NSBundle*)bundle forModelClass:(Class)modelClass
+{
+    [self _registerSupplementaryWithNibName:nibName inBundle:bundle forModelClass:modelClass kind:[self.listView defaultFooterKind]];
+}
+
+- (void)registerHeaderForNibName:(NSString*)nibName inBundle:(NSBundle*)bundle forModelClass:(Class)modelClass
+{
+    [self _registerSupplementaryWithNibName:nibName inBundle:bundle forModelClass:modelClass kind:[self.listView defaultHeaderKind]];
+}
+
+- (void)registerCellForNibName:(NSString*)nibName inBundle:(NSBundle*)bundle forModelClass:(Class)modelClass
+{
+    [self _registerCellWithNibName:nibName inBundle:bundle forModelClass:modelClass];
+}
+
+- (void)_registerSupplementaryWithNibName:(NSString*)nibName inBundle:(NSBundle*)bundle forModelClass:(Class)modelClass kind:(NSString*)kind
+{
+    NSString* identifier = [self.mappingService registerViewModelClass:modelClass kind:kind withNibName:nibName inBundle:bundle];
+    if (identifier)
+    {
+        [self.listView registerSupplementaryNib:nib reuseIdentifier:identifier kind:kind];
+    }
+    else
+    {
+        ANListControllerLog(@"No mapping was created for cell!");
+    }
+}
+
+- (void)_registerCellWithNibName:(NSString*)nibName inBundle:(NSBundle*)bundle forModelClass:(Class)modelClass
+{
+    UINib* nib = [bundle loadNibNamed:nibName owner:nil options:nil].firstObject;
+    NSString* identifier = nil;
+    
+    if (nib && identifier)
+    {
+        [self.listView registerCellWithNib:nib forReuseIdentifier:identifier];
+    }
+    else
+    {
+        ANListControllerLog(@"No mapping was created for cell!");
     }
 }
 
@@ -93,14 +114,7 @@
     NSString* identifier = [self.mappingService registerViewModelClass:modelClass];
     if (identifier)
     {
-        if (nib)
-        {
-            [self.listView registerCellWithNib:nib forReuseIdentifier:identifier];
-        }
-        else
-        {
-            [self.listView registerCellClass:cellClass forReuseIdentifier:identifier];
-        }
+        [self.listView registerCellClass:cellClass forReuseIdentifier:identifier];
     }
     else
     {
