@@ -80,6 +80,7 @@ typedef NS_ENUM(NSInteger, ANEMainSection)
         [storageController addItem:@"Table with search bar and empty states"];
         [storageController addItem:@"Plain collection view"];
         [storageController addItem:@"Collection with custom header and footer"];
+        [storageController addItem:@"List views with nib support"];
     }];
     
     [self.controller configureItemSelectionBlock:^(__unused id model, NSIndexPath* indexPath) {

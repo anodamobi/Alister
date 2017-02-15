@@ -41,4 +41,17 @@
     return self;
 }
 
+- (void)loadView
+{
+    self.view = self.tableView;
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    [self.storage updateWithoutAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
+        [storageController addItem:@"item1"];
+    }];
+}
+
 @end
