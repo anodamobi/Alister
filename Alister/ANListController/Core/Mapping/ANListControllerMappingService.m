@@ -45,22 +45,6 @@ static NSString* const kANDefaultCellKind = @"kANDefaultCellKind";
     return [self _fullIdentifierFromID:identifier kind:kind];
 }
 
-- (NSString*)registerViewModelClass:(Class)viewModelClass nibIdentifier:(NSString*)nibIdentifier;
-{
-    return [self registerViewModelClass:viewModelClass kind:kANDefaultCellKind nibIdentifier:nibIdentifier];
-}
-
-- (NSString*)registerViewModelClass:(Class)viewModelClass kind:(NSString*)kind nibIdentifier:(NSString*)nibIdentifier
-{
-    NSString* identifier = [self _fullIdentifierWithModelClass:viewModelClass nibIdentifier:nibIdentifier kind:kind];
-    if (identifier)
-    {
-        [self _registerIdentifier:identifier forViewModelClass:viewModelClass kind:kind];
-    }
-    
-    return identifier;
-}
-
 - (NSString*)identifierForViewModelClass:(Class)keyClass
 {
     return [self identifierForViewModelClass:keyClass kind:kANDefaultCellKind];
@@ -112,32 +96,6 @@ static NSString* const kANDefaultCellKind = @"kANDefaultCellKind";
         result = [NSString stringWithFormat:@"%@<=>%@", identifier, kind];
     }
     return result;
-}
-
-- (NSString*)identifierForNibWithName:(NSString*)nibName inBundle:(NSBundle*)bundle
-{
-    NSString* identifier = nil;
-    if (nibName && bundle.bundleIdentifier)
-    {
-        identifier = [NSString stringWithFormat:@"%@<=>%@", nibName, bundle.bundleIdentifier];
-    }
-    
-    return identifier;
-}
-
-- (NSString*)_fullIdentifierWithModelClass:(Class)viewModelClass
-                             nibIdentifier:(NSString*)nibIdentifier
-                                      kind:(NSString*)kind
-{
-    NSString* identifier = nil;
-    NSString* className = [self _identifierFromClass:viewModelClass];
-    if (nibIdentifier && className && kind)
-    {
-        identifier = [NSString stringWithFormat:@"%@<=>%@<=>%@", nibIdentifier, className, kind];
-        [self _registerIdentifier:identifier forViewModelClass:viewModelClass kind:kind];
-    }
-    
-    return identifier;
 }
 
 //Nimbus workaround
