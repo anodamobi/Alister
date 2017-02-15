@@ -131,9 +131,9 @@ static NSString* const kANDefaultCellKind = @"kANDefaultCellKind";
 {
     NSString* identifier = nil;
     NSString* className = [self _identifierFromClass:viewModelClass];
-    if (nibIdentifier && className)
+    if (nibIdentifier && className && kind)
     {
-        identifier = [NSString stringWithFormat:@"%@<=>%@", nibIdentifier, className];
+        identifier = [NSString stringWithFormat:@"%@<=>%@<=>%@", nibIdentifier, className, kind];
         [self _registerIdentifier:identifier forViewModelClass:viewModelClass kind:kind];
     }
     
