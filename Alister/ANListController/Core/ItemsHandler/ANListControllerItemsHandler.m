@@ -58,48 +58,31 @@
 
 #pragma mark - Nibs
 
-- (void)registerFooterForNibName:(NSString*)nibName inBundle:(NSBundle*)bundle forModelClass:(Class)modelClass
+- (void)registerFooterWithNib:(UINib*)nib forModelClass:(Class)modelClass
 {
-    [self _registerSupplementaryWithNibName:nibName inBundle:bundle forModelClass:modelClass kind:[self.listView defaultFooterKind]];
+    [self _registerSupplementaryNib:nib forModelClass:modelClass kind:[self.listView defaultFooterKind]];
 }
 
-- (void)registerHeaderForNibName:(NSString*)nibName inBundle:(NSBundle*)bundle forModelClass:(Class)modelClass
+- (void)registerHeaderWithNib:(UINib*)nib forModelClass:(Class)modelClass
 {
-    [self _registerSupplementaryWithNibName:nibName inBundle:bundle forModelClass:modelClass kind:[self.listView defaultHeaderKind]];
+    [self _registerSupplementaryNib:nib forModelClass:modelClass kind:[self.listView defaultHeaderKind]];
 }
 
-- (void)registerCellForNibName:(NSString*)nibName inBundle:(NSBundle*)bundle forModelClass:(Class)modelClass
+- (void)registerCellWithNib:(UINib*)nib forModelClass:(Class)modelClass
 {
-    [self _registerCellWithNibName:nibName inBundle:bundle forModelClass:modelClass];
+    [self _registerCellWithNib:nib forModelClass:modelClass];
 }
 
-- (void)_registerSupplementaryWithNibName:(NSString*)nibName inBundle:(NSBundle*)bundle forModelClass:(Class)modelClass kind:(NSString*)kind
+- (void)_registerSupplementaryNib:(UINib*)nib forModelClass:(Class)modelClass kind:(NSString*)kind
 {
-    NSString* nibIdentifier = [self.mappingService identifierForNibWithName:nibName inBundle:bundle];
-    NSString* fullIdentifier = [self.mappingService registerViewModelClass:modelClass kind:kind nibIdentifier:nibIdentifier];
-    UINib* nib = [self _loadNibWithName:nibName inBundle:bundle];
-    if (fullIdentifier && nib)
+    NSString* identifier = [self.mappingService registerViewModelClass:modelClass kind:kind];
+    if (identifier && nib)
     {
-        [self.listView registerSupplementaryNib:nib reuseIdentifier:fullIdentifier kind:kind];
+        [self.listView registerSupplementaryNib:nib reuseIdentifier:identifier kind:kind];
     }
     else
     {
         ANListControllerLog(@"No mapping was created for supplementary with nib!");
-    }
-}
-
-- (void)_registerCellWithNibName:(NSString*)nibName inBundle:(NSBundle*)bundle forModelClass:(Class)modelClass
-{
-    NSString* nibIdentifier = [self.mappingService identifierForNibWithName:nibName inBundle:bundle];
-    NSString* fullID = [self.mappingService registerViewModelClass:modelClass nibIdentifier:nibIdentifier];
-    UINib* nib = [self _loadNibWithName:nibName inBundle:bundle];
-    if (nib && fullID)
-    {
-        [self.listView registerCellWithNib:nib forReuseIdentifier:fullID];
-    }
-    else
-    {
-        ANListControllerLog(@"No mapping was created for cell!");
     }
 }
 
@@ -112,6 +95,19 @@
     if (identifier)
     {
         [self.listView registerCellClass:cellClass forReuseIdentifier:identifier];
+    }
+    else
+    {
+        ANListControllerLog(@"No mapping was created for cell!");
+    }
+}
+
+- (void)_registerCellWithNib:(UINib*)nib forModelClass:(Class)modelClass
+{
+    NSString* identifier = [self.mappingService registerViewModelClass:modelClass];
+    if (identifier)
+    {
+        [self.listView registerCellWithNib:nib forReuseIdentifier:identifier];
     }
     else
     {
@@ -165,17 +161,6 @@
 
 
 #pragma mark - Private
-
-- (UINib*)_loadNibWithName:(NSString*)nibName inBundle:(NSBundle*)bundle
-{
-    UINib* nib = nil;
-    if (nibName && bundle)
-    {
-        nib = [bundle loadNibNamed:nibName owner:nil options:nil].firstObject;
-    }
-    
-    return nib;
-}
 
 - (id<ANListControllerMappingServiceInterface>)mappingService
 {
