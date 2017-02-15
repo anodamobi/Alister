@@ -10,7 +10,8 @@
 #import "ANStorage.h"
 #import "ANTableView.h"
 #import "ANTableController.h"
-#import "ANBaseTableViewCell.h"
+#import "ANETableXibSwitchCell.h"
+#import "ANETableXibSegmentCell.h"
 
 @interface ANEListViewsNibSupportVC ()
 
@@ -33,8 +34,14 @@
         [self.tableController attachStorage:self.storage];
         [self.tableController configureCellsWithBlock:^(id<ANListControllerReusableInterface> configurator) {
             
-            UINib* nib = [UINib nibWithNibName:@"ANETableXibCell" bundle:nil];
-            [configurator registerCellWithNib:nib forModelClass:[NSNumber class]];
+            UINib* xibCellNib = [UINib nibWithNibName:@"ANETableXibSwitchCell" bundle:nil];
+            UINib* segmentCellNib = [UINib nibWithNibName:@"ANETableXibSegmentCell" bundle:nil];
+            
+            [configurator registerCellWithNib:xibCellNib
+                                forModelClass:[ANETableXibSwitchCellViewModel class]];
+            
+            [configurator registerCellWithNib:segmentCellNib
+                                forModelClass:[ANETableXibSegmentCellViewModel class]];
         }];
     }
     
@@ -50,7 +57,12 @@
 {
     [super viewDidLoad];
     [self.storage updateWithoutAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
-        [storageController addItem:@2];
+        
+        ANETableXibSwitchCellViewModel* switchModel = [ANETableXibSwitchCellViewModel new];
+        ANETableXibSegmentCellViewModel* segmentModel = [ANETableXibSegmentCellViewModel new];
+        
+        [storageController addItem:switchModel];
+        [storageController addItem:segmentModel];
     }];
 }
 

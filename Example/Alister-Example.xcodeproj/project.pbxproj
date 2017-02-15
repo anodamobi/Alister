@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1809B5491E54BF9B001DAF53 /* ANETableXibSegmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1809B5431E54BF9B001DAF53 /* ANETableXibSegmentCell.m */; };
+		1809B54A1E54BF9B001DAF53 /* ANETableXibSegmentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1809B5441E54BF9B001DAF53 /* ANETableXibSegmentCell.xib */; };
+		1809B54B1E54BF9B001DAF53 /* ANETableXibSwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1809B5471E54BF9B001DAF53 /* ANETableXibSwitchCell.m */; };
+		1809B54C1E54BF9B001DAF53 /* ANETableXibSwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1809B5481E54BF9B001DAF53 /* ANETableXibSwitchCell.xib */; };
+		1809B54F1E54C0C7001DAF53 /* ANETableXibSegmentCellViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1809B54E1E54C0C7001DAF53 /* ANETableXibSegmentCellViewModel.m */; };
+		1809B5521E54C0DA001DAF53 /* ANETableXibSwitchCellViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1809B5511E54C0DA001DAF53 /* ANETableXibSwitchCellViewModel.m */; };
 		1841F2421DEC70CA00FE2999 /* ANAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F1FD1DEC70CA00FE2999 /* ANAppDelegate.m */; };
 		1841F2431DEC70CA00FE2999 /* ANECustomFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F2001DEC70CA00FE2999 /* ANECustomFooterView.m */; };
 		1841F2441DEC70CA00FE2999 /* ANECustomFooterViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F2021DEC70CA00FE2999 /* ANECustomFooterViewModel.m */; };
@@ -136,7 +142,6 @@
 		D7A21E041DA895B500D6D803 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D7A21DEC1DA895B500D6D803 /* InfoPlist.strings */; };
 		D7A21E051DA895B500D6D803 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21DEE1DA895B500D6D803 /* main.m */; };
 		FA541DA71E546244008DB951 /* ANEListViewsNibSupportVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FA541DA61E546244008DB951 /* ANEListViewsNibSupportVC.m */; };
-		FA541DAA1E5464F9008DB951 /* ANETableXibCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA541DA91E5464F9008DB951 /* ANETableXibCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -160,6 +165,16 @@
 		019F2C73D93E6032B674EAE3 /* Pods-Alister-Example-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister-Example-Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Alister-Example-Tests/Pods-Alister-Example-Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		07CE62481D5169B300D1A43C /* Tests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		12C7B2C3A579D51E17C98434 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		1809B5421E54BF9B001DAF53 /* ANETableXibSegmentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANETableXibSegmentCell.h; sourceTree = "<group>"; };
+		1809B5431E54BF9B001DAF53 /* ANETableXibSegmentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANETableXibSegmentCell.m; sourceTree = "<group>"; };
+		1809B5441E54BF9B001DAF53 /* ANETableXibSegmentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ANETableXibSegmentCell.xib; sourceTree = "<group>"; };
+		1809B5461E54BF9B001DAF53 /* ANETableXibSwitchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANETableXibSwitchCell.h; sourceTree = "<group>"; };
+		1809B5471E54BF9B001DAF53 /* ANETableXibSwitchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANETableXibSwitchCell.m; sourceTree = "<group>"; };
+		1809B5481E54BF9B001DAF53 /* ANETableXibSwitchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ANETableXibSwitchCell.xib; sourceTree = "<group>"; };
+		1809B54D1E54C0C7001DAF53 /* ANETableXibSegmentCellViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANETableXibSegmentCellViewModel.h; sourceTree = "<group>"; };
+		1809B54E1E54C0C7001DAF53 /* ANETableXibSegmentCellViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANETableXibSegmentCellViewModel.m; sourceTree = "<group>"; };
+		1809B5501E54C0DA001DAF53 /* ANETableXibSwitchCellViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANETableXibSwitchCellViewModel.h; sourceTree = "<group>"; };
+		1809B5511E54C0DA001DAF53 /* ANETableXibSwitchCellViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANETableXibSwitchCellViewModel.m; sourceTree = "<group>"; };
 		1841F1FC1DEC70CA00FE2999 /* ANAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANAppDelegate.h; sourceTree = "<group>"; };
 		1841F1FD1DEC70CA00FE2999 /* ANAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANAppDelegate.m; sourceTree = "<group>"; };
 		1841F1FF1DEC70CA00FE2999 /* ANECustomFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANECustomFooterView.h; sourceTree = "<group>"; };
@@ -399,7 +414,6 @@
 		F94C3A38CF0AB0BC1BBB034E /* Pods-Alister-Example-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister-Example-Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Alister-Example-Tests/Pods-Alister-Example-Tests.release.xcconfig"; sourceTree = "<group>"; };
 		FA541DA51E546244008DB951 /* ANEListViewsNibSupportVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANEListViewsNibSupportVC.h; sourceTree = "<group>"; };
 		FA541DA61E546244008DB951 /* ANEListViewsNibSupportVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANEListViewsNibSupportVC.m; sourceTree = "<group>"; };
-		FA541DA91E5464F9008DB951 /* ANETableXibCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ANETableXibCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -433,6 +447,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1809B5411E54BF9B001DAF53 /* SegmentCell */ = {
+			isa = PBXGroup;
+			children = (
+				1809B5421E54BF9B001DAF53 /* ANETableXibSegmentCell.h */,
+				1809B5431E54BF9B001DAF53 /* ANETableXibSegmentCell.m */,
+				1809B5441E54BF9B001DAF53 /* ANETableXibSegmentCell.xib */,
+				1809B54D1E54C0C7001DAF53 /* ANETableXibSegmentCellViewModel.h */,
+				1809B54E1E54C0C7001DAF53 /* ANETableXibSegmentCellViewModel.m */,
+			);
+			path = SegmentCell;
+			sourceTree = "<group>";
+		};
+		1809B5451E54BF9B001DAF53 /* SwitchCell */ = {
+			isa = PBXGroup;
+			children = (
+				1809B5461E54BF9B001DAF53 /* ANETableXibSwitchCell.h */,
+				1809B5471E54BF9B001DAF53 /* ANETableXibSwitchCell.m */,
+				1809B5481E54BF9B001DAF53 /* ANETableXibSwitchCell.xib */,
+				1809B5501E54C0DA001DAF53 /* ANETableXibSwitchCellViewModel.h */,
+				1809B5511E54C0DA001DAF53 /* ANETableXibSwitchCellViewModel.m */,
+			);
+			path = SwitchCell;
+			sourceTree = "<group>";
+		};
 		1841F1FB1DEC70CA00FE2999 /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
@@ -1451,7 +1489,8 @@
 		FA541DA81E54649B008DB951 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				FA541DA91E5464F9008DB951 /* ANETableXibCell.xib */,
+				1809B5411E54BF9B001DAF53 /* SegmentCell */,
+				1809B5451E54BF9B001DAF53 /* SwitchCell */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1594,8 +1633,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1809B54A1E54BF9B001DAF53 /* ANETableXibSegmentCell.xib in Resources */,
+				1809B54C1E54BF9B001DAF53 /* ANETableXibSwitchCell.xib in Resources */,
 				D7A21E041DA895B500D6D803 /* InfoPlist.strings in Resources */,
-				FA541DAA1E5464F9008DB951 /* ANETableXibCell.xib in Resources */,
 				1841F2521DEC70CA00FE2999 /* Localizable.strings in Resources */,
 				D795BA071DA7253400668587 /* StyleSettings.plist in Resources */,
 				D7A21E031DA895B500D6D803 /* Assets.xcassets in Resources */,
@@ -1878,6 +1918,7 @@
 				D75F9E791DC982940070538F /* ANListControllerSearchManager.m in Sources */,
 				D75F9E771DC982940070538F /* ANTableController.m in Sources */,
 				1841F2481DEC70CA00FE2999 /* ANEDataGenerator.m in Sources */,
+				1809B5491E54BF9B001DAF53 /* ANETableXibSegmentCell.m in Sources */,
 				1841F24E1DEC70CA00FE2999 /* ANECollectionHeaderView.m in Sources */,
 				1841F24C1DEC70CA00FE2999 /* ANECollectionCustomSupplementaryVC.m in Sources */,
 				D75F9E811DC982940070538F /* ANBaseTableFooterView.m in Sources */,
@@ -1898,6 +1939,7 @@
 				1841F2511DEC70CA00FE2999 /* ANEDefaultSupplementaryVC.m in Sources */,
 				1841F2451DEC70CA00FE2999 /* ANECustomHeaderView.m in Sources */,
 				D75F9E7F1DC982940070538F /* ANBaseTableViewCell.m in Sources */,
+				1809B54F1E54C0C7001DAF53 /* ANETableXibSegmentCellViewModel.m in Sources */,
 				D75F9E701DC982940070538F /* ANListController.m in Sources */,
 				1841F24F1DEC70CA00FE2999 /* ANECustomSupplementaryController.m in Sources */,
 				1841F2491DEC70CA00FE2999 /* ANEBottomStickedFooterVC.m in Sources */,
@@ -1914,10 +1956,12 @@
 				D75F9E871DC982940070538F /* ANStorageUpdateOperation.m in Sources */,
 				D75F9E831DC982940070538F /* ANStorageMovedIndexPathModel.m in Sources */,
 				D75F9E7B1DC982940070538F /* ANCollectionViewCell.m in Sources */,
+				1809B5521E54C0DA001DAF53 /* ANETableXibSwitchCellViewModel.m in Sources */,
 				FA541DA71E546244008DB951 /* ANEListViewsNibSupportVC.m in Sources */,
 				D75F9E6F1DC982940070538F /* ANTableUpdateConfigurationModel.m in Sources */,
 				D75F9E861DC982940070538F /* ANStorageUpdateModel.m in Sources */,
 				1841F2561DEC70CA00FE2999 /* ANECollectionViewCell.m in Sources */,
+				1809B54B1E54BF9B001DAF53 /* ANETableXibSwitchCell.m in Sources */,
 				D74623161DD5277200099D0A /* ANStorageDebugDataGenerator.m in Sources */,
 				D75F9E7A1DC982940070538F /* ANCollectionReusableView.m in Sources */,
 				1841F2431DEC70CA00FE2999 /* ANECustomFooterView.m in Sources */,
