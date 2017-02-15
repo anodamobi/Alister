@@ -45,9 +45,14 @@ static NSString* const kANDefaultCellKind = @"kANDefaultCellKind";
     return [self _fullIdentifierFromID:identifier kind:kind];
 }
 
-- (NSString*)registerViewModelClass:(Class)viewModelClass kind:(NSString*)kind withNibName:(NSString*)nibName inBundle:(NSBundle*)bundle
+- (NSString*)registerViewModelClass:(Class)viewModelClass nibIdentifier:(NSString*)nibIdentifier;
 {
-    NSString* identifier = [self _fullIdentifierFromNibName:nibName bundle:bundle viewModelClass:viewModelClass kind:kind];
+    return [self registerViewModelClass:viewModelClass kind:kANDefaultCellKind nibIdentifier:nibIdentifier];
+}
+
+- (NSString*)registerViewModelClass:(Class)viewModelClass kind:(NSString*)kind nibIdentifier:(NSString*)nibIdentifier
+{
+    NSString* identifier = [self _fullIdentifierWithModelClass:viewModelClass nibIdentifier:nibIdentifier kind:kind];
     if (identifier)
     {
         [self _registerIdentifier:identifier forViewModelClass:viewModelClass kind:kind];
@@ -109,19 +114,26 @@ static NSString* const kANDefaultCellKind = @"kANDefaultCellKind";
     return result;
 }
 
-- (NSString*)_fullIdentifierFromNibName:(NSString*)nibName
-                                 bundle:(NSBundle*)bundle
-                         viewModelClass:(Class)viewModelClass
-                                   kind:(NSString*)kind
+- (NSString*)identifierForNibWithName:(NSString*)nibName inBundle:(NSBundle*)bundle
 {
-    UINib* nib = [bundle loadNibNamed:nibName owner:nil options:nil].firstObject;
-    NSString* bundleIdentifier = bundle.bundleIdentifier;
-    NSString* className = [self _identifierFromClass:viewModelClass];
-    
     NSString* identifier = nil;
-    if (nibName && bundleIdentifier && className)
+    if (nibName && bundle.bundleIdentifier)
     {
-        identifier = [NSString stringWithFormat:@"%@<=>%@<=>%@", nibName, bundleIdentifier, className];
+        identifier = [NSString stringWithFormat:@"%@<=>%@", nibName, bundle.bundleIdentifier];
+    }
+    
+    return identifier;
+}
+
+- (NSString*)_fullIdentifierWithModelClass:(Class)viewModelClass
+                             nibIdentifier:(NSString*)nibIdentifier
+                                      kind:(NSString*)kind
+{
+    NSString* identifier = nil;
+    NSString* className = [self _identifierFromClass:viewModelClass];
+    if (nibIdentifier && className)
+    {
+        identifier = [NSString stringWithFormat:@"%@<=>%@", nibIdentifier, className];
         [self _registerIdentifier:identifier forViewModelClass:viewModelClass kind:kind];
     }
     

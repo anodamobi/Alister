@@ -75,25 +75,27 @@
 
 - (void)_registerSupplementaryWithNibName:(NSString*)nibName inBundle:(NSBundle*)bundle forModelClass:(Class)modelClass kind:(NSString*)kind
 {
-    NSString* identifier = [self.mappingService registerViewModelClass:modelClass kind:kind withNibName:nibName inBundle:bundle];
-    if (identifier)
+    NSString* nibIdentifier = [self.mappingService identifierForNibWithName:nibName inBundle:bundle];
+    NSString* fullIdentifier = [self.mappingService registerViewModelClass:modelClass kind:kind nibIdentifier:nibIdentifier];
+    UINib* nib = [self _loadNibWithName:nibName inBundle:bundle];
+    if (fullIdentifier && nib)
     {
-        [self.listView registerSupplementaryNib:nib reuseIdentifier:identifier kind:kind];
+        [self.listView registerSupplementaryNib:nib reuseIdentifier:fullIdentifier kind:kind];
     }
     else
     {
-        ANListControllerLog(@"No mapping was created for cell!");
+        ANListControllerLog(@"No mapping was created for supplementary with nib!");
     }
 }
 
 - (void)_registerCellWithNibName:(NSString*)nibName inBundle:(NSBundle*)bundle forModelClass:(Class)modelClass
 {
-    UINib* nib = [bundle loadNibNamed:nibName owner:nil options:nil].firstObject;
-    NSString* identifier = nil;
-    
-    if (nib && identifier)
+    NSString* nibIdentifier = [self.mappingService identifierForNibWithName:nibName inBundle:bundle];
+    NSString* fullID = [self.mappingService registerViewModelClass:modelClass nibIdentifier:nibIdentifier];
+    UINib* nib = [self _loadNibWithName:nibName inBundle:bundle];
+    if (nib && fullID)
     {
-        [self.listView registerCellWithNib:nib forReuseIdentifier:identifier];
+        [self.listView registerCellWithNib:nib forReuseIdentifier:fullID];
     }
     else
     {
@@ -105,11 +107,6 @@
 #pragma mark - Cells
 
 - (void)registerCellClass:(Class)cellClass forModelClass:(Class)modelClass
-{
-    [self registerCellClass:cellClass forModelClass:modelClass withNib:nil];
-}
-
-- (void)registerCellClass:(Class)cellClass forModelClass:(Class)modelClass withNib:(UINib*)nib
 {
     NSString* identifier = [self.mappingService registerViewModelClass:modelClass];
     if (identifier)
@@ -168,6 +165,17 @@
 
 
 #pragma mark - Private
+
+- (UINib*)_loadNibWithName:(NSString*)nibName inBundle:(NSBundle*)bundle
+{
+    UINib* nib = nil;
+    if (nibName && bundle)
+    {
+        nib = [bundle loadNibNamed:nibName owner:nil options:nil].firstObject;
+    }
+    
+    return nib;
+}
 
 - (id<ANListControllerMappingServiceInterface>)mappingService
 {

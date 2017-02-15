@@ -12,13 +12,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (NSString*)registerViewModelClass:(Class)viewModelClass;
 - (NSString*)registerViewModelClass:(Class)viewModelClass kind:(NSString*)kind;
+
+- (NSString*)registerViewModelClass:(Class)viewModelClass nibIdentifier:(NSString*)nibIdentifier;
 - (NSString*)registerViewModelClass:(Class)viewModelClass
                                kind:(NSString*)kind
-                        withNibName:(NSString*)nibName
-                           inBundle:(NSBundle*)bundle;
+                      nibIdentifier:(NSString*)nibIdentifier;
 
 - (NSString*)identifierForViewModelClass:(Class)keyClass;
 - (NSString*)identifierForViewModelClass:(Class)viewModelClass kind:(NSString*)kind;
+- (NSString*)identifierForNibWithName:(NSString*)nibName inBundle:(NSBundle*)bundle;
 
 NS_ASSUME_NONNULL_END
 
