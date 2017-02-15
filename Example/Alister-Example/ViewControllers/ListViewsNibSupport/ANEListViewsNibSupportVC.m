@@ -10,6 +10,7 @@
 #import "ANStorage.h"
 #import "ANTableView.h"
 #import "ANTableController.h"
+#import "ANBaseTableViewCell.h"
 
 @interface ANEListViewsNibSupportVC ()
 
@@ -32,9 +33,8 @@
         [self.tableController attachStorage:self.storage];
         [self.tableController configureCellsWithBlock:^(id<ANListControllerReusableInterface> configurator) {
             
-            [configurator registerCellForNibName:@"ANETableXibCell"
-                                        inBundle:[NSBundle mainBundle]
-                                   forModelClass:[NSString class]];
+            UINib* nib = [UINib nibWithNibName:@"ANETableXibCell" bundle:nil];
+            [configurator registerCellWithNib:nib forModelClass:[NSNumber class]];
         }];
     }
     
@@ -50,7 +50,7 @@
 {
     [super viewDidLoad];
     [self.storage updateWithoutAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
-        [storageController addItem:@"item1"];
+        [storageController addItem:@2];
     }];
 }
 
