@@ -17,6 +17,7 @@
 #import "ANESearchBarVC.h"
 #import "ANECollectionViewVC.h"
 #import "ANECollectionCustomSupplementaryVC.h"
+#import "ANEListViewsNibSupportVC.h"
 
 typedef NS_ENUM(NSInteger, ANEMainSection)
 {
@@ -27,7 +28,7 @@ typedef NS_ENUM(NSInteger, ANEMainSection)
     ANEMainSectionSearchBar,
     ANEMainSectionPlainCollectionView,
     ANEMainSectionCollectionCustomSupplementary,
-    ANEMainSectionListViewWithNibSupport
+    ANEMainSectionListViewsNibSupport
 };
 
 @interface ANEMainVC ()
@@ -129,9 +130,11 @@ typedef NS_ENUM(NSInteger, ANEMainSection)
                 [self.navigationController pushViewController:vc
                                                      animated:YES];
             } break;
-            case ANEMainSectionListViewWithNibSupport:
+            case ANEMainSectionListViewsNibSupport:
             {
-                
+                ANEListViewsNibSupportVC* vc = [ANEListViewsNibSupportVC new];
+                [self.navigationController pushViewController:vc
+                                                     animated:YES];
             } break;
             default: break;
         }

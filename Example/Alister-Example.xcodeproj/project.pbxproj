@@ -135,6 +135,8 @@
 		D7A21E031DA895B500D6D803 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7A21DEB1DA895B500D6D803 /* Assets.xcassets */; };
 		D7A21E041DA895B500D6D803 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D7A21DEC1DA895B500D6D803 /* InfoPlist.strings */; };
 		D7A21E051DA895B500D6D803 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A21DEE1DA895B500D6D803 /* main.m */; };
+		FA541DA71E546244008DB951 /* ANEListViewsNibSupportVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FA541DA61E546244008DB951 /* ANEListViewsNibSupportVC.m */; };
+		FA541DAA1E5464F9008DB951 /* ANETableXibCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA541DA91E5464F9008DB951 /* ANETableXibCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -395,6 +397,9 @@
 		D7EC43D01D512EE300128012 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E301602B7936D5180834423D /* Alister.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Alister.podspec; path = ../Alister.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		F94C3A38CF0AB0BC1BBB034E /* Pods-Alister-Example-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister-Example-Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Alister-Example-Tests/Pods-Alister-Example-Tests.release.xcconfig"; sourceTree = "<group>"; };
+		FA541DA51E546244008DB951 /* ANEListViewsNibSupportVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANEListViewsNibSupportVC.h; sourceTree = "<group>"; };
+		FA541DA61E546244008DB951 /* ANEListViewsNibSupportVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANEListViewsNibSupportVC.m; sourceTree = "<group>"; };
+		FA541DA91E5464F9008DB951 /* ANETableXibCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ANETableXibCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -492,6 +497,7 @@
 				1841F22E1DEC70CA00FE2999 /* PlainCollectionView */,
 				1841F2361DEC70CA00FE2999 /* Reordering */,
 				1841F23B1DEC70CA00FE2999 /* SearchBar */,
+				FA541DA41E546202008DB951 /* ListViewsNibSupport */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1432,6 +1438,24 @@
 			path = "Alister-Example-Tests";
 			sourceTree = "<group>";
 		};
+		FA541DA41E546202008DB951 /* ListViewsNibSupport */ = {
+			isa = PBXGroup;
+			children = (
+				FA541DA81E54649B008DB951 /* Views */,
+				FA541DA51E546244008DB951 /* ANEListViewsNibSupportVC.h */,
+				FA541DA61E546244008DB951 /* ANEListViewsNibSupportVC.m */,
+			);
+			path = ListViewsNibSupport;
+			sourceTree = "<group>";
+		};
+		FA541DA81E54649B008DB951 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FA541DA91E5464F9008DB951 /* ANETableXibCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		FABC739016B08881E2AEF090 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1571,6 +1595,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7A21E041DA895B500D6D803 /* InfoPlist.strings in Resources */,
+				FA541DAA1E5464F9008DB951 /* ANETableXibCell.xib in Resources */,
 				1841F2521DEC70CA00FE2999 /* Localizable.strings in Resources */,
 				D795BA071DA7253400668587 /* StyleSettings.plist in Resources */,
 				D7A21E031DA895B500D6D803 /* Assets.xcassets in Resources */,
@@ -1889,6 +1914,7 @@
 				D75F9E871DC982940070538F /* ANStorageUpdateOperation.m in Sources */,
 				D75F9E831DC982940070538F /* ANStorageMovedIndexPathModel.m in Sources */,
 				D75F9E7B1DC982940070538F /* ANCollectionViewCell.m in Sources */,
+				FA541DA71E546244008DB951 /* ANEListViewsNibSupportVC.m in Sources */,
 				D75F9E6F1DC982940070538F /* ANTableUpdateConfigurationModel.m in Sources */,
 				D75F9E861DC982940070538F /* ANStorageUpdateModel.m in Sources */,
 				1841F2561DEC70CA00FE2999 /* ANECollectionViewCell.m in Sources */,
