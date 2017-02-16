@@ -10,7 +10,14 @@
 #import "ANListViewInterface.h"
 #import "ANListCollectionView.h"
 #import "ANListController+Interitance.h"
+#import "ANActionTimeOutValidator.h"
 #import "Alister.h"
+
+@interface ANCollectionController ()
+
+@property (nonatomic, strong) ANActionTimeOutValidator* timeOutValidator;
+
+@end
 
 @implementation ANCollectionController
 
@@ -90,11 +97,14 @@
 - (void)collectionView:(UICollectionView*)collectionView didSelectItemAtIndexPath:(NSIndexPath*)indexPath
 {
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
-    if (self.selectionBlock)
-    {
-        id model = [self.currentStorage objectAtIndexPath:indexPath];
-        self.selectionBlock(model, indexPath);
-    }
+    
+    [self.timeOutValidator handleTimeoutWithDelayInSeconds:ANListDefaultActionTimeOut completion:^{
+        if (self.selectionBlock)
+        {
+            id model = [self.currentStorage objectAtIndexPath:indexPath];
+            self.selectionBlock(model, indexPath);
+        }
+    } skipBlock:nil];
 }
 
 
@@ -119,5 +129,17 @@
 //    
 //    return existingKind;
 //}
+
+
+#pragma mark - Lazy Load
+
+- (ANActionTimeOutValidator*)timeOutValidator
+{
+    if (!_timeOutValidator)
+    {
+        _timeOutValidator = [[ANActionTimeOutValidator alloc] initWithTimeoutDelay:ANListDefaultActionTimeOut];
+    }
+    return _timeOutValidator;
+}
 
 @end
