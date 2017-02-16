@@ -15,3 +15,5 @@ typedef void (^ANListControllerUpdatesFinishedTriggerBlock)();
 
 static NSString* const ANListDefaultHeaderKind = @"ANStorageHeaderKind";
 static NSString* const ANListDefaultFooterKind = @"ANStorageFooterKind";
+
+static CGFloat const ANListDefaultActionTimeOut = 0.3f;
