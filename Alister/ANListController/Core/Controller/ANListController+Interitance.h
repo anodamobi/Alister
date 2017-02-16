@@ -19,7 +19,6 @@
 - (id<ANListViewInterface>)listView;
 - (ANListControllerItemSelectionBlock)selectionBlock;
 - (ANListControllerItemsHandler*)itemsHandler;
-- (void)setItemsHandler:(ANListControllerItemsHandler*)itemsHandler;
 
 - (instancetype)initWithListView:(id<ANListViewInterface>)listView;
 - (void)storageWasAttached:(ANStorage*)storage;
