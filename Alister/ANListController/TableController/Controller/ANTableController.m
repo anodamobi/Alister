@@ -9,6 +9,13 @@
 #import "ANListTableView.h"
 #import "ANListController+Interitance.h"
 #import "ANListTableView.h"
+#import "ANActionTimeOutValidator.h"
+
+@interface ANTableController ()
+
+@property (nonatomic, strong) ANActionTimeOutValidator* timeOutValidator;
+
+@end
 
 @implementation ANTableController
 
@@ -102,11 +109,14 @@
 - (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if (self.selectionBlock)
-    {
-        id model = [self.currentStorage objectAtIndexPath:indexPath];
-        self.selectionBlock(model, indexPath);
-    }
+    
+    [self.timeOutValidator handleTimeoutWithDelayInSeconds:ANListDefaultActionTimeOut completion:^{
+        if (self.selectionBlock)
+        {
+            id model = [self.currentStorage objectAtIndexPath:indexPath];
+            self.selectionBlock(model, indexPath);
+        }
+    } skipBlock:nil];
 }
 
 - (void)tableView:(__unused UITableView*)tableView moveRowAtIndexPath:(NSIndexPath*)sourceIndexPath
@@ -191,6 +201,18 @@
         }
     }
     return height;
+}
+
+
+#pragma mark - Lazy Load
+
+- (ANActionTimeOutValidator*)timeOutValidator
+{
+    if (!_timeOutValidator)
+    {
+        _timeOutValidator = [[ANActionTimeOutValidator alloc] initWithTimeoutDelay:ANListDefaultActionTimeOut];
+    }
+    return _timeOutValidator;
 }
 
 @end
