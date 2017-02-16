@@ -10,10 +10,17 @@
 
 @protocol ANETableXibSegmentCellViewModelDelegate <NSObject>
 
-- (void)switchCell:(ANETableXibSegmentCellViewModel*)cell segmentStateChangedTo
+- (void)segmentModel:(ANETableXibSegmentCellViewModel*)cell segmentStateChangedTo:(ANESegmentState)type;
 
 @end
 
 @interface ANETableXibSegmentCellViewModel : NSObject
+
+@property (nonatomic, weak) id <ANETableXibSegmentCellViewModelDelegate> delegate;
+
+- (void)updateWithSegmentState:(ANESegmentState)type;
+- (ANESegmentState)type;
+
+- (void)segmentStateChanged:(ANESegmentState)type;
 
 @end

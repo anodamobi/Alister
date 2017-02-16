@@ -96,6 +96,13 @@
 		1841F2FE1DEC710100FE2999 /* ANTestingFixtureObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F2D41DEC710100FE2999 /* ANTestingFixtureObjects.m */; };
 		1841F2FF1DEC710100FE2999 /* ANTestTableHeaderFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F2D61DEC710100FE2999 /* ANTestTableHeaderFooter.m */; };
 		1841F3021DEC735400FE2999 /* ANECollectionCustomSupplementaryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F3011DEC735400FE2999 /* ANECollectionCustomSupplementaryController.m */; };
+		187EDB301E55C9CC00E5238D /* ANEListViewsNibSupportView.m in Sources */ = {isa = PBXBuildFile; fileRef = 187EDB2F1E55C9CC00E5238D /* ANEListViewsNibSupportView.m */; };
+		187EDB351E55CD5000E5238D /* ANEActivityCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 187EDB341E55CD5000E5238D /* ANEActivityCollectionCell.xib */; };
+		187EDB381E55CD7500E5238D /* ANEActivityCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 187EDB371E55CD7500E5238D /* ANEActivityCollectionCell.m */; };
+		187EDB3C1E55D43600E5238D /* ANCollectionXibHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 187EDB3B1E55D43600E5238D /* ANCollectionXibHeader.m */; };
+		187EDB3E1E55D44700E5238D /* ANCollectionXibHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 187EDB3D1E55D44700E5238D /* ANCollectionXibHeader.xib */; };
+		187EDB411E55D79A00E5238D /* ANECollectionXibFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 187EDB401E55D79A00E5238D /* ANECollectionXibFooter.xib */; };
+		187EDB441E55D82500E5238D /* ANECollectionXibFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 187EDB431E55D82500E5238D /* ANECollectionXibFooter.m */; };
 		18CD9DDE1DEC7B0100865B71 /* ANECollectionFooterViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F26D1DEC70E300FE2999 /* ANECollectionFooterViewTest.m */; };
 		18CD9DDF1DEC7B5300865B71 /* ANTestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841F2971DEC710100FE2999 /* ANTestHelper.m */; };
 		3575344DD3C6C07070509DB1 /* libPods-Alister-Example-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC990585C63BBA3EFB2F905E /* libPods-Alister-Example-Tests.a */; };
@@ -303,6 +310,18 @@
 		1841F2D71DEC710100FE2999 /* AlisterTests.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlisterTests.pch; sourceTree = "<group>"; };
 		1841F3001DEC735400FE2999 /* ANECollectionCustomSupplementaryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANECollectionCustomSupplementaryController.h; sourceTree = "<group>"; };
 		1841F3011DEC735400FE2999 /* ANECollectionCustomSupplementaryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANECollectionCustomSupplementaryController.m; sourceTree = "<group>"; };
+		187EDB2D1E55BF5200E5238D /* ANEListViewsNibSupportConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ANEListViewsNibSupportConstants.h; sourceTree = "<group>"; };
+		187EDB2E1E55C9CC00E5238D /* ANEListViewsNibSupportView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANEListViewsNibSupportView.h; sourceTree = "<group>"; };
+		187EDB2F1E55C9CC00E5238D /* ANEListViewsNibSupportView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANEListViewsNibSupportView.m; sourceTree = "<group>"; };
+		187EDB341E55CD5000E5238D /* ANEActivityCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ANEActivityCollectionCell.xib; sourceTree = "<group>"; };
+		187EDB361E55CD7500E5238D /* ANEActivityCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANEActivityCollectionCell.h; sourceTree = "<group>"; };
+		187EDB371E55CD7500E5238D /* ANEActivityCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANEActivityCollectionCell.m; sourceTree = "<group>"; };
+		187EDB3A1E55D43600E5238D /* ANCollectionXibHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANCollectionXibHeader.h; sourceTree = "<group>"; };
+		187EDB3B1E55D43600E5238D /* ANCollectionXibHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANCollectionXibHeader.m; sourceTree = "<group>"; };
+		187EDB3D1E55D44700E5238D /* ANCollectionXibHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ANCollectionXibHeader.xib; sourceTree = "<group>"; };
+		187EDB401E55D79A00E5238D /* ANECollectionXibFooter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ANECollectionXibFooter.xib; sourceTree = "<group>"; };
+		187EDB421E55D82500E5238D /* ANECollectionXibFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANECollectionXibFooter.h; sourceTree = "<group>"; };
+		187EDB431E55D82500E5238D /* ANECollectionXibFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANECollectionXibFooter.m; sourceTree = "<group>"; };
 		349A8056AC086F0DD0C757F1 /* Pods-Alister-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister-Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Alister-Tests/Pods-Alister-Tests.release.xcconfig"; sourceTree = "<group>"; };
 		3955DB5286C6B62EADC4CFFF /* Pods-Alister-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister-Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Alister-Tests/Pods-Alister-Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		5A48C1C6D522CC417AF71E09 /* Pods-Alister-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alister-Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Alister-Example/Pods-Alister-Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -924,6 +943,36 @@
 			path = SharedFixtures;
 			sourceTree = "<group>";
 		};
+		187EDB331E55CD5000E5238D /* ActivityCell */ = {
+			isa = PBXGroup;
+			children = (
+				187EDB341E55CD5000E5238D /* ANEActivityCollectionCell.xib */,
+				187EDB361E55CD7500E5238D /* ANEActivityCollectionCell.h */,
+				187EDB371E55CD7500E5238D /* ANEActivityCollectionCell.m */,
+			);
+			path = ActivityCell;
+			sourceTree = "<group>";
+		};
+		187EDB391E55D3F500E5238D /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				187EDB3D1E55D44700E5238D /* ANCollectionXibHeader.xib */,
+				187EDB3A1E55D43600E5238D /* ANCollectionXibHeader.h */,
+				187EDB3B1E55D43600E5238D /* ANCollectionXibHeader.m */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		187EDB3F1E55D77F00E5238D /* Footer */ = {
+			isa = PBXGroup;
+			children = (
+				187EDB401E55D79A00E5238D /* ANECollectionXibFooter.xib */,
+				187EDB421E55D82500E5238D /* ANECollectionXibFooter.h */,
+				187EDB431E55D82500E5238D /* ANECollectionXibFooter.m */,
+			);
+			path = Footer;
+			sourceTree = "<group>";
+		};
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
@@ -1482,6 +1531,9 @@
 				FA541DA81E54649B008DB951 /* Views */,
 				FA541DA51E546244008DB951 /* ANEListViewsNibSupportVC.h */,
 				FA541DA61E546244008DB951 /* ANEListViewsNibSupportVC.m */,
+				187EDB2E1E55C9CC00E5238D /* ANEListViewsNibSupportView.h */,
+				187EDB2F1E55C9CC00E5238D /* ANEListViewsNibSupportView.m */,
+				187EDB2D1E55BF5200E5238D /* ANEListViewsNibSupportConstants.h */,
 			);
 			path = ListViewsNibSupport;
 			sourceTree = "<group>";
@@ -1489,6 +1541,9 @@
 		FA541DA81E54649B008DB951 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				187EDB3F1E55D77F00E5238D /* Footer */,
+				187EDB391E55D3F500E5238D /* Header */,
+				187EDB331E55CD5000E5238D /* ActivityCell */,
 				1809B5411E54BF9B001DAF53 /* SegmentCell */,
 				1809B5451E54BF9B001DAF53 /* SwitchCell */,
 			);
@@ -1634,8 +1689,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				1809B54A1E54BF9B001DAF53 /* ANETableXibSegmentCell.xib in Resources */,
+				187EDB3E1E55D44700E5238D /* ANCollectionXibHeader.xib in Resources */,
 				1809B54C1E54BF9B001DAF53 /* ANETableXibSwitchCell.xib in Resources */,
 				D7A21E041DA895B500D6D803 /* InfoPlist.strings in Resources */,
+				187EDB411E55D79A00E5238D /* ANECollectionXibFooter.xib in Resources */,
+				187EDB351E55CD5000E5238D /* ANEActivityCollectionCell.xib in Resources */,
 				1841F2521DEC70CA00FE2999 /* Localizable.strings in Resources */,
 				D795BA071DA7253400668587 /* StyleSettings.plist in Resources */,
 				D7A21E031DA895B500D6D803 /* Assets.xcassets in Resources */,
@@ -1906,6 +1964,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D75F9E6C1DC982940070538F /* ANCollectionController.m in Sources */,
+				187EDB381E55CD7500E5238D /* ANEActivityCollectionCell.m in Sources */,
 				D75F9E741DC982940070538F /* ANListControllerReloadOperation.m in Sources */,
 				D75F9E7C1DC982940070538F /* ANTableContainerView.m in Sources */,
 				1841F2571DEC70CA00FE2999 /* ANEReorderingController.m in Sources */,
@@ -1919,6 +1978,7 @@
 				D75F9E771DC982940070538F /* ANTableController.m in Sources */,
 				1841F2481DEC70CA00FE2999 /* ANEDataGenerator.m in Sources */,
 				1809B5491E54BF9B001DAF53 /* ANETableXibSegmentCell.m in Sources */,
+				187EDB3C1E55D43600E5238D /* ANCollectionXibHeader.m in Sources */,
 				1841F24E1DEC70CA00FE2999 /* ANECollectionHeaderView.m in Sources */,
 				1841F24C1DEC70CA00FE2999 /* ANECollectionCustomSupplementaryVC.m in Sources */,
 				D75F9E811DC982940070538F /* ANBaseTableFooterView.m in Sources */,
@@ -1943,12 +2003,14 @@
 				D75F9E701DC982940070538F /* ANListController.m in Sources */,
 				1841F24F1DEC70CA00FE2999 /* ANECustomSupplementaryController.m in Sources */,
 				1841F2491DEC70CA00FE2999 /* ANEBottomStickedFooterVC.m in Sources */,
+				187EDB301E55C9CC00E5238D /* ANEListViewsNibSupportView.m in Sources */,
 				1841F2441DEC70CA00FE2999 /* ANECustomFooterViewModel.m in Sources */,
 				1841F24A1DEC70CA00FE2999 /* ANEButtonFooterView.m in Sources */,
 				1841F2541DEC70CA00FE2999 /* ANECollectionViewController.m in Sources */,
 				1841F2471DEC70CA00FE2999 /* ANELabelTableViewCell.m in Sources */,
 				1841F2531DEC70CA00FE2999 /* ANEMainVC.m in Sources */,
 				D75F9E761DC982940070538F /* ANListTableView.m in Sources */,
+				187EDB441E55D82500E5238D /* ANECollectionXibFooter.m in Sources */,
 				D75F9E6B1DC982940070538F /* ANKeyboardHandler.m in Sources */,
 				1841F2581DEC70CA00FE2999 /* ANEReorderingVC.m in Sources */,
 				D75F9E8A1DC982940070538F /* ANStorageUpdater.m in Sources */,

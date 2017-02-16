@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NSNumber&lt;=&gt;UICollectionElementKindSectionHeader" id="0Nk-Vq-3aU" customClass="ANCollectionReusableView">
+            <rect key="frame" x="0.0" y="0.0" width="436" height="110"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Header" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3VH-Ue-iAi">
+                    <rect key="frame" x="190" y="31.5" width="57" height="19.5"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Sul-JX-WGj">
+                    <rect key="frame" x="18" y="69" width="400" height="31"/>
+                </slider>
+            </subviews>
+            <color key="backgroundColor" red="0.54445393568979905" green="0.54858595855996584" blue="0.56098202717046619" alpha="0.73839128521126762" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Sul-JX-WGj" firstAttribute="centerX" secondItem="0Nk-Vq-3aU" secondAttribute="centerX" id="MJM-UB-jk0"/>
+                <constraint firstItem="3VH-Ue-iAi" firstAttribute="centerX" secondItem="0Nk-Vq-3aU" secondAttribute="centerX" id="beG-D1-RmN"/>
+                <constraint firstItem="Sul-JX-WGj" firstAttribute="top" secondItem="3VH-Ue-iAi" secondAttribute="bottom" constant="18" id="g2r-xn-Peg"/>
+                <constraint firstItem="3VH-Ue-iAi" firstAttribute="centerY" secondItem="0Nk-Vq-3aU" secondAttribute="centerY" constant="-14" id="oBj-5y-azu"/>
+                <constraint firstAttribute="trailing" secondItem="Sul-JX-WGj" secondAttribute="trailing" constant="20" id="olB-UK-e5l"/>
+                <constraint firstItem="Sul-JX-WGj" firstAttribute="leading" secondItem="0Nk-Vq-3aU" secondAttribute="leading" constant="20" id="qwX-H6-ffR"/>
+            </constraints>
+            <point key="canvasLocation" x="307" y="38"/>
+        </collectionReusableView>
+    </objects>
+</document>

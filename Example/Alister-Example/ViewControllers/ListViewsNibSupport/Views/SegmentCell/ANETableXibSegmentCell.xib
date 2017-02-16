@@ -24,9 +24,12 @@
                             <constraint firstAttribute="width" constant="160" id="9PU-9n-68L"/>
                         </constraints>
                         <segments>
-                            <segment title="On"/>
-                            <segment title="Off"/>
+                            <segment title="OFF"/>
+                            <segment title="ON"/>
                         </segments>
+                        <connections>
+                            <action selector="segmentStateChanged:" destination="rky-uT-t5M" eventType="valueChanged" id="WTe-2h-etQ"/>
+                        </connections>
                     </segmentedControl>
                 </subviews>
                 <constraints>
@@ -35,7 +38,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="segmentControl" destination="l9Q-7t-yQK" id="lFP-nY-Xnr"/>
+                <outlet property="segmentControl" destination="l9Q-7t-yQK" id="tJ2-SO-P4X"/>
             </connections>
             <point key="canvasLocation" x="130" y="867.5"/>
         </tableViewCell>

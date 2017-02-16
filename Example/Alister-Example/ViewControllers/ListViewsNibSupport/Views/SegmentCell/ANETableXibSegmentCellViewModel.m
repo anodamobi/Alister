@@ -8,6 +8,23 @@
 
 #import "ANETableXibSegmentCellViewModel.h"
 
+@interface ANETableXibSegmentCellViewModel ()
+
+@property (nonatomic, assign) ANESegmentState type;
+
+@end
+
 @implementation ANETableXibSegmentCellViewModel
+
+- (void)updateWithSegmentState:(ANESegmentState)type
+{
+    self.type = type;
+}
+
+- (void)segmentStateChanged:(ANESegmentState)type
+{
+    [self updateWithSegmentState:type];
+    [self.delegate segmentModel:self segmentStateChangedTo:type];
+}
 
 @end

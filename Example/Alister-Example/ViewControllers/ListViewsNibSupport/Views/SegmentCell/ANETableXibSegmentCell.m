@@ -11,9 +11,21 @@
 @interface ANETableXibSegmentCell ()
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl* segmentControl;
+@property (nonatomic, strong) ANETableXibSegmentCellViewModel* model;
 
 @end
 
 @implementation ANETableXibSegmentCell
+
+- (void)updateWithModel:(ANETableXibSegmentCellViewModel*)model
+{
+    self.model = model;
+    self.segmentControl.selectedSegmentIndex = model.type;
+}
+
+- (IBAction)segmentStateChanged:(UISegmentedControl*)sender
+{
+    [self.model segmentStateChanged:(ANESegmentState)sender.selectedSegmentIndex];
+}
 
 @end
