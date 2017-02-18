@@ -21,7 +21,6 @@ typedef void(^ANDataStorageUpdateBlock)(id<ANStorageUpdatableInterface> storageC
 
 /**
  This is a private property and should not call directly.
- Indicates ...
  */
 @property (nonatomic, weak) id<ANStorageUpdateEventsDelegate> updatesHandler;
 
