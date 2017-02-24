@@ -69,12 +69,29 @@
                    withReuseIdentifier:reuseIdentifier];
 }
 
+- (void)registerSupplementaryNib:(UINib*)nib reuseIdentifier:(NSString*)identifier kind:(NSString*)kind
+{
+    NSAssert(nib, @"You must specify nib");
+    NSAssert(identifier, @"You must specify reuse identifier");
+    NSAssert(kind, @"You must specify supplementary kind");
+    
+    [self.collectionView registerNib:nib forSupplementaryViewOfKind:kind withReuseIdentifier:identifier];
+}
+
 - (void)registerCellClass:(Class)cellClass forReuseIdentifier:(NSString*)identifier
 {
     NSAssert(cellClass, @"You must specify cell class");
     NSAssert(identifier, @"You must specify reuse identifier");
     
     [self.collectionView registerClass:cellClass forCellWithReuseIdentifier:identifier];
+}
+
+- (void)registerCellWithNib:(UINib*)nib forReuseIdentifier:(NSString*)identifier
+{
+    NSAssert(nib, @"You must specify nib");
+    NSAssert(identifier, @"You must specify reuse identifier");
+    
+    [self.collectionView registerNib:nib forCellWithReuseIdentifier:identifier];
 }
 
 - (id<ANListControllerUpdateViewInterface>)cellForReuseIdentifier:(NSString*)reuseIdentifier atIndexPath:(NSIndexPath*)indexPath
@@ -122,7 +139,7 @@
 {
     UICollectionView* collectionView = self.collectionView;
 
-    NSMutableIndexSet*  sectionsToInsert = [NSMutableIndexSet indexSet];
+    NSMutableIndexSet* sectionsToInsert = [NSMutableIndexSet indexSet];
 
     [update.insertedSectionIndexes enumerateIndexesUsingBlock:^(NSUInteger idx, __unused BOOL* stop) {
         if ((NSUInteger)[collectionView numberOfSections] <= idx)

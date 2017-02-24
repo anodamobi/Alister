@@ -69,12 +69,31 @@
     [self.tableView registerClass:supplementaryClass forHeaderFooterViewReuseIdentifier:reuseIdentifier];
 }
 
+- (void)registerSupplementaryNib:(UINib*)nib
+                 reuseIdentifier:(NSString*)reuseIdentifier
+                            kind:(NSString*)kind
+{
+    NSAssert(nib, @"You must specify nib");
+    NSAssert(reuseIdentifier, @"You must specify reuse identifier");
+    NSAssert(kind, @"You must specify supplementary kind");
+    
+    [self.tableView registerNib:nib forHeaderFooterViewReuseIdentifier:reuseIdentifier];
+}
+
 - (void)registerCellClass:(Class)cellClass forReuseIdentifier:(NSString*)identifier
 {
     NSAssert(cellClass, @"You must specify cell class");
     NSAssert(identifier, @"You must specify reuse identifier");
     
     [self.tableView registerClass:cellClass forCellReuseIdentifier:identifier];
+}
+
+- (void)registerCellWithNib:(UINib*)nib forReuseIdentifier:(NSString*)identifier
+{
+    NSAssert(nib, @"You must specify nib");
+    NSAssert(identifier, @"You must specify reuse identifier");
+    
+    [self.tableView registerNib:nib forCellReuseIdentifier:identifier];
 }
 
 - (id<ANListControllerUpdateViewInterface>)cellForReuseIdentifier:(NSString*)reuseIdentifier atIndexPath:(NSIndexPath*)indexPath

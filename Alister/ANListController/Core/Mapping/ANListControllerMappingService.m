@@ -39,17 +39,7 @@ static NSString* const kANDefaultCellKind = @"kANDefaultCellKind";
     if (kind && viewModelClass)
     {
         identifier = [self _identifierFromClass:viewModelClass];
-        
-        if (identifier)
-        {
-            NSMutableDictionary* dict = self.viewModelToIndentifierMap[kind];
-            if (!dict)
-            {
-                dict = [NSMutableDictionary dictionary];
-            }
-            [dict setObject:identifier forKey:(id<NSCopying>)viewModelClass];
-            self.viewModelToIndentifierMap[kind] = dict;
-        }
+        [self _registerIdentifier:identifier forViewModelClass:viewModelClass kind:kind];
     }
     
     return [self _fullIdentifierFromID:identifier kind:kind];
@@ -78,6 +68,20 @@ static NSString* const kANDefaultCellKind = @"kANDefaultCellKind";
 
 
 #pragma mark - Private
+
+- (void)_registerIdentifier:(NSString*)identifier forViewModelClass:(Class)viewModelClass kind:(NSString*)kind
+{
+    if (identifier)
+    {
+        NSMutableDictionary* dict = self.viewModelToIndentifierMap[kind];
+        if (!dict)
+        {
+            dict = [NSMutableDictionary dictionary];
+        }
+        [dict setObject:identifier forKey:(id<NSCopying>)viewModelClass];
+        self.viewModelToIndentifierMap[kind] = dict;
+    }
+}
 
 - (NSString*)_identifierFromClass:(Class)someClass
 {

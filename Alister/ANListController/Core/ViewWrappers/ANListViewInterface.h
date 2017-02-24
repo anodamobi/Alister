@@ -16,7 +16,12 @@
                    reuseIdentifier:(NSString*)reuseIdentifier
                               kind:(NSString*)kind;
 
+- (void)registerSupplementaryNib:(UINib*)supplementaryNib
+                 reuseIdentifier:(NSString*)reuseIdentifier
+                            kind:(NSString*)kind;
+
 - (void)registerCellClass:(Class)cellClass forReuseIdentifier:(NSString*)identifier;
+- (void)registerCellWithNib:(UINib*)nib forReuseIdentifier:(NSString*)identifier;
 
 - (id<ANListControllerUpdateViewInterface>)cellForReuseIdentifier:(NSString*)reuseIdentifier
                                                       atIndexPath:(NSIndexPath*)indexPath;

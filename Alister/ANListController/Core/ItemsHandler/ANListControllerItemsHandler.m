@@ -56,6 +56,37 @@
 }
 
 
+#pragma mark - Nibs
+
+- (void)registerFooterWithNib:(UINib*)nib forModelClass:(Class)modelClass
+{
+    [self _registerSupplementaryNib:nib forModelClass:modelClass kind:[self.listView defaultFooterKind]];
+}
+
+- (void)registerHeaderWithNib:(UINib*)nib forModelClass:(Class)modelClass
+{
+    [self _registerSupplementaryNib:nib forModelClass:modelClass kind:[self.listView defaultHeaderKind]];
+}
+
+- (void)registerCellWithNib:(UINib*)nib forModelClass:(Class)modelClass
+{
+    [self _registerCellWithNib:nib forModelClass:modelClass];
+}
+
+- (void)_registerSupplementaryNib:(UINib*)nib forModelClass:(Class)modelClass kind:(NSString*)kind
+{
+    NSString* identifier = [self.mappingService registerViewModelClass:modelClass kind:kind];
+    if (identifier && nib)
+    {
+        [self.listView registerSupplementaryNib:nib reuseIdentifier:identifier kind:kind];
+    }
+    else
+    {
+        ANListControllerLog(@"No mapping was created for supplementary with nib!");
+    }
+}
+
+
 #pragma mark - Cells
 
 - (void)registerCellClass:(Class)cellClass forModelClass:(Class)modelClass
@@ -64,6 +95,19 @@
     if (identifier)
     {
         [self.listView registerCellClass:cellClass forReuseIdentifier:identifier];
+    }
+    else
+    {
+        ANListControllerLog(@"No mapping was created for cell!");
+    }
+}
+
+- (void)_registerCellWithNib:(UINib*)nib forModelClass:(Class)modelClass
+{
+    NSString* identifier = [self.mappingService registerViewModelClass:modelClass];
+    if (identifier)
+    {
+        [self.listView registerCellWithNib:nib forReuseIdentifier:identifier];
     }
     else
     {

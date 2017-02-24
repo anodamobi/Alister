@@ -12,6 +12,9 @@
 - (void)registerHeaderClass:(Class)viewClass forModelClass:(Class)modelClass;
 - (void)registerCellClass:(Class)cellClass forModelClass:(Class)modelClass;
 
+- (void)registerFooterWithNib:(UINib*)nib forModelClass:(Class)modelClass;
+- (void)registerHeaderWithNib:(UINib*)nib forModelClass:(Class)modelClass;
+- (void)registerCellWithNib:(UINib*)nib forModelClass:(Class)modelClass;
 
 #pragma mark - UICollectionView
 
