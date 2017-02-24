@@ -139,7 +139,7 @@
 {
     UICollectionView* collectionView = self.collectionView;
 
-    NSMutableIndexSet*  sectionsToInsert = [NSMutableIndexSet indexSet];
+    NSMutableIndexSet* sectionsToInsert = [NSMutableIndexSet indexSet];
 
     [update.insertedSectionIndexes enumerateIndexesUsingBlock:^(NSUInteger idx, __unused BOOL* stop) {
         if ((NSUInteger)[collectionView numberOfSections] <= idx)

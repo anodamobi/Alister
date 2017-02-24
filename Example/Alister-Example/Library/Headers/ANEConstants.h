@@ -7,3 +7,9 @@
 //
 
 static CGFloat const kDefaultHeaderFooterHeight = 30.0f;
+
+typedef NS_ENUM(NSUInteger, ANESegmentState)
+{
+    ANESegmentStateOff,
+    ANESegmentStateOn
+};
