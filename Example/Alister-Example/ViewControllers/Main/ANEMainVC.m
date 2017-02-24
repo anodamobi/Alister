@@ -26,7 +26,8 @@ typedef NS_ENUM(NSInteger, ANEMainSection)
     ANEMainSectionReordering,
     ANEMainSectionSearchBar,
     ANEMainSectionPlainCollectionView,
-    ANEMainSectionCollectionCustomSupplementary
+    ANEMainSectionCollectionCustomSupplementary,
+    ANEMainSectionListViewWithNibSupport
 };
 
 @interface ANEMainVC ()
@@ -127,6 +128,10 @@ typedef NS_ENUM(NSInteger, ANEMainSection)
                 ANECollectionCustomSupplementaryVC* vc = [ANECollectionCustomSupplementaryVC new];
                 [self.navigationController pushViewController:vc
                                                      animated:YES];
+            } break;
+            case ANEMainSectionListViewWithNibSupport:
+            {
+                
             } break;
             default: break;
         }
