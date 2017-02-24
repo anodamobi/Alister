@@ -61,7 +61,8 @@ NSArray* models = [self generateModels];
 }];
 ```
 #### And that`s all!
-//TODO: add photos
+Here is an inline ![smiley](smiley.png).
+![sample](Assets/base-screen.png){:height="50px" width="90px"}
 
 #### Changing cells order
 `Alister` will change order of cells and models in storage automatically.
@@ -71,7 +72,7 @@ Or you can change it manually:
 [storageController moveItemFromIndexPath:fromIndexPath toIndexPath:toIndexPath];
 }];
 ```
-//TODO: add gif
+![sample](Assets/reordering-demo.gif)
 
 #### Models search with `UISearchBar`
 `Alister` provides an ablility to search in storage.
@@ -96,7 +97,9 @@ return predicate;
 };
 }
 ```
-//TODO: add photo
+![sample](Assets/table-search-bar.png)
+
+
 #### Item selection
 Provide `configureItemSelectionBlock:` block for handling default cells selection.
 ```objc
@@ -108,18 +111,20 @@ Provide `configureItemSelectionBlock:` block for handling default cells selectio
 Provide custom header and footer for list views.
 ```objc
 [self.storage updateWithAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
-    [storageController updateSectionHeaderModel:@"I'm header section 0" forSectionIndex:0];
-    [storageController updateSectionFooterModel:@"I'm footer section 0" forSectionIndex:0];
+    [storageController updateSectionHeaderModel:headerModel forSectionIndex:0];
+    [storageController updateSectionFooterModel:footerModel forSectionIndex:0];
 }];
 ```
-//TODO: collection view supplementary views screen.
+![sample](Assets/collection-supplementaries.png)
+![sample](Assets/table-supplementaries.png)
+
 #### Table sticked footer
 `ANTableView` provides an ability to set custom sticked footer.
 ```objc
 [self.tableView addStickyFooter:self.footerView withFixedHeight:100];
 [self.tableView updateStickerHeight:200];
 ```
-//TODO: add photo sticked footer
+![sample](Assets/table-sticky-footer.png)
 
 #### Demo
 See projects example or use it by web (Appetize.io link)
