@@ -8,13 +8,14 @@
 
 #import "ANCollectionController.h"
 #import "ANListController+Interitance.h"
+#import "ANCollectionControllerFixture.h"
 
 SpecBegin(ANCollectionController)
 
 describe(@"", ^{
     
     __block UICollectionView* collectionView = nil;
-    __block ANCollectionController* controller = nil;
+    __block ANCollectionControllerFixture* controller = nil;
     __block NSIndexPath* zeroIndexPath = nil;
     
     beforeEach(^{
@@ -23,19 +24,19 @@ describe(@"", ^{
         collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, 400, 400)
                                             collectionViewLayout:layout];
         
-        controller = [[ANCollectionController alloc] initWithCollectionView:collectionView];
+        controller = [[ANCollectionControllerFixture alloc] initWithCollectionView:collectionView];
         zeroIndexPath = [ANTestHelper zeroIndexPath];
     });
     
     describe(@"controllerWithCollectionView", ^{
         
         it(@"will not be nil", ^{
-            id result = [ANCollectionController controllerWithCollectionView:collectionView];
+            id result = [ANCollectionControllerFixture controllerWithCollectionView:collectionView];
             expect(result).notTo.beNil();
         });
         
         it(@"will have the same coolection view", ^{
-            ANCollectionController* result = [ANCollectionController controllerWithCollectionView:collectionView];
+            ANCollectionControllerFixture* result = [ANCollectionControllerFixture controllerWithCollectionView:collectionView];
             expect(result.collectionView).equal(collectionView);
         });
     });
@@ -44,12 +45,12 @@ describe(@"", ^{
     describe(@"initWithCollectionView", ^{
         
         it(@"will not be nil", ^{
-            id result = [[ANCollectionController alloc] initWithCollectionView:collectionView];
+            id result = [[ANCollectionControllerFixture alloc] initWithCollectionView:collectionView];
             expect(result).notTo.beNil();
         });
         
         it(@"will have the same coolection view", ^{
-            ANCollectionController* result = [[ANCollectionController alloc] initWithCollectionView:collectionView];
+            ANCollectionControllerFixture* result = [[ANCollectionControllerFixture alloc] initWithCollectionView:collectionView];
             expect(result.collectionView).equal(collectionView);
         });
     });
@@ -62,10 +63,7 @@ describe(@"", ^{
 
             id reusableView = [UICollectionReusableView new];
             
-            id storage = OCMClassMock([ANStorage class]);
-            [controller attachStorage:storage];
-            
-            OCMStub([storage supplementaryModelOfKind:kind forSectionIndex:zeroIndexPath.section]);
+            controller.itemsHandler = OCMClassMock([ANListControllerItemsHandler class]);
             [OCMStub([controller.itemsHandler supplementaryViewForModel:[OCMArg any]
                                                                   kind:kind
                                                           forIndexPath:zeroIndexPath]) andReturn:reusableView];
