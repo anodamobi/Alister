@@ -166,7 +166,7 @@
         [collectionView performBatchUpdates:^{
             [collectionView deleteSections:update.deletedSectionIndexes];
             [collectionView insertSections:sectionsToInsert];
-            [collectionView reloadSections:update.updatedSectionIndexes];
+            [collectionView reloadSections:updatedSectionIndexes];
         } completion:nil];
     }
 
