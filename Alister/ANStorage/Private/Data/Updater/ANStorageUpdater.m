@@ -268,8 +268,17 @@
         if (model)
         {
             NSIndexSet* set = [self createSectionIfNotExist:sectionIndex];
-            [update addInsertedSectionIndexes:set];
             section = [ANStorageLoader sectionAtIndex:sectionIndex inStorage:storageModel];
+            
+            id supplementary = [ANStorageLoader supplementaryModelOfKind:kind forSectionIndex:sectionIndex inStorage:storageModel];
+            if (supplementary)
+            {
+                [update addUpdatedSectionIndex:(NSUInteger)sectionIndex];
+            }
+            else
+            {
+                [update addInsertedSectionIndexes:set];
+            }
         }
         else
         {   // if section not exist we don't need to remove it's model,
