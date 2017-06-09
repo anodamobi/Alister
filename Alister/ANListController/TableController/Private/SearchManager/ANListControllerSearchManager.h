@@ -6,7 +6,7 @@
 //  Copyright © 2016 ANODA. All rights reserved.
 //
 
-#import "Alister.h"
+#import "ANConstants.h"
 
 typedef NS_ENUM(NSInteger, ANListControllerSearchScope)
 {

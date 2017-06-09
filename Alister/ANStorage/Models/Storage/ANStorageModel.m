@@ -8,7 +8,7 @@
 
 #import "ANStorageModel.h"
 #import "ANStorageSectionModel.h"
-#import "Alister.h"
+#import "ANConstants.h"
 
 @interface ANStorageModel ()
 

@@ -9,7 +9,7 @@
 #import "ANListTableView.h"
 #import "ANStorageUpdateModel.h"
 #import "ANTableUpdateConfigurationModel.h"
-#import "Alister.h"
+#import "ANConstants.h"
 
 @interface ANListTableView ()
 

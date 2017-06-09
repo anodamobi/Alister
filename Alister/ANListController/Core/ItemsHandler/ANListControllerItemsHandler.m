@@ -11,7 +11,7 @@
 #import "ANListControllerUpdateViewInterface.h"
 #import "ANListViewInterface.h"
 #import "ANListControllerLog.h"
-#import "Alister.h"
+#import "ANConstants.h"
 
 @implementation ANListControllerItemsHandler
 
