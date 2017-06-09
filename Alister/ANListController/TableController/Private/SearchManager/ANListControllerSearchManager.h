@@ -33,5 +33,6 @@ typedef NS_ENUM(NSInteger, ANListControllerSearchScope)
 - (instancetype)initWithDelegate:(id<ANListControllerSearchManagerDelegate>)delegate;
 
 - (BOOL)isSearching;
+- (void)performSearchWithString:(NSString*)string scope:(NSInteger)scope;
 
 @end

@@ -75,6 +75,10 @@
     return (isSearchStringNonEmpty || self.currentSearchScope > ANListControllerSearchScopeNone);
 }
 
+- (void)performSearchWithString:(NSString*)string scope:(NSInteger)scope
+{
+    [self _filterItemsForSearchString:string inScope:scope reload:NO];
+}
 
 #pragma mark - UISearchBarDelegate
 
