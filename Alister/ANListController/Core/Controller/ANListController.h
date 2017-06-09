@@ -27,4 +27,6 @@
 
 - (void)updateSearchingPredicateBlock:(ANListControllerSearchPredicateBlock)block;
 
+- (void)performSearchWithString:(NSString*)string scope:(NSInteger)scope;
+
 @end

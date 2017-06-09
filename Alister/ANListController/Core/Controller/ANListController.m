@@ -89,6 +89,13 @@
 }
 
 
+#pragma mark - Search 
+
+- (void)performSearchWithString:(NSString*)string scope:(NSInteger)scope
+{
+    [self.searchManager searchPredicateConfigBlock]
+}
+
 #pragma mark - Blocks
 
 - (void)configureCellsWithBlock:(ANListControllerCellConfigurationBlock)block
@@ -113,6 +120,7 @@
 {
     self.searchManager.searchPredicateConfigBlock = block;
 }
+
 
 #pragma mark - Private
 
