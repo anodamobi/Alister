@@ -153,11 +153,16 @@
         reloadRowAnimation = configurationModel.reloadRowAnimation;
     }
     
+    NSMutableIndexSet* updatedSectionIndexes = [NSMutableIndexSet indexSet];
+    [updatedSectionIndexes addIndexes:update.updatedSectionIndexes];
+    [updatedSectionIndexes removeIndexes:update.insertedSectionIndexes];
+    [updatedSectionIndexes removeIndexes:update.deletedSectionIndexes];
+    
     [tableView beginUpdates];
     
     [tableView insertSections:update.insertedSectionIndexes withRowAnimation:insertSectionAnimation];
     [tableView deleteSections:update.deletedSectionIndexes withRowAnimation:deleteSectionAnimation];
-    [tableView reloadSections:update.updatedSectionIndexes withRowAnimation:reloadSectionAnimation];
+    [tableView reloadSections:updatedSectionIndexes withRowAnimation:reloadSectionAnimation];
     
     [update.movedRowsIndexPaths enumerateObjectsUsingBlock:^(id  _Nonnull obj, BOOL * _Nonnull stop) {
         

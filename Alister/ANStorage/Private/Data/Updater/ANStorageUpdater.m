@@ -277,7 +277,15 @@
             }
             else
             {
-                [update addInsertedSectionIndexes:set];
+                // if section already exists, than inserted index does not exist, so we need to update section
+                if (set.count == 0)
+                {
+                    [update addUpdatedSectionIndex:(NSUInteger)sectionIndex];
+                }
+                else
+                {
+                    [update addInsertedSectionIndexes:set];
+                }
             }
         }
         else
