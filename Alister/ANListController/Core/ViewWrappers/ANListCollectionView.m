@@ -147,6 +147,11 @@
             [sectionsToInsert addIndex:idx];
         }
     }];
+    
+    NSMutableIndexSet* updatedSectionIndexes = [NSMutableIndexSet indexSet];
+    [updatedSectionIndexes addIndexes:update.updatedSectionIndexes];
+    [updatedSectionIndexes removeIndexes:update.insertedSectionIndexes];
+    [updatedSectionIndexes removeIndexes:update.deletedSectionIndexes];
 
     NSUInteger sectionChanges = [update.deletedSectionIndexes count] +
             [update.insertedSectionIndexes count] +
@@ -161,7 +166,7 @@
         [collectionView performBatchUpdates:^{
             [collectionView deleteSections:update.deletedSectionIndexes];
             [collectionView insertSections:sectionsToInsert];
-            [collectionView reloadSections:update.updatedSectionIndexes];
+            [collectionView reloadSections:updatedSectionIndexes];
         } completion:nil];
     }
 
