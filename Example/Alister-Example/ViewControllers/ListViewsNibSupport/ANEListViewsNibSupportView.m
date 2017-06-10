@@ -8,7 +8,7 @@
 
 #import "ANEListViewsNibSupportView.h"
 #import "ANEListViewsNibSupportConstants.h"
-#import "Masonry.h"
+#import <Masonry/Masonry.h>
 
 @implementation ANEListViewsNibSupportView
 

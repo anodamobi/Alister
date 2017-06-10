@@ -7,7 +7,7 @@
 //
 
 #import "ANEButtonFooterView.h"
-#import "Masonry.h"
+#import <Masonry/Masonry.h>
 
 static CGSize const kButtonSizeInsets = {120, 44};
 

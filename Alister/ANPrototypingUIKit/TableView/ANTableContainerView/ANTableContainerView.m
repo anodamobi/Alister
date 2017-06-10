@@ -8,7 +8,7 @@
 
 #import "ANTableContainerView.h"
 #import "ANTableView.h"
-#import "Masonry.h"
+#import <Masonry/Masonry.h>
 
 @implementation ANTableContainerView
 

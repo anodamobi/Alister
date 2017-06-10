@@ -7,7 +7,7 @@
 //
 
 #import "ANECollectionFooterView.h"
-#import "Masonry.h"
+#import <Masonry/Masonry.h>
 
 @interface ANECollectionFooterView ()
 
