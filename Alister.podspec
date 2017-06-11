@@ -3,7 +3,7 @@
 Pod::Spec.new do |s|
 
     s.name             = 'Alister'
-    s.version          = '0.1.0'
+    s.version          = '0.2'
     s.summary          = 'Table Helper'
     s.description      = 'Table and Collection Helper'
     s.homepage         = 'https://github.com/anodamobi/Alister'
