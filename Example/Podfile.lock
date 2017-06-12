@@ -74,7 +74,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/specta/specta.git
 
 SPEC CHECKSUMS:
-  ANODA-Alister: 2cb9beec5866bbd972cd92b4da13a8405756e08e
+  ANODA-Alister: 193602452fd17d2cad2f0e7fe93ffdb605eae0fc
   Expecta: e1c022fcd33910b6be89c291d2775b3fe27a89fe
   libextobjc: a650fc1bf489a3d3a9bc2e621efa3e1006fc5471
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
