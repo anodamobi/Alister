@@ -1,19 +1,16 @@
 PODS:
-  - Alister (0.2):
-    - Alister/ANKeyboardHandler (= 0.2)
-    - Alister/ANListController (= 0.2)
-    - Alister/ANPrototypingUIKit (= 0.2)
-    - Alister/ANStorage (= 0.2)
-  - Alister/ANKeyboardHandler (0.2)
-  - Alister/ANListController (0.2):
-    - Alister/ANKeyboardHandler
-    - Alister/ANStorage
-  - Alister/ANPrototypingUIKit (0.2):
-    - Alister/ANKeyboardHandler
-    - Alister/ANListController
+  - ANODA-Alister (0.2):
+    - ANODA-Alister/ANKeyboardHandler (= 0.2)
+    - ANODA-Alister/ANPrototypingUIKit (= 0.2)
+    - ANODA-Alister/Core (= 0.2)
+  - ANODA-Alister/ANKeyboardHandler (0.2)
+  - ANODA-Alister/ANPrototypingUIKit (0.2):
+    - ANODA-Alister/ANKeyboardHandler
+    - ANODA-Alister/Core
     - libextobjc
     - Masonry
-  - Alister/ANStorage (0.2)
+  - ANODA-Alister/Core (0.2):
+    - ANODA-Alister/ANKeyboardHandler
   - Expecta (1.0.5)
   - libextobjc (0.4.1):
     - libextobjc/EXTADT (= 0.4.1)
@@ -56,7 +53,7 @@ PODS:
   - Specta (1.0.5)
 
 DEPENDENCIES:
-  - Alister (from `../`)
+  - ANODA-Alister (from `../`)
   - Expecta
   - libextobjc
   - Masonry
@@ -65,7 +62,7 @@ DEPENDENCIES:
   - Specta (from `https://github.com/specta/specta.git`, commit `18952b7`)
 
 EXTERNAL SOURCES:
-  Alister:
+  ANODA-Alister:
     :path: "../"
   Specta:
     :commit: 18952b7
@@ -77,7 +74,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/specta/specta.git
 
 SPEC CHECKSUMS:
-  Alister: b0589740390a864fe67d774716a067796a657855
+  ANODA-Alister: 2cb9beec5866bbd972cd92b4da13a8405756e08e
   Expecta: e1c022fcd33910b6be89c291d2775b3fe27a89fe
   libextobjc: a650fc1bf489a3d3a9bc2e621efa3e1006fc5471
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
@@ -85,6 +82,6 @@ SPEC CHECKSUMS:
   Reveal-iOS-SDK: e2250b3c155bcfac53ae223ddc1f76d08f206c33
   Specta: c89c6d4560eda861dcc5f50c2060a398b3073426
 
-PODFILE CHECKSUM: c5e9e1475d6b3d5424e6b2b8b96c80faa5f15982
+PODFILE CHECKSUM: ccaa61a0b6495dced251b7726d6aa966bb7b4112
 
 COCOAPODS: 1.2.1

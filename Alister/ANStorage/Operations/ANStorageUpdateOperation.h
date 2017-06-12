@@ -8,7 +8,7 @@
 
 #import "ANStorageUpdateOperationInterface.h"
 #import "ANStorageListUpdateOperationInterface.h"
-#import <Alister/ANListControllerUpdateServiceInterface.h>
+#import "ANListControllerUpdateServiceInterface.h"
 
 @class ANStorageUpdateOperation;
 
