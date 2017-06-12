@@ -2,7 +2,7 @@
 
 Pod::Spec.new do |s|
 
-    s.name             = 'Alister'
+    s.name             = 'ANODA-Alister'
     s.version          = '0.2'
     s.summary          = 'Table Helper'
     s.description      = 'Table and Collection Helper'
@@ -27,14 +27,14 @@ Pod::Spec.new do |s|
                         'Alister/ANListController/Core/QueueProcessor/*.{h}',
                         'Alister/ANListController/**/*.{h,m}', 'Alister/*.{h}'
 
-         sp.dependency 'Alister/ANKeyboardHandler'
+         sp.dependency 'ANODA-Alister/ANKeyboardHandler'
     end
     
     s.subspec 'ANPrototypingUIKit' do |sp|
         sp.source_files = 'Alister/ANPrototypingUIKit/**/*.{h,m}',
                           'Alister/ANPrototypingUIKit/**/**/*.{h,m}'
-        sp.dependency 'Alister/Core'
-        sp.dependency 'Alister/ANKeyboardHandler'
+        sp.dependency 'ANODA-Alister/Core'
+        sp.dependency 'ANODA-Alister/ANKeyboardHandler'
         sp.dependency 'Masonry'
         sp.dependency 'libextobjc'
     end
