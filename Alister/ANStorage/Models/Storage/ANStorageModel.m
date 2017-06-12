@@ -145,7 +145,7 @@
     
     [self.sectionModels enumerateObjectsUsingBlock:^(ANStorageSectionModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
        
-        [string appendFormat:@"=================Section #%ld================\n", idx];
+        [string appendFormat:@"=================Section #%ld================\n", (unsigned long)idx];
         
         //supplementaries
         if (obj.supplementaryObjects.count)
@@ -161,7 +161,7 @@
         [string appendFormat:@"Objects = { \n"];
         
         [obj.objects enumerateObjectsUsingBlock:^(id  _Nonnull object, NSUInteger index, BOOL * _Nonnull stopValue) {
-            [string appendFormat:@"    %ld = { %@ }\n", index, object];
+            [string appendFormat:@"    %ld = { %@ }\n", (unsigned long)index, object];
         }];
         
         [string appendFormat:@"}\n"];

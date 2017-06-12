@@ -8,13 +8,11 @@
 
 #import "ANStorageUpdateOperationInterface.h"
 #import "ANStorageListUpdateOperationInterface.h"
-#import "ANListControllerUpdateServiceInterface.h"
+#import <Alister/ANListControllerUpdateServiceInterface.h>
 
 @class ANStorageUpdateOperation;
 
 typedef void(^ANStorageUpdateOperationConfigurationBlock)(ANStorageUpdateOperation* operation);
-
-
 
 @interface ANStorageUpdateOperation : NSOperation <ANStorageUpdateOperationInterface>
 

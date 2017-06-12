@@ -1,19 +1,19 @@
 PODS:
-  - Alister (0.1.0):
-    - Alister/ANKeyboardHandler (= 0.1.0)
-    - Alister/ANListController (= 0.1.0)
-    - Alister/ANPrototypingUIKit (= 0.1.0)
-    - Alister/ANStorage (= 0.1.0)
-  - Alister/ANKeyboardHandler (0.1.0)
-  - Alister/ANListController (0.1.0):
+  - Alister (0.2):
+    - Alister/ANKeyboardHandler (= 0.2)
+    - Alister/ANListController (= 0.2)
+    - Alister/ANPrototypingUIKit (= 0.2)
+    - Alister/ANStorage (= 0.2)
+  - Alister/ANKeyboardHandler (0.2)
+  - Alister/ANListController (0.2):
     - Alister/ANKeyboardHandler
     - Alister/ANStorage
-  - Alister/ANPrototypingUIKit (0.1.0):
+  - Alister/ANPrototypingUIKit (0.2):
     - Alister/ANKeyboardHandler
     - Alister/ANListController
     - libextobjc
     - Masonry
-  - Alister/ANStorage (0.1.0)
+  - Alister/ANStorage (0.2)
   - Expecta (1.0.5)
   - libextobjc (0.4.1):
     - libextobjc/EXTADT (= 0.4.1)
@@ -77,7 +77,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/specta/specta.git
 
 SPEC CHECKSUMS:
-  Alister: d73b25b91b48de5a7ee04d55d5f2f45d901dd718
+  Alister: b0589740390a864fe67d774716a067796a657855
   Expecta: e1c022fcd33910b6be89c291d2775b3fe27a89fe
   libextobjc: a650fc1bf489a3d3a9bc2e621efa3e1006fc5471
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e

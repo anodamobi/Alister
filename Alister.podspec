@@ -18,20 +18,22 @@ Pod::Spec.new do |s|
         sp.source_files = 'Alister/ANKeyboardHandler'
     end
 
-    s.subspec 'ANStorage' do |sp|
-        sp.source_files = 'Alister/ANStorage/**/*.{h,m}', 'Alister/ANStorage/**/**/*.{h,m}', 'Alister/ANStorage/**/**/**/*.{h,m}'
-    end
 
-    s.subspec 'ANListController' do |sp|
-        sp.source_files = 'Alister/ANListController/**/*.{h,m}'
-        sp.dependency 'Alister/ANStorage'
-        sp.dependency 'Alister/ANKeyboardHandler'
+    s.subspec 'Core' do |sp|
+         sp.source_files =   'Alister/ANStorage/**/*.{h,m}',
+                        'Alister/ANStorage/**/**/*.{h,m}',
+                        'Alister/ANStorage/**/**/**/*.{h,m}', 
+                        'Alister/*.{h}', 
+                        'Alister/ANListController/Core/QueueProcessor/*.{h}',
+                        'Alister/ANListController/**/*.{h,m}', 'Alister/*.{h}'
+
+         sp.dependency 'Alister/ANKeyboardHandler'
     end
     
     s.subspec 'ANPrototypingUIKit' do |sp|
         sp.source_files = 'Alister/ANPrototypingUIKit/**/*.{h,m}',
                           'Alister/ANPrototypingUIKit/**/**/*.{h,m}'
-        sp.dependency 'Alister/ANListController'
+        sp.dependency 'Alister/Core'
         sp.dependency 'Alister/ANKeyboardHandler'
         sp.dependency 'Masonry'
         sp.dependency 'libextobjc'

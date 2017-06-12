@@ -6,7 +6,7 @@
 //  Copyright © 2016 Oksana Kovalchuk. All rights reserved.
 //
 
-#import "ANListControllerReusableInterface.h"
+@protocol ANListControllerReusableInterface;
 
 typedef NSPredicate*(^ANListControllerSearchPredicateBlock)(NSString* searchString, NSInteger scope);
 typedef void(^ANListControllerItemSelectionBlock)(id model, NSIndexPath* indexPath);
