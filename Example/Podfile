@@ -1,14 +1,14 @@
 use_frameworks!
 
 target 'Alister-Example' do
-    pod 'Alister', :path => '../'
+    pod 'ANODA-Alister', :path => '../'
     pod 'libextobjc'
     pod 'Masonry'
     pod 'Reveal-iOS-SDK', '~> 1.6.1', :configurations => ['Debug']
 end
 
 target 'Alister-Example-Tests' do
-    pod 'Alister', :path => '../'
+    pod 'ANODA-Alister', :path => '../'
     pod 'Expecta'
     pod 'Specta', :git => 'https://github.com/specta/specta.git', :commit => '18952b7'
     pod 'OCMock'
@@ -16,7 +16,7 @@ end
 
 
 target 'Alister-Tests' do
-    pod 'Alister', :path => '../'
+    pod 'ANODA-Alister', :path => '../'
     pod 'Expecta'
     pod 'Specta', :git => 'https://github.com/specta/specta.git', :commit => '18952b7'
     pod 'OCMock'
