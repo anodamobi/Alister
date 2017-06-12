@@ -24,8 +24,7 @@ Pod::Spec.new do |s|
                         'Alister/ANStorage/**/**/*.{h,m}',
                         'Alister/ANStorage/**/**/**/*.{h,m}', 
                         'Alister/*.{h}', 
-                        'Alister/ANListController/Core/QueueProcessor/*.{h}',
-                        'Alister/ANListController/**/*.{h,m}', 'Alister/*.{h}'
+                        'Alister/ANListController/**/*.{h,m}'
 
          sp.dependency 'ANODA-Alister/ANKeyboardHandler'
     end
