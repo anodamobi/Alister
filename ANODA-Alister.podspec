@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
     s.homepage         = 'https://github.com/anodamobi/Alister'
     s.license          = { :type => 'MIT', :file => 'LICENSE' }
     s.author           = { 'Oksana Kovalchuk' => 'oksana@anoda.mobi' }
-    s.source           = { :git => 'git@gitlab.anoda.mobi:open-source/Alister.git', :tag => s.version.to_s }
+    s.source           = { :git => 'https://github.com/anodamobi/Alister.git', :tag => s.version.to_s }
     s.social_media_url = 'https://twitter.com/oks_ios'
     s.requires_arc     = true
     s.ios.deployment_target = '8.0'
