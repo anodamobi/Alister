@@ -8,16 +8,16 @@
 
 #import "ANTableContainerView.h"
 #import "ANTableView.h"
-#import "Masonry.h"
+#import <Masonry/Masonry.h>
 
 @implementation ANTableContainerView
 
 + (instancetype)containerWithTableViewStyle:(UITableViewStyle)style
 {
-    return [[self alloc] initWithStyle:style];
+    return [[self alloc] initWithTableViewStyle:style];
 }
 
-- (instancetype)initWithStyle:(UITableViewStyle)style
+- (instancetype)initWithTableViewStyle:(UITableViewStyle)style
 {
     self = [super init];
     if (self)
@@ -26,7 +26,7 @@
         _tableView = tableView;
         [self addSubview:_tableView];
         
-        [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        [_tableView mas_makeConstraints:^(MASConstraintMaker* make) {
             make.edges.equalTo(self);
         }];
     }

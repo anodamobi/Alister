@@ -9,15 +9,26 @@
 
 static CGFloat const kDefaultTableViewCellHeight = 44;
 static CGFloat const kDefaultTableViewHeaderHeight = 40;
+static CGFloat const kDefaultNavigationBarHeight = 44;
+static CGFloat const kDefaultStatusBarHeight = 20;
 
-#define SYSTEM_VERSION          ([[[UIDevice currentDevice] systemVersion] floatValue])
-#define IOS7_OR_HIGHER          (7.0 <= SYSTEM_VERSION)
 
 @interface ANTableView ()
+
+@property (nonatomic, strong) UIView* stickedContainer;
+@property (nonatomic, assign) CGFloat stickedFooterHeight;
+@property (nonatomic, strong) UIView* bottomStickedFooterView;
 
 @end
 
 @implementation ANTableView
+
++ (instancetype)tableViewDefaultStyleWithFrame:(CGRect)frame style:(UITableViewStyle)style
+{
+    ANTableView* table = [[[self class] alloc] initWithFrame:frame style:style];
+    [table setupAppearance];
+    return table;
+}
 
 - (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style
 {
@@ -25,57 +36,103 @@ static CGFloat const kDefaultTableViewHeaderHeight = 40;
     if (self)
     {
         self.delaysContentTouches = NO;
-        if (IOS7_OR_HIGHER)
-        {
-            self.keyboardDismissMode = UIScrollViewKeyboardDismissModeInteractive;
-        }
+        self.keyboardDismissMode = UIScrollViewKeyboardDismissModeInteractive;
     }
     return self;
 }
 
-+ (instancetype)cleanTableWithFrame:(CGRect)frame style:(UITableViewStyle)style
+- (void)addStickyFooter:(UIView*)footer withFixedHeight:(CGFloat)height
 {
-    ANTableView* table = [[[self class] alloc] initWithFrame:frame style:style];
-    [table setupAppearance];
-    return table;
+    self.stickedFooterHeight = height;
+    self.bottomStickedFooterView = footer;
+}
+
+- (void)updateStickerHeight:(CGFloat)height
+{
+    self.stickedFooterHeight = height;
 }
 
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    
     [self layoutTableFooterView];
+    
+    CGRect frame = self.bottomStickedFooterView.frame;
+    frame.size.height = self.stickedFooterHeight;
+    frame.size.width = CGRectGetWidth(self.frame);
+    frame.origin.y = CGRectGetHeight(self.stickedContainer.frame) - CGRectGetHeight(frame);
+    self.bottomStickedFooterView.frame = frame;
 }
 
 - (void)layoutTableFooterView
 {
-    CGFloat contentOffset = self.contentOffset.y;
-    
-    if (self.bottomStickedFooterView || contentOffset)
+    if (self.bottomStickedFooterView && self.contentSize.height > 0)
     {
-        CGFloat contentSize = self.contentSize.height;
-        CGFloat frameHeight = self.frame.size.height;
-        CGFloat footerMinY = self.tableFooterView.frame.origin.y;
+        CGFloat contentSizeWithoutFooter = self.tableFooterView.frame.origin.y;
+        CGFloat stickedFooterHeight = self.stickedFooterHeight;
+        CGFloat frameHeight = CGRectGetHeight(self.frame);
         
-        CGFloat magicBottomValue = contentSize - contentOffset;
-        CGFloat height = contentSize - footerMinY;
-        
-        if (magicBottomValue <= frameHeight)
+        CGFloat additionalHeight = 0;
+        if (self.window.rootViewController && [self.window.rootViewController isKindOfClass:[UINavigationController class]])
         {
-            height += frameHeight - magicBottomValue;
+            UINavigationController* navigationController = (UINavigationController*)self.window.rootViewController;
+            
+            BOOL isTopControllerModal = NO;
+            if (navigationController.presentedViewController)
+            {
+                isTopControllerModal = [self _checkIfViewControllerIsModal:navigationController.presentedViewController];
+            }
+            
+            BOOL isNavigationBarHidden = navigationController.navigationBarHidden;
+            if (!isNavigationBarHidden && !isTopControllerModal)
+            {
+                additionalHeight += kDefaultNavigationBarHeight;
+            }
         }
         
-        self.tableFooterView.frame = CGRectMake(0,
-                                                self.tableFooterView.frame.origin.y,
-                                                self.frame.size.width,
-                                                height);
+        if (![UIApplication sharedApplication].isStatusBarHidden)
+        {
+            additionalHeight += kDefaultStatusBarHeight;
+        }
+    
+        frameHeight -= additionalHeight;
+        
+        CGFloat minContentHeightWithFooter = contentSizeWithoutFooter + stickedFooterHeight;
+        
+        CGRect footerFrame = self.tableFooterView.frame;
+        
+        if (minContentHeightWithFooter <= frameHeight)
+        {
+            footerFrame.size.height = frameHeight - contentSizeWithoutFooter;
+        }
+        else
+        {
+            footerFrame.size.height = stickedFooterHeight;
+            if (self.contentSize.height != minContentHeightWithFooter)
+            {
+                CGSize currentSize = self.contentSize;
+                currentSize.height += stickedFooterHeight;
+                self.contentSize = currentSize;
+            }
+        }
+        self.tableFooterView.frame = footerFrame;
     }
 }
 
-- (void)setBottomStickedFooterView:(UIView *)bottomStickedFooterView
+- (void)setBottomStickedFooterView:(UIView*)bottomStickedFooterView
 {
     _bottomStickedFooterView = bottomStickedFooterView;
-    self.tableFooterView = bottomStickedFooterView;
+    [self.stickedContainer addSubview:_bottomStickedFooterView];
+}
+
+- (UIView*)stickedContainer
+{
+    if (!_stickedContainer)
+    {
+        _stickedContainer = [UIView new];
+        self.tableFooterView = self.stickedContainer;
+    }
+    return _stickedContainer;
 }
 
 - (void)setupAppearance
@@ -88,7 +145,7 @@ static CGFloat const kDefaultTableViewHeaderHeight = 40;
     self.separatorColor = [UIColor colorWithRed:215/255 green:214/255 blue:218/255 alpha:1];
 }
 
-- (BOOL)touchesShouldCancelInContentView:(UIView *)view
+- (BOOL)touchesShouldCancelInContentView:(UIView*)view
 {
     // Because we set delaysContentTouches = NO, we return YES for UIButtons
     // so that scrolling works correctly when the scroll gesture
@@ -99,6 +156,33 @@ static CGFloat const kDefaultTableViewHeaderHeight = 40;
     }
     
     return [super touchesShouldCancelInContentView:view];
+}
+
+
+#pragma mark - Private
+
+- (BOOL)_checkIfViewControllerIsModal:(UIViewController*)viewController
+{
+    BOOL isModal = NO;
+    
+    if ([viewController presentingViewController])
+    {
+        isModal = YES;
+    }
+    if ([[viewController presentingViewController] presentedViewController] == viewController)
+    {
+        isModal = YES;
+    }
+    if ([[[viewController navigationController] presentingViewController] presentedViewController] == [viewController navigationController])
+    {
+        isModal = YES;
+    }
+    if ([[[viewController tabBarController] presentingViewController] isKindOfClass:[UITabBarController class]])
+    {
+        isModal = YES;
+    }
+
+    return isModal;
 }
 
 @end

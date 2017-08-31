@@ -8,28 +8,25 @@
 
 #import "ANStorage.h"
 #import "ANListControllerReusableInterface.h"
-#import "ANListControllerConfigurationModel.h"
+#import "ANConstants.h"
 
 @class ANKeyboardHandler;
 
-typedef void(^ANListControllerItemSelectionBlock)(id model, NSIndexPath* indexPath);
-typedef void(^ANListControllerCellConfigurationBlock)(id<ANListControllerReusableInterface> configurator);
-typedef void(^ANListConfigurationModelUpdateBlock)(ANListControllerConfigurationModel* configurationModel);
-typedef void (^ANListControllerUpdatesFinishedTriggerBlock)();
-
 @interface ANListController : NSObject
 
-@property (nonatomic, weak, readonly) UISearchBar* searchBar;
-@property (nonatomic, strong) ANKeyboardHandler* keyboardHandler;
+@property (nonatomic, strong, readonly) ANStorage* currentStorage;
 
-- (ANStorage*)currentStorage;
+- (void)attachStorage:(ANStorage*)storage;
+- (void)attachSearchBar:(UISearchBar*)searchBar;
+
 
 - (void)configureCellsWithBlock:(ANListControllerCellConfigurationBlock)block;
 - (void)configureItemSelectionBlock:(ANListControllerItemSelectionBlock)block;
-- (void)updateConfigurationModelWithBlock:(ANListConfigurationModelUpdateBlock)block;
-- (void)addUpdatesFinsihedTriggerBlock:(ANListControllerUpdatesFinishedTriggerBlock)block;
 
-- (void)attachSearchBar:(UISearchBar*)searchBar;
-- (void)attachStorage:(ANStorage*)storage;
+- (void)addUpdatesFinishedTriggerBlock:(ANListControllerUpdatesFinishedTriggerBlock)block;
+
+- (void)updateSearchingPredicateBlock:(ANListControllerSearchPredicateBlock)block;
+
+- (void)performSearchWithString:(NSString*)string scope:(NSInteger)scope;
 
 @end

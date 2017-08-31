@@ -1,0 +1,17 @@
+/****************************************************************************/
+/* Localization file */
+
+
+// Default Supplementary
+
+"I'm footer section 0" = "I'm footer section 0";
+
+// Bottom sticked
+
+"bottom-sticked-view.button.title" = "Bottom button";
+
+// Collection Custom Supplementary
+
+"header.title-label.text" = "I'm header";
+"footer.title-label.text" = "I'm footer";
+

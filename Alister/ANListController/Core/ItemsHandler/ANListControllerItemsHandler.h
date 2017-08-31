@@ -6,24 +6,27 @@
 //  Copyright © 2016 ANODA. All rights reserved.
 //
 
-#import "ANListControllerWrapperInterface.h"
 #import "ANListControllerReusableInterface.h"
-#import "ANListControllerReusableLoadInterface.h"
-#import "ANListControllerConfigurationModelInterface.h"
 
-@protocol ANListControllerItemsHandlerDelegate
+@protocol ANListViewInterface;
+@protocol ANListControllerMappingServiceInterface;
+@protocol ANListControllerUpdateViewInterface;
 
-- (id<ANListControllerWrapperInterface>)listViewWrapper;
-- (id<ANListControllerConfigurationModelInterface>)configurationModel;
+@interface ANListControllerItemsHandler : NSObject <ANListControllerReusableInterface>
 
-@end
+NS_ASSUME_NONNULL_BEGIN
 
-@interface ANListControllerItemsHandler : NSObject
-<
-    ANListControllerReusableInterface,
-    ANListControllerReusableLoadInterface
->
+@property (nonatomic, strong, readonly) id<ANListControllerMappingServiceInterface> mappingService;
+@property (nonatomic, weak, readonly) id<ANListViewInterface> listView;
 
-+ (instancetype)handlerWithDelegate:(id<ANListControllerItemsHandlerDelegate>)delegate;
+- (instancetype)initWithListView:(id<ANListViewInterface>)listView
+                  mappingService:(nullable id<ANListControllerMappingServiceInterface>)mappingService;
+
+- (nullable id<ANListControllerUpdateViewInterface>)cellForModel:(id)viewModel atIndexPath:(NSIndexPath*)indexPath;
+
+- (nullable id<ANListControllerUpdateViewInterface>)supplementaryViewForModel:(id)viewModel
+                                                                         kind:(NSString*)kind
+                                                                 forIndexPath:(nullable NSIndexPath*)indexPath;
+NS_ASSUME_NONNULL_END
 
 @end

@@ -8,11 +8,11 @@
 
 #import "ANListControllerMappingService.h"
 
-static NSString* const kCellConstant = @"kANCellIdentifier";
+static NSString* const kANDefaultCellKind = @"kANDefaultCellKind";
 
 @interface ANListControllerMappingService ()
 
-@property (nonatomic, strong) NSMutableArray* mappings;
+@property (nonatomic, strong) NSMutableDictionary* viewModelToIndentifierMap;
 
 @end
 
@@ -23,86 +23,127 @@ static NSString* const kCellConstant = @"kANCellIdentifier";
     self = [super init];
     if (self)
     {
-        self.mappings = [NSMutableArray new];
+        self.viewModelToIndentifierMap = [NSMutableDictionary new];
     }
     return self;
 }
 
-- (ANListControllerMappingModel*)mappingForViewModelClass:(Class)viewModelClass kind:(NSString*)kind isSystem:(BOOL)isSystem
+- (NSString*)registerViewModelClass:(Class)viewModelClass
 {
-    NSAssert(viewModelClass, @"You must provide viewModel class for cell");
-    NSAssert(kind, @"You must kind type for list item");
-    
-    ANListControllerMappingModel* model = [self _existingMappingForViewModel:viewModelClass kind:kind];
-    if (!model)
+    return [self registerViewModelClass:viewModelClass kind:kANDefaultCellKind];
+}
+
+- (NSString*)registerViewModelClass:(Class)viewModelClass kind:(NSString*)kind
+{
+    NSString* identifier = nil;
+    if (kind && viewModelClass)
     {
-        model = [ANListControllerMappingModel new];
-        model.classIdentifier = NSStringFromClass(viewModelClass);
-        model.isSystem = isSystem;
-        model.mappingClass = viewModelClass;
-        model.kind = kind;
+        identifier = [self _identifierFromClass:viewModelClass];
+        [self _registerIdentifier:identifier forViewModelClass:viewModelClass kind:kind];
     }
-    return model;
+    
+    return [self _fullIdentifierFromID:identifier kind:kind];
 }
 
-- (ANListControllerMappingModel*)cellMappingForViewModelClass:(Class)viewModelClass isSystem:(BOOL)isSystem
+- (NSString*)identifierForViewModelClass:(Class)keyClass
 {
-    return [self mappingForViewModelClass:viewModelClass kind:kCellConstant isSystem:isSystem];
+    return [self identifierForViewModelClass:keyClass kind:kANDefaultCellKind];
 }
 
-- (ANListControllerMappingModel*)findCellMappingForViewModel:(id)viewModel
+- (NSString*)identifierForViewModelClass:(Class)viewModelClass kind:(NSString*)kind
 {
-    return [self _existingMappingForViewModel:viewModel kind:kCellConstant];
-}
-
-- (ANListControllerMappingModel*)findSupplementaryMappingForViewModel:(id)viewModel kind:(NSString*)kind
-{
-    return [self _existingMappingForViewModel:viewModel kind:kind];
-}
-
-- (void)addMapping:(ANListControllerMappingModel*)model
-{
-    [self _addMapping:model];
+    NSString* identifier = nil;
+    if (kind && viewModelClass)
+    {
+        NSMutableDictionary* dict = self.viewModelToIndentifierMap[kind];
+        if (!dict)
+        {
+            self.viewModelToIndentifierMap[kind] = [NSMutableDictionary dictionary];
+        }
+        identifier = [self _identifierFromViewModelClass:viewModelClass map:self.viewModelToIndentifierMap[kind]];
+    }
+    
+    return [self _fullIdentifierFromID:identifier kind:kind];
 }
 
 
 #pragma mark - Private
 
-- (ANListControllerMappingModel*)_existingMappingForViewModel:(Class)viewModel kind:(NSString*)kind
+- (void)_registerIdentifier:(NSString*)identifier forViewModelClass:(Class)viewModelClass kind:(NSString*)kind
 {
-    __block ANListControllerMappingModel* mappingModel = nil;
-    
-    [self.mappings enumerateObjectsUsingBlock:^(ANListControllerMappingModel*  _Nonnull obj, __unused NSUInteger idx, BOOL * _Nonnull stop) {
-        
-        if ([obj.kind isEqualToString:kind])
+    if (identifier)
+    {
+        NSMutableDictionary* dict = self.viewModelToIndentifierMap[kind];
+        if (!dict)
         {
-            if (obj.isSystem)
+            dict = [NSMutableDictionary dictionary];
+        }
+        [dict setObject:identifier forKey:(id<NSCopying>)viewModelClass];
+        self.viewModelToIndentifierMap[kind] = dict;
+    }
+}
+
+- (NSString*)_identifierFromClass:(Class)someClass
+{
+    return NSStringFromClass(someClass);
+}
+
+- (NSString*)_fullIdentifierFromID:(NSString*)identifier kind:(NSString*)kind
+{
+    NSString* result = nil;
+    if (identifier && kind)
+    {
+        result = [NSString stringWithFormat:@"%@<=>%@", identifier, kind];
+    }
+    return result;
+}
+
+//Nimbus workaround
+- (NSString*)_identifierFromViewModelClass:(Class)keyClass map:(NSMutableDictionary*)map
+{
+    NSString* identifier = nil;
+    
+    if (keyClass)
+    {
+        identifier = [map objectForKey:(id<NSCopying>)keyClass];
+        
+        if (!identifier)
+        {
+            // No mapping found for this key class, but it may be a subclass of another object that does
+            // have a mapping, so let's see what we can find.
+            Class superClass = nil;
+            for (Class class in map.allKeys)
             {
-                if ([viewModel isKindOfClass:obj.mappingClass])
+                // We want to find the lowest node in the class hierarchy so that we pick the lowest ancestor
+                // in the hierarchy tree.
+                Class currentClass = (Class)keyClass;
+                if ([currentClass isSubclassOfClass:class] && (!superClass || [class isSubclassOfClass:superClass]))
                 {
-                    mappingModel = obj;
-                    *stop = YES;
+                    superClass = class;
                 }
             }
-            else
+            
+            if (superClass)
             {
-                if ([viewModel isMemberOfClass:obj.mappingClass])
-                {
-                    mappingModel = obj;
-                    *stop = YES;
-                }
+                identifier = [map objectForKey:superClass];
+                
+                // Add this subclass to the map so that next time this result is instant.
+                [map setObject:identifier forKey:(id<NSCopying>)keyClass];
             }
         }
-    }];
-    return mappingModel;
-}
-
-
-#pragma mark - Private
-
-- (void)_addMapping:(ANListControllerMappingModel*)model
-{
-    [self.mappings addObject:model];
+        
+        if (!identifier)
+        {
+            // We couldn't find a mapping at all so let's add [NSNull null] mapping.
+            [map setObject:[NSNull null] forKey:(id<NSCopying>)keyClass];
+        }
+        else if ([identifier isKindOfClass:[NSNull class]])
+        {
+            // Don't return null mappings.
+            identifier = nil;
+        }
+    }
+    return identifier;
 }
 
 @end

@@ -33,7 +33,7 @@
     _isTransparent = isTransparent;
 }
 
-- (void)setSelectionColor:(UIColor *)selectionColor
+- (void)setSelectionColor:(UIColor*)selectionColor
 {
     _selectionColor = selectionColor;
     UIView* selection = [UIView new];

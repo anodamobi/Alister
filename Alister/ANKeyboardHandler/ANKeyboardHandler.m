@@ -102,9 +102,9 @@ static const CGFloat kMinimumScrollOffsetPadding = 20;
         return parent;
     }
     
-    for (UIView *subView in parent.subviews)
+    for (UIView* subView in parent.subviews)
     {
-        UIView *firstResponder = [self findViewThatIsFirstResponderInParent:subView];
+        UIView* firstResponder = [self findViewThatIsFirstResponderInParent:subView];
         if (firstResponder != nil)
         {
             return firstResponder;
@@ -123,10 +123,10 @@ static const CGFloat kMinimumScrollOffsetPadding = 20;
     UIView* responder = [self findViewThatIsFirstResponderInParent:self.target];
     
     UIEdgeInsets contentInsets = [self _updatedInsetsWithKeyboardHeight:kbHeight];
-    
-    if ([self.delegate respondsToSelector:@selector(keyboardWillUpdateStateTo:withNotification:)])
+    id<ANKeyboardHandlerDelegate> delegate = self.delegate;
+    if ([delegate respondsToSelector:@selector(keyboardWillUpdateStateTo:withNotification:)])
     {
-        [self.delegate keyboardWillUpdateStateTo:self.isKeyboardVisible withNotification:aNotification];
+        [delegate keyboardWillUpdateStateTo:self.isKeyboardVisible withNotification:aNotification];
     }
     
     void (^animationBlock)(void) = ^{
@@ -190,8 +190,8 @@ static const CGFloat kMinimumScrollOffsetPadding = 20;
     
     if ([view conformsToProtocol:@protocol(UITextInput)])
     {
-        UIView <UITextInput> *textInput = (UIView <UITextInput>*)view;
-        UITextPosition *caretPosition = [textInput selectedTextRange].start;
+        UIView <UITextInput>* textInput = (UIView <UITextInput>*)view;
+        UITextPosition* caretPosition = [textInput selectedTextRange].start;
         
         if (caretPosition)
         {
@@ -256,12 +256,15 @@ static const CGFloat kMinimumScrollOffsetPadding = 20;
 
 - (BOOL)gestureRecognizer:(__unused UIGestureRecognizer*)gestureRecognizer shouldReceiveTouch:(UITouch*)touch
 {
-    if ([touch.view isKindOfClass:[UIControl class]])
+    UIView* superview = [touch.view superview];
+    BOOL shouldHideKeyboard = YES;
+    
+    if ([superview respondsToSelector:@selector(isFirstResponder)])
     {
-        [self hideKeyboard];
-        return NO;
+        shouldHideKeyboard = ![superview isFirstResponder];
     }
-    return YES;
+    
+    return shouldHideKeyboard;
 }
 
 - (void)_dispatchBlockToMain:(void(^)(void))block

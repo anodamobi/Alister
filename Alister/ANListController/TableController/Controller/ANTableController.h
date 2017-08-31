@@ -6,13 +6,19 @@
 //
 
 #import "ANListController.h"
+#import "ANTableUpdateConfigurationModel.h"
 
 @interface ANTableController : ANListController <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, weak, readonly) UITableView* tableView;
 
+@property (nonatomic, assign) BOOL shouldDisplayHeaderOnEmptySection;
+@property (nonatomic, assign) BOOL shouldDisplayFooterOnEmptySection;
+
 + (instancetype)controllerWithTableView:(UITableView*)tableView;
 
 - (instancetype)initWithTableView:(UITableView*)tableView;
+
+- (void)updateDefaultUpdateAnimationModel:(ANTableUpdateConfigurationModel*)model;
 
 @end

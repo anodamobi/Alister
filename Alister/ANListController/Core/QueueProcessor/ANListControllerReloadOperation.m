@@ -7,8 +7,8 @@
 //
 
 #import "ANListControllerReloadOperation.h"
-#import "ANListControllerConfigurationModel.h"
 #import "ANListViewInterface.h"
+#import "ANListControllerUpdateServiceInterface.h"
 
 @implementation ANListControllerReloadOperation
 
@@ -18,21 +18,17 @@
 {
     if (!self.isCancelled)
     {
-        id<ANListControllerReloadOperationDelegate> delegate = self.delegate;
-        if ([delegate.listView conformsToProtocol:@protocol(ANListViewInterface)]
-            || [delegate.listView respondsToSelector:@selector(reloadData)])
+        id<ANListControllerUpdateServiceInterface> delegate = self.delegate;
+        [delegate.listView reloadData];
+        if (self.shouldAnimate)
         {
-            [delegate.listView reloadData];
-            if (self.shouldAnimate)
-            {
-                CATransition* animation = [CATransition animation];
-                animation.type = kCATransitionFromBottom;
-                animation.subtype = kCATransitionFromBottom;
-                animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-                animation.fillMode = kCAFillModeBoth;
-                animation.duration = [delegate configurationModel].reloadAnimationDuration;
-                [delegate.listView.layer addAnimation:animation forKey:[delegate configurationModel].reloadAnimationKey];
-            }
+            CATransition* animation = [CATransition animation];
+            animation.type = kCATransitionFromBottom;
+            animation.subtype = kCATransitionFromBottom;
+            animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+            animation.fillMode = kCAFillModeBoth;
+            animation.duration = delegate.listView.reloadAnimationDuration;
+            [delegate.listView.view.layer addAnimation:animation forKey:[delegate listView].animationKey];
         }
     }
 }

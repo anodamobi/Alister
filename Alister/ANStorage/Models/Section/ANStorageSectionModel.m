@@ -8,6 +8,7 @@
 
 #import "ANStorageSectionModel.h"
 #import "ANStorageLog.h"
+#import "ANStorageValidator.h"
 
 @interface ANStorageSectionModel ()
 
@@ -37,9 +38,9 @@
     return [self.items copy];
 }
 
-- (NSUInteger)numberOfObjects
+- (NSInteger)numberOfObjects
 {
-    return [self.items count];
+    return (NSInteger)[self.items count];
 }
 
 
@@ -57,15 +58,15 @@
     }
 }
 
-- (void)insertItem:(id)item atIndex:(NSUInteger)index
+- (void)insertItem:(id)item atIndex:(NSInteger)index
 {
     if (item)
     {
-        if (index != NSNotFound)
+        if (ANIsIndexValid(index))
         {
-            if (self.items.count >= index)
+            if (self.items.count >= (NSUInteger)index)
             {
-                [self.items insertObject:item atIndex:index];
+                [self.items insertObject:item atIndex:(NSUInteger)index];
             }
             else
             {
@@ -86,11 +87,11 @@
 
 #pragma mark - Remove
 
-- (void)removeItemAtIndex:(NSUInteger)index
+- (void)removeItemAtIndex:(NSInteger)index
 {
-    if (self.items.count > index)
+    if (ANIsIndexValid(index) && self.items.count > (NSUInteger)index)
     {
-        [self.items removeObjectAtIndex:index];
+        [self.items removeObjectAtIndex:(NSUInteger)index];
     }
     else
     {
@@ -101,13 +102,13 @@
 
 #pragma mark - Replace
 
-- (void)replaceItemAtIndex:(NSUInteger)index withItem:(id)item
+- (void)replaceItemAtIndex:(NSInteger)index withItem:(id)item
 {
-    if (item)
+    if (item && ANIsIndexValid(index))
     {
-        if (self.items.count >= index && self.items.count != 0)
+        if (self.items.count >= (NSUInteger)index && self.items.count != 0)
         {
-            [self.items replaceObjectAtIndex:index withObject:item];
+            [self.items replaceObjectAtIndex:(NSUInteger)index withObject:item];
         }
         else
         {
@@ -144,20 +145,35 @@
 
 - (id)supplementaryModelOfKind:(NSString*)kind
 {
+    id model = nil;
     if (kind)
     {
-        return self.supplementaries[kind];
+        model = self.supplementaries[kind];
     }
     else
     {
         ANStorageLog(@"You trying to get supplementary - with nil kind");
     }
-    return nil;
+    return model;
 }
 
 - (NSDictionary*)supplementaryObjects
 {
     return [self.supplementaries copy];
+}
+
+- (void)replaceSupplementaryKind:(NSString*)kind onKind:(NSString*)newKind
+{
+    NSMutableDictionary* supplementaries = [self.supplementaries mutableCopy];
+    
+    [[self.supplementaries allKeys] enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        
+        if ([obj isEqualToString:kind])
+        {
+            [supplementaries setObject:[supplementaries objectForKey:kind] forKey:newKind];
+            [supplementaries removeObjectForKey:kind];
+        }
+    }];
 }
 
 @end

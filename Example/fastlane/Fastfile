@@ -1,0 +1,46 @@
+
+fastlane_version "1.105.0"
+
+default_platform :ios
+
+platform :ios do
+  before_all do
+    ENV["SLACK_URL"] = "https://hooks.slack.com/services/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"
+    cocoapods
+  end
+
+  desc "Runs all the tests"
+  lane :test do
+    scan(scheme: "Test")
+    slather(
+      cobertura_xml: true,
+      output_directory: "test_output",
+      proj: "Alister-Example.xcodeproj",
+      workspace: "Alister-Example.xcworkspace",
+      scheme: "Test",
+      ignore:['../../*', 
+      'Pods/*', 
+      '*/Vendor/*', 
+      '*/Application/BundleFiles/*',
+      '*/Controllers/Debug/DebugVC/*'])
+  end
+
+
+  after_all do |lane|
+    # This block is called, only if the executed lane was successful 
+    slack(
+      use_webhook_configured_username_and_icon: true,
+      message: "Fastlane was successful :rocket:",
+      success: true,
+      default_payloads: [:lane, :test_result, :git_branch, :git_author],
+    )
+  end
+
+
+  error do |lane, exception|
+    slack(
+      message: exception.message,
+      success: false
+    )
+  end
+end

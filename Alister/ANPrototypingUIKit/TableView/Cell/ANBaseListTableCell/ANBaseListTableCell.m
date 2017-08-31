@@ -7,7 +7,7 @@
 //
 
 #import "ANBaseListTableCell.h"
-#import "Masonry.h"
+#import <Masonry/Masonry.h>
 
 static UIColor* kBaseColor = nil;
 static UIColor* kBaseTextColor = nil;
@@ -18,13 +18,13 @@ static UIColor* kBaseTextColor = nil;
 
 @implementation ANBaseListTableCell
 
-+ (void)updateBaseColor:(UIColor*)baseColor andTextColor:(UIColor *)textColor
++ (void)updateBaseColor:(UIColor*)baseColor andTextColor:(UIColor*)textColor
 {
     kBaseColor = baseColor;
     kBaseTextColor = textColor;
 }
 
-- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString*)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self)
@@ -33,7 +33,7 @@ static UIColor* kBaseTextColor = nil;
          self.contentView.backgroundColor = [UIColor whiteColor];
          SETTING background color for cell will overlaps table cell separator,
          if you need to set color - do it for cell self.backgroundColor = [UIColor redColor];
-         */
+        */
         if (kBaseColor)
         {
             self.selectionColor = kBaseColor;
@@ -46,7 +46,7 @@ static UIColor* kBaseTextColor = nil;
 {
     CGFloat width = (self.iconImageView.image != nil) ? 50 : 0;
     
-    [self.iconImageView mas_updateConstraints:^(MASConstraintMaker *make) {
+    [self.iconImageView mas_updateConstraints:^(MASConstraintMaker* make) {
         make.width.equalTo(@(width));
     }];
     
@@ -74,7 +74,7 @@ static UIColor* kBaseTextColor = nil;
         }
         [self addSubview:_titleLabel];
         
-        [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        [_titleLabel mas_makeConstraints:^(MASConstraintMaker* make) {
             make.left.equalTo(self.iconImageView.mas_right).offset(10);
             make.right.top.bottom.equalTo(self);
         }];
@@ -90,7 +90,7 @@ static UIColor* kBaseTextColor = nil;
         _iconImageView.clipsToBounds = YES;
         _iconImageView.layer.cornerRadius = 25;
         [self addSubview:_iconImageView];
-        [_iconImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        [_iconImageView mas_makeConstraints:^(MASConstraintMaker* make) {
             make.left.equalTo(self).offset(5);
             make.height.width.equalTo(@(50));
             make.centerY.equalTo(self);

@@ -39,6 +39,26 @@
                ReferencedContainer = "container:Alister-Example.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "D7A21E111DA89A7500D6D803"
+               BuildableName = "Alister-Example-UITests.xctest"
+               BlueprintName = "Alister-Example-UITests"
+               ReferencedContainer = "container:Alister-Example.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "D7348F091DCD61A300CC114A"
+               BuildableName = "Alister-Tests.xctest"
+               BlueprintName = "Alister-Tests"
+               ReferencedContainer = "container:Alister-Example.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
@@ -72,6 +92,13 @@
             ReferencedContainer = "container:Alister-Example.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "OS_ACTIVITY_MODE"
+            value = "disable"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

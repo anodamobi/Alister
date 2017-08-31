@@ -6,17 +6,19 @@
 //
 //
 
+NS_ASSUME_NONNULL_BEGIN
+
 @protocol ANStorageUpdatableInterface <NSObject>
 
 
 #pragma mark - Adding Items
 
 - (void)addItem:(id)item;
-- (void)addItem:(id)item toSection:(NSUInteger)sectionIndex;
+- (void)addItem:(id)item toSection:(NSInteger)sectionIndex;
 - (void)addItem:(id)item atIndexPath:(NSIndexPath*)indexPath;
 
 - (void)addItems:(NSArray*)items;
-- (void)addItems:(NSArray*)items toSection:(NSUInteger)sectionIndex;
+- (void)addItems:(NSArray*)items toSection:(NSInteger)sectionIndex;
 
 
 #pragma mark - Reloading Items
@@ -39,6 +41,16 @@
 - (void)moveItemFromIndexPath:(NSIndexPath*)fromIndexPath toIndexPath:(NSIndexPath*)toIndexPath;
 
 
+/**
+ This method specially to pair UITableView's method:
+ - (void)moveRowAtIndexPath:(NSIndexPath*)indexPath toIndexPath:(NSIndexPath*)newIndexPath
+
+ @param fromIndexPath from which indexPath item should removed
+ @param toIndexPath   to which indexPath item should be inserted
+ */
+- (void)moveItemWithoutUpdateFromIndexPath:(NSIndexPath*)fromIndexPath toIndexPath:(NSIndexPath*)toIndexPath;
+
+
 #pragma mark - Sections
 
 - (void)removeSections:(NSIndexSet*)indexSet;
@@ -46,13 +58,15 @@
 
 #pragma mark - Views Models
 
-- (void)setSectionHeaderModel:(id)headerModel forSectionIndex:(NSUInteger)sectionIndex;
-- (void)setSectionFooterModel:(id)footerModel forSectionIndex:(NSUInteger)sectionIndex;
+- (void)updateSectionHeaderModel:(id)headerModel forSectionIndex:(NSInteger)sectionIndex;
+- (void)updateSectionFooterModel:(id)footerModel forSectionIndex:(NSInteger)sectionIndex;
 
 
 //collection view
 
-- (void)setSupplementaryHeaderKind:(NSString*)headerKind;
-- (void)setSupplementaryFooterKind:(NSString*)footerKind;
+- (void)updateSupplementaryHeaderKind:(NSString*)headerKind;
+- (void)updateSupplementaryFooterKind:(NSString*)footerKind;
 
 @end
+
+NS_ASSUME_NONNULL_END

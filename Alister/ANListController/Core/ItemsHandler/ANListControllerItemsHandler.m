@@ -8,76 +8,82 @@
 
 #import "ANListControllerItemsHandler.h"
 #import "ANListControllerMappingService.h"
-#import "ANListControllerMappingModel.h"
-
-@interface ANListControllerItemsHandler ()
-
-@property (nonatomic, weak) id<ANListControllerItemsHandlerDelegate> delegate;
-@property (nonatomic, strong) ANListControllerMappingService* mappingService;
-
-@end
+#import "ANListControllerUpdateViewInterface.h"
+#import "ANListViewInterface.h"
+#import "ANListControllerLog.h"
+#import "ANConstants.h"
 
 @implementation ANListControllerItemsHandler
 
-+ (instancetype)handlerWithDelegate:(id<ANListControllerItemsHandlerDelegate>)delegate
-{
-    ANListControllerItemsHandler* model = [self new];
-    model.delegate = delegate;
-    return model;
-}
+@synthesize mappingService = _mappingService;
 
-- (instancetype)init
+- (instancetype)initWithListView:(id<ANListViewInterface>)listView
+                  mappingService:(id<ANListControllerMappingServiceInterface>)mappingService
 {
     self = [super init];
     if (self)
     {
-        self.mappingService = [ANListControllerMappingService new];
+        _listView = listView;
+        _mappingService = mappingService;
     }
     return self;
 }
 
-- (NSString*)headerDefaultKind
-{
-    return [self.delegate configurationModel].defaultHeaderSupplementary;
-}
-
-- (NSString*)footerDefaultKind
-{
-    return [self.delegate configurationModel].defaultFooterSupplementary;
-}
-
 
 #pragma mark - ANListControllerReusableInterface
-#pragma mark - Supplementaries
 
 - (void)registerFooterClass:(Class)viewClass forModelClass:(Class)modelClass
 {
-    [self _registerSupplementaryClass:viewClass forViewModelClass:modelClass kind:self.footerDefaultKind isSystem:NO];
+    [self registerSupplementaryClass:viewClass forModelClass:modelClass kind:[self.listView defaultFooterKind]];
 }
 
 - (void)registerHeaderClass:(Class)viewClass forModelClass:(Class)modelClass
 {
-    [self _registerSupplementaryClass:viewClass forViewModelClass:modelClass kind:self.headerDefaultKind isSystem:NO];
-}
-
-- (void)registerHeaderClass:(Class)viewClass forSystemClass:(Class)modelClass
-{
-    [self _registerSupplementaryClass:viewClass forViewModelClass:modelClass kind:self.headerDefaultKind isSystem:YES];
-}
-
-- (void)registerFooterClass:(Class)viewClass forSystemClass:(Class)modelClass
-{
-    [self _registerSupplementaryClass:viewClass forViewModelClass:modelClass kind:self.footerDefaultKind isSystem:YES];
-}
-
-- (void)registerSupplementaryClass:(Class)supplementaryClass forSystemClass:(Class)modelClass kind:(NSString*)kind
-{
-    [self _registerSupplementaryClass:supplementaryClass forViewModelClass:modelClass kind:kind isSystem:NO];
+    [self registerSupplementaryClass:viewClass forModelClass:modelClass kind:[self.listView defaultHeaderKind]];
 }
 
 - (void)registerSupplementaryClass:(Class)supplementaryClass forModelClass:(Class)modelClass kind:(NSString*)kind
 {
-    [self _registerSupplementaryClass:supplementaryClass forViewModelClass:modelClass kind:kind isSystem:YES];
+    NSString* identifier = [self.mappingService registerViewModelClass:modelClass kind:kind];
+    if (identifier)
+    {
+        [self.listView registerSupplementaryClass:supplementaryClass reuseIdentifier:identifier kind:kind];
+    }
+    else
+    {
+        ANListControllerLog(@"No mapping was created for supplementary!");
+    }
+}
+
+
+#pragma mark - Nibs
+
+- (void)registerFooterWithNib:(UINib*)nib forModelClass:(Class)modelClass
+{
+    [self _registerSupplementaryNib:nib forModelClass:modelClass kind:[self.listView defaultFooterKind]];
+}
+
+- (void)registerHeaderWithNib:(UINib*)nib forModelClass:(Class)modelClass
+{
+    [self _registerSupplementaryNib:nib forModelClass:modelClass kind:[self.listView defaultHeaderKind]];
+}
+
+- (void)registerCellWithNib:(UINib*)nib forModelClass:(Class)modelClass
+{
+    [self _registerCellWithNib:nib forModelClass:modelClass];
+}
+
+- (void)_registerSupplementaryNib:(UINib*)nib forModelClass:(Class)modelClass kind:(NSString*)kind
+{
+    NSString* identifier = [self.mappingService registerViewModelClass:modelClass kind:kind];
+    if (identifier && nib)
+    {
+        [self.listView registerSupplementaryNib:nib reuseIdentifier:identifier kind:kind];
+    }
+    else
+    {
+        ANListControllerLog(@"No mapping was created for supplementary with nib!");
+    }
 }
 
 
@@ -85,43 +91,70 @@
 
 - (void)registerCellClass:(Class)cellClass forModelClass:(Class)modelClass
 {
-    [self _registerCellClass:cellClass forViewModelClass:modelClass isSystem:NO];
+    NSString* identifier = [self.mappingService registerViewModelClass:modelClass];
+    if (identifier)
+    {
+        [self.listView registerCellClass:cellClass forReuseIdentifier:identifier];
+    }
+    else
+    {
+        ANListControllerLog(@"No mapping was created for cell!");
+    }
 }
 
-- (void)registerCellClass:(Class)cellClass forSystemClass:(Class)modelClass
+- (void)_registerCellWithNib:(UINib*)nib forModelClass:(Class)modelClass
 {
-    [self _registerCellClass:cellClass forViewModelClass:modelClass isSystem:YES];
+    NSString* identifier = [self.mappingService registerViewModelClass:modelClass];
+    if (identifier)
+    {
+        [self.listView registerCellWithNib:nib forReuseIdentifier:identifier];
+    }
+    else
+    {
+        ANListControllerLog(@"No mapping was created for cell!");
+    }
 }
 
 
 #pragma mark - Loading
 
-- (id<ANListControllerUpdateViewInterface>)cellForModel:(id)viewModel atIndexPath:(NSIndexPath*)indexPath
+- (nullable id<ANListControllerUpdateViewInterface>)cellForModel:(id)viewModel atIndexPath:(NSIndexPath*)indexPath
 {
-    ANListControllerMappingModel* mapping = [self.mappingService findCellMappingForViewModel:viewModel];
-    NSAssert(mapping, @"%@ does not have cell mapping for model class: %@",[self class], [viewModel class]);
-    
+    NSString* identifier = [self.mappingService identifierForViewModelClass:[viewModel class]];
     id<ANListControllerUpdateViewInterface> cell = nil;
-    if (mapping)
+    id<ANListViewInterface> listView = self.listView;
+    
+    if (identifier)
     {
-        cell = [[self.delegate listViewWrapper] cellForReuseIdentifier:mapping.classIdentifier ? : @""
-                                                           atIndexPath:indexPath];
-        [cell updateWithModel:viewModel];
+        cell = [listView cellForReuseIdentifier:identifier atIndexPath:indexPath];
+        [cell updateWithModel:viewModel]; //TODO: safety
     }
-    NSParameterAssert(cell);
+    else
+    {//TODO: uncomment
+//        NSAssert(cell, @"%@ does not have cell mapping for model class: %@", [self class], [viewModel class]);
+        cell = [listView defaultCell];
+    }
+    
     return cell;
 }
 
-- (id<ANListControllerUpdateViewInterface>)supplementaryViewForModel:(id)viewModel kind:(NSString*)kind forIndexPath:(NSIndexPath*)indexPath
+- (nullable id<ANListControllerUpdateViewInterface>)supplementaryViewForModel:(id)viewModel
+                                                                         kind:(NSString*)kind
+                                                                 forIndexPath:(nullable NSIndexPath*)indexPath
 {
-    ANListControllerMappingModel* mapping = [self.mappingService findSupplementaryMappingForViewModel:viewModel kind:kind];
+    NSString* identifier = [self.mappingService identifierForViewModelClass:[viewModel class] kind:kind];
     id<ANListControllerUpdateViewInterface> view = nil;
-    if (mapping)
+    id<ANListViewInterface> listView = self.listView;
+    if (identifier)
     {
-        view = [[self.delegate listViewWrapper] supplementaryViewForReuseIdentifer:mapping.classIdentifier ? : @""
-                                                                              kind:mapping.kind
-                                                                       atIndexPath:indexPath];
+        view = [listView supplementaryViewForReuseIdentifer:identifier kind:kind atIndexPath:indexPath];
         [view updateWithModel:viewModel];
+    }
+    else
+    { //TODO: uncomment
+//        NSAssert(view, @"%@ does not have supplementary mapping for model class: %@",
+//                 [self class], [viewModel class]);
+        view = [listView defaultSupplementary];
     }
     return view;
 }
@@ -129,29 +162,13 @@
 
 #pragma mark - Private
 
-- (void)_registerSupplementaryClass:(Class)viewClass
-                  forViewModelClass:(Class)viewModelClass
-                               kind:(NSString*)kind
-                           isSystem:(BOOL)isSystem
+- (id<ANListControllerMappingServiceInterface>)mappingService
 {
-    NSParameterAssert(kind);
-    
-    ANListControllerMappingModel* mapping = [self.mappingService mappingForViewModelClass:viewModelClass
-                                                                                     kind:kind
-                                                                                 isSystem:isSystem];
-    [[self.delegate listViewWrapper] registerSupplementaryClass:viewClass
-                                                reuseIdentifier:mapping.classIdentifier
-                                                           kind:kind];
-    [self.mappingService addMapping:mapping];
-}
-
-- (void)_registerCellClass:(Class)cellClass forViewModelClass:(Class)viewModelClass isSystem:(BOOL)isSystem
-{
-    ANListControllerMappingModel* mapping = [self.mappingService cellMappingForViewModelClass:viewModelClass
-                                                                                     isSystem:isSystem];
-    
-    [[self.delegate listViewWrapper] registerCellClass:cellClass forReuseIdentifier:mapping.classIdentifier];
-    [self.mappingService addMapping:mapping];
+    if (!_mappingService)
+    {
+        _mappingService = [ANListControllerMappingService new];
+    }
+    return _mappingService;
 }
 
 @end

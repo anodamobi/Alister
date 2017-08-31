@@ -6,21 +6,21 @@
 //
 
 #import "ANTableController.h"
-#import "ANStorageMovedIndexPathModel.h"
-#import "ANStorageUpdateModel.h"
-#import "ANStorageSectionModelInterface.h"
-#import "ANTableControllerManager.h"
-#import "ANStorageUpdatingInterface.h"
-#import "ANStorage.h"
-#import "ANListControllerSearchManager.h"
-#import "ANListControllerTableViewWrapper.h"
+#import "ANListTableView.h"
 #import "ANListController+Interitance.h"
+#import "ANListTableView.h"
 
-@interface ANTableController () <ANTableControllerManagerDelegate, ANListControllerTableViewWrapperDelegate>
+#ifdef USE_TIMEOUT_VALIDATOR
+#import "ANActionTimeOutValidator.h"
 
-@property (nonatomic, strong) id<ANListControllerWrapperInterface> listViewWrapper;
+
+@interface ANTableController ()
+
+@property (nonatomic, strong) ANActionTimeOutValidator* timeOutValidator;
 
 @end
+
+#endif
 
 @implementation ANTableController
 
@@ -31,81 +31,64 @@
 
 - (instancetype)initWithTableView:(UITableView*)tableView
 {
-    self = [super init];
+    ANListTableView* tw = [ANListTableView wrapperWithTableView:tableView];
+    self = [super initWithListView:tw];
     if (self)
     {
-        self.tableView = tableView;
-        self.listViewWrapper = [ANListControllerTableViewWrapper wrapperWithDelegate:self];
-        
-        ANTableControllerManager* manager = [ANTableControllerManager new];
-        manager.delegate = self;
-        manager.configurationModel.defaultFooterSupplementary = @"ANTableViewElementSectionFooter";
-        manager.configurationModel.defaultHeaderSupplementary = @"ANTableViewElementSectionHeader";
-        manager.configurationModel.reloadAnimationKey = @"UITableViewReloadDataAnimationKey";
-        self.manager = manager;
+        self.shouldDisplayHeaderOnEmptySection = YES;
+        self.shouldDisplayFooterOnEmptySection = YES;
     }
     return self;
 }
 
-- (ANTableControllerManager*)tableManager
+- (UITableView*)tableView
 {
-    return self.manager;
+    return (UITableView*)self.listView.view;
 }
 
-- (void)setTableView:(UITableView*)tableView
+- (void)updateDefaultUpdateAnimationModel:(ANTableUpdateConfigurationModel*)model
 {
-    tableView.delegate = self;
-    tableView.dataSource = self;
-    _tableView = tableView;
-}
-
-- (void)dealloc
-{
-    UITableView* tableView = self.tableView;
-    tableView.delegate = nil;
-    tableView.dataSource = nil;
-    self.tableView = nil;
-    self.storage.listController = nil;
-    self.storage = nil;
+    ANListTableView* listView = (ANListTableView*)self.listView;
+    listView.configModel = model;
 }
 
 
 #pragma mark - Supplementaries
 
-- (NSString*)tableView:(__unused UITableView*)tableView titleForHeaderInSection:(NSInteger)sectionNumber
+- (NSString*)tableView:(__unused UITableView*)tableView titleForHeaderInSection:(NSInteger)sectionIndex
 {
-    return [self.tableManager titleForSupplementaryIndex:(NSUInteger)sectionNumber
-                                                    type:ANTableViewSupplementaryTypeHeader];
+    return [self _titleForSupplementaryIndex:sectionIndex
+                                        kind:self.currentStorage.headerSupplementaryKind];
 }
 
-- (NSString*)tableView:(__unused UITableView*)tableView titleForFooterInSection:(NSInteger)sectionNumber
+- (NSString*)tableView:(__unused UITableView*)tableView titleForFooterInSection:(NSInteger)sectionIndex
 {
-    return [self.tableManager titleForSupplementaryIndex:(NSUInteger)sectionNumber
-                                                    type:ANTableViewSupplementaryTypeFooter];
+    return [self _titleForSupplementaryIndex:sectionIndex
+                                        kind:self.currentStorage.footerSupplementaryKind];
 }
 
-- (UIView*)tableView:(__unused UITableView*)tableView viewForHeaderInSection:(NSInteger)sectionNumber
+- (UIView*)tableView:(__unused UITableView*)tableView viewForHeaderInSection:(NSInteger)sectionIndex
 {
-    return [self.tableManager supplementaryViewForIndex:(NSUInteger)sectionNumber
-                                                   type:ANTableViewSupplementaryTypeHeader];
+    return [self _supplementaryViewForIndex:sectionIndex
+                                       kind:self.currentStorage.headerSupplementaryKind];
 }
 
-- (UIView*)tableView:(__unused UITableView*)tableView viewForFooterInSection:(NSInteger)sectionNumber
+- (UIView*)tableView:(__unused UITableView*)tableView viewForFooterInSection:(NSInteger)sectionIndex
 {
-    return [self.tableManager supplementaryViewForIndex:(NSUInteger)sectionNumber
-                                                   type:ANTableViewSupplementaryTypeFooter];
+    return [self _supplementaryViewForIndex:sectionIndex
+                                       kind:self.currentStorage.footerSupplementaryKind];
 }
 
-- (CGFloat)tableView:(__unused UITableView*)tableView heightForHeaderInSection:(NSInteger)sectionNumber
+- (CGFloat)tableView:(__unused UITableView*)tableView heightForHeaderInSection:(NSInteger)sectionIndex
 {
-    return [self.tableManager heightForSupplementaryIndex:(NSUInteger)sectionNumber
-                                                     type:ANTableViewSupplementaryTypeHeader];
+    return [self _heightForSupplementaryIndex:sectionIndex
+                                         kind:self.currentStorage.headerSupplementaryKind];
 }
 
-- (CGFloat)tableView:(__unused UITableView*)tableView heightForFooterInSection:(NSInteger)sectionNumber
+- (CGFloat)tableView:(__unused UITableView*)tableView heightForFooterInSection:(NSInteger)sectionIndex
 {
-    return [self.tableManager heightForSupplementaryIndex:(NSUInteger)sectionNumber
-                                                     type:ANTableViewSupplementaryTypeFooter];
+    return [self _heightForSupplementaryIndex:sectionIndex
+                                         kind:self.currentStorage.footerSupplementaryKind];
 }
 
 
@@ -118,24 +101,128 @@
 
 - (NSInteger)tableView:(__unused UITableView*)tableView numberOfRowsInSection:(NSInteger)section
 {
-    id <ANStorageSectionModelInterface> sectionModel = [self.currentStorage sectionAtIndex:(NSUInteger)section];
+    id <ANStorageSectionModelInterface> sectionModel = [self.currentStorage sectionAtIndex:section];
     return (NSInteger)[sectionModel numberOfObjects];
 }
 
 - (UITableViewCell*)tableView:(__unused UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath
 {
     id model = [self.currentStorage objectAtIndexPath:indexPath];;
-    return [self.tableManager cellForModel:model atIndexPath:indexPath];
+    return (UITableViewCell*)[self.itemsHandler cellForModel:model atIndexPath:indexPath];
 }
 
 - (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if (self.selectionBlock)
-    {
-        id model = [self.currentStorage objectAtIndexPath:indexPath];
-        self.selectionBlock(model, indexPath);
-    }
+    
+#ifdef USE_TIMEOUT_VALIDATOR
+    [self.timeOutValidator handleTimeoutWithDelayInSeconds:ANListDefaultActionTimeOut completion:^{
+#endif
+        if (self.selectionBlock)
+        {
+            id model = [self.currentStorage objectAtIndexPath:indexPath];
+            self.selectionBlock(model, indexPath);
+        }
+#ifdef USE_TIMEOUT_VALIDATOR
+    } skipBlock:nil];
+#endif
 }
 
+- (void)tableView:(__unused UITableView*)tableView moveRowAtIndexPath:(NSIndexPath*)sourceIndexPath
+      toIndexPath:(NSIndexPath*)destinationIndexPath
+{
+    [self.currentStorage updateWithoutAnimationChangeBlock:^(id<ANStorageUpdatableInterface> storageController) {
+        [storageController moveItemWithoutUpdateFromIndexPath:sourceIndexPath toIndexPath:destinationIndexPath];
+    }];
+}
+
+
+#pragma mark - Private
+
+- (NSString*)_titleForSupplementaryIndex:(NSInteger)index kind:(NSString*)kind
+{
+    id viewModel = [self _supplementaryModelForIndex:index kind:kind];
+    id model = nil;
+    if ([viewModel isKindOfClass:[NSString class]])
+    {
+        UIView* view = [self _supplementaryViewForIndex:index kind:kind];
+        if (!view)
+        {
+            model = viewModel;
+        }
+    }
+    
+    return model;
+}
+
+- (UIView*)_supplementaryViewForIndex:(NSInteger)index kind:(NSString*)kind
+{
+    id model = [self _supplementaryModelForIndex:index kind:kind];
+    return (UIView*)[self.itemsHandler supplementaryViewForModel:model kind:kind forIndexPath:nil];
+}
+
+- (id)_supplementaryModelForIndex:(NSInteger)index kind:(NSString*)kind
+{
+    BOOL isHeader = [kind isEqualToString:[self.currentStorage headerSupplementaryKind]];
+    BOOL value = isHeader ? self.shouldDisplayHeaderOnEmptySection : self.shouldDisplayFooterOnEmptySection;
+    ANStorage* storage = self.currentStorage;
+    
+    id model = nil;
+    
+    if ((storage.sections.count && [[storage sectionAtIndex:index] numberOfObjects]) || value)
+    {
+        if (isHeader)
+        {
+            model = [storage headerModelForSectionIndex:index];
+        }
+        else
+        {
+            model = [storage footerModelForSectionIndex:index];
+        }
+    }
+    return model;
+}
+
+- (CGFloat)_heightForSupplementaryIndex:(NSInteger)index kind:(NSString*)kind
+{
+    //apple bug HACK: for plain tables, for bottom section separator visibility
+    
+    UITableView* tableView = self.tableView;
+    
+    BOOL isHeader = [kind isEqualToString:[self.currentStorage headerSupplementaryKind]];
+    
+    BOOL shouldMaskSeparator = ((tableView.style == UITableViewStylePlain) && !isHeader);
+    
+    CGFloat minHeight = shouldMaskSeparator ? 0.1f : CGFLOAT_MIN;
+    id model = [self _supplementaryModelForIndex:index kind:kind];
+    
+    CGFloat height = minHeight;
+    if (model)
+    {
+        BOOL isTitleStyle = ([self _titleForSupplementaryIndex:index kind:kind] != nil);
+        if (isTitleStyle)
+        {
+            height =  UITableViewAutomaticDimension;
+        }
+        else
+        {
+            height = isHeader ? tableView.sectionHeaderHeight : tableView.sectionFooterHeight;
+        }
+    }
+    return height;
+}
+
+
+#pragma mark - Lazy Load
+
+#ifdef USE_TIMEOUT_VALIDATOR
+- (ANActionTimeOutValidator*)timeOutValidator
+{
+    if (!_timeOutValidator)
+    {
+        _timeOutValidator = [[ANActionTimeOutValidator alloc] initWithTimeoutDelay:ANListDefaultActionTimeOut];
+    }
+    return _timeOutValidator;
+}
+#endif
 @end

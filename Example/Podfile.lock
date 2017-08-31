@@ -1,37 +1,87 @@
 PODS:
-  - Alister (0.1.0):
-    - Alister/ANKeyboardHandler (= 0.1.0)
-    - Alister/ANListController (= 0.1.0)
-    - Alister/ANPrototypingUIKit (= 0.1.0)
-    - Alister/ANStorage (= 0.1.0)
-  - Alister/ANKeyboardHandler (0.1.0)
-  - Alister/ANListController (0.1.0):
-    - Alister/ANKeyboardHandler
-    - Alister/ANStorage
-  - Alister/ANPrototypingUIKit (0.1.0):
-    - Alister/ANKeyboardHandler
-    - Alister/ANListController
+  - ANODA-Alister (0.2):
+    - ANODA-Alister/ANKeyboardHandler (= 0.2)
+    - ANODA-Alister/ANPrototypingUIKit (= 0.2)
+    - ANODA-Alister/Core (= 0.2)
+  - ANODA-Alister/ANKeyboardHandler (0.2)
+  - ANODA-Alister/ANPrototypingUIKit (0.2):
+    - ANODA-Alister/ANKeyboardHandler
+    - ANODA-Alister/Core
+    - libextobjc
     - Masonry
-  - Alister/ANStorage (0.1.0)
+  - ANODA-Alister/Core (0.2):
+    - ANODA-Alister/ANKeyboardHandler
   - Expecta (1.0.5)
-  - Masonry (1.0.1)
-  - OCMock (3.3)
+  - libextobjc (0.4.1):
+    - libextobjc/EXTADT (= 0.4.1)
+    - libextobjc/EXTConcreteProtocol (= 0.4.1)
+    - libextobjc/EXTKeyPathCoding (= 0.4.1)
+    - libextobjc/EXTNil (= 0.4.1)
+    - libextobjc/EXTSafeCategory (= 0.4.1)
+    - libextobjc/EXTScope (= 0.4.1)
+    - libextobjc/EXTSelectorChecking (= 0.4.1)
+    - libextobjc/EXTSynthesize (= 0.4.1)
+    - libextobjc/NSInvocation+EXT (= 0.4.1)
+    - libextobjc/NSMethodSignature+EXT (= 0.4.1)
+    - libextobjc/RuntimeExtensions (= 0.4.1)
+    - libextobjc/UmbrellaHeader (= 0.4.1)
+  - libextobjc/EXTADT (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTConcreteProtocol (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTKeyPathCoding (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTNil (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTSafeCategory (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTScope (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTSelectorChecking (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTSynthesize (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/NSInvocation+EXT (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/NSMethodSignature+EXT (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/RuntimeExtensions (0.4.1)
+  - libextobjc/UmbrellaHeader (0.4.1)
+  - Masonry (1.0.2)
+  - OCMock (3.3.1)
+  - Reveal-iOS-SDK (1.6.2)
+  - Specta (1.0.5)
 
 DEPENDENCIES:
-  - Alister (from `../`)
+  - ANODA-Alister (from `../`)
   - Expecta
+  - libextobjc
+  - Masonry
   - OCMock
+  - Reveal-iOS-SDK (~> 1.6.1)
+  - Specta (from `https://github.com/specta/specta.git`, commit `18952b7`)
 
 EXTERNAL SOURCES:
-  Alister:
+  ANODA-Alister:
     :path: "../"
+  Specta:
+    :commit: 18952b7
+    :git: https://github.com/specta/specta.git
+
+CHECKOUT OPTIONS:
+  Specta:
+    :commit: 18952b7
+    :git: https://github.com/specta/specta.git
 
 SPEC CHECKSUMS:
-  Alister: f30b202ec6576c3cbbbe8069e17b8d9701cb2c5c
+  ANODA-Alister: 193602452fd17d2cad2f0e7fe93ffdb605eae0fc
   Expecta: e1c022fcd33910b6be89c291d2775b3fe27a89fe
-  Masonry: a1a931a0d08870ed8ae415a2ea5ea68ebcac77df
-  OCMock: d68685bde31f69cb61d518dcb39269080c78b5ed
+  libextobjc: a650fc1bf489a3d3a9bc2e621efa3e1006fc5471
+  Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
+  OCMock: f3f61e6eaa16038c30caa5798c5e49d3307b6f22
+  Reveal-iOS-SDK: e2250b3c155bcfac53ae223ddc1f76d08f206c33
+  Specta: c89c6d4560eda861dcc5f50c2060a398b3073426
 
-PODFILE CHECKSUM: 40b49d37a7234a7f800aa7015d327a35ecaf019d
+PODFILE CHECKSUM: ccaa61a0b6495dced251b7726d6aa966bb7b4112
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.2.1

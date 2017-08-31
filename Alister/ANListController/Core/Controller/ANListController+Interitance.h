@@ -7,20 +7,20 @@
 //
 
 #import "ANListController.h"
-#import "ANListControllerManagerInterface.h"
+#import "ANListControllerItemsHandler.h"
 
-@class ANListControllerSearchManager;
-@protocol ANListControllerWrapperInterface;
+@protocol ANListViewInterface;
+
+@class ANListControllerItemsHandler;
 
 @interface ANListController (Interitance)
 
-@property (nonatomic, strong) ANStorage* searchingStorage;
-@property (nonatomic, strong) ANListControllerSearchManager* searchManager;
-@property (nonatomic, strong) ANStorage* storage;
-@property (nonatomic, copy) ANListControllerItemSelectionBlock selectionBlock;
-@property (nonatomic, strong) id<ANListControllerWrapperInterface> listViewWrapper;
-@property (nonatomic, strong) id<ANListControllerManagerInterface> manager;
+- (ANStorage*)storage;
+- (id<ANListViewInterface>)listView;
+- (ANListControllerItemSelectionBlock)selectionBlock;
+- (ANListControllerItemsHandler*)itemsHandler;
 
-- (void)allUpdatesWereFinished;
+- (instancetype)initWithListView:(id<ANListViewInterface>)listView;
+- (void)storageWasAttached:(ANStorage*)storage;
 
 @end

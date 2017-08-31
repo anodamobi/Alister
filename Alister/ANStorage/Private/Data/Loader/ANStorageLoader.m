@@ -36,21 +36,28 @@
 + (id)itemAtIndexPath:(NSIndexPath*)indexPath inStorage:(ANStorageModel*)storage
 {
     id object = nil;
-    if ((NSUInteger)indexPath.section < [storage.sections count])
+    if (storage && indexPath)
     {
-        NSArray* section = [self itemsInSection:(NSUInteger)indexPath.section inStorage:storage];
-        if ((NSUInteger)indexPath.row < [section count])
+        if (indexPath.section < [storage numberOfSections])
         {
-            object = section[(NSUInteger)indexPath.row];
+            NSArray* sectionItems = [self itemsInSection:indexPath.section inStorage:storage];
+            if ((NSUInteger)indexPath.row < [sectionItems count])
+            {
+                object = sectionItems[(NSUInteger)indexPath.row];
+            }
+            else
+            {
+                ANStorageLog(@"ANStorage: Row not found while searching for item");
+            }
         }
         else
         {
-            ANStorageLog(@"ANStorage: Row not found while searching for item");
+            ANStorageLog(@"ANStorage: Section not found while searching for item");
         }
     }
     else
     {
-        ANStorageLog(@"ANStorage: Section not found while searching for item");
+        ANStorageLog(@"ANStorage: Storage or indexPath is nil");
     }
     return object;
 }
@@ -67,34 +74,41 @@
         {
             foundedIndexPath = [NSIndexPath indexPathForRow:(NSInteger)index
                                                   inSection:(NSInteger)sectionIndex];
-            *stop = YES;
+           * stop = YES;
         }
     }];
     return foundedIndexPath;
 }
 
-+ (NSArray*)itemsInSection:(NSUInteger)sectionNumber inStorage:(ANStorageModel*)storage
++ (NSArray*)itemsInSection:(NSInteger)sectionIndex inStorage:(ANStorageModel*)storage
 {
     NSArray* objects = nil;
-    if ([storage.sections count] > sectionNumber)
+    if ([storage numberOfSections] > sectionIndex)
     {
-        ANStorageSectionModel* section = storage.sections[sectionNumber];
+        ANStorageSectionModel* section = [storage sectionAtIndex:sectionIndex];
         objects = [section objects];
     }
     return objects;
 }
 
-+ (ANStorageSectionModel*)sectionAtIndex:(NSUInteger)sectionIndex inStorage:(ANStorageModel*)storage
++ (ANStorageSectionModel*)sectionAtIndex:(NSInteger)sectionIndex inStorage:(ANStorageModel*)storage
 {
-    if (storage.sections.count > sectionIndex)
+    ANStorageSectionModel* model = nil;
+    if ((NSInteger)storage.sections.count > sectionIndex)
     {
-        return storage.sections[sectionIndex];
+        model = [storage sectionAtIndex:sectionIndex];
     }
     else
     {
         ANStorageLog(@"Section index is out of bounds");
     }
-    return nil;
+    return model;
+}
+
++ (id)supplementaryModelOfKind:(NSString*)kind forSectionIndex:(NSInteger)sectionIndex inStorage:(ANStorageModel*)storage
+{
+    ANStorageSectionModel* sectionModel = [ANStorageLoader sectionAtIndex:sectionIndex inStorage:storage];
+    return [sectionModel supplementaryModelOfKind:kind];
 }
 
 @end

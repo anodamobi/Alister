@@ -7,6 +7,10 @@
 
 #import "ANBaseTableViewHeaderFooterView.h"
 
+/**
+ Base UITableView section footer view. Immitates native footer look and feel. 
+ Can be parent class, already implements updateWithModel for NSString*
+ */
 @interface ANBaseTableFooterView : ANBaseTableViewHeaderFooterView
 
 @end
