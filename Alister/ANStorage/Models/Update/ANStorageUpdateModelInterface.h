@@ -17,7 +17,7 @@
 
  @return deleted sections indexSet
  */
-- (NSIndexSet*)deletedSectionIndexes;
+- (NSIndexSet* _Nonnull)deletedSectionIndexes;
 
 
 /**
@@ -25,7 +25,7 @@
  
  @return inserted sections indexSet
  */
-- (NSIndexSet*)insertedSectionIndexes;
+- (NSIndexSet* _Nonnull)insertedSectionIndexes;
 
 
 /**
@@ -33,7 +33,7 @@
  
  @return updated sections indexSet
  */
-- (NSIndexSet*)updatedSectionIndexes;
+- (NSIndexSet* _Nonnull)updatedSectionIndexes;
 
 
 /**
@@ -41,7 +41,7 @@
 
  @return NSSet* deleted indexPaths
  */
-- (NSSet*)deletedRowIndexPaths;
+- (NSSet* _Nonnull)deletedRowIndexPaths;
 
 
 /**
@@ -49,7 +49,7 @@
  
  @return NSSet* inserted indexPaths
  */
-- (NSSet*)insertedRowIndexPaths;
+- (NSSet* _Nonnull)insertedRowIndexPaths;
 
 
 /**
@@ -57,7 +57,7 @@
  
  @return NSSet* updated indexPaths
  */
-- (NSSet*)updatedRowIndexPaths;
+- (NSSet* _Nonnull)updatedRowIndexPaths;
 
 
 /**
@@ -65,7 +65,7 @@
  
  @return NSSet* moved indexPaths
  */
-- (NSSet*)movedRowsIndexPaths;
+- (NSSet* _Nonnull)movedRowsIndexPaths;
 
 
 /**
@@ -97,7 +97,7 @@
  
  @param indexSet indexes to add
  */
-- (void)addInsertedSectionIndexes:(NSIndexSet*)indexSet;
+- (void)addInsertedSectionIndexes:(NSIndexSet* _Nonnull)indexSet;
 
 
 /**
@@ -105,7 +105,7 @@
  
  @param indexSet indexes to add
  */
-- (void)addUpdatedSectionIndexes:(NSIndexSet*)indexSet;
+- (void)addUpdatedSectionIndexes:(NSIndexSet* _Nonnull)indexSet;
 
 
 /**
@@ -113,7 +113,7 @@
  
  @param indexSet indexes to add
  */
-- (void)addDeletedSectionIndexes:(NSIndexSet*)indexSet;
+- (void)addDeletedSectionIndexes:(NSIndexSet* _Nonnull)indexSet;
 
 
 /**
@@ -121,7 +121,7 @@
 
  @param items NSArray* with inserted indexPaths. No update will happen if parameter is nil.
  */
-- (void)addInsertedIndexPaths:(NSArray*)items;
+- (void)addInsertedIndexPaths:(NSArray* _Nonnull)items;
 
 
 /**
@@ -129,7 +129,7 @@
  
  @param items NSArray* with updated indexPaths. No update will happen if parameter is nil.
  */
-- (void)addUpdatedIndexPaths:(NSArray*)items;
+- (void)addUpdatedIndexPaths:(NSArray* _Nonnull)items;
 
 
 /**
@@ -137,7 +137,7 @@
  
  @param items NSArray* with deleted indexPaths. No update will happen if parameter is nil.
  */
-- (void)addDeletedIndexPaths:(NSArray*)items;
+- (void)addDeletedIndexPaths:(NSArray* _Nonnull)items;
 
 
 /**
@@ -145,7 +145,7 @@
  
  @param items NSArray* with moved indexPaths. No update will happen if parameter is nil.
  */
-- (void)addMovedIndexPaths:(NSArray*)items;
+- (void)addMovedIndexPaths:(NSArray* _Nonnull)items;
 
 
 /**

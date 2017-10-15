@@ -10,7 +10,7 @@
 
 @implementation ANCollectionReusableView
 
-- (void)updateWithModel:(__unused id)model
+- (void)updateWithModel:(__unused id _Nonnull)model
 {
     
 }

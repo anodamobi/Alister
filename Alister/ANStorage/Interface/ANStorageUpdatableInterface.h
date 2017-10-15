@@ -6,39 +6,37 @@
 //
 //
 
-NS_ASSUME_NONNULL_BEGIN
-
 @protocol ANStorageUpdatableInterface <NSObject>
 
 
 #pragma mark - Adding Items
 
-- (void)addItem:(id)item;
-- (void)addItem:(id)item toSection:(NSInteger)sectionIndex;
-- (void)addItem:(id)item atIndexPath:(NSIndexPath*)indexPath;
+- (void)addItem:(id _Nonnull)item;
+- (void)addItem:(id _Nonnull)item toSection:(NSInteger)sectionIndex;
+- (void)addItem:(id _Nonnull)item atIndexPath:(NSIndexPath* _Nonnull)indexPath;
 
-- (void)addItems:(NSArray*)items;
-- (void)addItems:(NSArray*)items toSection:(NSInteger)sectionIndex;
+- (void)addItems:(NSArray* _Nonnull)items;
+- (void)addItems:(NSArray* _Nonnull)items toSection:(NSInteger)sectionIndex;
 
 
 #pragma mark - Reloading Items
 
-- (void)reloadItem:(id)item;
-- (void)reloadItems:(id)items;
+- (void)reloadItem:(id _Nonnull)item;
+- (void)reloadItems:(id _Nonnull)items;
 
 
 #pragma mark - Removing Items
 
-- (void)removeItem:(id)item;
-- (void)removeItemsAtIndexPaths:(NSArray*)indexPaths;
-- (void)removeItems:(NSArray*)items;
+- (void)removeItem:(id _Nonnull)item;
+- (void)removeItemsAtIndexPaths:(NSArray* _Nonnull)indexPaths;
+- (void)removeItems:(NSArray* _Nonnull)items;
 - (void)removeAllItemsAndSections;
 
 
 #pragma mark - Changing and Reorder Items
 
-- (void)replaceItem:(id)itemToReplace withItem:(id)replacingItem;
-- (void)moveItemFromIndexPath:(NSIndexPath*)fromIndexPath toIndexPath:(NSIndexPath*)toIndexPath;
+- (void)replaceItem:(id _Nonnull)itemToReplace withItem:(id _Nonnull)replacingItem;
+- (void)moveItemFromIndexPath:(NSIndexPath* _Nonnull)fromIndexPath toIndexPath:(NSIndexPath* _Nonnull)toIndexPath;
 
 
 /**
@@ -48,25 +46,23 @@ NS_ASSUME_NONNULL_BEGIN
  @param fromIndexPath from which indexPath item should removed
  @param toIndexPath   to which indexPath item should be inserted
  */
-- (void)moveItemWithoutUpdateFromIndexPath:(NSIndexPath*)fromIndexPath toIndexPath:(NSIndexPath*)toIndexPath;
+- (void)moveItemWithoutUpdateFromIndexPath:(NSIndexPath* _Nonnull)fromIndexPath toIndexPath:(NSIndexPath* _Nonnull)toIndexPath;
 
 
 #pragma mark - Sections
 
-- (void)removeSections:(NSIndexSet*)indexSet;
+- (void)removeSections:(NSIndexSet* _Nonnull)indexSet;
 
 
 #pragma mark - Views Models
 
-- (void)updateSectionHeaderModel:(id)headerModel forSectionIndex:(NSInteger)sectionIndex;
-- (void)updateSectionFooterModel:(id)footerModel forSectionIndex:(NSInteger)sectionIndex;
+- (void)updateSectionHeaderModel:(id _Nonnull)headerModel forSectionIndex:(NSInteger)sectionIndex;
+- (void)updateSectionFooterModel:(id _Nonnull)footerModel forSectionIndex:(NSInteger)sectionIndex;
 
 
 //collection view
 
-- (void)updateSupplementaryHeaderKind:(NSString*)headerKind;
-- (void)updateSupplementaryFooterKind:(NSString*)footerKind;
+- (void)updateSupplementaryHeaderKind:(NSString* _Nonnull)headerKind;
+- (void)updateSupplementaryFooterKind:(NSString* _Nonnull)footerKind;
 
 @end
-
-NS_ASSUME_NONNULL_END

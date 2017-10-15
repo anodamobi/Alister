@@ -18,7 +18,7 @@
 
 @interface ANCollectionController ()
 
-@property (nonatomic, strong) ANActionTimeOutValidator* timeOutValidator;
+@property (nonatomic, strong, nonull) ANActionTimeOutValidator* timeOutValidator;
 
 @end
 
@@ -42,7 +42,7 @@
     return self;
 }
 
-- (UICollectionView *)collectionView
+- (UICollectionView*)collectionView
 {
     return (UICollectionView*)self.listView.view;
 }

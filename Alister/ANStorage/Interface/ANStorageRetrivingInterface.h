@@ -30,7 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  @return NSArray of ANStorageSectionModel* with all sections from storage
  */
-- (NSArray*)sections;
+- (NSArray* _Nonnull)sections;
 
 
 /**
@@ -40,7 +40,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  @return item by indexPath
  */
-- (nullable id)objectAtIndexPath:(NSIndexPath*)indexPath;
+- (id _Nonnull)objectAtIndexPath:(NSIndexPath* _Nonnull)indexPath;
 
 
 /**
@@ -50,7 +50,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  @return ANStorageSectionModel* from storage
  */
-- (nullable ANStorageSectionModel*)sectionAtIndex:(NSInteger)sectionIndex;
+- (ANStorageSectionModel*  _Nonnull)sectionAtIndex:(NSInteger)sectionIndex;
 
 
 /**
@@ -61,7 +61,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  @return NSArray* from specified section
  */
-- (nullable NSArray*)itemsInSection:(NSInteger)sectionIndex;
+- (NSArray* _Nonnull)itemsInSection:(NSInteger)sectionIndex;
 
 
 /**
@@ -71,7 +71,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  @return indexPath* for item in stirage
  */
-- (nullable NSIndexPath*)indexPathForItem:(id)item;
+- (NSIndexPath* _Nonnull)indexPathForItem:(id _Nonnull)item;
 
 
 #pragma mark - Supplementaries
@@ -84,7 +84,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  @return specified viewModel from storage
  */
-- (nullable id)headerModelForSectionIndex:(NSInteger)index;
+- (id _Nonnull)headerModelForSectionIndex:(NSInteger)index;
 
 
 /**
@@ -95,7 +95,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return specified viewModel from storage
  */
-- (nullable id)footerModelForSectionIndex:(NSInteger)index;
+- (id _Nonnull)footerModelForSectionIndex:(NSInteger)index;
 
 
 /**
@@ -107,11 +107,11 @@ NS_ASSUME_NONNULL_BEGIN
 
  @return viewModel from storage
  */
-- (nullable id)supplementaryModelOfKind:(NSString*)kind forSectionIndex:(NSInteger)sectionIndex;
+- (id _Nonnull)supplementaryModelOfKind:(NSString* _Nonnull)kind forSectionIndex:(NSInteger)sectionIndex;
 
 //TODO: doc
-- (NSString*)headerSupplementaryKind;
-- (NSString*)footerSupplementaryKind;
+- (NSString* _Nonnull)headerSupplementaryKind;
+- (NSString* _Nonnull)footerSupplementaryKind;
 
 @end
 

@@ -7,9 +7,9 @@
 
 @interface ANTableView : UITableView
 
-+ (instancetype)tableViewDefaultStyleWithFrame:(CGRect)frame style:(UITableViewStyle)style;
++ (instancetype _Nonnull)tableViewDefaultStyleWithFrame:(CGRect)frame style:(UITableViewStyle)style;
 
-- (void)addStickyFooter:(UIView*)footer withFixedHeight:(CGFloat)height;
+- (void)addStickyFooter:(UIView* _Nonnull)footer withFixedHeight:(CGFloat)height;
 - (void)updateStickerHeight:(CGFloat)height;
 
 @end

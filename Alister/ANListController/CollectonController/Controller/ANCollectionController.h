@@ -15,12 +15,12 @@
     UICollectionViewDelegateFlowLayout
 >
 
-@property (nonatomic, weak, readonly) UICollectionView* collectionView;
+@property (nonatomic, weak, readonly, nullable) UICollectionView* collectionView;
 
 #pragma mark - View's related
 
-+ (instancetype)controllerWithCollectionView:(UICollectionView*)collectionView;
++ (instancetype _Nonnull)controllerWithCollectionView:(UICollectionView* _Nonnull)collectionView;
 
-- (instancetype)initWithCollectionView:(UICollectionView*)collectionView;
+- (instancetype _Nonnull)initWithCollectionView:(UICollectionView* _Nonnull)collectionView;
 
 @end

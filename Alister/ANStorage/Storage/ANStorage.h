@@ -11,7 +11,7 @@
 #import "ANStorageRetrivingInterface.h"
 #import "ANStorageSectionModel.h"
 
-typedef void(^ANDataStorageUpdateBlock)(id<ANStorageUpdatableInterface> storageController);
+typedef void(^ANDataStorageUpdateBlock)(id<ANStorageUpdatableInterface>  _Nonnull storageController);
 
 /**
  TODO:
@@ -22,14 +22,14 @@ typedef void(^ANDataStorageUpdateBlock)(id<ANStorageUpdatableInterface> storageC
 /**
  This is a private property and should not call directly.
  */
-@property (nonatomic, weak) id<ANStorageUpdateEventsDelegate> updatesHandler;
+@property (nonatomic, weak, nullable) id <ANStorageUpdateEventsDelegate> updatesHandler;
 
 
 /**
  This is a private property and should not call directly.
  Unique storage identifier. It installs while creating storage.
  */
-@property (nonatomic, strong, readonly) NSString* identifier;
+@property (nonatomic, strong, readonly, nonnull) NSString* identifier;
 
 
 /**
@@ -37,7 +37,7 @@ typedef void(^ANDataStorageUpdateBlock)(id<ANStorageUpdatableInterface> storageC
  
  @param block           Updates block. Contains storage controller, which conform <ANStorageUpdatableInterface>
  */
-- (void)updateWithAnimationChangeBlock:(ANDataStorageUpdateBlock)block;
+- (void)updateWithAnimationChangeBlock:(ANDataStorageUpdateBlock _Nonnull)block;
 
 
 /**
@@ -45,7 +45,7 @@ typedef void(^ANDataStorageUpdateBlock)(id<ANStorageUpdatableInterface> storageC
  
  @param block           Updates block. Contains storage controller, which conform <ANStorageUpdatableInterface>
  */
-- (void)updateWithoutAnimationChangeBlock:(ANDataStorageUpdateBlock)block;
+- (void)updateWithoutAnimationChangeBlock:(ANDataStorageUpdateBlock _Nonnull)block;
 
 
 /**
@@ -57,6 +57,6 @@ typedef void(^ANDataStorageUpdateBlock)(id<ANStorageUpdatableInterface> storageC
 
 
 //private ://todo
-- (void)updateHeaderKind:(NSString*)headerKind footerKind:(NSString*)footerKind;
+- (void)updateHeaderKind:(NSString* _Nonnull)headerKind footerKind:(NSString* _Nonnull)footerKind;
 
 @end

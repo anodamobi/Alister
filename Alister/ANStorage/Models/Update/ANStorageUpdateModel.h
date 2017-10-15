@@ -36,6 +36,6 @@
 
  @param model model to merge all updates with
  */
-- (void)mergeWith:(id<ANStorageUpdateModelInterface>)model;
+- (void)mergeWith:(id<ANStorageUpdateModelInterface>  _Nonnull)model;
 
 @end

@@ -10,6 +10,6 @@
 @interface ANBaseTableViewCell : UITableViewCell <ANListControllerUpdateViewInterface>
 
 @property (nonatomic, assign) BOOL isTransparent;
-@property (nonatomic, strong) UIColor* selectionColor;
+@property (nonatomic, strong, nonnull) UIColor* selectionColor;
 
 @end

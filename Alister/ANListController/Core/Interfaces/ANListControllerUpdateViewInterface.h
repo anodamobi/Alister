@@ -7,6 +7,6 @@
 
 @protocol ANListControllerUpdateViewInterface
 
-- (void)updateWithModel:(id)model;
+- (void)updateWithModel:(id _Nonnull)model;
 
 @end

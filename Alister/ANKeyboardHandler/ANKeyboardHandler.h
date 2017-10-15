@@ -12,18 +12,18 @@ typedef void(^ANKeyboardStateBlock)(BOOL isVisible);
 
 @optional
 
-- (void)keyboardWillUpdateStateTo:(BOOL)isVisible withNotification:(NSNotification*)notification;
+- (void)keyboardWillUpdateStateTo:(BOOL)isVisible withNotification:(NSNotification*_Nonnull)notification;
 
 @end
 
 @interface ANKeyboardHandler : NSObject
 
 @property (nonatomic, assign, getter=isEnabled) BOOL enabled;
-@property (nonatomic, weak) id<ANKeyboardHandlerDelegate> delegate;
-@property (nonatomic, copy) ANKeyboardAnimationBlock animationBlock;
-@property (nonatomic, copy) ANKeyboardStateBlock animationCompletion;
+@property (nonatomic, weak, nullable) id<ANKeyboardHandlerDelegate> delegate;
+@property (nonatomic, copy, nullable) ANKeyboardAnimationBlock animationBlock;
+@property (nonatomic, copy, nullable) ANKeyboardStateBlock animationCompletion;
 
-+ (instancetype)handlerWithTarget:(UIScrollView*)target;
++ (instancetype _Nonnull )handlerWithTarget:(UIScrollView*_Nonnull)target;
 
 - (void)hideKeyboard;
 

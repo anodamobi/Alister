@@ -17,13 +17,13 @@
 /**
  This uses only for object difference inside storage. //TODO:
  */
-@property (nonatomic, copy) NSString* footerKind;
+@property (nonatomic, copy, nonnull) NSString* footerKind;
 
 
 /**
  This uses only for object difference inside storage.
  */
-@property (nonatomic, copy) NSString* headerKind;
+@property (nonatomic, copy, nonnull) NSString* headerKind;
 
 
 /**
@@ -33,7 +33,7 @@
 
  @return array of items from specified section
  */
-- (NSArray*)itemsInSection:(NSInteger)section;
+- (NSArray* _Nonnull)itemsInSection:(NSInteger)section;
 
 
 /**
@@ -41,7 +41,7 @@
 
  @return Nsarray with ANStorageSectionModels inside
  */
-- (NSArray*)sections;
+- (NSArray* _Nonnull)sections;
 
 //TODO: doc
 - (NSInteger)numberOfSections;
@@ -55,7 +55,7 @@
 
  @return item at specified indexPath or nil if item is not found in storage
  */
-- (id)itemAtIndexPath:(NSIndexPath*)indexPath;
+- (id  _Nonnull)itemAtIndexPath:(NSIndexPath* _Nonnull)indexPath;
 
 
 /**
@@ -65,7 +65,7 @@
 
  @return ANStorageSectionModel* object from storage
  */
-- (ANStorageSectionModel*)sectionAtIndex:(NSInteger)index;
+- (ANStorageSectionModel* _Nonnull)sectionAtIndex:(NSInteger)index;
 
 
 /**
@@ -73,7 +73,7 @@
 
  @param section section object to add
  */
-- (void)addSection:(ANStorageSectionModel*)section;
+- (void)addSection:(ANStorageSectionModel* _Nonnull)section;
 
 
 /**

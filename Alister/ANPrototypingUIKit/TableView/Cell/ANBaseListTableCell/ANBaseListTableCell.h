@@ -10,9 +10,9 @@
 
 @interface ANBaseListTableCell : ANBaseTableViewCell
 
-@property (nonatomic, strong) UILabel* titleLabel;
-@property (nonatomic, strong) UIImageView* iconImageView;
+@property (nonatomic, strong, nonnull) UILabel* titleLabel;
+@property (nonatomic, strong, nonnull) UIImageView* iconImageView;
 
-+ (void)updateBaseColor:(UIColor*)baseColor andTextColor:(UIColor*)textColor;
++ (void)updateBaseColor:(UIColor* _Nonnull)baseColor andTextColor:(UIColor* _Nonnull)textColor;
 
 @end

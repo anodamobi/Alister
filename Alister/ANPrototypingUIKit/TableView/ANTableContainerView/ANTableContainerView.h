@@ -10,9 +10,9 @@
 
 @interface ANTableContainerView : UIView
 
-@property (nonatomic, strong) ANTableView* tableView;
+@property (nonatomic, strong, nonnull) ANTableView* tableView;
 
-+ (instancetype)containerWithTableViewStyle:(UITableViewStyle)style;
-- (instancetype)initWithTableViewStyle:(UITableViewStyle)style;
++ (instancetype _Nonnull)containerWithTableViewStyle:(UITableViewStyle)style;
+- (instancetype _Nonnull)initWithTableViewStyle:(UITableViewStyle)style;
 
 @end

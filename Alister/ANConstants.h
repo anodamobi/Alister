@@ -8,12 +8,12 @@
 
 @protocol ANListControllerReusableInterface;
 
-typedef NSPredicate*(^ANListControllerSearchPredicateBlock)(NSString* searchString, NSInteger scope);
-typedef void(^ANListControllerItemSelectionBlock)(id model, NSIndexPath* indexPath);
-typedef void(^ANListControllerCellConfigurationBlock)(id<ANListControllerReusableInterface> configurator);
-typedef void (^ANListControllerUpdatesFinishedTriggerBlock)();
+typedef NSPredicate* _Nonnull (^ANListControllerSearchPredicateBlock)(NSString* _Nonnull searchString, NSInteger scope);
+typedef void(^ANListControllerItemSelectionBlock)(id _Nonnull model, NSIndexPath* _Nonnull indexPath);
+typedef void(^ANListControllerCellConfigurationBlock)(id<ANListControllerReusableInterface> _Nonnull configurator);
+typedef void (^ANListControllerUpdatesFinishedTriggerBlock)(void);
 
-static NSString* const ANListDefaultHeaderKind = @"ANStorageHeaderKind";
-static NSString* const ANListDefaultFooterKind = @"ANStorageFooterKind";
+static NSString* _Nonnull const ANListDefaultHeaderKind = @"ANStorageHeaderKind";
+static NSString* _Nonnull const ANListDefaultFooterKind = @"ANStorageFooterKind";
 
 static CGFloat const ANListDefaultActionTimeOut = 0.3f;

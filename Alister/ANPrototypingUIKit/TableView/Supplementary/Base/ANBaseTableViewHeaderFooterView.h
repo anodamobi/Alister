@@ -11,6 +11,6 @@
 
 @property (nonatomic, assign) BOOL isTransparent;
 @property (nonatomic, assign) UIEdgeInsets titleInsets;
-@property (nonatomic, strong) UILabel* titleLabel;
+@property (nonatomic, strong, nonnull) UILabel* titleLabel;
 
 @end

@@ -63,7 +63,7 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   ANODA-Alister:
-    :path: "../"
+    :path: ../
   Specta:
     :commit: 18952b7
     :git: https://github.com/specta/specta.git
@@ -74,7 +74,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/specta/specta.git
 
 SPEC CHECKSUMS:
-  ANODA-Alister: 193602452fd17d2cad2f0e7fe93ffdb605eae0fc
+  ANODA-Alister: bd29efce7310256cb0073d358bc679b046c839ca
   Expecta: e1c022fcd33910b6be89c291d2775b3fe27a89fe
   libextobjc: a650fc1bf489a3d3a9bc2e621efa3e1006fc5471
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
@@ -84,4 +84,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: ccaa61a0b6495dced251b7726d6aa966bb7b4112
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.3.1
